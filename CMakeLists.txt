@@ -17,7 +17,7 @@ find_package(Qt5 REQUIRED COMPONENTS
 )
 
 set(kps_SRCS
-
+    src/main.cpp
 )
 
 add_executable(kps ${kps_SRCS})
