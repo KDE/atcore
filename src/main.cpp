@@ -8,6 +8,6 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationName("KDE");
     QCoreApplication::setOrganizationDomain("kde.org");
     QCoreApplication::setApplicationName("KPS - KDE Print Service");
-    
+
     return app.exec();
 }
