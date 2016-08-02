@@ -16,8 +16,8 @@ private:
 
     bool _serialOpened;
     QByteArray _rawData;
-    QList<QByteArray> _rByteCommands;
-    QList<QByteArray> _sByteCommands;
+    QVector<QByteArray> _rByteCommands;
+    QVector<QByteArray> _sByteCommands;
 public:
     SerialLayer(QString port, uint baud, QWidget *parent = 0);
     ~SerialLayer();
