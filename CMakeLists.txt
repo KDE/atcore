@@ -14,12 +14,15 @@ find_package(Qt5 REQUIRED COMPONENTS
                 Test
                 Quick
                 Widgets
+                SerialPort
 )
 
 set(kps_SRCS
     src/main.cpp
+    src/mainwindow.cpp
+    src/seriallayer.cpp
 )
 
 add_executable(kps ${kps_SRCS})
-target_link_libraries(kps Qt5::Core Qt5::Quick Qt5::Widgets)
+target_link_libraries(kps Qt5::Core Qt5::Quick Qt5::Widgets Qt5::SerialPort)
 
