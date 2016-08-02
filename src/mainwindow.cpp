@@ -20,6 +20,10 @@ void MainWindow::checkCommand()
 {
     while (ser->commandAvailable())
         qDebug() << ser->popCommand();
+    ser->pushCommand("ok0!\n");
+    ser->add("ok1!\n");
+    ser->add("ok2!\n");
+    ser->push();
 }
 
 MainWindow::~MainWindow()

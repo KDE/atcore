@@ -41,7 +41,7 @@ void SerialLayer::readData()
         // Get finished line to _byteCommands
         if (i < tempList.end()-1)
         {
-            _byteCommands.append(*i);
+            _rByteCommands.append(*i);
         }
         else
         {
@@ -51,14 +51,33 @@ void SerialLayer::readData()
     }
 }
 
+void SerialLayer::pushCommand(QByteArray comm)
+{
+    serial->write(comm);
+}
+
+void SerialLayer::add(QByteArray comm)
+{
+    _sByteCommands.append(comm);
+}
+
+void SerialLayer::push()
+{
+    foreach(const auto& comm, _sByteCommands)
+    {
+        serial->write(comm);
+    }
+    _sByteCommands.clear();
+}
+
 QByteArray SerialLayer::popCommand()
 {
-    return _byteCommands.takeFirst();
+    return _rByteCommands.takeFirst();
 }
 
 bool SerialLayer::commandAvailable()
 {
-    return !_byteCommands.isEmpty();
+    return !_rByteCommands.isEmpty();
 }
 
 SerialLayer::~SerialLayer()
