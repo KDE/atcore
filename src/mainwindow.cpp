@@ -13,7 +13,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     QValidator *validator = new QIntValidator();
     ui->baudRateLE->setValidator(validator);
+    ui->baudRateLE->setText("115200");
     locateSerialPort();
+
+    connect(ui->connectPB, &QPushButton::clicked, this, &MainWindow::click);
+    connect(ui->disconnectPB, &QPushButton::clicked, this, &MainWindow::click);
+    connect(ui->sendPB,  &QPushButton::clicked, this, &MainWindow::click);
 }
 
 MainWindow::~MainWindow()
@@ -55,34 +60,25 @@ void MainWindow::locateSerialPort()
     }
 
 }
-/**
- * @brief MainWindow::on_connectPB_clicked
- * Start the communication between the serial device
- * and the computer
- */
-void MainWindow::on_connectPB_clicked()
-{
-    QString port = ui->serialPortCB->currentText();
-    uint baud = ui->baudRateLE->text().toUInt();
-    ser = new SerialLayer(port, baud);
-    qDebug() << "Connected!";
 
-}
-/**
- * @brief MainWindow::on_sendPB_clicked
- * Send command to serial port
- */
-void MainWindow::on_sendPB_clicked()
+void MainWindow::click()
 {
-    QByteArray comm = ui->commandLE->text().toLocal8Bit();
-    ser->pushCommand(comm);
-    qDebug() << "Command send it!";
-}
-/**
- * @brief MainWindow::on_disconnectPB_clicked
- * Close Serial Port
- */
-void MainWindow::on_disconnectPB_clicked()
-{
-    //Close serial port
+     QPushButton *btn = qobject_cast<QPushButton*>(sender());
+    if(btn == ui->connectPB ){
+
+        QString port = ui->serialPortCB->currentText();
+        uint baud = ui->baudRateLE->text().toUInt();
+        ser = new SerialLayer(port, baud);
+        qDebug() << "Connected!";
+
+    } else if(btn == ui->disconnectPB){
+        //Disconnect
+
+    } else if(btn == ui->sendPB){
+
+        QByteArray comm = ui->commandLE->text().toLocal8Bit();
+        ser->pushCommand(comm);
+        qDebug() << "Command send it!";
+
+    }
 }
