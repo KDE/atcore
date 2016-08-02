@@ -16,10 +16,15 @@ private:
 
     bool _serialOpened;
     QByteArray _rawData;
-    QList<QByteArray> _byteCommands;
+    QVector<QByteArray> _rByteCommands;
+    QVector<QByteArray> _sByteCommands;
 public:
     SerialLayer(QString port, uint baud, QWidget *parent = 0);
     ~SerialLayer();
+
+    void add(QByteArray comm);
+    void pushCommand(QByteArray comm);
+    void push();
 
     bool commandAvailable();
     QByteArray popCommand();
