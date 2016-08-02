@@ -1,19 +1,26 @@
 #pragma once
 
+#include "ui_mainwindow.h"
+
 #include <QMainWindow>
 #include <QSerialPort>
 
+
 class SerialLayer;
 
-class  MainWindow:public QMainWindow
+class  MainWindow: public QMainWindow
 {
 Q_OBJECT
 
-private:
-    SerialLayer *ser;
 public:
-    MainWindow(QString port, uint baud, QWidget *parent = 0);
+    MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
     void checkCommand();
+
+private:
+    SerialLayer *ser;
+    Ui::MainWindow *ui;
+    void locateSerialPort();
+    QStringList serialPortList;
 };
