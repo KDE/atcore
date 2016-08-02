@@ -18,6 +18,13 @@ public:
 
     void checkCommand();
 
+private slots:
+    void on_connectPB_clicked();
+
+    void on_sendPB_clicked();
+
+    void on_disconnectPB_clicked();
+
 private:
     SerialLayer *ser;
     Ui::MainWindow *ui;
