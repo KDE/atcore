@@ -1,4 +1,4 @@
-#include <QDebug>
+
 #include <QTimer>
 #include <QSerialPortInfo>
 #include <QMessageBox>
@@ -11,9 +11,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    _timer=new QTimer();
     QValidator *validator = new QIntValidator();
     ui->baudRateLE->setValidator(validator);
     ui->baudRateLE->setText("115200");
+    ui->logTE->setPlainText(QString(tr("Attempting to locate Serial Ports")));
     locateSerialPort();
 
     connect(ui->connectPB, &QPushButton::clicked, this, &MainWindow::click);
@@ -29,7 +31,7 @@ MainWindow::~MainWindow()
 void MainWindow::checkCommand()
 {
     while (ser->commandAvailable())
-        qDebug() << ser->popCommand();
+        ui->logTE->appendPlainText(QString("Recv: %1").arg(QString(ser->popCommand())));
 }
 
 /**
@@ -51,8 +53,10 @@ void MainWindow::locateSerialPort()
             serialPortList = ports;
             ui->serialPortCB->clear();
             ui->serialPortCB->addItems(serialPortList);
+            ui->logTE->appendPlainText(QString(tr("Found %1 Ports").arg(QString::number(serialPortList.count()))));
         }
     }else{
+        ui->logTE->appendPlainText(QString(tr("No Ports Found!")));
         QMessageBox msg;
         msg.setText(tr("Not available ports! Please connect a serial device to continue!"));
         msg.setIcon(QMessageBox::Critical);
@@ -64,21 +68,30 @@ void MainWindow::locateSerialPort()
 void MainWindow::click()
 {
      QPushButton *btn = qobject_cast<QPushButton*>(sender());
+
     if(btn == ui->connectPB ){
 
         QString port = ui->serialPortCB->currentText();
         uint baud = ui->baudRateLE->text().toUInt();
         ser = new SerialLayer(port, baud);
-        qDebug() << "Connected!";
+        _timer->setInterval(1000);
+        _timer->start();
+        connect(_timer,SIGNAL(timeout()),this,SLOT(checkCommand()));
+        ui->logTE->clear();
+        ui->logTE->appendPlainText(QString(tr("Connected to %1").arg(port)));
 
     } else if(btn == ui->disconnectPB){
-        //Disconnect
+
+        ser->closeConnection();
+        disconnect(_timer,SIGNAL(timeout()),this,SLOT(checkCommand()));
+        ui->logTE->appendPlainText(QString(tr("Disconnected")));
 
     } else if(btn == ui->sendPB){
 
         QByteArray comm = ui->commandLE->text().toLocal8Bit();
         ser->pushCommand(comm);
-        qDebug() << "Command send it!";
+        ui->commandLE->clear();
+        ui->logTE->appendPlainText(QString(tr("Send: %1").arg(QString(comm))));
 
     }
 }

@@ -6,70 +6,92 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>301</width>
-    <height>176</height>
+    <width>594</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>KPT Test</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0" colspan="3">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Welcome to KPT - KDE Print Tools for 3D Printers</string>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
       </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0" colspan="3">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Welcome to KPT - KDE Print Tools for 3D Printers</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Port:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="serialPortCB"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Baud Rate:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="baudRateLE"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Command:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="commandLE"/>
+       </item>
+       <item row="3" column="2">
+        <widget class="QPushButton" name="sendPB">
+         <property name="text">
+          <string>Send</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QPushButton" name="connectPB">
+         <property name="text">
+          <string>Connect</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QPushButton" name="disconnectPB">
+         <property name="text">
+          <string>Disconnect</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Port:</string>
+    <item>
+     <widget class="QPlainTextEdit" name="logTE">
+      <property name="enabled">
+       <bool>true</bool>
       </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>Baud Rate:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>Command:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0">
-     <widget class="QPushButton" name="connectPB">
-      <property name="text">
-       <string>Connect</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QPushButton" name="disconnectPB">
-      <property name="text">
-       <string>Disconnect</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QComboBox" name="serialPortCB"/>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="baudRateLE"/>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLineEdit" name="commandLE"/>
-    </item>
-    <item row="3" column="2">
-     <widget class="QPushButton" name="sendPB">
-      <property name="text">
-       <string>Send</string>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
      </widget>
     </item>

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ui_mainwindow.h"
-
 #include <QMainWindow>
 #include <QSerialPort>
 
@@ -16,6 +15,7 @@ public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+public slots:
     void checkCommand();
 
 private:
@@ -24,4 +24,5 @@ private:
     void locateSerialPort();
     QStringList serialPortList;
     void click();
+    QTimer *_timer;
 };
