@@ -25,8 +25,8 @@ public:
     void add(QByteArray comm);
     void pushCommand(QByteArray comm);
     void push();
-
     bool commandAvailable();
     QByteArray popCommand();
     bool opened();
+    void closeConnection();
 };

@@ -84,3 +84,10 @@ SerialLayer::~SerialLayer()
 {
     delete serial;
 }
+void SerialLayer::closeConnection()
+{
+    if(_serialOpened)
+    {
+        serial->close();
+    }
+}

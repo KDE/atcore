@@ -76,19 +76,19 @@ void MainWindow::click()
         ser = new SerialLayer(port, baud);
         _timer->setInterval(1000);
         _timer->start();
-        connect(_timer,SIGNAL(timeout()),this,SLOT(checkCommand()));
+        connect(_timer,&QTimer::timeout, this, &MainWindow::checkCommand);
         ui->logTE->clear();
         ui->logTE->appendPlainText(QString(tr("Connected to %1").arg(port)));
 
     } else if(btn == ui->disconnectPB){
 
         ser->closeConnection();
-        disconnect(_timer,SIGNAL(timeout()),this,SLOT(checkCommand()));
+        disconnect(_timer,&QTimer::timeout, this, &MainWindow::checkCommand);
         ui->logTE->appendPlainText(QString(tr("Disconnected")));
 
     } else if(btn == ui->sendPB){
 
-        QByteArray comm = ui->commandLE->text().toLocal8Bit();
+        QByteArray comm = ui->commandLE->text().toUpper().toLocal8Bit() + "\n";
         ser->pushCommand(comm);
         ui->commandLE->clear();
         ui->logTE->appendPlainText(QString(tr("Send: %1").arg(QString(comm))));
