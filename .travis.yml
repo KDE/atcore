@@ -1,0 +1,20 @@
+language: cpp
+before_install:
+ - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
+ - sudo add-apt-repository --yes ppa:beineri/opt-qt561
+ - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
+ - sudo apt-get update -qq
+ - sudo apt-get install build-essential qt56base qt56quickcontrols qt56serialport
+ - sudo apt-get install -qq g++-4.8
+ - export CXX="g++-4.8"
+ - wget http://www.cmake.org/files/v3.5/cmake-3.5.0.tar.gz --no-check-certificate
+ - tar xf cmake-3.5.0.tar.gz
+ - cd cmake-3.5.0
+ - ./configure
+ - sudo make install
+ - cd ..
+script:
+ - source /opt/qt56/bin/qt56-env.sh
+ - mkdir build && cd build
+ - cmake ..
+ - make
