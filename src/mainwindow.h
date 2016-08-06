@@ -17,6 +17,7 @@ public:
 
 public slots:
     void checkCommand();
+    void checkPushedCommands(QString);
 
 private:
     SerialLayer *ser;
