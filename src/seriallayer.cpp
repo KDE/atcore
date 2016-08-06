@@ -54,6 +54,7 @@ void SerialLayer::readData()
 void SerialLayer::pushCommand(QByteArray comm)
 {
     serial->write(comm);
+    emit(pushedCommand(QString("SerialLayer<<%1").arg(QString(comm))));
 }
 
 void SerialLayer::add(QByteArray comm)
@@ -66,6 +67,7 @@ void SerialLayer::push()
     foreach(const auto& comm, _sByteCommands)
     {
         serial->write(comm);
+        emit(pushedCommand(QString("SerialLayer<<%1").arg(QString(comm))));
     }
     _sByteCommands.clear();
 }

@@ -34,6 +34,14 @@ void MainWindow::checkCommand()
         ui->logTE->appendPlainText(QString("Recv: %1").arg(QString(ser->popCommand())));
 }
 
+void MainWindow::checkPushedCommands(QString msg)
+{
+    QRegExp _newLine(QChar('\n'));
+    QRegExp _return(QChar('\r'));
+    msg.replace(_newLine, QString("\\n"));
+    msg.replace(_return, QString("\\r"));
+    ui->logTE->appendPlainText(msg);
+}
 /**
  * @brief MainWindow::locateSerialPort
  * Locate all active serial ports on the computer and add to the list
@@ -77,6 +85,7 @@ void MainWindow::click()
         _timer->setInterval(1000);
         _timer->start();
         connect(_timer,&QTimer::timeout, this, &MainWindow::checkCommand);
+        connect(ser, &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
         ui->logTE->clear();
         ui->logTE->appendPlainText(QString(tr("Connected to %1").arg(port)));
 
@@ -91,7 +100,6 @@ void MainWindow::click()
         QByteArray comm = ui->commandLE->text().toUpper().toLocal8Bit() + "\n";
         ser->pushCommand(comm);
         ui->commandLE->clear();
-        ui->logTE->appendPlainText(QString(tr("Send: %1").arg(QString(comm))));
 
     }
 }
