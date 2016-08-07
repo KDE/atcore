@@ -20,7 +20,8 @@ private:
     QVector<QByteArray> _rByteCommands;
     QVector<QByteArray> _sByteCommands;
 signals:
-    void pushedCommand(QString);
+    void pushedCommand(QByteArray comm);
+    void receivedCommand(QByteArray comm);
 public:
     SerialLayer(QString port, uint baud, QWidget *parent = 0);
     ~SerialLayer();
