@@ -16,7 +16,7 @@ public:
     ~MainWindow();
 
 public slots:
-    void checkCommand();
+    void checkReceivedCommand();
     void checkPushedCommands(QByteArray);
 
 private:
@@ -25,4 +25,11 @@ private:
     void locateSerialPort();
     QStringList serialPortList;
     void click();
+    QString getTime();
+    QString logHeader();
+    QString rLogHeader();
+    QString sLogHeader();
+    void addLog(QString);
+    void addRLog(QString);
+    void addSLog(QString);
 };

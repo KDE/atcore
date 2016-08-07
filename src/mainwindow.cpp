@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QValidator *validator = new QIntValidator();
     ui->baudRateLE->setValidator(validator);
     ui->baudRateLE->setText("115200");
-    ui->logTE->setPlainText(QString(tr("Attempting to locate Serial Ports")));
+    addLog(tr("Attempting to locate Serial Ports"));
     locateSerialPort();
 
     connect(ui->connectPB, &QPushButton::clicked, this, &MainWindow::click);
@@ -27,21 +27,54 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::checkCommand()
+QString MainWindow::getTime()
 {
-    while (ser->commandAvailable())
-        ui->logTE->appendPlainText(QString("Recv: %1").arg(QString(ser->popCommand())));
+    return QTime::currentTime().toString("hh:mm:ss:zzz");
+}
+
+QString MainWindow::logHeader()
+{
+    return QString("[%1]  ").arg(getTime());
+}
+
+QString MainWindow::rLogHeader()
+{
+    return QString("[%1]< ").arg(getTime());
+}
+
+QString MainWindow::sLogHeader()
+{
+    return QString("[%1]> ").arg(getTime());
+}
+
+void MainWindow::addLog(QString msg)
+{
+    ui->logTE->appendPlainText(logHeader() + msg);
+}
+
+void MainWindow::addRLog(QString msg)
+{
+    ui->logTE->appendPlainText(rLogHeader() + msg);
+}
+
+void MainWindow::addSLog(QString msg)
+{
+    ui->logTE->appendPlainText(sLogHeader() + msg);
+}
+
+void MainWindow::checkReceivedCommand()
+{
+    addRLog(ser->popCommand());
 }
 
 void MainWindow::checkPushedCommands(QByteArray bmsg)
 {
-    QString msg;
-    msg.append(QString(bmsg));
+    QString msg = QString(bmsg);
     QRegExp _newLine(QChar('\n'));
     QRegExp _return(QChar('\r'));
     msg.replace(_newLine, QString("\\n"));
     msg.replace(_return, QString("\\r"));
-    ui->logTE->appendPlainText(msg);
+    addSLog(msg);
 }
 /**
  * @brief MainWindow::locateSerialPort
@@ -62,10 +95,10 @@ void MainWindow::locateSerialPort()
             serialPortList = ports;
             ui->serialPortCB->clear();
             ui->serialPortCB->addItems(serialPortList);
-            ui->logTE->appendPlainText(QString(tr("Found %1 Ports").arg(QString::number(serialPortList.count()))));
+            addLog(tr("Found %1 Ports").arg(QString::number(serialPortList.count())));
         }
     }else{
-        ui->logTE->appendPlainText(QString(tr("No Ports Found!")));
+        addLog(tr("No Ports Found!"));
         QMessageBox msg;
         msg.setText(tr("Not available ports! Please connect a serial device to continue!"));
         msg.setIcon(QMessageBox::Critical);
@@ -83,15 +116,15 @@ void MainWindow::click()
         QString port = ui->serialPortCB->currentText();
         uint baud = ui->baudRateLE->text().toUInt();
         ser = new SerialLayer(port, baud);
-        connect(ser, &SerialLayer::receivedCommand, this, &MainWindow::checkCommand);
+        connect(ser, &SerialLayer::receivedCommand, this, &MainWindow::checkReceivedCommand);
         connect(ser, &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
         ui->logTE->clear();
-        ui->logTE->appendPlainText(QString(tr("Connected to %1").arg(port)));
+        addLog(tr("Connected to %1").arg(port));
 
     } else if(btn == ui->disconnectPB){
 
         ser->closeConnection();
-        ui->logTE->appendPlainText(QString(tr("Disconnected")));
+        addLog(tr("Disconnected"));
 
     } else if(btn == ui->sendPB){
 
