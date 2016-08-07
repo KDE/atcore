@@ -4,6 +4,7 @@
 
 QByteArray SerialLayer::_return = QByteArray("\r");
 QByteArray SerialLayer::_newLine = QByteArray("\n");
+QByteArray SerialLayer::_newLineReturn = QByteArray("\n\r");
 
 SerialLayer::SerialLayer(QString port, uint baud, QWidget *parent) :
     serial(new QSerialPort()),
@@ -51,15 +52,28 @@ void SerialLayer::readData()
     }
 }
 
-void SerialLayer::pushCommand(QByteArray comm)
+void SerialLayer::pushCommand(QByteArray comm, QByteArray term)
 {
+    comm.append(term);
     serial->write(comm);
     emit(pushedCommand(QString("SerialLayer<<%1").arg(QString(comm))));
+
+}
+
+void SerialLayer::pushCommand(QByteArray comm)
+{
+    pushCommand(comm, _newLineReturn);
+}
+
+void SerialLayer::add(QByteArray comm, QByteArray term)
+{
+    comm.append(term);
+    _sByteCommands.append(comm);
 }
 
 void SerialLayer::add(QByteArray comm)
 {
-    _sByteCommands.append(comm);
+    add(comm, _newLineReturn);
 }
 
 void SerialLayer::push()

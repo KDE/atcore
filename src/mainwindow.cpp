@@ -97,7 +97,7 @@ void MainWindow::click()
 
     } else if(btn == ui->sendPB){
 
-        QByteArray comm = ui->commandLE->text().toUpper().toLocal8Bit() + "\n";
+        QByteArray comm = ui->commandLE->text().toUpper().toLocal8Bit();
         ser->pushCommand(comm);
         ui->commandLE->clear();
 
