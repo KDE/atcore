@@ -17,7 +17,7 @@ public:
 
 public slots:
     void checkCommand();
-    void checkPushedCommands(QString);
+    void checkPushedCommands(QByteArray);
 
 private:
     SerialLayer *ser;
@@ -25,5 +25,4 @@ private:
     void locateSerialPort();
     QStringList serialPortList;
     void click();
-    QTimer *_timer;
 };

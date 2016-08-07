@@ -1,5 +1,5 @@
 
-#include <QTimer>
+#include <QTime>
 #include <QSerialPortInfo>
 #include <QMessageBox>
 
@@ -11,7 +11,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    _timer=new QTimer();
     QValidator *validator = new QIntValidator();
     ui->baudRateLE->setValidator(validator);
     ui->baudRateLE->setText("115200");
@@ -34,8 +33,10 @@ void MainWindow::checkCommand()
         ui->logTE->appendPlainText(QString("Recv: %1").arg(QString(ser->popCommand())));
 }
 
-void MainWindow::checkPushedCommands(QString msg)
+void MainWindow::checkPushedCommands(QByteArray bmsg)
 {
+    QString msg;
+    msg.append(QString(bmsg));
     QRegExp _newLine(QChar('\n'));
     QRegExp _return(QChar('\r'));
     msg.replace(_newLine, QString("\\n"));
@@ -82,9 +83,7 @@ void MainWindow::click()
         QString port = ui->serialPortCB->currentText();
         uint baud = ui->baudRateLE->text().toUInt();
         ser = new SerialLayer(port, baud);
-        _timer->setInterval(1000);
-        _timer->start();
-        connect(_timer,&QTimer::timeout, this, &MainWindow::checkCommand);
+        connect(ser, &SerialLayer::receivedCommand, this, &MainWindow::checkCommand);
         connect(ser, &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
         ui->logTE->clear();
         ui->logTE->appendPlainText(QString(tr("Connected to %1").arg(port)));
@@ -92,7 +91,6 @@ void MainWindow::click()
     } else if(btn == ui->disconnectPB){
 
         ser->closeConnection();
-        disconnect(_timer,&QTimer::timeout, this, &MainWindow::checkCommand);
         ui->logTE->appendPlainText(QString(tr("Disconnected")));
 
     } else if(btn == ui->sendPB){
