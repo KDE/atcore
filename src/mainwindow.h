@@ -16,32 +16,82 @@ public:
     ~MainWindow();
 
 public slots:
+    /**
+     * @brief Check received message
+     *
+     */
     void checkReceivedCommand();
+
+    /**
+     * @brief Check pushed message
+     *
+     * @param  bmsg : Message
+     */
     void checkPushedCommands(QByteArray);
 
 private:
     SerialLayer *ser;
     Ui::MainWindow *ui;
-    void locateSerialPort();
     QStringList serialPortList;
-    void click();
-    QString getTime();
-    QString logHeader();
-    QString rLogHeader();
-    QString sLogHeader();
-    void addLog(QString);
 
     /**
-     * @brief ...
+     * @brief Locate serial port
      *
-     * @param  p_:...
      */
-    void addRLog(QString);
+    void locateSerialPort();
+
+    /**
+     * @brief Check click event
+     *
+     */
+    void click();
+
+    /**
+     * @brief Return string with actual time
+     *
+     * @return QString
+     */
+    QString getTime();
+
+    /**
+     * @brief Normal header
+     *
+     * @return QString
+     */
+    QString logHeader();
+
+    /**
+     * @brief Header of type received
+     *
+     * @return QString
+     */
+    QString rLogHeader();
+
+    /**
+     * @brief Header of type send
+     *
+     * @return QString
+     */
+    QString sLogHeader();
+
+    /**
+     * @brief Add in logger normal type message
+     *
+     * @param  msg: Message
+     */
+    void addLog(QString msg);
+
+    /**
+     * @brief Add in logger received type message
+     *
+     * @param  msg: Message
+     */
+    void addRLog(QString msg);
 
     /**
      * @brief Add in logger send type message
      *
-     * @param  p_: Message
+     * @param  msg: Message
      */
-    void addSLog(QString);
+    void addSLog(QString msg);
 };
