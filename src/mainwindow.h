@@ -30,6 +30,18 @@ private:
     QString rLogHeader();
     QString sLogHeader();
     void addLog(QString);
+
+    /**
+     * @brief ...
+     *
+     * @param  p_:...
+     */
     void addRLog(QString);
+
+    /**
+     * @brief Add in logger send type message
+     *
+     * @param  p_: Message
+     */
     void addSLog(QString);
 };
