@@ -98,11 +98,7 @@ void MainWindow::locateSerialPort()
             addLog(tr("Found %1 Ports").arg(QString::number(serialPortList.count())));
         }
     }else{
-        addLog(tr("No Ports Found!"));
-        QMessageBox msg;
-        msg.setText(tr("Not available ports! Please connect a serial device to continue!"));
-        msg.setIcon(QMessageBox::Critical);
-        msg.exec();
+        addLog(tr("Not available ports! Please connect a serial device to continue!"));
     }
 
 }
