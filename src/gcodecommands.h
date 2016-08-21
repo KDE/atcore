@@ -291,6 +291,6 @@ namespace GCode{
             M999
         };
         QString toString(Enum gcode);
-        QString toCommand(Enum gcode);
+        QString toCommand(Enum gcode, const QString& value = QString());
     }
 }

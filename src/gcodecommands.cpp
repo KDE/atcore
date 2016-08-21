@@ -30,6 +30,7 @@ namespace Firmwares {
         }
     }
 }
+
 namespace GCommands {
 
     QString toString(Enum gcode)
@@ -495,6 +496,60 @@ namespace MCommands {
             default:
                 return QString("Not implemented or not supported!");
 
+            }
+        }
+
+        QString toCommand(Enum gcode, const QString &value){
+
+            switch (gcode) {
+            case M104: {
+                if(!value.isEmpty())
+                    return QString("M104 S%1").arg(value);
+                else
+                    return QString("ERROR! M104: It's obligatory have an argument");
+            }
+            case M105:
+                return QString("M105");
+            case M106:
+                return QString('M106');
+            case M107:
+                return QString("M107");
+            case M112:
+                return QString("M112");
+            case M114:
+                return QString("M114");
+            case M115:
+                return QString("M115");
+            case M116:
+                return QString("M116");
+            case M117: {
+                if(!value.isEmpty())
+                    return QString("M117 %1").arg(value);
+                else
+                    return QString("ERROR! M117: It's obligatory have an argument");
+            }
+            case M119:
+                return QString("M119");
+            case M140: {
+                if(!value.isEmpty())
+                    return QString("M140 S%1").arg(value);
+                else
+                    return QString("ERROR! M140: It's obligatory have an argument");
+            }
+            case M220: {
+                if(!value.isEmpty())
+                    return QString("M220 S%1").arg(value);
+                else
+                    return QString("ERROR! M220: It's obligatory have an argument");
+            }
+            case M221: {
+                if(!value.isEmpty())
+                    return QString("M221 S%1").arg(value);
+                else
+                    return QString("ERROR! M221: It's obligatory have an argument");
+            }
+            default:
+                return QString("Not supported or implemented!");
             }
         }
     }
