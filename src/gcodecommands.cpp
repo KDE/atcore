@@ -511,7 +511,7 @@ namespace MCommands {
             case M105:
                 return QString("M105");
             case M106:
-                return QString('M106');
+                return QString("M106");
             case M107:
                 return QString("M107");
             case M112:
