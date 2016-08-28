@@ -6,15 +6,15 @@ QString toString(Firmwares firmware)
 {
     switch (firmware) {
     case Repetier:
-        return QString("Repetier Firmware");
+        return QString("Repetier");
     case Marlin:
         return QString("Marlin");
     case Teacup:
         return QString("Teacup");
     case RepRapFirmware:
-        return QString("RepRap Firmware");
+        return QString("RepRap");
     case MakerBot:
-        return QString("MakerBot Firmware");
+        return QString("MakerBot");
     case Sprinter:
         return QString("Sprinter");
     case Sjfw:
