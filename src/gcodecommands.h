@@ -5,8 +5,7 @@
 
 namespace GCode{
 
-    namespace Firmwares {
-        enum Enum{
+        enum Firmwares{
             Repetier,
             Marlin,
             Teacup,
@@ -17,11 +16,8 @@ namespace GCode{
             Sailfish,
             Smoothie
         };
-        QString toString(Enum firmware);
-    }
 
-    namespace GCommands {
-        enum Enum{
+        enum GCommands{
             G0,
             G1,
             G2,
@@ -50,12 +46,8 @@ namespace GCode{
             G161,
             G162
         };
-        QString toString(Enum gcode);
-        QString toCommand(const QChar& c = QChar());
-    }
 
-    namespace MCommands {
-        enum Enum{
+        enum MCommands{
             M0,
             M1,
             M2,
@@ -290,7 +282,10 @@ namespace GCode{
             M998,
             M999
         };
-        QString toString(Enum gcode);
-        QString toCommand(Enum gcode, const QString& value = QString());
-    }
+
+        QString toString(Firmwares firmware);
+        QString toString(GCommands gcode);
+        QString toString(MCommands gcode);
+        QString toCommand(GCommands gcode, const QString& value = QString());
+        QString toCommand(MCommands gcode, const QString& value = QString());
 }
