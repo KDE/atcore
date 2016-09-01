@@ -30,6 +30,7 @@ set(kps_SRCS
     src/mainwindow.cpp
     src/seriallayer.cpp
     src/gcodecommands.cpp
+    src/protocollayer.cpp
     ${KPS_UI_SRCS}
 )
 

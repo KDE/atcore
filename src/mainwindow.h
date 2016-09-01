@@ -5,7 +5,7 @@
 #include <QSerialPort>
 
 
-class SerialLayer;
+class ProtocolLayer;
 
 class  MainWindow: public QMainWindow
 {
@@ -30,7 +30,7 @@ public slots:
     void checkPushedCommands(QByteArray);
 
 private:
-    SerialLayer *ser;
+    ProtocolLayer *pro;
     Ui::MainWindow *ui;
     QStringList serialPortList;
 

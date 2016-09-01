@@ -4,7 +4,7 @@
 #include <QMessageBox>
 
 #include "mainwindow.h"
-#include "seriallayer.h"
+#include "protocollayer.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -64,7 +64,7 @@ void MainWindow::addSLog(QString msg)
 
 void MainWindow::checkReceivedCommand()
 {
-    addRLog(ser->popCommand());
+    addRLog(pro->popCommand());
 }
 
 void MainWindow::checkPushedCommands(QByteArray bmsg)
@@ -111,21 +111,21 @@ void MainWindow::click()
 
         QString port = ui->serialPortCB->currentText();
         uint baud = ui->baudRateLE->text().toUInt();
-        ser = new SerialLayer(port, baud);
-        connect(ser, &SerialLayer::receivedCommand, this, &MainWindow::checkReceivedCommand);
-        connect(ser, &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
+        pro = new ProtocolLayer(port, baud);
+        connect(pro, &ProtocolLayer::receivedCommand, this, &MainWindow::checkReceivedCommand);
+        connect(pro, &ProtocolLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
         ui->logTE->clear();
         addLog(tr("Connected to %1").arg(port));
 
     } else if(btn == ui->disconnectPB){
 
-        ser->closeConnection();
+        pro->closeConnection();
         addLog(tr("Disconnected"));
 
     } else if(btn == ui->sendPB){
 
         QByteArray comm = ui->commandLE->text().toUpper().toLocal8Bit();
-        ser->pushCommand(comm);
+        pro->pushCommand(comm);
         ui->commandLE->clear();
 
     }
