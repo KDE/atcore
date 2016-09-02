@@ -89,7 +89,7 @@ void SerialLayer::push()
 
 QByteArray SerialLayer::popCommand()
 {
-    return _rByteCommands.takeFirst();
+    return commandAvailable() ? _rByteCommands.takeFirst() : QByteArray();
 }
 
 bool SerialLayer::commandAvailable()
