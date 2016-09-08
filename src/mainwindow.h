@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include <QSerialPort>
 
-
 class ProtocolLayer;
 
 class  MainWindow: public QMainWindow
@@ -17,7 +16,7 @@ public:
 
 public slots:
     /**
-     * @brief Check received message
+     * @brief Check received messages
      *
      */
     void checkReceivedCommand();
@@ -29,6 +28,68 @@ public slots:
      */
     void checkPushedCommands(QByteArray);
 
+private slots:
+    //ButtonEvents
+    /**
+     * @brief Connect Button Clicked
+     */
+    void connectPBClicked();
+
+    /**
+     * @brief Disconnnect Button Clicked
+     */
+    void disconnectPBClicked();
+
+    /**
+     * @brief Send Command Clicked
+     */
+    void sendPBClicked();
+
+    /**
+     * @brief Home All Clicked
+     */
+    void homeAllPBClicked();
+
+    /**
+     * @brief Home X Axis Clicked
+     */
+    void homeXPBClicked();
+
+    /**
+     * @brief Home Y Axis Clicked
+     */
+    void homeYPBClicked();
+
+    /**
+     * @brief Home Z Axis Clicked
+     */
+    void homeZPBClicked();
+
+    /**
+     * @brief Set Bed Temp Clicked
+     */
+    void bedTempPBClicked();
+
+    /**
+     * @brief Set Extruder Temp Clicked
+     */
+    void extTempPBClicked();
+
+    /**
+     * @brief Move Axis Clicked
+     */
+    void mvAxisPBClicked();
+
+    /**
+     * @brief Set Fan Speed Clicked
+     */
+    void fanSpeedPBClicked();
+
+    /**
+     * @brief Print Button Clicked
+     */
+    void printPBClicked();
+
 private:
     ProtocolLayer *pro;
     Ui::MainWindow *ui;
@@ -39,12 +100,6 @@ private:
      *
      */
     void locateSerialPort();
-
-    /**
-     * @brief Check click event
-     *
-     */
-    void click();
 
     /**
      * @brief Return string with actual time
