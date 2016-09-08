@@ -75,8 +75,7 @@ void MainWindow::addSLog(QString msg)
 
 void MainWindow::checkReceivedCommand()
 {
-    rtnCommand = pro->popCommand();
-    addRLog(rtnCommand);
+    addRLog(pro->popCommand());
 }
 
 void MainWindow::checkPushedCommands(QByteArray bmsg)
@@ -119,7 +118,7 @@ void MainWindow::connectPBClicked()
     QString port = ui->serialPortCB->currentText();
     uint baud = ui->baudRateLE->text().toUInt();
     pro = new ProtocolLayer(port, baud);
-    connect(pro, &ProtocolLayer::receivedCommand, this, &MainWindow::checkReceivedCommand);
+    connect(pro, &ProtocolLayer::receivedMessage, this, &MainWindow::checkReceivedCommand);
     connect(pro, &ProtocolLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
     ui->logTE->clear();
     addLog(tr("Connected to %1").arg(port));
@@ -205,41 +204,8 @@ void MainWindow::printPBClicked()
         addLog(tr("No File Selected"));
     }
     else{
-        addLog(tr("print: %1").arg(fileName));
-        QFile file(fileName);
-        file.open(QFile::ReadOnly);
-        QTextStream gcodestream(&file);
-        QString cline;
-        QEventLoop loop;
-        connect(pro, &ProtocolLayer::receivedCommand, &loop, &QEventLoop::quit);
-
-        addLog(tr("Reading File.."));
-        while(!gcodestream.atEnd()){
-            cline = gcodestream.readLine();
-            cline = cline.simplified();
-            if(cline.contains(QChar(';'))){
-                cline.resize(cline.indexOf(QChar(';')));
-            }
-            if(!cline.isEmpty()){
-                pro->pushCommand(cline.toLocal8Bit());
-                bool waiting = true;
-                while(waiting){
-                    if(!pro->commandAvailable()){
-                        loop.exec();
-                    }
-                    //Handle Messages from printer.
-                    if (rtnCommand == "ok 0"){
-                        waiting = false;
-                    }
-
-                    else if (rtnCommand == "wait"){
-                        waiting = false;
-                    }
-                    /* Handle resend and ok 1 soon*/
-                }
-            }
-        }
-        addLog(tr("Finished Reading File"));
+        addLog(tr("Print: %1").arg(fileName));
+        pro->print(fileName);
     }
 }
 

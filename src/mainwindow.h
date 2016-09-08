@@ -16,7 +16,7 @@ public:
 
 public slots:
     /**
-     * @brief Check received message
+     * @brief Check received messages
      *
      */
     void checkReceivedCommand();
@@ -94,7 +94,6 @@ private:
     ProtocolLayer *pro;
     Ui::MainWindow *ui;
     QStringList serialPortList;
-    QString rtnCommand;
 
     /**
      * @brief Locate serial port
