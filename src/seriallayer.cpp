@@ -6,8 +6,8 @@ QByteArray SerialLayer::_return = QByteArray("\r");
 QByteArray SerialLayer::_newLine = QByteArray("\n");
 QByteArray SerialLayer::_newLineReturn = QByteArray("\n\r");
 
-SerialLayer::SerialLayer(QString port, uint baud, QWidget *parent) :
-    serial(new QSerialPort()),
+SerialLayer::SerialLayer(const QString& port, uint baud, QWidget *parent) :
+    serial(new QSerialPort(this)),
     _serialOpened(false)
 {
     serial->setPortName(port);
@@ -53,26 +53,26 @@ void SerialLayer::readData()
     }
 }
 
-void SerialLayer::pushCommand(QByteArray comm, QByteArray term)
+void SerialLayer::pushCommand(const QByteArray& comm, const QByteArray& term)
 {
-    comm.append(term);
-    serial->write(comm);
-    emit(pushedCommand(comm));
+    QByteArray tmp = comm + term;
+    serial->write(tmp);
+    emit(pushedCommand(tmp));
 
 }
 
-void SerialLayer::pushCommand(QByteArray comm)
+void SerialLayer::pushCommand(const QByteArray& comm)
 {
     pushCommand(comm, _newLineReturn);
 }
 
-void SerialLayer::add(QByteArray comm, QByteArray term)
+void SerialLayer::add(const QByteArray& comm, const QByteArray& term)
 {
-    comm.append(term);
-    _sByteCommands.append(comm);
+    QByteArray tmp = comm + term;
+    _sByteCommands.append(tmp);
 }
 
-void SerialLayer::add(QByteArray comm)
+void SerialLayer::add(const QByteArray& comm)
 {
     add(comm, _newLineReturn);
 }
@@ -97,10 +97,6 @@ bool SerialLayer::commandAvailable()
     return !_rByteCommands.isEmpty();
 }
 
-SerialLayer::~SerialLayer()
-{
-    delete serial;
-}
 void SerialLayer::closeConnection()
 {
     if(_serialOpened)

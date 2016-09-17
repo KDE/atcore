@@ -31,14 +31,14 @@ signals:
      *
      * @param comm : Command
      */
-    void pushedCommand(QByteArray comm);
+    void pushedCommand(const QByteArray& comm);
 
     /**
      * @brief Emit signal when command is received
      *
      * @param comm : Command
      */
-    void receivedCommand(QByteArray comm);
+    void receivedCommand(const QByteArray& comm);
 public:
 
     /**
@@ -48,8 +48,7 @@ public:
      * @param baud : Baud rate (115200)
      * @param parent : Parent
      */
-    SerialLayer(QString port, uint baud, QWidget *parent = 0);
-    ~SerialLayer();
+    SerialLayer(const QString& port, uint baud, QWidget *parent = 0);
 
     /**
      * @brief Add command to be pushed
@@ -57,14 +56,14 @@ public:
      * @param comm : Command
      * @param term : Terminator
      */
-    void add(QByteArray comm, QByteArray term);
+    void add(const QByteArray& comm,const QByteArray& term);
 
     /**
      * @brief Add command to be pushed
      *
      * @param comm : Commmand, default terminator will be used
      */
-    void add(QByteArray comm);
+    void add(const QByteArray& comm);
 
     /**
      * @brief Push command directly
@@ -72,14 +71,14 @@ public:
      * @param comm : Command
      * @param term : Terminator
      */
-    void pushCommand(QByteArray comm, QByteArray term);
+    void pushCommand(const QByteArray& comm,const QByteArray& term);
 
     /**
      * @brief Push command directly
      *
      * @param comm : Command, default terminator will be used
      */
-    void pushCommand(QByteArray comm);
+    void pushCommand(const QByteArray& comm);
 
     /**
      * @brief Push all commands used in add to serial write
