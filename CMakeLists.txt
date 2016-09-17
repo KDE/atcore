@@ -19,12 +19,6 @@ find_package(Qt5 REQUIRED COMPONENTS
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-set(kpsui_SRCS
-   src/mainwindow.ui
-)
-
-qt5_wrap_ui(KPS_UI_SRCS ${kpsui_SRCS})
-
 set(kps_SRCS
     src/main.cpp
     src/mainwindow.cpp
