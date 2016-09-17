@@ -4,8 +4,8 @@
 #include <QEventLoop>
 #include <QTextStream>
 
-ProtocolLayer::ProtocolLayer(QString port, uint baud, QWidget *parent) :
-    SerialLayer(port, baud, parent),lastMessage(QByteArray())
+ProtocolLayer::ProtocolLayer(const QString& port, uint baud, QWidget *parent) :
+    SerialLayer(port, baud, parent)
 {
     connect(this, &SerialLayer::receivedCommand, this, &ProtocolLayer::newMessage);
 }
@@ -13,13 +13,13 @@ ProtocolLayer::ProtocolLayer(QString port, uint baud, QWidget *parent) :
 ProtocolLayer::~ProtocolLayer()
 {
 }
-void ProtocolLayer::newMessage(QByteArray msg)
+void ProtocolLayer::newMessage(const QByteArray& msg)
 {
     lastMessage = msg;
     emit(receivedMessage(lastMessage));
 }
 
-void ProtocolLayer::print(QString fileName)
+void ProtocolLayer::print(const QString& fileName)
 {
     QFile file(fileName);
     file.open(QFile::ReadOnly);

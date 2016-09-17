@@ -7,13 +7,13 @@ class  ProtocolLayer : public SerialLayer
 Q_OBJECT
 
 public:
-    ProtocolLayer(QString port, uint baud, QWidget *parent = 0);
+    ProtocolLayer(const QString& port, uint baud, QWidget *parent = 0);
     /**
      * @brief Print a file
      *
      * @param fileName : path of file to print
      */
-    void print(QString fileName);
+    void print(const QString& fileName);
     ~ProtocolLayer();
 signals:
     /**
@@ -21,9 +21,9 @@ signals:
      *
      * @param msg : Message
      */
-    void receivedMessage(QByteArray msg);
+    void receivedMessage(const QByteArray& msg);
 private:
     QByteArray lastMessage;
-    void newMessage(QByteArray msg);
+    void newMessage(const QByteArray& msg);
 
 };
