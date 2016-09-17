@@ -6,25 +6,25 @@ QString toString(Firmwares firmware)
 {
     switch (firmware) {
     case Repetier:
-        return QString("Repetier");
+        return QStringLiteral("Repetier");
     case Marlin:
-        return QString("Marlin");
+        return QStringLiteral("Marlin");
     case Teacup:
-        return QString("Teacup");
+        return QStringLiteral("Teacup");
     case RepRapFirmware:
-        return QString("RepRap");
+        return QStringLiteral("RepRap");
     case MakerBot:
-        return QString("MakerBot");
+        return QStringLiteral("MakerBot");
     case Sprinter:
-        return QString("Sprinter");
+        return QStringLiteral("Sprinter");
     case Sjfw:
-        return QString("Sjfw");
+        return QStringLiteral("Sjfw");
     case Sailfish:
-        return QString("Sailfish");
+        return QStringLiteral("Sailfish");
     case Smoothie:
-        return QString("Smoothieware");
+        return QStringLiteral("Smoothieware");
     default:
-        return QString("Firmware not listed");
+        return QStringLiteral("Firmware not listed");
     }
 }
 
@@ -32,57 +32,57 @@ QString toString(GCommands gcode)
 {
     switch (gcode) {
     case G0://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware - MakerBot
-        return QString("G0: Rapid linear move");
+        return QStringLiteral("G0: Rapid linear move");
     case G1://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("G1: Linear move");
+        return QStringLiteral("G1: Linear move");
     case G2://Sprinter - Marlin - Repetier - Smoothie
-        return QString("G2: Controlled Arc Move clockwise");
+        return QStringLiteral("G2: Controlled Arc Move clockwise");
     case G3://Sprinter - Marlin - Repetier - Smoothie
-        return QString("G3: Controlled Arc Move counterclockwise");
+        return QStringLiteral("G3: Controlled Arc Move counterclockwise");
     case G4://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware - MakerBot
-        return QString("G4: Dwell");
+        return QStringLiteral("G4: Dwell");
     case G10://Marlin - Repetier > 0.92 - Smoothie
-        return QString("G10: Retract");
+        return QStringLiteral("G10: Retract");
     case G11://Marlin - Repetier > 0.92 - Smoothie
-        return QString("G11: Unretract");
+        return QStringLiteral("G11: Unretract");
     case G20://Teacup - Sprinter - Repetier - Smoothie - RepRap Firmware
-        return QString("G20: Set units to inches");
+        return QStringLiteral("G20: Set units to inches");
     case G21://Teacup - Sprinter - Repetier - Smoothie - RepRap Firmware
-        return QString("G21: Set units to millimiters");
+        return QStringLiteral("G21: Set units to millimiters");
     case G28://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware - MakerBot
-        return QString("G28: Move to Origin Home");
+        return QStringLiteral("G28: Move to Origin Home");
     case G29://Marlin - Repetier 0.91.7
-        return QString("G29: Detailed Z-Probe");
+        return QStringLiteral("G29: Detailed Z-Probe");
     case G30:// Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("G30: Single Z-Probe");
+        return QStringLiteral("G30: Single Z-Probe");
     case G31://Repetier 0.91.7 - Smoothie - RepRap Firmware - Marlin
-        return QString("G31: Set or report current probe status / Dock Z Probe sled for Marlin");
+        return QStringLiteral("G31: Set or report current probe status / Dock Z Probe sled for Marlin");
     case G32://Repetier 0.92.8 - Smoothie - RepRap Firmware - Marlin
-        return QString("G32: Probe Z and calculate Z plane(Bed Leveling)/ UnDoc Z Probe sled for Marlin");
+        return QStringLiteral("G32: Probe Z and calculate Z plane(Bed Leveling)/ UnDoc Z Probe sled for Marlin");
     case G33://Repetier 0.92.8
-        return QString("G33: Measure/List/Adjust Distortion Matrix");
+        return QStringLiteral("G33: Measure/List/Adjust Distortion Matrix");
     case G90://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware - MakerBot
-        return QString("G90: Set to absolute positioning");
+        return QStringLiteral("G90: Set to absolute positioning");
     case G91://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware - MakerBot
-        return QString("G91: Set to relative positioning");
+        return QStringLiteral("G91: Set to relative positioning");
     case G92://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware - MakerBot
-        return QString("G92: Set position");
+        return QStringLiteral("G92: Set position");
     case G100://Repetier 0.92
-        return QString("G100: Calibrate floor  or rod radius");
+        return QStringLiteral("G100: Calibrate floor  or rod radius");
     case G130://MakerBot
-        return QString("G130: Set digital potentiometer value");
+        return QStringLiteral("G130: Set digital potentiometer value");
     case G131://Repetier 0.91
-        return QString("G131: Recase Move offset");
+        return QStringLiteral("G131: Recase Move offset");
     case G132://Repetier 0.91
-        return QString("G132: Calibrate endstops offsets");
+        return QStringLiteral("G132: Calibrate endstops offsets");
     case G133://Repetier 0.91
-        return QString("G133: Measure steps to top");
+        return QStringLiteral("G133: Measure steps to top");
     case G161://Teacup - MakerBot
-        return QString("G161: Home axis to minimum");
+        return QStringLiteral("G161: Home axis to minimum");
     case G162://Teacup - MakerBot
-        return QString("G162: Home axis to maximum");
+        return QStringLiteral("G162: Home axis to maximum");
     default:
-        return QString("GCommand not supported!");
+        return QStringLiteral("GCommand not supported!");
     }
 }
 
@@ -91,18 +91,18 @@ QString toCommand(GCommands gcode, QChar &c)
     switch (gcode) {
     case G28: {
         if(c.isNull())
-            return QString("G28");
+            return QStringLiteral("G28");
         else
-            return QString("G28 %1").arg(c.toUpper());
+            return QStringLiteral("G28 %1").arg(c.toUpper());
     }
     case G32:
-        return QString("G32 S1");
+        return QStringLiteral("G32 S1");
     case G90:
-        return QString("G90");
+        return QStringLiteral("G90");
     case G91:
-        return QString("G91");
+        return QStringLiteral("G91");
     default:
-        return QString("Not implemented or not supported!");
+        return QStringLiteral("Not implemented or not supported!");
 
     }
 }
@@ -112,381 +112,381 @@ QString toString(MCommands gcode)
 {
     switch (gcode) {
     case M0://Marlin - Teacup - RepRap Firmware
-        return QString("M0: Stop or unconditional stop");
+        return QStringLiteral("M0: Stop or unconditional stop");
     case M1://Marlin - RepRap Firmware
-        return QString("M1: Sleep or unconditional stop");
+        return QStringLiteral("M1: Sleep or unconditional stop");
     case M2://Teacup - Maker Bot
-        return QString("M2: Program End");
+        return QStringLiteral("M2: Program End");
     case M6://Teacup
-        return QString("M6: Tool Change");
+        return QStringLiteral("M6: Tool Change");
     case M17://Teacup - Marlin - Smoothie
-        return QString("M17: Enable/power all steppers motors");
+        return QStringLiteral("M17: Enable/power all steppers motors");
     case M18://Teacup - Marlin(M84) - Smoothie -RepRap Firmware
-        return QString("M18: Disable all steppers motors");
+        return QStringLiteral("M18: Disable all steppers motors");
     case M20://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M20: List SDCard");
+        return QStringLiteral("M20: List SDCard");
     case M21://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M21: Initialize SDCard");
+        return QStringLiteral("M21: Initialize SDCard");
     case M22://Teacup - Sprinter - Marlin - Repetier - RepRap Firmware
-        return QString("M22: Release SDCard");
+        return QStringLiteral("M22: Release SDCard");
     case M23:////Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M23: Select SD file");
+        return QStringLiteral("M23: Select SD file");
     case M24://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M24: Start/resume SD print");
+        return QStringLiteral("M24: Start/resume SD print");
     case M25://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M25: Pause SD print");
+        return QStringLiteral("M25: Pause SD print");
     case M26://Sprinter - Marlin - Repetier - Smoothie(abort) - RepRap Firmware
-        return QString("M26: Set SD position");
+        return QStringLiteral("M26: Set SD position");
     case M27://Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M27: Report SD print status");
+        return QStringLiteral("M27: Report SD print status");
     case M28://Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M28: Begin write to SD card");
+        return QStringLiteral("M28: Begin write to SD card");
     case M29:// Sprinter - Marlin - Repetier - RepRap Firmware
-        return QString("M29: Stop writing to SD card");
+        return QStringLiteral("M29: Stop writing to SD card");
     case M30://Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M30: Delete a file on the SD card");
+        return QStringLiteral("M30: Delete a file on the SD card");
     case M31://Marlin
-        return QString("M31: Output time since last M109 or SD card start to serial");
+        return QStringLiteral("M31: Output time since last M109 or SD card start to serial");
     case M32://Marlin - Smoothie - RepRap Firmware
-        return QString("M32: Select file and start SD prin");
+        return QStringLiteral("M32: Select file and start SD prin");
     case M33://Marlin
-        return QString("M33: Get the long name for an SD card file or folder");
+        return QStringLiteral("M33: Get the long name for an SD card file or folder");
     case M34://Marlin
-        return QString("M34: Set SD file sorting options");
+        return QStringLiteral("M34: Set SD file sorting options");
     case M36://RepRap Firmware
-        return QString("M36: Return file information");
+        return QStringLiteral("M36: Return file information");
     case M42://Sprinter - Marlin - Repetier - RepRap Firmware
-        return QString("M42: Switch I/O pin");
+        return QStringLiteral("M42: Switch I/O pin");
     case M48://Marlin
-        return QString("M48: Measure Z-Probe repeatabiliy");
+        return QStringLiteral("M48: Measure Z-Probe repeatabiliy");
     case M70://MakerBot
-        return QString("M70: Display message");
+        return QStringLiteral("M70: Display message");
     case M72://MakerBot
-        return QString("M72: Play a tone or song");
+        return QStringLiteral("M72: Play a tone or song");
     case M73://MakerBot
-        return QString("M73: Set build percentage");
+        return QStringLiteral("M73: Set build percentage");
     case M80://Teacup(automatic) - Sprinter - Marlin - Repetier - RepRap Firmware
-        return QString("M80: ATX Power On");
+        return QStringLiteral("M80: ATX Power On");
     case M81://Teacup(automatic) - Sprinter - Marlin - Repetier  - RepRap Firmware
-        return QString("M81: ATX Power Off");
+        return QStringLiteral("M81: ATX Power Off");
     case M82://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M82: Set extruder to absolute mode");
+        return QStringLiteral("M82: Set extruder to absolute mode");
     case M83://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M83: Set extruder to relative mode");
+        return QStringLiteral("M83: Set extruder to relative mode");
     case M84://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M84: Stop idle hold");
+        return QStringLiteral("M84: Stop idle hold");
     case M85://Sprinter - Marlin - Repetier
-        return QString("M85: Set Inactivity shutdown timer");
+        return QStringLiteral("M85: Set Inactivity shutdown timer");
     case M92:// Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M92: Set axis steps per unit");
+        return QStringLiteral("M92: Set axis steps per unit");
     case M93:// Sprinter
-        return QString("M93: Send axis steps per unit");
+        return QStringLiteral("M93: Send axis steps per unit");
     case M98: //RepRap Firmware
-        return QString("M98: Call Macro/Subprogram");
+        return QStringLiteral("M98: Call Macro/Subprogram");
     case M99://RepRap Firmware
-        return QString("M99: Return from Macro/Subprogram");
+        return QStringLiteral("M99: Return from Macro/Subprogram");
     case M101://Teacup
-        return QString("M101:Turn extruder 1 on Forward, Undo Retraction");
+        return QStringLiteral("M101:Turn extruder 1 on Forward, Undo Retraction");
     case M103://Teacup
-        return QString("M103: Turn all extruders off - Extruder Retraction");
+        return QStringLiteral("M103: Turn all extruders off - Extruder Retraction");
     case M104://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware - MakerBot
-        return QString("M104: Set Extruder Temperature");
+        return QStringLiteral("M104: Set Extruder Temperature");
     case M105://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware - MakerBot
-        return QString("M105: Get Extruder Temperature");
+        return QStringLiteral("M105: Get Extruder Temperature");
     case M106://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M106: Fan On");
+        return QStringLiteral("M106: Fan On");
     case M107:// Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M107: Fan Off");
+        return QStringLiteral("M107: Fan Off");
     case M108://Marlin
-        return QString("M108: Cancel Heating");
+        return QStringLiteral("M108: Cancel Heating");
     case M109:// Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware - MakerBot
-        return QString("M109: Set Extruder Temperature and Wait");
+        return QStringLiteral("M109: Set Extruder Temperature and Wait");
     case M110:// Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M110: Set Current Line Number");
+        return QStringLiteral("M110: Set Current Line Number");
     case M111://Teacup -  Marlin - Repetier - RepRap Firmware
-        return QString("M111: Set Debug Level");
+        return QStringLiteral("M111: Set Debug Level");
     case M112://Teacup - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M112: Emergency Stop");
+        return QStringLiteral("M112: Emergency Stop");
     case M114://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware - MakerBot
-        return QString("M114: Get Current Position");
+        return QStringLiteral("M114: Get Current Position");
     case M115://Teacup - Sprinter - Marlin - Repetier - RepRap Firmware
-        return QString("M115: Get Firmware Version and Capabilities");
+        return QStringLiteral("M115: Get Firmware Version and Capabilities");
     case M116://Teacup - Repetier - RepRap Firmware - MakerBot
-        return QString("M116: Wait");
+        return QStringLiteral("M116: Wait");
     case M117:// Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M117: Display Message");
+        return QStringLiteral("M117: Display Message");
     case M119://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M119: Get Endstop Status");
+        return QStringLiteral("M119: Get Endstop Status");
     case M120://Marlin - Smoothie - RepRap Firmware
-        return QString("M120: Push for Smoothie and RepRap Firmware / Enable Endstop detection for Marlin");
+        return QStringLiteral("M120: Push for Smoothie and RepRap Firmware / Enable Endstop detection for Marlin");
     case M121://Marlin - Smoothie - RepRap Firmware
-        return QString("M121: Pop for Smoothie and RepRap Firmware / Disable Endstop detection for Marlin");
+        return QStringLiteral("M121: Pop for Smoothie and RepRap Firmware / Disable Endstop detection for Marlin");
     case M122://RepRap Firmware
-        return QString("M122: Diagnose");
+        return QStringLiteral("M122: Diagnose");
     case M126://Marlin - MakerBot
-        return QString("M126: Open valve");
+        return QStringLiteral("M126: Open valve");
     case M127://Marlin - MakerBot
-        return QString("M127: Close valve");
+        return QStringLiteral("M127: Close valve");
     case M130://Teacup
-        return QString("M130: Set PID P value");
+        return QStringLiteral("M130: Set PID P value");
     case M131://Teacup
-        return QString("M131: Set PID I value");
+        return QStringLiteral("M131: Set PID I value");
     case M132://Teacup - MakerBot
-        return QString("M132: Set PID D value");
+        return QStringLiteral("M132: Set PID D value");
     case M133://Teacup - MakerBot
-        return QString("M133: Set PID I limit value");
+        return QStringLiteral("M133: Set PID I limit value");
     case M134://Teacup - MakerBot
-        return QString("M134: Write PID values to EEPROM");
+        return QStringLiteral("M134: Write PID values to EEPROM");
     case M135://RepRap Firmware - MakerBot
-        return QString("M135: Set PID sample interval");
+        return QStringLiteral("M135: Set PID sample interval");
     case M140://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware - MakerBot
-        return QString("M140: Set Bed Temperature - Fast");
+        return QStringLiteral("M140: Set Bed Temperature - Fast");
     case M141://RepRap Firmware
-        return QString("M141: Set Chamber Temperature - Fast");
+        return QStringLiteral("M141: Set Chamber Temperature - Fast");
     case M143://RepRap Firmware
-        return QString("M143: Maximum hot-end temperature");
+        return QStringLiteral("M143: Maximum hot-end temperature");
     case M144://RepRap Firmware
-        return QString("M144: Stand by your bed");
+        return QStringLiteral("M144: Stand by your bed");
     case M150://Marlin
-        return QString("M150: Set display color");
+        return QStringLiteral("M150: Set display color");
     case M163://Repetier > 0.92
-        return QString("M163: Set weight of mixed material");
+        return QStringLiteral("M163: Set weight of mixed material");
     case M164://Repetier > 0.92
-        return QString("M164: Store weights");
+        return QStringLiteral("M164: Store weights");
     case M190://Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M190: Wait for bed temperaure to reach target temp");
+        return QStringLiteral("M190: Wait for bed temperaure to reach target temp");
     case M200://Marlin - Repetier - Smoothie
-        return QString("M200: Set filament diameter");
+        return QStringLiteral("M200: Set filament diameter");
     case M201://Sprinter - Marlin - Repetier - RepRap Firmware
-        return QString("M201: Set max printing acceleration");
+        return QStringLiteral("M201: Set max printing acceleration");
     case M202://Marlin - Repetier
-        return QString("M202: Set max travel acceleration");
+        return QStringLiteral("M202: Set max travel acceleration");
     case M203://Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M203: Set maximum feedrate");
+        return QStringLiteral("M203: Set maximum feedrate");
     case M204://Sprinter - Marlin - Repetier - Smoothie
-        return QString("M204: Set default acceleration");
+        return QStringLiteral("M204: Set default acceleration");
     case M205://Sprinter - Marlin - Repetier - Smoothie
-        return QString("M205: Advanced settings");
+        return QStringLiteral("M205: Advanced settings");
     case M206://Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M206: Offset axes for Sprinter, Marlin, Smoothie, RepRap Firmware / Set eeprom value for Repetier");
+        return QStringLiteral("M206: Offset axes for Sprinter, Marlin, Smoothie, RepRap Firmware / Set eeprom value for Repetier");
     case M207://Marlin - Smoothie
-        return QString("M207: Set retract length ");
+        return QStringLiteral("M207: Set retract length ");
     case M208://Marlin - Smoothie
-        return QString("M208: Set unretract length");
+        return QStringLiteral("M208: Set unretract length");
     case M209://Marlin - Repetier
-        return QString("M209: Enable automatic retract");
+        return QStringLiteral("M209: Enable automatic retract");
     case M212://Marlin
-        return QString("M212: Set Bed Level Sensor Offset");
+        return QStringLiteral("M212: Set Bed Level Sensor Offset");
     case M218://Marlin
-        return QString("M218: Set Hotend Offset");
+        return QStringLiteral("M218: Set Hotend Offset");
     case M220://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M220: Set speed factor override percentage");
+        return QStringLiteral("M220: Set speed factor override percentage");
     case M221://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M221: Set extrude factor override percentage");
+        return QStringLiteral("M221: Set extrude factor override percentage");
     case M226://Marlin - Repetier
-        return QString("M226: Wait for pin state");
+        return QStringLiteral("M226: Wait for pin state");
     case M231://Repetier
-        return QString("M231: Set OPS parameter ");
+        return QStringLiteral("M231: Set OPS parameter ");
     case M232://Repetier
-        return QString("M232: Read and reset max. advance values");
+        return QStringLiteral("M232: Read and reset max. advance values");
     case M240: //Marlin
-        return QString("M240: Trigger camera ");
+        return QStringLiteral("M240: Trigger camera ");
     case M250://Marlin
-        return QString("M250: Set LCD contrast");
+        return QStringLiteral("M250: Set LCD contrast");
     case M251://Repetier
-        return QString("M251: Measure Z steps from homing stop (Delta printers) ");
+        return QStringLiteral("M251: Measure Z steps from homing stop (Delta printers) ");
     case M280://Marlin
-        return QString("M280: Set servo position ");
+        return QStringLiteral("M280: Set servo position ");
     case M300://Marlin - Repetier - RepRap Firmware - MakerBot
-        return QString("M300: Play beep sound ");
+        return QStringLiteral("M300: Play beep sound ");
     case M301://Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M301: Set PID parameters");
+        return QStringLiteral("M301: Set PID parameters");
     case M302://Marlin - Repetier > 0.92 - RepRap Firmware
-        return QString("M302: Allow cold extrudes ");
+        return QStringLiteral("M302: Allow cold extrudes ");
     case M303://Sprinter - Marlin - Repetier - Smoothie
-        return QString("M303: Run PID tuning ");
+        return QStringLiteral("M303: Run PID tuning ");
     case M304://Marlin - RepRap Firmware
-        return QString("M304: Set PID parameters - Bed ");
+        return QStringLiteral("M304: Set PID parameters - Bed ");
     case M305:// Smoothie - RepRap Firmware
-        return QString("M305: Set thermistor and ADC parameters ");
+        return QStringLiteral("M305: Set thermistor and ADC parameters ");
     case M306:// Smoothie
-        return QString("M306: set home offset calculated from toolhead position ");
+        return QStringLiteral("M306: set home offset calculated from toolhead position ");
     case M320://Repeier
-        return QString("M320: Activate autolevel (Repetier) ");
+        return QStringLiteral("M320: Activate autolevel (Repetier) ");
     case M321://Repetier
-        return QString("M321: Deactivate autolevel (Repetier) ");
+        return QStringLiteral("M321: Deactivate autolevel (Repetier) ");
     case M322://Repetier
-        return QString("M322: Reset autolevel matrix (Repetier) ");
+        return QStringLiteral("M322: Reset autolevel matrix (Repetier) ");
     case M323://Repetier
-        return QString("M323: Distortion correction on/off (Repetier) ");
+        return QStringLiteral("M323: Distortion correction on/off (Repetier) ");
     case M340://Repetier
-        return QString(" M340: Control the servos ");
+        return QStringLiteral(" M340: Control the servos ");
     case M350://Marlin - Repetier - RepRap Firmware
-        return QString("M350: Set microstepping mode ");
+        return QStringLiteral("M350: Set microstepping mode ");
     case M351://Marlin
-        return QString("M351: Toggle MS1 MS2 pins directly ");
+        return QStringLiteral("M351: Toggle MS1 MS2 pins directly ");
     case M355://Repetier > 0.92.2
-        return QString("M355: Turn case lights on/off ");
+        return QStringLiteral("M355: Turn case lights on/off ");
     case M360://Repetier > 9.92.2
-        return QString("M360: Report firmware configuration ");
+        return QStringLiteral("M360: Report firmware configuration ");
     case M361://Smoothie
-        return QString("M361: Move to Theta 90 degree position ");
+        return QStringLiteral("M361: Move to Theta 90 degree position ");
     case M362://Smoothie
-        return QString("M362: Move to Psi 0 degree position ");
+        return QStringLiteral("M362: Move to Psi 0 degree position ");
     case M363://Smoothie
-        return QString("M363: Move to Psi 90 degree position ");
+        return QStringLiteral("M363: Move to Psi 90 degree position ");
     case M364://Smoothie
-        return QString("M364: Move to Psi + Theta 90 degree position");
+        return QStringLiteral("M364: Move to Psi + Theta 90 degree position");
     case M365://Smoothie
-        return QString("M365: SCARA scaling factor ");
+        return QStringLiteral("M365: SCARA scaling factor ");
     case M366://Smoothie
-        return QString("M366: SCARA convert trim ");
+        return QStringLiteral("M366: SCARA convert trim ");
     case M370://Smoothie
-        return QString("M370: Morgan manual bed level - clear map ");
+        return QStringLiteral("M370: Morgan manual bed level - clear map ");
     case M371://Smoothie
-        return QString("M371: Move to next calibration position ");
+        return QStringLiteral("M371: Move to next calibration position ");
     case M372://Smoothie
-        return QString("M372: Record calibration value, and move to next position ");
+        return QStringLiteral("M372: Record calibration value, and move to next position ");
     case M373://Smoothie
-        return QString("M373: End bed level calibration mode ");
+        return QStringLiteral("M373: End bed level calibration mode ");
     case M374://Smoothie
-        return QString("M374: Save calibration grid ");
+        return QStringLiteral("M374: Save calibration grid ");
     case M375://Smoothie
-        return QString("M375: Display matrix / Load Matrix ");
+        return QStringLiteral("M375: Display matrix / Load Matrix ");
     case M380://Marlin
-        return QString("M380: Activate solenoid ");
+        return QStringLiteral("M380: Activate solenoid ");
     case M381://Marlin
-        return QString("M381: Disable all solenoids ");
+        return QStringLiteral("M381: Disable all solenoids ");
     case M400://Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M400: Wait for current moves to finish ");
+        return QStringLiteral("M400: Wait for current moves to finish ");
     case M401://Marlin
-        return QString("M401: Lower z-probe ");
+        return QStringLiteral("M401: Lower z-probe ");
     case M402://Marlin
-        return QString("M402: Raise z-probe");
+        return QStringLiteral("M402: Raise z-probe");
     case M404://Marlin - RepRap Firmware
-        return QString("M404: Filament width and nozzle diameter ");
+        return QStringLiteral("M404: Filament width and nozzle diameter ");
     case M405://Marlin
-        return QString("M405: Filament Sensor on ");
+        return QStringLiteral("M405: Filament Sensor on ");
     case M406://Marlin
-        return QString("M406: Filament Sensor off");
+        return QStringLiteral("M406: Filament Sensor off");
     case M407://Marlin - RepRap Firmware
-        return QString("M407: Display filament diameter ");
+        return QStringLiteral("M407: Display filament diameter ");
     case M408://RepRap Firmware
-        return QString("M408: Report JSON-style response ");
+        return QStringLiteral("M408: Report JSON-style response ");
     case M420:
-        return QString(" M420: Enable/Disable Mesh Leveling (Marlin)");
+        return QStringLiteral(" M420: Enable/Disable Mesh Leveling (Marlin)");
     case M450://Repetier
-        return QString("M450: Report Printer Mode ");
+        return QStringLiteral("M450: Report Printer Mode ");
     case M451://Repetier
-        return QString("M451: Select FFF Printer Mode");
+        return QStringLiteral("M451: Select FFF Printer Mode");
     case M452://Repetier
-        return QString("M452: Select Laser Printer Mode ");
+        return QStringLiteral("M452: Select Laser Printer Mode ");
     case M453://Repetier
-        return QString("M453: Select CNC Printer Mode ");
+        return QStringLiteral("M453: Select CNC Printer Mode ");
     case M460://Repetier
-        return QString("M460: Define temperature range for thermistor controlled fan ");
+        return QStringLiteral("M460: Define temperature range for thermistor controlled fan ");
     case M500://Sprinter - Marlin - Repetier - RepRap Firmware
-        return QString("M500: Store parameters in EEPROM");
+        return QStringLiteral("M500: Store parameters in EEPROM");
     case M501://Sprinter - Marlin - Repetier - RepRap Firmware
-        return QString("M501: Read parameters from EEPROM ");
+        return QStringLiteral("M501: Read parameters from EEPROM ");
     case M502://Sprinter - Marlin - Repetier - RepRap Firmware
-        return QString("M502: Revert to the default 'factory settings'.");
+        return QStringLiteral("M502: Revert to the default 'factory settings'.");
     case M503://Sprinter - Marlin - RepRap Firmware
-        return QString("M503: Print settings ");
+        return QStringLiteral("M503: Print settings ");
     case M540://Marlin
-        return QString("M540: Enable/Disable 'Stop SD Print on Endstop Hit' ");
+        return QStringLiteral("M540: Enable/Disable 'Stop SD Print on Endstop Hit' ");
     case M550://RepRap Firmware
-        return QString("M550: Set Name ");
+        return QStringLiteral("M550: Set Name ");
     case M551://RepRap Firmware
-        return QString("M551: Set Password ");
+        return QStringLiteral("M551: Set Password ");
     case M552://RepRap Firmware
-        return QString("M552: Set IP address ");
+        return QStringLiteral("M552: Set IP address ");
     case M553://RepRap Firmware
-        return QString(" M553: Set Netmask ");
+        return QStringLiteral(" M553: Set Netmask ");
     case M554://RepRap Firmware
-        return QString("M554: Set Gateway ");
+        return QStringLiteral("M554: Set Gateway ");
     case M555://RepRap Firmware
-        return QString("M555: Set compatibility ");
+        return QStringLiteral("M555: Set compatibility ");
     case M556://RepRap Firmware
-        return QString("M556: Axis compensation ");
+        return QStringLiteral("M556: Axis compensation ");
     case M557://Smoothie - RepRap Firmware
-        return QString("M557: Set Z probe point ");
+        return QStringLiteral("M557: Set Z probe point ");
     case M558://RepRap Firmware
-        return QString("M558: Set Z probe type ");
+        return QStringLiteral("M558: Set Z probe type ");
     case M559://RepRap Firmware
-        return QString("M559: Upload configuration file ");
+        return QStringLiteral("M559: Upload configuration file ");
     case M560://RepRap Firmware
-        return QString("M560: Upload web page file ");
+        return QStringLiteral("M560: Upload web page file ");
     case M561://Smoothie - RepRap Firmware
-        return QString("M561: Set Identity Transform ");
+        return QStringLiteral("M561: Set Identity Transform ");
     case M562://RepRap Firmware
-        return QString("M562: Reset temperature fault ");
+        return QStringLiteral("M562: Reset temperature fault ");
     case M563://RepRap Firmware
-        return QString("M563: Define or remove a tool ");
+        return QStringLiteral("M563: Define or remove a tool ");
     case M564://RepRap Firmware
-        return QString("M564: Limit axes ");
+        return QStringLiteral("M564: Limit axes ");
     case M565://Smoothie
-        return QString("M565: Set Z probe offset ");
+        return QStringLiteral("M565: Set Z probe offset ");
     case M566://RepRap Firmware
-        return QString("M566: Set allowable instantaneous speed change ");
+        return QStringLiteral("M566: Set allowable instantaneous speed change ");
     case M567://RepRap Firmware
-        return QString("M567: Set tool mix ratio");
+        return QStringLiteral("M567: Set tool mix ratio");
     case M568://RepRap Firmware
-        return QString("M568: Turn off/on tool mix ratio");
+        return QStringLiteral("M568: Turn off/on tool mix ratio");
     case M569://RepRap Firmware
-        return QString("M569: Set axis direction and enable values ");
+        return QStringLiteral("M569: Set axis direction and enable values ");
     case M570://RepRap Firmware
-        return QString("M570: Set heater timeout ");
+        return QStringLiteral("M570: Set heater timeout ");
     case M571://RepRap Firmware
-        return QString("M571: Set output on extrude ");
+        return QStringLiteral("M571: Set output on extrude ");
     case M573://RepRap Firmware
-        return QString("M573: Report heater PWM ");
+        return QStringLiteral("M573: Report heater PWM ");
     case M574://RepRap Firmware
-        return QString(" M574: Set endstop configuration ");
+        return QStringLiteral(" M574: Set endstop configuration ");
     case M575://RepRap Firmware
-        return QString("M575: Set serial comms parameters ");
+        return QStringLiteral("M575: Set serial comms parameters ");
     case M577://RepRap Firmware
-        return QString("M577: Wait until endstop is triggered ");
+        return QStringLiteral("M577: Wait until endstop is triggered ");
     case M578://RepRap Firmware
-        return QString("M578: Fire inkjet bits ");
+        return QStringLiteral("M578: Fire inkjet bits ");
     case M579://RepRap Firmware
-        return QString("M579: Scale Cartesian axes ");
+        return QStringLiteral("M579: Scale Cartesian axes ");
     case M580://RepRap Firmware
-        return QString("M580: Select Roland ");
+        return QStringLiteral("M580: Select Roland ");
     case M600://Marlin
-        return QString("M600: Filament change pause");
+        return QStringLiteral("M600: Filament change pause");
     case M605://Marlin
-        return QString("M605: Set dual x-carriage movement mode ");
+        return QStringLiteral("M605: Set dual x-carriage movement mode ");
     case M665://Marlin - Smoothie - RepRap Firmware
-        return QString("M665: Set delta configuration ");
+        return QStringLiteral("M665: Set delta configuration ");
     case M666://Marlin - Repetier - Smoothie - RepRap Firmware
-        return QString("M666: Set delta endstop adjustment ");
+        return QStringLiteral("M666: Set delta endstop adjustment ");
     case M667://RepRap Firmware
-        return QString("M667: Select CoreXY mode ");
+        return QStringLiteral("M667: Select CoreXY mode ");
     case M851://Marlin
-        return QString("M851: Set Z-Probe Offset ");
+        return QStringLiteral("M851: Set Z-Probe Offset ");
     case M906://RepRap Firmware
-        return QString("M906: Set motor currents");
+        return QStringLiteral("M906: Set motor currents");
     case M907://Marlin - Repetier - Smoothie
-        return QString("M907: Set digital trimpot motor ");
+        return QStringLiteral("M907: Set digital trimpot motor ");
     case M908://Marlin - Repetier > 0.92
-        return QString("M908: Control digital trimpot directly");
+        return QStringLiteral("M908: Control digital trimpot directly");
     case M911://RepRap Firmware
-        return QString("M911: Set power monitor threshold voltages ");
+        return QStringLiteral("M911: Set power monitor threshold voltages ");
     case M912://RepRap Firmware
-        return QString("M912: Set electronics temperature monitor adjustment");
+        return QStringLiteral("M912: Set electronics temperature monitor adjustment");
     case M913://RepRap Firmware
-        return QString("M913: Set motor percentage of normal current ");
+        return QStringLiteral("M913: Set motor percentage of normal current ");
     case M928://Marlin
-        return QString("M928: Start SD logging ");
+        return QStringLiteral("M928: Start SD logging ");
     case M997://RepRap Firmware
-        return QString("M997: Perform in-application firmware update ");
+        return QStringLiteral("M997: Perform in-application firmware update ");
     case M998://RepRap Firmware
-        return QString("M998: Request resend of line");
+        return QStringLiteral("M998: Request resend of line");
     case M999://Marlin - Smoothie - RepRap Firmware
-        return QString(" M999: Restart after being stopped by error ");
+        return QStringLiteral(" M999: Restart after being stopped by error ");
     default:
-        return QString("Not implemented or not supported!");
+        return QStringLiteral("Not implemented or not supported!");
 
     }
 }
@@ -497,52 +497,52 @@ QString toCommand(MCommands gcode, const QString &value)
     switch (gcode) {
     case M104: {
         if(!value.isEmpty())
-            return QString("M104 S%1").arg(value);
+            return QStringLiteral("M104 S%1").arg(value);
         else
-            return QString("ERROR! M104: It's obligatory have an argument");
+            return QStringLiteral("ERROR! M104: It's obligatory have an argument");
     }
     case M105:
-        return QString("M105");
+        return QStringLiteral("M105");
     case M106:
-        return QString("M106");
+        return QStringLiteral("M106");
     case M107:
-        return QString("M107");
+        return QStringLiteral("M107");
     case M112:
-        return QString("M112");
+        return QStringLiteral("M112");
     case M114:
-        return QString("M114");
+        return QStringLiteral("M114");
     case M115:
-        return QString("M115");
+        return QStringLiteral("M115");
     case M116:
-        return QString("M116");
+        return QStringLiteral("M116");
     case M117: {
         if(!value.isEmpty())
-            return QString("M117 %1").arg(value);
+            return QStringLiteral("M117 %1").arg(value);
         else
-            return QString("ERROR! M117: It's obligatory have an argument");
+            return QStringLiteral("ERROR! M117: It's obligatory have an argument");
     }
     case M119:
-        return QString("M119");
+        return QStringLiteral("M119");
     case M140: {
         if(!value.isEmpty())
-            return QString("M140 S%1").arg(value);
+            return QStringLiteral("M140 S%1").arg(value);
         else
-            return QString("ERROR! M140: It's obligatory have an argument");
+            return QStringLiteral("ERROR! M140: It's obligatory have an argument");
     }
     case M220: {
         if(!value.isEmpty())
-            return QString("M220 S%1").arg(value);
+            return QStringLiteral("M220 S%1").arg(value);
         else
-            return QString("ERROR! M220: It's obligatory have an argument");
+            return QStringLiteral("ERROR! M220: It's obligatory have an argument");
     }
     case M221: {
         if(!value.isEmpty())
-            return QString("M221 S%1").arg(value);
+            return QStringLiteral("M221 S%1").arg(value);
         else
-            return QString("ERROR! M221: It's obligatory have an argument");
+            return QStringLiteral("ERROR! M221: It's obligatory have an argument");
     }
     default:
-        return QString("Not supported or implemented!");
+        return QStringLiteral("Not supported or implemented!");
     }
 }
 }
