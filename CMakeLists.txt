@@ -19,14 +19,5 @@ find_package(Qt5 REQUIRED COMPONENTS
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-set(kps_SRCS
-    src/main.cpp
-    src/mainwindow.cpp
-    src/seriallayer.cpp
-    src/gcodecommands.cpp
-    src/protocollayer.cpp
-    ${KPS_UI_SRCS}
-)
-
-add_executable(kps ${kps_SRCS} ${KPS_UI_SRCS})
-target_link_libraries(kps Qt5::Core Qt5::Quick Qt5::Widgets Qt5::SerialPort)
+add_subdirectory(src)
+add_subdirectory(testclient)
