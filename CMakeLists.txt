@@ -1,4 +1,4 @@
-project(kps)
+project(AtCore)
 
 cmake_minimum_required(VERSION 3.5)
 
