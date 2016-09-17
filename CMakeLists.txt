@@ -1,20 +1,20 @@
-project (kps)
+project(kps)
 
-cmake_minimum_required( VERSION 3.5)
+cmake_minimum_required(VERSION 3.5)
 
-set (CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 
 if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUXX)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
 endif()
 
 find_package(Qt5 REQUIRED COMPONENTS
-                Core
-                Test
-                Quick
-                Widgets
-                SerialPort
+    Core
+    Test
+    Quick
+    Widgets
+    SerialPort
 )
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
@@ -30,4 +30,3 @@ set(kps_SRCS
 
 add_executable(kps ${kps_SRCS} ${KPS_UI_SRCS})
 target_link_libraries(kps Qt5::Core Qt5::Quick Qt5::Widgets Qt5::SerialPort)
-
