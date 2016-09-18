@@ -46,11 +46,25 @@ bool AtCore::initFirmware(const QString& port, int baud)
     connect(pro, &ProtocolLayer::receivedMessage, this, [=] {
         QByteArray lastMessage = pro->popCommand();
         if(lastMessage.startsWith("FIRMWARE")){
-            if(lastMessage.contains("Repetier")){
-                d->pluginLoader.setFileName("atcore_repetier");
-                if (!d->pluginLoader.load())
-                    qDebug() << "Error loading plugin.";
-                d->fwPlugin = qobject_cast<IFirmware*>(d->pluginLoader.instance());
+            QStringList files = d->pluginsDir.entryList(QDir::Files);
+            foreach(QString file, files) {
+                #if defined(Q_OS_WIN)
+                if (file.endsWith(".dll"))
+                #elif defined(Q_OS_MAC)
+                if (file.endsWith(".dylib"))
+                #elif defined(Q_OS_LINUX)
+                if (file.endsWith(".so"))
+                #endif
+                    file = file.split('.').at(0);
+                else
+                    continue;
+
+                if (lastMessage.contains(file.toLocal8Bit())) {
+                    d->pluginLoader.setFileName("atcore_repetier");
+                    if (!d->pluginLoader.load())
+                        qDebug() << "Error loading plugin.";
+                    d->fwPlugin = qobject_cast<IFirmware*>(d->pluginLoader.instance());
+                }
             }
         }
     });
