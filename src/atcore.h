@@ -19,6 +19,7 @@ public:
 
     ProtocolLayer *protocol() const;
 private:
+    void findFirmware(const QByteArray& message);
     AtCorePrivate *d;
 };
 
