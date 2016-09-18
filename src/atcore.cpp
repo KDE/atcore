@@ -15,6 +15,7 @@ struct AtCorePrivate {
     QPluginLoader pluginLoader;
     QDir pluginsDir;
     IFirmware *fwPlugin;
+    ProtocolLayer *protocol;
 };
 
 AtCore::AtCore(QObject* parent) : QObject(parent), d(new AtCorePrivate)
@@ -38,59 +39,39 @@ ProtocolLayer * AtCore::protocol() const
 {
 }
 
+void AtCore::findFirmware(const QByteArray& message)
+{
+    if(!message.startsWith("FIRMWARE"))
+        return;
+
+    QStringList files = d->pluginsDir.entryList(QDir::Files);
+    foreach(QString file, files) {
+        #if defined(Q_OS_WIN)
+        if (file.endsWith(".dll"))
+        #elif defined(Q_OS_MAC)
+        if (file.endsWith(".dylib"))
+        #elif defined(Q_OS_LINUX)
+        if (file.endsWith(".so"))
+        #endif
+            file = file.split('.').at(0);
+        else
+            continue;
+
+        if (!message.contains(file.toLocal8Bit()))
+            continue;
+
+        d->pluginLoader.setFileName(file.toLocal8Bit());
+        if (!d->pluginLoader.load())
+            qDebug() << "Error loading plugin.";
+        d->fwPlugin = qobject_cast<IFirmware*>(d->pluginLoader.instance());
+    }
+}
+
 bool AtCore::initFirmware(const QString& port, int baud)
 {
     auto pro = new ProtocolLayer(port, baud);
-
-    // TODO: Add a Log Dispatcher, the current way depends on MainWindow.
-    connect(pro, &ProtocolLayer::receivedMessage, this, [=] {
-        QByteArray lastMessage = pro->popCommand();
-        if(lastMessage.startsWith("FIRMWARE")){
-            QStringList files = d->pluginsDir.entryList(QDir::Files);
-            foreach(QString file, files) {
-                #if defined(Q_OS_WIN)
-                if (file.endsWith(".dll"))
-                #elif defined(Q_OS_MAC)
-                if (file.endsWith(".dylib"))
-                #elif defined(Q_OS_LINUX)
-                if (file.endsWith(".so"))
-                #endif
-                    file = file.split('.').at(0);
-                else
-                    continue;
-
-                if (lastMessage.contains(file.toLocal8Bit())) {
-                    d->pluginLoader.setFileName("atcore_repetier");
-                    if (!d->pluginLoader.load())
-                        qDebug() << "Error loading plugin.";
-                    d->fwPlugin = qobject_cast<IFirmware*>(d->pluginLoader.instance());
-                }
-            }
-        }
-    });
-
-// TODO:Add a log dispatcher.
-//  connect(pro, &ProtocolLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
-//  addLog(tr("Connecting to %1").arg(port));
-
-    //Not sure if this is the best way - it doesn't blocks the UI?
-    QTime waitTime = QTime::currentTime().addMSecs( 20000 );
-    while( QTime::currentTime() < waitTime )
-    {
-        QCoreApplication::processEvents( QEventLoop::AllEvents, 100 );
-    }
-
-    // What this command does?
+    connect(pro, &ProtocolLayer::receivedMessage, this, &AtCore::findFirmware);
     pro->pushCommand("M115");
-
-    waitTime = QTime::currentTime().addMSecs( 2000 );
-    while( QTime::currentTime() < waitTime )
-    {
-        QCoreApplication::processEvents( QEventLoop::AllEvents, 100 );
-    }
-
-    // Till here the callback should already be called.
-
 }
 
 bool AtCore::isInitialized()
