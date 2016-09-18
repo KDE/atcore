@@ -4,8 +4,7 @@
 #include <QObject>
 #include <QString>
 
-class IFirmware : public QObject {
-    Q_OBJECT
+class IFirmware {
 public:
     IFirmware(QObject *parent = 0);
     virtual QString name() const = 0;
