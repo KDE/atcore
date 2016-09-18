@@ -1,3 +1,4 @@
+add_subdirectory(plugins)
 
 set(AtCoreLib_SRCS
     atcore.cpp
