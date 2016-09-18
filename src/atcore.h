@@ -4,9 +4,14 @@
 #include <QObject>
 #include <QList>
 #include <QSerialPortInfo>
+#include <QLoggingCategory>
 
 class ProtocolLayer;
 struct AtCorePrivate;
+
+Q_DECLARE_LOGGING_CATEGORY(Received)
+Q_DECLARE_LOGGING_CATEGORY(Sended)
+Q_DECLARE_LOGGING_CATEGORY(FirmwarePlugin)
 
 class AtCore : public QObject {
 Q_OBJECT
