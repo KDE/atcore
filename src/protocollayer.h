@@ -1,6 +1,8 @@
 #pragma once
 
 #include "seriallayer.h"
+#include <QObject>
+#include <QString>
 
 class  ProtocolLayer : public SerialLayer
 {
@@ -15,6 +17,7 @@ public:
      */
     void print(const QString& fileName);
     ~ProtocolLayer();
+
 signals:
     /**
      * @brief Emit signal when message is received from the printer
@@ -22,6 +25,7 @@ signals:
      * @param msg : Message
      */
     void receivedMessage(const QByteArray& msg);
+
 private:
     QByteArray lastMessage;
     void newMessage(const QByteArray& msg);
