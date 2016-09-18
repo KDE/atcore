@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ui_mainwindow.h"
+#include "atcore.h"
+
 #include <QMainWindow>
 #include <QSerialPort>
 
@@ -149,4 +151,6 @@ private:
      * @param  msg: Message
      */
     void addSLog(QString msg);
+
+    AtCore *core;
 };

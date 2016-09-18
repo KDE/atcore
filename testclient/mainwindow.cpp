@@ -17,6 +17,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->baudRateLE->setValidator(validator);
     ui->baudRateLE->setText("115200");
     addLog(tr("Attempting to locate Serial Ports"));
+
+    core = new AtCore(this);
+
     locateSerialPort();
 
     connect(ui->connectPB, &QPushButton::clicked, this, &MainWindow::connectPBClicked);
@@ -75,7 +78,7 @@ void MainWindow::addSLog(QString msg)
 
 void MainWindow::checkReceivedCommand()
 {
-    addRLog(pro->popCommand());
+    addRLog(core->protocol()->popCommand());
 }
 
 void MainWindow::checkPushedCommands(QByteArray bmsg)
@@ -96,77 +99,79 @@ void MainWindow::locateSerialPort()
 {   QStringList ports;
     QList<QSerialPortInfo> serialPortInfoList = QSerialPortInfo::availablePorts();
     if(!serialPortInfoList.isEmpty())
-    {   foreach (const QSerialPortInfo &serialPortInfo, serialPortInfoList) {
+    {
+        foreach (const QSerialPortInfo &serialPortInfo, serialPortInfoList)
+        {
             ports.append("/dev/"+serialPortInfo.portName());
         }
         if(ports == serialPortList)
+        {
             return;
-        else{
+        }
+        else
+        {
             serialPortList.clear();
             serialPortList = ports;
             ui->serialPortCB->clear();
             ui->serialPortCB->addItems(serialPortList);
             addLog(tr("Found %1 Ports").arg(QString::number(serialPortList.count())));
         }
-    }else{
+    }
+    else
+    {
         addLog(tr("Not available ports! Please connect a serial device to continue!"));
     }
 
 }
 void MainWindow::connectPBClicked()
 {
-    QString port = ui->serialPortCB->currentText();
-    uint baud = ui->baudRateLE->text().toUInt();
-    pro = new ProtocolLayer(port, baud);
-    connect(pro, &ProtocolLayer::receivedMessage, this, &MainWindow::checkReceivedCommand);
-    connect(pro, &ProtocolLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
-    ui->logTE->clear();
-    addLog(tr("Connected to %1").arg(port));
+    core->initFirmware(ui->serialPortCB->currentText(), ui->baudRateLE->text().toInt());
+    connect(core->protocol(), &ProtocolLayer::receivedMessage, this, &MainWindow::checkReceivedCommand);
+
 }
 
 void MainWindow::disconnectPBClicked()
 {
-    pro->closeConnection();
-    delete(pro);
+    core->protocol()->closeConnection();
     addLog(tr("Disconnected"));
 }
 
 void MainWindow::sendPBClicked()
 {
     QByteArray comm = ui->commandLE->text().toUpper().toLocal8Bit();
-    pro->pushCommand(comm);
+    core->protocol()->pushCommand(comm);
     ui->commandLE->clear();
 }
 
 void MainWindow::homeAllPBClicked()
 {
     addSLog(tr("Home All"));
-    pro->pushCommand(QString("G28").toLocal8Bit());
+    core->protocol()->pushCommand(QString("G28").toLocal8Bit());
 }
 
 void MainWindow::homeXPBClicked()
 {
     addSLog(tr("Home X"));
-    pro->pushCommand(QString("G28 X0").toLocal8Bit());
+    core->protocol()->pushCommand(QString("G28 X0").toLocal8Bit());
 }
 
 void MainWindow::homeYPBClicked()
 {
     addSLog(tr("Home Y"));
-    pro->pushCommand(QString("G28 Y0").toLocal8Bit());
+    core->protocol()->pushCommand(QString("G28 Y0").toLocal8Bit());
 }
 
 void MainWindow::homeZPBClicked()
 {
     addSLog(tr("Home Z"));
-    pro->pushCommand(QString("G28 Z0").toLocal8Bit());
+    core->protocol()->pushCommand(QString("G28 Z0").toLocal8Bit());
 }
 
 void MainWindow::bedTempPBClicked()
 {
     addSLog(tr("Set Bed Temp: %1")
         .arg(QString::number(ui->bedTempSB->value())));
-    pro->pushCommand(QString("M140 S%1")
+    core->protocol()->pushCommand(QString("M140 S%1")
         .arg(ui->bedTempSB->value()).toLocal8Bit());
 }
 
@@ -174,7 +179,7 @@ void MainWindow::extTempPBClicked()
 {
     addSLog(tr("Set Extruder(%1) Temp: %2")
         .arg(ui->extTempSelCB->currentText().at(9), QString::number(ui->extTempSB->value())));
-    pro->pushCommand(QString("M104 P%1 S%2")
+    core->protocol()->pushCommand(QString("M104 P%1 S%2")
         .arg(ui->extTempSelCB->currentText().at(9), QString::number(ui->extTempSB->value()))
         .toLocal8Bit());
 }
@@ -183,7 +188,7 @@ void MainWindow::mvAxisPBClicked()
 {
     addSLog(tr("Move %1 to %2")
         .arg(ui->mvAxisCB->currentText().at(5), QString::number(ui->mvAxisSB->value())));
-    pro->pushCommand(QString("G1 %1%2")
+    core->protocol()->pushCommand(QString("G1 %1%2")
         .arg(ui->mvAxisCB->currentText().at(5), QString::number(ui->mvAxisSB->value()))
         .toLocal8Bit());
 }
@@ -192,7 +197,7 @@ void MainWindow::fanSpeedPBClicked()
 {
     addSLog(tr("Set Fan(%1) Speed: %2\%")
         .arg(ui->fanSpeedSelCB->currentText().at(4), QString::number(ui->fanSpeedSB->value())));
-    pro->pushCommand(QString("M106 P%1 S%2")
+    core->protocol()->pushCommand(QString("M106 P%1 S%2")
         .arg(ui->fanSpeedSelCB->currentText().at(4), QString::number(ui->fanSpeedSB->value()))
         .toLocal8Bit());
 }
@@ -205,7 +210,7 @@ void MainWindow::printPBClicked()
     }
     else{
         addLog(tr("Print: %1").arg(fileName));
-        pro->print(fileName);
+        core->protocol()->print(fileName);
     }
 }
 
