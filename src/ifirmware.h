@@ -6,7 +6,6 @@
 
 class IFirmware {
 public:
-    IFirmware(QObject *parent = 0);
     virtual QString name() const = 0;
     // ADD THE METHODS HERE.
 };

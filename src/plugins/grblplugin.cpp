@@ -1,6 +1,11 @@
-#include "repetierplugin.h"
+#include "grblplugin.h"
+#include <QString>
 
-QString RepetierPlugin::name() const
+QString GrblPlugin::name() const
 {
-    return QStringLiteral("Repetier");
+    return QStringLiteral("Grbl");
+}
+
+GrblPlugin::GrblPlugin(QObject* parent)
+{
 }
