@@ -6,7 +6,7 @@
 #include <QSerialPortInfo>
 
 class ProtocolLayer;
-class AtCorePrivate;
+struct AtCorePrivate;
 
 class AtCore : public QObject {
 Q_OBJECT
