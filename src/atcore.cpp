@@ -12,11 +12,11 @@
 
 struct AtCorePrivate {
     ProtocolLayer *currentProtocol;
-    bool isInitialized;
-    QPluginLoader pluginLoader;
-    QDir pluginsDir;
     IFirmware *fwPlugin;
     ProtocolLayer *protocol;
+    QPluginLoader pluginLoader;
+    QDir pluginsDir;
+    bool isInitialized;
 };
 
 AtCore::AtCore(QObject* parent) : QObject(parent), d(new AtCorePrivate)
@@ -67,7 +67,7 @@ void AtCore::findFirmware(const QByteArray& message)
         if (file.endsWith(".dll"))
         #elif defined(Q_OS_MAC)
         if (file.endsWith(".dylib"))
-        #elif defined(Q_OS_LINUX)
+        #else
         if (file.endsWith(".so"))
         #endif
             file = file.split('.').at(0);
