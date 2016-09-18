@@ -127,7 +127,7 @@ void MainWindow::connectPBClicked()
 {
     core->initFirmware(ui->serialPortCB->currentText(), ui->baudRateLE->text().toInt());
     connect(core->protocol(), &ProtocolLayer::receivedMessage, this, &MainWindow::checkReceivedCommand);
-
+    connect(core->protocol(), &ProtocolLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
 }
 
 void MainWindow::disconnectPBClicked()

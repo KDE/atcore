@@ -3,6 +3,7 @@
 #include <QFile>
 #include <QEventLoop>
 #include <QTextStream>
+#include <QDebug>
 
 ProtocolLayer::ProtocolLayer(const QString& port, uint baud, QWidget *parent) :
     SerialLayer(port, baud, parent)
@@ -42,7 +43,7 @@ void ProtocolLayer::print(const QString& fileName)
                     loop.exec();
                 }
                 //Handle Messages from printer.
-                if (lastMessage == "ok 0"){
+                if (lastMessage.contains("ok")){
                     waiting = false;
                 }
 
