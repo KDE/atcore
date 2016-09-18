@@ -8,10 +8,18 @@
 #include "mainwindow.h"
 #include "protocollayer.h"
 
+static MainWindow *self;
+void debugInfoOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
+    self->addLog(QString(context.category) + " : " + msg);
+}
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    qInstallMessageHandler(debugInfoOutput);
+
+    self = this;
     ui->setupUi(this);
     QValidator *validator = new QIntValidator();
     ui->baudRateLE->setValidator(validator);

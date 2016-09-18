@@ -30,6 +30,12 @@ public slots:
      */
     void checkPushedCommands(QByteArray);
 
+    /**
+     * @brief Add in logger normal type message
+     *
+     * @param  msg: Message
+     */
+    void addLog(QString msg);
 private slots:
     //ButtonEvents
     /**
@@ -130,13 +136,6 @@ private:
      * @return QString
      */
     QString sLogHeader();
-
-    /**
-     * @brief Add in logger normal type message
-     *
-     * @param  msg: Message
-     */
-    void addLog(QString msg);
 
     /**
      * @brief Add in logger received type message
