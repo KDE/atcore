@@ -8,9 +8,11 @@ QString GrblPlugin::name() const
 
 GrblPlugin::GrblPlugin(QObject* parent)
 {
+
 }
 
 bool GrblPlugin::readyForNextCommand(const QString& lastMessage)
 {
+    Q_UNUSED(lastMessage);
     return true;
 }

@@ -4,7 +4,6 @@ set(AtCoreLib_SRCS
     atcore.cpp
     seriallayer.cpp
     gcodecommands.cpp
-    protocollayer.cpp
     ifirmware.h
 )
 

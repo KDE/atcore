@@ -1,6 +1,5 @@
 #include "repetierplugin.h"
 #include <QString>
-#include <QEventLoop>
 
 QString RepetierPlugin::name() const
 {

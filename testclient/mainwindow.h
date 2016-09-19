@@ -6,7 +6,7 @@
 #include <QMainWindow>
 #include <QSerialPort>
 
-class ProtocolLayer;
+class SerialLayer;
 
 class  MainWindow: public QMainWindow
 {

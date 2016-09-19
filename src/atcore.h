@@ -5,7 +5,7 @@
 #include <QList>
 #include <QSerialPortInfo>
 
-class ProtocolLayer;
+class SerialLayer;
 struct AtCorePrivate;
 
 class AtCore : public QObject {
@@ -17,7 +17,7 @@ public:
     bool initFirmware(const QString& port, int baud);
     bool isInitialized();
 
-    ProtocolLayer *protocol() const;
+    SerialLayer *serial() const;
 
     /**
      * @brief Print a file

@@ -6,7 +6,7 @@
 #include <QTextStream>
 
 #include "mainwindow.h"
-#include "protocollayer.h"
+#include "seriallayer.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -79,7 +79,7 @@ void MainWindow::addSLog(QString msg)
 
 void MainWindow::checkReceivedCommand()
 {
-    addRLog(core->protocol()->popCommand());
+    addRLog(core->serial()->popCommand());
 }
 
 void MainWindow::checkPushedCommands(QByteArray bmsg)
@@ -124,55 +124,56 @@ void MainWindow::locateSerialPort()
         addLog(tr("Not available ports! Please connect a serial device to continue!"));
     }
 }
+
 void MainWindow::connectPBClicked()
 {
     core->initFirmware(ui->serialPortCB->currentText(), ui->baudRateLE->text().toInt());
-    connect(core->protocol(), &ProtocolLayer::receivedMessage, this, &MainWindow::checkReceivedCommand);
-    connect(core->protocol(), &ProtocolLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
+    connect(core->serial(), &SerialLayer::receivedCommand, this, &MainWindow::checkReceivedCommand);
+    connect(core->serial(), &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
 }
 
 void MainWindow::disconnectPBClicked()
 {
-    core->protocol()->closeConnection();
+    core->serial()->closeConnection();
     addLog(tr("Disconnected"));
 }
 
 void MainWindow::sendPBClicked()
 {
     QByteArray comm = ui->commandLE->text().toUpper().toLocal8Bit();
-    core->protocol()->pushCommand(comm);
+    core->serial()->pushCommand(comm);
     ui->commandLE->clear();
 }
 
 void MainWindow::homeAllPBClicked()
 {
     addSLog(tr("Home All"));
-    core->protocol()->pushCommand(QString("G28").toLocal8Bit());
+    core->serial()->pushCommand(QString("G28").toLocal8Bit());
 }
 
 void MainWindow::homeXPBClicked()
 {
     addSLog(tr("Home X"));
-    core->protocol()->pushCommand(QString("G28 X0").toLocal8Bit());
+    core->serial()->pushCommand(QString("G28 X0").toLocal8Bit());
 }
 
 void MainWindow::homeYPBClicked()
 {
     addSLog(tr("Home Y"));
-    core->protocol()->pushCommand(QString("G28 Y0").toLocal8Bit());
+    core->serial()->pushCommand(QString("G28 Y0").toLocal8Bit());
 }
 
 void MainWindow::homeZPBClicked()
 {
     addSLog(tr("Home Z"));
-    core->protocol()->pushCommand(QString("G28 Z0").toLocal8Bit());
+    core->serial()->pushCommand(QString("G28 Z0").toLocal8Bit());
 }
 
 void MainWindow::bedTempPBClicked()
 {
     addSLog(tr("Set Bed Temp: %1")
         .arg(QString::number(ui->bedTempSB->value())));
-    core->protocol()->pushCommand(QString("M140 S%1")
+    core->serial()->pushCommand(QString("M140 S%1")
         .arg(ui->bedTempSB->value()).toLocal8Bit());
 }
 
@@ -180,7 +181,7 @@ void MainWindow::extTempPBClicked()
 {
     addSLog(tr("Set Extruder(%1) Temp: %2")
         .arg(ui->extTempSelCB->currentText().at(9), QString::number(ui->extTempSB->value())));
-    core->protocol()->pushCommand(QString("M104 P%1 S%2")
+    core->serial()->pushCommand(QString("M104 P%1 S%2")
         .arg(ui->extTempSelCB->currentText().at(9), QString::number(ui->extTempSB->value()))
         .toLocal8Bit());
 }
@@ -189,7 +190,7 @@ void MainWindow::mvAxisPBClicked()
 {
     addSLog(tr("Move %1 to %2")
         .arg(ui->mvAxisCB->currentText().at(5), QString::number(ui->mvAxisSB->value())));
-    core->protocol()->pushCommand(QString("G1 %1%2")
+    core->serial()->pushCommand(QString("G1 %1%2")
         .arg(ui->mvAxisCB->currentText().at(5), QString::number(ui->mvAxisSB->value()))
         .toLocal8Bit());
 }
@@ -198,7 +199,7 @@ void MainWindow::fanSpeedPBClicked()
 {
     addSLog(tr("Set Fan(%1) Speed: %2\%")
         .arg(ui->fanSpeedSelCB->currentText().at(4), QString::number(ui->fanSpeedSB->value())));
-    core->protocol()->pushCommand(QString("M106 P%1 S%2")
+    core->serial()->pushCommand(QString("M106 P%1 S%2")
         .arg(ui->fanSpeedSelCB->currentText().at(4), QString::number(ui->fanSpeedSB->value()))
         .toLocal8Bit());
 }

@@ -1,5 +1,5 @@
 #include "atcore.h"
-#include "protocollayer.h"
+#include "seriallayer.h"
 #include "ifirmware.h"
 
 #include <QDir>
@@ -13,9 +13,9 @@
 #include <QTextStream>
 
 struct AtCorePrivate {
-    ProtocolLayer *currentProtocol;
+    SerialLayer *currentProtocol;
     IFirmware *fwPlugin;
-    ProtocolLayer *protocol;
+    SerialLayer *serial;
     QPluginLoader pluginLoader;
     QDir pluginsDir;
     bool isInitialized;
@@ -41,16 +41,16 @@ AtCore::AtCore(QObject* parent) : QObject(parent), d(new AtCorePrivate)
     qDebug() << d->pluginsDir;
 }
 
-ProtocolLayer * AtCore::protocol() const
+SerialLayer * AtCore::serial() const
 {
-    return d->protocol;
+    return d->serial;
 }
 
 void AtCore::findFirmware(const QByteArray& message)
 {
     static int initialized = 0;
     if (!initialized) {
-        QTimer::singleShot(500, this, [=]{qDebug() << "Sending M115"; d->protocol->pushCommand("M115");});
+        QTimer::singleShot(500, this, [=]{qDebug() << "Sending M115"; d->serial->pushCommand("M115");});
         initialized = 1;
     }
 
@@ -101,15 +101,15 @@ void AtCore::findFirmware(const QByteArray& message)
         qDebug() << "Looking plugin in folder:" << d->pluginsDir;
     } else {
         qDebug() << "Connected to" << d->fwPlugin->name();
-        disconnect(d->protocol, &ProtocolLayer::receivedMessage, this, &AtCore::findFirmware);
-        connect(d->protocol, &ProtocolLayer::receivedMessage, this, &AtCore::newMessage);
+        disconnect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
+        connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::newMessage);
     }
 }
 
 bool AtCore::initFirmware(const QString& port, int baud)
 {
-    d->protocol = new ProtocolLayer(port, baud);
-    connect(d->protocol, &ProtocolLayer::receivedMessage, this, &AtCore::findFirmware);
+    d->serial = new SerialLayer(port, baud);
+    connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
 }
 
 bool AtCore::isInitialized()
@@ -124,7 +124,7 @@ QList<QSerialPortInfo> AtCore::serialPorts() const
 void AtCore::newMessage(const QByteArray& msg)
 {
     lastMessage = msg;
-    emit(receivedMessage(lastMessage));
+    emit( receivedMessage( lastMessage ) );
 }
 
 void AtCore::print(const QString& fileName)
@@ -143,10 +143,10 @@ void AtCore::print(const QString& fileName)
             cline.resize(cline.indexOf(QChar(';')));
         }
         if(!cline.isEmpty()){
-            d->protocol->pushCommand(cline.toLocal8Bit());
+            d->serial->pushCommand(cline.toLocal8Bit());
             bool waiting = true;
             while(waiting){
-                if(!d->protocol->commandAvailable()){
+                if(!d->serial->commandAvailable()){
                     loop.exec();
                 }
                 if(d->fwPlugin->readyForNextCommand(lastMessage)){
