@@ -1,4 +1,7 @@
+set(CMAKE_AUTOUIC ON)
+
 include_directories(../src)
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set(AtCoreTestClient_SRCS
     main.cpp
