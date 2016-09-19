@@ -97,7 +97,8 @@ void MainWindow::checkPushedCommands(QByteArray bmsg)
  * of serial ports
  */
 void MainWindow::locateSerialPort()
-{   QStringList ports;
+{
+    QStringList ports;
     QList<QSerialPortInfo> serialPortInfoList = QSerialPortInfo::availablePorts();
     if(!serialPortInfoList.isEmpty())
     {
@@ -122,7 +123,6 @@ void MainWindow::locateSerialPort()
     {
         addLog(tr("Not available ports! Please connect a serial device to continue!"));
     }
-
 }
 void MainWindow::connectPBClicked()
 {
@@ -211,7 +211,7 @@ void MainWindow::printPBClicked()
     }
     else{
         addLog(tr("Print: %1").arg(fileName));
-        core->protocol()->print(fileName);
+        core->print(fileName);
     }
 }
 

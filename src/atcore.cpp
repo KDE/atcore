@@ -126,6 +126,7 @@ void AtCore::newMessage(const QByteArray& msg)
     lastMessage = msg;
     emit(receivedMessage(lastMessage));
 }
+
 void AtCore::print(const QString& fileName)
 {
     QFile file(fileName);
