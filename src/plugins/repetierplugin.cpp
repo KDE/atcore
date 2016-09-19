@@ -1,5 +1,6 @@
 #include "repetierplugin.h"
 #include <QString>
+#include <QEventLoop>
 
 QString RepetierPlugin::name() const
 {
@@ -8,4 +9,12 @@ QString RepetierPlugin::name() const
 
 RepetierPlugin::RepetierPlugin(QObject* parent)
 {
+}
+
+bool RepetierPlugin::readyForNextCommand(const QString& lastMessage)
+{
+    if (lastMessage.contains("ok") || lastMessage.contains("wait")){
+        return true;
+    }
+    return false;
 }

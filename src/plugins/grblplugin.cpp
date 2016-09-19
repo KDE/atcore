@@ -9,3 +9,7 @@ QString GrblPlugin::name() const
 GrblPlugin::GrblPlugin(QObject* parent)
 {
 }
+bool GrblPlugin::readyForNextCommand(const QString& lastMessage)
+{
+    return true;
+}
