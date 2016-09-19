@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 
     QCoreApplication::setOrganizationName("KDE");
     QCoreApplication::setOrganizationDomain("kde.org");
-    QCoreApplication::setApplicationName("KPS - KDE Print Service");
+    QCoreApplication::setApplicationName("AtCore - KDE Print Service");
 
     MainWindow window;
     window.show();
