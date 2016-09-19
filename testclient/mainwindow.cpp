@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->connectPB, &QPushButton::clicked, this, &MainWindow::connectPBClicked);
     connect(ui->disconnectPB, &QPushButton::clicked, this, &MainWindow::disconnectPBClicked);
     connect(ui->sendPB, &QPushButton::clicked, this, &MainWindow::sendPBClicked);
+    connect(ui->commandLE, &QLineEdit::returnPressed, this, &MainWindow::sendPBClicked);
     connect(ui->homeAllPB, &QPushButton::clicked, this, &MainWindow::homeAllPBClicked);
     connect(ui->homeXPB, &QPushButton::clicked, this, &MainWindow::homeXPBClicked);
     connect(ui->homeYPB, &QPushButton::clicked, this, &MainWindow::homeYPBClicked);
