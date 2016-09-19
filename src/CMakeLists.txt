@@ -5,6 +5,7 @@ set(AtCoreLib_SRCS
     seriallayer.cpp
     gcodecommands.cpp
     protocollayer.cpp
+    ifirmware.h
 )
 
 add_library(AtCoreLib STATIC ${AtCoreLib_SRCS})
