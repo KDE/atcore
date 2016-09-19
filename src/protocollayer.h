@@ -10,12 +10,6 @@ Q_OBJECT
 
 public:
     ProtocolLayer(const QString& port, uint baud, QWidget *parent = 0);
-    /**
-     * @brief Print a file
-     *
-     * @param fileName : path of file to print
-     */
-    void print(const QString& fileName);
     ~ProtocolLayer();
 
 signals:

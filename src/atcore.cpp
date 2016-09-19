@@ -9,6 +9,8 @@
 #include <QDebug>
 #include <QTime>
 #include <QTimer>
+#include <QEventLoop>
+#include <QTextStream>
 
 struct AtCorePrivate {
     ProtocolLayer *currentProtocol;
@@ -100,6 +102,7 @@ void AtCore::findFirmware(const QByteArray& message)
     } else {
         qDebug() << "Connected to" << d->fwPlugin->name();
         disconnect(d->protocol, &ProtocolLayer::receivedMessage, this, &AtCore::findFirmware);
+        connect(d->protocol, &ProtocolLayer::receivedMessage, this, &AtCore::newMessage);
     }
 }
 
@@ -118,4 +121,39 @@ QList<QSerialPortInfo> AtCore::serialPorts() const
     return QList<QSerialPortInfo>();
 }
 
+void AtCore::newMessage(const QByteArray& msg)
+{
+    lastMessage = msg;
+    emit(receivedMessage(lastMessage));
+}
+void AtCore::print(const QString& fileName)
+{
+    QFile file(fileName);
+    file.open(QFile::ReadOnly);
+    QTextStream gcodestream(&file);
+    QString cline;
+    QEventLoop loop;
+    connect(this, &AtCore::receivedMessage, &loop, &QEventLoop::quit);
+
+    while(!gcodestream.atEnd()){
+        cline = gcodestream.readLine();
+        cline = cline.simplified();
+        if(cline.contains(QChar(';'))){
+            cline.resize(cline.indexOf(QChar(';')));
+        }
+        if(!cline.isEmpty()){
+            d->protocol->pushCommand(cline.toLocal8Bit());
+            bool waiting = true;
+            while(waiting){
+                if(!d->protocol->commandAvailable()){
+                    loop.exec();
+                }
+                if(d->fwPlugin->readyForNextCommand(lastMessage)){
+                    waiting = false;
+                }
+            }
+        }
+    }
+    disconnect(this, &AtCore::receivedMessage, &loop, &QEventLoop::quit);
+}
 
