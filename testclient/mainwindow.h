@@ -6,7 +6,7 @@
 #include <QMainWindow>
 #include <QSerialPort>
 
-class ProtocolLayer;
+class SerialLayer;
 
 class  MainWindow: public QMainWindow
 {
@@ -93,8 +93,8 @@ private slots:
     void printPBClicked();
 
 private:
-    ProtocolLayer *pro;
     Ui::MainWindow *ui;
+    AtCore *core;
     QStringList serialPortList;
 
     /**
@@ -152,5 +152,4 @@ private:
      */
     void addSLog(QString msg);
 
-    AtCore *core;
 };

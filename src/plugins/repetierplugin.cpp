@@ -9,3 +9,11 @@ QString RepetierPlugin::name() const
 RepetierPlugin::RepetierPlugin(QObject* parent)
 {
 }
+
+bool RepetierPlugin::readyForNextCommand(const QString& lastMessage)
+{
+    if (lastMessage.contains("ok") || lastMessage.contains("wait")){
+        return true;
+    }
+    return false;
+}
