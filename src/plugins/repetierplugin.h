@@ -11,6 +11,7 @@ class RepetierPlugin : public QObject, public IFirmware {
 public:
     RepetierPlugin(QObject *parent = 0);
     QString name() const override;
+    bool readyForNextCommand(const QString& lastMessage);
 };
 
 #endif
