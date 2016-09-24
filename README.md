@@ -1,24 +1,49 @@
 AtCore - KDE Print Service for 3DPrinters [![Build Status](https://travis-ci.org/TeamWho/AtCore.svg?branch=master)](https://travis-ci.org/TeamWho/AtCore)
-----------------------------------------------------
+----
 
-AtCore is a API to manage the serial connection between the computer and the 3DPrinter.
+AtCore is a API to manage the serial connection between the computer and 3D Printers.
 
->> It's currently in developing! <<
+> **Note:**
 
-This project is under LGPL V3, for more information read LICENSE
+> - It's currently in developing!
+> - Join us on [IRC] #kde-atelier channel.
 
-Join us on irc we can be found in #kde-atelier on freenode.
+This project is under LGPL V3, for more information read LICENSE.
 
 ###Testing AtCore###
 
-Testing is simple and will help us alot. Build the Atcore program run it and then connect to your printer. 
+Testing is simple and will help us a lot. 
 
-Send the command M115 while its running this will report the firmware your printer is using. 
+- 	<i class="icon-terminal" aria-hidden="true"></i>**Clone**.
+		
+	`$ git clone https://github.com/KDE/atcore.git`
 
-Try the buttons on GUI report on their working or not.
+- 	<i class="icon-terminal" aria-hidden="true"></i>**Build**.
 
-To Test Printing attempt to Print test/sample.gcode, it may not process more then one command. 
+	`$ cd atcore
+	 $ mkdir build
+	 $ cd build
+	 $ cmake ..
+	 $ make
+	 `
+- <i class="icon-wrench" aria-hidden="true"></i> **Connect your printer**.
 
-Copy your log before disconnecting from the printer and send it to the team.
+- 	<i class="icon-terminal" aria-hidden="true"></i>**Open**.
 
-For your test results to be helpful they must include the full log output and the results of the M115 Command. 
+	`$ ./testclient/AtCoreTest`
+
+- 	<i class="icon-lightbulb" aria-hidden="true"></i>**Test**.
+
+	Try the buttons on GUI to test the communication
+	
+-	<i class="icon-print" aria-hidden="true"></i> **Print**!
+
+	Print File <i class="icon-right-dir" aria-hidden="true"></i> Select a *.gcode <i class="icon-right-dir" aria-hidden="true"></i> Ok
+> **Note:**
+> To test printing attempt to Print test/sample.gcode, it may not process more then one command. 
+
+Copy your log before disconnecting from the printer and send it to the team !
+> **Note:**
+> For your test results to be helpful they must include the full log output. 
+
+[IRC]: https://webchat.freenode.net/
