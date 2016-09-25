@@ -6,7 +6,7 @@ QByteArray SerialLayer::_return = QByteArray("\r");
 QByteArray SerialLayer::_newLine = QByteArray("\n");
 QByteArray SerialLayer::_newLineReturn = QByteArray("\n\r");
 
-SerialLayer::SerialLayer(const QString& port, uint baud, QWidget *parent) :
+SerialLayer::SerialLayer(const QString &port, uint baud, QWidget *parent) :
     serial(new QSerialPort(this)),
     _serialOpened(false)
 {
@@ -30,30 +30,25 @@ void SerialLayer::readData()
      * Check if \r exist and remove
      * Both \n\r and \n are used in string's end and some protocols
      */
-    if (_rawData.contains(_return))
-    {
+    if (_rawData.contains(_return)) {
         _rawData = _rawData.replace(_return, QByteArray());
     }
 
     QByteArray tempArray;
     QList<QByteArray> tempList = _rawData.split(_newLine.at(0));
-    for (auto i = tempList.begin(); i != tempList.end(); ++i)
-    {
+    for (auto i = tempList.begin(); i != tempList.end(); ++i) {
         // Get finished line to _byteCommands
-        if (i < tempList.end()-1)
-        {
+        if (i < tempList.end() - 1) {
             _rByteCommands.append(*i);
             emit(receivedCommand(*i));
-        }
-        else
-        {
+        } else {
             _rawData.clear();
             _rawData.append(*i);
         }
     }
 }
 
-void SerialLayer::pushCommand(const QByteArray& comm, const QByteArray& term)
+void SerialLayer::pushCommand(const QByteArray &comm, const QByteArray &term)
 {
     QByteArray tmp = comm + term;
     serial->write(tmp);
@@ -61,26 +56,25 @@ void SerialLayer::pushCommand(const QByteArray& comm, const QByteArray& term)
 
 }
 
-void SerialLayer::pushCommand(const QByteArray& comm)
+void SerialLayer::pushCommand(const QByteArray &comm)
 {
     pushCommand(comm, _newLineReturn);
 }
 
-void SerialLayer::add(const QByteArray& comm, const QByteArray& term)
+void SerialLayer::add(const QByteArray &comm, const QByteArray &term)
 {
     QByteArray tmp = comm + term;
     _sByteCommands.append(tmp);
 }
 
-void SerialLayer::add(const QByteArray& comm)
+void SerialLayer::add(const QByteArray &comm)
 {
     add(comm, _newLineReturn);
 }
 
 void SerialLayer::push()
 {
-    foreach(const auto& comm, _sByteCommands)
-    {
+    foreach (const auto &comm, _sByteCommands) {
         serial->write(comm);
         emit(pushedCommand(comm));
     }
@@ -99,8 +93,7 @@ bool SerialLayer::commandAvailable()
 
 void SerialLayer::closeConnection()
 {
-    if(_serialOpened)
-    {
+    if (_serialOpened) {
         serial->close();
     }
 }
