@@ -6,13 +6,13 @@ QString RepetierPlugin::name() const
     return QStringLiteral("Repetier");
 }
 
-RepetierPlugin::RepetierPlugin(QObject* parent)
+RepetierPlugin::RepetierPlugin(QObject *parent)
 {
 }
 
-bool RepetierPlugin::readyForNextCommand(const QString& lastMessage)
+bool RepetierPlugin::readyForNextCommand(const QString &lastMessage)
 {
-    if (lastMessage.contains("ok") || lastMessage.contains("wait")){
+    if (lastMessage.contains("ok") || lastMessage.contains("wait")) {
         return true;
     }
     return false;

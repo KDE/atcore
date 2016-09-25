@@ -4,14 +4,15 @@
 #include "ifirmware.h"
 #include <QObject>
 
-class RepetierPlugin : public QObject, public IFirmware {
+class RepetierPlugin : public QObject, public IFirmware
+{
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.kde.atelier.core.firmware" FILE "repetier.json")
     Q_INTERFACES(IFirmware)
 public:
     RepetierPlugin(QObject *parent = 0);
     QString name() const override;
-    bool readyForNextCommand(const QString& lastMessage);
+    bool readyForNextCommand(const QString &lastMessage);
 };
 
 #endif
