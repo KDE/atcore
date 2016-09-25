@@ -6,12 +6,12 @@ QString GrblPlugin::name() const
     return QStringLiteral("Grbl");
 }
 
-GrblPlugin::GrblPlugin(QObject* parent)
+GrblPlugin::GrblPlugin(QObject *parent)
 {
 
 }
 
-bool GrblPlugin::readyForNextCommand(const QString& lastMessage)
+bool GrblPlugin::readyForNextCommand(const QString &lastMessage)
 {
     Q_UNUSED(lastMessage);
     return true;
