@@ -1,7 +1,8 @@
 #include "gcodecommands.h"
 #include <QObject>
 
-namespace GCode {
+namespace GCode
+{
 
 QString toString(Firmwares firmware)
 {
@@ -91,10 +92,11 @@ QString toCommand(GCommands gcode, QChar &c)
 {
     switch (gcode) {
     case G28: {
-        if(c.isNull())
+        if (c.isNull()) {
             return QStringLiteral("G28");
-        else
+        } else {
             return QStringLiteral("G28 %1").arg(c.toUpper());
+        }
     }
     case G32:
         return QStringLiteral("G32 S1");
@@ -107,7 +109,6 @@ QString toCommand(GCommands gcode, QChar &c)
 
     }
 }
-
 
 QString toString(MCommands gcode)
 {
@@ -497,10 +498,11 @@ QString toCommand(MCommands gcode, const QString &value)
 
     switch (gcode) {
     case M104: {
-        if(!value.isEmpty())
+        if (!value.isEmpty()) {
             return QStringLiteral("M104 S%1").arg(value);
-        else
+        } else {
             return QObject::tr("ERROR! M104: It's obligatory have an argument");
+        }
     }
     case M105:
         return QStringLiteral("M105");
@@ -517,30 +519,34 @@ QString toCommand(MCommands gcode, const QString &value)
     case M116:
         return QStringLiteral("M116");
     case M117: {
-        if(!value.isEmpty())
+        if (!value.isEmpty()) {
             return QStringLiteral("M117 %1").arg(value);
-        else
+        } else {
             return QObject::tr("ERROR! M117: It's obligatory have an argument");
+        }
     }
     case M119:
         return QStringLiteral("M119");
     case M140: {
-        if(!value.isEmpty())
+        if (!value.isEmpty()) {
             return QStringLiteral("M140 S%1").arg(value);
-        else
+        } else {
             return QObject::tr("ERROR! M140: It's obligatory have an argument");
+        }
     }
     case M220: {
-        if(!value.isEmpty())
+        if (!value.isEmpty()) {
             return QStringLiteral("M220 S%1").arg(value);
-        else
+        } else {
             return QObject::tr("ERROR! M220: It's obligatory have an argument");
+        }
     }
     case M221: {
-        if(!value.isEmpty())
+        if (!value.isEmpty()) {
             return QStringLiteral("M221 S%1").arg(value);
-        else
+        } else {
             return QObject::tr("ERROR! M221: It's obligatory have an argument");
+        }
     }
     default:
         return QObject::tr("Not supported or implemented!");
