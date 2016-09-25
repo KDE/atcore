@@ -21,19 +21,20 @@ struct AtCorePrivate {
     bool isInitialized;
 };
 
-AtCore::AtCore(QObject* parent) : QObject(parent), d(new AtCorePrivate)
+AtCore::AtCore(QObject *parent) : QObject(parent), d(new AtCorePrivate)
 {
     d->pluginsDir = QDir(qApp->applicationDirPath());
 
 #if defined(Q_OS_WIN)
-    if (d->pluginsDir.dirName().toLower() == "debug" || d->pluginsDir.dirName().toLower() == "release")
-          d->pluginsDir.cdUp();
+    if (d->pluginsDir.dirName().toLower() == "debug" || d->pluginsDir.dirName().toLower() == "release") {
+        d->pluginsDir.cdUp();
+    }
 #elif defined(Q_OS_MAC)
-      if (d->pluginsDir.dirName() == "MacOS") {
-          d->pluginsDir.cdUp();
-          d->pluginsDir.cdUp();
-          d->pluginsDir.cdUp();
-      }
+    if (d->pluginsDir.dirName() == "MacOS") {
+        d->pluginsDir.cdUp();
+        d->pluginsDir.cdUp();
+        d->pluginsDir.cdUp();
+    }
 #endif
     d->pluginsDir.cdUp();
     d->pluginsDir.cd("src");
@@ -41,21 +42,21 @@ AtCore::AtCore(QObject* parent) : QObject(parent), d(new AtCorePrivate)
     qDebug() << d->pluginsDir;
 }
 
-SerialLayer * AtCore::serial() const
+SerialLayer *AtCore::serial() const
 {
     return d->serial;
 }
 
-void AtCore::findFirmware(const QByteArray& message)
+void AtCore::findFirmware(const QByteArray &message)
 {
     static int initialized = 0;
     if (!initialized) {
-        QTimer::singleShot(500, this, [=]{qDebug() << "Sending M115"; d->serial->pushCommand("M115");});
+        QTimer::singleShot(500, this, [ = ] {qDebug() << "Sending M115"; d->serial->pushCommand("M115");});
         initialized = 1;
     }
 
     qDebug() << "Find Firmware Called" << message;
-    if(!message.startsWith("FIRMWARE")) {
+    if (!message.startsWith("FIRMWARE")) {
         qDebug() << "No firmware yet.";
         return;
     }
@@ -63,15 +64,15 @@ void AtCore::findFirmware(const QByteArray& message)
     qDebug() << "Found firmware string, looking for plugin.";
     qDebug() << "plugin dir:" << d->pluginsDir;
     QStringList files = d->pluginsDir.entryList(QDir::Files);
-    foreach(const QString& f, files) {
+    foreach (const QString &f, files) {
         QString file = f;
-        #if defined(Q_OS_WIN)
+#if defined(Q_OS_WIN)
         if (file.endsWith(".dll"))
-        #elif defined(Q_OS_MAC)
+#elif defined(Q_OS_MAC)
         if (file.endsWith(".dylib"))
-        #else
+#else
         if (file.endsWith(".so"))
-        #endif
+#endif
             file = file.split('.').at(0);
         else {
             qDebug() << "File" << file << "not plugin.";
@@ -88,13 +89,13 @@ void AtCore::findFirmware(const QByteArray& message)
         }
 
         qDebug() << "Full Folder:" << (d->pluginsDir.path() + f);
-        d->pluginLoader.setFileName(d->pluginsDir.path() +'/' + f);
-        if (!d->pluginLoader.load())
+        d->pluginLoader.setFileName(d->pluginsDir.path() + '/' + f);
+        if (!d->pluginLoader.load()) {
             qDebug() << d->pluginLoader.errorString();
-        else {
+        } else {
             qDebug() << "Loading plugin.";
         }
-        d->fwPlugin = qobject_cast<IFirmware*>(d->pluginLoader.instance());
+        d->fwPlugin = qobject_cast<IFirmware *>(d->pluginLoader.instance());
     }
     if (!d->fwPlugin) {
         qDebug() << "No plugin loaded.";
@@ -106,7 +107,7 @@ void AtCore::findFirmware(const QByteArray& message)
     }
 }
 
-bool AtCore::initFirmware(const QString& port, int baud)
+bool AtCore::initFirmware(const QString &port, int baud)
 {
     d->serial = new SerialLayer(port, baud);
     connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
@@ -121,13 +122,13 @@ QList<QSerialPortInfo> AtCore::serialPorts() const
     return QList<QSerialPortInfo>();
 }
 
-void AtCore::newMessage(const QByteArray& message)
+void AtCore::newMessage(const QByteArray &message)
 {
     lastMessage = message;
-    emit( receivedMessage( lastMessage ) );
+    emit(receivedMessage(lastMessage));
 }
 
-void AtCore::print(const QString& fileName)
+void AtCore::print(const QString &fileName)
 {
     QFile file(fileName);
     file.open(QFile::ReadOnly);
@@ -136,20 +137,20 @@ void AtCore::print(const QString& fileName)
     QEventLoop loop;
     connect(this, &AtCore::receivedMessage, &loop, &QEventLoop::quit);
 
-    while(!gcodestream.atEnd()){
+    while (!gcodestream.atEnd()) {
         cline = gcodestream.readLine();
         cline = cline.simplified();
-        if(cline.contains(QChar(';'))){
+        if (cline.contains(QChar(';'))) {
             cline.resize(cline.indexOf(QChar(';')));
         }
-        if(!cline.isEmpty()){
+        if (!cline.isEmpty()) {
             d->serial->pushCommand(cline.toLocal8Bit());
             bool waiting = true;
-            while(waiting){
-                if(!d->serial->commandAvailable()){
+            while (waiting) {
+                if (!d->serial->commandAvailable()) {
                     loop.exec();
                 }
-                if(d->fwPlugin->readyForNextCommand(lastMessage)){
+                if (d->fwPlugin->readyForNextCommand(lastMessage)) {
                     waiting = false;
                 }
             }
