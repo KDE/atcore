@@ -100,27 +100,20 @@ void MainWindow::locateSerialPort()
 {
     QStringList ports;
     QList<QSerialPortInfo> serialPortInfoList = QSerialPortInfo::availablePorts();
-    if(!serialPortInfoList.isEmpty())
-    {
-        foreach (const QSerialPortInfo &serialPortInfo, serialPortInfoList)
-        {
-            ports.append("/dev/"+serialPortInfo.portName());
+    if (!serialPortInfoList.isEmpty()) {
+        foreach (const QSerialPortInfo &serialPortInfo, serialPortInfoList) {
+            ports.append("/dev/" + serialPortInfo.portName());
         }
-        if(ports == serialPortList)
-        {
+        if (ports == serialPortList) {
             return;
-        }
-        else
-        {
+        } else {
             serialPortList.clear();
             serialPortList = ports;
             ui->serialPortCB->clear();
             ui->serialPortCB->addItems(serialPortList);
             addLog(tr("Found %1 Ports").arg(QString::number(serialPortList.count())));
         }
-    }
-    else
-    {
+    } else {
         addLog(tr("Not available ports! Please connect a serial device to continue!"));
     }
 }
@@ -172,45 +165,44 @@ void MainWindow::homeZPBClicked()
 void MainWindow::bedTempPBClicked()
 {
     addSLog(tr("Set Bed Temp: %1")
-        .arg(QString::number(ui->bedTempSB->value())));
+            .arg(QString::number(ui->bedTempSB->value())));
     core->serial()->pushCommand(QString("M140 S%1")
-        .arg(ui->bedTempSB->value()).toLocal8Bit());
+                                .arg(ui->bedTempSB->value()).toLocal8Bit());
 }
 
 void MainWindow::extTempPBClicked()
 {
     addSLog(tr("Set Extruder(%1) Temp: %2")
-        .arg(ui->extTempSelCB->currentText().at(9), QString::number(ui->extTempSB->value())));
+            .arg(ui->extTempSelCB->currentText().at(9), QString::number(ui->extTempSB->value())));
     core->serial()->pushCommand(QString("M104 P%1 S%2")
-        .arg(ui->extTempSelCB->currentText().at(9), QString::number(ui->extTempSB->value()))
-        .toLocal8Bit());
+                                .arg(ui->extTempSelCB->currentText().at(9), QString::number(ui->extTempSB->value()))
+                                .toLocal8Bit());
 }
 
 void MainWindow::mvAxisPBClicked()
 {
     addSLog(tr("Move %1 to %2")
-        .arg(ui->mvAxisCB->currentText().at(5), QString::number(ui->mvAxisSB->value())));
+            .arg(ui->mvAxisCB->currentText().at(5), QString::number(ui->mvAxisSB->value())));
     core->serial()->pushCommand(QString("G1 %1%2")
-        .arg(ui->mvAxisCB->currentText().at(5), QString::number(ui->mvAxisSB->value()))
-        .toLocal8Bit());
+                                .arg(ui->mvAxisCB->currentText().at(5), QString::number(ui->mvAxisSB->value()))
+                                .toLocal8Bit());
 }
 
 void MainWindow::fanSpeedPBClicked()
 {
     addSLog(tr("Set Fan(%1) Speed: %2\%")
-        .arg(ui->fanSpeedSelCB->currentText().at(4), QString::number(ui->fanSpeedSB->value())));
+            .arg(ui->fanSpeedSelCB->currentText().at(4), QString::number(ui->fanSpeedSB->value())));
     core->serial()->pushCommand(QString("M106 P%1 S%2")
-        .arg(ui->fanSpeedSelCB->currentText().at(4), QString::number(ui->fanSpeedSB->value()))
-        .toLocal8Bit());
+                                .arg(ui->fanSpeedSelCB->currentText().at(4), QString::number(ui->fanSpeedSB->value()))
+                                .toLocal8Bit());
 }
 
 void MainWindow::printPBClicked()
 {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Select A file to print"), QDir::homePath(), "*.gcode");
-    if(fileName.isNull()){
+    if (fileName.isNull()) {
         addLog(tr("No File Selected"));
-    }
-    else{
+    } else {
         addLog(tr("Print: %1").arg(fileName));
         core->print(fileName);
     }
