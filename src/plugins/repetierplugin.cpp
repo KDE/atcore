@@ -24,13 +24,13 @@ void RepetierPlugin::extractTemp(const QString &lastMessage)
     // ok T:185.4 /185.0 B:60.5 /60.0
     QStringList list = lastMessage.split(QChar(' '));
     // T:185.4 - current temperature
-    PrinterStatus.extruderTemp = list[1].mid(2).toFloat();
+    PrinterStatus.extruderTemp = list[0].mid(2).toFloat();
     // /185.0 - target temperature
-    PrinterStatus.extruderTargetTemp = list[2].mid(1).toFloat();
+    PrinterStatus.extruderTargetTemp = list[1].mid(1).toFloat();
     // B:185.4 - current temperature
-    PrinterStatus.bedTemp = list[3].mid(2).toFloat();
+    PrinterStatus.bedTemp = list[2].mid(2).toFloat();
     // /60.0 - target temperature
-    PrinterStatus.bedTargetTemp = list[2].mid(1).toFloat();
+    PrinterStatus.bedTargetTemp = list[3].mid(1).toFloat();
 
     qCDebug(REPETIER_PLUGIN) << "Extruder" << PrinterStatus.extruderTemp << "/" << PrinterStatus.extruderTargetTemp;
     qCDebug(REPETIER_PLUGIN) << "Bed" << PrinterStatus.bedTemp << "/" << PrinterStatus.bedTargetTemp;
