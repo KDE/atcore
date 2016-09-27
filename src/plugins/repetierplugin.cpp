@@ -1,5 +1,8 @@
 #include "repetierplugin.h"
+#include <QLoggingCategory>
 #include <QString>
+
+Q_LOGGING_CATEGORY(REPETIER_PLUGIN, "org.kde.atelier.core.firmware.repetier");
 
 QString RepetierPlugin::name() const
 {
@@ -8,6 +11,7 @@ QString RepetierPlugin::name() const
 
 RepetierPlugin::RepetierPlugin(QObject *parent)
 {
+    qCDebug(REPETIER_PLUGIN) << name() << " plugin loaded!";
 }
 
 bool RepetierPlugin::readyForNextCommand(const QString &lastMessage)
