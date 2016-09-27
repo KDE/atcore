@@ -17,6 +17,8 @@ private:
 public:
     RepetierPlugin(QObject *parent = 0);
     QString name() const override;
+    void extractTemp(const QString &lastMessage);
+    bool validateCommand(const QString &lastMessage);
     bool readyForNextCommand(const QString &lastMessage);
 };
 

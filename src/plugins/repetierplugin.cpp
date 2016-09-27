@@ -19,10 +19,34 @@ RepetierPlugin::RepetierPlugin(QObject *parent)
     qCDebug(REPETIER_PLUGIN) << name() << " plugin loaded!";
 }
 
-bool RepetierPlugin::readyForNextCommand(const QString &lastMessage)
+void RepetierPlugin::extractTemp(const QString &lastMessage)
 {
-    if (lastMessage.contains(_ok) || lastMessage.contains(_wait)) {
+    // ok T:185.4 /185.0 B:60.5 /60.0
+    QStringList list = lastMessage.split(QChar(' '));
+    // T:185.4 - current temperature
+    PrinterStatus.extruderTemp = list[1].mid(2).toFloat();
+    // /185.0 - target temperature
+    PrinterStatus.extruderTargetTemp = list[2].mid(1).toFloat();
+    // B:185.4 - current temperature
+    PrinterStatus.bedTemp = list[3].mid(2).toFloat();
+    // /60.0 - target temperature
+    PrinterStatus.bedTargetTemp = list[2].mid(1).toFloat();
+
+    qCDebug(REPETIER_PLUGIN) << "Extruder" << PrinterStatus.extruderTemp << "/" << PrinterStatus.extruderTargetTemp;
+    qCDebug(REPETIER_PLUGIN) << "Bed" << PrinterStatus.bedTemp << "/" << PrinterStatus.bedTargetTemp;
+}
+
+bool RepetierPlugin::validateCommand(const QString &lastMessage)
+{
+    if (lastMessage.contains(_extruderTemp) || lastMessage.contains(_bedTemp)) {
+        extractTemp(lastMessage);
+    } else if (lastMessage.contains(_ok) || lastMessage.contains(_wait)) {
         return true;
     }
     return false;
+}
+
+bool RepetierPlugin::readyForNextCommand(const QString &lastMessage)
+{
+    return validateCommand(lastMessage);
 }
