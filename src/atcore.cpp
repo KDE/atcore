@@ -51,8 +51,11 @@ void AtCore::findFirmware(const QByteArray &message)
 {
     static int initialized = 0;
     if (!initialized) {
-        QTimer::singleShot(500, this, [ = ] {qDebug() << "Sending M115"; d->serial->pushCommand("M115");});
-        initialized = 1;
+        if (message == "start") {
+            QTimer::singleShot(500, this, [ = ] {qDebug() << "Sending M115"; d->serial->pushCommand("M115");});
+            initialized = true;
+        }
+        return;
     }
 
     qDebug() << "Find Firmware Called" << message;
@@ -158,4 +161,3 @@ void AtCore::print(const QString &fileName)
     }
     disconnect(this, &AtCore::receivedMessage, &loop, &QEventLoop::quit);
 }
-
