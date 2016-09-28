@@ -40,6 +40,7 @@ AtCore::AtCore(QObject *parent) : QObject(parent), d(new AtCorePrivate)
     d->pluginsDir.cd("src");
     d->pluginsDir.cd("plugins");
     qDebug() << d->pluginsDir;
+    printerState = DISCONNECTED;
 }
 
 SerialLayer *AtCore::serial() const
@@ -49,11 +50,10 @@ SerialLayer *AtCore::serial() const
 
 void AtCore::findFirmware(const QByteArray &message)
 {
-    static int initialized = 0;
-    if (!initialized) {
+    if (printerState == DISCONNECTED) {
         if (message == "start") {
             QTimer::singleShot(500, this, [ = ] {qDebug() << "Sending M115"; d->serial->pushCommand("M115");});
-            initialized = true;
+            printerState = CONNECTING;
         }
         return;
     }
@@ -107,6 +107,7 @@ void AtCore::findFirmware(const QByteArray &message)
         qDebug() << "Connected to" << d->fwPlugin->name();
         disconnect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
         connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::newMessage);
+        printerState = IDLE;
     }
 }
 
@@ -141,23 +142,51 @@ void AtCore::print(const QString &fileName)
     connect(this, &AtCore::receivedMessage, &loop, &QEventLoop::quit);
 
     while (!gcodestream.atEnd()) {
-        cline = gcodestream.readLine();
-        cline = cline.simplified();
-        if (cline.contains(QChar(';'))) {
-            cline.resize(cline.indexOf(QChar(';')));
-        }
-        if (!cline.isEmpty()) {
-            d->serial->pushCommand(cline.toLocal8Bit());
-            bool waiting = true;
-            while (waiting) {
-                if (!d->serial->commandAvailable()) {
-                    loop.exec();
-                }
-                if (d->fwPlugin->readyForNextCommand(lastMessage)) {
-                    waiting = false;
+        QCoreApplication::processEvents(); //make sure all events are processed.
+        if (printerState == IDLE || printerState == BUSY) {
+            printerState = BUSY;
+            cline = gcodestream.readLine();
+            cline = cline.simplified();
+            if (cline.contains(QChar(';'))) {
+                cline.resize(cline.indexOf(QChar(';')));
+            }
+            if (!cline.isEmpty()) {
+                d->serial->pushCommand(cline.toLocal8Bit());
+                bool waiting = true;
+                while (waiting) {
+                    if (!d->serial->commandAvailable()) {
+                        loop.exec();
+                    }
+                    if (d->fwPlugin->readyForNextCommand(lastMessage)) {
+                        waiting = false;
+                    }
                 }
             }
+        } else if (printerState == ERROR) {
+            qDebug() << tr("Error State");
+        }
+
+        else if (printerState == PAUSE) {
+
+        }
+
+        else if (printerState == STOP) {
+            qDebug() << tr("Stop State");
+        }
+
+        else {
+            qDebug() << tr("Unknown State");
         }
     }
     disconnect(this, &AtCore::receivedMessage, &loop, &QEventLoop::quit);
+}
+
+PrinterState AtCore::state(void)
+{
+    return printerState;
+}
+
+void AtCore::setState(PrinterState state)
+{
+    printerState = state;
 }

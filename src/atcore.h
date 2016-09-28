@@ -6,6 +6,17 @@
 #include <QSerialPortInfo>
 
 class SerialLayer;
+
+enum PrinterState {
+    DISCONNECTED, //Not Connected to a printer, initial state
+    CONNECTING, //Attempting to connect, Fw not probed
+    IDLE, //Connected to printer and ready for commands
+    BUSY, //Printer is working
+    PAUSE, //Printer is paused
+    ERROR, // Printer Returned Error
+    STOP // Emergency Stop
+};
+
 struct AtCorePrivate;
 
 class AtCore : public QObject
@@ -26,6 +37,18 @@ public:
      * @param fileName : path of file to print
      */
     void print(const QString &fileName);
+
+    /**
+     * @brief Get Printer state
+     * @return State of the printer
+     */
+    PrinterState state(void);
+
+    /**
+     * @brief setState: set Printer state
+     * @param state : printer state.
+     */
+    void setState(PrinterState state);
 signals:
     /**
      * @brief Emit signal when message is received from the printer
@@ -38,6 +61,7 @@ private:
     void newMessage(const QByteArray &message);
     QByteArray lastMessage;
     AtCorePrivate *d;
+    PrinterState printerState;
 };
 
 #endif
