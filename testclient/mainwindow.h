@@ -33,14 +33,9 @@ public slots:
 private slots:
     //ButtonEvents
     /**
-     * @brief Connect Button Clicked
+     * @brief Connect Button Clicked will connect or disconnect based on printer state
      */
     void connectPBClicked();
-
-    /**
-     * @brief Disconnnect Button Clicked
-     */
-    void disconnectPBClicked();
 
     /**
      * @brief Send Command Clicked
@@ -88,7 +83,7 @@ private slots:
     void fanSpeedPBClicked();
 
     /**
-     * @brief Print Button Clicked
+     * @brief Print Button Clicked, can also pause /resue print based on printer state
      */
     void printPBClicked();
 

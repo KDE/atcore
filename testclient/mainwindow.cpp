@@ -23,7 +23,6 @@ MainWindow::MainWindow(QWidget *parent) :
     locateSerialPort();
 
     connect(ui->connectPB, &QPushButton::clicked, this, &MainWindow::connectPBClicked);
-    connect(ui->disconnectPB, &QPushButton::clicked, this, &MainWindow::disconnectPBClicked);
     connect(ui->sendPB, &QPushButton::clicked, this, &MainWindow::sendPBClicked);
     connect(ui->commandLE, &QLineEdit::returnPressed, this, &MainWindow::sendPBClicked);
     connect(ui->homeAllPB, &QPushButton::clicked, this, &MainWindow::homeAllPBClicked);
@@ -120,15 +119,17 @@ void MainWindow::locateSerialPort()
 
 void MainWindow::connectPBClicked()
 {
-    core->initFirmware(ui->serialPortCB->currentText(), ui->baudRateLE->text().toInt());
-    connect(core->serial(), &SerialLayer::receivedCommand, this, &MainWindow::checkReceivedCommand);
-    connect(core->serial(), &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
-}
-
-void MainWindow::disconnectPBClicked()
-{
-    core->serial()->closeConnection();
-    addLog(tr("Disconnected"));
+    if (core->state() == DISCONNECTED) {
+        core->initFirmware(ui->serialPortCB->currentText(), ui->baudRateLE->text().toInt());
+        connect(core->serial(), &SerialLayer::receivedCommand, this, &MainWindow::checkReceivedCommand);
+        connect(core->serial(), &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
+        ui->connectPB->setText(tr("Disconnect"));
+    } else {
+        core->serial()->closeConnection();
+        core->setState(DISCONNECTED);
+        addLog(tr("Disconnected"));
+        ui->connectPB->setText(tr("Connect"));
+    }
 }
 
 void MainWindow::sendPBClicked()
@@ -199,12 +200,37 @@ void MainWindow::fanSpeedPBClicked()
 
 void MainWindow::printPBClicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Select A file to print"), QDir::homePath(), "*.gcode");
-    if (fileName.isNull()) {
-        addLog(tr("No File Selected"));
-    } else {
-        addLog(tr("Print: %1").arg(fileName));
-        core->print(fileName);
+    QString fileName;
+    switch (core->state()) {
+
+    case DISCONNECTED:
+        QMessageBox::information(this, tr("Error"), tr("Not Connected To a Printer"));
+        break;
+
+    case CONNECTING:
+        QMessageBox::information(this, tr("Error"), tr("Firmware Plugin not loaded try sending M115"));
+        break;
+
+    case IDLE:
+        fileName = QFileDialog::getOpenFileName(this, tr("Select a file to print"), QDir::homePath(), "*.gcode");
+        if (fileName.isNull()) {
+            addLog(tr("No File Selected"));
+        } else {
+            addLog(tr("Print: %1").arg(fileName));
+            ui->printPB->setText(tr("Pause Print"));
+            core->print(fileName);
+        }
+        break;
+
+    case BUSY:
+        core->setState(PAUSE);
+        ui->printPB->setText(tr("Resume Print"));
+        break;
+
+    case PAUSE:
+        core->setState(BUSY);
+        ui->printPB->setText(tr("Pause Print"));
+        break;
     }
 }
 
