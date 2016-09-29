@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1198</width>
-    <height>558</height>
+    <width>1241</width>
+    <height>562</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,45 +38,58 @@
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QGridLayout" name="gridLayout">
-          <item row="0" column="0" colspan="3">
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
            <widget class="QLabel" name="label">
             <property name="text">
              <string>AtCore - KDE 3D Printing</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_2">
-            <property name="text">
-             <string>Port:</string>
-            </property>
-           </widget>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_8">
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Port:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="serialPortCB"/>
+            </item>
+           </layout>
           </item>
-          <item row="1" column="1">
-           <widget class="QComboBox" name="serialPortCB"/>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>Baud Rate:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="baudRateLE"/>
+            </item>
+           </layout>
           </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>Baud Rate:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLineEdit" name="baudRateLE"/>
-          </item>
-          <item row="3" column="0">
+          <item>
            <widget class="QPushButton" name="connectPB">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="text">
              <string>Connect</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QPushButton" name="disconnectPB">
-            <property name="text">
-             <string>Disconnect</string>
             </property>
            </widget>
           </item>
@@ -347,7 +360,7 @@
       <property name="title">
        <string>Sesson Log</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
         <widget class="QPlainTextEdit" name="logTE">
          <property name="enabled">
