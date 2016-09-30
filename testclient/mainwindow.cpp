@@ -19,9 +19,9 @@ MainWindow::MainWindow(QWidget *parent) :
     addLog(tr("Attempting to locate Serial Ports"));
 
     core = new AtCore(this);
+    locateSerialPBClicked();
 
-    locateSerialPort();
-
+    connect(ui->locateSerialPB, &QPushButton::clicked, this, &MainWindow::locateSerialPBClicked);
     connect(ui->connectPB, &QPushButton::clicked, this, &MainWindow::connectPBClicked);
     connect(ui->sendPB, &QPushButton::clicked, this, &MainWindow::sendPBClicked);
     connect(ui->commandLE, &QLineEdit::returnPressed, this, &MainWindow::sendPBClicked);
@@ -90,12 +90,13 @@ void MainWindow::checkPushedCommands(QByteArray bmsg)
     msg.replace(_return, QString("\\r"));
     addSLog(msg);
 }
+
 /**
- * @brief MainWindow::locateSerialPort
+ * @brief MainWindow::locateSerialPBClicked
  * Locate all active serial ports on the computer and add to the list
  * of serial ports
  */
-void MainWindow::locateSerialPort()
+void MainWindow::locateSerialPBClicked()
 {
     QStringList ports;
     QList<QSerialPortInfo> serialPortInfoList = QSerialPortInfo::availablePorts();
@@ -233,4 +234,3 @@ void MainWindow::printPBClicked()
         break;
     }
 }
-

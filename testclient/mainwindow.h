@@ -87,16 +87,16 @@ private slots:
      */
     void printPBClicked();
 
-private:
-    Ui::MainWindow *ui;
-    AtCore *core;
-    QStringList serialPortList;
-
     /**
      * @brief Locate serial port
      *
      */
-    void locateSerialPort();
+    void locateSerialPBClicked();
+
+private:
+    Ui::MainWindow *ui;
+    AtCore *core;
+    QStringList serialPortList;
 
     /**
      * @brief Return string with actual time
