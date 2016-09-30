@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     core(new AtCore(this)),
     deviceNotifier(Solid::DeviceNotifier::instance()),
+    logFile(new QTemporaryFile(QDir::tempPath() + "/AtCore_")),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -23,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
     locateSerialPort();
 
     connect(ui->connectPB, &QPushButton::clicked, this, &MainWindow::connectPBClicked);
+    connect(ui->saveLogPB, &QPushButton::clicked, this, &MainWindow::saveLogPBClicked);
     connect(ui->sendPB, &QPushButton::clicked, this, &MainWindow::sendPBClicked);
     connect(ui->commandLE, &QLineEdit::returnPressed, this, &MainWindow::sendPBClicked);
     connect(ui->homeAllPB, &QPushButton::clicked, this, &MainWindow::homeAllPBClicked);
@@ -36,10 +38,12 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->printPB, &QPushButton::clicked, this, &MainWindow::printPBClicked);
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceAdded, this, &MainWindow::locateSerialPort);
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceRemoved, this, &MainWindow::locateSerialPort);
+
 }
 
 MainWindow::~MainWindow()
 {
+    delete logFile;
     delete ui;
 }
 
@@ -65,17 +69,29 @@ QString MainWindow::sLogHeader()
 
 void MainWindow::addLog(QString msg)
 {
-    ui->logTE->appendPlainText(logHeader() + msg);
+    QString message(logHeader() + msg);
+    ui->logTE->appendPlainText(message);
+    logFile->open();
+    logFile->write(message.toLocal8Bit());
+    logFile->close();
 }
 
 void MainWindow::addRLog(QString msg)
 {
-    ui->logTE->appendPlainText(rLogHeader() + msg);
+    QString message(rLogHeader() + msg);
+    ui->logTE->appendPlainText(message);
+    logFile->open();
+    logFile->write(message.toLocal8Bit());
+    logFile->close();
 }
 
 void MainWindow::addSLog(QString msg)
 {
-    ui->logTE->appendPlainText(sLogHeader() + msg);
+    QString message(sLogHeader() + msg);
+    ui->logTE->appendPlainText(message);
+    logFile->open();
+    logFile->write(message.toLocal8Bit());
+    logFile->close();
 }
 
 void MainWindow::checkReceivedCommand()
@@ -238,3 +254,9 @@ void MainWindow::printPBClicked()
     }
 }
 
+void MainWindow::saveLogPBClicked()
+{
+    QString saveFileName = QFileDialog::getSaveFileName(this, tr("Save Log to file"), QDir::homePath() + "/Atcore-log.txt");
+    QFile::copy(logFile->fileName(), saveFileName);
+
+}

@@ -5,6 +5,7 @@
 
 #include <QMainWindow>
 #include <QSerialPort>
+#include <QTemporaryFile>
 
 #include <KF5/Solid/Solid/DeviceNotifier>
 
@@ -89,11 +90,17 @@ private slots:
      */
     void printPBClicked();
 
+    /**
+     * @brief Save the log file.
+     */
+    void saveLogPBClicked();
+
 private:
     Ui::MainWindow *ui;
     AtCore *core;
     QStringList serialPortList;
     Solid::DeviceNotifier *deviceNotifier;
+    QTemporaryFile *logFile;
 
     /**
      * @brief Locate serial port
@@ -149,5 +156,4 @@ private:
      * @param  msg: Message
      */
     void addSLog(QString msg);
-
 };
