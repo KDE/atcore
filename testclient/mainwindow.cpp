@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QValidator *validator = new QIntValidator();
     ui->baudRateLE->setValidator(validator);
     ui->baudRateLE->setText("115200");
+    logFile->setAutoRemove(false);
     addLog(tr("Attempting to locate Serial Ports"));
 
     locateSerialPort();
@@ -67,31 +68,38 @@ QString MainWindow::sLogHeader()
     return QString("[%1]> ").arg(getTime());
 }
 
+void MainWindow::writeTempFile(QString text)
+{
+    /*
+    A QTemporaryFile will always be opened in QIODevice::ReadWrite mode,
+    this allows easy access to the data in the file. This function will
+    return true upon success and will set the fileName() to the unique
+    filename used.
+    */
+    logFile->open();
+    logFile->write(text.toLocal8Bit());
+    logFile->putChar('\n');
+}
+
 void MainWindow::addLog(QString msg)
 {
     QString message(logHeader() + msg);
     ui->logTE->appendPlainText(message);
-    logFile->open();
-    logFile->write(message.toLocal8Bit());
-    logFile->close();
+    writeTempFile(message);
 }
 
 void MainWindow::addRLog(QString msg)
 {
     QString message(rLogHeader() + msg);
     ui->logTE->appendPlainText(message);
-    logFile->open();
-    logFile->write(message.toLocal8Bit());
-    logFile->close();
+    writeTempFile(message);
 }
 
 void MainWindow::addSLog(QString msg)
 {
     QString message(sLogHeader() + msg);
     ui->logTE->appendPlainText(message);
-    logFile->open();
-    logFile->write(message.toLocal8Bit());
-    logFile->close();
+    writeTempFile(message);
 }
 
 void MainWindow::checkReceivedCommand()
@@ -256,7 +264,9 @@ void MainWindow::printPBClicked()
 
 void MainWindow::saveLogPBClicked()
 {
-    QString saveFileName = QFileDialog::getSaveFileName(this, tr("Save Log to file"), QDir::homePath() + "/Atcore-log.txt");
+    // Note that if a file with the name newName already exists, copy() returns false (i.e. QFile will not overwrite it).
+    QString fileName = QDir::homePath() + "/" + QFileInfo(logFile->fileName()).fileName();
+    QString saveFileName = QFileDialog::getSaveFileName(this, tr("Save Log to file"), fileName);
     QFile::copy(logFile->fileName(), saveFileName);
-
+    logFile->close();
 }

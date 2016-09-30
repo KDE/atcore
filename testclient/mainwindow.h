@@ -116,6 +116,13 @@ private:
     QString getTime();
 
     /**
+     * @brief Append text in temporary file
+     *
+     * @param text
+     */
+    void writeTempFile(QString text);
+
+    /**
      * @brief Normal header
      *
      * @return QString
