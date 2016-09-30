@@ -51,7 +51,7 @@ SerialLayer *AtCore::serial() const
 void AtCore::findFirmware(const QByteArray &message)
 {
     if (printerState == DISCONNECTED) {
-        if (message == "start") {
+        if (message.contains("start")) {
             QTimer::singleShot(500, this, [ = ] {qDebug() << "Sending M115"; d->serial->pushCommand("M115");});
             printerState = CONNECTING;
         }
