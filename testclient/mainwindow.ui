@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1241</width>
-    <height>562</height>
+    <height>564</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -90,6 +90,16 @@
             </property>
             <property name="text">
              <string>Connect</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="saveLogPB">
+            <property name="text">
+             <string>Save Session Log</string>
+            </property>
+            <property name="icon">
+             <iconset theme="document-save"/>
             </property>
            </widget>
           </item>
@@ -368,6 +378,9 @@
          </property>
          <property name="readOnly">
           <bool>true</bool>
+         </property>
+         <property name="maximumBlockCount">
+          <number>1000</number>
          </property>
         </widget>
        </item>
