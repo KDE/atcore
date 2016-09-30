@@ -6,6 +6,8 @@
 #include <QMainWindow>
 #include <QSerialPort>
 
+#include <KF5/Solid/Solid/DeviceNotifier>
+
 class SerialLayer;
 
 class  MainWindow: public QMainWindow
@@ -91,6 +93,7 @@ private:
     Ui::MainWindow *ui;
     AtCore *core;
     QStringList serialPortList;
+    Solid::DeviceNotifier *deviceNotifier;
 
     /**
      * @brief Locate serial port

@@ -10,6 +10,8 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
+    core(new AtCore(this)),
+    deviceNotifier(Solid::DeviceNotifier::instance()),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -17,8 +19,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->baudRateLE->setValidator(validator);
     ui->baudRateLE->setText("115200");
     addLog(tr("Attempting to locate Serial Ports"));
-
-    core = new AtCore(this);
 
     locateSerialPort();
 
@@ -34,6 +34,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->mvAxisPB, &QPushButton::clicked, this, &MainWindow::mvAxisPBClicked);
     connect(ui->fanSpeedPB, &QPushButton::clicked, this, &MainWindow::fanSpeedPBClicked);
     connect(ui->printPB, &QPushButton::clicked, this, &MainWindow::printPBClicked);
+    connect(deviceNotifier, &Solid::DeviceNotifier::deviceAdded, this, &MainWindow::locateSerialPort);
+    connect(deviceNotifier, &Solid::DeviceNotifier::deviceRemoved, this, &MainWindow::locateSerialPort);
 }
 
 MainWindow::~MainWindow()
@@ -113,6 +115,8 @@ void MainWindow::locateSerialPort()
             addLog(tr("Found %1 Ports").arg(QString::number(serialPortList.count())));
         }
     } else {
+        serialPortList.clear();
+        ui->serialPortCB->clear();
         addLog(tr("Not available ports! Please connect a serial device to continue!"));
     }
 }
