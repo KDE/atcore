@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1241</width>
-    <height>562</height>
+    <height>564</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -63,6 +63,19 @@
             </item>
             <item>
              <widget class="QComboBox" name="serialPortCB"/>
+            </item>
+            <item>
+             <widget class="QPushButton" name="locateSerialPB">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="icon">
+               <iconset theme="view-refresh"/>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
