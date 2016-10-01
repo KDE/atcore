@@ -36,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->mvAxisPB, &QPushButton::clicked, this, &MainWindow::mvAxisPBClicked);
     connect(ui->fanSpeedPB, &QPushButton::clicked, this, &MainWindow::fanSpeedPBClicked);
     connect(ui->printPB, &QPushButton::clicked, this, &MainWindow::printPBClicked);
+    connect(ui->stopPB, &QPushButton::clicked, this, &MainWindow::stopPBClicked);
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceAdded, this, &MainWindow::locateSerialPort);
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceRemoved, this, &MainWindow::locateSerialPort);
 
