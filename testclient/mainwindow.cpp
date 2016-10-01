@@ -263,6 +263,13 @@ void MainWindow::printPBClicked()
     }
 }
 
+void MainWindow::stopPBClicked()
+{
+    if (core->state() == BUSY) {
+        ui->printPB->setText(tr("Print File"));
+    }
+    core->stop();
+}
 void MainWindow::saveLogPBClicked()
 {
     // Note that if a file with the name newName already exists, copy() returns false (i.e. QFile will not overwrite it).
