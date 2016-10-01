@@ -1,6 +1,7 @@
 #include "atcore.h"
 #include "seriallayer.h"
 #include "ifirmware.h"
+#include "gcodecommands.h"
 
 #include <QDir>
 #include <QSerialPortInfo>
@@ -171,7 +172,9 @@ void AtCore::print(const QString &fileName)
         }
 
         else if (printerState == STOP) {
-            qDebug() << tr("Stop State");
+            QString stopString(GCode::toCommand(GCode::M112));
+            gcodestream.setString(&stopString);
+            printerState = IDLE;
         }
 
         else {
@@ -189,4 +192,13 @@ PrinterState AtCore::state(void)
 void AtCore::setState(PrinterState state)
 {
     printerState = state;
+}
+
+void AtCore::stop()
+{
+    if (printerState == BUSY) {
+        printerState = STOP;
+    } else {
+        serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
+    }
 }

@@ -32,6 +32,11 @@ public:
     SerialLayer *serial() const;
 
     /**
+     * @brief Stop the Printer
+     */
+    void stop();
+
+    /**
      * @brief Print a file
      *
      * @param fileName : path of file to print

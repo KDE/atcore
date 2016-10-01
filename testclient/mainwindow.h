@@ -95,6 +95,11 @@ private slots:
      */
     void saveLogPBClicked();
 
+    /**
+     * @brief Stop the Printer
+     */
+    void stopPBClicked();
+
 private:
     Ui::MainWindow *ui;
     AtCore *core;
