@@ -19,7 +19,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QValidator *validator = new QIntValidator();
     ui->baudRateLE->setValidator(validator);
     ui->baudRateLE->setText("115200");
-    logFile->setAutoRemove(false);
     addLog(tr("Attempting to locate Serial Ports"));
 
     locateSerialPort();
@@ -77,8 +76,10 @@ void MainWindow::writeTempFile(QString text)
     filename used.
     */
     logFile->open();
+    logFile->seek(logFile->size());
     logFile->write(text.toLocal8Bit());
     logFile->putChar('\n');
+    logFile->close();
 }
 
 void MainWindow::addLog(QString msg)
