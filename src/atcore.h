@@ -27,7 +27,7 @@ public:
     AtCore(QObject *parent = 0);
     QList<QSerialPortInfo> serialPorts() const;
 
-    bool initFirmware(const QString &port, int baud);
+    void initFirmware(const QString &port, int baud);
     bool isInitialized();
 
     void setSerial(SerialLayer *serial);
