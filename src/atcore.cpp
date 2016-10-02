@@ -144,7 +144,9 @@ void AtCore::print(const QString &fileName)
 
     while (!gcodestream.atEnd()) {
         QCoreApplication::processEvents(); //make sure all events are processed.
-        if (state() == IDLE || state() == BUSY) {
+        switch (state()) {
+        case IDLE:
+        case BUSY:
             setState(BUSY);
             cline = gcodestream.readLine();
             cline = cline.simplified();
@@ -163,22 +165,25 @@ void AtCore::print(const QString &fileName)
                     }
                 }
             }
-        } else if (state() == ERROR) {
+            break;
+
+        case ERROR:
             qDebug() << tr("Error State");
-        }
+            break;
 
-        else if (state() == PAUSE) {
-
-        }
-
-        else if (state() == STOP) {
+        case STOP: {
             QString stopString(GCode::toCommand(GCode::M112));
             gcodestream.setString(&stopString);
             setState(IDLE);
+            break;
         }
 
-        else {
+        case PAUSE:
+            break;
+
+        default:
             qDebug() << tr("Unknown State");
+            break;
         }
     }
     disconnect(this, &AtCore::receivedMessage, &loop, &QEventLoop::quit);
@@ -196,9 +201,10 @@ void AtCore::setState(PrinterState state)
 
 void AtCore::stop()
 {
-    if (state() == BUSY) {
+    switch (state()) {
+    case BUSY:
         setState(STOP);
-    } else {
+    default:
         serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
     }
 }
