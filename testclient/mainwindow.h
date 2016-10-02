@@ -98,9 +98,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
     AtCore *core;
-    QStringList serialPortList;
     Solid::DeviceNotifier *deviceNotifier;
     QTemporaryFile *logFile;
+    QStringList serialPortList;
 
     /**
      * @brief Locate serial port

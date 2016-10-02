@@ -10,10 +10,10 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
+    ui(new Ui::MainWindow),
     core(new AtCore(this)),
     deviceNotifier(Solid::DeviceNotifier::instance()),
-    logFile(new QTemporaryFile(QDir::tempPath() + QStringLiteral("/AtCore_"))),
-    ui(new Ui::MainWindow)
+    logFile(new QTemporaryFile(QDir::tempPath() + QStringLiteral("/AtCore_")))
 {
     ui->setupUi(this);
     QValidator *validator = new QIntValidator();
