@@ -7,7 +7,7 @@
 #include <QSerialPort>
 #include <QTemporaryFile>
 
-#include <KF5/Solid/Solid/DeviceNotifier>
+#include <Solid/DeviceNotifier>
 
 class SerialLayer;
 
@@ -98,9 +98,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
     AtCore *core;
-    QStringList serialPortList;
     Solid::DeviceNotifier *deviceNotifier;
     QTemporaryFile *logFile;
+    QStringList serialPortList;
 
     /**
      * @brief Locate serial port

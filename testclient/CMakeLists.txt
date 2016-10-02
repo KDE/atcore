@@ -1,7 +1,5 @@
 set(CMAKE_AUTOUIC ON)
 
-find_package(KF5Solid)
-
 include_directories(../src)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
