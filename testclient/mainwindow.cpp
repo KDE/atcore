@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     QValidator *validator = new QIntValidator();
+    ui->serialPortCB->setEditable(true);
     ui->baudRateLE->setValidator(validator);
     ui->baudRateLE->setText("115200");
     addLog(tr("Attempting to locate Serial Ports"));
