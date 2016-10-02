@@ -30,9 +30,9 @@ public:
     bool initFirmware(const QString &port, int baud);
     bool isInitialized();
 
-    void setSerial(SerialLayer* serial);
+    void setSerial(SerialLayer *serial);
     SerialLayer *serial() const;
-    void setPlugin(IFirmware* plugin);
+    void setPlugin(IFirmware *plugin);
     IFirmware *plugin() const;
 
     /**

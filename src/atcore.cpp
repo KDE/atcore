@@ -44,12 +44,12 @@ AtCore::AtCore(QObject *parent) : QObject(parent), d(new AtCorePrivate)
     setState(DISCONNECTED);
 }
 
-void AtCore::setSerial(SerialLayer* serial)
+void AtCore::setSerial(SerialLayer *serial)
 {
     d->serial = serial;
 }
 
-void AtCore::setPlugin(IFirmware* plugin)
+void AtCore::setPlugin(IFirmware *plugin)
 {
     d->fwPlugin = plugin;
 }
@@ -68,7 +68,7 @@ void AtCore::findFirmware(const QByteArray &message)
 {
     if (state() == DISCONNECTED) {
         if (message.contains("start")) {
-            QTimer::singleShot(500, this, [ = ] {qDebug() << "Sending M115"; pushCommand("M115");});
+            QTimer::singleShot(500, this, [ = ] {qDebug() << "Sending M115"; serial()->pushCommand("M115");});
             setState(CONNECTING);
         }
         return;
