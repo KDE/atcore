@@ -6,7 +6,8 @@ QByteArray SerialLayer::_return = QByteArray("\r");
 QByteArray SerialLayer::_newLine = QByteArray("\n");
 QByteArray SerialLayer::_newLineReturn = QByteArray("\n\r");
 
-SerialLayer::SerialLayer(const QString &port, uint baud, QWidget *parent) :
+SerialLayer::SerialLayer(const QString &port, uint baud, QObject *parent) :
+    QObject(parent),
     serial(new QSerialPort(this)),
     _serialOpened(false)
 {
