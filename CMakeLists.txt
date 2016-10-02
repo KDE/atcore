@@ -9,6 +9,10 @@ include(KDECompilerSettings)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(ECMInstallIcons)
+include(FeatureSummary)
+
+add_definitions(-DQT_NO_CAST_FROM_ASCII
+                -DQT_NO_URL_CAST_FROM_STRING)
 
 set(CMAKE_AUTOMOC ON)
 

@@ -38,8 +38,8 @@ AtCore::AtCore(QObject *parent) : QObject(parent), d(new AtCorePrivate)
     }
 #endif
     d->pluginsDir.cdUp();
-    d->pluginsDir.cd("src");
-    d->pluginsDir.cd("plugins");
+    d->pluginsDir.cd(QStringLiteral("src"));
+    d->pluginsDir.cd(QStringLiteral("plugins"));
     qDebug() << d->pluginsDir;
     setState(DISCONNECTED);
 }
@@ -86,20 +86,20 @@ void AtCore::findFirmware(const QByteArray &message)
     foreach (const QString &f, files) {
         QString file = f;
 #if defined(Q_OS_WIN)
-        if (file.endsWith(".dll"))
+        if (file.endsWith(QStringLiteral(".dll")))
 #elif defined(Q_OS_MAC)
-        if (file.endsWith(".dylib"))
+        if (file.endsWith(QStringLiteral(".dylib"))
 #else
-        if (file.endsWith(".so"))
+        if (file.endsWith(QStringLiteral(".so")))
 #endif
-            file = file.split(QChar('.')).at(0);
+            file = file.split(QChar::fromLatin1('.')).at(0);
         else {
             qDebug() << "File" << file << "not plugin.";
             continue;
         }
         qDebug() << "Found plugin file" << f;
-        if (file.startsWith("lib")) {
-            file = file.remove("lib");
+        if (file.startsWith(QStringLiteral("lib"))) {
+            file = file.remove(QStringLiteral("lib"));
         }
 
         if (!message.contains(file.toLocal8Bit())) {
@@ -108,7 +108,8 @@ void AtCore::findFirmware(const QByteArray &message)
         }
 
         qDebug() << "Full Folder:" << (d->pluginsDir.path() + f);
-        d->pluginLoader.setFileName(d->pluginsDir.path() + QChar('/') + f);
+        d->pluginLoader.setFileName(d->pluginsDir.path() + QChar::fromLatin1('/') + f);
+
         if (!d->pluginLoader.load()) {
             qDebug() << d->pluginLoader.errorString();
         } else {
@@ -166,8 +167,8 @@ void AtCore::print(const QString &fileName)
             setState(BUSY);
             cline = gcodestream.readLine();
             cline = cline.simplified();
-            if (cline.contains(QChar(';'))) {
-                cline.resize(cline.indexOf(QChar(';')));
+            if (cline.contains(QChar::fromLatin1(';'))) {
+                cline.resize(cline.indexOf(QChar::fromLatin1(';')));
             }
             if (!cline.isEmpty()) {
                 pushCommand(cline);
@@ -176,7 +177,7 @@ void AtCore::print(const QString &fileName)
                     if (!serial()->commandAvailable()) {
                         loop.exec();
                     }
-                    if (plugin()->readyForNextCommand(lastMessage)) {
+                    if (plugin()->readyForNextCommand(QString::fromUtf8(lastMessage))) {
                         waiting = false;
                     }
                 }
