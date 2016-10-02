@@ -12,13 +12,13 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     core(new AtCore(this)),
     deviceNotifier(Solid::DeviceNotifier::instance()),
-    logFile(new QTemporaryFile(QDir::tempPath() + "/AtCore_")),
+    logFile(new QTemporaryFile(QDir::tempPath() + QStringLiteral("/AtCore_"))),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     QValidator *validator = new QIntValidator();
     ui->baudRateLE->setValidator(validator);
-    ui->baudRateLE->setText("115200");
+    ui->baudRateLE->setText(QStringLiteral("115200"));
     addLog(tr("Attempting to locate Serial Ports"));
 
     locateSerialPort();
@@ -49,22 +49,22 @@ MainWindow::~MainWindow()
 
 QString MainWindow::getTime()
 {
-    return QTime::currentTime().toString("hh:mm:ss:zzz");
+    return QTime::currentTime().toString(QStringLiteral("hh:mm:ss:zzz"));
 }
 
 QString MainWindow::logHeader()
 {
-    return QString("[%1]  ").arg(getTime());
+    return QStringLiteral("[%1]  ").arg(getTime());
 }
 
 QString MainWindow::rLogHeader()
 {
-    return QString("[%1]< ").arg(getTime());
+    return QStringLiteral("[%1]< ").arg(getTime());
 }
 
 QString MainWindow::sLogHeader()
 {
-    return QString("[%1]> ").arg(getTime());
+    return QStringLiteral("[%1]> ").arg(getTime());
 }
 
 void MainWindow::writeTempFile(QString text)
@@ -105,16 +105,16 @@ void MainWindow::addSLog(QString msg)
 
 void MainWindow::checkReceivedCommand()
 {
-    addRLog(core->serial()->popCommand());
+    addRLog(QString::fromUtf8(core->serial()->popCommand()));
 }
 
 void MainWindow::checkPushedCommands(QByteArray bmsg)
 {
-    QString msg = QString(bmsg);
-    QRegExp _newLine(QChar('\n'));
-    QRegExp _return(QChar('\r'));
-    msg.replace(_newLine, QString("\\n"));
-    msg.replace(_return, QString("\\r"));
+    QString msg = QString::fromUtf8(bmsg);
+    QRegExp _newLine(QChar::fromLatin1('\n'));
+    QRegExp _return(QChar::fromLatin1('\r'));
+    msg.replace(_newLine, QStringLiteral("\\n"));
+    msg.replace(_return, QStringLiteral("\\r"));
     addSLog(msg);
 }
 /**
@@ -128,7 +128,7 @@ void MainWindow::locateSerialPort()
     QList<QSerialPortInfo> serialPortInfoList = QSerialPortInfo::availablePorts();
     if (!serialPortInfoList.isEmpty()) {
         foreach (const QSerialPortInfo &serialPortInfo, serialPortInfoList) {
-            ports.append("/dev/" + serialPortInfo.portName());
+            ports.append(QStringLiteral("/dev/") + serialPortInfo.portName());
         }
         if (ports == serialPortList) {
             return;
@@ -171,32 +171,32 @@ void MainWindow::sendPBClicked()
 void MainWindow::homeAllPBClicked()
 {
     addSLog(tr("Home All"));
-    core->serial()->pushCommand(QString("G28").toLocal8Bit());
+    core->serial()->pushCommand(QStringLiteral("G28").toLocal8Bit());
 }
 
 void MainWindow::homeXPBClicked()
 {
     addSLog(tr("Home X"));
-    core->serial()->pushCommand(QString("G28 X0").toLocal8Bit());
+    core->serial()->pushCommand(QStringLiteral("G28 X0").toLocal8Bit());
 }
 
 void MainWindow::homeYPBClicked()
 {
     addSLog(tr("Home Y"));
-    core->serial()->pushCommand(QString("G28 Y0").toLocal8Bit());
+    core->serial()->pushCommand(QStringLiteral("G28 Y0").toLocal8Bit());
 }
 
 void MainWindow::homeZPBClicked()
 {
     addSLog(tr("Home Z"));
-    core->serial()->pushCommand(QString("G28 Z0").toLocal8Bit());
+    core->serial()->pushCommand(QStringLiteral("G28 Z0").toLocal8Bit());
 }
 
 void MainWindow::bedTempPBClicked()
 {
     addSLog(tr("Set Bed Temp: %1")
             .arg(QString::number(ui->bedTempSB->value())));
-    core->serial()->pushCommand(QString("M140 S%1")
+    core->serial()->pushCommand(QStringLiteral("M140 S%1")
                                 .arg(ui->bedTempSB->value()).toLocal8Bit());
 }
 
@@ -204,7 +204,7 @@ void MainWindow::extTempPBClicked()
 {
     addSLog(tr("Set Extruder(%1) Temp: %2")
             .arg(ui->extTempSelCB->currentText().at(9), QString::number(ui->extTempSB->value())));
-    core->serial()->pushCommand(QString("M104 P%1 S%2")
+    core->serial()->pushCommand(QStringLiteral("M104 P%1 S%2")
                                 .arg(ui->extTempSelCB->currentText().at(9), QString::number(ui->extTempSB->value()))
                                 .toLocal8Bit());
 }
@@ -213,7 +213,7 @@ void MainWindow::mvAxisPBClicked()
 {
     addSLog(tr("Move %1 to %2")
             .arg(ui->mvAxisCB->currentText().at(5), QString::number(ui->mvAxisSB->value())));
-    core->serial()->pushCommand(QString("G1 %1%2")
+    core->serial()->pushCommand(QStringLiteral("G1 %1%2")
                                 .arg(ui->mvAxisCB->currentText().at(5), QString::number(ui->mvAxisSB->value()))
                                 .toLocal8Bit());
 }
@@ -222,7 +222,7 @@ void MainWindow::fanSpeedPBClicked()
 {
     addSLog(tr("Set Fan(%1) Speed: %2\%")
             .arg(ui->fanSpeedSelCB->currentText().at(4), QString::number(ui->fanSpeedSB->value())));
-    core->serial()->pushCommand(QString("M106 P%1 S%2")
+    core->serial()->pushCommand(QStringLiteral("M106 P%1 S%2")
                                 .arg(ui->fanSpeedSelCB->currentText().at(4), QString::number(ui->fanSpeedSB->value()))
                                 .toLocal8Bit());
 }
@@ -241,7 +241,7 @@ void MainWindow::printPBClicked()
         break;
 
     case IDLE:
-        fileName = QFileDialog::getOpenFileName(this, tr("Select a file to print"), QDir::homePath(), "*.gcode");
+        fileName = QFileDialog::getOpenFileName(this, tr("Select a file to print"), QDir::homePath(), QStringLiteral("*.gcode"));
         if (fileName.isNull()) {
             addLog(tr("No File Selected"));
         } else {
@@ -266,7 +266,7 @@ void MainWindow::printPBClicked()
 void MainWindow::saveLogPBClicked()
 {
     // Note that if a file with the name newName already exists, copy() returns false (i.e. QFile will not overwrite it).
-    QString fileName = QDir::homePath() + "/" + QFileInfo(logFile->fileName()).fileName();
+    QString fileName = QDir::homePath() + QChar::fromLatin1('/') + QFileInfo(logFile->fileName()).fileName();
     QString saveFileName = QFileDialog::getSaveFileName(this, tr("Save Log to file"), fileName);
     QFile::copy(logFile->fileName(), saveFileName);
     logFile->close();
