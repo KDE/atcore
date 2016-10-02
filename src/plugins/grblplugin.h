@@ -13,6 +13,7 @@ public:
     GrblPlugin(QObject *parent = 0);
     QString name() const override;
     bool readyForNextCommand(const QString &lastMessage);
+    QByteArray translate(const QString &command);
 };
 
 #endif

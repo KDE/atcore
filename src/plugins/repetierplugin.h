@@ -20,6 +20,7 @@ public:
     void extractTemp(const QString &lastMessage);
     bool validateCommand(const QString &lastMessage);
     bool readyForNextCommand(const QString &lastMessage);
+    QByteArray translate(const QString &command);
 };
 
 #endif

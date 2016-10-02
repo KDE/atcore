@@ -46,6 +46,11 @@ bool RepetierPlugin::validateCommand(const QString &lastMessage)
     return false;
 }
 
+QByteArray RepetierPlugin::translate(const QString &command)
+{
+    return command.toLocal8Bit();
+}
+
 bool RepetierPlugin::readyForNextCommand(const QString &lastMessage)
 {
     return validateCommand(lastMessage);

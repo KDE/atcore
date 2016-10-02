@@ -6,6 +6,7 @@
 #include <QSerialPortInfo>
 
 class SerialLayer;
+class IFirmware;
 
 enum PrinterState {
     DISCONNECTED, //Not Connected to a printer, initial state
@@ -29,7 +30,10 @@ public:
     bool initFirmware(const QString &port, int baud);
     bool isInitialized();
 
+    void setSerial(SerialLayer* serial);
     SerialLayer *serial() const;
+    void setPlugin(IFirmware* plugin);
+    IFirmware *plugin() const;
 
     /**
      * @brief Stop the Printer
@@ -62,6 +66,13 @@ signals:
      */
     void receivedMessage(const QByteArray &message);
 private:
+
+    /**
+     * @brief Translate command and push it
+     *
+     * @param msg : Command
+     */
+    void pushCommand(const QString &comm);
     void findFirmware(const QByteArray &message);
     void newMessage(const QByteArray &message);
     QByteArray lastMessage;

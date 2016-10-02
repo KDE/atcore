@@ -41,7 +41,17 @@ AtCore::AtCore(QObject *parent) : QObject(parent), d(new AtCorePrivate)
     d->pluginsDir.cd("src");
     d->pluginsDir.cd("plugins");
     qDebug() << d->pluginsDir;
-    printerState = DISCONNECTED;
+    setState(DISCONNECTED);
+}
+
+void AtCore::setSerial(SerialLayer* serial)
+{
+    d->serial = serial;
+}
+
+void AtCore::setPlugin(IFirmware* plugin)
+{
+    d->fwPlugin = plugin;
 }
 
 SerialLayer *AtCore::serial() const
@@ -49,12 +59,17 @@ SerialLayer *AtCore::serial() const
     return d->serial;
 }
 
+IFirmware *AtCore::plugin() const
+{
+    return d->fwPlugin;
+}
+
 void AtCore::findFirmware(const QByteArray &message)
 {
-    if (printerState == DISCONNECTED) {
+    if (state() == DISCONNECTED) {
         if (message.contains("start")) {
-            QTimer::singleShot(500, this, [ = ] {qDebug() << "Sending M115"; d->serial->pushCommand("M115");});
-            printerState = CONNECTING;
+            QTimer::singleShot(500, this, [ = ] {qDebug() << "Sending M115"; pushCommand("M115");});
+            setState(CONNECTING);
         }
         return;
     }
@@ -77,7 +92,7 @@ void AtCore::findFirmware(const QByteArray &message)
 #else
         if (file.endsWith(".so"))
 #endif
-            file = file.split('.').at(0);
+            file = file.split(QChar('.')).at(0);
         else {
             qDebug() << "File" << file << "not plugin.";
             continue;
@@ -93,29 +108,29 @@ void AtCore::findFirmware(const QByteArray &message)
         }
 
         qDebug() << "Full Folder:" << (d->pluginsDir.path() + f);
-        d->pluginLoader.setFileName(d->pluginsDir.path() + '/' + f);
+        d->pluginLoader.setFileName(d->pluginsDir.path() + QChar('/') + f);
         if (!d->pluginLoader.load()) {
             qDebug() << d->pluginLoader.errorString();
         } else {
             qDebug() << "Loading plugin.";
         }
-        d->fwPlugin = qobject_cast<IFirmware *>(d->pluginLoader.instance());
+        setPlugin(qobject_cast<IFirmware *>(d->pluginLoader.instance()));
     }
-    if (!d->fwPlugin) {
+    if (!plugin()) {
         qDebug() << "No plugin loaded.";
         qDebug() << "Looking plugin in folder:" << d->pluginsDir;
     } else {
-        qDebug() << "Connected to" << d->fwPlugin->name();
-        disconnect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
-        connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::newMessage);
-        printerState = IDLE;
+        qDebug() << "Connected to" << plugin()->name();
+        disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
+        connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
+        setState(IDLE);
     }
 }
 
 bool AtCore::initFirmware(const QString &port, int baud)
 {
-    d->serial = new SerialLayer(port, baud);
-    connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
+    setSerial(new SerialLayer(port, baud));
+    connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
 }
 
 bool AtCore::isInitialized()
@@ -144,41 +159,46 @@ void AtCore::print(const QString &fileName)
 
     while (!gcodestream.atEnd()) {
         QCoreApplication::processEvents(); //make sure all events are processed.
-        if (printerState == IDLE || printerState == BUSY) {
-            printerState = BUSY;
+        switch (state()) {
+        case IDLE:
+        case BUSY:
+            setState(BUSY);
             cline = gcodestream.readLine();
             cline = cline.simplified();
             if (cline.contains(QChar(';'))) {
                 cline.resize(cline.indexOf(QChar(';')));
             }
             if (!cline.isEmpty()) {
-                d->serial->pushCommand(cline.toLocal8Bit());
+                pushCommand(cline);
                 bool waiting = true;
                 while (waiting) {
-                    if (!d->serial->commandAvailable()) {
+                    if (!serial()->commandAvailable()) {
                         loop.exec();
                     }
-                    if (d->fwPlugin->readyForNextCommand(lastMessage)) {
+                    if (plugin()->readyForNextCommand(lastMessage)) {
                         waiting = false;
                     }
                 }
             }
-        } else if (printerState == ERROR) {
+            break;
+
+        case ERROR:
             qDebug() << tr("Error State");
-        }
+            break;
 
-        else if (printerState == PAUSE) {
-
-        }
-
-        else if (printerState == STOP) {
+        case STOP: {
             QString stopString(GCode::toCommand(GCode::M112));
             gcodestream.setString(&stopString);
-            printerState = IDLE;
+            setState(IDLE);
+            break;
         }
 
-        else {
+        case PAUSE:
+            break;
+
+        default:
             qDebug() << tr("Unknown State");
+            break;
         }
     }
     disconnect(this, &AtCore::receivedMessage, &loop, &QEventLoop::quit);
@@ -196,9 +216,15 @@ void AtCore::setState(PrinterState state)
 
 void AtCore::stop()
 {
-    if (printerState == BUSY) {
-        printerState = STOP;
-    } else {
-        serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
+    switch (state()) {
+    case BUSY:
+        setState(STOP);
+    default:
+        pushCommand(GCode::toCommand(GCode::M112));
     }
+}
+
+void AtCore::pushCommand(const QString &comm)
+{
+    serial()->pushCommand(plugin()->translate(comm));
 }
