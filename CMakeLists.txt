@@ -2,6 +2,14 @@ project(AtCore)
 
 cmake_minimum_required(VERSION 3.5)
 
+find_package(ECM REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
+
+include(KDECompilerSettings)
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(ECMInstallIcons)
+
 set(CMAKE_AUTOMOC ON)
 
 if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUXX)
