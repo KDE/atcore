@@ -41,7 +41,7 @@ AtCore::AtCore(QObject *parent) : QObject(parent), d(new AtCorePrivate)
     d->pluginsDir.cd("src");
     d->pluginsDir.cd("plugins");
     qDebug() << d->pluginsDir;
-    printerState = DISCONNECTED;
+    setState(DISCONNECTED);
 }
 
 SerialLayer *AtCore::serial() const
@@ -51,10 +51,10 @@ SerialLayer *AtCore::serial() const
 
 void AtCore::findFirmware(const QByteArray &message)
 {
-    if (printerState == DISCONNECTED) {
+    if (state() == DISCONNECTED) {
         if (message.contains("start")) {
             QTimer::singleShot(500, this, [ = ] {qDebug() << "Sending M115"; d->serial->pushCommand("M115");});
-            printerState = CONNECTING;
+            setState(CONNECTING);
         }
         return;
     }
@@ -108,7 +108,7 @@ void AtCore::findFirmware(const QByteArray &message)
         qDebug() << "Connected to" << d->fwPlugin->name();
         disconnect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
         connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::newMessage);
-        printerState = IDLE;
+        setState(IDLE);
     }
 }
 
@@ -144,8 +144,8 @@ void AtCore::print(const QString &fileName)
 
     while (!gcodestream.atEnd()) {
         QCoreApplication::processEvents(); //make sure all events are processed.
-        if (printerState == IDLE || printerState == BUSY) {
-            printerState = BUSY;
+        if (state() == IDLE || state() == BUSY) {
+            setState(BUSY);
             cline = gcodestream.readLine();
             cline = cline.simplified();
             if (cline.contains(QChar(';'))) {
@@ -163,18 +163,18 @@ void AtCore::print(const QString &fileName)
                     }
                 }
             }
-        } else if (printerState == ERROR) {
+        } else if (state() == ERROR) {
             qDebug() << tr("Error State");
         }
 
-        else if (printerState == PAUSE) {
+        else if (state() == PAUSE) {
 
         }
 
-        else if (printerState == STOP) {
+        else if (state() == STOP) {
             QString stopString(GCode::toCommand(GCode::M112));
             gcodestream.setString(&stopString);
-            printerState = IDLE;
+            setState(IDLE);
         }
 
         else {
@@ -196,8 +196,8 @@ void AtCore::setState(PrinterState state)
 
 void AtCore::stop()
 {
-    if (printerState == BUSY) {
-        printerState = STOP;
+    if (state() == BUSY) {
+        setState(STOP);
     } else {
         serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
     }
