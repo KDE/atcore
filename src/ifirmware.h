@@ -10,6 +10,7 @@ public:
     virtual QString name() const = 0;
     virtual bool readyForNextCommand(const QString &lastMessage) = 0;
     virtual QByteArray translate(const QString &command) = 0;
+    virtual ~IFirmware() {}
     // ADD THE METHODS HERE.
 
     struct {
