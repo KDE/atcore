@@ -111,7 +111,7 @@ void AtCore::findFirmware(const QByteArray &message)
     }
 }
 
-bool AtCore::initFirmware(const QString &port, int baud)
+void AtCore::initFirmware(const QString &port, int baud)
 {
     d->serial = new SerialLayer(port, baud);
     connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
@@ -119,6 +119,7 @@ bool AtCore::initFirmware(const QString &port, int baud)
 
 bool AtCore::isInitialized()
 {
+    return d->serial->opened();
 }
 
 QList<QSerialPortInfo> AtCore::serialPorts() const
