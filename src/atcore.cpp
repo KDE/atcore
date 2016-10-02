@@ -53,7 +53,7 @@ void AtCore::findFirmware(const QByteArray &message)
 {
     if (state() == DISCONNECTED) {
         if (message.contains("start")) {
-            QTimer::singleShot(500, this, [ = ] {qDebug() << "Sending M115"; serial()->pushCommand("M115");});
+            QTimer::singleShot(500, this, [ = ] {qDebug() << "Sending M115"; pushCommand("M115");});
             setState(CONNECTING);
         }
         return;
@@ -154,7 +154,7 @@ void AtCore::print(const QString &fileName)
                 cline.resize(cline.indexOf(QChar(';')));
             }
             if (!cline.isEmpty()) {
-                serial()->pushCommand(cline.toLocal8Bit());
+                pushCommand(cline);
                 bool waiting = true;
                 while (waiting) {
                     if (!serial()->commandAvailable()) {
@@ -205,6 +205,11 @@ void AtCore::stop()
     case BUSY:
         setState(STOP);
     default:
-        serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
+        pushCommand(GCode::toCommand(GCode::M112));
     }
+}
+
+void AtCore::pushCommand(const QString &comm)
+{
+    serial()->pushCommand(d->fwPlugin->translate(comm));
 }
