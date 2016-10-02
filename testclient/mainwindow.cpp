@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QTextStream>
+#include <QDebug>
 
 #include "mainwindow.h"
 #include "seriallayer.h"
@@ -260,6 +261,8 @@ void MainWindow::printPBClicked()
         core->setState(BUSY);
         ui->printPB->setText(tr("Pause Print"));
         break;
+    default:
+        qDebug() << "ERROR / STOP unhandled.";
     }
 }
 
