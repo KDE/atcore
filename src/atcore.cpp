@@ -49,6 +49,11 @@ SerialLayer *AtCore::serial() const
     return d->serial;
 }
 
+IFirmware *AtCore::plugin() const
+{
+    return d->fwPlugin;
+}
+
 void AtCore::findFirmware(const QByteArray &message)
 {
     if (state() == DISCONNECTED) {
@@ -101,11 +106,11 @@ void AtCore::findFirmware(const QByteArray &message)
         }
         d->fwPlugin = qobject_cast<IFirmware *>(d->pluginLoader.instance());
     }
-    if (!d->fwPlugin) {
+    if (!plugin()) {
         qDebug() << "No plugin loaded.";
         qDebug() << "Looking plugin in folder:" << d->pluginsDir;
     } else {
-        qDebug() << "Connected to" << d->fwPlugin->name();
+        qDebug() << "Connected to" << plugin()->name();
         disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
         connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
         setState(IDLE);
@@ -160,7 +165,7 @@ void AtCore::print(const QString &fileName)
                     if (!serial()->commandAvailable()) {
                         loop.exec();
                     }
-                    if (d->fwPlugin->readyForNextCommand(lastMessage)) {
+                    if (plugin()->readyForNextCommand(lastMessage)) {
                         waiting = false;
                     }
                 }
@@ -211,5 +216,5 @@ void AtCore::stop()
 
 void AtCore::pushCommand(const QString &comm)
 {
-    serial()->pushCommand(d->fwPlugin->translate(comm));
+    serial()->pushCommand(plugin()->translate(comm));
 }
