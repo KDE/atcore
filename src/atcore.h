@@ -6,6 +6,7 @@
 #include <QSerialPortInfo>
 
 class SerialLayer;
+class IFirmware;
 
 enum PrinterState {
     DISCONNECTED, //Not Connected to a printer, initial state
@@ -30,6 +31,8 @@ public:
     bool isInitialized();
 
     SerialLayer *serial() const;
+
+    IFirmware *plugin() const;
 
     /**
      * @brief Stop the Printer
