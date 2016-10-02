@@ -1,9 +1,5 @@
 set(CMAKE_AUTOUIC ON)
 
-find_package(KF5Solid REQUIRED NO_MODULE)
-
-MESSAGE("Include dirs: "  ${Solid_INCLUDE_DIRS} ${Solid_VERSION_MAJOR} )
-
 include_directories(../src)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 

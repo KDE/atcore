@@ -7,7 +7,7 @@
 #include <QSerialPort>
 #include <QTemporaryFile>
 
-#include <KF5/Solid/Solid/DeviceNotifier>
+#include <Solid/DeviceNotifier>
 
 class SerialLayer;
 
