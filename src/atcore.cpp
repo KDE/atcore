@@ -120,6 +120,7 @@ void AtCore::findFirmware(const QByteArray &message)
     if (!plugin()) {
         qDebug() << "No plugin loaded.";
         qDebug() << "Looking plugin in folder:" << d->pluginsDir;
+        setState(CONNECTING);
     } else {
         qDebug() << "Connected to" << plugin()->name();
         disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);

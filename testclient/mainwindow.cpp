@@ -155,6 +155,7 @@ void MainWindow::connectPBClicked()
         core->initFirmware(ui->serialPortCB->currentText(), ui->baudRateLE->text().toInt());
         connect(core->serial(), &SerialLayer::receivedCommand, this, &MainWindow::checkReceivedCommand);
         connect(core->serial(), &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
+        addLog(tr("Connected"));
         ui->connectPB->setText(tr("Disconnect"));
     } else {
         core->serial()->closeConnection();
