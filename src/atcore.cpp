@@ -92,7 +92,7 @@ void AtCore::findFirmware(const QByteArray &message)
 #else
         if (file.endsWith(".so"))
 #endif
-            file = file.split('.').at(0);
+            file = file.split(QChar('.')).at(0);
         else {
             qDebug() << "File" << file << "not plugin.";
             continue;
@@ -108,7 +108,7 @@ void AtCore::findFirmware(const QByteArray &message)
         }
 
         qDebug() << "Full Folder:" << (d->pluginsDir.path() + f);
-        d->pluginLoader.setFileName(d->pluginsDir.path() + '/' + f);
+        d->pluginLoader.setFileName(d->pluginsDir.path() + QChar('/') + f);
         if (!d->pluginLoader.load()) {
             qDebug() << d->pluginLoader.errorString();
         } else {
