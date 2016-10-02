@@ -11,6 +11,11 @@ GrblPlugin::GrblPlugin(QObject *parent)
 
 }
 
+QByteArray GrblPlugin::translate(const QString &command)
+{
+    return command.toLocal8Bit();
+}
+
 bool GrblPlugin::readyForNextCommand(const QString &lastMessage)
 {
     Q_UNUSED(lastMessage);

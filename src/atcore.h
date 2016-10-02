@@ -62,6 +62,13 @@ signals:
      */
     void receivedMessage(const QByteArray &message);
 private:
+
+    /**
+     * @brief Translate command and push it
+     *
+     * @param msg : Command
+     */
+    void pushCommand(const QString &comm);
     void findFirmware(const QByteArray &message);
     void newMessage(const QByteArray &message);
     QByteArray lastMessage;
