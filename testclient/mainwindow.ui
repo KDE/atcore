@@ -375,10 +375,8 @@
            </layout>
           </item>
          </layout>
-         <zorder></zorder>
-         <zorder></zorder>
-         <zorder></zorder>
          <zorder>stopPB</zorder>
+         <zorder>printPB</zorder>
         </widget>
        </item>
       </layout>
