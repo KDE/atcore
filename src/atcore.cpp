@@ -44,6 +44,16 @@ AtCore::AtCore(QObject *parent) : QObject(parent), d(new AtCorePrivate)
     setState(DISCONNECTED);
 }
 
+void AtCore::setSerial(SerialLayer* serial)
+{
+    d->serial = serial;
+}
+
+void AtCore::setPlugin(IFirmware* plugin)
+{
+    d->fwPlugin = plugin;
+}
+
 SerialLayer *AtCore::serial() const
 {
     return d->serial;
@@ -104,7 +114,7 @@ void AtCore::findFirmware(const QByteArray &message)
         } else {
             qDebug() << "Loading plugin.";
         }
-        d->fwPlugin = qobject_cast<IFirmware *>(d->pluginLoader.instance());
+        setPlugin(qobject_cast<IFirmware *>(d->pluginLoader.instance()));
     }
     if (!plugin()) {
         qDebug() << "No plugin loaded.";
@@ -119,7 +129,7 @@ void AtCore::findFirmware(const QByteArray &message)
 
 bool AtCore::initFirmware(const QString &port, int baud)
 {
-    d->serial = new SerialLayer(port, baud);
+    setSerial(new SerialLayer(port, baud));
     connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
 }
 
