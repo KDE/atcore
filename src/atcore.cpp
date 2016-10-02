@@ -53,7 +53,7 @@ void AtCore::findFirmware(const QByteArray &message)
 {
     if (state() == DISCONNECTED) {
         if (message.contains("start")) {
-            QTimer::singleShot(500, this, [ = ] {qDebug() << "Sending M115"; d->serial->pushCommand("M115");});
+            QTimer::singleShot(500, this, [ = ] {qDebug() << "Sending M115"; serial()->pushCommand("M115");});
             setState(CONNECTING);
         }
         return;
@@ -106,8 +106,8 @@ void AtCore::findFirmware(const QByteArray &message)
         qDebug() << "Looking plugin in folder:" << d->pluginsDir;
     } else {
         qDebug() << "Connected to" << d->fwPlugin->name();
-        disconnect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
-        connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::newMessage);
+        disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
+        connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
         setState(IDLE);
     }
 }
@@ -115,7 +115,7 @@ void AtCore::findFirmware(const QByteArray &message)
 bool AtCore::initFirmware(const QString &port, int baud)
 {
     d->serial = new SerialLayer(port, baud);
-    connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
+    connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
 }
 
 bool AtCore::isInitialized()
@@ -154,10 +154,10 @@ void AtCore::print(const QString &fileName)
                 cline.resize(cline.indexOf(QChar(';')));
             }
             if (!cline.isEmpty()) {
-                d->serial->pushCommand(cline.toLocal8Bit());
+                serial()->pushCommand(cline.toLocal8Bit());
                 bool waiting = true;
                 while (waiting) {
-                    if (!d->serial->commandAvailable()) {
+                    if (!serial()->commandAvailable()) {
                         loop.exec();
                     }
                     if (d->fwPlugin->readyForNextCommand(lastMessage)) {
