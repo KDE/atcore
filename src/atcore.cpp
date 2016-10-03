@@ -24,6 +24,7 @@ struct AtCorePrivate {
 
 AtCore::AtCore(QObject *parent) : QObject(parent), d(new AtCorePrivate)
 {
+    setState(DISCONNECTED);
     d->pluginsDir = QDir(qApp->applicationDirPath());
 
 #if defined(Q_OS_WIN)
