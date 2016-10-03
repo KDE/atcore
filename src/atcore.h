@@ -74,6 +74,7 @@ private:
     void pushCommand(const QString &comm);
     void findFirmware(const QByteArray &message);
     void newMessage(const QByteArray &message);
+    void requestFirmware();
     QByteArray lastMessage;
     AtCorePrivate *d;
     PrinterState printerState;
