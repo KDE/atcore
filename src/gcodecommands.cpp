@@ -322,7 +322,7 @@ QString toString(MCommands gcode)
     case M323://Repetier
         return QObject::tr("M323: Distortion correction on/off (Repetier) ");
     case M340://Repetier
-        return QObject::tr(" M340: Control the servos ");
+        return QObject::tr("M340: Control the servos ");
     case M350://Marlin - Repetier - RepRap Firmware
         return QObject::tr("M350: Set microstepping mode ");
     case M351://Marlin
@@ -376,7 +376,7 @@ QString toString(MCommands gcode)
     case M408://RepRap Firmware
         return QObject::tr("M408: Report JSON-style response ");
     case M420:
-        return QObject::tr(" M420: Enable/Disable Mesh Leveling (Marlin)");
+        return QObject::tr("M420: Enable/Disable Mesh Leveling (Marlin)");
     case M450://Repetier
         return QObject::tr("M450: Report Printer Mode ");
     case M451://Repetier
@@ -404,7 +404,7 @@ QString toString(MCommands gcode)
     case M552://RepRap Firmware
         return QObject::tr("M552: Set IP address ");
     case M553://RepRap Firmware
-        return QObject::tr(" M553: Set Netmask ");
+        return QObject::tr("M553: Set Netmask ");
     case M554://RepRap Firmware
         return QObject::tr("M554: Set Gateway ");
     case M555://RepRap Firmware
@@ -444,7 +444,7 @@ QString toString(MCommands gcode)
     case M573://RepRap Firmware
         return QObject::tr("M573: Report heater PWM ");
     case M574://RepRap Firmware
-        return QObject::tr(" M574: Set endstop configuration ");
+        return QObject::tr("M574: Set endstop configuration ");
     case M575://RepRap Firmware
         return QObject::tr("M575: Set serial comms parameters ");
     case M577://RepRap Firmware
@@ -486,7 +486,7 @@ QString toString(MCommands gcode)
     case M998://RepRap Firmware
         return QObject::tr("M998: Request resend of line");
     case M999://Marlin - Smoothie - RepRap Firmware
-        return QObject::tr(" M999: Restart after being stopped by error ");
+        return QObject::tr("M999: Restart after being stopped by error ");
     default:
         return QObject::tr("Not implemented or not supported!");
 
