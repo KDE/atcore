@@ -23,7 +23,7 @@ class AtCore : public QObject
 {
     Q_OBJECT
 public:
-    AtCore(QObject *parent = 0);
+    AtCore(QObject *parent = nullptr);
     QList<QSerialPortInfo> serialPorts() const;
 
     void initFirmware(const QString &port, int baud);

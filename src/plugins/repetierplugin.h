@@ -14,7 +14,7 @@ private:
     static QString _extruderTemp;
     static QString _bedTemp;
 public:
-    RepetierPlugin(QObject *parent = 0);
+    RepetierPlugin(QObject *parent = nullptr);
     QString name() const override;
     void extractTemp(const QString &lastMessage);
     bool validateCommand(const QString &lastMessage);
