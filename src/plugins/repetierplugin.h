@@ -1,5 +1,4 @@
-#ifndef REPETIERPLUGIN_H
-#define REPETIERPLUGIN_H
+#pragma once
 
 #include "ifirmware.h"
 #include <QObject>
@@ -22,5 +21,3 @@ public:
     bool readyForNextCommand(const QString &lastMessage);
     QByteArray translate(const QString &command);
 };
-
-#endif

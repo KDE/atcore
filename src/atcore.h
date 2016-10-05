@@ -1,5 +1,4 @@
-#ifndef ATCORE_H
-#define ATCORE_H
+#pragma once
 
 #include <QObject>
 #include <QList>
@@ -79,5 +78,3 @@ private:
     AtCorePrivate *d;
     PrinterState printerState;
 };
-
-#endif

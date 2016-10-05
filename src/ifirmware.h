@@ -1,5 +1,4 @@
-#ifndef IFIRMWARE
-#define IFIRMWARE
+#pragma once
 
 #include <QObject>
 #include <QString>
@@ -23,5 +22,3 @@ public:
 };
 
 Q_DECLARE_INTERFACE(IFirmware, "org.kde.atelier.core.firmware")
-
-#endif
