@@ -14,7 +14,6 @@
 #include <QTextStream>
 
 struct AtCorePrivate {
-    SerialLayer *currentProtocol = nullptr;
     IFirmware *fwPlugin = nullptr;
     SerialLayer *serial = nullptr;
     QPluginLoader pluginLoader;
