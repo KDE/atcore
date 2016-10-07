@@ -9,3 +9,8 @@ set(GrblPlugin_SRCS grblplugin.cpp)
 add_library(grbl SHARED ${GrblPlugin_SRCS})
 target_link_libraries(grbl Qt5::Core AtCoreLib)
 add_dependencies(grbl AtCoreLib)
+
+set(TeacupPlugin_SRCS teacupplugin.cpp)
+add_library(teacup SHARED ${TeacupPlugin_SRCS})
+target_link_libraries(teacup Qt5::Core AtCoreLib)
+add_dependencies(teacup AtCoreLib)
