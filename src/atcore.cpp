@@ -100,10 +100,15 @@ void AtCore::findFirmware(const QByteArray &message)
         qDebug() << "Found plugin file" << f;
         if (file.startsWith(QStringLiteral("lib"))) {
             file = file.remove(QStringLiteral("lib"));
+            file = file.toLower().simplified();
         }
+        QByteArray fwName = message;
+        fwName = fwName.split(':').at(1);
+        fwName.resize(fwName.indexOf(' '));
+        fwName = fwName.toLower().simplified();
 
-        if (!message.contains(file.toLocal8Bit())) {
-            qDebug() << "But it's not the plugin for this firmware." << message;
+        if (!fwName.contains(file.toLocal8Bit())) {
+            qDebug() << "But it's not the plugin for this firmware." << fwName << ':' << file;
             continue;
         }
 
