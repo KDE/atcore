@@ -14,3 +14,8 @@ set(TeacupPlugin_SRCS teacupplugin.cpp)
 add_library(teacup SHARED ${TeacupPlugin_SRCS})
 target_link_libraries(teacup Qt5::Core AtCoreLib)
 add_dependencies(teacup AtCoreLib)
+
+set(MarlinPlugin_SRCS marlinplugin.cpp)
+add_library(marlin SHARED ${MarlinPlugin_SRCS})
+target_link_libraries(marlin Qt5::Core AtCoreLib)
+add_dependencies(marlin AtCoreLib)
