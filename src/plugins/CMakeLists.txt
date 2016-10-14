@@ -19,3 +19,8 @@ set(MarlinPlugin_SRCS marlinplugin.cpp)
 add_library(marlin SHARED ${MarlinPlugin_SRCS})
 target_link_libraries(marlin Qt5::Core AtCoreLib)
 add_dependencies(marlin AtCoreLib)
+
+set(SprinterPlugin_SRCS sprinterplugin.cpp)
+add_library(sprinter SHARED ${SprinterPlugin_SRCS})
+target_link_libraries(sprinter Qt5::Core AtCoreLib)
+add_dependencies(sprinter AtCoreLib)
