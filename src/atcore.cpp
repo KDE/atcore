@@ -104,6 +104,10 @@ void AtCore::findFirmware(const QByteArray &message)
         }
         QByteArray fwName = message;
         fwName = fwName.split(':').at(1);
+        if (fwName.indexOf(' ') == 0) {
+            //remove leading space
+            fwName.remove(0, 1);
+        }
         fwName.resize(fwName.indexOf(' '));
         fwName = fwName.toLower().simplified();
 
