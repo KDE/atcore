@@ -24,3 +24,8 @@ set(SprinterPlugin_SRCS sprinterplugin.cpp)
 add_library(sprinter SHARED ${SprinterPlugin_SRCS})
 target_link_libraries(sprinter Qt5::Core AtCoreLib)
 add_dependencies(sprinter AtCoreLib)
+
+set(AprinterPlugin_SRCS aprinterplugin.cpp)
+add_library(aprinter SHARED ${AprinterPlugin_SRCS})
+target_link_libraries(aprinter Qt5::Core AtCoreLib)
+add_dependencies(aprinter AtCoreLib)
