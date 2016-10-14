@@ -252,6 +252,8 @@ void MainWindow::printPBClicked()
             addLog(tr("Print: %1").arg(fileName));
             ui->printPB->setText(tr("Pause Print"));
             core->print(fileName);
+            ui->printPB->setText(tr("Print File"));
+            core->setState(IDLE);
         }
         break;
 
