@@ -75,7 +75,7 @@ void AtCore::findFirmware(const QByteArray &message)
     }
 
     qDebug() << "Find Firmware Called" << message;
-    if (!message.startsWith("FIRMWARE")) {
+    if (!message.contains("FIRMWARE_NAME:")) {
         qDebug() << "No firmware yet.";
         return;
     }
@@ -108,7 +108,10 @@ void AtCore::findFirmware(const QByteArray &message)
             //remove leading space
             fwName.remove(0, 1);
         }
-        fwName.resize(fwName.indexOf(' '));
+        if (fwName.contains(' ')) {
+            //check there is a space or dont' resize
+            fwName.resize(fwName.indexOf(' '));
+        }
         fwName = fwName.toLower().simplified();
 
         if (!fwName.contains(file.toLocal8Bit())) {
