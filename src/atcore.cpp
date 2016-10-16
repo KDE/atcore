@@ -67,11 +67,9 @@ IFirmware *AtCore::plugin() const
 void AtCore::findFirmware(const QByteArray &message)
 {
     if (state() == DISCONNECTED) {
-        if (message.contains("start")) {
-            qDebug() << "Waiting requestFirmware.";
-            QTimer::singleShot(500, this, &AtCore::requestFirmware);
-            setState(CONNECTING);
-        }
+        qDebug() << "Waiting requestFirmware.";
+        QTimer::singleShot(500, this, &AtCore::requestFirmware);
+        setState(CONNECTING);
         return;
     }
 
