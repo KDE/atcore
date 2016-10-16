@@ -130,7 +130,7 @@ void AtCore::findFirmware(const QByteArray &message)
         }
         setPlugin(qobject_cast<IFirmware *>(d->pluginLoader.instance()));
     }
-    if (!plugin()) {
+    if (!pluginLoaded()) {
         qDebug() << "No plugin loaded.";
         qDebug() << "Looking plugin in folder:" << d->pluginsDir;
         setState(CONNECTING);
@@ -242,7 +242,7 @@ void AtCore::stop()
 
 void AtCore::pushCommand(const QString &comm)
 {
-    if (!plugin()) {
+    if (!pluginLoaded()) {
         serial()->pushCommand(comm.toLocal8Bit());
     } else {
         serial()->pushCommand(plugin()->translate(comm));
@@ -253,4 +253,13 @@ void AtCore::requestFirmware()
 {
     qDebug() << "Sending " << GCode::toString(GCode::M115);
     pushCommand(GCode::toCommand(GCode::M115));
+}
+
+bool AtCore::pluginLoaded()
+{
+    if(plugin()){
+        return true;
+    } else {
+        return false;
+    }
 }

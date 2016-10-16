@@ -57,6 +57,17 @@ public:
      * @param state : printer state.
      */
     void setState(PrinterState state);
+
+    /**
+     * @brief Return true if plugin is loaded
+     */
+    bool pluginLoaded();
+
+    /**
+     * @brief Request firmware sending M115 command
+     */
+    void requestFirmware();
+
 signals:
     /**
      * @brief Emit signal when message is received from the printer
@@ -72,9 +83,8 @@ private:
      * @param msg : Command
      */
     void pushCommand(const QString &comm);
-    void findFirmware(const QByteArray &message);
     void newMessage(const QByteArray &message);
-    void requestFirmware();
+    void findFirmware(const QByteArray &message);
     QByteArray lastMessage;
     AtCorePrivate *d;
     PrinterState printerState;

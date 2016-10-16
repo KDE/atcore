@@ -155,8 +155,13 @@ void MainWindow::connectPBClicked()
         core->initFirmware(ui->serialPortCB->currentText(), ui->baudRateLE->text().toInt());
         connect(core->serial(), &SerialLayer::receivedCommand, this, &MainWindow::checkReceivedCommand);
         connect(core->serial(), &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
-        addLog(tr("Connected"));
+        addLog(tr("Serial connected"));
         ui->connectPB->setText(tr("Disconnect"));
+        if(!core->pluginLoaded()){
+            addLog(tr("No plugin loaded !"));
+            addLog(tr("Requesting Firmware..."));
+            core->requestFirmware();
+        }
     } else {
         core->serial()->closeConnection();
         core->setState(DISCONNECTED);
@@ -238,6 +243,11 @@ void MainWindow::printPBClicked()
 
     case DISCONNECTED:
         QMessageBox::information(this, tr("Error"), tr("Not Connected To a Printer"));
+        if(!core->pluginLoaded()){
+            addLog(tr("No plugin loaded !"));
+            addLog(tr("Requesting Firmware..."));
+            core->requestFirmware();
+        }
         break;
 
     case CONNECTING:
