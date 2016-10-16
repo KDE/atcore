@@ -16,6 +16,7 @@ fwlist = {
 	'teacup' : """FIRMWARE_NAME:Teacup FIRMWARE_URL:http://github.com/traumflug/Teacup_Firmware/
 			PROTOCOL_VERSION:1.0 MACHINE_TYPE:Mendel EXTRUDER_COUNT:X
 			TEMP_SENSOR_COUNT:X HEATER_COUNT:X\n\r""",
+	'aprinter' :"ok FIRMWARE_NAME:APrinter\n\r",
 }
 
 fwname = 'repetier'
