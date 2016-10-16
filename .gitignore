@@ -1,3 +1,5 @@
 *kdev4*
 build/*
+doc/html*
+doc/latex*
 

@@ -10,6 +10,13 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(ECMInstallIcons)
 include(FeatureSummary)
+find_package(Doxygen)
+if(DOXYGEN_FOUND)
+    add_custom_target(doc COMMAND ${DOXYGEN_EXECUTABLE} "${CMAKE_HOME_DIRECTORY}/doc/Doxyfile"
+        WORKING_DIRECTORY ${CMAKE_HOME_DIRECTORY}
+        COMMENT "Building user's documentation into doxyDoc build dir..."
+    )
+endif()
 
 add_definitions(-DQT_NO_CAST_FROM_ASCII
                 -DQT_NO_URL_CAST_FROM_STRING)
