@@ -19,6 +19,7 @@ struct AtCorePrivate {
     QPluginLoader pluginLoader;
     QDir pluginsDir;
     bool isInitialized;
+    QMap<QString, QString> plugins;
 };
 
 AtCore::AtCore(QObject *parent) :
@@ -44,6 +45,7 @@ AtCore::AtCore(QObject *parent) :
     d->pluginsDir.cd(QStringLiteral("src"));
     d->pluginsDir.cd(QStringLiteral("plugins"));
     qDebug() << d->pluginsDir;
+    findPlugins();
     setState(DISCONNECTED);
 }
 
@@ -82,64 +84,50 @@ void AtCore::findFirmware(const QByteArray &message)
         return;
     }
 
-    qDebug() << "Found firmware string, looking for plugin.";
-    qDebug() << "plugin dir:" << d->pluginsDir;
-    QStringList files = d->pluginsDir.entryList(QDir::Files);
-    foreach (const QString &f, files) {
-        QString file = f;
-#if defined(Q_OS_WIN)
-        if (file.endsWith(QStringLiteral(".dll")))
-#elif defined(Q_OS_MAC)
-        if (file.endsWith(QStringLiteral(".dylib"))
-#else
-        if (file.endsWith(QStringLiteral(".so")))
-#endif
-            file = file.split(QChar::fromLatin1('.')).at(0);
-        else {
-            qDebug() << "File" << file << "not plugin.";
-            continue;
-        }
-        qDebug() << "Found plugin file" << f;
-        if (file.startsWith(QStringLiteral("lib"))) {
-            file = file.remove(QStringLiteral("lib"));
-            file = file.toLower().simplified();
-        }
-        QByteArray fwName = message;
-        fwName = fwName.split(':').at(1);
-        if (fwName.indexOf(' ') == 0) {
-            //remove leading space
-            fwName.remove(0, 1);
-        }
-        if (fwName.contains(' ')) {
-            //check there is a space or dont' resize
-            fwName.resize(fwName.indexOf(' '));
-        }
-        fwName = fwName.toLower().simplified();
+    qDebug() << "Found firmware string, Looking for Firmware Name.";
 
-        if (!fwName.contains(file.toLocal8Bit())) {
-            qDebug() << "But it's not the plugin for this firmware." << fwName << ':' << file;
-            continue;
-        }
+    QString fwName = QString::fromLocal8Bit(message);
+    fwName = fwName.split(QChar::fromLatin1(':')).at(1);
+    if (fwName.indexOf(QChar::fromLatin1(' ')) == 0) {
+        //remove leading space
+        fwName.remove(0, 1);
+    }
+    if (fwName.contains(QChar::fromLatin1(' '))) {
+        //check there is a space or dont' resize
+        fwName.resize(fwName.indexOf(QChar::fromLatin1(' ')));
+    }
+    fwName = fwName.toLower().simplified();
+    if (fwName.contains(QChar::fromLatin1('_'))) {
+        fwName.resize(fwName.indexOf(QChar::fromLatin1('_')));
+    }
+    qDebug() << "Firmware Name:" << fwName;
 
-        qDebug() << "Full Folder:" << (d->pluginsDir.path() + f);
-        d->pluginLoader.setFileName(d->pluginsDir.path() + QChar::fromLatin1('/') + f);
+    loadFirmware(fwName);
+}
 
+void AtCore::loadFirmware(const QString &fwName)
+{
+    if (d->plugins.contains(fwName)) {
+        d->pluginLoader.setFileName(d->plugins[fwName]);
         if (!d->pluginLoader.load()) {
             qDebug() << d->pluginLoader.errorString();
         } else {
             qDebug() << "Loading plugin.";
         }
         setPlugin(qobject_cast<IFirmware *>(d->pluginLoader.instance()));
-    }
-    if (!pluginLoaded()) {
-        qDebug() << "No plugin loaded.";
-        qDebug() << "Looking plugin in folder:" << d->pluginsDir;
-        setState(CONNECTING);
+
+        if (!pluginLoaded()) {
+            qDebug() << "No plugin loaded.";
+            qDebug() << "Looking plugin in folder:" << d->pluginsDir;
+            setState(CONNECTING);
+        } else {
+            qDebug() << "Connected to" << plugin()->name();
+            disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
+            connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
+            setState(IDLE);
+        }
     } else {
-        qDebug() << "Connected to" << plugin()->name();
-        disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
-        connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
-        setState(IDLE);
+        qDebug() << "No Firmware Loaded";
     }
 }
 
@@ -274,3 +262,40 @@ bool AtCore::pluginLoaded()
         return false;
     }
 }
+void AtCore::findPlugins()
+{
+    d->plugins.clear();
+    qDebug() << "plugin dir:" << d->pluginsDir;
+    QStringList files = d->pluginsDir.entryList(QDir::Files);
+    foreach (const QString &f, files) {
+        QString file = f;
+#if defined(Q_OS_WIN)
+        if (file.endsWith(QStringLiteral(".dll")))
+#elif defined(Q_OS_MAC)
+        if (file.endsWith(QStringLiteral(".dylib"))
+#else
+        if (file.endsWith(QStringLiteral(".so")))
+#endif
+            file = file.split(QChar::fromLatin1('.')).at(0);
+        else {
+            qDebug() << "File" << file << "not plugin.";
+            continue;
+        }
+        qDebug() << "Found plugin file" << f;
+        if (file.startsWith(QStringLiteral("lib"))) {
+            file = file.remove(QStringLiteral("lib"));
+            file = file.toLower().simplified();
+            QString pluginString;
+            pluginString.append(d->pluginsDir.path());
+            pluginString.append(QChar::fromLatin1('/'));
+            pluginString.append(f);
+            d->plugins[file] = pluginString;
+            qDebug() << tr("plugins[%1]=%2").arg(file, pluginString);
+        }
+    }
+}
+QStringList AtCore::availablePlugins()
+{
+    return d->plugins.keys();
+}
+

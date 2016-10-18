@@ -73,6 +73,18 @@ public:
      */
     float percentagePrinted();
 
+    /** 
+     * @brief Request a list of firmware plugins
+     */
+    QStringList availablePlugins();
+
+    /**
+     * @brief Load A firmware
+     *
+     * @param fwName : name of the firmware
+     */
+    void loadFirmware(const QString &fwName);
+
 signals:
     /**
      * @brief Emit signal when the printing precentabe changes.
@@ -98,6 +110,7 @@ private:
     void pushCommand(const QString &comm);
     void newMessage(const QByteArray &message);
     void findFirmware(const QByteArray &message);
+    void findPlugins();
     QByteArray lastMessage;
     AtCorePrivate *d;
     PrinterState printerState;
