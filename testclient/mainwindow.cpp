@@ -21,6 +21,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->serialPortCB->setEditable(true);
     ui->baudRateLE->setValidator(validator);
     ui->baudRateLE->setText(QStringLiteral("115200"));
+
+    ui->pluginCB->addItem(tr("Autodetect"));
+    ui->pluginCB->addItems(core->availablePlugins());
+
     addLog(tr("Attempting to locate Serial Ports"));
 
     //hide the printing progress bar.
@@ -161,9 +165,13 @@ void MainWindow::connectPBClicked()
         addLog(tr("Serial connected"));
         ui->connectPB->setText(tr("Disconnect"));
         if (!core->pluginLoaded()) {
-            addLog(tr("No plugin loaded !"));
-            addLog(tr("Requesting Firmware..."));
-            core->requestFirmware();
+            if (ui->pluginCB->currentText().contains(tr("Autodetect"))) {
+                addLog(tr("No plugin loaded !"));
+                addLog(tr("Requesting Firmware..."));
+                core->requestFirmware();
+            } else {
+                core->loadFirmware(ui->pluginCB->currentText());
+            }
         }
     } else {
         core->serial()->closeConnection();
@@ -246,15 +254,10 @@ void MainWindow::printPBClicked()
 
     case DISCONNECTED:
         QMessageBox::information(this, tr("Error"), tr("Not Connected To a Printer"));
-        if (!core->pluginLoaded()) {
-            addLog(tr("No plugin loaded !"));
-            addLog(tr("Requesting Firmware..."));
-            core->requestFirmware();
-        }
         break;
 
     case CONNECTING:
-        QMessageBox::information(this, tr("Error"), tr("Firmware Plugin not loaded try sending M115"));
+        QMessageBox::information(this, tr("Error"), tr("Firmware Plugin not loaded"));
         break;
 
     case IDLE:
