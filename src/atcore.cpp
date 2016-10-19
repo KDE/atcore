@@ -267,7 +267,7 @@ void AtCore::requestFirmware()
 
 bool AtCore::pluginLoaded()
 {
-    if(plugin()){
+    if (plugin()) {
         return true;
     } else {
         return false;
