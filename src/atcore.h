@@ -68,6 +68,11 @@ public:
      */
     void requestFirmware();
 
+    /**
+     * @brief Return printed percentage
+     */
+    float percentagePrinted();
+
 signals:
     /**
      * @brief Emit signal when message is received from the printer
@@ -88,4 +93,5 @@ private:
     QByteArray lastMessage;
     AtCorePrivate *d;
     PrinterState printerState;
+    float percentage;
 };

@@ -21,7 +21,10 @@ struct AtCorePrivate {
     bool isInitialized;
 };
 
-AtCore::AtCore(QObject *parent) : QObject(parent), d(new AtCorePrivate)
+AtCore::AtCore(QObject *parent) :
+    QObject(parent),
+    d(new AtCorePrivate),
+    percentage(0.0)
 {
     setState(DISCONNECTED);
     d->pluginsDir = QDir(qApp->applicationDirPath());
@@ -162,10 +165,17 @@ void AtCore::newMessage(const QByteArray &message)
     emit(receivedMessage(lastMessage));
 }
 
+float AtCore::percentagePrinted()
+{
+    return percentage;
+}
+
 void AtCore::print(const QString &fileName)
 {
     QFile file(fileName);
     file.open(QFile::ReadOnly);
+    qint64 totalSize = file.bytesAvailable();
+    qint64 stillSize = totalSize;
     QTextStream gcodestream(&file);
     QString cline;
     QEventLoop loop;
@@ -178,6 +188,8 @@ void AtCore::print(const QString &fileName)
         case BUSY:
             setState(BUSY);
             cline = gcodestream.readLine();
+            stillSize -= cline.size() + 1; //remove read chars
+            percentage = float(totalSize - stillSize) * 100.0 / float(totalSize);
             cline = cline.simplified();
             if (cline.contains(QChar::fromLatin1(';'))) {
                 cline.resize(cline.indexOf(QChar::fromLatin1(';')));
