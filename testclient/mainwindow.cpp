@@ -157,7 +157,7 @@ void MainWindow::connectPBClicked()
         connect(core->serial(), &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
         addLog(tr("Serial connected"));
         ui->connectPB->setText(tr("Disconnect"));
-        if(!core->pluginLoaded()){
+        if (!core->pluginLoaded()) {
             addLog(tr("No plugin loaded !"));
             addLog(tr("Requesting Firmware..."));
             core->requestFirmware();
@@ -243,7 +243,7 @@ void MainWindow::printPBClicked()
 
     case DISCONNECTED:
         QMessageBox::information(this, tr("Error"), tr("Not Connected To a Printer"));
-        if(!core->pluginLoaded()){
+        if (!core->pluginLoaded()) {
             addLog(tr("No plugin loaded !"));
             addLog(tr("Requesting Firmware..."));
             core->requestFirmware();
@@ -288,6 +288,7 @@ void MainWindow::stopPBClicked()
     }
     core->stop();
 }
+
 void MainWindow::saveLogPBClicked()
 {
     // Note that if a file with the name newName already exists, copy() returns false (i.e. QFile will not overwrite it).
