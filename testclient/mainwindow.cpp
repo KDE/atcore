@@ -49,6 +49,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceAdded, this, &MainWindow::locateSerialPort);
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceRemoved, this, &MainWindow::locateSerialPort);
     connect(core, &AtCore::printProgressChanged, ui->printingProgress, &QProgressBar::setValue);
+    connect(ui->pluginCB, &QComboBox::currentTextChanged, this , &MainWindow::pluginCBChanged);
 }
 
 MainWindow::~MainWindow()
@@ -304,4 +305,12 @@ void MainWindow::saveLogPBClicked()
     QString saveFileName = QFileDialog::getSaveFileName(this, tr("Save Log to file"), fileName);
     QFile::copy(logFile->fileName(), saveFileName);
     logFile->close();
+}
+void MainWindow::pluginCBChanged(QString currentText)
+{
+    if (core->state() != DISCONNECTED) {
+        if (!currentText.contains(tr("Autodetect"))) {
+            core->loadFirmware(currentText);
+        }
+    }
 }

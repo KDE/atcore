@@ -168,4 +168,9 @@ private:
      * @param  msg: Message
      */
     void addSLog(QString msg);
+
+    /**
+     * @brief pluginCB index changed
+     */
+    void pluginCBChanged(QString currentText);
 };
