@@ -23,6 +23,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->baudRateLE->setText(QStringLiteral("115200"));
     addLog(tr("Attempting to locate Serial Ports"));
 
+    //hide the printing progress bar.
+    ui->printingProgress->setVisible(false);
+
     locateSerialPort();
 
     connect(ui->connectPB, &QPushButton::clicked, this, &MainWindow::connectPBClicked);
@@ -41,7 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->stopPB, &QPushButton::clicked, this, &MainWindow::stopPBClicked);
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceAdded, this, &MainWindow::locateSerialPort);
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceRemoved, this, &MainWindow::locateSerialPort);
-
+    connect(core, &AtCore::printProgressChanged, ui->printingProgress, &QProgressBar::setValue);
 }
 
 MainWindow::~MainWindow()
@@ -261,9 +264,11 @@ void MainWindow::printPBClicked()
         } else {
             addLog(tr("Print: %1").arg(fileName));
             ui->printPB->setText(tr("Pause Print"));
+            ui->printingProgress->setVisible(true);
             core->print(fileName);
             ui->printPB->setText(tr("Print File"));
             core->setState(IDLE);
+            ui->printingProgress->setVisible(false);
         }
         break;
 

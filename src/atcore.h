@@ -75,11 +75,19 @@ public:
 
 signals:
     /**
+     * @brief Emit signal when the printing precentabe changes.
+     *
+     * @param msg : Message
+     */
+    void printProgressChanged(const float &newProgress);
+
+    /**
      * @brief Emit signal when message is received from the printer
      *
      * @param msg : Message
      */
     void receivedMessage(const QByteArray &message);
+
 private:
 
     /**

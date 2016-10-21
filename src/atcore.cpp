@@ -190,6 +190,7 @@ void AtCore::print(const QString &fileName)
             cline = gcodestream.readLine();
             stillSize -= cline.size() + 1; //remove read chars
             percentage = float(totalSize - stillSize) * 100.0 / float(totalSize);
+            emit(printProgressChanged(percentage));
             cline = cline.simplified();
             if (cline.contains(QChar::fromLatin1(';'))) {
                 cline.resize(cline.indexOf(QChar::fromLatin1(';')));
