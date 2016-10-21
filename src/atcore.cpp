@@ -157,8 +157,18 @@ float AtCore::percentagePrinted()
 {
     return percentage;
 }
-
 void AtCore::print(const QString &fileName)
+{
+    setState(STARTPRINT);
+    printFile(fileName);
+    //let the state reflect that we have finished printing
+    setState(FINISHEDPRINT);
+    //connected clients will have reacted to the finished print
+    //above and done stuff accordingly now set the status to idle
+    setState(IDLE);
+}
+
+void AtCore::printFile(const QString &fileName)
 {
     QFile file(fileName);
     file.open(QFile::ReadOnly);
@@ -172,6 +182,7 @@ void AtCore::print(const QString &fileName)
     while (!gcodestream.atEnd()) {
         QCoreApplication::processEvents(); //make sure all events are processed.
         switch (state()) {
+        case STARTPRINT:
         case IDLE:
         case BUSY:
             setState(BUSY);
@@ -227,6 +238,7 @@ PrinterState AtCore::state(void)
 void AtCore::setState(PrinterState state)
 {
     printerState = state;
+    emit(stateChanged(printerState));
 }
 
 void AtCore::stop()

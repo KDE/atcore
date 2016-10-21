@@ -14,7 +14,9 @@ enum PrinterState {
     BUSY, //Printer is working
     PAUSE, //Printer is paused
     ERROR, // Printer Returned Error
-    STOP // Emergency Stop
+    STOP, // Emergency Stop
+    STARTPRINT, //Just Starting a print job
+    FINISHEDPRINT, //Just Finished print job
 };
 
 struct AtCorePrivate;
@@ -38,13 +40,6 @@ public:
      * @brief Stop the Printer
      */
     void stop();
-
-    /**
-     * @brief Print a file
-     *
-     * @param fileName : path of file to print
-     */
-    void print(const QString &fileName);
 
     /**
      * @brief Get Printer state
@@ -73,7 +68,7 @@ public:
      */
     float percentagePrinted();
 
-    /** 
+    /**
      * @brief Request a list of firmware plugins
      */
     QStringList availablePlugins();
@@ -100,6 +95,18 @@ signals:
      */
     void receivedMessage(const QByteArray &message);
 
+    /**
+     * @brief State Changed
+     * @param newState : the new state of the printer
+     */
+    void stateChanged(PrinterState newState);
+
+public slots:
+    /**
+     * @brief Public Interface for printing a file
+     */
+    void print(const QString &fileName);
+
 private:
 
     /**
@@ -108,6 +115,14 @@ private:
      * @param msg : Command
      */
     void pushCommand(const QString &comm);
+
+    /**
+     * @brief Print a file
+     *
+     * @param fileName : path of file to print
+     */
+    void printFile(const QString &fileName);
+
     void newMessage(const QByteArray &message);
     void findFirmware(const QByteArray &message);
     void findPlugins();
