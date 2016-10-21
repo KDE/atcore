@@ -50,6 +50,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceRemoved, this, &MainWindow::locateSerialPort);
     connect(core, &AtCore::printProgressChanged, ui->printingProgress, &QProgressBar::setValue);
     connect(ui->pluginCB, &QComboBox::currentTextChanged, this , &MainWindow::pluginCBChanged);
+    connect(this, &MainWindow::printFile, core, &AtCore::print);
+    connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
 }
 
 MainWindow::~MainWindow()
@@ -267,12 +269,7 @@ void MainWindow::printPBClicked()
             addLog(tr("No File Selected"));
         } else {
             addLog(tr("Print: %1").arg(fileName));
-            ui->printPB->setText(tr("Pause Print"));
-            ui->printingProgress->setVisible(true);
-            core->print(fileName);
-            ui->printPB->setText(tr("Print File"));
-            core->setState(IDLE);
-            ui->printingProgress->setVisible(false);
+            emit(printFile(fileName));
         }
         break;
 
@@ -312,5 +309,20 @@ void MainWindow::pluginCBChanged(QString currentText)
         if (!currentText.contains(tr("Autodetect"))) {
             core->loadFirmware(currentText);
         }
+    }
+}
+
+void MainWindow::printerStateChanged(PrinterState state)
+{
+    switch (state) {
+    case STARTPRINT:
+        ui->printPB->setText(tr("Pause Print"));
+        ui->printingProgress->setVisible(true);
+        break;
+
+    case FINISHEDPRINT:
+        ui->printPB->setText(tr("Print File"));
+        ui->printingProgress->setVisible(false);
+        break;
     }
 }

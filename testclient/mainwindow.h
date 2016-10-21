@@ -100,6 +100,19 @@ private slots:
      */
     void stopPBClicked();
 
+    /**
+     * @brief printerStateChanged Catch and proccess printer state commands
+     * @param state: new printer state
+     */
+    void printerStateChanged(PrinterState state);
+
+signals:
+    /**
+     * @brief printFile emit ready to print a file to atcore
+     * @param fileName : the file to print
+     */
+    void printFile(const QString &fileName);
+
 private:
     Ui::MainWindow *ui;
     AtCore *core;
