@@ -37,11 +37,6 @@ public:
     IFirmware *plugin() const;
 
     /**
-     * @brief Stop the Printer
-     */
-    void stop();
-
-    /**
      * @brief Get Printer state
      * @return State of the printer
      */
@@ -80,6 +75,11 @@ public:
      */
     void loadFirmware(const QString &fwName);
 
+    /**
+     * @brief detectFirmware attempt to autodetect the firmware
+     */
+    void detectFirmware();
+
 signals:
     /**
      * @brief Emit signal when the printing precentabe changes.
@@ -106,6 +106,11 @@ public slots:
      * @brief Public Interface for printing a file
      */
     void print(const QString &fileName);
+
+    /**
+     * @brief Stop the Printer
+     */
+    void stop();
 
 private:
 

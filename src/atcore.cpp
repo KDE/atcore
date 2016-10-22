@@ -237,8 +237,10 @@ PrinterState AtCore::state(void)
 
 void AtCore::setState(PrinterState state)
 {
-    printerState = state;
-    emit(stateChanged(printerState));
+    if (state != printerState) {
+        printerState = state;
+        emit(stateChanged(printerState));
+    }
 }
 
 void AtCore::stop()
@@ -311,3 +313,8 @@ QStringList AtCore::availablePlugins()
     return d->plugins.keys();
 }
 
+void AtCore::detectFirmware()
+{
+    connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
+    requestFirmware();
+}
