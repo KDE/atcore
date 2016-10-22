@@ -96,11 +96,6 @@ private slots:
     void saveLogPBClicked();
 
     /**
-     * @brief Stop the Printer
-     */
-    void stopPBClicked();
-
-    /**
      * @brief printerStateChanged Catch and proccess printer state commands
      * @param state: new printer state
      */

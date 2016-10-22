@@ -45,13 +45,13 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->mvAxisPB, &QPushButton::clicked, this, &MainWindow::mvAxisPBClicked);
     connect(ui->fanSpeedPB, &QPushButton::clicked, this, &MainWindow::fanSpeedPBClicked);
     connect(ui->printPB, &QPushButton::clicked, this, &MainWindow::printPBClicked);
-    connect(ui->stopPB, &QPushButton::clicked, this, &MainWindow::stopPBClicked);
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceAdded, this, &MainWindow::locateSerialPort);
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceRemoved, this, &MainWindow::locateSerialPort);
     connect(core, &AtCore::printProgressChanged, ui->printingProgress, &QProgressBar::setValue);
     connect(ui->pluginCB, &QComboBox::currentTextChanged, this , &MainWindow::pluginCBChanged);
-    connect(this, &MainWindow::printFile, core, &AtCore::print);
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
+    connect(this, &MainWindow::printFile, core, &AtCore::print);
+    connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
 }
 
 MainWindow::~MainWindow()
@@ -171,7 +171,7 @@ void MainWindow::connectPBClicked()
             if (ui->pluginCB->currentText().contains(tr("Autodetect"))) {
                 addLog(tr("No plugin loaded !"));
                 addLog(tr("Requesting Firmware..."));
-                core->requestFirmware();
+                core->detectFirmware();
             } else {
                 core->loadFirmware(ui->pluginCB->currentText());
             }
@@ -275,24 +275,14 @@ void MainWindow::printPBClicked()
 
     case BUSY:
         core->setState(PAUSE);
-        ui->printPB->setText(tr("Resume Print"));
         break;
 
     case PAUSE:
         core->setState(BUSY);
-        ui->printPB->setText(tr("Pause Print"));
         break;
     default:
         qDebug() << "ERROR / STOP unhandled.";
     }
-}
-
-void MainWindow::stopPBClicked()
-{
-    if (core->state() == BUSY) {
-        ui->printPB->setText(tr("Print File"));
-    }
-    core->stop();
 }
 
 void MainWindow::saveLogPBClicked()
@@ -308,6 +298,8 @@ void MainWindow::pluginCBChanged(QString currentText)
     if (core->state() != DISCONNECTED) {
         if (!currentText.contains(tr("Autodetect"))) {
             core->loadFirmware(currentText);
+        } else {
+            core->detectFirmware();
         }
     }
 }
@@ -315,6 +307,10 @@ void MainWindow::pluginCBChanged(QString currentText)
 void MainWindow::printerStateChanged(PrinterState state)
 {
     switch (state) {
+    case IDLE:
+        ui->printPB->setText(tr("Print File"));
+        break;
+
     case STARTPRINT:
         ui->printPB->setText(tr("Pause Print"));
         ui->printingProgress->setVisible(true);
@@ -323,6 +319,17 @@ void MainWindow::printerStateChanged(PrinterState state)
     case FINISHEDPRINT:
         ui->printPB->setText(tr("Print File"));
         ui->printingProgress->setVisible(false);
+        break;
+
+    case PAUSE:
+        ui->printPB->setText(tr("Resume Print"));
+        break;
+
+    case BUSY:
+        ui->printPB->setText(tr("Pause Print"));
+        break;
+
+    default:
         break;
     }
 }
