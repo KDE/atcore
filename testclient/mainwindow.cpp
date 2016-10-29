@@ -7,6 +7,7 @@
 
 #include "mainwindow.h"
 #include "seriallayer.h"
+#include "gcodecommands.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -193,60 +194,49 @@ void MainWindow::sendPBClicked()
 void MainWindow::homeAllPBClicked()
 {
     addSLog(tr("Home All"));
-    core->pushCommand(QStringLiteral("G28"));
+    core->pushCommand(GCode::toCommand(GCode::G28));
 }
 
 void MainWindow::homeXPBClicked()
 {
     addSLog(tr("Home X"));
-    core->pushCommand(QStringLiteral("G28 X0"));
+    core->pushCommand(GCode::toCommand(GCode::G28, QStringLiteral("X0")));
 }
 
 void MainWindow::homeYPBClicked()
 {
     addSLog(tr("Home Y"));
-    core->pushCommand(QStringLiteral("G28 Y0"));
+    core->pushCommand(GCode::toCommand(GCode::G28, QStringLiteral("Y0")));
 }
 
 void MainWindow::homeZPBClicked()
 {
     addSLog(tr("Home Z"));
-    core->pushCommand(QStringLiteral("G28 Z0"));
+    core->pushCommand(GCode::toCommand(GCode::G28, QStringLiteral("Z0")));
 }
 
 void MainWindow::bedTempPBClicked()
 {
-    addSLog(tr("Set Bed Temp: %1")
-            .arg(QString::number(ui->bedTempSB->value())));
-    core->pushCommand(QStringLiteral("M140 S%1")
-                                .arg(ui->bedTempSB->value()));
+    addSLog(GCode::toString(GCode::M140));
+    core->pushCommand(GCode::toCommand(GCode::M140, ui->bedTempSB->cleanText()));
 }
 
 void MainWindow::extTempPBClicked()
 {
-    addSLog(tr("Set Extruder(%1) Temp: %2")
-            .arg(ui->extTempSelCB->currentText().at(9), QString::number(ui->extTempSB->value())));
-    core->pushCommand(QStringLiteral("M104 P%1 S%2")
-                                .arg(ui->extTempSelCB->currentText().at(9), QString::number(ui->extTempSB->value()))
-                                );
+    addSLog(GCode::toString(GCode::M104));
+    core->pushCommand(GCode::toCommand(GCode::M104, ui->extTempSelCB->currentText().at(9), ui->extTempSB->cleanText()));
 }
 
 void MainWindow::mvAxisPBClicked()
 {
-    addSLog(tr("Move %1 to %2")
-            .arg(ui->mvAxisCB->currentText().at(5), QString::number(ui->mvAxisSB->value())));
-    core->pushCommand(QStringLiteral("G1 %1%2")
-                                .arg(ui->mvAxisCB->currentText().at(5), QString::number(ui->mvAxisSB->value()))
-                                );
+    addSLog(GCode::toString(GCode::G1));
+    core->pushCommand(GCode::toCommand(GCode::G1, ui->mvAxisCB->currentText().at(5) + ui->mvAxisSB->cleanText()));
 }
 
 void MainWindow::fanSpeedPBClicked()
 {
-    addSLog(tr("Set Fan(%1) Speed: %2\%")
-            .arg(ui->fanSpeedSelCB->currentText().at(4), QString::number(ui->fanSpeedSB->value())));
-    core->pushCommand(QStringLiteral("M106 P%1 S%2")
-                                .arg(ui->fanSpeedSelCB->currentText().at(4), QString::number(ui->fanSpeedSB->value()))
-                                );
+    addSLog(GCode::toString(GCode::M106));
+    core->pushCommand(GCode::toCommand(GCode::M106, ui->fanSpeedSelCB->currentText().at(4), ui->fanSpeedSB->cleanText()));
 }
 
 void MainWindow::printPBClicked()
