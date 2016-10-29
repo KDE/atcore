@@ -89,7 +89,7 @@ void MainWindow::writeTempFile(QString text)
     */
     logFile->open();
     logFile->seek(logFile->size());
-    logFile->write(text.toLocal8Bit());
+    logFile->write(text.toLatin1());
     logFile->putChar('\n');
     logFile->close();
 }
@@ -117,7 +117,7 @@ void MainWindow::addSLog(QString msg)
 
 void MainWindow::checkReceivedCommand()
 {
-    addRLog(QString::fromUtf8(core->serial()->popCommand()));
+    addRLog(QString::fromUtf8(core->popCommand()));
 }
 
 void MainWindow::checkPushedCommands(QByteArray bmsg)
@@ -185,68 +185,68 @@ void MainWindow::connectPBClicked()
 
 void MainWindow::sendPBClicked()
 {
-    QByteArray comm = ui->commandLE->text().toUpper().toLocal8Bit();
-    core->serial()->pushCommand(comm);
+    QString comm = ui->commandLE->text().toUpper();
+    core->pushCommand(comm);
     ui->commandLE->clear();
 }
 
 void MainWindow::homeAllPBClicked()
 {
     addSLog(tr("Home All"));
-    core->serial()->pushCommand(QStringLiteral("G28").toLocal8Bit());
+    core->pushCommand(QStringLiteral("G28"));
 }
 
 void MainWindow::homeXPBClicked()
 {
     addSLog(tr("Home X"));
-    core->serial()->pushCommand(QStringLiteral("G28 X0").toLocal8Bit());
+    core->pushCommand(QStringLiteral("G28 X0"));
 }
 
 void MainWindow::homeYPBClicked()
 {
     addSLog(tr("Home Y"));
-    core->serial()->pushCommand(QStringLiteral("G28 Y0").toLocal8Bit());
+    core->pushCommand(QStringLiteral("G28 Y0"));
 }
 
 void MainWindow::homeZPBClicked()
 {
     addSLog(tr("Home Z"));
-    core->serial()->pushCommand(QStringLiteral("G28 Z0").toLocal8Bit());
+    core->pushCommand(QStringLiteral("G28 Z0"));
 }
 
 void MainWindow::bedTempPBClicked()
 {
     addSLog(tr("Set Bed Temp: %1")
             .arg(QString::number(ui->bedTempSB->value())));
-    core->serial()->pushCommand(QStringLiteral("M140 S%1")
-                                .arg(ui->bedTempSB->value()).toLocal8Bit());
+    core->pushCommand(QStringLiteral("M140 S%1")
+                                .arg(ui->bedTempSB->value()));
 }
 
 void MainWindow::extTempPBClicked()
 {
     addSLog(tr("Set Extruder(%1) Temp: %2")
             .arg(ui->extTempSelCB->currentText().at(9), QString::number(ui->extTempSB->value())));
-    core->serial()->pushCommand(QStringLiteral("M104 P%1 S%2")
+    core->pushCommand(QStringLiteral("M104 P%1 S%2")
                                 .arg(ui->extTempSelCB->currentText().at(9), QString::number(ui->extTempSB->value()))
-                                .toLocal8Bit());
+                                );
 }
 
 void MainWindow::mvAxisPBClicked()
 {
     addSLog(tr("Move %1 to %2")
             .arg(ui->mvAxisCB->currentText().at(5), QString::number(ui->mvAxisSB->value())));
-    core->serial()->pushCommand(QStringLiteral("G1 %1%2")
+    core->pushCommand(QStringLiteral("G1 %1%2")
                                 .arg(ui->mvAxisCB->currentText().at(5), QString::number(ui->mvAxisSB->value()))
-                                .toLocal8Bit());
+                                );
 }
 
 void MainWindow::fanSpeedPBClicked()
 {
     addSLog(tr("Set Fan(%1) Speed: %2\%")
             .arg(ui->fanSpeedSelCB->currentText().at(4), QString::number(ui->fanSpeedSB->value())));
-    core->serial()->pushCommand(QStringLiteral("M106 P%1 S%2")
+    core->pushCommand(QStringLiteral("M106 P%1 S%2")
                                 .arg(ui->fanSpeedSelCB->currentText().at(4), QString::number(ui->fanSpeedSB->value()))
-                                .toLocal8Bit());
+                                );
 }
 
 void MainWindow::printPBClicked()

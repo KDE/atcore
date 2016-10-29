@@ -169,6 +169,15 @@ void AtCore::print(const QString &fileName)
     setState(IDLE);
 }
 
+void AtCore::pushCommand(const QString &comm)
+{
+    if (!pluginLoaded()) {
+        serial()->pushCommand(comm.toLocal8Bit());
+    } else {
+        serial()->pushCommand(plugin()->translate(comm));
+    }
+}
+
 void AtCore::printFile(const QString &fileName)
 {
     QFile file(fileName);
@@ -244,6 +253,11 @@ void AtCore::setState(PrinterState state)
     }
 }
 
+QByteArray AtCore::popCommand()
+{
+    return serial()->popCommand();
+}
+
 void AtCore::stop()
 {
     switch (state()) {
@@ -251,15 +265,6 @@ void AtCore::stop()
         setState(STOP);
     default:
         pushCommand(GCode::toCommand(GCode::M112));
-    }
-}
-
-void AtCore::pushCommand(const QString &comm)
-{
-    if (!pluginLoaded()) {
-        serial()->pushCommand(comm.toLocal8Bit());
-    } else {
-        serial()->pushCommand(plugin()->translate(comm));
     }
 }
 

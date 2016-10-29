@@ -79,6 +79,20 @@ public:
      */
     void detectFirmware();
 
+    /**
+     * @brief Return FIFO command from printer
+     *
+     * @return QByteArray
+     */
+    QByteArray popCommand();
+
+    /**
+     * @brief Translate command and push it
+     *
+     * @param msg : Command
+     */
+    void pushCommand(const QString &comm);
+
 signals:
     /**
      * @brief Emit signal when the printing precentabe changes.
@@ -112,14 +126,6 @@ public slots:
     void stop();
 
 private:
-
-    /**
-     * @brief Translate command and push it
-     *
-     * @param msg : Command
-     */
-    void pushCommand(const QString &comm);
-
     /**
      * @brief Print a file
      *
