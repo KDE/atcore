@@ -1,13 +1,14 @@
 #pragma once
 
 #include "ui_mainwindow.h"
-#include "atcore.h"
 
 #include <QMainWindow>
 #include <QSerialPort>
 #include <QTemporaryFile>
 
 #include <Solid/DeviceNotifier>
+
+#include "atcore.h"
 
 class SerialLayer;
 

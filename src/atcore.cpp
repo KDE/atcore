@@ -157,6 +157,7 @@ float AtCore::percentagePrinted()
 {
     return percentage;
 }
+
 void AtCore::print(const QString &fileName)
 {
     setState(STARTPRINT);

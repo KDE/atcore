@@ -1,4 +1,3 @@
-
 #include <QTime>
 #include <QSerialPortInfo>
 #include <QMessageBox>
