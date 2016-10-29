@@ -493,21 +493,30 @@ QString toString(MCommands gcode)
     }
 }
 
-QString toCommand(MCommands gcode, const QString &value)
+QString toCommand(MCommands gcode, const QString &value1, const QString &value2)
 {
 
     switch (gcode) {
     case M104: {
-        if (!value.isEmpty()) {
-            return QStringLiteral("M104 S%1").arg(value);
+        if (!value2.isEmpty()) {
+            return QStringLiteral("M104 P%1 S%1").arg(value1).arg(value2);
+        } else if (!value1.isEmpty()) {
+                return QStringLiteral("M104 S%1").arg(value1);
         } else {
-            return QObject::tr("ERROR! M104: It's obligatory have an argument");
+                return QObject::tr("ERROR! M104: It's obligatory have an argument");
         }
     }
     case M105:
         return QStringLiteral("M105");
-    case M106:
-        return QStringLiteral("M106");
+    case M106:{
+        if (!value2.isEmpty()) {
+            return QStringLiteral("M106 P%1 S%1").arg(value1).arg(value2);
+        } else if (!value1.isEmpty()) {
+                return QStringLiteral("M106 S%1").arg(value1);
+        } else {
+                return QStringLiteral("M106");
+        }
+    }
     case M107:
         return QStringLiteral("M107");
     case M112:
@@ -519,8 +528,8 @@ QString toCommand(MCommands gcode, const QString &value)
     case M116:
         return QStringLiteral("M116");
     case M117: {
-        if (!value.isEmpty()) {
-            return QStringLiteral("M117 %1").arg(value);
+        if (!value1.isEmpty()) {
+            return QStringLiteral("M117 %1").arg(value1);
         } else {
             return QObject::tr("ERROR! M117: It's obligatory have an argument");
         }
@@ -528,22 +537,22 @@ QString toCommand(MCommands gcode, const QString &value)
     case M119:
         return QStringLiteral("M119");
     case M140: {
-        if (!value.isEmpty()) {
-            return QStringLiteral("M140 S%1").arg(value);
+        if (!value1.isEmpty()) {
+            return QStringLiteral("M140 S%1").arg(value1);
         } else {
             return QObject::tr("ERROR! M140: It's obligatory have an argument");
         }
     }
     case M220: {
-        if (!value.isEmpty()) {
-            return QStringLiteral("M220 S%1").arg(value);
+        if (!value1.isEmpty()) {
+            return QStringLiteral("M220 S%1").arg(value1);
         } else {
             return QObject::tr("ERROR! M220: It's obligatory have an argument");
         }
     }
     case M221: {
-        if (!value.isEmpty()) {
-            return QStringLiteral("M221 S%1").arg(value);
+        if (!value1.isEmpty()) {
+            return QStringLiteral("M221 S%1").arg(value1);
         } else {
             return QObject::tr("ERROR! M221: It's obligatory have an argument");
         }
