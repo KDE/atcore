@@ -287,6 +287,6 @@ enum MCommands {
 QString toString(Firmwares firmware);
 QString toString(GCommands gcode);
 QString toString(MCommands gcode);
-QString toCommand(GCommands gcode, const QString &value = QString());
+QString toCommand(GCommands gcode, const QString &value1 = QString());
 QString toCommand(MCommands gcode, const QString &value = QString());
 }

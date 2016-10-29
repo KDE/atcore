@@ -88,14 +88,14 @@ QString toString(GCommands gcode)
     }
 }
 
-QString toCommand(GCommands gcode, QChar &c)
+QString toCommand(GCommands gcode, const QString &value1)
 {
     switch (gcode) {
     case G28: {
-        if (c.isNull()) {
+        if (value1.isEmpty()) {
             return QStringLiteral("G28");
         } else {
-            return QStringLiteral("G28 %1").arg(c.toUpper());
+            return QStringLiteral("G28 %1").arg(value1.toUpper());
         }
     }
     case G32:
