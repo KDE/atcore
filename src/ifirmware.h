@@ -3,6 +3,14 @@
 #include <QObject>
 #include <QString>
 
+struct PrinterStatus {
+    //TODO: expand extruderTemps to list for multiple extruders
+    float extruderTemp;
+    float extruderTargetTemp;
+    float bedTemp;
+    float bedTargetTemp;
+};
+
 class IFirmware
 {
 public:
@@ -11,14 +19,9 @@ public:
     virtual QByteArray translate(const QString &command) = 0;
     virtual ~IFirmware() {}
     // ADD THE METHODS HERE.
-
-    struct {
-        //TODO: expand extruderTemps to list for multiple extruders
-        float extruderTemp;
-        float extruderTargetTemp;
-        float bedTemp;
-        float bedTargetTemp;
-    } PrinterStatus;
+    PrinterStatus printerStatus;
+signals:
+    void printerStatusChanged(const PrinterStatus &newStatus);
 };
 
 Q_DECLARE_INTERFACE(IFirmware, "org.kde.atelier.core.firmware")

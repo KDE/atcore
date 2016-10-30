@@ -20,4 +20,6 @@ public:
     bool validateCommand(const QString &lastMessage);
     bool readyForNextCommand(const QString &lastMessage);
     QByteArray translate(const QString &command);
+signals:
+    void printerStatusChanged(const PrinterStatus &newStatus);
 };
