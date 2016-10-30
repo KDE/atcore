@@ -14,7 +14,7 @@ QString TeacupPlugin::name() const
     return QStringLiteral("Teacup");
 }
 
-TeacupPlugin::TeacupPlugin(QObject *parent) : QObject(parent)
+TeacupPlugin::TeacupPlugin()
 {
     qCDebug(TEACUP_PLUGIN) << name() << " plugin loaded!";
 }

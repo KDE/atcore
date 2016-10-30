@@ -11,8 +11,9 @@ struct PrinterStatus {
     float bedTargetTemp;
 };
 
-class IFirmware
+class IFirmware : public QObject
 {
+    Q_OBJECT
 public:
     virtual QString name() const = 0;
     virtual bool readyForNextCommand(const QString &lastMessage) = 0;

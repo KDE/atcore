@@ -6,7 +6,7 @@ QString GrblPlugin::name() const
     return QStringLiteral("Grbl");
 }
 
-GrblPlugin::GrblPlugin(QObject *parent) : QObject(parent)
+GrblPlugin::GrblPlugin()
 {
 
 }

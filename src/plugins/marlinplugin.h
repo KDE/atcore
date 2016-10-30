@@ -3,7 +3,7 @@
 #include "ifirmware.h"
 #include <QObject>
 
-class MarlinPlugin : public QObject, public IFirmware
+class MarlinPlugin : public IFirmware
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.kde.atelier.core.firmware" FILE "marlin.json")
@@ -14,12 +14,10 @@ private:
     static QString _extruderTemp;
     static QString _bedTemp;
 public:
-    MarlinPlugin(QObject *parent = 0);
+    MarlinPlugin();
     QString name() const override;
     void extractTemp(const QString &lastMessage);
     bool validateCommand(const QString &lastMessage);
     bool readyForNextCommand(const QString &lastMessage);
     QByteArray translate(const QString &command);
-signals:
-    void printerStatusChanged(const PrinterStatus &newStatus);
 };

@@ -14,7 +14,7 @@ QString MarlinPlugin::name() const
     return QStringLiteral("Marlin");
 }
 
-MarlinPlugin::MarlinPlugin(QObject *parent) : QObject(parent)
+MarlinPlugin::MarlinPlugin()
 {
     qCDebug(MARLIN_PLUGIN) << name() << " plugin loaded!";
 }

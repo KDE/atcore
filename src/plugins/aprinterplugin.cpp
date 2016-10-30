@@ -14,7 +14,7 @@ QString AprinterPlugin::name() const
     return QStringLiteral("Aprinter");
 }
 
-AprinterPlugin::AprinterPlugin(QObject *parent) : QObject(parent)
+AprinterPlugin::AprinterPlugin()
 {
     qCDebug(APRINTER_PLUGIN) << name() << " plugin loaded!";
 }

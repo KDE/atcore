@@ -14,7 +14,7 @@ QString SprinterPlugin::name() const
     return QStringLiteral("Sprinter");
 }
 
-SprinterPlugin::SprinterPlugin(QObject *parent) : QObject(parent)
+SprinterPlugin::SprinterPlugin()
 {
     qCDebug(SPRINTER_PLUGIN) << name() << " plugin loaded!";
 }

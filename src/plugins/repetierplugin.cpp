@@ -14,7 +14,7 @@ QString RepetierPlugin::name() const
     return QStringLiteral("Repetier");
 }
 
-RepetierPlugin::RepetierPlugin(QObject *parent) : QObject(parent)
+RepetierPlugin::RepetierPlugin()
 {
     qCDebug(REPETIER_PLUGIN) << name() << " plugin loaded!";
 }
