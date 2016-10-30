@@ -20,6 +20,12 @@ enum PrinterState {
 };
 
 struct AtCorePrivate;
+enum AXIS {
+    X = 1 << 0,
+    Y = 1 << 1,
+    Z = 1 << 2,
+    E = 1 << 3,
+};
 
 class AtCore : public QObject
 {
@@ -124,6 +130,37 @@ public slots:
      * @brief Stop the Printer
      */
     void stop();
+
+    /**
+     * @brief Send home command
+     * @param axis: the axis(es) to home (use X Y Z or any combo of)
+     */
+    void home(uchar axis);
+
+    /**
+     * @brief Send home all command
+     */
+    void home();
+
+    /**
+     * @brief Set extruder temperature
+     * @param temp : new temperature
+     * @param extruder : extruder number
+     */
+    void setExtruderTemp(uint temp = 0, uint extruder = 0);
+
+    /**
+     * @brief Set the bed temperature
+     * @param temp : new temperature
+     */
+    void setBedTemp(uint temp = 0);
+
+    /**
+     * @brief setFanSpeed set the fan speed
+     * @param fanNumber: fan number
+     * @param speed: new speed of the fan 0-100
+     */
+    void setFanSpeed(uint speed = 0, uint fanNumber = 0);
 
 private:
     /**

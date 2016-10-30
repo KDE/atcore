@@ -324,3 +324,41 @@ void AtCore::detectFirmware()
     connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
     requestFirmware();
 }
+/*~~~~~Control Slots ~~~~~~~~*/
+void AtCore::home()
+{
+    pushCommand(GCode::toCommand(GCode::G28));
+}
+
+void AtCore::home(uchar axis)
+{
+    QString args;
+
+    if (axis & X) {
+        args.append(QStringLiteral("X0 "));
+    }
+
+    if (axis & Y) {
+        args.append(QStringLiteral("Y0 "));
+    }
+
+    if (axis & Z) {
+        args.append(QStringLiteral("Z0"));
+    }
+    pushCommand(GCode::toCommand(GCode::G28, args));
+}
+
+void AtCore::setExtruderTemp(uint temp, uint extruder)
+{
+    pushCommand(GCode::toCommand(GCode::M104, QString::number(extruder), QString::number(temp)));
+}
+
+void AtCore::setBedTemp(uint temp)
+{
+    pushCommand(GCode::toCommand(GCode::M140, QString::number(temp)));
+}
+
+void AtCore::setFanSpeed(uint speed, uint fanNumber)
+{
+    pushCommand(GCode::toCommand(GCode::M106, QString::number(fanNumber), QString::number(speed)));
+}
