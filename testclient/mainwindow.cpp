@@ -194,37 +194,37 @@ void MainWindow::sendPBClicked()
 void MainWindow::homeAllPBClicked()
 {
     addSLog(tr("Home All"));
-    core->pushCommand(GCode::toCommand(GCode::G28));
+    core->home();
 }
 
 void MainWindow::homeXPBClicked()
 {
     addSLog(tr("Home X"));
-    core->pushCommand(GCode::toCommand(GCode::G28, QStringLiteral("X0")));
+    core->home(X);
 }
 
 void MainWindow::homeYPBClicked()
 {
     addSLog(tr("Home Y"));
-    core->pushCommand(GCode::toCommand(GCode::G28, QStringLiteral("Y0")));
+    core->home(Y);
 }
 
 void MainWindow::homeZPBClicked()
 {
     addSLog(tr("Home Z"));
-    core->pushCommand(GCode::toCommand(GCode::G28, QStringLiteral("Z0")));
+    core->home(Z);
 }
 
 void MainWindow::bedTempPBClicked()
 {
     addSLog(GCode::toString(GCode::M140));
-    core->pushCommand(GCode::toCommand(GCode::M140, ui->bedTempSB->cleanText()));
+    core->setBedTemp(ui->bedTempSB->value());
 }
 
 void MainWindow::extTempPBClicked()
 {
     addSLog(GCode::toString(GCode::M104));
-    core->pushCommand(GCode::toCommand(GCode::M104, ui->extTempSelCB->currentText().at(9), ui->extTempSB->cleanText()));
+    core->setExtruderTemp(ui->extTempSB->value(), ui->extTempSelCB->currentIndex());
 }
 
 void MainWindow::mvAxisPBClicked()
@@ -236,7 +236,7 @@ void MainWindow::mvAxisPBClicked()
 void MainWindow::fanSpeedPBClicked()
 {
     addSLog(GCode::toString(GCode::M106));
-    core->pushCommand(GCode::toCommand(GCode::M106, ui->fanSpeedSelCB->currentText().at(4), ui->fanSpeedSB->cleanText()));
+    core->setFanSpeed(ui->fanSpeedSB->value(), ui->fanSpeedSelCB->currentIndex());
 }
 
 void MainWindow::printPBClicked()
