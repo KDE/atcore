@@ -4,6 +4,8 @@
 #include <QList>
 #include <QSerialPortInfo>
 
+#include "ifirmware.h"
+
 class SerialLayer;
 class IFirmware;
 
@@ -120,7 +122,11 @@ signals:
      */
     void stateChanged(PrinterState newState);
 
+    void printerStatusChanged(const PrinterStatus &newStatus);
+
 public slots:
+    void statusChanged(const PrinterStatus &newStatus);
+
     /**
      * @brief Public Interface for printing a file
      */

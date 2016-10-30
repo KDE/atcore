@@ -1,6 +1,5 @@
 #include "atcore.h"
 #include "seriallayer.h"
-#include "ifirmware.h"
 #include "gcodecommands.h"
 
 #include <QDir>
@@ -124,6 +123,7 @@ void AtCore::loadFirmware(const QString &fwName)
             qDebug() << "Connected to" << plugin()->name();
             disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
             connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
+            connect(plugin(), &IFirmware::printerStatusChanged, this, &AtCore::statusChanged);
             setState(IDLE);
         }
     } else {
@@ -324,7 +324,14 @@ void AtCore::detectFirmware()
     connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
     requestFirmware();
 }
+
+void AtCore::statusChanged(const PrinterStatus &newStatus)
+{
+    emit(printerStatusChanged(newStatus));
+}
+
 /*~~~~~Control Slots ~~~~~~~~*/
+
 void AtCore::home()
 {
     pushCommand(GCode::toCommand(GCode::G28));
