@@ -91,6 +91,13 @@ QString toString(GCommands gcode)
 QString toCommand(GCommands gcode, const QString &value1)
 {
     switch (gcode) {
+    case G1: {
+        if (value1.isEmpty()) {
+            return QStringLiteral("G1");
+        } else {
+            return QStringLiteral("G1 %1").arg(value1.toUpper());
+        }
+    }
     case G28: {
         if (value1.isEmpty()) {
             return QStringLiteral("G28");
@@ -499,7 +506,7 @@ QString toCommand(MCommands gcode, const QString &value1, const QString &value2)
     switch (gcode) {
     case M104: {
         if (!value2.isEmpty()) {
-            return QStringLiteral("M104 P%1 S%1").arg(value1).arg(value2);
+            return QStringLiteral("M104 P%1 S%2").arg(value1).arg(value2);
         } else if (!value1.isEmpty()) {
                 return QStringLiteral("M104 S%1").arg(value1);
         } else {
@@ -510,7 +517,7 @@ QString toCommand(MCommands gcode, const QString &value1, const QString &value2)
         return QStringLiteral("M105");
     case M106:{
         if (!value2.isEmpty()) {
-            return QStringLiteral("M106 P%1 S%1").arg(value1).arg(value2);
+            return QStringLiteral("M106 P%1 S%2").arg(value1).arg(value2);
         } else if (!value1.isEmpty()) {
                 return QStringLiteral("M106 S%1").arg(value1);
         } else {
