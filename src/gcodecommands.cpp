@@ -508,20 +508,20 @@ QString toCommand(MCommands gcode, const QString &value1, const QString &value2)
         if (!value2.isEmpty()) {
             return QStringLiteral("M104 P%1 S%2").arg(value1).arg(value2);
         } else if (!value1.isEmpty()) {
-                return QStringLiteral("M104 S%1").arg(value1);
+            return QStringLiteral("M104 S%1").arg(value1);
         } else {
-                return QObject::tr("ERROR! M104: It's obligatory have an argument");
+            return QObject::tr("ERROR! M104: It's obligatory have an argument");
         }
     }
     case M105:
         return QStringLiteral("M105");
-    case M106:{
+    case M106: {
         if (!value2.isEmpty()) {
             return QStringLiteral("M106 P%1 S%2").arg(value1).arg(value2);
         } else if (!value1.isEmpty()) {
-                return QStringLiteral("M106 S%1").arg(value1);
+            return QStringLiteral("M106 S%1").arg(value1);
         } else {
-                return QStringLiteral("M106");
+            return QStringLiteral("M106");
         }
     }
     case M107:
