@@ -52,6 +52,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
     connect(this, &MainWindow::printFile, core, &AtCore::print);
     connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
+    connect(core, &AtCore::printerStatusChanged, this, &MainWindow::checkPrinterStatus);
 }
 
 MainWindow::~MainWindow()
@@ -129,6 +130,16 @@ void MainWindow::checkPushedCommands(QByteArray bmsg)
     msg.replace(_newLine, QStringLiteral("\\n"));
     msg.replace(_return, QStringLiteral("\\r"));
     addSLog(msg);
+}
+
+void MainWindow::checkPrinterStatus(PrinterStatus status)
+{
+    QString msg = QString::fromLatin1("Bed:%1/%2  Extruder:%3/%4")
+                  .arg(QString::number(status.bedTemp))
+                  .arg(QString::number(status.bedTargetTemp))
+                  .arg(QString::number(status.extruderTemp))
+                  .arg(QString::number(status.extruderTargetTemp));
+    addRLog(msg);
 }
 /**
  * @brief MainWindow::locateSerialPort

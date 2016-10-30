@@ -34,6 +34,8 @@ public slots:
      */
     void checkPushedCommands(QByteArray);
 
+    void checkPrinterStatus(PrinterStatus);
+
 private slots:
     //ButtonEvents
     /**
