@@ -274,12 +274,17 @@ void MainWindow::printPBClicked()
         break;
 
     case BUSY:
-        core->setState(PAUSE);
+        core->pause();
+        core->setRelativePosition();
+        core->pushCommand(GCode::toCommand(GCode::G1, QString::fromLatin1("Z1")));
+        core->setAbsolutePosition();
+        core->pushCommand(GCode::toCommand(GCode::G0, QString::fromLatin1("X0 Y195")));
         break;
 
     case PAUSE:
-        core->setState(BUSY);
+        core->resume();
         break;
+
     default:
         qDebug() << "ERROR / STOP unhandled.";
     }
