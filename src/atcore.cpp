@@ -24,7 +24,8 @@ struct AtCorePrivate {
 AtCore::AtCore(QObject *parent) :
     QObject(parent),
     d(new AtCorePrivate),
-    percentage(0.0)
+    percentage(0.0),
+    posString(QByteArray())
 {
     setState(DISCONNECTED);
     d->pluginsDir = QDir(qApp->applicationDirPath());
@@ -150,7 +151,22 @@ QList<QSerialPortInfo> AtCore::serialPorts() const
 void AtCore::newMessage(const QByteArray &message)
 {
     lastMessage = message;
+    if (message.startsWith(QString::fromLatin1("X:").toLocal8Bit())) {
+        posString = message;
+        posString.resize(posString.indexOf("E"));
+        posString.replace(":", "");
+    }
     emit(receivedMessage(lastMessage));
+}
+
+void AtCore::setRelativePosition()
+{
+    pushCommand(GCode::toCommand(GCode::G91));
+}
+
+void AtCore::setAbsolutePosition()
+{
+    pushCommand(GCode::toCommand(GCode::G90));
 }
 
 float AtCore::percentagePrinted()
@@ -328,6 +344,18 @@ void AtCore::detectFirmware()
 void AtCore::statusChanged(const PrinterStatus &newStatus)
 {
     emit(printerStatusChanged(newStatus));
+}
+
+void AtCore::pause()
+{
+    pushCommand(GCode::toCommand(GCode::M114));
+    setState(PAUSE);
+}
+
+void AtCore::resume()
+{
+    pushCommand(GCode::toCommand(GCode::G0, QString::fromLatin1(posString)));
+    setState(BUSY);
 }
 
 /*~~~~~Control Slots ~~~~~~~~*/

@@ -138,6 +138,16 @@ public slots:
     void stop();
 
     /**
+     * @brief pause an in process print job
+     */
+    void pause();
+
+    /**
+     * @brief resume a paused print job.
+     */
+    void resume();
+
+    /**
      * @brief Send home command
      * @param axis: the axis(es) to home (use X Y Z or any combo of)
      */
@@ -168,6 +178,9 @@ public slots:
      */
     void setFanSpeed(uint speed = 0, uint fanNumber = 0);
 
+    void setAbsolutePosition();
+    void setRelativePosition();
+
 private:
     /**
      * @brief Print a file
@@ -183,4 +196,5 @@ private:
     AtCorePrivate *d;
     PrinterState printerState;
     float percentage;
+    QByteArray posString;
 };
