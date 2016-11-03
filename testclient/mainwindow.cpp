@@ -241,7 +241,13 @@ void MainWindow::extTempPBClicked()
 void MainWindow::mvAxisPBClicked()
 {
     addSLog(GCode::toString(GCode::G1));
-    core->pushCommand(GCode::toCommand(GCode::G1, ui->mvAxisCB->currentText().at(5) + ui->mvAxisSB->cleanText()));
+    if (ui->mvAxisCB->currentIndex() == 0) {
+        core->move(X, ui->mvAxisSB->value());
+    } else if (ui->mvAxisCB->currentIndex() == 1) {
+        core->move(Y, ui->mvAxisSB->value());
+    } else if (ui->mvAxisCB->currentIndex() == 2) {
+        core->move(Z, ui->mvAxisSB->value());
+    }
 }
 
 void MainWindow::fanSpeedPBClicked()
