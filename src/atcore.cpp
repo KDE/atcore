@@ -397,3 +397,27 @@ void AtCore::setFanSpeed(uint speed, uint fanNumber)
 {
     pushCommand(GCode::toCommand(GCode::M106, QString::number(fanNumber), QString::number(speed)));
 }
+
+void AtCore::setPrinterSpeed(uint speed)
+{
+    pushCommand(GCode::toCommand(GCode::M220, QString::number(speed)));
+}
+
+void AtCore::setFlowRate(uint speed)
+{
+    pushCommand(GCode::toCommand(GCode::M221, QString::number(speed)));
+}
+
+void AtCore::move(uchar axis, uint arg)
+{
+    if (axis & X) {
+        pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("X %1").arg(QString::number(arg))));
+    } else if (axis & Y) {
+        pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("Y %1").arg(QString::number(arg))));
+    } else if (axis & Z) {
+        pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("Z %1").arg(QString::number(arg))));
+    } else if (axis & E) {
+        pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("E %1").arg(QString::number(arg))));
+    }
+}
+

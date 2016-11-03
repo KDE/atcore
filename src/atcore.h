@@ -166,6 +166,13 @@ public slots:
     void setExtruderTemp(uint temp = 0, uint extruder = 0);
 
     /**
+     * @brief move an axis of the printer
+     * @param axis the axis to move AXIS (X Y Z E )
+     * @param arg the distance to move the axis or the place to move to depending on printer mode
+     */
+    void move(uchar axis, uint arg);
+
+    /**
      * @brief Set the bed temperature
      * @param temp : new temperature
      */
@@ -180,6 +187,18 @@ public slots:
 
     void setAbsolutePosition();
     void setRelativePosition();
+
+    /**
+     * @brief set the Printers speed
+     * @param speed: speed in % (default is 100);
+     */
+    void setPrinterSpeed(uint speed = 100);
+
+    /**
+     * @brief set extruder Flow rate
+     * @parma rate: flow rate in % (default is 100)
+     */
+    void setFlowRate(uint rate = 100);
 
 private:
     /**
