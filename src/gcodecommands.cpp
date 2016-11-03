@@ -91,6 +91,13 @@ QString toString(GCommands gcode)
 QString toCommand(GCommands gcode, const QString &value1)
 {
     switch (gcode) {
+    case G0: {
+        if (value1.isEmpty()) {
+            return QStringLiteral("G0");
+        } else {
+            return QStringLiteral("G0 %1").arg(value1.toUpper());
+        }
+    }
     case G1: {
         if (value1.isEmpty()) {
             return QStringLiteral("G1");
