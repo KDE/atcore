@@ -5,6 +5,7 @@ cmake_minimum_required(VERSION 3.0)
 
 find_package(ECM REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
+option(BUILD_TEST_CLIENT "Build test client" OFF)
 
 include(KDECompilerSettings)
 include(KDEInstallDirs)
@@ -43,7 +44,8 @@ find_package(Qt5 REQUIRED COMPONENTS
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(src)
-add_subdirectory(testclient)
-
+if(BUILD_TEST_CLIENT)
+    add_subdirectory(testclient)
+endif()
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 

@@ -7,5 +7,7 @@ set(AtCoreLib_SRCS
     ifirmware.h
 )
 
-add_library(AtCoreLib STATIC ${AtCoreLib_SRCS})
+add_library(AtCoreLib SHARED ${AtCoreLib_SRCS})
 target_link_libraries(AtCoreLib Qt5::Core Qt5::SerialPort)
+
+install(TARGETS AtCoreLib LIBRARY DESTINATION lib/atcore)

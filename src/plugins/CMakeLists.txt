@@ -29,3 +29,7 @@ set(AprinterPlugin_SRCS aprinterplugin.cpp)
 add_library(aprinter SHARED ${AprinterPlugin_SRCS})
 target_link_libraries(aprinter Qt5::Core AtCoreLib)
 add_dependencies(aprinter AtCoreLib)
+
+install( TARGETS repetier grbl marlin teacup sprinter aprinter
+         LIBRARY DESTINATION ${PLUGINDIR}/atcore/plugins
+        )
