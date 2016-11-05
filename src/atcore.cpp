@@ -42,9 +42,6 @@ AtCore::AtCore(QObject *parent) :
         d->pluginsDir.cdUp();
     }
 #endif
-    d->pluginsDir.cdUp();
-    d->pluginsDir.cd(QStringLiteral("src"));
-    d->pluginsDir.cd(QStringLiteral("plugins"));
     qDebug() << d->pluginsDir;
     findPlugins();
     setState(DISCONNECTED);
