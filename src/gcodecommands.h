@@ -3,6 +3,8 @@
 //QtIncludes
 #include <QString>
 
+#include "katcore_export.h"
+
 namespace GCode
 {
 

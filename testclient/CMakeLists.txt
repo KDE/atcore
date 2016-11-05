@@ -9,6 +9,5 @@ set(AtCoreTestClient_SRCS
 )
 
 add_executable(AtCoreTest ${AtCoreTestClient_SRCS})
-add_dependencies(AtCoreTest AtCoreLib)
 
-target_link_libraries(AtCoreTest AtCoreLib Qt5::Widgets KF5::Solid)
+target_link_libraries(AtCoreTest KF5::AtCore Qt5::Widgets KF5::Solid)

@@ -3,7 +3,9 @@
 #include <QObject>
 #include <QString>
 
-struct PrinterStatus {
+#include "katcore_export.h"
+
+struct KATCORE_EXPORT PrinterStatus {
     //TODO: expand extruderTemps to list for multiple extruders
     float extruderTemp;
     float extruderTargetTemp;
@@ -11,7 +13,7 @@ struct PrinterStatus {
     float bedTargetTemp;
 };
 
-class IFirmware : public QObject
+class KATCORE_EXPORT  IFirmware : public QObject
 {
     Q_OBJECT
 public:

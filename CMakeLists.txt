@@ -70,13 +70,13 @@ install(FILES
     COMPONENT Devel
 )
 
-install(EXPORT
-    KF5AtCoreTargets
-    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-    FILE KF5AtCoreTargets.cmake
-    NAMESPACE KF5::
-    COMPONENT Devel
-)
+# install(EXPORT
+#     KF5AtCoreTargets
+#     DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+#     FILE KF5AtCoreTargets.cmake
+#     NAMESPACE KF5::
+#     COMPONENT Devel
+# )
 
 install(FILES
     "${CMAKE_CURRENT_BINARY_DIR}/atcore_version.h"

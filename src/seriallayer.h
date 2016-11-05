@@ -3,7 +3,9 @@
 #include <QSerialPort>
 #include <QVector>
 
-class  SerialLayer : public QObject
+#include "katcore_export.h"
+
+class KATCORE_EXPORT SerialLayer : public QObject
 {
     Q_OBJECT
 

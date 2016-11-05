@@ -6,6 +6,8 @@
 
 #include "ifirmware.h"
 
+#include "katcore_export.h"
+
 class SerialLayer;
 class IFirmware;
 
@@ -29,7 +31,7 @@ enum AXIS {
     E = 1 << 3,
 };
 
-class AtCore : public QObject
+class KATCORE_EXPORT AtCore : public QObject
 {
     Q_OBJECT
 public:
