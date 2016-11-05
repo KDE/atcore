@@ -20,7 +20,17 @@ set_target_properties(KF5AtCore PROPERTIES VERSION ${ATCORE_VERSION_STRING}
     EXPORT_NAME AtCore
 )
 
+ecm_generate_headers(KATCORE_HEADERS
+    HEADER_NAMES
+    AtCore
+    GCodeCommands
+    IFirmware
+    SerialLayer
+    REQUIRED_HEADERS KATCORE_HEADERS
+)
+
 install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/katcore_export.h
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/atcore COMPONENT Devel
+    ${KATCORE_HEADERS}
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KAtCore COMPONENT Devel
 )
