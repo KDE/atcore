@@ -13,7 +13,7 @@ target_link_libraries(KF5AtCore Qt5::Core Qt5::SerialPort)
 generate_export_header(KF5AtCore BASE_NAME KAtCore)
 add_library(KF5::AtCore ALIAS KF5AtCore)
 
-target_include_directories(KF5AtCore PUBLIC "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/atcore>")
+target_include_directories(KF5AtCore PUBLIC "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KAtCore>")
 
 set_target_properties(KF5AtCore PROPERTIES VERSION ${ATCORE_VERSION_STRING}
     SOVERSION ${ATCORE_SOVERSION}
