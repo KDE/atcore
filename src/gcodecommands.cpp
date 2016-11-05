@@ -1,10 +1,7 @@
 #include "gcodecommands.h"
 #include <QObject>
 
-namespace GCode
-{
-
-QString toString(Firmwares firmware)
+QString GCode::toString(Firmwares firmware)
 {
     switch (firmware) {
     case Repetier:
@@ -30,7 +27,7 @@ QString toString(Firmwares firmware)
     }
 }
 
-QString toString(GCommands gcode)
+QString GCode::toString(GCommands gcode)
 {
     switch (gcode) {
     case G0://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware - MakerBot
@@ -88,7 +85,7 @@ QString toString(GCommands gcode)
     }
 }
 
-QString toCommand(GCommands gcode, const QString &value1)
+QString GCode::toCommand(GCommands gcode, const QString &value1)
 {
     switch (gcode) {
     case G0: {
@@ -124,7 +121,7 @@ QString toCommand(GCommands gcode, const QString &value1)
     }
 }
 
-QString toString(MCommands gcode)
+QString GCode::toString(MCommands gcode)
 {
     switch (gcode) {
     case M0://Marlin - Teacup - RepRap Firmware
@@ -507,7 +504,7 @@ QString toString(MCommands gcode)
     }
 }
 
-QString toCommand(MCommands gcode, const QString &value1, const QString &value2)
+QString GCode::toCommand(MCommands gcode, const QString &value1, const QString &value2)
 {
 
     switch (gcode) {
@@ -575,4 +572,4 @@ QString toCommand(MCommands gcode, const QString &value1, const QString &value2)
         return QObject::tr("Not supported or implemented!");
     }
 }
-}
+
