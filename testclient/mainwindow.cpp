@@ -45,6 +45,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->mvAxisPB, &QPushButton::clicked, this, &MainWindow::mvAxisPBClicked);
     connect(ui->fanSpeedPB, &QPushButton::clicked, this, &MainWindow::fanSpeedPBClicked);
     connect(ui->printPB, &QPushButton::clicked, this, &MainWindow::printPBClicked);
+    connect(ui->printerSpeedPB, &QPushButton::clicked, this, &MainWindow::printerSpeedPBClicked);
+    connect(ui->flowRatePB, &QPushButton::clicked, this, &MainWindow::flowRatePBClicked);
+    connect(ui->absoluteRB, &QRadioButton::toggled, this, &MainWindow::movementModeChanged);
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceAdded, this, &MainWindow::locateSerialPort);
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceRemoved, this, &MainWindow::locateSerialPort);
     connect(core, &AtCore::printProgressChanged, ui->printingProgress, &QProgressBar::setValue);
@@ -315,6 +318,24 @@ void MainWindow::pluginCBChanged(QString currentText)
     }
 }
 
+void MainWindow::flowRatePBClicked()
+{
+    core->setFlowRate(ui->flowRateSB->value());
+}
+
+void MainWindow::printerSpeedPBClicked()
+{
+    core->setPrinterSpeed(ui->printerSpeedSB->value());
+}
+
+void MainWindow::movementModeChanged(const bool &checked)
+{
+    if (checked) {
+        core->setAbsolutePosition();
+    } else {
+        core->setRelativePosition();
+    }
+}
 void MainWindow::printerStateChanged(PrinterState state)
 {
     switch (state) {

@@ -99,6 +99,21 @@ private slots:
     void saveLogPBClicked();
 
     /**
+     * @brief  set printer speed clicked
+     */
+    void printerSpeedPBClicked();
+
+    /**
+     * @brief movementModeChanged The radio buttons for absoulte/relative have been toggled
+     */
+    void movementModeChanged(const bool &checked);
+
+    /**
+     * @brief lowRatePB has been clicked
+     */
+    void flowRatePBClicked();
+
+    /**
      * @brief printerStateChanged Catch and proccess printer state commands
      * @param state: new printer state
      */
