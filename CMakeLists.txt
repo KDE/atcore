@@ -13,7 +13,7 @@ include(ECMInstallIcons)
 include(FeatureSummary)
 include(GenerateExportHeader)
 include(ECMSetupVersion)
-include(ECMPackageConfigHelpers)
+include(CMakePackageConfigHelpers)
 include(ECMGenerateHeaders)
 find_package(Doxygen)
 
@@ -58,11 +58,10 @@ add_subdirectory(testclient)
 add_subdirectory(doc)
 
 set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5AtCore")
-ecm_configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/KF5AtCoreConfig.cmake.in"
+configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/KF5AtCoreConfig.cmake.in"
                               "${CMAKE_CURRENT_BINARY_DIR}/KF5AtCoreConfig.cmake"
                               INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
 )
-
 
 install(FILES
     "${CMAKE_CURRENT_BINARY_DIR}/KF5AtCoreConfig.cmake"
@@ -84,8 +83,6 @@ install(FILES
     DESTINATION "${KF5_INCLUDE_INSTALL_DIR}"
     COMPONENT Devel
 )
-
-
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
