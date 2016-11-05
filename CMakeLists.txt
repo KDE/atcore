@@ -64,5 +64,28 @@ ecm_configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/KF5AtCoreConfig.c
 )
 
 
+install(FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/KF5AtCoreConfig.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/KF5AtCoreConfigVersion.cmake"
+    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+    COMPONENT Devel
+)
+
+install(EXPORT
+    KF5AtCoreTargets
+    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+    FILE KF5AtCoreTargets.cmake
+    NAMESPACE KF5::
+    COMPONENT Devel
+)
+
+install(FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/atcore_version.h"
+    DESTINATION "${KF5_INCLUDE_INSTALL_DIR}"
+    COMPONENT Devel
+)
+
+
+
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
