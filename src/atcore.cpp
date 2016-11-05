@@ -1,6 +1,7 @@
 #include "atcore.h"
 #include "seriallayer.h"
 #include "gcodecommands.h"
+#include "atcore_default_folders.h"
 
 #include <QDir>
 #include <QSerialPortInfo>
@@ -28,7 +29,7 @@ AtCore::AtCore(QObject *parent) :
     posString(QByteArray())
 {
     setState(DISCONNECTED);
-    d->pluginsDir = QDir(qApp->applicationDirPath());
+    d->pluginsDir = QDir(AtCoreDirectories::pluginDir);
 
 #if defined(Q_OS_WIN)
     if (d->pluginsDir.dirName().toLower() == "debug" || d->pluginsDir.dirName().toLower() == "release") {

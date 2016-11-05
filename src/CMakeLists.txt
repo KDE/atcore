@@ -1,5 +1,10 @@
 add_subdirectory(plugins)
 
+configure_file(
+    atcore_default_folders.h.in
+    ${CMAKE_CURRENT_BINARY_DIR}/atcore_default_folders.h
+)
+
 set(AtCoreLib_SRCS
     atcore.cpp
     seriallayer.cpp
@@ -31,6 +36,7 @@ ecm_generate_headers(KATCORE_HEADERS
 
 install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/katcore_export.h
+    ${CMAKE_CURRENT_BINARY_DIR}/atcore_default_folders.h
     ${KATCORE_HEADERS}
     DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KAtCore COMPONENT Devel
 )
