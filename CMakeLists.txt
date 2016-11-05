@@ -57,5 +57,12 @@ add_subdirectory(src)
 add_subdirectory(testclient)
 add_subdirectory(doc)
 
+set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5AtCore")
+ecm_configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/KF5AtCoreConfig.cmake.in"
+                              "${CMAKE_CURRENT_BINARY_DIR}/KF5AtCoreConfig.cmake"
+                              INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
+)
+
+
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
