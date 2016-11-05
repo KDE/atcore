@@ -1,30 +1,11 @@
 #include "gcodecommands.h"
 #include <QObject>
+#include <QMetaEnum>
 
 QString GCode::toString(Firmwares firmware)
 {
-    switch (firmware) {
-    case Repetier:
-        return QStringLiteral("Repetier");
-    case Marlin:
-        return QStringLiteral("Marlin");
-    case Teacup:
-        return QStringLiteral("Teacup");
-    case RepRapFirmware:
-        return QStringLiteral("RepRap");
-    case MakerBot:
-        return QStringLiteral("MakerBot");
-    case Sprinter:
-        return QStringLiteral("Sprinter");
-    case Sjfw:
-        return QStringLiteral("Sjfw");
-    case Sailfish:
-        return QStringLiteral("Sailfish");
-    case Smoothie:
-        return QStringLiteral("Smoothieware");
-    default:
-        return QObject::tr("Firmware not listed");
-    }
+    QMetaEnum metaEnum = QMetaEnum::fromType<GCode::Firmwares>();
+    return QString::fromLatin1(metaEnum.valueToKey(firmware));
 }
 
 QString GCode::toString(GCommands gcode)
