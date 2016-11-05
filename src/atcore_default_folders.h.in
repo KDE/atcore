@@ -1,8 +1,6 @@
-#ifndef ATCORE_DEFAULT_FOLDERS_H
-#define ATCORE_DEFAULT_FOLDERS_H
+#pragma once
 
 namespace AtCoreDirectories {
     const QString pluginDir = QStringLiteral("@CMAKE_INSTALL_PREFIX@/@KDE_INSTALL_PLUGINDIR@/KAtCore");
 };
 
-#endif
