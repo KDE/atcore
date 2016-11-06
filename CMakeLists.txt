@@ -35,7 +35,6 @@ find_package(KF5 REQUIRED COMPONENTS
 find_package(Qt5 REQUIRED COMPONENTS
     Core
     Test
-    Quick
     Widgets
     SerialPort
 )
