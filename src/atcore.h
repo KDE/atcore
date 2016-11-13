@@ -141,8 +141,9 @@ public slots:
 
     /**
      * @brief pause an in process print job
+     * @param Gcode to run after pausing commands are ',' seperated
      */
-    void pause();
+    void pause(const QString &pauseActions);
 
     /**
      * @brief resume a paused print job.
