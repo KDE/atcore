@@ -283,11 +283,7 @@ void MainWindow::printPBClicked()
         break;
 
     case BUSY:
-        core->pause();
-        core->setRelativePosition();
-        core->pushCommand(GCode::toCommand(GCode::G1, QString::fromLatin1("Z1")));
-        core->setAbsolutePosition();
-        core->pushCommand(GCode::toCommand(GCode::G0, QString::fromLatin1("X0 Y195")));
+        core->pause(ui->postPauseLE->text());
         break;
 
     case PAUSE:
