@@ -27,15 +27,15 @@ add_definitions(-DQT_NO_CAST_FROM_ASCII
                 -DQT_NO_URL_CAST_FROM_STRING)
 
 set(CMAKE_AUTOMOC ON)
+option(BUILD_TEST_GUI OFF)
 
-find_package(KF5 REQUIRED COMPONENTS
-    Solid
-)
+if(BUILD_TEST_GUI)
+    add_subdirectory(testclient)
+endif()
 
 find_package(Qt5 REQUIRED COMPONENTS
     Core
     Test
-    Widgets
     SerialPort
 )
 
@@ -53,7 +53,6 @@ endif()
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(src)
-add_subdirectory(testclient)
 add_subdirectory(doc)
 
 set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5AtCore")
