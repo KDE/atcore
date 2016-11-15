@@ -23,7 +23,7 @@ Testing is simple and will help us a lot.
 	`$ cd atcore
 	 $ mkdir build
 	 $ cd build
-	 $ cmake ..
+	 $ cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TEST_GUI=ON ..
 	 $ make
 	 `
 - <i class="icon-wrench" aria-hidden="true"></i> **Connect your printer**.
