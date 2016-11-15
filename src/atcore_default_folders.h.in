@@ -1,6 +1,8 @@
 #pragma once
 
 namespace AtCoreDirectories {
-    const QString pluginDir = QStringLiteral("@KDE_INSTALL_PLUGINDIR@/KAtCore");
+    const QStringList pluginDir = \
+    	QStringList(QStringLiteral("@KDE_INSTALL_PLUGINDIR@/KAtCore")) \
+    	<< QStringList(QStringLiteral("../src/plugins")) \
+    	<< QStringList(QStringLiteral("plugins"));
 };
-

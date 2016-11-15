@@ -29,7 +29,16 @@ AtCore::AtCore(QObject *parent) :
     posString(QByteArray())
 {
     setState(DISCONNECTED);
-    d->pluginsDir = QDir(AtCoreDirectories::pluginDir);
+
+    for (const auto &path: AtCoreDirectories::pluginDir) {
+        if (QDir(path).exists()) {
+            d->pluginsDir = QDir(path);
+            break;
+        }
+    }
+    if (!d->pluginsDir.exists()) {
+        qCritical() << "No valid path for plugin !";
+    }
 
 #if defined(Q_OS_WIN)
     if (d->pluginsDir.dirName().toLower() == "debug" || d->pluginsDir.dirName().toLower() == "release") {
