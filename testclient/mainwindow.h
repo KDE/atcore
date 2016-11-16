@@ -132,7 +132,7 @@ private:
     Solid::DeviceNotifier *deviceNotifier;
     QTemporaryFile *logFile;
     QStringList serialPortList;
-
+    void closeEvent(QCloseEvent *event);
     /**
      * @brief Locate serial port
      *

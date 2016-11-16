@@ -58,6 +58,12 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(core, &AtCore::printerStatusChanged, this, &MainWindow::checkPrinterStatus);
 }
 
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    core->close();
+    event->accept();
+}
+
 MainWindow::~MainWindow()
 {
     delete logFile;
