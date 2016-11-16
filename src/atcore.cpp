@@ -76,6 +76,11 @@ IFirmware *AtCore::plugin() const
     return d->fwPlugin;
 }
 
+void AtCore::close()
+{
+    exit(0);
+}
+
 void AtCore::findFirmware(const QByteArray &message)
 {
     if (state() == DISCONNECTED) {

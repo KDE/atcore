@@ -203,6 +203,10 @@ public slots:
      */
     void setFlowRate(uint rate = 100);
 
+    /**
+     * @brief close AtCore
+     */
+    void close();
 private:
     /**
      * @brief Print a file
