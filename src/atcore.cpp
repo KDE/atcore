@@ -30,7 +30,7 @@ AtCore::AtCore(QObject *parent) :
 {
     setState(DISCONNECTED);
 
-    for (const auto &path: AtCoreDirectories::pluginDir) {
+    for (const auto &path : AtCoreDirectories::pluginDir) {
         if (QDir(path).exists()) {
             d->pluginsDir = QDir(path);
             break;
@@ -84,10 +84,15 @@ void AtCore::close()
 void AtCore::findFirmware(const QByteArray &message)
 {
     if (state() == DISCONNECTED) {
-        qDebug() << "Waiting requestFirmware.";
-        QTimer::singleShot(500, this, &AtCore::requestFirmware);
-        setState(CONNECTING);
-        return;
+        if (message.contains("start")) {
+            qDebug() << "Waiting requestFirmware.";
+            QTimer::singleShot(500, this, &AtCore::requestFirmware);
+            setState(CONNECTING);
+            return;
+        } else if (message.contains("Grbl")) {
+            loadFirmware(QString::fromLatin1("grbl"));
+            return;
+        }
     }
 
     qDebug() << "Find Firmware Called" << message;
@@ -438,4 +443,3 @@ void AtCore::move(uchar axis, uint arg)
         pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("E %1").arg(QString::number(arg))));
     }
 }
-
