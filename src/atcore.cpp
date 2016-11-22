@@ -211,6 +211,18 @@ void AtCore::pushCommand(const QString &comm)
     }
 }
 
+void AtCore::closeConnection()
+{
+    if (serial()->opened()) {
+        if (state() == BUSY) {
+        //we have to clean print if printing.
+            setState(STOP);
+            }
+        serial()->closeConnection();
+        setState(DISCONNECTED);
+    }
+}
+
 void AtCore::printFile(const QString &fileName)
 {
     QFile file(fileName);

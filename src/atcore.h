@@ -103,6 +103,11 @@ public:
      */
     void pushCommand(const QString &comm);
 
+    /**
+     * @brief Close the serial connection
+     */
+    void closeConnection();
+
 signals:
     /**
      * @brief Emit signal when the printing precentabe changes.
