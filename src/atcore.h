@@ -223,9 +223,5 @@ private:
     void newMessage(const QByteArray &message);
     void findFirmware(const QByteArray &message);
     void findPlugins();
-    QByteArray lastMessage;
     AtCorePrivate *d;
-    PrinterState printerState;
-    float percentage;
-    QByteArray posString;
 };

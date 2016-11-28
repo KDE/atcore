@@ -14,19 +14,21 @@
 #include <QTextStream>
 
 struct AtCorePrivate {
+    float percentage = 0.0;
     IFirmware *fwPlugin = nullptr;
     SerialLayer *serial = nullptr;
     QPluginLoader pluginLoader;
     QDir pluginsDir;
     bool isInitialized;
     QMap<QString, QString> plugins;
+    PrinterState printerState;
+    QByteArray lastMessage;
+    QByteArray posString;
 };
 
 AtCore::AtCore(QObject *parent) :
     QObject(parent),
-    d(new AtCorePrivate),
-    percentage(0.0),
-    posString(QByteArray())
+    d(new AtCorePrivate)
 {
     setState(DISCONNECTED);
 
@@ -167,13 +169,13 @@ QList<QSerialPortInfo> AtCore::serialPorts() const
 
 void AtCore::newMessage(const QByteArray &message)
 {
-    lastMessage = message;
+    d->lastMessage = message;
     if (message.startsWith(QString::fromLatin1("X:").toLocal8Bit())) {
-        posString = message;
-        posString.resize(posString.indexOf("E"));
-        posString.replace(":", "");
+        d->posString = message;
+        d->posString.resize(d->posString.indexOf('E'));
+        d->posString.replace(':', "");
     }
-    emit(receivedMessage(lastMessage));
+    emit(receivedMessage(d->lastMessage));
 }
 
 void AtCore::setRelativePosition()
@@ -188,7 +190,7 @@ void AtCore::setAbsolutePosition()
 
 float AtCore::percentagePrinted()
 {
-    return percentage;
+    return d->percentage;
 }
 
 void AtCore::print(const QString &fileName)
@@ -243,8 +245,8 @@ void AtCore::printFile(const QString &fileName)
             setState(BUSY);
             cline = gcodestream.readLine();
             stillSize -= cline.size() + 1; //remove read chars
-            percentage = float(totalSize - stillSize) * 100.0 / float(totalSize);
-            emit(printProgressChanged(percentage));
+            d->percentage = float(totalSize - stillSize) * 100.0 / float(totalSize);
+            emit(printProgressChanged(d->percentage));
             cline = cline.simplified();
             if (cline.contains(QChar::fromLatin1(';'))) {
                 cline.resize(cline.indexOf(QChar::fromLatin1(';')));
@@ -256,7 +258,7 @@ void AtCore::printFile(const QString &fileName)
                     if (!serial()->commandAvailable()) {
                         loop.exec();
                     }
-                    if (plugin()->readyForNextCommand(QString::fromUtf8(lastMessage))) {
+                    if (plugin()->readyForNextCommand(QString::fromUtf8(d->lastMessage))) {
                         waiting = false;
                     }
                 }
@@ -287,14 +289,14 @@ void AtCore::printFile(const QString &fileName)
 
 PrinterState AtCore::state(void)
 {
-    return printerState;
+    return d->printerState;
 }
 
 void AtCore::setState(PrinterState state)
 {
-    if (state != printerState) {
-        printerState = state;
-        emit(stateChanged(printerState));
+    if (state != d->printerState) {
+        d->printerState = state;
+        emit(stateChanged(d->printerState));
     }
 }
 
@@ -389,7 +391,7 @@ void AtCore::pause(const QString &pauseActions)
 
 void AtCore::resume()
 {
-    pushCommand(GCode::toCommand(GCode::G0, QString::fromLatin1(posString)));
+    pushCommand(GCode::toCommand(GCode::G0, QString::fromLatin1(d->posString)));
     setState(BUSY);
 }
 
