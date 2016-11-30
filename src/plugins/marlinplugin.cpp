@@ -24,15 +24,15 @@ void MarlinPlugin::extractTemp(const QString &lastMessage)
     // ok T:185.4 /185.0 B:60.5 /60.0
     QStringList list = lastMessage.split(QChar::fromLatin1(' '));
     // T:185.4 - current temperature
-    printerStatus.extruderTemp = list[0].mid(2).toFloat();
+    temperature.extruderTemp = list[0].mid(2).toFloat();
     // /185.0 - target temperature
-    printerStatus.extruderTargetTemp = list[1].mid(1).toFloat();
+    temperature.extruderTargetTemp = list[1].mid(1).toFloat();
     // B:185.4 - current temperature
-    printerStatus.bedTemp = list[2].mid(2).toFloat();
+    temperature.bedTemp = list[2].mid(2).toFloat();
     // /60.0 - target temperature
-    printerStatus.bedTargetTemp = list[3].mid(1).toFloat();
+    temperature.bedTargetTemp = list[3].mid(1).toFloat();
 
-    emit(printerStatusChanged(printerStatus));
+    emit(printerTemperatureChanged(temperature));
 }
 
 bool MarlinPlugin::validateCommand(const QString &lastMessage)

@@ -5,7 +5,7 @@
 
 #include "katcore_export.h"
 
-struct KATCORE_EXPORT PrinterStatus {
+struct KATCORE_EXPORT Temperature {
     //TODO: expand extruderTemps to list for multiple extruders
     float extruderTemp;
     float extruderTargetTemp;
@@ -22,9 +22,9 @@ public:
     virtual QByteArray translate(const QString &command) = 0;
     virtual ~IFirmware() {}
     // ADD THE METHODS HERE.
-    PrinterStatus printerStatus;
+    Temperature temperature;
 signals:
-    void printerStatusChanged(const PrinterStatus &newStatus);
+    void printerTemperatureChanged(const Temperature &newTemp);
 };
 
 Q_DECLARE_INTERFACE(IFirmware, "org.kde.atelier.core.firmware")
