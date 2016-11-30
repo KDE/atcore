@@ -14,16 +14,14 @@
 #include <QTextStream>
 
 struct AtCorePrivate {
-    float percentage = 0.0;
     IFirmware *fwPlugin = nullptr;
     SerialLayer *serial = nullptr;
     QPluginLoader pluginLoader;
     QDir pluginsDir;
     bool isInitialized;
     QMap<QString, QString> plugins;
-    PrinterState printerState;
     QByteArray lastMessage;
-    QByteArray posString;
+    PrinterStatus printerStatus;
 };
 
 AtCore::AtCore(QObject *parent) :
@@ -143,12 +141,17 @@ void AtCore::loadFirmware(const QString &fwName)
             qDebug() << "Connected to" << plugin()->name();
             disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
             connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
-            connect(plugin(), &IFirmware::printerStatusChanged, this, &AtCore::statusChanged);
+            connect(plugin(), &IFirmware::printerTemperatureChanged, this, &AtCore::temperatureUpdate);
             setState(IDLE);
         }
     } else {
         qDebug() << "No Firmware Loaded";
     }
+}
+
+void AtCore::temperatureUpdate(const Temperature &newTemp)
+{
+    emit(printerTemperatureChanged(newTemp));
 }
 
 void AtCore::initFirmware(const QString &port, int baud)
@@ -171,9 +174,9 @@ void AtCore::newMessage(const QByteArray &message)
 {
     d->lastMessage = message;
     if (message.startsWith(QString::fromLatin1("X:").toLocal8Bit())) {
-        d->posString = message;
-        d->posString.resize(d->posString.indexOf('E'));
-        d->posString.replace(':', "");
+        d->printerStatus.posString = message;
+        d->printerStatus.posString.resize(d->printerStatus.posString.indexOf('E'));
+        d->printerStatus.posString.replace(':', "");
     }
     emit(receivedMessage(d->lastMessage));
 }
@@ -190,7 +193,7 @@ void AtCore::setAbsolutePosition()
 
 float AtCore::percentagePrinted()
 {
-    return d->percentage;
+    return d->printerStatus.percentage;
 }
 
 void AtCore::print(const QString &fileName)
@@ -217,9 +220,9 @@ void AtCore::closeConnection()
 {
     if (serial()->opened()) {
         if (state() == BUSY) {
-        //we have to clean print if printing.
+            //we have to clean print if printing.
             setState(STOP);
-            }
+        }
         serial()->closeConnection();
         setState(DISCONNECTED);
     }
@@ -245,8 +248,8 @@ void AtCore::printFile(const QString &fileName)
             setState(BUSY);
             cline = gcodestream.readLine();
             stillSize -= cline.size() + 1; //remove read chars
-            d->percentage = float(totalSize - stillSize) * 100.0 / float(totalSize);
-            emit(printProgressChanged(d->percentage));
+            d->printerStatus.percentage = float(totalSize - stillSize) * 100.0 / float(totalSize);
+            emit(printProgressChanged(d->printerStatus.percentage));
             cline = cline.simplified();
             if (cline.contains(QChar::fromLatin1(';'))) {
                 cline.resize(cline.indexOf(QChar::fromLatin1(';')));
@@ -289,14 +292,14 @@ void AtCore::printFile(const QString &fileName)
 
 PrinterState AtCore::state(void)
 {
-    return d->printerState;
+    return d->printerStatus.printerState;
 }
 
 void AtCore::setState(PrinterState state)
 {
-    if (state != d->printerState) {
-        d->printerState = state;
-        emit(stateChanged(d->printerState));
+    if (state != d->printerStatus.printerState) {
+        d->printerStatus.printerState = state;
+        emit(stateChanged(d->printerStatus.printerState));
     }
 }
 
@@ -372,11 +375,6 @@ void AtCore::detectFirmware()
     requestFirmware();
 }
 
-void AtCore::statusChanged(const PrinterStatus &newStatus)
-{
-    emit(printerStatusChanged(newStatus));
-}
-
 void AtCore::pause(const QString &pauseActions)
 {
     pushCommand(GCode::toCommand(GCode::M114));
@@ -391,7 +389,7 @@ void AtCore::pause(const QString &pauseActions)
 
 void AtCore::resume()
 {
-    pushCommand(GCode::toCommand(GCode::G0, QString::fromLatin1(d->posString)));
+    pushCommand(GCode::toCommand(GCode::G0, QString::fromLatin1(d->printerStatus.posString)));
     setState(BUSY);
 }
 

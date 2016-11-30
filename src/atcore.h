@@ -31,13 +31,19 @@ enum AXIS {
     E = 1 << 3,
 };
 
+struct KATCORE_EXPORT PrinterStatus {
+    float percentage;
+    QByteArray posString;
+    Temperature temps;
+    PrinterState printerState;
+};
+
 class KATCORE_EXPORT AtCore : public QObject
 {
     Q_OBJECT
 public:
     AtCore(QObject *parent = nullptr);
     QList<QSerialPortInfo> serialPorts() const;
-
     void initFirmware(const QString &port, int baud);
     bool isInitialized();
     void setSerial(SerialLayer *serial);
@@ -129,10 +135,15 @@ signals:
      */
     void stateChanged(PrinterState newState);
 
-    void printerStatusChanged(const PrinterStatus &newStatus);
+    /**
+     * @brief printerTemperatureChanged
+     * @param newTemp: the new Temperature
+     */
+    void printerTemperatureChanged(Temperature newTemp);
 
 public slots:
-    void statusChanged(const PrinterStatus &newStatus);
+
+    void temperatureUpdate(const Temperature &newTemp);
 
     /**
      * @brief Public Interface for printing a file
@@ -219,7 +230,6 @@ private:
      * @param fileName : path of file to print
      */
     void printFile(const QString &fileName);
-
     void newMessage(const QByteArray &message);
     void findFirmware(const QByteArray &message);
     void findPlugins();

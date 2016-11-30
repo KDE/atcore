@@ -55,7 +55,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
     connect(this, &MainWindow::printFile, core, &AtCore::print);
     connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
-    connect(core, &AtCore::printerStatusChanged, this, &MainWindow::checkPrinterStatus);
+    connect(core, &AtCore::printerTemperatureChanged, this, &MainWindow::checkTemperature);
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
@@ -141,13 +141,13 @@ void MainWindow::checkPushedCommands(QByteArray bmsg)
     addSLog(msg);
 }
 
-void MainWindow::checkPrinterStatus(PrinterStatus status)
+void MainWindow::checkTemperature(Temperature temperature)
 {
     QString msg = QString::fromLatin1("Bed:%1/%2  Extruder:%3/%4")
-                  .arg(QString::number(status.bedTemp))
-                  .arg(QString::number(status.bedTargetTemp))
-                  .arg(QString::number(status.extruderTemp))
-                  .arg(QString::number(status.extruderTargetTemp));
+                  .arg(QString::number(temperature.bedTemp))
+                  .arg(QString::number(temperature.bedTargetTemp))
+                  .arg(QString::number(temperature.extruderTemp))
+                  .arg(QString::number(temperature.extruderTargetTemp));
     addRLog(msg);
 }
 /**
