@@ -5,7 +5,7 @@
 #include <QSerialPortInfo>
 
 #include "ifirmware.h"
-
+#include "temperature.h"
 #include "katcore_export.h"
 
 class SerialLayer;
@@ -31,6 +31,7 @@ enum AXIS {
     E = 1 << 3,
 };
 
+//TODO: PrinterStatus should also move to d->pointer;
 struct KATCORE_EXPORT PrinterStatus {
     float percentage;
     QByteArray posString;
@@ -135,16 +136,7 @@ signals:
      */
     void stateChanged(PrinterState newState);
 
-    /**
-     * @brief printerTemperatureChanged
-     * @param newTemp: the new Temperature
-     */
-    void printerTemperatureChanged(Temperature newTemp);
-
 public slots:
-
-    void temperatureUpdate(const Temperature &newTemp);
-
     /**
      * @brief Public Interface for printing a file
      */

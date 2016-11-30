@@ -141,17 +141,11 @@ void AtCore::loadFirmware(const QString &fwName)
             qDebug() << "Connected to" << plugin()->name();
             disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
             connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
-            connect(plugin(), &IFirmware::printerTemperatureChanged, this, &AtCore::temperatureUpdate);
             setState(IDLE);
         }
     } else {
         qDebug() << "No Firmware Loaded";
     }
-}
-
-void AtCore::temperatureUpdate(const Temperature &newTemp)
-{
-    emit(printerTemperatureChanged(newTemp));
 }
 
 void AtCore::initFirmware(const QString &port, int baud)

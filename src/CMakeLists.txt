@@ -9,7 +9,8 @@ set(AtCoreLib_SRCS
     atcore.cpp
     seriallayer.cpp
     gcodecommands.cpp
-    ifirmware.h
+    ifirmware.cpp
+    temperature.cpp
 )
 
 add_library(KF5AtCore SHARED ${AtCoreLib_SRCS})
@@ -31,6 +32,7 @@ ecm_generate_headers(KATCORE_HEADERS
     GCodeCommands
     IFirmware
     SerialLayer
+    Temperature
     REQUIRED_HEADERS KATCORE_HEADERS
 )
 
