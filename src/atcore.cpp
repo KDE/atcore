@@ -152,6 +152,18 @@ void AtCore::initFirmware(const QString &port, int baud)
 {
     setSerial(new SerialLayer(port, baud));
     connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
+    connect(d->fwPlugin->temperature(), &Temperature::bedTemperatureChanged, [=](float temp){
+        emit bedTemperatureChanged(temp);
+    });
+    connect(d->fwPlugin->temperature(), &Temperature::bedTargetTemperatureChanged, [=](float temp){
+        emit bedTargetTemperatureChanged(temp);
+    });
+    connect(d->fwPlugin->temperature(), &Temperature::extruderTemperatureChanged, [=](float temp){
+        emit extruderTemperatureChanged(temp);
+    });
+    connect(d->fwPlugin->temperature(), &Temperature::extruderTargetTemperatureChanged, [=](float temp){
+        emit extruderTargetTemperatureChanged(temp);
+    });
 }
 
 bool AtCore::isInitialized()

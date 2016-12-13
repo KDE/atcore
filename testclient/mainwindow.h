@@ -34,7 +34,14 @@ public slots:
      */
     void checkPushedCommands(QByteArray);
 
-    void checkTemperature(Temperature);
+    /**
+     * @brief Check temperature
+     *
+     * @param  sensorType : type of sensor
+     * @param  number     : index of sensor
+     * @param  temp       : temperature
+     */
+    void checkTemperature(uint sensorType, uint number, uint temp);
 
 private slots:
     //ButtonEvents

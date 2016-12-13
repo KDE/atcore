@@ -10,7 +10,7 @@ public:
 };
 
 namespace {
-    static const float delta = 000.1;
+    static const float delta = 1e-3;
 }
 
 Temperature::Temperature(QObject *parent)
@@ -29,44 +29,44 @@ float Temperature::bedTemperature() const
     return d->bedTemp;
 }
 
-float Temperature::exturderTargetTemperature() const
+float Temperature::extruderTargetTemperature() const
 {
     return d->extruderTargetTemp;
 }
 
-float Temperature::exturderTemperature() const
+float Temperature::extruderTemperature() const
 {
     return d->extruderTemp;
 }
 
-void Temperature::setBedTargetTemperature(float temperature)
+void Temperature::setBedTargetTemperature(float temp)
 {
-    if (std::abs(temperature - d->bedTargetTemp) > delta) {
-        d->bedTargetTemp = temperature;
-        emit bedTargetTemperatureChanged(temperature);
+    if (std::abs(temp - d->bedTargetTemp) > delta) {
+        d->bedTargetTemp = temp;
+        emit bedTargetTemperatureChanged(temp);
     }
 }
 
-void Temperature::setBedTemperature(float temperature)
+void Temperature::setBedTemperature(float temp)
 {
-    if (std::abs(temperature - d->bedTemp) > 0.0001) {
-        d->bedTemp = temperature;
-        emit bedTemperatureChanged(temperature);
+    if (std::abs(temp - d->bedTemp) > delta) {
+        d->bedTemp = temp;
+        emit bedTemperatureChanged(temp);
     }
 }
 
-void Temperature::setExturderTargetTemperature(float temperature)
+void Temperature::setExtruderTargetTemperature(float temp)
 {
-    if (std::abs(temperature - d->extruderTargetTemp) > 0.0001) {
-        d->extruderTargetTemp = temperature;
-        emit exturderTargetTemperatureChanged(temperature);
+    if (std::abs(temp - d->extruderTargetTemp) > delta) {
+        d->extruderTargetTemp = temp;
+        emit extruderTargetTemperatureChanged(temp);
     }
 }
 
-void Temperature::setExturderTemperature(float temperature)
+void Temperature::setExtruderTemperature(float temp)
 {
-    if (std::abs(temperature - d->extruderTemp) > 0.0001) {
-        d->extruderTemp = temperature;
-        emit bedTargetTemperatureChanged(temperature);
+    if (std::abs(temp - d->extruderTemp) > delta) {
+        d->extruderTemp = temp;
+        emit bedTargetTemperatureChanged(temp);
     }
 }

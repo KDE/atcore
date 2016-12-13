@@ -26,9 +26,9 @@ void SprinterPlugin::extractTemp(const QString &lastMessage)
     QStringList list = lastMessage.split(QChar::fromLatin1(' '));
 
     // T:185.4 - current temperature
-    temperature()->setExturderTemperature(list[0].mid(2).toFloat());
+    temperature()->setExtruderTemperature(list[0].mid(2).toFloat());
     // /185.0 - target temperature
-    temperature()->setExturderTargetTemperature(list[1].mid(1).toFloat());
+    temperature()->setExtruderTargetTemperature(list[1].mid(1).toFloat());
     // B:185.4 - current temperature
     temperature()->setBedTemperature(list[2].mid(2).toFloat());
     // /60.0 - target temperature

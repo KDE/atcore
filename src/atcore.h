@@ -136,6 +136,30 @@ signals:
      */
     void stateChanged(PrinterState newState);
 
+    /**
+     * @brief Bed temperature Changed
+     * @param temperature : Pointer to temperature class
+     */
+    void bedTemperatureChanged(const float temp);
+
+    /**
+     * @brief Bed target temperature changed
+     * @param temperature : Pointer to temperature class
+     */
+    void bedTargetTemperatureChanged(const float temp);
+
+    /**
+     * @brief Extruder temperature changed
+     * @param temperature : Pointer to temperature class
+     */
+    void extruderTemperatureChanged(const float temp);
+
+    /**
+     * @brief Extruder target temperature changed
+     * @param temperature : Pointer to temperature class
+     */
+    void extruderTargetTemperatureChanged(const float temp);
+
 public slots:
     /**
      * @brief Public Interface for printing a file
