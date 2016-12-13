@@ -45,7 +45,7 @@ class KATCORE_EXPORT AtCore : public QObject
 public:
     AtCore(QObject *parent = nullptr);
     QList<QSerialPortInfo> serialPorts() const;
-    void initFirmware(const QString &port, int baud);
+    void initSerial(const QString &port, int baud);
     bool isInitialized();
     void setSerial(SerialLayer *serial);
     SerialLayer *serial() const;
