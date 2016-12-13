@@ -55,16 +55,16 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
     connect(this, &MainWindow::printFile, core, &AtCore::print);
     connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
-    connect(core, &AtCore::bedTemperatureChanged, [=](float temp){
+    connect(core, &AtCore::bedTemperatureChanged, [ = ](float temp) {
         checkTemperature(0x00, 0, temp);
     });
-    connect(core, &AtCore::bedTargetTemperatureChanged, [=](float temp){
+    connect(core, &AtCore::bedTargetTemperatureChanged, [ = ](float temp) {
         checkTemperature(0x01, 0, temp);
     });
-    connect(core, &AtCore::extruderTemperatureChanged, [=](float temp){
+    connect(core, &AtCore::extruderTemperatureChanged, [ = ](float temp) {
         checkTemperature(0x02, 0, temp);
     });
-    connect(core, &AtCore::extruderTargetTemperatureChanged, [=](float temp){
+    connect(core, &AtCore::extruderTargetTemperatureChanged, [ = ](float temp) {
         checkTemperature(0x03, 0, temp);
     });
 }
@@ -155,36 +155,35 @@ void MainWindow::checkPushedCommands(QByteArray bmsg)
 void MainWindow::checkTemperature(uint sensorType, uint number, uint temp)
 {
     QString msg;
-    switch (sensorType)
-    {
-        case 0x00: // bed
-            msg = QString::fromLatin1("Bed Temperature ");
-            break;
+    switch (sensorType) {
+    case 0x00: // bed
+        msg = QString::fromLatin1("Bed Temperature ");
+        break;
 
-        case 0x01: // bed target
-            msg = QString::fromLatin1("Bed Target Temperature ");
-            break;
+    case 0x01: // bed target
+        msg = QString::fromLatin1("Bed Target Temperature ");
+        break;
 
-        case 0x02: // extruder
-            msg = QString::fromLatin1("Extruder Temperature ");
-            break;
+    case 0x02: // extruder
+        msg = QString::fromLatin1("Extruder Temperature ");
+        break;
 
-        case 0x03: // extruder target
-            msg = QString::fromLatin1("Extruder Target Temperature ");
-            break;
+    case 0x03: // extruder target
+        msg = QString::fromLatin1("Extruder Target Temperature ");
+        break;
 
-        case 0x04: // enclosure
-            msg = QString::fromLatin1("Enclosure Temperature ");
-            break;
+    case 0x04: // enclosure
+        msg = QString::fromLatin1("Enclosure Temperature ");
+        break;
 
-        case 0x05: // enclosure target
-            msg = QString::fromLatin1("Enclosure Target Temperature ");
-            break;
+    case 0x05: // enclosure target
+        msg = QString::fromLatin1("Enclosure Target Temperature ");
+        break;
     }
 
     msg.append(QString::fromLatin1("[%1] : %2"));
     msg = msg.arg(QString::number(number))
-        .arg(QString::number(temp));
+          .arg(QString::number(temp));
 
     addRLog(msg);
 }
@@ -220,7 +219,7 @@ void MainWindow::locateSerialPort()
 void MainWindow::connectPBClicked()
 {
     if (core->state() == DISCONNECTED) {
-        core->initFirmware(ui->serialPortCB->currentText(), ui->baudRateLE->text().toInt());
+        core->initSerial(ui->serialPortCB->currentText(), ui->baudRateLE->text().toInt());
         connect(core->serial(), &SerialLayer::receivedCommand, this, &MainWindow::checkReceivedCommand);
         connect(core->serial(), &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
         addLog(tr("Serial connected"));
