@@ -1,7 +1,8 @@
 #include "temperature.h"
 #include <cmath>
 
-class TemperaturePrivate {
+class TemperaturePrivate
+{
 public:
     float extruderTemp;
     float extruderTargetTemp;
@@ -9,13 +10,14 @@ public:
     float bedTargetTemp;
 };
 
-namespace {
-    static const float delta = 1e-3;
+namespace
+{
+static const float delta = 1e-3;
 }
 
 Temperature::Temperature(QObject *parent)
-: QObject(parent)
-, d(new TemperaturePrivate)
+    : QObject(parent)
+    , d(new TemperaturePrivate)
 {
 }
 

@@ -1,19 +1,20 @@
 #include "ifirmware.h"
 #include "temperature.h"
 
-class IFirmwarePrivate {
+class IFirmwarePrivate
+{
 public:
-    IFirmwarePrivate(){}
+    IFirmwarePrivate() {}
     Temperature temperature;
 };
 
-Temperature * IFirmware::temperature()
+Temperature *IFirmware::temperature()
 {
     return &d->temperature;
 }
 
-IFirmware::IFirmware(QObject* parent) : QObject(parent)
-, d(new IFirmwarePrivate)
+IFirmware::IFirmware(QObject *parent) : QObject(parent)
+    , d(new IFirmwarePrivate)
 {
 }
 

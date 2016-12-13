@@ -25,7 +25,7 @@ void MarlinPlugin::extractTemp(const QString &lastMessage)
     // ok T:185.4 /185.0 B:60.5 /60.0
     QStringList list = lastMessage.split(QChar::fromLatin1(' '));
 
-     // T:185.4 - current temperature
+    // T:185.4 - current temperature
     temperature()->setExtruderTemperature(list[0].mid(2).toFloat());
 
     // /185.0 - target temperature

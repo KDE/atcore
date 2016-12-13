@@ -5,7 +5,8 @@
 
 class TemperaturePrivate;
 
-class KATCORE_EXPORT Temperature : public QObject {
+class KATCORE_EXPORT Temperature : public QObject
+{
     Q_OBJECT
     Q_PROPERTY(float bedTemperature READ bedTemperature WRITE setBedTemperature NOTIFY bedTemperatureChanged);
     Q_PROPERTY(float bedTargetTemperature READ bedTargetTemperature WRITE setBedTargetTemperature NOTIFY bedTargetTemperatureChanged);
