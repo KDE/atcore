@@ -14,7 +14,7 @@ class KATCORE_EXPORT Temperature : public QObject
     Q_PROPERTY(float extruderTargetTemperature READ extruderTargetTemperature WRITE setExtruderTargetTemperature NOTIFY extruderTargetTemperatureChanged);
 
 public:
-    Temperature(QObject *parent = 0);
+    Temperature(QObject *parent = nullptr);
     float bedTemperature() const;
     float bedTargetTemperature() const;
     float extruderTemperature() const;

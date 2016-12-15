@@ -12,7 +12,7 @@ class KATCORE_EXPORT  IFirmware : public QObject
 {
     Q_OBJECT
 public:
-    IFirmware(QObject *parent = 0);
+    IFirmware(QObject *parent = nullptr);
     virtual ~IFirmware();
 
     /* virtuals, needs to reimplement */
