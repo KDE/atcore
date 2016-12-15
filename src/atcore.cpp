@@ -18,7 +18,6 @@ struct AtCorePrivate {
     SerialLayer *serial = nullptr;
     QPluginLoader pluginLoader;
     QDir pluginsDir;
-    bool isInitialized;
     QMap<QString, QString> plugins;
     QByteArray lastMessage;
     PrinterStatus printerStatus;
