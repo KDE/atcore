@@ -198,7 +198,7 @@ void MainWindow::locateSerialPort()
     QList<QSerialPortInfo> serialPortInfoList = QSerialPortInfo::availablePorts();
     if (!serialPortInfoList.isEmpty()) {
         foreach (const QSerialPortInfo &serialPortInfo, serialPortInfoList) {
-            ports.append(QStringLiteral("/dev/") + serialPortInfo.portName());
+            ports.append(serialPortInfo.portName());
         }
         if (ports == serialPortList) {
             return;
