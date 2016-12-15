@@ -41,7 +41,7 @@ AtCore::AtCore(QObject *parent) :
     }
 
 #if defined(Q_OS_WIN)
-    if (d->pluginsDir.dirName().toLower() == "debug" || d->pluginsDir.dirName().toLower() == "release") {
+    if (d->pluginsDir.dirName().toLower() == QStringLiteral("debug") || d->pluginsDir.dirName().toLower() == QStringLiteral("release")) {
         d->pluginsDir.cdUp();
     }
 #elif defined(Q_OS_MAC)
