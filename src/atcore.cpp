@@ -347,7 +347,7 @@ void AtCore::findPlugins()
 #if defined(Q_OS_WIN)
         if (file.endsWith(QStringLiteral(".dll")))
 #elif defined(Q_OS_MAC)
-        if (file.endsWith(QStringLiteral(".dylib"))
+        if (file.endsWith(QStringLiteral(".dylib")))
 #else
         if (file.endsWith(QStringLiteral(".so")))
 #endif
