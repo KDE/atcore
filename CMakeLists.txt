@@ -27,7 +27,7 @@ add_definitions(-DQT_NO_CAST_FROM_ASCII
                 -DQT_NO_URL_CAST_FROM_STRING)
 
 set(CMAKE_AUTOMOC ON)
-option(BUILD_TEST_GUI OFF)
+option(BUILD_TEST_GUI ON)
 
 if(BUILD_TEST_GUI)
     add_subdirectory(testclient)
