@@ -1,3 +1,24 @@
+/* AtCore
+    Copyright (C) <2016>
+
+    Authors:
+        Lays Rodrigues <laysrodrigues@gmail.com>
+        Tomaz Canabrava <tcanabrava@kde.org>
+        Patrick Pereira <patrickelectrick@gmail.com>
+        Chris Rizzitello <sithlord48@gmail.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 #include "gcodecommands.h"
 #include <QObject>
 #include <QMetaEnum>
