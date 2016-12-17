@@ -333,7 +333,8 @@ void MainWindow::printPBClicked()
         break;
 
     case CONNECTING:
-        QMessageBox::information(this, tr("Error"), tr("Firmware Plugin not loaded"));
+        QMessageBox::information(this, tr("Error"), tr(" A Firmware Plugin was not loaded!\n  Please send the command M115 and let us know what your firmware returns, so we can improve our firmware detection. We have loaded the most common plugin \"repetier\" for you. You may try to print again after this message"));
+        ui->pluginCB->setCurrentText(QStringLiteral("repetier"));
         break;
 
     case IDLE:
