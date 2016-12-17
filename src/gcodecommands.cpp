@@ -4,7 +4,7 @@
     Authors:
         Lays Rodrigues <laysrodrigues@gmail.com>
         Tomaz Canabrava <tcanabrava@kde.org>
-        Patrick Pereira <patrickelectrick@gmail.com>
+        Patrick José Pereira <patrickelectric@gmail.com>
         Chris Rizzitello <sithlord48@gmail.com>
 
     This program is free software: you can redistribute it and/or modify

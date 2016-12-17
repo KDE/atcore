@@ -8,7 +8,7 @@ AtCore is a API to manage the serial connection between the computer and 3D Prin
 > - It's currently in developing!
 > - Join us on [IRC] #kde-atelier channel.
 
-This project is under LGPL V3, for more information read LICENSE.
+This project is under LGPL V2, for more information read LICENSE.
 
 ###Testing AtCore###
 
