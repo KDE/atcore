@@ -224,6 +224,10 @@ float AtCore::percentagePrinted()
 
 void AtCore::print(const QString &fileName)
 {
+    if (state() == CONNECTING) {
+        qDebug() << "Load a firmware plugin to print.";
+        return;
+    }
     setState(STARTPRINT);
     printFile(fileName);
     //let the state reflect that we have finished printing
