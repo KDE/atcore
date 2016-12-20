@@ -86,6 +86,12 @@ public:
     void setState(PrinterState state);
 
     /**
+     * @brief extruderCount
+     * @return The number of detected Extruders Default is 1
+     */
+    int extruderCount();
+
+    /**
      * @brief Return true if plugin is loaded
      */
     bool pluginLoaded();

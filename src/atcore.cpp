@@ -42,6 +42,7 @@ struct AtCorePrivate {
     QMap<QString, QString> plugins;
     QByteArray lastMessage;
     PrinterStatus printerStatus;
+    int extruderCount = 1;
 };
 
 AtCore::AtCore(QObject *parent) :
@@ -138,6 +139,12 @@ void AtCore::findFirmware(const QByteArray &message)
         fwName.resize(fwName.indexOf(QChar::fromLatin1('_')));
     }
     qDebug() << "Firmware Name:" << fwName;
+
+    if (message.contains("EXTRUDER_COUNT:")) {
+        //this code is broken if more then 9 extruders are detected. since only one char is returned
+        d->extruderCount = message.at(message.indexOf("EXTRUDER_COUNT:") + 15) - '0';
+    }
+    qDebug() << "Extruder Count:" << QString::number(extruderCount());
 
     loadFirmware(fwName);
 }
@@ -484,4 +491,9 @@ void AtCore::move(uchar axis, uint arg)
     } else if (axis & E) {
         pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("E %1").arg(QString::number(arg))));
     }
+}
+
+int AtCore::extruderCount()
+{
+    return d->extruderCount;
 }
