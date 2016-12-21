@@ -20,9 +20,12 @@
 */
 #pragma once
 
+#include <QLibraryInfo>
+
 namespace AtCoreDirectories {
     const QStringList pluginDir = \
-    	QStringList(QStringLiteral("@KDE_INSTALL_PLUGINDIR@/KAtCore")) \
-    	<< QStringList(QStringLiteral("../src/plugins")) \
-    	<< QStringList(QStringLiteral("plugins"));
+        QStringList(QStringLiteral("@CMAKE_CURRENT_BINARY_DIR@/plugins")) \
+        << QStringList(QStringLiteral("@KDE_INSTALL_PLUGINDIR@/KAtCore")) \
+        << QStringList(QLibraryInfo::location(QLibraryInfo::PluginsPath) + QStringLiteral("/KAtCore")) \
+        << QStringList(QStringLiteral("plugins"));
 };
