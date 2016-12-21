@@ -38,10 +38,11 @@ MainWindow::MainWindow(QWidget *parent) :
     logFile(new QTemporaryFile(QDir::tempPath() + QStringLiteral("/AtCore_")))
 {
     ui->setupUi(this);
-    QValidator *validator = new QIntValidator();
     ui->serialPortCB->setEditable(true);
+    QValidator *validator = new QIntValidator();
     ui->baudRateLE->setValidator(validator);
-    ui->baudRateLE->setText(QStringLiteral("115200"));
+    ui->baudRateLE->addItems(core->serial()->validBaudRates());
+    ui->baudRateLE->setCurrentIndex(9);
 
     ui->pluginCB->addItem(tr("Autodetect"));
     ui->pluginCB->addItems(core->availablePlugins());
@@ -240,7 +241,7 @@ void MainWindow::locateSerialPort()
 void MainWindow::connectPBClicked()
 {
     if (core->state() == DISCONNECTED) {
-        core->initSerial(ui->serialPortCB->currentText(), ui->baudRateLE->text().toInt());
+        core->initSerial(ui->serialPortCB->currentText(), ui->baudRateLE->currentText().toInt());
         connect(core->serial(), &SerialLayer::receivedCommand, this, &MainWindow::checkReceivedCommand);
         connect(core->serial(), &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
         addLog(tr("Serial connected"));

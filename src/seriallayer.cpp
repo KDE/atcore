@@ -25,6 +25,19 @@
 QByteArray SerialLayer::_return = QByteArray("\r");
 QByteArray SerialLayer::_newLine = QByteArray("\n");
 QByteArray SerialLayer::_newLineReturn = QByteArray("\n\r");
+QStringList SerialLayer::_validBaudRates = \
+    QStringList(QStringLiteral("9600")) \
+    << QStringList(QStringLiteral("14400")) \
+    << QStringList(QStringLiteral("19200")) \
+    << QStringList(QStringLiteral("28800")) \
+    << QStringList(QStringLiteral("38400")) \
+    << QStringList(QStringLiteral("57600")) \
+    << QStringList(QStringLiteral("76800")) \
+    << QStringList(QStringLiteral("115200")) \
+    << QStringList(QStringLiteral("230400")) \
+    << QStringList(QStringLiteral("250000")) \
+    << QStringList(QStringLiteral("500000")) \
+    << QStringList(QStringLiteral("1000000"));
 
 SerialLayer::SerialLayer(const QString &port, uint baud, QObject *parent) :
     QObject(parent),
@@ -118,3 +131,9 @@ void SerialLayer::closeConnection()
         serial->close();
     }
 }
+
+QStringList SerialLayer::validBaudRates()
+{
+    return _validBaudRates;
+}
+

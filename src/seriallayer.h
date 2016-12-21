@@ -41,6 +41,7 @@ private:
     static QByteArray _return;
     static QByteArray _newLine;
     static QByteArray _newLineReturn;
+    static QStringList _validBaudRates;
 
     bool _serialOpened;
     QByteArray _rawData;
@@ -134,4 +135,11 @@ public:
      *
      */
     void closeConnection();
+
+    /**
+     * @brief Return a QStringList of valids serial baud rates
+     *
+     * @return QStringList
+     */
+    QStringList validBaudRates();
 };
