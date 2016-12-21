@@ -347,6 +347,8 @@ PrinterState AtCore::state(void)
 void AtCore::setState(PrinterState state)
 {
     if (state != d->printerStatus.printerState) {
+        qDebug() << "Atcore state changed from [" \
+            << d->printerStatus.printerState << "] to [" << state << "]";
         d->printerStatus.printerState = state;
         emit(stateChanged(d->printerStatus.printerState));
     }
