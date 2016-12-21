@@ -28,11 +28,14 @@
 #include <QSerialPortInfo>
 #include <QPluginLoader>
 #include <QCoreApplication>
+#include <QLoggingCategory>
 #include <QDebug>
 #include <QTime>
 #include <QTimer>
 #include <QEventLoop>
 #include <QTextStream>
+
+Q_LOGGING_CATEGORY(ATCORE_PLUGIN, "org.kde.atelier.core.plugin");
 
 struct AtCorePrivate {
     IFirmware *fwPlugin = nullptr;
@@ -52,8 +55,10 @@ AtCore::AtCore(QObject *parent) :
     setState(DISCONNECTED);
 
     for (const auto &path : AtCoreDirectories::pluginDir) {
+        qCDebug(ATCORE_PLUGIN) << "Lookin for plugins in " << path;
         if (QDir(path).exists()) {
             d->pluginsDir = QDir(path);
+            qCDebug(ATCORE_PLUGIN) << "Valid path for plugins found !";
             break;
         }
     }
