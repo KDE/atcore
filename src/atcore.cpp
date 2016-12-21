@@ -110,10 +110,14 @@ void AtCore::close()
 void AtCore::findFirmware(const QByteArray &message)
 {
     if (state() == DISCONNECTED) {
+        qWarning() << "Cant find firwmware, serial not connected !";
+        return;
+    }
+
+    if (state() == CONNECTING) {
         if (message.contains("start")) {
             qDebug() << "Waiting requestFirmware.";
             QTimer::singleShot(500, this, &AtCore::requestFirmware);
-            setState(CONNECTING);
             return;
         } else if (message.contains("Grbl")) {
             loadFirmware(QString::fromLatin1("grbl"));
@@ -195,6 +199,9 @@ void AtCore::loadFirmware(const QString &fwName)
 void AtCore::initSerial(const QString &port, int baud)
 {
     setSerial(new SerialLayer(port, baud));
+    if (isInitialized()) {
+        setState(CONNECTING);
+    }
     connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
 }
 
