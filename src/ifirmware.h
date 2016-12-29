@@ -34,7 +34,8 @@ class KATCORE_EXPORT  IFirmware : public QObject
 {
     Q_OBJECT
 public:
-    IFirmware(AtCore *parent = nullptr);
+    IFirmware();
+    void init(AtCore *parent);
     virtual ~IFirmware();
 
     /* virtuals, needs to reimplement */

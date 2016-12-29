@@ -26,8 +26,12 @@ struct IFirmwarePrivate
     AtCore *parent;
 };
 
-IFirmware::IFirmware(AtCore *parent) : QObject(parent)
-    , d(new IFirmwarePrivate)
+IFirmware::IFirmware()
+    : d(new IFirmwarePrivate)
+{
+}
+
+void IFirmware::init(AtCore* parent)
 {
     d->parent = parent;
 }

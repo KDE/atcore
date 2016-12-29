@@ -181,6 +181,7 @@ void AtCore::loadFirmware(const QString &fwName)
             setState(CONNECTING);
         } else {
             qDebug() << "Connected to" << plugin()->name();
+            plugin()->init(this);
             disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
             connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
             setState(IDLE);
