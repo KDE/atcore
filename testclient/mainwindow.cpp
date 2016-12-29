@@ -256,7 +256,7 @@ void MainWindow::connectPBClicked()
             }
         }
     } else {
-        core->serial()->closeConnection();
+        core->serial()->close();
         core->setState(DISCONNECTED);
         addLog(tr("Disconnected"));
         ui->connectPB->setText(tr("Connect"));

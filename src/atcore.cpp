@@ -202,7 +202,7 @@ void AtCore::initSerial(const QString &port, int baud)
 
 bool AtCore::isInitialized()
 {
-    return d->serial->opened();
+    return d->serial->isOpen();
 }
 
 QList<QSerialPortInfo> AtCore::serialPorts() const
@@ -262,12 +262,12 @@ void AtCore::pushCommand(const QString &comm)
 
 void AtCore::closeConnection()
 {
-    if (serial()->opened()) {
+    if (serial()->isOpen()) {
         if (state() == BUSY) {
             //we have to clean print if printing.
             setState(STOP);
         }
-        serial()->closeConnection();
+        serial()->close();
         setState(DISCONNECTED);
     }
 }

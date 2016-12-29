@@ -25,28 +25,20 @@
 
 #include "katcore_export.h"
 
-class KATCORE_EXPORT SerialLayer : public QObject
+class SerialLayerPrivate;
+
+class KATCORE_EXPORT SerialLayer : public QSerialPort
 {
     Q_OBJECT
 
 private:
-    QSerialPort *serial;
+    SerialLayerPrivate *d;
 
     /**
-     * @brief Read serial data
+     * @brief Read all avaliable serial data
      *
      */
-    void readData();
-
-    static QByteArray _return;
-    static QByteArray _newLine;
-    static QByteArray _newLineReturn;
-    static QStringList _validBaudRates;
-
-    bool _serialOpened;
-    QByteArray _rawData;
-    QVector<QByteArray> _rByteCommands;
-    QVector<QByteArray> _sByteCommands;
+    void readAllData();
 signals:
 
     /**
@@ -122,19 +114,6 @@ public:
      * @return QByteArray
      */
     QByteArray popCommand();
-
-    /**
-     * @brief Check if port is opened
-     *
-     * @return bool
-     */
-    bool opened();
-
-    /**
-     * @brief Close serial connection
-     *
-     */
-    void closeConnection();
 
     /**
      * @brief Return a QStringList of valids serial baud rates

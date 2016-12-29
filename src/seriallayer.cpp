@@ -22,63 +22,65 @@
 
 #include "seriallayer.h"
 
-QByteArray SerialLayer::_return = QByteArray("\r");
-QByteArray SerialLayer::_newLine = QByteArray("\n");
-QByteArray SerialLayer::_newLineReturn = QByteArray("\n\r");
-QStringList SerialLayer::_validBaudRates = {
-    QStringLiteral("9600"),
-    QStringLiteral("14400"),
-    QStringLiteral("19200"),
-    QStringLiteral("28800"),
-    QStringLiteral("38400"),
-    QStringLiteral("57600"),
-    QStringLiteral("76800"),
-    QStringLiteral("115200"),
-    QStringLiteral("230400"),
-    QStringLiteral("250000"),
-    QStringLiteral("500000"),
-    QStringLiteral("1000000")
+namespace {
+    QByteArray _return = QByteArray("\r");
+    QByteArray _newLine = QByteArray("\n");
+    QByteArray _newLineReturn = QByteArray("\n\r");
+    QStringList _validBaudRates = {
+        QStringLiteral("9600"),
+        QStringLiteral("14400"),
+        QStringLiteral("19200"),
+        QStringLiteral("28800"),
+        QStringLiteral("38400"),
+        QStringLiteral("57600"),
+        QStringLiteral("76800"),
+        QStringLiteral("115200"),
+        QStringLiteral("230400"),
+        QStringLiteral("250000"),
+        QStringLiteral("500000"),
+        QStringLiteral("1000000")
+    };
+};
+
+class SerialLayerPrivate {
+public:
+    bool _serialOpened;
+    QByteArray _rawData;
+    QVector<QByteArray> _rByteCommands;
+    QVector<QByteArray> _sByteCommands;
 };
 
 SerialLayer::SerialLayer(const QString &port, uint baud, QObject *parent) :
-    QObject(parent),
-    serial(new QSerialPort(this)),
-    _serialOpened(false)
+    QSerialPort(parent), d(new SerialLayerPrivate())
 {
-    serial->setPortName(port);
-    serial->setBaudRate(baud);
-    _serialOpened = serial->open(QIODevice::ReadWrite);
-
-    connect(serial, &QSerialPort::readyRead, this, &SerialLayer::readData);
+    setPortName(port);
+    setBaudRate(baud);
+    open(QIODevice::ReadWrite);
+    connect(this, &QSerialPort::readyRead, this, &SerialLayer::readAllData);
 };
 
-bool SerialLayer::opened()
+void SerialLayer::readAllData()
 {
-    return _serialOpened;
-}
-
-void SerialLayer::readData()
-{
-    _rawData.append(serial->readAll());
+    d->_rawData.append(readAll());
 
     /*
      * Check if \r exist and remove
      * Both \n\r and \n are used in string's end and some protocols
      */
-    if (_rawData.contains(_return)) {
-        _rawData = _rawData.replace(_return, QByteArray());
+    if (d->_rawData.contains(_return)) {
+        d->_rawData = d->_rawData.replace(_return, QByteArray());
     }
 
     QByteArray tempArray;
-    QList<QByteArray> tempList = _rawData.split(_newLine.at(0));
+    QList<QByteArray> tempList = d->_rawData.split(_newLine.at(0));
     for (auto i = tempList.begin(); i != tempList.end(); ++i) {
         // Get finished line to _byteCommands
         if (i < tempList.end() - 1) {
-            _rByteCommands.append(*i);
+            d->_rByteCommands.append(*i);
             emit(receivedCommand(*i));
         } else {
-            _rawData.clear();
-            _rawData.append(*i);
+            d->_rawData.clear();
+            d->_rawData.append(*i);
         }
     }
 }
@@ -86,7 +88,7 @@ void SerialLayer::readData()
 void SerialLayer::pushCommand(const QByteArray &comm, const QByteArray &term)
 {
     QByteArray tmp = comm + term;
-    serial->write(tmp);
+    write(tmp);
     emit(pushedCommand(tmp));
 
 }
@@ -99,7 +101,7 @@ void SerialLayer::pushCommand(const QByteArray &comm)
 void SerialLayer::add(const QByteArray &comm, const QByteArray &term)
 {
     QByteArray tmp = comm + term;
-    _sByteCommands.append(tmp);
+    d->_sByteCommands.append(tmp);
 }
 
 void SerialLayer::add(const QByteArray &comm)
@@ -109,28 +111,21 @@ void SerialLayer::add(const QByteArray &comm)
 
 void SerialLayer::push()
 {
-    foreach (const auto &comm, _sByteCommands) {
-        serial->write(comm);
+    foreach (const auto &comm, d->_sByteCommands) {
+        write(comm);
         emit(pushedCommand(comm));
     }
-    _sByteCommands.clear();
+    d->_sByteCommands.clear();
 }
 
 QByteArray SerialLayer::popCommand()
 {
-    return commandAvailable() ? _rByteCommands.takeFirst() : QByteArray();
+    return commandAvailable() ? d->_rByteCommands.takeFirst() : QByteArray();
 }
 
 bool SerialLayer::commandAvailable()
 {
-    return !_rByteCommands.isEmpty();
-}
-
-void SerialLayer::closeConnection()
-{
-    if (_serialOpened) {
-        serial->close();
-    }
+    return !d->_rByteCommands.isEmpty();
 }
 
 QStringList SerialLayer::validBaudRates()
