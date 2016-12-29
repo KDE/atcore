@@ -26,23 +26,22 @@
 #include "katcore_export.h"
 
 class Temperature;
-class IFirmwarePrivate;
+class AtCore;
+
+struct IFirmwarePrivate;
 
 class KATCORE_EXPORT  IFirmware : public QObject
 {
     Q_OBJECT
 public:
-    IFirmware(QObject *parent = nullptr);
+    IFirmware(AtCore *parent = nullptr);
     virtual ~IFirmware();
 
     /* virtuals, needs to reimplement */
     virtual QString name() const = 0;
     virtual bool readyForNextCommand(const QString &lastMessage) = 0;
     virtual QByteArray translate(const QString &command) = 0;
-
-    /* no need to reimplement */
-    Temperature *temperature();
-
+    AtCore *core() const;
 private:
     IFirmwarePrivate *d;
 };

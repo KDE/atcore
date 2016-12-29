@@ -19,22 +19,22 @@
 */
 #include "ifirmware.h"
 #include "temperature.h"
+#include "atcore.h"
 
-class IFirmwarePrivate
+struct IFirmwarePrivate
 {
-public:
-    IFirmwarePrivate() {}
-    Temperature temperature;
+    AtCore *parent;
 };
 
-Temperature *IFirmware::temperature()
-{
-    return &d->temperature;
-}
-
-IFirmware::IFirmware(QObject *parent) : QObject(parent)
+IFirmware::IFirmware(AtCore *parent) : QObject(parent)
     , d(new IFirmwarePrivate)
 {
+    d->parent = parent;
+}
+
+AtCore * IFirmware::core() const
+{
+    return d->parent;
 }
 
 IFirmware::~IFirmware()

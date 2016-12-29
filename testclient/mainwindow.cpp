@@ -77,16 +77,16 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
     connect(this, &MainWindow::printFile, core, &AtCore::print);
     connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
-    connect(core, &AtCore::bedTemperatureChanged, [ = ](float temp) {
+    connect(&core->temperature(), &Temperature::bedTemperatureChanged, [ = ](float temp) {
         checkTemperature(0x00, 0, temp);
     });
-    connect(core, &AtCore::bedTargetTemperatureChanged, [ = ](float temp) {
+    connect(&core->temperature(), &Temperature::bedTargetTemperatureChanged, [ = ](float temp) {
         checkTemperature(0x01, 0, temp);
     });
-    connect(core, &AtCore::extruderTemperatureChanged, [ = ](float temp) {
+    connect(&core->temperature(), &Temperature::extruderTemperatureChanged, [ = ](float temp) {
         checkTemperature(0x02, 0, temp);
     });
-    connect(core, &AtCore::extruderTargetTemperatureChanged, [ = ](float temp) {
+    connect(&core->temperature(), &Temperature::extruderTargetTemperatureChanged, [ = ](float temp) {
         checkTemperature(0x03, 0, temp);
     });
 }

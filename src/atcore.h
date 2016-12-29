@@ -142,6 +142,11 @@ public:
      */
     void closeConnection();
 
+    /**
+     * @brief The temperature of the current hotend as told by the Firmware.
+     */
+    Temperature& temperature() const;
+
 signals:
     /**
      * @brief Emit signal when the printing precentabe changes.
@@ -162,30 +167,6 @@ signals:
      * @param newState : the new state of the printer
      */
     void stateChanged(PrinterState newState);
-
-    /**
-     * @brief Bed temperature Changed
-     * @param temperature : Pointer to temperature class
-     */
-    void bedTemperatureChanged(const float temp);
-
-    /**
-     * @brief Bed target temperature changed
-     * @param temperature : Pointer to temperature class
-     */
-    void bedTargetTemperatureChanged(const float temp);
-
-    /**
-     * @brief Extruder temperature changed
-     * @param temperature : Pointer to temperature class
-     */
-    void extruderTemperatureChanged(const float temp);
-
-    /**
-     * @brief Extruder target temperature changed
-     * @param temperature : Pointer to temperature class
-     */
-    void extruderTargetTemperatureChanged(const float temp);
 
 public slots:
     /**

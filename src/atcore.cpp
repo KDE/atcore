@@ -46,6 +46,7 @@ struct AtCorePrivate {
     QByteArray lastMessage;
     PrinterStatus printerStatus;
     int extruderCount = 1;
+    Temperature temperature;
 };
 
 AtCore::AtCore(QObject *parent) :
@@ -105,6 +106,11 @@ IFirmware *AtCore::plugin() const
 void AtCore::close()
 {
     exit(0);
+}
+
+Temperature & AtCore::temperature() const
+{
+    return d->temperature;
 }
 
 void AtCore::findFirmware(const QByteArray &message)
@@ -177,18 +183,6 @@ void AtCore::loadFirmware(const QString &fwName)
             qDebug() << "Connected to" << plugin()->name();
             disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
             connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
-            connect(d->fwPlugin->temperature(), &Temperature::bedTemperatureChanged, [ = ](float temp) {
-                emit bedTemperatureChanged(temp);
-            });
-            connect(d->fwPlugin->temperature(), &Temperature::bedTargetTemperatureChanged, [ = ](float temp) {
-                emit bedTargetTemperatureChanged(temp);
-            });
-            connect(d->fwPlugin->temperature(), &Temperature::extruderTemperatureChanged, [ = ](float temp) {
-                emit extruderTemperatureChanged(temp);
-            });
-            connect(d->fwPlugin->temperature(), &Temperature::extruderTargetTemperatureChanged, [ = ](float temp) {
-                emit extruderTargetTemperatureChanged(temp);
-            });
             setState(IDLE);
         }
     } else {
