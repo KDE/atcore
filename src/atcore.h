@@ -131,13 +131,6 @@ public:
     QByteArray popCommand();
 
     /**
-     * @brief Translate command and push it
-     *
-     * @param msg : Command
-     */
-    void pushCommand(const QString &comm);
-
-    /**
      * @brief Close the serial connection
      */
     void closeConnection();
@@ -169,6 +162,13 @@ signals:
     void stateChanged(PrinterState newState);
 
 public slots:
+    /**
+     * @brief Translate command and push it
+     *
+     * @param msg : Command
+     */
+    void pushCommand(const QString &comm);
+
     /**
      * @brief Public Interface for printing a file
      */
@@ -248,12 +248,7 @@ public slots:
      */
     void close();
 private:
-    /**
-     * @brief Print a file
-     *
-     * @param fileName : path of file to print
-     */
-    void printFile(const QString &fileName);
+
     void newMessage(const QByteArray &message);
     void findFirmware(const QByteArray &message);
     void findPlugins();

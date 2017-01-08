@@ -22,6 +22,7 @@
 #include "atcore.h"
 #include "seriallayer.h"
 #include "gcodecommands.h"
+#include "printthread.h"
 #include "atcore_default_folders.h"
 
 #include <QDir>
@@ -32,8 +33,7 @@
 #include <QDebug>
 #include <QTime>
 #include <QTimer>
-#include <QEventLoop>
-#include <QTextStream>
+#include <QThread>
 
 Q_LOGGING_CATEGORY(ATCORE_PLUGIN, "org.kde.atelier.core.plugin");
 
@@ -53,6 +53,7 @@ AtCore::AtCore(QObject *parent) :
     QObject(parent),
     d(new AtCorePrivate)
 {
+    qRegisterMetaType<PrinterState>("PrinterState");
     setState(DISCONNECTED);
 
     for (const auto &path : AtCoreDirectories::pluginDir) {
@@ -242,13 +243,20 @@ void AtCore::print(const QString &fileName)
         qDebug() << "Load a firmware plugin to print.";
         return;
     }
+    //START A THREAD AND CONNECT TO IT
     setState(STARTPRINT);
-    printFile(fileName);
-    //let the state reflect that we have finished printing
-    setState(FINISHEDPRINT);
-    //connected clients will have reacted to the finished print
-    //above and done stuff accordingly now set the status to idle
-    setState(IDLE);
+    QThread *thread = new QThread();
+    PrintThread *printThread = new PrintThread(this, fileName);
+    printThread->moveToThread(thread);
+
+    connect(printThread, &PrintThread::printProgressChanged, this, &AtCore::printProgressChanged, Qt::QueuedConnection);
+    connect(thread, &QThread::started, printThread, &PrintThread::start);
+    connect(printThread, &PrintThread::finished, thread, &QThread::quit);
+    connect(thread, &QThread::finished, printThread, &PrintThread::deleteLater);
+
+    if (!thread->isRunning()) {
+        thread->start();
+    }
 }
 
 void AtCore::pushCommand(const QString &comm)
@@ -270,68 +278,6 @@ void AtCore::closeConnection()
         serial()->close();
         setState(DISCONNECTED);
     }
-}
-
-void AtCore::printFile(const QString &fileName)
-{
-    QFile file(fileName);
-    file.open(QFile::ReadOnly);
-    qint64 totalSize = file.bytesAvailable();
-    qint64 stillSize = totalSize;
-    QTextStream gcodestream(&file);
-    QString cline;
-    QEventLoop loop;
-    connect(this, &AtCore::receivedMessage, &loop, &QEventLoop::quit);
-
-    while (!gcodestream.atEnd()) {
-        QCoreApplication::processEvents(); //make sure all events are processed.
-        switch (state()) {
-        case STARTPRINT:
-        case IDLE:
-        case BUSY:
-            setState(BUSY);
-            cline = gcodestream.readLine();
-            stillSize -= cline.size() + 1; //remove read chars
-            d->printerStatus.percentage = float(totalSize - stillSize) * 100.0 / float(totalSize);
-            emit(printProgressChanged(d->printerStatus.percentage));
-            cline = cline.simplified();
-            if (cline.contains(QChar::fromLatin1(';'))) {
-                cline.resize(cline.indexOf(QChar::fromLatin1(';')));
-            }
-            if (!cline.isEmpty()) {
-                pushCommand(cline);
-                bool waiting = true;
-                while (waiting) {
-                    if (!serial()->commandAvailable()) {
-                        loop.exec();
-                    }
-                    if (plugin()->readyForNextCommand(QString::fromUtf8(d->lastMessage))) {
-                        waiting = false;
-                    }
-                }
-            }
-            break;
-
-        case ERROR:
-            qDebug() << tr("Error State");
-            break;
-
-        case STOP: {
-            QString stopString(GCode::toCommand(GCode::M112));
-            gcodestream.setString(&stopString);
-            setState(IDLE);
-            break;
-        }
-
-        case PAUSE:
-            break;
-
-        default:
-            qDebug() << tr("Unknown State");
-            break;
-        }
-    }
-    disconnect(this, &AtCore::receivedMessage, &loop, &QEventLoop::quit);
 }
 
 PrinterState AtCore::state(void)

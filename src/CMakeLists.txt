@@ -11,6 +11,7 @@ set(AtCoreLib_SRCS
     gcodecommands.cpp
     ifirmware.cpp
     temperature.cpp
+    printthread.cpp
 )
 
 add_library(KF5AtCore SHARED ${AtCoreLib_SRCS})
