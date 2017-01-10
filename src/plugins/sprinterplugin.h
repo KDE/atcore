@@ -37,7 +37,6 @@ public:
     SprinterPlugin();
     QString name() const override;
     void extractTemp(const QString &lastMessage);
-    bool validateCommand(const QString &lastMessage);
-    bool readyForNextCommand(const QString &lastMessage);
+    void validateCommand(const QString &lastMessage);
     QByteArray translate(const QString &command);
 };

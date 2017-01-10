@@ -56,22 +56,16 @@ void AprinterPlugin::extractTemp(const QString &lastMessage)
     core()->temperature().setBedTargetTemperature(list[3].mid(1).toFloat());
 }
 
-bool AprinterPlugin::validateCommand(const QString &lastMessage)
+void AprinterPlugin::validateCommand(const QString &lastMessage)
 {
     if (lastMessage.contains(_extruderTemp) || lastMessage.contains(_bedTemp)) {
         extractTemp(lastMessage);
     } else if (lastMessage.contains(_ok) || lastMessage.contains(_wait)) {
-        return true;
+        emit readyForCommand();
     }
-    return false;
 }
 
 QByteArray AprinterPlugin::translate(const QString &command)
 {
     return command.toLocal8Bit();
-}
-
-bool AprinterPlugin::readyForNextCommand(const QString &lastMessage)
-{
-    return validateCommand(lastMessage);
 }

@@ -33,6 +33,7 @@ IFirmware::IFirmware()
 void IFirmware::init(AtCore *parent)
 {
     d->parent = parent;
+    connect(d->parent, &AtCore::receivedMessage, this, &IFirmware::checkCommand);
 }
 
 AtCore *IFirmware::core() const
@@ -43,3 +44,9 @@ AtCore *IFirmware::core() const
 IFirmware::~IFirmware()
 {
 }
+
+void IFirmware::checkCommand(const QByteArray &lastMessage)
+{
+    validateCommand(QString::fromLatin1(lastMessage));
+}
+

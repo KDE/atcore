@@ -59,22 +59,16 @@ void MarlinPlugin::extractTemp(const QString &lastMessage)
     core()->temperature().setBedTargetTemperature(list[3].mid(1).toFloat());
 }
 
-bool MarlinPlugin::validateCommand(const QString &lastMessage)
+void MarlinPlugin::validateCommand(const QString &lastMessage)
 {
     if (lastMessage.contains(_extruderTemp) || lastMessage.contains(_bedTemp)) {
         extractTemp(lastMessage);
     } else if (lastMessage.contains(_ok) || lastMessage.contains(_wait)) {
-        return true;
+        emit readyForCommand();
     }
-    return false;
 }
 
 QByteArray MarlinPlugin::translate(const QString &command)
 {
     return command.toLocal8Bit();
-}
-
-bool MarlinPlugin::readyForNextCommand(const QString &lastMessage)
-{
-    return validateCommand(lastMessage);
 }

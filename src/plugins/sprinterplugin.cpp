@@ -57,14 +57,13 @@ void SprinterPlugin::extractTemp(const QString &lastMessage)
     core()->temperature().setBedTargetTemperature(list[3].mid(1).toFloat());
 }
 
-bool SprinterPlugin::validateCommand(const QString &lastMessage)
+void SprinterPlugin::validateCommand(const QString &lastMessage)
 {
     if (lastMessage.contains(_extruderTemp) || lastMessage.contains(_bedTemp)) {
         extractTemp(lastMessage);
     } else if (lastMessage.contains(_ok) || lastMessage.contains(_wait)) {
-        return true;
+        emit readyForCommand();
     }
-    return false;
 }
 
 QByteArray SprinterPlugin::translate(const QString &command)
@@ -72,7 +71,3 @@ QByteArray SprinterPlugin::translate(const QString &command)
     return command.toLocal8Bit();
 }
 
-bool SprinterPlugin::readyForNextCommand(const QString &lastMessage)
-{
-    return validateCommand(lastMessage);
-}

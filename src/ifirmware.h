@@ -40,11 +40,15 @@ public:
 
     /* virtuals, needs to reimplement */
     virtual QString name() const = 0;
-    virtual bool readyForNextCommand(const QString &lastMessage) = 0;
     virtual QByteArray translate(const QString &command) = 0;
     AtCore *core() const;
 private:
     IFirmwarePrivate *d;
+    virtual void validateCommand(const QString &lastMessage) = 0;
+public slots:
+    void checkCommand(const QByteArray &lastMessage);
+signals:
+    void readyForCommand(void);
 };
 
 Q_DECLARE_INTERFACE(IFirmware, "org.kde.atelier.core.firmware")

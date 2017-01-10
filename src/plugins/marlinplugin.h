@@ -37,7 +37,6 @@ public:
     MarlinPlugin();
     QString name() const override;
     void extractTemp(const QString &lastMessage);
-    bool validateCommand(const QString &lastMessage);
-    bool readyForNextCommand(const QString &lastMessage) override ;
+    void validateCommand(const QString &lastMessage);
     QByteArray translate(const QString &command) override;
 };
