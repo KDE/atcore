@@ -108,7 +108,7 @@ void AtCore::close()
     exit(0);
 }
 
-Temperature & AtCore::temperature() const
+Temperature &AtCore::temperature() const
 {
     return d->temperature;
 }
@@ -343,7 +343,7 @@ void AtCore::setState(PrinterState state)
 {
     if (state != d->printerStatus.printerState) {
         qDebug() << "Atcore state changed from [" \
-            << d->printerStatus.printerState << "] to [" << state << "]";
+                 << d->printerStatus.printerState << "] to [" << state << "]";
         d->printerStatus.printerState = state;
         emit(stateChanged(d->printerStatus.printerState));
     }
@@ -400,14 +400,14 @@ void AtCore::findPlugins()
         qDebug() << "Found plugin file" << f;
         if (file.startsWith(QStringLiteral("lib"))) {
             file = file.remove(QStringLiteral("lib"));
-            file = file.toLower().simplified();
-            QString pluginString;
-            pluginString.append(d->pluginsDir.path());
-            pluginString.append(QChar::fromLatin1('/'));
-            pluginString.append(f);
-            d->plugins[file] = pluginString;
-            qDebug() << tr("plugins[%1]=%2").arg(file, pluginString);
         }
+        file = file.toLower().simplified();
+        QString pluginString;
+        pluginString.append(d->pluginsDir.path());
+        pluginString.append(QChar::fromLatin1('/'));
+        pluginString.append(f);
+        d->plugins[file] = pluginString;
+        qDebug() << tr("plugins[%1]=%2").arg(file, pluginString);
     }
 }
 QStringList AtCore::availablePlugins()
