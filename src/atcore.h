@@ -145,7 +145,7 @@ public:
     /**
      * @brief The temperature of the current hotend as told by the Firmware.
      */
-    Temperature& temperature() const;
+    Temperature &temperature() const;
 
 signals:
     /**

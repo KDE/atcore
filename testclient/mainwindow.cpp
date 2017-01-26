@@ -73,7 +73,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceAdded, this, &MainWindow::locateSerialPort);
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceRemoved, this, &MainWindow::locateSerialPort);
     connect(core, &AtCore::printProgressChanged, ui->printingProgress, &QProgressBar::setValue);
-    connect(ui->pluginCB, &QComboBox::currentTextChanged, this , &MainWindow::pluginCBChanged);
+    connect(ui->pluginCB, &QComboBox::currentTextChanged, this, &MainWindow::pluginCBChanged);
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
     connect(this, &MainWindow::printFile, core, &AtCore::print);
     connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);

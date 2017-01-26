@@ -21,8 +21,7 @@
 #include "temperature.h"
 #include "atcore.h"
 
-struct IFirmwarePrivate
-{
+struct IFirmwarePrivate {
     AtCore *parent;
 };
 
@@ -31,12 +30,12 @@ IFirmware::IFirmware()
 {
 }
 
-void IFirmware::init(AtCore* parent)
+void IFirmware::init(AtCore *parent)
 {
     d->parent = parent;
 }
 
-AtCore * IFirmware::core() const
+AtCore *IFirmware::core() const
 {
     return d->parent;
 }
