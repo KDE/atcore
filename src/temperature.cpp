@@ -4,6 +4,7 @@
     Authors:
         Tomaz Canabrava <tcanabrava@kde.org>
         Patrick José Pereira <patrickelectric@gmail.com>
+        Chris Rizzitello <sithlord48@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -88,6 +89,6 @@ void Temperature::setExtruderTemperature(float temp)
 {
     if (std::abs(temp - d->extruderTemp) > delta) {
         d->extruderTemp = temp;
-        emit bedTargetTemperatureChanged(temp);
+        emit extruderTemperatureChanged(temp);
     }
 }
