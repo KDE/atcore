@@ -98,10 +98,10 @@ void PrintThread::nextLine()
     d->printProgress = float(d->totalSize - d->stillSize) * 100.0 / float(d->totalSize);
     qCDebug(PRINT_THREAD) << "progress:" << QString::number(d->printProgress);
     emit(printProgressChanged(d->printProgress));
-    d->cline = d->cline.simplified();
     if (d->cline.contains(QChar::fromLatin1(';'))) {
         d->cline.resize(d->cline.indexOf(QChar::fromLatin1(';')));
     }
+    d->cline = d->cline.simplified();
 }
 
 void PrintThread::setState(const PrinterState &newState)
