@@ -47,7 +47,6 @@ void PrintThread::commandReady()
     case IDLE:
     case BUSY:
         setState(BUSY);
-        connect(d->core, &AtCore::stateChanged, this, &PrintThread::stateChanged, Qt::QueuedConnection);
         nextLine();
         while (d->cline.isEmpty() && !d->gcodestream->atEnd()) {
             nextLine();
