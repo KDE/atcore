@@ -244,14 +244,21 @@ public slots:
     void setFlowRate(uint rate = 100);
 
     /**
+     * @brief checkTemperature send M105 to the printer
+     */
+    void checkTemperature();
+
+    /**
      * @brief close AtCore
      */
     void close();
+    
 private slots:
     /**
      * @brief processQueue send commands from the queue.
      */
     void processQueue();
+
 private:
 
     void newMessage(const QByteArray &message);

@@ -49,6 +49,7 @@ struct AtCorePrivate {
     Temperature temperature;
     QStringList commandQueue;
     bool ready = false;
+    QTimer *tempTimer = nullptr;
 };
 
 AtCore::AtCore(QObject *parent) :
@@ -57,6 +58,10 @@ AtCore::AtCore(QObject *parent) :
 {
     qRegisterMetaType<PrinterState>("PrinterState");
     setState(DISCONNECTED);
+
+    d->tempTimer = new QTimer;
+    d->tempTimer->setInterval(5000);
+    d->tempTimer->setSingleShot(false);
 
     for (const auto &path : AtCoreDirectories::pluginDir) {
         qCDebug(ATCORE_PLUGIN) << "Lookin for plugins in " << path;
@@ -188,6 +193,8 @@ void AtCore::loadFirmware(const QString &fwName)
             disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
             connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
             connect(plugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
+            connect(d->tempTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
+            d->tempTimer->start();
             setState(IDLE);
         }
     } else {
@@ -284,6 +291,8 @@ void AtCore::closeConnection()
         }
         if (pluginLoaded()) {
             disconnect(plugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
+            disconnect(d->tempTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
+            d->tempTimer->stop();
         }
         serial()->close();
         setState(DISCONNECTED);
@@ -485,4 +494,12 @@ void AtCore::processQueue()
     } else {
         serial()->pushCommand(text.toLocal8Bit());
     }
+}
+
+void AtCore::checkTemperature()
+{
+    if (d->commandQueue.contains(GCode::toCommand(GCode::M105))) {
+        return;
+    }
+    pushCommand(GCode::toCommand(GCode::M105));
 }
