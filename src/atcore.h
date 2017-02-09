@@ -247,6 +247,11 @@ public slots:
      * @brief close AtCore
      */
     void close();
+private slots:
+    /**
+     * @brief processQueue send commands from the queue.
+     */
+    void processQueue();
 private:
 
     void newMessage(const QByteArray &message);

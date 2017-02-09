@@ -47,6 +47,7 @@ struct AtCorePrivate {
     PrinterStatus printerStatus;
     int extruderCount = 1;
     Temperature temperature;
+    QStringList commandQueue;
 };
 
 AtCore::AtCore(QObject *parent) :
@@ -185,6 +186,7 @@ void AtCore::loadFirmware(const QString &fwName)
             plugin()->init(this);
             disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
             connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
+            connect(plugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
             setState(IDLE);
         }
     } else {
@@ -261,10 +263,9 @@ void AtCore::print(const QString &fileName)
 
 void AtCore::pushCommand(const QString &comm)
 {
-    if (!pluginLoaded()) {
-        serial()->pushCommand(comm.toLocal8Bit());
-    } else {
-        serial()->pushCommand(plugin()->translate(comm));
+    d->commandQueue.append(comm);
+    if (serial()->commandAvailable()) {
+        processQueue();
     }
 }
 
@@ -275,8 +276,12 @@ void AtCore::closeConnection()
             //we have to clean print if printing.
             setState(STOP);
         }
+        if (pluginLoaded()) {
+            disconnect(plugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
+        }
         serial()->close();
         setState(DISCONNECTED);
+
     }
 }
 
@@ -306,14 +311,14 @@ void AtCore::stop()
     case BUSY:
         setState(STOP);
     default:
-        pushCommand(GCode::toCommand(GCode::M112));
+        serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
     }
 }
 
 void AtCore::requestFirmware()
 {
     qDebug() << "Sending " << GCode::toString(GCode::M115);
-    pushCommand(GCode::toCommand(GCode::M115));
+    serial()->pushCommand(GCode::toCommand(GCode::M115).toLocal8Bit());
 }
 
 bool AtCore::pluginLoaded()
@@ -451,4 +456,17 @@ void AtCore::move(uchar axis, uint arg)
 int AtCore::extruderCount()
 {
     return d->extruderCount;
+}
+
+void AtCore::processQueue()
+{
+    if (d->commandQueue.isEmpty()) {
+        return;
+    }
+    QString text = d->commandQueue.takeAt(0);
+    if (!pluginLoaded()) {
+        serial()->pushCommand(text.toLocal8Bit());
+    } else {
+        serial()->pushCommand(plugin()->translate(text));
+    }
 }
