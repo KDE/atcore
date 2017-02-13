@@ -36,6 +36,7 @@ private:
 public:
     MarlinPlugin();
     QString name() const override;
+    bool idleWait() const override;
     void extractTemp(const QString &lastMessage);
     void validateCommand(const QString &lastMessage);
     QByteArray translate(const QString &command) override;

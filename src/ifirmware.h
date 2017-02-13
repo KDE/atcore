@@ -41,6 +41,7 @@ public:
     /* virtuals, needs to reimplement */
     virtual QString name() const = 0;
     virtual QByteArray translate(const QString &command) = 0;
+    virtual bool idleWait() const = 0;
     AtCore *core() const;
 private:
     IFirmwarePrivate *d;

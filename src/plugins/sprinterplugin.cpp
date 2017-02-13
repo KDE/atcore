@@ -37,6 +37,11 @@ QString SprinterPlugin::name() const
     return QStringLiteral("Sprinter");
 }
 
+bool SprinterPlugin::idleWait() const
+{
+    return false;
+}
+
 SprinterPlugin::SprinterPlugin()
 {
     qCDebug(SPRINTER_PLUGIN) << name() << " plugin loaded!";

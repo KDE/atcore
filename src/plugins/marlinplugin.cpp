@@ -41,6 +41,11 @@ MarlinPlugin::MarlinPlugin()
     qCDebug(MARLIN_PLUGIN) << name() << " plugin loaded!";
 }
 
+bool MarlinPlugin::idleWait() const
+{
+    return false;
+}
+
 void MarlinPlugin::extractTemp(const QString &lastMessage)
 {
     // ok T:185.4 /185.0 B:60.5 /60.0

@@ -37,6 +37,10 @@ QString RepetierPlugin::name() const
     return QStringLiteral("Repetier");
 }
 
+bool RepetierPlugin::idleWait() const
+{
+    return true;
+}
 RepetierPlugin::RepetierPlugin()
 {
     qCDebug(REPETIER_PLUGIN) << name() << " plugin loaded!";
