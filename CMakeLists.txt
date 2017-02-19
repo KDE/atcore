@@ -29,15 +29,16 @@ add_definitions(-DQT_NO_CAST_FROM_ASCII
 set(CMAKE_AUTOMOC ON)
 option(BUILD_TEST_GUI "Build the Test Gui" ON)
 
-if(BUILD_TEST_GUI)
-    add_subdirectory(testclient)
-endif()
-
 find_package(Qt5 REQUIRED COMPONENTS
     Core
     Test
     SerialPort
+    Charts
 )
+
+if(BUILD_TEST_GUI)
+    add_subdirectory(testclient)
+endif()
 
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX ATCORE

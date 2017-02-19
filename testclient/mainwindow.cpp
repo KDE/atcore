@@ -79,15 +79,23 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
     connect(&core->temperature(), &Temperature::bedTemperatureChanged, [ = ](float temp) {
         checkTemperature(0x00, 0, temp);
+        ui->plotWidget->appendPoint(tr("Actual Bed"), temp);
+        ui->plotWidget->update();
     });
     connect(&core->temperature(), &Temperature::bedTargetTemperatureChanged, [ = ](float temp) {
         checkTemperature(0x01, 0, temp);
+        ui->plotWidget->appendPoint(tr("Target Bed"), temp);
+        ui->plotWidget->update();
     });
     connect(&core->temperature(), &Temperature::extruderTemperatureChanged, [ = ](float temp) {
         checkTemperature(0x02, 0, temp);
+        ui->plotWidget->appendPoint(tr("Actual Ext.1"), temp);
+        ui->plotWidget->update();
     });
     connect(&core->temperature(), &Temperature::extruderTargetTemperatureChanged, [ = ](float temp) {
         checkTemperature(0x03, 0, temp);
+        ui->plotWidget->appendPoint(tr("Target Ext.1"), temp);
+        ui->plotWidget->update();
     });
 }
 

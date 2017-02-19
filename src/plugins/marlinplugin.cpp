@@ -45,18 +45,21 @@ void MarlinPlugin::extractTemp(const QString &lastMessage)
 {
     // ok T:185.4 /185.0 B:60.5 /60.0
     QStringList list = lastMessage.split(QChar::fromLatin1(' '));
-
+    if (list.length() < 5) {
+        // list don't have all neccessary data
+        return;
+    }
     // T:185.4 - current temperature
-    core()->temperature().setExtruderTemperature(list[0].mid(2).toFloat());
+    core()->temperature().setExtruderTemperature(list[1].mid(2).toFloat());
 
     // /185.0 - target temperature
-    core()->temperature().setExtruderTargetTemperature(list[1].mid(1).toFloat());
+    core()->temperature().setExtruderTargetTemperature(list[2].mid(1).toFloat());
 
     // B:185.4 - current temperature
-    core()->temperature().setBedTemperature(list[2].mid(2).toFloat());
+    core()->temperature().setBedTemperature(list[3].mid(2).toFloat());
 
     // /60.0 - target temperature
-    core()->temperature().setBedTargetTemperature(list[3].mid(1).toFloat());
+    core()->temperature().setBedTargetTemperature(list[4].mid(1).toFloat());
 }
 
 void MarlinPlugin::validateCommand(const QString &lastMessage)
