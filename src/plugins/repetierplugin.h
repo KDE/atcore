@@ -30,13 +30,11 @@ class RepetierPlugin : public IFirmware
     Q_INTERFACES(IFirmware)
 private:
     static QString _ok;
-    static QString _wait;
     static QString _extruderTemp;
     static QString _bedTemp;
 public:
     RepetierPlugin();
     QString name() const override;
-    bool idleWait() const override;
     void validateCommand(const QString &lastMessage);
     void extractTemp(const QString &lastMessage);
     QByteArray translate(const QString &command);

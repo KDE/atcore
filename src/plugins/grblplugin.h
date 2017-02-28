@@ -31,7 +31,6 @@ class GrblPlugin : public IFirmware
 public:
     GrblPlugin();
     QString name() const override;
-    bool idleWait() const override;
     QByteArray translate(const QString &command);
     void validateCommand(const QString &lastMessage);
 };

@@ -25,7 +25,6 @@
 #include "atcore.h"
 
 QString MarlinPlugin::_ok = QStringLiteral("ok");
-QString MarlinPlugin::_wait = QStringLiteral("wait");
 QString MarlinPlugin::_extruderTemp = QStringLiteral("T:");
 QString MarlinPlugin::_bedTemp = QStringLiteral("B:");
 
@@ -39,11 +38,6 @@ QString MarlinPlugin::name() const
 MarlinPlugin::MarlinPlugin()
 {
     qCDebug(MARLIN_PLUGIN) << name() << " plugin loaded!";
-}
-
-bool MarlinPlugin::idleWait() const
-{
-    return false;
 }
 
 void MarlinPlugin::extractTemp(const QString &lastMessage)
@@ -71,7 +65,8 @@ void MarlinPlugin::validateCommand(const QString &lastMessage)
 {
     if (lastMessage.contains(_extruderTemp) || lastMessage.contains(_bedTemp)) {
         extractTemp(lastMessage);
-    } else if (lastMessage.contains(_ok) || lastMessage.contains(_wait)) {
+    }
+    if (lastMessage.contains(_ok)) {
         emit readyForCommand();
     }
 }

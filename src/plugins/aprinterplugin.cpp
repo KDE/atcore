@@ -26,7 +26,6 @@
 #include <QString>
 
 QString AprinterPlugin::_ok = QStringLiteral("ok");
-QString AprinterPlugin::_wait = QStringLiteral("wait");
 QString AprinterPlugin::_extruderTemp = QStringLiteral("T:");
 QString AprinterPlugin::_bedTemp = QStringLiteral("B:");
 
@@ -35,11 +34,6 @@ Q_LOGGING_CATEGORY(APRINTER_PLUGIN, "org.kde.atelier.core.firmware.aprinter");
 QString AprinterPlugin::name() const
 {
     return QStringLiteral("Aprinter");
-}
-
-bool AprinterPlugin::idleWait() const
-{
-    return false;
 }
 
 AprinterPlugin::AprinterPlugin()
@@ -65,7 +59,8 @@ void AprinterPlugin::validateCommand(const QString &lastMessage)
 {
     if (lastMessage.contains(_extruderTemp) || lastMessage.contains(_bedTemp)) {
         extractTemp(lastMessage);
-    } else if (lastMessage.contains(_ok) || lastMessage.contains(_wait)) {
+    }
+    if (lastMessage.contains(_ok)) {
         emit readyForCommand();
     }
 }

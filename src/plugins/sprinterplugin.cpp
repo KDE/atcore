@@ -26,7 +26,6 @@
 #include <QString>
 
 QString SprinterPlugin::_ok = QStringLiteral("ok");
-QString SprinterPlugin::_wait = QStringLiteral("wait");
 QString SprinterPlugin::_extruderTemp = QStringLiteral("T:");
 QString SprinterPlugin::_bedTemp = QStringLiteral("B:");
 
@@ -35,11 +34,6 @@ Q_LOGGING_CATEGORY(SPRINTER_PLUGIN, "org.kde.atelier.core.firmware.sprinter");
 QString SprinterPlugin::name() const
 {
     return QStringLiteral("Sprinter");
-}
-
-bool SprinterPlugin::idleWait() const
-{
-    return false;
 }
 
 SprinterPlugin::SprinterPlugin()
@@ -66,7 +60,8 @@ void SprinterPlugin::validateCommand(const QString &lastMessage)
 {
     if (lastMessage.contains(_extruderTemp) || lastMessage.contains(_bedTemp)) {
         extractTemp(lastMessage);
-    } else if (lastMessage.contains(_ok) || lastMessage.contains(_wait)) {
+    }
+    if (lastMessage.contains(_ok)) {
         emit readyForCommand();
     }
 }

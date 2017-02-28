@@ -30,13 +30,11 @@ class AprinterPlugin : public IFirmware
     Q_INTERFACES(IFirmware)
 private:
     static QString _ok;
-    static QString _wait;
     static QString _extruderTemp;
     static QString _bedTemp;
 public:
     AprinterPlugin();
     QString name() const override;
-    bool idleWait() const override;
     void extractTemp(const QString &lastMessage);
     void validateCommand(const QString &lastMessage);
     QByteArray translate(const QString &command);

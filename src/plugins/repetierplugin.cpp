@@ -26,7 +26,6 @@
 #include <QString>
 
 QString RepetierPlugin::_ok = QStringLiteral("ok");
-QString RepetierPlugin::_wait = QStringLiteral("wait");
 QString RepetierPlugin::_extruderTemp = QStringLiteral("T:");
 QString RepetierPlugin::_bedTemp = QStringLiteral("B:");
 
@@ -37,10 +36,6 @@ QString RepetierPlugin::name() const
     return QStringLiteral("Repetier");
 }
 
-bool RepetierPlugin::idleWait() const
-{
-    return true;
-}
 RepetierPlugin::RepetierPlugin()
 {
     qCDebug(REPETIER_PLUGIN) << name() << " plugin loaded!";
@@ -64,7 +59,8 @@ void RepetierPlugin::validateCommand(const QString &lastMessage)
 {
     if (lastMessage.contains(_extruderTemp) || lastMessage.contains(_bedTemp)) {
         extractTemp(lastMessage);
-    } else if (lastMessage.contains(_ok) || lastMessage.contains(_wait)) {
+    }
+    if (lastMessage.contains(_ok)) {
         emit readyForCommand();
     }
 }

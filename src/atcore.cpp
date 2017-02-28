@@ -229,11 +229,7 @@ void AtCore::newMessage(const QByteArray &message)
         d->printerStatus.posString.resize(d->printerStatus.posString.indexOf('E'));
         d->printerStatus.posString.replace(':', "");
     }
-    if (pluginLoaded()) {
-        if (!plugin()->idleWait()) {
-            d->ready = true;
-        }
-    }
+
     emit(receivedMessage(d->lastMessage));
 }
 
@@ -401,11 +397,6 @@ void AtCore::pause(const QString &pauseActions)
 
 void AtCore::resume()
 {
-    if (pluginLoaded()) {
-        if (!plugin()->idleWait()) {
-            d->ready = true;
-        }
-    }
     pushCommand(GCode::toCommand(GCode::G0, QString::fromLatin1(d->printerStatus.posString)));
     setState(BUSY);
 }
@@ -480,20 +471,19 @@ int AtCore::extruderCount()
 
 void AtCore::processQueue()
 {
+    d->ready = true;
+
     if (d->commandQueue.isEmpty()) {
         return;
     }
+
     QString text = d->commandQueue.takeAt(0);
     if (pluginLoaded()) {
-        if (!plugin()->idleWait()) {
-            // here we set false so that any new commands durring this time are added to the queue.
-            // this prevents the printer from being over welmed with commands
-            d->ready = false;
-        }
         serial()->pushCommand(plugin()->translate(text));
     } else {
         serial()->pushCommand(text.toLocal8Bit());
     }
+    d->ready = false;
 }
 
 void AtCore::checkTemperature()

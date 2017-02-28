@@ -27,7 +27,6 @@
 #include "atcore.h"
 
 QString TeacupPlugin::_ok = QStringLiteral("ok");
-QString TeacupPlugin::_wait = QStringLiteral("wait");
 QString TeacupPlugin::_extruderTemp = QStringLiteral("T:");
 QString TeacupPlugin::_bedTemp = QStringLiteral("B:");
 
@@ -36,11 +35,6 @@ Q_LOGGING_CATEGORY(TEACUP_PLUGIN, "org.kde.atelier.core.firmware.teacup");
 QString TeacupPlugin::name() const
 {
     return QStringLiteral("Teacup");
-}
-
-bool TeacupPlugin::idleWait() const
-{
-    return false;
 }
 
 TeacupPlugin::TeacupPlugin()
@@ -66,7 +60,8 @@ void TeacupPlugin::validateCommand(const QString &lastMessage)
 {
     if (lastMessage.contains(_extruderTemp) || lastMessage.contains(_bedTemp)) {
         extractTemp(lastMessage);
-    } else if (lastMessage.contains(_ok) || lastMessage.contains(_wait)) {
+    }
+    if (lastMessage.contains(_ok)) {
         emit readyForCommand();
     }
 }

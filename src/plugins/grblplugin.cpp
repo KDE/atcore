@@ -26,11 +26,6 @@ QString GrblPlugin::name() const
     return QStringLiteral("Grbl");
 }
 
-bool GrblPlugin::idleWait() const
-{
-    return false;
-}
-
 GrblPlugin::GrblPlugin()
 {
 
