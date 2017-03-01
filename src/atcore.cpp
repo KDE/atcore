@@ -213,8 +213,9 @@ void AtCore::initSerial(const QString &port, int baud)
 
 bool AtCore::isInitialized()
 {
-    if(!d->serial)
+    if (!d->serial) {
         return false;
+    }
     return d->serial->isOpen();
 }
 
@@ -294,7 +295,6 @@ void AtCore::closeConnection()
         }
         serial()->close();
         setState(DISCONNECTED);
-
     }
 }
 
@@ -483,12 +483,12 @@ void AtCore::processQueue()
         return;
     }
 
-    QString text = d->commandQueue.takeAt(0);
-
     if (!isInitialized()) {
         qCDebug(ATCORE_PLUGIN) << "Can't process queue ! Serial not initialized.";
         return;
     }
+
+    QString text = d->commandQueue.takeAt(0);
 
     if (pluginLoaded()) {
         serial()->pushCommand(plugin()->translate(text));
