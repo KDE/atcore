@@ -50,7 +50,7 @@ MainWindow::MainWindow(QWidget *parent) :
     addLog(tr("Attempting to locate Serial Ports"));
 
     //hide the printing progress bar.
-    ui->printingProgress->setVisible(false);
+    ui->printLayout->setVisible(false);
 
     locateSerialPort();
 
@@ -77,6 +77,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
     connect(this, &MainWindow::printFile, core, &AtCore::print);
     connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
+    connect(ui->emergencyStopPB, &QPushButton::clicked, core, &AtCore::emergencyStop);
     connect(&core->temperature(), &Temperature::bedTemperatureChanged, [ = ](float temp) {
         checkTemperature(0x00, 0, temp);
         ui->plotWidget->appendPoint(tr("Actual Bed"), temp);
@@ -415,12 +416,12 @@ void MainWindow::printerStateChanged(PrinterState state)
 
     case STARTPRINT:
         ui->printPB->setText(tr("Pause Print"));
-        ui->printingProgress->setVisible(true);
+        ui->printLayout->setVisible(true);
         break;
 
     case FINISHEDPRINT:
         ui->printPB->setText(tr("Print File"));
-        ui->printingProgress->setVisible(false);
+        ui->printLayout->setVisible(false);
         break;
 
     case PAUSE:

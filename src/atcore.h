@@ -42,7 +42,6 @@ enum PrinterState {
     STOP, // Stop Printing and Clean Queue
     STARTPRINT, //Just Starting a print job
     FINISHEDPRINT, //Just Finished print job
-
 };
 
 struct AtCorePrivate;
