@@ -320,9 +320,19 @@ QByteArray AtCore::popCommand()
 
 void AtCore::stop()
 {
+    setState(STOP);
+    d->commandQueue.clear();
+    setExtruderTemp(0, 0);
+    setBedTemp(0);
+    home('X');
+    setState(IDLE);
+}
+
+void AtCore::emergencyStop()
+{
     switch (state()) {
     case BUSY:
-        setState(STOP);
+        stop();
     default:
         if (isInitialized()) {
             serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());

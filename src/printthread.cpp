@@ -62,8 +62,7 @@ void PrintThread::commandReady()
         break;
 
     case STOP: {
-        QString stopString(GCode::toCommand(GCode::M112));
-        d->gcodestream->setString(&stopString);
+        d->gcodestream->setString(NULL);
         setState(IDLE);
         break;
     }

@@ -39,9 +39,10 @@ enum PrinterState {
     BUSY, //Printer is working
     PAUSE, //Printer is paused
     ERROR, // Printer Returned Error
-    STOP, // Emergency Stop
+    STOP, // Stop Printing and Clean Queue
     STARTPRINT, //Just Starting a print job
     FINISHEDPRINT, //Just Finished print job
+
 };
 
 struct AtCorePrivate;
@@ -175,9 +176,14 @@ public slots:
     void print(const QString &fileName);
 
     /**
-     * @brief Stop the Printer
+     * @brief Stop the Printer by empting the queue and aborting the print job (if running)
      */
     void stop();
+
+    /**
+     * @brief stop the printer via the emergency stop Command (M112)
+     */
+    void emergencyStop();
 
     /**
      * @brief pause an in process print job
@@ -252,7 +258,7 @@ public slots:
      * @brief close AtCore
      */
     void close();
-    
+
 private slots:
     /**
      * @brief processQueue send commands from the queue.
