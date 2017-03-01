@@ -213,6 +213,8 @@ void AtCore::initSerial(const QString &port, int baud)
 
 bool AtCore::isInitialized()
 {
+    if(!d->serial)
+        return false;
     return d->serial->isOpen();
 }
 
@@ -280,7 +282,7 @@ void AtCore::pushCommand(const QString &comm)
 
 void AtCore::closeConnection()
 {
-    if (serial()->isOpen()) {
+    if (isInitialized()) {
         if (state() == BUSY) {
             //we have to clean print if printing.
             setState(STOP);
@@ -322,14 +324,18 @@ void AtCore::stop()
     case BUSY:
         setState(STOP);
     default:
-        serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
+        if (isInitialized()) {
+            serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
+        }
     }
 }
 
 void AtCore::requestFirmware()
 {
     qDebug() << "Sending " << GCode::toString(GCode::M115);
-    serial()->pushCommand(GCode::toCommand(GCode::M115).toLocal8Bit());
+    if (isInitialized()) {
+        serial()->pushCommand(GCode::toCommand(GCode::M115).toLocal8Bit());
+    }
 }
 
 bool AtCore::pluginLoaded()
@@ -478,6 +484,12 @@ void AtCore::processQueue()
     }
 
     QString text = d->commandQueue.takeAt(0);
+
+    if (!isInitialized()) {
+        qCDebug(ATCORE_PLUGIN) << "Can't process queue ! Serial not initialized.";
+        return;
+    }
+
     if (pluginLoaded()) {
         serial()->pushCommand(plugin()->translate(text));
     } else {
