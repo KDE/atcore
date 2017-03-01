@@ -35,30 +35,49 @@ QString MarlinPlugin::name() const
     return QStringLiteral("Marlin");
 }
 
-MarlinPlugin::MarlinPlugin()
+float _lastBedTemp;
+float _lastExtruderTemp;
+float _lastTargetBedTemp;
+float _lastTargetExtruderTemp;
+
+MarlinPlugin::MarlinPlugin() :
+    _lastBedTemp(0.0f),
+    _lastExtruderTemp(0.0f),
+    _lastTargetBedTemp(0.0f),
+    _lastTargetExtruderTemp(0.0f)
 {
     qCDebug(MARLIN_PLUGIN) << name() << " plugin loaded!";
 }
 
 void MarlinPlugin::extractTemp(const QString &lastMessage)
 {
-    // ok T:185.4 /185.0 B:60.5 /60.0
     QStringList list = lastMessage.split(QChar::fromLatin1(' '));
     if (list.length() < 5) {
-        // list don't have all neccessary data
-        return;
+        // T:151.10 E:0 B:63.2
+        // T:142.6 E:0 W:?
+
+        if (list[0].indexOf(_extruderTemp) == 0) {
+            _lastExtruderTemp = list[0].mid(2).toFloat();
+        }
+        if (list[2].indexOf(_bedTemp) == 0) {
+            _lastBedTemp = list[2].mid(2).toFloat();
+        }
+    } else {
+        // ok T:185.4 /185.0 B:60.5 /60.0
+
+        // T:185.4 - current temperature
+        _lastExtruderTemp = list[1].mid(2).toFloat();
+        // /185.0 - target temperature
+        _lastTargetExtruderTemp = list[2].mid(1).toFloat();
+        // B:185.4 - current temperature
+        _lastBedTemp = list[3].mid(2).toFloat();
+        // /60.0 - target temperature
+        _lastTargetBedTemp = list[4].mid(1).toFloat();
     }
-    // T:185.4 - current temperature
-    core()->temperature().setExtruderTemperature(list[1].mid(2).toFloat());
-
-    // /185.0 - target temperature
-    core()->temperature().setExtruderTargetTemperature(list[2].mid(1).toFloat());
-
-    // B:185.4 - current temperature
-    core()->temperature().setBedTemperature(list[3].mid(2).toFloat());
-
-    // /60.0 - target temperature
-    core()->temperature().setBedTargetTemperature(list[4].mid(1).toFloat());
+    core()->temperature().setExtruderTemperature(_lastExtruderTemp);
+    core()->temperature().setExtruderTargetTemperature(_lastTargetExtruderTemp);
+    core()->temperature().setBedTemperature(_lastBedTemp);
+    core()->temperature().setBedTargetTemperature(_lastTargetBedTemp);
 }
 
 void MarlinPlugin::validateCommand(const QString &lastMessage)
