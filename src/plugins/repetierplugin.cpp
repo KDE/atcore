@@ -49,10 +49,12 @@ void RepetierPlugin::extractTemp(const QString &lastMessage)
     core()->temperature().setExtruderTemperature(list[0].mid(2).toFloat());
     // /185.0 - target temperature
     core()->temperature().setExtruderTargetTemperature(list[1].mid(1).toFloat());
-    // B:185.4 - current temperature
-    core()->temperature().setBedTemperature(list[2].mid(2).toFloat());
-    // /60.0 - target temperature
-    core()->temperature().setBedTargetTemperature(list[3].mid(1).toFloat());
+    if(lastMessage.contains(_bedTemp)){
+        // B:185.4 - current temperature
+        core()->temperature().setBedTemperature(list[2].mid(2).toFloat());
+        // /60.0 - target temperature
+        core()->temperature().setBedTargetTemperature(list[3].mid(1).toFloat());
+    }
 }
 
 void RepetierPlugin::validateCommand(const QString &lastMessage)
@@ -60,6 +62,7 @@ void RepetierPlugin::validateCommand(const QString &lastMessage)
     if (lastMessage.contains(_extruderTemp) || lastMessage.contains(_bedTemp)) {
         extractTemp(lastMessage);
     }
+
     if (lastMessage.contains(_ok)) {
         emit readyForCommand();
     }

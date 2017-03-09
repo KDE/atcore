@@ -50,10 +50,12 @@ void TeacupPlugin::extractTemp(const QString &lastMessage)
     core()->temperature().setExtruderTemperature(list[0].mid(2).toFloat());
     // /185.0 - target temperature
     core()->temperature().setExtruderTargetTemperature(list[1].mid(1).toFloat());
-    // B:185.4 - current temperature
-    core()->temperature().setBedTemperature(list[2].mid(2).toFloat());
-    // /60.0 - target temperature
-    core()->temperature().setBedTargetTemperature(list[3].mid(1).toFloat());
+    if(lastMessage.contains(_bedTemp)){
+        // B:185.4 - current temperature
+        core()->temperature().setBedTemperature(list[2].mid(2).toFloat());
+        // /60.0 - target temperature
+        core()->temperature().setBedTargetTemperature(list[3].mid(1).toFloat());
+    }
 }
 
 void TeacupPlugin::validateCommand(const QString &lastMessage)
