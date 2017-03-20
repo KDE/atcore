@@ -193,6 +193,7 @@ void AtCore::loadFirmware(const QString &fwName)
             disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
             connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
             connect(plugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
+            d->ready = true; // ready on new firmware load
             connect(d->tempTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
             d->tempTimer->start();
             setState(IDLE);
