@@ -326,7 +326,6 @@ void AtCore::stop()
     setExtruderTemp(0, 0);
     setBedTemp(0);
     home('X');
-    setState(IDLE);
 }
 
 void AtCore::emergencyStop()
