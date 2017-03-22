@@ -559,18 +559,36 @@
            </layout>
           </item>
           <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_17">
+            <item>
+             <widget class="QLineEdit" name="messageLE">
+              <property name="placeholderText">
+               <string>Show Message</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="showMessagePB">
+              <property name="text">
+               <string>Send</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
            <layout class="QHBoxLayout" name="horizontalLayout_15">
             <item>
              <widget class="QLabel" name="label_8">
               <property name="text">
-               <string>Post Pause:</string>
+               <string>On Pause:</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QLineEdit" name="postPauseLE">
               <property name="placeholderText">
-               <string>G91,G0 Z1,G90,X 0 Y195</string>
+               <string>G91,G0 Z1,G90,G1 X0 Y195</string>
               </property>
              </widget>
             </item>
@@ -677,7 +695,8 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset theme="process-stop"/>
+             <iconset theme="process-stop">
+              <normaloff>.</normaloff>.</iconset>
             </property>
            </widget>
           </item>

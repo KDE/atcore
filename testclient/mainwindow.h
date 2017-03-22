@@ -147,6 +147,11 @@ private slots:
      */
     void printerStateChanged(PrinterState state);
 
+    /**
+     * @brief showMessage show a message on the printers LCD
+     */
+    void showMessage();
+
 signals:
     /**
      * @brief printFile emit ready to print a file to atcore
