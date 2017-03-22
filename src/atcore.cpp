@@ -332,11 +332,10 @@ void AtCore::emergencyStop()
 {
     switch (state()) {
     case BUSY:
-        stop();
+        setState(STOP);
     default:
-        if (isInitialized()) {
-            serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
-        }
+        d->commandQueue.clear();
+        serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
     }
 }
 
