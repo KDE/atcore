@@ -79,6 +79,13 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this, &MainWindow::printFile, core, &AtCore::print);
     connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
     connect(ui->emergencyStopPB, &QPushButton::clicked, core, &AtCore::emergencyStop);
+
+    connect(core, &AtCore::printTimeChanged, this, [ = ](const QTime & time) {
+        ui->time->setText(time.toString(QStringLiteral("hh:mm:ss.zzz")));
+    });
+    connect(core, &AtCore::printTimeLeftChanged, this, [ = ](const QTime & time) {
+        ui->timeLeft->setText(time.toString(QStringLiteral("hh:mm:ss.zzz")));
+    });
     connect(&core->temperature(), &Temperature::bedTemperatureChanged, [ = ](float temp) {
         checkTemperature(0x00, 0, temp);
         ui->plotWidget->appendPoint(tr("Actual Bed"), temp);
