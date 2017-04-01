@@ -70,6 +70,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->printerSpeedPB, &QPushButton::clicked, this, &MainWindow::printerSpeedPBClicked);
     connect(ui->flowRatePB, &QPushButton::clicked, this, &MainWindow::flowRatePBClicked);
     connect(ui->absoluteRB, &QRadioButton::toggled, this, &MainWindow::movementModeChanged);
+    connect(ui->showMessagePB, &QPushButton::clicked, this, &MainWindow::showMessage);
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceAdded, this, &MainWindow::locateSerialPort);
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceRemoved, this, &MainWindow::locateSerialPort);
     connect(core, &AtCore::printProgressChanged, ui->printingProgress, &QProgressBar::setValue);
@@ -435,4 +436,9 @@ void MainWindow::printerStateChanged(PrinterState state)
     default:
         break;
     }
+}
+
+void MainWindow::showMessage()
+{
+    core->showMessage(ui->messageLE->text());
 }

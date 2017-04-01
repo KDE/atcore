@@ -258,6 +258,12 @@ public slots:
      */
     void close();
 
+    /**
+     * @brief showMessage push a message to the printers LCD
+     * @param message message to show on the LCD
+     */
+    void showMessage(const QString &message);
+
 private slots:
     /**
      * @brief processQueue send commands from the queue.

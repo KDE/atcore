@@ -516,3 +516,10 @@ void AtCore::checkTemperature()
     }
     pushCommand(GCode::toCommand(GCode::M105));
 }
+
+void AtCore::showMessage(const QString &message)
+{
+    if (!message.isEmpty()) {
+        pushCommand(GCode::toCommand((GCode::M117), message));
+    }
+}
