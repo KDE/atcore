@@ -326,18 +326,16 @@ void AtCore::stop()
     setExtruderTemp(0, 0);
     setBedTemp(0);
     home('X');
-    setState(IDLE);
 }
 
 void AtCore::emergencyStop()
 {
     switch (state()) {
     case BUSY:
-        stop();
+        setState(STOP);
     default:
-        if (isInitialized()) {
-            serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
-        }
+        d->commandQueue.clear();
+        serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
     }
 }
 

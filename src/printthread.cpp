@@ -62,7 +62,8 @@ void PrintThread::commandReady()
         break;
 
     case STOP: {
-        d->gcodestream->setString(NULL);
+        QString newString(QStringLiteral(";ENDFILE"));
+        d->gcodestream->setString(&newString);
         setState(IDLE);
         break;
     }
