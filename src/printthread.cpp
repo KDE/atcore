@@ -12,7 +12,6 @@ public:
     QTextStream *gcodestream = nullptr;
     float printProgress = 0;
     QTime *timeElapsed = nullptr;
-    //QTime *timeToFinish = nullptr;
     qint64 totalSize = 0;
     qint64 stillSize = 0;
     QString cline;
