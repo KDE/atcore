@@ -36,6 +36,8 @@ signals:
     void printProgressChanged(float);
     void nextCommand(const QString &comm);
     void stateChanged(const PrinterState &state);
+    void printTimeChanged(const QTime &time);
+    void printTimeLeftChanged(const QTime &time);
 
 public slots:
     void start();
@@ -46,4 +48,5 @@ private slots:
 
 private:
     PrintThreadPrivate *d;
+    QTime *time;
 };
