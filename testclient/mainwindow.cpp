@@ -411,8 +411,10 @@ void MainWindow::movementModeChanged(const bool &checked)
 {
     if (checked) {
         core->setAbsolutePosition();
+        ui->mvAxisSB->setMinimum(0);
     } else {
         core->setRelativePosition();
+        ui->mvAxisSB->setMinimum(-200);
     }
 }
 void MainWindow::printerStateChanged(PrinterState state)
