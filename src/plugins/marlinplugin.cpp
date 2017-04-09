@@ -70,7 +70,7 @@ void MarlinPlugin::extractTemp(const QString &lastMessage)
         _lastExtruderTemp = list[1].mid(2).toFloat();
         // /185.0 - target temperature
         _lastTargetExtruderTemp = list[2].mid(1).toFloat();
-        if(hasBed){
+        if (hasBed) {
             // B:185.4 - current temperature
             _lastBedTemp = list[3].mid(2).toFloat();
             // /60.0 - target temperature
@@ -79,7 +79,7 @@ void MarlinPlugin::extractTemp(const QString &lastMessage)
     }
     core()->temperature().setExtruderTemperature(_lastExtruderTemp);
     core()->temperature().setExtruderTargetTemperature(_lastTargetExtruderTemp);
-    if(hasBed){
+    if (hasBed) {
         core()->temperature().setBedTemperature(_lastBedTemp);
         core()->temperature().setBedTargetTemperature(_lastTargetBedTemp);
     }
