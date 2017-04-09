@@ -66,6 +66,13 @@ public slots:
 
 private slots:
     //ButtonEvents
+
+    /**
+     * @brief the printing progress has changed
+     * @param progress: the new progress
+     */
+    void printProgressChanged(int progress);
+
     /**
      * @brief Connect Button Clicked will connect or disconnect based on printer state
      */
@@ -152,6 +159,11 @@ private slots:
      */
     void showMessage();
 
+    /**
+     * @brief Update the print Time
+     */
+    void updatePrintTime();
+
 signals:
     /**
      * @brief printFile emit ready to print a file to atcore
@@ -165,6 +177,8 @@ private:
     Solid::DeviceNotifier *deviceNotifier;
     QTemporaryFile *logFile;
     QStringList serialPortList;
+    QTime *printTime;
+    QTimer *printTimer;
     void closeEvent(QCloseEvent *event);
     /**
      * @brief Locate serial port

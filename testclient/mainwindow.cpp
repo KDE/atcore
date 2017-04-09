@@ -56,6 +56,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
     locateSerialPort();
 
+    printTime = new QTime();
+    printTimer = new QTimer();
+    printTimer->setInterval(1000);
+    printTimer->setSingleShot(false);
+    connect(printTimer, &QTimer::timeout, this, &MainWindow::updatePrintTime);
+
     connect(ui->connectPB, &QPushButton::clicked, this, &MainWindow::connectPBClicked);
     connect(ui->saveLogPB, &QPushButton::clicked, this, &MainWindow::saveLogPBClicked);
     connect(ui->sendPB, &QPushButton::clicked, this, &MainWindow::sendPBClicked);
@@ -75,19 +81,14 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->showMessagePB, &QPushButton::clicked, this, &MainWindow::showMessage);
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceAdded, this, &MainWindow::locateSerialPort);
     connect(deviceNotifier, &Solid::DeviceNotifier::deviceRemoved, this, &MainWindow::locateSerialPort);
-    connect(core, &AtCore::printProgressChanged, ui->printingProgress, &QProgressBar::setValue);
     connect(ui->pluginCB, &QComboBox::currentTextChanged, this, &MainWindow::pluginCBChanged);
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
     connect(this, &MainWindow::printFile, core, &AtCore::print);
     connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
     connect(ui->emergencyStopPB, &QPushButton::clicked, core, &AtCore::emergencyStop);
 
-    connect(core, &AtCore::printTimeChanged, this, [ = ](const QTime & time) {
-        ui->time->setText(time.toString(QStringLiteral("hh:mm:ss.zzz")));
-    });
-    connect(core, &AtCore::printTimeLeftChanged, this, [ = ](const QTime & time) {
-        ui->timeLeft->setText(time.toString(QStringLiteral("hh:mm:ss.zzz")));
-    });
+    connect(core, &AtCore::printProgressChanged, this, &MainWindow::printProgressChanged);
+
     connect(&core->temperature(), &Temperature::bedTemperatureChanged, [ = ](float temp) {
         checkTemperature(0x00, 0, temp);
         ui->plotWidget->appendPoint(tr("Actual Bed"), temp);
@@ -429,11 +430,14 @@ void MainWindow::printerStateChanged(PrinterState state)
     case STARTPRINT:
         ui->printPB->setText(tr("Pause Print"));
         ui->printLayout->setVisible(true);
+        printTime->start();
+        printTimer->start();
         break;
 
     case FINISHEDPRINT:
         ui->printPB->setText(tr("Print File"));
         ui->printLayout->setVisible(false);
+        printTimer->stop();
         break;
 
     case PAUSE:
@@ -452,4 +456,21 @@ void MainWindow::printerStateChanged(PrinterState state)
 void MainWindow::showMessage()
 {
     core->showMessage(ui->messageLE->text());
+}
+
+void MainWindow::updatePrintTime()
+{
+    QTime temp(0, 0, 0);
+    ui->time->setText(temp.addMSecs(printTime->elapsed()).toString(QStringLiteral("hh:mm:ss")));
+}
+
+void MainWindow::printProgressChanged(int progress)
+{
+    ui->printingProgress->setValue(progress);
+    if (progress > 0) {
+        QTime temp(0, 0, 0);
+        ui->timeLeft->setText(temp.addMSecs((100 - progress) * (printTime->elapsed() / progress)).toString(QStringLiteral("hh:mm:ss")));
+    } else {
+        ui->timeLeft->setText(QStringLiteral("??:??:??"));
+    }
 }
