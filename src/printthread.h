@@ -45,6 +45,7 @@ public slots:
 
 private slots:
     void commandReady();
+    void endPrint();
 
 private:
     PrintThreadPrivate *d;

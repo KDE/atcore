@@ -46,6 +46,10 @@ void PrintThread::start()
 
 void PrintThread::commandReady()
 {
+    if (d->gcodestream->atEnd()) {
+        endPrint();
+    }
+
     switch (d->state) {
     case STARTPRINT:
     case IDLE:
@@ -66,9 +70,7 @@ void PrintThread::commandReady()
         break;
 
     case STOP: {
-        QString newString(QStringLiteral(";ENDFILE"));
-        d->gcodestream->setString(&newString);
-        setState(IDLE);
+        endPrint();
         break;
     }
 
@@ -79,20 +81,21 @@ void PrintThread::commandReady()
         qCDebug(PRINT_THREAD) << "Unknown State";
         break;
     }
-
-    if (d->gcodestream->atEnd()) {
-        emit(printProgressChanged(100));
-        qCDebug(PRINT_THREAD) << "atEnd";
-        disconnect(d->core->plugin(), &IFirmware::readyForCommand, this, &PrintThread::commandReady);
-        disconnect(this, &PrintThread::nextCommand, d->core, &AtCore::pushCommand);
-        disconnect(d->core, &AtCore::stateChanged, this, &PrintThread::setState);
-        emit(stateChanged(FINISHEDPRINT));
-        emit(stateChanged(IDLE));
-        disconnect(this, &PrintThread::stateChanged, d->core, &AtCore::setState);
-        emit finished();
-    }
 }
 
+void PrintThread::endPrint()
+{
+    emit(printProgressChanged(100));
+    qCDebug(PRINT_THREAD) << "atEnd";
+    disconnect(d->core->plugin(), &IFirmware::readyForCommand, this, &PrintThread::commandReady);
+    disconnect(this, &PrintThread::nextCommand, d->core, &AtCore::pushCommand);
+    disconnect(d->core, &AtCore::stateChanged, this, &PrintThread::setState);
+    emit(stateChanged(FINISHEDPRINT));
+    emit(stateChanged(IDLE));
+    disconnect(this, &PrintThread::stateChanged, d->core, &AtCore::setState);
+    emit finished();
+
+}
 void PrintThread::nextLine()
 {
     d->cline = d->gcodestream->readLine();
