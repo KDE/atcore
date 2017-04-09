@@ -150,20 +150,6 @@ signals:
     void printProgressChanged(const float &newProgress);
 
     /**
-     * @brief Emit signal when the printing time changes.
-     *
-     * @param msg : Time elapsed
-     */
-    void printTimeChanged(const QTime &time);
-
-    /**
-     * @brief Emit signal when the printing left time changes.
-     *
-     * @param msg : Time to finish
-     */
-    void printTimeLeftChanged(const QTime &time);
-
-    /**
      * @brief Emit signal when message is received from the printer
      *
      * @param msg : Message

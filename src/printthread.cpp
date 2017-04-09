@@ -11,7 +11,6 @@ public:
     AtCore *core = nullptr;
     QTextStream *gcodestream = nullptr;
     float printProgress = 0;
-    QTime *timeElapsed = nullptr;
     qint64 totalSize = 0;
     qint64 stillSize = 0;
     QString cline;
@@ -28,7 +27,6 @@ PrintThread::PrintThread(AtCore *parent, QString fileName) : d(new PrintThreadPr
     d->totalSize = d->file->bytesAvailable();
     d->stillSize = d->totalSize;
     d->gcodestream = new QTextStream(d->file);
-    d->timeElapsed = new QTime();
 }
 
 void PrintThread::start()
@@ -41,7 +39,6 @@ void PrintThread::start()
     connect(this, &PrintThread::finished, this, &PrintThread::deleteLater);
     // force a command if the printer doesn't send "wait" when idle
     commandReady();
-    d->timeElapsed->start();
 }
 
 void PrintThread::commandReady()
@@ -104,9 +101,6 @@ void PrintThread::nextLine()
     d->printProgress = float(d->totalSize - d->stillSize) * 100.0 / float(d->totalSize);
     qCDebug(PRINT_THREAD) << "progress:" << QString::number(d->printProgress);
     emit(printProgressChanged(d->printProgress));
-    emit(printTimeChanged(QTime(0, 0, 0).addMSecs(d->timeElapsed->elapsed())));
-
-    emit(printTimeLeftChanged(QTime(0, 0, 0).addMSecs((100.0 - d->printProgress) * (d->timeElapsed->elapsed() / d->printProgress))));
     if (d->cline.contains(QChar::fromLatin1(';'))) {
         d->cline.resize(d->cline.indexOf(QChar::fromLatin1(';')));
     }

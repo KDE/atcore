@@ -269,8 +269,6 @@ void AtCore::print(const QString &fileName)
     connect(thread, &QThread::started, printThread, &PrintThread::start);
     connect(printThread, &PrintThread::finished, thread, &QThread::quit);
     connect(thread, &QThread::finished, printThread, &PrintThread::deleteLater);
-    connect(printThread, &PrintThread::printTimeChanged, this, &AtCore::printTimeChanged, Qt::QueuedConnection);
-    connect(printThread, &PrintThread::printTimeLeftChanged, this, &AtCore::printTimeLeftChanged, Qt::QueuedConnection);
     if (!thread->isRunning()) {
         thread->start();
     }
