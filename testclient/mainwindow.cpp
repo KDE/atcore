@@ -30,6 +30,8 @@
 #include "seriallayer.h"
 #include "gcodecommands.h"
 
+Q_LOGGING_CATEGORY(TESTCLIENT_MAINWINDOW, "org.kde.atelier.core");
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
@@ -374,7 +376,7 @@ void MainWindow::printPBClicked()
         break;
 
     default:
-        qDebug() << "ERROR / STOP unhandled.";
+        qCDebug(TESTCLIENT_MAINWINDOW) << "ERROR / STOP unhandled.";
     }
 }
 

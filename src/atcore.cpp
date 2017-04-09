@@ -36,6 +36,7 @@
 #include <QThread>
 
 Q_LOGGING_CATEGORY(ATCORE_PLUGIN, "org.kde.atelier.core.plugin");
+Q_LOGGING_CATEGORY(ATCORE_CORE, "org.kde.atelier.core");
 
 struct AtCorePrivate {
     IFirmware *fwPlugin = nullptr;
@@ -86,7 +87,7 @@ AtCore::AtCore(QObject *parent) :
         d->pluginsDir.cdUp();
     }
 #endif
-    qDebug() << d->pluginsDir;
+    qCDebug(ATCORE_PLUGIN) << d->pluginsDir;
     findPlugins();
     setState(DISCONNECTED);
 }
@@ -130,7 +131,7 @@ void AtCore::findFirmware(const QByteArray &message)
 
     if (state() == CONNECTING) {
         if (message.contains("start")) {
-            qDebug() << "Waiting requestFirmware.";
+            qCDebug(ATCORE_CORE) << "Waiting requestFirmware.";
             QTimer::singleShot(500, this, &AtCore::requestFirmware);
             return;
         } else if (message.contains("Grbl")) {
@@ -139,13 +140,13 @@ void AtCore::findFirmware(const QByteArray &message)
         }
     }
 
-    qDebug() << "Find Firmware Called" << message;
+    qCDebug(ATCORE_CORE) << "Find Firmware Called" << message;
     if (!message.contains("FIRMWARE_NAME:")) {
-        qDebug() << "No firmware yet.";
+        qCDebug(ATCORE_CORE) << "No firmware yet.";
         return;
     }
 
-    qDebug() << "Found firmware string, Looking for Firmware Name.";
+    qCDebug(ATCORE_CORE) << "Found firmware string, Looking for Firmware Name.";
 
     QString fwName = QString::fromLocal8Bit(message);
     fwName = fwName.split(QChar::fromLatin1(':')).at(1);
@@ -161,13 +162,13 @@ void AtCore::findFirmware(const QByteArray &message)
     if (fwName.contains(QChar::fromLatin1('_'))) {
         fwName.resize(fwName.indexOf(QChar::fromLatin1('_')));
     }
-    qDebug() << "Firmware Name:" << fwName;
+    qCDebug(ATCORE_CORE) << "Firmware Name:" << fwName;
 
     if (message.contains("EXTRUDER_COUNT:")) {
         //this code is broken if more then 9 extruders are detected. since only one char is returned
         d->extruderCount = message.at(message.indexOf("EXTRUDER_COUNT:") + 15) - '0';
     }
-    qDebug() << "Extruder Count:" << QString::number(extruderCount());
+    qCDebug(ATCORE_CORE) << "Extruder Count:" << QString::number(extruderCount());
 
     loadFirmware(fwName);
 }
@@ -177,18 +178,18 @@ void AtCore::loadFirmware(const QString &fwName)
     if (d->plugins.contains(fwName)) {
         d->pluginLoader.setFileName(d->plugins[fwName]);
         if (!d->pluginLoader.load()) {
-            qDebug() << d->pluginLoader.errorString();
+            qCDebug(ATCORE_PLUGIN) << d->pluginLoader.errorString();
         } else {
-            qDebug() << "Loading plugin.";
+            qCDebug(ATCORE_PLUGIN) << "Loading plugin.";
         }
         setPlugin(qobject_cast<IFirmware *>(d->pluginLoader.instance()));
 
         if (!pluginLoaded()) {
-            qDebug() << "No plugin loaded.";
-            qDebug() << "Looking plugin in folder:" << d->pluginsDir;
+            qCDebug(ATCORE_PLUGIN) << "No plugin loaded.";
+            qCDebug(ATCORE_PLUGIN) << "Looking plugin in folder:" << d->pluginsDir;
             setState(CONNECTING);
         } else {
-            qDebug() << "Connected to" << plugin()->name();
+            qCDebug(ATCORE_PLUGIN) << "Connected to" << plugin()->name();
             plugin()->init(this);
             disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
             connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
@@ -199,7 +200,7 @@ void AtCore::loadFirmware(const QString &fwName)
             setState(IDLE);
         }
     } else {
-        qDebug() << "No Firmware Loaded";
+        qCDebug(ATCORE_CORE) << "No Firmware Loaded";
     }
 }
 
@@ -255,7 +256,7 @@ float AtCore::percentagePrinted()
 void AtCore::print(const QString &fileName)
 {
     if (state() == CONNECTING) {
-        qDebug() << "Load a firmware plugin to print.";
+        qCDebug(ATCORE_CORE) << "Load a firmware plugin to print.";
         return;
     }
     //START A THREAD AND CONNECT TO IT
@@ -308,7 +309,7 @@ PrinterState AtCore::state(void)
 void AtCore::setState(PrinterState state)
 {
     if (state != d->printerStatus.printerState) {
-        qDebug() << "Atcore state changed from [" \
+        qCDebug(ATCORE_CORE) << "Atcore state changed from [" \
                  << d->printerStatus.printerState << "] to [" << state << "]";
         d->printerStatus.printerState = state;
         emit(stateChanged(d->printerStatus.printerState));
@@ -342,7 +343,7 @@ void AtCore::emergencyStop()
 
 void AtCore::requestFirmware()
 {
-    qDebug() << "Sending " << GCode::toString(GCode::M115);
+    qCDebug(ATCORE_CORE) << "Sending " << GCode::toString(GCode::M115);
     if (isInitialized()) {
         serial()->pushCommand(GCode::toCommand(GCode::M115).toLocal8Bit());
     }
@@ -359,7 +360,7 @@ bool AtCore::pluginLoaded()
 void AtCore::findPlugins()
 {
     d->plugins.clear();
-    qDebug() << "plugin dir:" << d->pluginsDir;
+    qCDebug(ATCORE_PLUGIN) << "plugin dir:" << d->pluginsDir;
     QStringList files = d->pluginsDir.entryList(QDir::Files);
     foreach (const QString &f, files) {
         QString file = f;
@@ -372,10 +373,10 @@ void AtCore::findPlugins()
 #endif
             file = file.split(QChar::fromLatin1('.')).at(0);
         else {
-            qDebug() << "File" << file << "not plugin.";
+            qCDebug(ATCORE_PLUGIN) << "File" << file << "not plugin.";
             continue;
         }
-        qDebug() << "Found plugin file" << f;
+        qCDebug(ATCORE_CORE) << "Found plugin file" << f;
         if (file.startsWith(QStringLiteral("lib"))) {
             file = file.remove(QStringLiteral("lib"));
         }
@@ -385,7 +386,7 @@ void AtCore::findPlugins()
         pluginString.append(QChar::fromLatin1('/'));
         pluginString.append(f);
         d->plugins[file] = pluginString;
-        qDebug() << tr("plugins[%1]=%2").arg(file, pluginString);
+        qCDebug(ATCORE_CORE) << tr("plugins[%1]=%2").arg(file, pluginString);
     }
 }
 QStringList AtCore::availablePlugins()
