@@ -28,12 +28,13 @@
 #include <QTemporaryFile>
 
 #include <Solid/DeviceNotifier>
+#include <KXmlGui/KXmlGuiWindow>
 
 #include "atcore.h"
 
 class SerialLayer;
 
-class  MainWindow: public QMainWindow
+class  MainWindow: public KXmlGuiWindow
 {
     Q_OBJECT
 
@@ -246,4 +247,10 @@ private:
      * @brief pluginCB index changed
      */
     void pluginCBChanged(QString currentText);
+
+    /**
+     * @brief setupActions for KXMLGui
+     */
+    void setupActions();
+
 };

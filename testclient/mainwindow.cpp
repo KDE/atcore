@@ -25,6 +25,9 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include <QDebug>
+#include <KLocalizedString>
+#include <KStandardAction>
+#include <KActionCollection>
 
 #include "mainwindow.h"
 #include "seriallayer.h"
@@ -33,13 +36,14 @@
 Q_LOGGING_CATEGORY(TESTCLIENT_MAINWINDOW, "org.kde.atelier.core");
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
+    KXmlGuiWindow(parent),
     ui(new Ui::MainWindow),
     core(new AtCore(this)),
     deviceNotifier(Solid::DeviceNotifier::instance()),
     logFile(new QTemporaryFile(QDir::tempPath() + QStringLiteral("/AtCore_")))
 {
     ui->setupUi(this);
+    setupActions();
     ui->serialPortCB->setEditable(true);
     QValidator *validator = new QIntValidator();
     ui->baudRateLE->setValidator(validator);
@@ -121,6 +125,13 @@ MainWindow::~MainWindow()
 {
     delete logFile;
     delete ui;
+}
+
+void MainWindow::setupActions()
+{
+    QAction *action;
+    action = KStandardAction::quit(qApp, SLOT(quit()), actionCollection());
+    setupGUI(Default, QStringLiteral("atcoreui.rc"));
 }
 
 QString MainWindow::getTime()
