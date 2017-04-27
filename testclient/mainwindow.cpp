@@ -35,6 +35,8 @@
 
 Q_LOGGING_CATEGORY(TESTCLIENT_MAINWINDOW, "org.kde.atelier.core");
 
+int MainWindow::fanCount = 4;
+
 MainWindow::MainWindow(QWidget *parent) :
     KXmlGuiWindow(parent),
     ui(new Ui::MainWindow),
@@ -54,6 +56,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pluginCB->addItems(core->availablePlugins());
 
     addLog(tr("Attempting to locate Serial Ports"));
+
+    populateCBs();
 
     //hide the printing progress bar.
     ui->printLayout->setVisible(false);
@@ -461,6 +465,19 @@ void MainWindow::printerStateChanged(PrinterState state)
 
     default:
         break;
+    }
+}
+
+void MainWindow::populateCBs()
+{
+    // Extruders
+    for (int count = 0; count < core->extruderCount(); count++) {
+        ui->extTempSelCB->insertItem(count, tr("Extruder %1").arg(count));
+    }
+
+    // Fan
+    for (int count = 0; count < fanCount; count++) {
+        ui->fanSpeedSelCB->insertItem(count, tr("Fan %1 speed").arg(count));
     }
 }
 

@@ -180,6 +180,10 @@ private:
     QStringList serialPortList;
     QTime *printTime;
     QTimer *printTimer;
+
+    // Define max number of fans
+    static int fanCount;
+
     void closeEvent(QCloseEvent *event);
     /**
      * @brief Locate serial port
@@ -253,4 +257,8 @@ private:
      */
     void setupActions();
 
+    /**
+     * @brief Populate comboboxes
+     */
+    void populateCBs();
 };
