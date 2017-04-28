@@ -165,6 +165,10 @@ private slots:
      */
     void updatePrintTime();
 
+    /**
+     * @brief show/hide dock titlebars
+     */
+    void toggleDockTitles();
 signals:
     /**
      * @brief printFile emit ready to print a file to atcore
@@ -180,7 +184,6 @@ private:
     QStringList serialPortList;
     QTime *printTime;
     QTimer *printTimer;
-
     // Define max number of fans
     static int fanCount;
 

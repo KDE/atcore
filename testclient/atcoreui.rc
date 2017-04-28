@@ -10,6 +10,8 @@
             <Action name="quit" />
         </Menu>
         <Menu name="view" >
+            <Action name="actionShowDockTitles" />
+            <Separator/>
             <Action name="actionConnection_Settings" />
             <Action name="actionSession_Log" />
             <Action name="actionTemperature_Plot" />

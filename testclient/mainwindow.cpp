@@ -128,6 +128,7 @@ MainWindow::MainWindow(QWidget *parent) :
     tabifyDockWidget(ui->connectDock, ui->printDock);
     tabifyDockWidget(ui->connectDock, ui->commandDock);
     ui->connectDock->raise();
+    toggleDockTitles();
 
 }
 
@@ -145,8 +146,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::setupActions()
 {
-    QAction *action;
-    action = KStandardAction::quit(qApp, SLOT(quit()), actionCollection());
+    KStandardAction::quit(qApp, SLOT(quit()), actionCollection());
+
+    actionCollection()->addAction(QStringLiteral("actionShowDockTitles"), this, &MainWindow::toggleDockTitles);
+    actionCollection()->action(QStringLiteral("actionShowDockTitles"))->setCheckable(true);
+    actionCollection()->action(QStringLiteral("actionShowDockTitles"))->setText(i18n("Show Dock Titles"));
 
     //connect the view actions to their docks.
     actionCollection()->addAction(QStringLiteral("actionConnection_Settings"), ui->connectDock->toggleViewAction());
@@ -544,3 +548,24 @@ void MainWindow::printProgressChanged(int progress)
         ui->timeLeft->setText(QStringLiteral("??:??:??"));
     }
 }
+void MainWindow::toggleDockTitles()
+{
+    if (actionCollection()->action(QStringLiteral("actionShowDockTitles"))->isChecked()) {
+        delete ui->connectDock->titleBarWidget();
+        delete ui->logDock->titleBarWidget();
+        delete ui->tempTimelineDock->titleBarWidget();
+        delete ui->commandDock->titleBarWidget();
+        delete ui->moveDock->titleBarWidget();
+        delete ui->tempControlsDock->titleBarWidget();
+        delete ui->printDock->titleBarWidget();
+    } else {
+        ui->connectDock->setTitleBarWidget(new QWidget());
+        ui->logDock->setTitleBarWidget(new QWidget());
+        ui->tempTimelineDock->setTitleBarWidget(new QWidget());
+        ui->commandDock->setTitleBarWidget(new QWidget());
+        ui->moveDock->setTitleBarWidget(new QWidget());
+        ui->tempControlsDock->setTitleBarWidget(new QWidget());
+        ui->printDock->setTitleBarWidget(new QWidget());
+    }
+}
+
