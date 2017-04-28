@@ -64,6 +64,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     locateSerialPort();
 
+    ui->statusBar->addWidget(ui->statusBarWidget);
     printTime = new QTime();
     printTimer = new QTimer();
     printTimer->setInterval(1000);
@@ -117,6 +118,17 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->plotWidget->appendPoint(tr("Target Ext.1"), temp);
         ui->plotWidget->update();
     });
+
+    //more dock stuff.
+    setTabPosition(Qt::LeftDockWidgetArea, QTabWidget::North);
+    setTabPosition(Qt::RightDockWidgetArea, QTabWidget::North);
+    tabifyDockWidget(ui->moveDock, ui->tempControlsDock);
+    ui->moveDock->raise();
+
+    tabifyDockWidget(ui->connectDock, ui->printDock);
+    tabifyDockWidget(ui->connectDock, ui->commandDock);
+    ui->connectDock->raise();
+
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
@@ -135,7 +147,51 @@ void MainWindow::setupActions()
 {
     QAction *action;
     action = KStandardAction::quit(qApp, SLOT(quit()), actionCollection());
-    setupGUI(Default, QStringLiteral("atcoreui.rc"));
+
+    //connect the view actions to their docks.
+    action = actionCollection()->addAction(QStringLiteral("actionConnection_Settings"), ui->connectDock, &QDockWidget::setVisible);
+    action->setText(QStringLiteral("Connection Settings"));
+    action->setCheckable(true);
+    connect(ui->connectDock, &QDockWidget::visibilityChanged,
+            actionCollection()->action(QStringLiteral("actionConnection_Settings")), &QAction::setChecked);
+
+    action = actionCollection()->addAction(QStringLiteral("actionSession_Log"), ui->logDock, &QDockWidget::setVisible);
+    action->setText(QStringLiteral("Session Log"));
+    action->setCheckable(true);
+    connect(ui->logDock, &QDockWidget::visibilityChanged,
+            actionCollection()->action(QStringLiteral("actionSession_Log")), &QAction::setChecked);
+
+    action = actionCollection()->addAction(QStringLiteral("actionTemperature_Plot"), ui->tempTimelineDock, &QDockWidget::setVisible);
+    action->setText(QStringLiteral("Temperature Plot"));
+    action->setCheckable(true);
+    connect(ui->tempTimelineDock, &QDockWidget::visibilityChanged,
+            actionCollection()->action(QStringLiteral("actionTemperature_Plot")), &QAction::setChecked);
+
+    action = actionCollection()->addAction(QStringLiteral("actionTest_Commands"), ui->commandDock, &QDockWidget::setVisible);
+    action->setText(QStringLiteral("Test Commands"));
+    action->setCheckable(true);
+    connect(ui->commandDock, &QDockWidget::visibilityChanged,
+            actionCollection()->action(QStringLiteral("actionTest_Commands")), &QAction::setChecked);
+
+    action = actionCollection()->addAction(QStringLiteral("actionMovement"), ui->moveDock, &QDockWidget::setVisible);
+    action->setText(QStringLiteral("Movement Controls"));
+    action->setCheckable(true);
+    connect(ui->moveDock, &QDockWidget::visibilityChanged,
+            actionCollection()->action(QStringLiteral("actionMovement")), &QAction::setChecked);
+
+    action = actionCollection()->addAction(QStringLiteral("actionTemp_Controls"), ui->tempControlsDock, &QDockWidget::setVisible);
+    action->setText(QStringLiteral("Temperature Controls"));
+    action->setCheckable(true);
+    connect(ui->tempControlsDock, &QDockWidget::visibilityChanged,
+            actionCollection()->action(QStringLiteral("actionTemp_Controls")), &QAction::setChecked);
+
+    action = actionCollection()->addAction(QStringLiteral("actionPrint"), ui->printDock, &QDockWidget::setVisible);
+    action->setText(QStringLiteral("Print Controls"));
+    action->setCheckable(true);
+    connect(ui->printDock, &QDockWidget::visibilityChanged,
+            actionCollection()->action(QStringLiteral("actionPrint")), &QAction::setChecked);
+
+    setupGUI(Save | Create, QStringLiteral("atcoreui.rc"));
 }
 
 QString MainWindow::getTime()
@@ -437,12 +493,15 @@ void MainWindow::movementModeChanged(const bool &checked)
 }
 void MainWindow::printerStateChanged(PrinterState state)
 {
+    QString stateString;
     switch (state) {
     case IDLE:
         ui->printPB->setText(tr("Print File"));
+        stateString = QStringLiteral("Connected to ") + core->serial()->portName();;
         break;
 
     case STARTPRINT:
+        stateString = QStringLiteral("START PRINT");
         ui->printPB->setText(tr("Pause Print"));
         ui->printLayout->setVisible(true);
         printTime->start();
@@ -450,22 +509,39 @@ void MainWindow::printerStateChanged(PrinterState state)
         break;
 
     case FINISHEDPRINT:
+        stateString = QStringLiteral("Finished Print");
         ui->printPB->setText(tr("Print File"));
         ui->printLayout->setVisible(false);
         printTimer->stop();
         break;
 
     case PAUSE:
+        stateString = QStringLiteral("Paused");
         ui->printPB->setText(tr("Resume Print"));
         break;
 
     case BUSY:
+        stateString = QStringLiteral("Printing");
         ui->printPB->setText(tr("Pause Print"));
         break;
 
-    default:
+    case DISCONNECTED:
+        stateString = QStringLiteral("Not Connected");
+        break;
+
+    case CONNECTING:
+        stateString = QStringLiteral("Connecting");
+        break;
+
+    case STOP:
+        stateString = QStringLiteral("Stoping Print");
+        break;
+
+    case ERROR:
+        stateString = QStringLiteral("Command ERROR");
         break;
     }
+    ui->lblState->setText(stateString);
 }
 
 void MainWindow::populateCBs()
