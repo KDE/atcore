@@ -149,47 +149,13 @@ void MainWindow::setupActions()
     action = KStandardAction::quit(qApp, SLOT(quit()), actionCollection());
 
     //connect the view actions to their docks.
-    action = actionCollection()->addAction(QStringLiteral("actionConnection_Settings"), ui->connectDock, &QDockWidget::setVisible);
-    action->setText(QStringLiteral("Connection Settings"));
-    action->setCheckable(true);
-    connect(ui->connectDock, &QDockWidget::visibilityChanged,
-            actionCollection()->action(QStringLiteral("actionConnection_Settings")), &QAction::setChecked);
-
-    action = actionCollection()->addAction(QStringLiteral("actionSession_Log"), ui->logDock, &QDockWidget::setVisible);
-    action->setText(QStringLiteral("Session Log"));
-    action->setCheckable(true);
-    connect(ui->logDock, &QDockWidget::visibilityChanged,
-            actionCollection()->action(QStringLiteral("actionSession_Log")), &QAction::setChecked);
-
-    action = actionCollection()->addAction(QStringLiteral("actionTemperature_Plot"), ui->tempTimelineDock, &QDockWidget::setVisible);
-    action->setText(QStringLiteral("Temperature Plot"));
-    action->setCheckable(true);
-    connect(ui->tempTimelineDock, &QDockWidget::visibilityChanged,
-            actionCollection()->action(QStringLiteral("actionTemperature_Plot")), &QAction::setChecked);
-
-    action = actionCollection()->addAction(QStringLiteral("actionTest_Commands"), ui->commandDock, &QDockWidget::setVisible);
-    action->setText(QStringLiteral("Test Commands"));
-    action->setCheckable(true);
-    connect(ui->commandDock, &QDockWidget::visibilityChanged,
-            actionCollection()->action(QStringLiteral("actionTest_Commands")), &QAction::setChecked);
-
-    action = actionCollection()->addAction(QStringLiteral("actionMovement"), ui->moveDock, &QDockWidget::setVisible);
-    action->setText(QStringLiteral("Movement Controls"));
-    action->setCheckable(true);
-    connect(ui->moveDock, &QDockWidget::visibilityChanged,
-            actionCollection()->action(QStringLiteral("actionMovement")), &QAction::setChecked);
-
-    action = actionCollection()->addAction(QStringLiteral("actionTemp_Controls"), ui->tempControlsDock, &QDockWidget::setVisible);
-    action->setText(QStringLiteral("Temperature Controls"));
-    action->setCheckable(true);
-    connect(ui->tempControlsDock, &QDockWidget::visibilityChanged,
-            actionCollection()->action(QStringLiteral("actionTemp_Controls")), &QAction::setChecked);
-
-    action = actionCollection()->addAction(QStringLiteral("actionPrint"), ui->printDock, &QDockWidget::setVisible);
-    action->setText(QStringLiteral("Print Controls"));
-    action->setCheckable(true);
-    connect(ui->printDock, &QDockWidget::visibilityChanged,
-            actionCollection()->action(QStringLiteral("actionPrint")), &QAction::setChecked);
+    actionCollection()->addAction(QStringLiteral("actionConnection_Settings"), ui->connectDock->toggleViewAction());
+    actionCollection()->addAction(QStringLiteral("actionSession_Log"), ui->logDock->toggleViewAction());
+    actionCollection()->addAction(QStringLiteral("actionTemperature_Plot"), ui->tempTimelineDock->toggleViewAction());
+    actionCollection()->addAction(QStringLiteral("actionTest_Commands"), ui->commandDock->toggleViewAction());
+    actionCollection()->addAction(QStringLiteral("actionMovement"), ui->moveDock->toggleViewAction());
+    actionCollection()->addAction(QStringLiteral("actionTemp_Controls"), ui->tempControlsDock->toggleViewAction());
+    actionCollection()->addAction(QStringLiteral("actionPrint"), ui->printDock->toggleViewAction());
 
     setupGUI(Save | Create, QStringLiteral("atcoreui.rc"));
 }

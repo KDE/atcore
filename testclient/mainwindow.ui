@@ -831,16 +831,6 @@
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <item>
-          <property name="text">
-           <string>Extruder 0</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Extruder 1</string>
-          </property>
-         </item>
         </widget>
        </item>
        <item>
@@ -878,26 +868,6 @@
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <item>
-          <property name="text">
-           <string>Fan 0 Speed</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Fan 1 Speed</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Fan 2 Speed</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Fan 3 Speed</string>
-          </property>
-         </item>
         </widget>
        </item>
        <item>
