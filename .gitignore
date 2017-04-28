@@ -2,4 +2,6 @@
 build/*
 doc/html*
 doc/latex*
+*.diff
+*.patch
 
