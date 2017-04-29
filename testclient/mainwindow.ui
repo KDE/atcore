@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>AtCore - KDE 3D Printing Test Client</string>
+   <string>AtCore - Test Client</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="statusBarWidget" native="true">
