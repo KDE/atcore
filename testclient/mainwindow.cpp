@@ -128,8 +128,6 @@ MainWindow::MainWindow(QWidget *parent) :
     tabifyDockWidget(ui->connectDock, ui->printDock);
     tabifyDockWidget(ui->connectDock, ui->commandDock);
     ui->connectDock->raise();
-    toggleDockTitles();
-
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
@@ -150,6 +148,7 @@ void MainWindow::setupActions()
 
     actionCollection()->addAction(QStringLiteral("actionShowDockTitles"), this, &MainWindow::toggleDockTitles);
     actionCollection()->action(QStringLiteral("actionShowDockTitles"))->setCheckable(true);
+    actionCollection()->action(QStringLiteral("actionShowDockTitles"))->setChecked(true);
     actionCollection()->action(QStringLiteral("actionShowDockTitles"))->setText(i18n("Show Dock Titles"));
 
     //connect the view actions to their docks.
@@ -162,6 +161,7 @@ void MainWindow::setupActions()
     actionCollection()->addAction(QStringLiteral("actionPrint"), ui->printDock->toggleViewAction());
 
     setupGUI(Save | Create, QStringLiteral("atcoreui.rc"));
+
 }
 
 QString MainWindow::getTime()
