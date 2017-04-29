@@ -308,7 +308,7 @@ void AtCore::setState(PrinterState state)
 {
     if (state != d->printerStatus.printerState) {
         qCDebug(ATCORE_CORE) << "Atcore state changed from [" \
-                 << d->printerStatus.printerState << "] to [" << state << "]";
+                             << d->printerStatus.printerState << "] to [" << state << "]";
         d->printerStatus.printerState = state;
         emit(stateChanged(d->printerStatus.printerState));
     }
