@@ -42,4 +42,4 @@ install(FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/AtCoreTest.desktop"
     DESTINATION share/applications)
 
-install(FILES atcoreui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/atcoregui)
+install(FILES atcoreui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/atcore)
