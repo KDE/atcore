@@ -1,4 +1,5 @@
 @PACKAGE_INIT@
+include(CMakeFindDependencyMacro)
 
 find_dependency(Qt5Widgets "@REQUIRED_QT_VERSION@")
 find_dependency(Qt5SerialPort "@REQUIRED_QT_VERSION@")
