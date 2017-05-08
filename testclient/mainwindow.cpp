@@ -41,7 +41,6 @@ MainWindow::MainWindow(QWidget *parent) :
     KXmlGuiWindow(parent),
     ui(new Ui::MainWindow),
     core(new AtCore(this)),
-    deviceNotifier(Solid::DeviceNotifier::instance()),
     logFile(new QTemporaryFile(QDir::tempPath() + QStringLiteral("/AtCore_")))
 {
     ui->setupUi(this);
@@ -88,13 +87,17 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->flowRatePB, &QPushButton::clicked, this, &MainWindow::flowRatePBClicked);
     connect(ui->absoluteRB, &QRadioButton::toggled, this, &MainWindow::movementModeChanged);
     connect(ui->showMessagePB, &QPushButton::clicked, this, &MainWindow::showMessage);
-    connect(deviceNotifier, &Solid::DeviceNotifier::deviceAdded, this, &MainWindow::locateSerialPort);
-    connect(deviceNotifier, &Solid::DeviceNotifier::deviceRemoved, this, &MainWindow::locateSerialPort);
     connect(ui->pluginCB, &QComboBox::currentTextChanged, this, &MainWindow::pluginCBChanged);
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
     connect(this, &MainWindow::printFile, core, &AtCore::print);
     connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
     connect(ui->emergencyStopPB, &QPushButton::clicked, core, &AtCore::emergencyStop);
+
+    //We love solid, but we need a release :/
+    QTimer timer = new QTimer();
+    timer->setInterval( 100 );
+    timer->start();
+    connect(timer, &QTimer::timeout, this, &MainWindow::locateSerialPort);
 
     connect(core, &AtCore::printProgressChanged, this, &MainWindow::printProgressChanged);
 
