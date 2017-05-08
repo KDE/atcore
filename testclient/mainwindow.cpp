@@ -128,6 +128,7 @@ MainWindow::MainWindow(QWidget *parent) :
     tabifyDockWidget(ui->connectDock, ui->printDock);
     tabifyDockWidget(ui->connectDock, ui->commandDock);
     ui->connectDock->raise();
+    setCentralWidget(NULL);
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
