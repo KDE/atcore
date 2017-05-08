@@ -17,7 +17,6 @@ find_package(Qt5 REQUIRED COMPONENTS
 )
 
 find_package(KF5 REQUIRED COMPONENTS
-    Solid
     I18n
     XmlGui
     ConfigWidgets
@@ -25,7 +24,7 @@ find_package(KF5 REQUIRED COMPONENTS
 
 add_executable(AtCoreTest ${AtCoreTestClient_SRCS})
 
-target_link_libraries(AtCoreTest AtCoreTestWidgets KF5::AtCore Qt5::Widgets KF5::Solid Qt5::Charts KF5::XmlGui KF5::ConfigWidgets KF5::I18n)
+target_link_libraries(AtCoreTest AtCoreTestWidgets KF5::AtCore Qt5::Widgets Qt5::Charts KF5::XmlGui KF5::ConfigWidgets KF5::I18n)
 
 install(TARGETS AtCoreTest RUNTIME DESTINATION bin)
 

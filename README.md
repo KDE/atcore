@@ -1,4 +1,4 @@
-AtCore - KDE Print Service for 3DPrinters [![Build Status](https://build.kde.org/buildStatus/icon?job=atcore master kf5-qt5/PLATFORM=Linux,compiler=gcc)](https://build.kde.org/job/atcore master kf5-qt5/PLATFORM=Linux,compiler=gcc)
+AtCore - KDE Print Service for 3DPrinters [![Build Status](https://build.kde.org/buildStatus/icon?job=atcore%20master%20kf5-qt5)](https://build.kde.org/job/atcore%20master%20kf5-qt5/)
 ----
 
 AtCore is a API to manage the serial connection between the computer and 3D Printers.

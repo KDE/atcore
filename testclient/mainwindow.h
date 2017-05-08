@@ -27,7 +27,6 @@
 #include <QSerialPort>
 #include <QTemporaryFile>
 
-#include <Solid/DeviceNotifier>
 #include <KXmlGui/KXmlGuiWindow>
 
 #include "atcore.h"
@@ -179,7 +178,6 @@ signals:
 private:
     Ui::MainWindow *ui;
     AtCore *core;
-    Solid::DeviceNotifier *deviceNotifier;
     QTemporaryFile *logFile;
     QStringList serialPortList;
     QTime *printTime;
