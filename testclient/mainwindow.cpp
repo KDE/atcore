@@ -94,8 +94,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->emergencyStopPB, &QPushButton::clicked, core, &AtCore::emergencyStop);
 
     //We love solid, but we need a release :/
-    QTimer timer = new QTimer();
-    timer->setInterval( 100 );
+    QTimer *timer = new QTimer();
+    timer->setInterval( 1e3 );
     timer->start();
     connect(timer, &QTimer::timeout, this, &MainWindow::locateSerialPort);
 
@@ -299,6 +299,11 @@ void MainWindow::locateSerialPort()
         serialPortList.clear();
         ui->serialPortCB->clear();
         addLog(tr("Not available ports! Please connect a serial device to continue!"));
+        addLog(tr("Not available ports! Please connect a serial device to continue!"));
+        QString portError(tr("No available ports! Please connect a serial device to continue!"));
+        if(! ui->logTE->toPlainText().endsWith(portError)) {
+            addLog(portError);
+        }
     }
 }
 
