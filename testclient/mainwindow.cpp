@@ -118,6 +118,17 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->plotWidget->update();
     });
 
+    connect(ui->actionQuit, &QAction::triggered, this, &MainWindow::close);
+    connect(ui->actionShowDockTitles, &QAction::toggled, this, &MainWindow::toggleDockTitles);
+
+    ui->menuView->insertAction(NULL, ui->connectDock->toggleViewAction());
+    ui->menuView->insertAction(NULL, ui->tempControlsDock->toggleViewAction());
+    ui->menuView->insertAction(NULL, ui->commandDock->toggleViewAction());
+    ui->menuView->insertAction(NULL, ui->printDock->toggleViewAction());
+    ui->menuView->insertAction(NULL, ui->moveDock->toggleViewAction());
+    ui->menuView->insertAction(NULL, ui->tempTimelineDock->toggleViewAction());
+    ui->menuView->insertAction(NULL, ui->logDock->toggleViewAction());
+
     //more dock stuff.
     setTabPosition(Qt::LeftDockWidgetArea, QTabWidget::North);
     setTabPosition(Qt::RightDockWidgetArea, QTabWidget::North);
