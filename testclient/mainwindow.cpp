@@ -25,9 +25,6 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include <QDebug>
-#include <KLocalizedString>
-#include <KStandardAction>
-#include <KActionCollection>
 
 #include "mainwindow.h"
 #include "seriallayer.h"
@@ -38,13 +35,12 @@ Q_LOGGING_CATEGORY(TESTCLIENT_MAINWINDOW, "org.kde.atelier.core");
 int MainWindow::fanCount = 4;
 
 MainWindow::MainWindow(QWidget *parent) :
-    KXmlGuiWindow(parent),
+    QMainWindow(parent),
     ui(new Ui::MainWindow),
     core(new AtCore(this)),
     logFile(new QTemporaryFile(QDir::tempPath() + QStringLiteral("/AtCore_")))
 {
     ui->setupUi(this);
-    setupActions();
     ui->serialPortCB->setEditable(true);
     QValidator *validator = new QIntValidator();
     ui->baudRateLE->setValidator(validator);
@@ -144,28 +140,6 @@ MainWindow::~MainWindow()
 {
     delete logFile;
     delete ui;
-}
-
-void MainWindow::setupActions()
-{
-    KStandardAction::quit(qApp, SLOT(quit()), actionCollection());
-
-    actionCollection()->addAction(QStringLiteral("actionShowDockTitles"), this, &MainWindow::toggleDockTitles);
-    actionCollection()->action(QStringLiteral("actionShowDockTitles"))->setCheckable(true);
-    actionCollection()->action(QStringLiteral("actionShowDockTitles"))->setChecked(true);
-    actionCollection()->action(QStringLiteral("actionShowDockTitles"))->setText(i18n("Show Dock Titles"));
-
-    //connect the view actions to their docks.
-    actionCollection()->addAction(QStringLiteral("actionConnection_Settings"), ui->connectDock->toggleViewAction());
-    actionCollection()->addAction(QStringLiteral("actionSession_Log"), ui->logDock->toggleViewAction());
-    actionCollection()->addAction(QStringLiteral("actionTemperature_Plot"), ui->tempTimelineDock->toggleViewAction());
-    actionCollection()->addAction(QStringLiteral("actionTest_Commands"), ui->commandDock->toggleViewAction());
-    actionCollection()->addAction(QStringLiteral("actionMovement"), ui->moveDock->toggleViewAction());
-    actionCollection()->addAction(QStringLiteral("actionTemp_Controls"), ui->tempControlsDock->toggleViewAction());
-    actionCollection()->addAction(QStringLiteral("actionPrint"), ui->printDock->toggleViewAction());
-
-    setupGUI(Save | Create, QStringLiteral("atcoreui.rc"));
-
 }
 
 QString MainWindow::getTime()
@@ -559,7 +533,7 @@ void MainWindow::printProgressChanged(int progress)
 }
 void MainWindow::toggleDockTitles()
 {
-    if (actionCollection()->action(QStringLiteral("actionShowDockTitles"))->isChecked()) {
+    if (ui->actionShowDockTitles->isChecked()) {
         delete ui->connectDock->titleBarWidget();
         delete ui->logDock->titleBarWidget();
         delete ui->tempTimelineDock->titleBarWidget();

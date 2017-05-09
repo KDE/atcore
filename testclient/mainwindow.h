@@ -27,13 +27,11 @@
 #include <QSerialPort>
 #include <QTemporaryFile>
 
-#include <KXmlGui/KXmlGuiWindow>
-
 #include "atcore.h"
 
 class SerialLayer;
 
-class  MainWindow: public KXmlGuiWindow
+class  MainWindow: public QMainWindow
 {
     Q_OBJECT
 

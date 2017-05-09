@@ -21,8 +21,6 @@
 */
 #include <QApplication>
 #include <QDebug>
-#include <KAboutData>
-#include <KLocalizedString>
 
 #include "mainwindow.h"
 
@@ -34,38 +32,8 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QCoreApplication::setApplicationName(QStringLiteral("AtCore - KDE Print Service"));
 
-    KAboutData aboutData(
-        // The program name used internally. (componentName)
-        QStringLiteral("atcore"),
-        // A displayable program name string. (displayName)
-        i18n("Atcore"),
-        // The program version string. (version)
-        QStringLiteral("1.0"),
-        // Short description of what the app does. (shortDescription)
-        i18n("Test Client of AtCore"),
-        // The license this code is released under
-        KAboutLicense::GPL,
-        // Copyright Statement (copyrightStatement = QString())
-        i18n("(c) 2017"),
-        // Optional text shown in the About box.
-        // Can contain any information desired. (otherText)
-        i18n(""),
-        // The program homepage string. (homePageAddress = QString())
-        QStringLiteral("http://atelier.kde.org"),
-        // The bug report email address
-        // (bugsEmailAddress = QLatin1String("submit@bugs.kde.org")
-        QStringLiteral("atelier@bugs.kde.org"));
-    aboutData.addAuthor(i18n("Lays Rodrigues"), i18n("Developer"), QStringLiteral("laysrodriguessilva@gmail.com"),
-                        QStringLiteral("http://laysrodriguesdev.wordpress.com"));
-    aboutData.addAuthor(i18n("Chris Rizzitello"), i18n("Developer"), QStringLiteral("sithlord48@gmail.com"),
-                        QStringLiteral("http://rizzitello.wordpress.com"));
-    aboutData.addAuthor(i18n("Patrick Pereira"), i18n("Developer"), QStringLiteral("patrickelectric@gmail.com"),
-                        QStringLiteral("http://patrickjp.com"));
-    aboutData.addAuthor(i18n("Tomaz Canabrava"), i18n("Contributor"), QStringLiteral("tomaz@kde.com"),
-                        QStringLiteral("http://angrycane.com.br"));
-    KAboutData::setApplicationData(aboutData);
+    MainWindow window;
+    window.show();
 
-    MainWindow *m = new MainWindow();
-    m->show();
     return app.exec();
 }
