@@ -901,51 +901,49 @@
     </layout>
    </widget>
   </widget>
-  <action name="actionConnection_Settings">
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>767</width>
+     <height>37</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionShowDockTitles"/>
+    <addaction name="separator"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuView"/>
+  </widget>
+   <action name="actionQuit">
+   <property name="icon">
+    <iconset theme="application-exit">
+     <normaloff>.</normaloff>.</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Quit</string>
+   </property>
+  </action>
+  <action name="actionShowDockTitles">
    <property name="checkable">
     <bool>true</bool>
    </property>
-   <property name="text">
-    <string>&amp;Connection Settings</string>
-   </property>
-  </action>
-  <action name="actionTest_Commands">
-   <property name="checkable">
+   <property name="checked">
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Ma&amp;nual</string>
-   </property>
-  </action>
-  <action name="actionSession_Log">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>&amp;Session Log</string>
-   </property>
-  </action>
-  <action name="actionTemperature">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>T&amp;emperature Plot</string>
-   </property>
-  </action>
-  <action name="actionMovement">
-   <property name="text">
-    <string>&amp;Movement</string>
-   </property>
-  </action>
-  <action name="actionPrint">
-   <property name="text">
-    <string>&amp;Print</string>
-   </property>
-  </action>
-  <action name="actionTemps">
-   <property name="text">
-    <string>&amp;Temperatures</string>
+    <string>&amp;Show Dock Titles</string>
    </property>
   </action>
  </widget>
