@@ -284,8 +284,6 @@ void MainWindow::locateSerialPort()
     } else {
         serialPortList.clear();
         ui->serialPortCB->clear();
-        addLog(tr("Not available ports! Please connect a serial device to continue!"));
-        addLog(tr("Not available ports! Please connect a serial device to continue!"));
         QString portError(tr("No available ports! Please connect a serial device to continue!"));
         if (! ui->logTE->toPlainText().endsWith(portError)) {
             addLog(portError);
