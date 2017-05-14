@@ -91,7 +91,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //We love solid, but we need a release :/
     QTimer *timer = new QTimer();
-    timer->setInterval( 1e3 );
+    timer->setInterval(1e3);
     timer->start();
     connect(timer, &QTimer::timeout, this, &MainWindow::locateSerialPort);
 
@@ -287,7 +287,7 @@ void MainWindow::locateSerialPort()
         addLog(tr("Not available ports! Please connect a serial device to continue!"));
         addLog(tr("Not available ports! Please connect a serial device to continue!"));
         QString portError(tr("No available ports! Please connect a serial device to continue!"));
-        if(! ui->logTE->toPlainText().endsWith(portError)) {
+        if (! ui->logTE->toPlainText().endsWith(portError)) {
             addLog(portError);
         }
     }
@@ -491,10 +491,18 @@ void MainWindow::printerStateChanged(PrinterState state)
 
     case DISCONNECTED:
         stateString = QStringLiteral("Not Connected");
+        ui->commandDock->setDisabled(true);
+        ui->moveDock->setDisabled(true);
+        ui->tempControlsDock->setDisabled(true);
+        ui->printDock->setDisabled(true);
         break;
 
     case CONNECTING:
         stateString = QStringLiteral("Connecting");
+        ui->commandDock->setDisabled(false);
+        ui->moveDock->setDisabled(false);
+        ui->tempControlsDock->setDisabled(false);
+        ui->printDock->setDisabled(false);
         break;
 
     case STOP:
