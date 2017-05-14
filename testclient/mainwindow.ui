@@ -162,6 +162,9 @@
     </layout>
    </widget>
    <widget class="QDockWidget" name="printDock">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -316,6 +319,9 @@
     </widget>
    </widget>
    <widget class="QDockWidget" name="commandDock">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -616,6 +622,9 @@
    </property>
   </widget>
   <widget class="QDockWidget" name="moveDock">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="minimumSize">
     <size>
      <width>0</width>
@@ -767,6 +776,9 @@
    </widget>
   </widget>
   <widget class="QDockWidget" name="tempControlsDock">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="minimumSize">
     <size>
      <width>0</width>
@@ -918,7 +930,7 @@
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
-     <string>View</string>
+     <string>&amp;View</string>
     </property>
     <addaction name="actionShowDockTitles"/>
     <addaction name="separator"/>
@@ -926,7 +938,7 @@
    <addaction name="menuFile"/>
    <addaction name="menuView"/>
   </widget>
-   <action name="actionQuit">
+  <action name="actionQuit">
    <property name="icon">
     <iconset theme="application-exit">
      <normaloff>.</normaloff>.</iconset>
