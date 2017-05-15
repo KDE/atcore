@@ -62,7 +62,7 @@ void PrintThread::commandReady()
         }
         break;
 
-    case ERROR:
+    case ERRORSTATE:
         qCDebug(PRINT_THREAD) << "Error State";
         break;
 

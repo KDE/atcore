@@ -507,7 +507,7 @@ void MainWindow::printerStateChanged(PrinterState state)
         stateString = QStringLiteral("Stoping Print");
         break;
 
-    case ERROR:
+    case ERRORSTATE:
         stateString = QStringLiteral("Command ERROR");
         break;
     }
