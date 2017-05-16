@@ -1,5 +1,6 @@
 set(widgets_SRCS
     plotwidget.cpp
+    printerhostpositionvisualcontroller.cpp
     )
 
 add_library(AtCoreTestWidgets STATIC ${widgets_SRCS})
