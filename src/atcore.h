@@ -39,7 +39,7 @@ enum PrinterState {
     IDLE, //Connected to printer and ready for commands
     BUSY, //Printer is working
     PAUSE, //Printer is paused
-    ERROR, // Printer Returned Error
+    ERRORSTATE, // Printer Returned Error
     STOP, // Stop Printing and Clean Queue
     STARTPRINT, //Just Starting a print job
     FINISHEDPRINT, //Just Finished print job
