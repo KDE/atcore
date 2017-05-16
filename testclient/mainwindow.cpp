@@ -30,6 +30,7 @@
 #include "mainwindow.h"
 #include "seriallayer.h"
 #include "gcodecommands.h"
+#include "widgets/printerhostpositionvisualcontroller.h"
 
 Q_LOGGING_CATEGORY(TESTCLIENT_MAINWINDOW, "org.kde.atelier.core");
 
@@ -50,6 +51,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->pluginCB->addItem(tr("Autodetect"));
     ui->pluginCB->addItems(core->availablePlugins());
+
+    PrinterHotendPositionVisualController *AxisControl = new PrinterHotendPositionVisualController;
+    ui->dockWidgetContents_5->layout()->addWidget(AxisControl);
 
     addLog(tr("Attempting to locate Serial Ports"));
 
@@ -87,13 +91,13 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->printPB, &QPushButton::clicked, this, &MainWindow::printPBClicked);
     connect(ui->printerSpeedPB, &QPushButton::clicked, this, &MainWindow::printerSpeedPBClicked);
     connect(ui->flowRatePB, &QPushButton::clicked, this, &MainWindow::flowRatePBClicked);
-    connect(ui->absoluteRB, &QRadioButton::toggled, this, &MainWindow::movementModeChanged);
     connect(ui->showMessagePB, &QPushButton::clicked, this, &MainWindow::showMessage);
     connect(ui->pluginCB, &QComboBox::currentTextChanged, this, &MainWindow::pluginCBChanged);
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
     connect(this, &MainWindow::printFile, core, &AtCore::print);
     connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
     connect(ui->emergencyStopPB, &QPushButton::clicked, core, &AtCore::emergencyStop);
+    connect(AxisControl, &PrinterHotendPositionVisualController::clicked, this, &MainWindow::axisControlClicked);
 
     //We love solid, but we need a release :/
     QTimer *timer = new QTimer();
@@ -456,16 +460,6 @@ void MainWindow::printerSpeedPBClicked()
     core->setPrinterSpeed(ui->printerSpeedSB->value());
 }
 
-void MainWindow::movementModeChanged(const bool &checked)
-{
-    if (checked) {
-        core->setAbsolutePosition();
-        ui->mvAxisSB->setMinimum(0);
-    } else {
-        core->setRelativePosition();
-        ui->mvAxisSB->setMinimum(-200);
-    }
-}
 void MainWindow::printerStateChanged(PrinterState state)
 {
     QString stateString;
@@ -581,4 +575,9 @@ void MainWindow::toggleDockTitles()
         ui->printDock->setTitleBarWidget(new QWidget());
     }
 }
-
+void MainWindow::axisControlClicked(QChar axis, int value)
+{
+    core->setRelativePosition();
+    core->pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("%1%2").arg(axis, QString::number(value))));
+    core->setAbsolutePosition();
+}

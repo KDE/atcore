@@ -65,7 +65,12 @@ public slots:
 
 private slots:
     //ButtonEvents
-
+    /**
+     * @brief axisControlClicked Used to catch the axis control.
+     * @param axis The Axis clicked on (X |Y |Z)
+     * @param value Distance Value
+     */
+    void axisControlClicked(QChar axis, int value);
     /**
      * @brief the printing progress has changed
      * @param progress: the new progress
@@ -136,11 +141,6 @@ private slots:
      * @brief  set printer speed clicked
      */
     void printerSpeedPBClicked();
-
-    /**
-     * @brief movementModeChanged The radio buttons for absoulte/relative have been toggled
-     */
-    void movementModeChanged(const bool &checked);
 
     /**
      * @brief lowRatePB has been clicked
