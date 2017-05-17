@@ -77,9 +77,8 @@ AtCore::AtCore(QObject *parent) :
     }
 
 #if defined(Q_OS_WIN)
-    if (d->pluginsDir.dirName().toLower() == QStringLiteral("debug") || d->pluginsDir.dirName().toLower() == QStringLiteral("release")) {
-        d->pluginsDir.cdUp();
-    }
+    d->pluginsDir = qApp->applicationDirPath() + QStringLiteral("/plugins");
+
 #elif defined(Q_OS_MAC)
     if (d->pluginsDir.dirName() == "MacOS") {
         d->pluginsDir.cdUp();
