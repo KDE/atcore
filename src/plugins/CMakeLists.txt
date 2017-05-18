@@ -24,14 +24,30 @@ set(AprinterPlugin_SRCS aprinterplugin.cpp)
 add_library(aprinter SHARED ${AprinterPlugin_SRCS})
 target_link_libraries(aprinter Qt5::Core KF5::AtCore)
 
-install(
-TARGETS
-    repetier
-    grbl
-    teacup
-    marlin
-    sprinter
-    aprinter
-DESTINATION
-    ${KDE_INSTALL_PLUGINDIR}/KAtCore
-)
+if(WIN32)
+    install(
+    TARGETS
+        repetier
+        grbl
+        teacup
+        marlin
+        sprinter
+        aprinter
+    DESTINATION
+        bin/plugins
+    )
+endif()
+
+if(UNIX AND NOT APPLE) 
+    install(
+    TARGETS
+        repetier
+        grbl
+        teacup
+        marlin
+        sprinter
+        aprinter
+    DESTINATION
+        ${KDE_INSTALL_PLUGINDIR}/KAtCore
+    )
+endif()
