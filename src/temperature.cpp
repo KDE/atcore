@@ -18,6 +18,9 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
+#include <QRegularExpressionMatch>
+
 #include "temperature.h"
 #include <cmath>
 
@@ -78,4 +81,35 @@ void Temperature::setExtruderTemperature(float temp)
 {
     d->extruderTemp = temp;
     emit extruderTemperatureChanged(temp);
+}
+
+void Temperature::decodeTemp(const QByteArray &msg)
+{
+    QRegularExpression tempRegEx(QStringLiteral("(T:(?<extruder>\\d+\\.?\\d*))"));
+    QRegularExpression targetTempRegEx(QStringLiteral("(\\/)(?<extruderTarget>\\d*)(.+)"));
+    QRegularExpressionMatch tempCheck = tempRegEx.match(QString::fromLatin1(msg));
+    QRegularExpressionMatch targetTempCheck = targetTempRegEx.match(QString::fromLatin1(msg));
+
+    if (tempCheck.hasMatch()) {
+        setExtruderTemperature(tempCheck.captured(QStringLiteral("extruder")).toFloat());
+    }
+    if (targetTempCheck.hasMatch()) {
+        setExtruderTargetTemperature(targetTempCheck.captured(QStringLiteral("extruderTarget")).toFloat());
+    }
+
+    if (msg.contains(QString::fromLatin1("B:").toLocal8Bit())) {
+        QRegularExpression bedRegEx(QStringLiteral("(B:(?<bed>\\d+\\.?\\d*))"));
+        QRegularExpressionMatch bedCheck = bedRegEx.match(QString::fromLatin1(msg));
+        QRegularExpression targetBedRegEx(QStringLiteral("B:(.+)(\\/)(?<bedTarget>\\d+)"));
+        QRegularExpressionMatch targetBedCheck = targetBedRegEx.match(QString::fromLatin1(msg));
+
+        if (bedCheck.hasMatch()) {
+            setBedTemperature(bedCheck.captured(QStringLiteral("bed")).toFloat());
+        }
+
+        if (targetBedCheck.hasMatch()) {
+            setBedTargetTemperature(targetBedCheck.captured(QStringLiteral("bedTarget")).toFloat());
+        }
+
+    }
 }

@@ -26,8 +26,6 @@
 #include <QString>
 
 QString AprinterPlugin::_ok = QStringLiteral("ok");
-QString AprinterPlugin::_extruderTemp = QStringLiteral("T:");
-QString AprinterPlugin::_bedTemp = QStringLiteral("B:");
 
 Q_LOGGING_CATEGORY(APRINTER_PLUGIN, "org.kde.atelier.core.firmware.aprinter");
 
@@ -41,41 +39,8 @@ AprinterPlugin::AprinterPlugin()
     qCDebug(APRINTER_PLUGIN) << name() << " plugin loaded!";
 }
 
-void AprinterPlugin::extractTemp(const QString &lastMessage)
-{
-    //ok B:60.4 /60 T:185.4 /185.0
-    //ok B:58.7 /40,err T:... <- on Thermistor Error
-    QString err = QStringLiteral(",err");
-    QString newMessage = lastMessage;
-
-    if (newMessage.contains(err)) {
-        newMessage.replace(err, QString());
-    }
-
-    QStringList list = newMessage.split(QChar::fromLatin1(' '));
-
-    if (newMessage.contains(_bedTemp)) {
-        // T:185.4 - current temperature
-        core()->temperature().setExtruderTemperature(list[3].mid(2).toFloat());
-        // /185 - target temperature
-        core()->temperature().setExtruderTargetTemperature(list[4].mid(1).toFloat());
-        // B:60.4 - current temperature
-        core()->temperature().setBedTemperature(list[1].mid(2).toFloat());
-        // /60 - target temperature
-        core()->temperature().setBedTargetTemperature(list[2].mid(1).toFloat());
-    } else {
-        // T:185.4 - current temperature
-        core()->temperature().setExtruderTemperature(list[1].mid(2).toFloat());
-        // /185.0 - target temperature
-        core()->temperature().setExtruderTargetTemperature(list[2].mid(1).toFloat());
-    }
-}
-
 void AprinterPlugin::validateCommand(const QString &lastMessage)
 {
-    if (lastMessage.contains(_extruderTemp) || lastMessage.contains(_bedTemp)) {
-        extractTemp(lastMessage);
-    }
     if (lastMessage.contains(_ok)) {
         emit readyForCommand();
     }

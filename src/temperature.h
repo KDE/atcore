@@ -38,6 +38,7 @@ public:
     float bedTargetTemperature() const;
     float extruderTemperature() const;
     float extruderTargetTemperature() const;
+    void decodeTemp(const QByteArray &msg);
 
 public slots:
     void setBedTemperature(float temp);

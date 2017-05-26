@@ -26,8 +26,6 @@
 #include <QString>
 
 QString RepetierPlugin::_ok = QStringLiteral("ok");
-QString RepetierPlugin::_extruderTemp = QStringLiteral("T:");
-QString RepetierPlugin::_bedTemp = QStringLiteral("B:");
 
 Q_LOGGING_CATEGORY(REPETIER_PLUGIN, "org.kde.atelier.core.firmware.repetier");
 
@@ -41,28 +39,8 @@ RepetierPlugin::RepetierPlugin()
     qCDebug(REPETIER_PLUGIN) << name() << " plugin loaded!";
 }
 
-void RepetierPlugin::extractTemp(const QString &lastMessage)
-{
-    // ok T:185.4 /185.0 B:60.5 /60.0
-    QStringList list = lastMessage.split(QChar::fromLatin1(' '));
-    // T:185.4 - current temperature
-    core()->temperature().setExtruderTemperature(list[0].mid(2).toFloat());
-    // /185.0 - target temperature
-    core()->temperature().setExtruderTargetTemperature(list[1].mid(1).toFloat());
-    if (lastMessage.contains(_bedTemp)) {
-        // B:185.4 - current temperature
-        core()->temperature().setBedTemperature(list[2].mid(2).toFloat());
-        // /60.0 - target temperature
-        core()->temperature().setBedTargetTemperature(list[3].mid(1).toFloat());
-    }
-}
-
 void RepetierPlugin::validateCommand(const QString &lastMessage)
 {
-    if (lastMessage.contains(_extruderTemp) || lastMessage.contains(_bedTemp)) {
-        extractTemp(lastMessage);
-    }
-
     if (lastMessage.contains(_ok)) {
         emit readyForCommand();
     }

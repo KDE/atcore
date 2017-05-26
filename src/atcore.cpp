@@ -234,6 +234,8 @@ void AtCore::newMessage(const QByteArray &message)
         d->printerStatus.posString.replace(':', "");
     }
 
+    //Check if have temperature info and decode it
+    temperature().decodeTemp(message);
     emit(receivedMessage(d->lastMessage));
 }
 
