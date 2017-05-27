@@ -147,10 +147,14 @@ void PrinterHotendPositionVisualController::resizeEvent(QResizeEvent *event)
 void PrinterHotendPositionVisualController::setLabels(QGraphicsItem *item, QLatin1Char axis, int value)
 {
     auto *lb = new QGraphicsSimpleTextItem();
-    lb->setText((value < 0) ? QStringLiteral("-") + axis : QString(axis));
+    if (this->logicalDpiX() <= 96) {
+        lb->setText((value < 0) ? QStringLiteral(" -") + axis : QStringLiteral("  ") + axis);
+    } else {
+        lb->setText((value < 0) ? QStringLiteral("-") + axis : QStringLiteral(" ") + axis);
+    }
 
     if (axis.toLatin1() == 'X') {
-        lb->setY(item->y() - lb->boundingRect().width() / 2);
+        lb->setY(item->y() - lb->boundingRect().width());
         if (value < 0) {
             lb->setX(item->x() - item->boundingRect().width() / 1.2 - lb->boundingRect().width() / 2);
         } else {
@@ -166,11 +170,11 @@ void PrinterHotendPositionVisualController::setLabels(QGraphicsItem *item, QLati
     } else {
 
         if (value < 0) {
-            lb->setX(item->x() + lb->boundingRect().width() / 6);
-            lb->setY(item->y() - lb->boundingRect().height() / 6);
+            lb->setX(item->x() + lb->boundingRect().width() / fontMetrics().width(lb->text()));
+            lb->setY(item->y() - lb->boundingRect().height() / fontMetrics().xHeight());
         } else {
-            lb->setX(item->x() + lb->boundingRect().width() / 6);
-            lb->setY(item->y() - lb->boundingRect().height() / 6);
+            lb->setX(item->x() + lb->boundingRect().width() / fontMetrics().width(lb->text()));
+            lb->setY(item->y() - lb->boundingRect().height() / fontMetrics().xHeight());
         }
     }
     scene()->addItem(lb);
