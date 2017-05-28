@@ -76,15 +76,8 @@ AtCore::AtCore(QObject *parent) :
         qCritical() << "No valid path for plugin !";
     }
 
-#if defined(Q_OS_WIN)
+#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
     d->pluginsDir = qApp->applicationDirPath() + QStringLiteral("/plugins");
-
-#elif defined(Q_OS_MAC)
-    if (d->pluginsDir.dirName() == "MacOS") {
-        d->pluginsDir.cdUp();
-        d->pluginsDir.cdUp();
-        d->pluginsDir.cdUp();
-    }
 #endif
     qCDebug(ATCORE_PLUGIN) << d->pluginsDir;
     findPlugins();
