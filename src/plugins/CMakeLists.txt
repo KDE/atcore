@@ -24,7 +24,7 @@ set(AprinterPlugin_SRCS aprinterplugin.cpp)
 add_library(aprinter SHARED ${AprinterPlugin_SRCS})
 target_link_libraries(aprinter Qt5::Core KF5::AtCore)
 
-if(WIN32)
+if(WIN32 OR APPLE)
     install(
     TARGETS
         repetier
