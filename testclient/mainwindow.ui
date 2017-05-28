@@ -939,10 +939,6 @@
    <addaction name="menuView"/>
   </widget>
   <action name="actionQuit">
-   <property name="icon">
-    <iconset theme="application-exit">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
    <property name="text">
     <string>&amp;Quit</string>
    </property>

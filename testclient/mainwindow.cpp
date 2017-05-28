@@ -54,6 +54,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     populateCBs();
 
+    //Icon for actionQuit
+#ifndef Q_OS_MAC
+    ui->actionQuit->setIcon(QIcon::fromTheme(QStringLiteral("application-exit")));
+#endif
+
     //hide the printing progress bar.
     ui->printLayout->setVisible(false);
 
