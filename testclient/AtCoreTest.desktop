@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=AtCore Test Client
 Exec=/usr/bin/AtCoreTest
-Icon=AtCoreTest.png
+Icon=AtCoreTest
 Encoding=UTF-8
 Categories=Application;Graphics;
 StartupNotify=true
