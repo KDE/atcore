@@ -524,3 +524,13 @@ void AtCore::showMessage(const QString &message)
         pushCommand(GCode::toCommand((GCode::M117), message));
     }
 }
+
+void AtCore::setUnits(MetricSystem system)
+{
+    switch (system) {
+        case Metric:
+            pushCommand(GCode::toCommand(GCode::G21));
+        case Imperial:
+            pushCommand(GCode::toCommand(GCode::G20));
+    }
+}
