@@ -575,3 +575,14 @@ QString GCode::toCommand(MCommands gcode, const QString &value1, const QString &
     }
 }
 
+QString GCode::setUnits(MetricSystem choice)
+{
+    switch (choice) {
+        case Metric:
+            return QStringLiteral("G21");
+        case Imperial:
+            return QStringLiteral("G20");
+        default:
+            return QObject::tr("ERROR! Argument should be 'Metric' or 'Imperial'");
+    }
+}

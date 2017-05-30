@@ -108,10 +108,16 @@ public:
         M997, M998, M999
     };
     Q_ENUM(MCommands);
+    
+    enum MetricSystem {
+        Metric, Imperial
+    };
+    Q_ENUM(MetricSystem);
 
     static QString toString(Firmwares firmware);
     static QString toString(GCommands gcode);
     static QString toString(MCommands gcode);
     static QString toCommand(GCommands gcode, const QString &value1 = QString());
     static QString toCommand(MCommands gcode, const QString &value1 = QString(), const QString &value2 = QString());
+    static QString setUnits(MetricSystem choice);
 };
