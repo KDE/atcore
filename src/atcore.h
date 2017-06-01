@@ -53,6 +53,10 @@ enum AXIS {
     E = 1 << 3,
 };
 
+enum MeasurementUnits {
+    METRIC, IMPERIAL
+};
+
 //TODO: PrinterStatus should also move to d->pointer;
 struct KATCORE_EXPORT PrinterStatus {
     float percentage;
@@ -264,6 +268,12 @@ public slots:
      * @param message message to show on the LCD
      */
     void showMessage(const QString &message);
+    
+    /**
+     * @brief setUnits set the measurement units do be used
+     * @param system : the measurement units (METRIC / IMPERIAL)
+     */
+    void setUnits(MeasurementUnits units);
 
 private slots:
     /**
