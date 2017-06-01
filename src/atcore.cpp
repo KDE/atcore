@@ -517,3 +517,13 @@ void AtCore::showMessage(const QString &message)
         pushCommand(GCode::toCommand((GCode::M117), message));
     }
 }
+
+void AtCore::setUnits(MeasurementUnits units)
+{
+    switch (units) {
+        case METRIC:
+            pushCommand(GCode::toCommand(GCode::G21));
+        case IMPERIAL:
+            pushCommand(GCode::toCommand(GCode::G20));
+    }
+}
