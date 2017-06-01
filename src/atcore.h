@@ -53,8 +53,8 @@ enum AXIS {
     E = 1 << 3,
 };
 
-enum MetricSystem {
-    Metric, Imperial
+enum MeasurementUnits {
+    METRIC, IMPERIAL
 };
 
 //TODO: PrinterStatus should also move to d->pointer;
@@ -270,10 +270,10 @@ public slots:
     void showMessage(const QString &message);
     
     /**
-     * @brief setUnits set the metric system do be used
-     * @param system : the metric system (Metric / Imperial)
+     * @brief setUnits set the measurement units do be used
+     * @param system : the measurement units (METRIC / IMPERIAL)
      */
-    void setUnits(MetricSystem system);
+    void setUnits(MeasurementUnits units);
 
 private slots:
     /**
