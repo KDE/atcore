@@ -62,12 +62,12 @@ private:
     int _value;
 };
 
-class PrinterHotendPositionVisualController : public QGraphicsView
+class AxisControl : public QGraphicsView
 {
     Q_OBJECT
 
 public:
-    explicit PrinterHotendPositionVisualController(QWidget *parent = 0);
+    explicit AxisControl(QWidget *parent = 0);
 
 private:
     void setLabels(QGraphicsItem *item, QLatin1Char axis, int value);

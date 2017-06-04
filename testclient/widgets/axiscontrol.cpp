@@ -15,7 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "printerhostpositionvisualcontroller.h"
+#include "axiscontrol.h"
 #include <QDebug>
 #include <QResizeEvent>
 
@@ -83,7 +83,7 @@ void RectButton::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
         in the scene. If you have a better solution, please share with us.
         Lays Rodrigues - Jan/2017
 */
-PrinterHotendPositionVisualController::PrinterHotendPositionVisualController(QWidget *parent) :
+AxisControl::AxisControl(QWidget *parent) :
     QGraphicsView(parent)
 {
     setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
@@ -92,7 +92,7 @@ PrinterHotendPositionVisualController::PrinterHotendPositionVisualController(QWi
 
     auto createPie = [ = ](QLatin1Char axis, int value, int size, int angle) {
         auto pie = new PieButton(axis, value, size, angle);
-        connect(pie, &PieButton::clicked, this, &PrinterHotendPositionVisualController::clicked);
+        connect(pie, &PieButton::clicked, this, &AxisControl::clicked);
         if (value == 25 || value == -25) {
             setLabels(pie, axis, value);
         }
@@ -102,7 +102,7 @@ PrinterHotendPositionVisualController::PrinterHotendPositionVisualController(QWi
     auto createRect = [ = ](QLatin1Char axis, int value, int size, int xPos, int yPos) {
         auto z = new RectButton(axis, value, size);
         z->setPos(xPos, yPos);
-        connect(z, &RectButton::clicked, this, &PrinterHotendPositionVisualController::clicked);
+        connect(z, &RectButton::clicked, this, &AxisControl::clicked);
         if (value == 25 || value == -25) {
             setLabels(z, axis, value);
         }
@@ -138,13 +138,13 @@ PrinterHotendPositionVisualController::PrinterHotendPositionVisualController(QWi
     setSceneRect(scene()->itemsBoundingRect());
 }
 
-void PrinterHotendPositionVisualController::resizeEvent(QResizeEvent *event)
+void AxisControl::resizeEvent(QResizeEvent *event)
 {
     Q_UNUSED(event);
     fitInView(sceneRect(), Qt::KeepAspectRatio);
 }
 
-void PrinterHotendPositionVisualController::setLabels(QGraphicsItem *item, QLatin1Char axis, int value)
+void AxisControl::setLabels(QGraphicsItem *item, QLatin1Char axis, int value)
 {
     auto *lb = new QGraphicsSimpleTextItem();
     if (this->logicalDpiX() <= 96) {

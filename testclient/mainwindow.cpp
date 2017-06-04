@@ -30,7 +30,7 @@
 #include "mainwindow.h"
 #include "seriallayer.h"
 #include "gcodecommands.h"
-#include "widgets/printerhostpositionvisualcontroller.h"
+#include "widgets/axiscontrol.h"
 
 Q_LOGGING_CATEGORY(TESTCLIENT_MAINWINDOW, "org.kde.atelier.core");
 
@@ -52,8 +52,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pluginCB->addItem(tr("Autodetect"));
     ui->pluginCB->addItems(core->availablePlugins());
 
-    PrinterHotendPositionVisualController *AxisControl = new PrinterHotendPositionVisualController;
-    ui->dockWidgetContents_5->layout()->addWidget(AxisControl);
+    AxisControl *axisControl = new AxisControl;
+    ui->dockWidgetContents_5->layout()->addWidget(axisControl);
 
     addLog(tr("Attempting to locate Serial Ports"));
 
@@ -97,7 +97,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this, &MainWindow::printFile, core, &AtCore::print);
     connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
     connect(ui->emergencyStopPB, &QPushButton::clicked, core, &AtCore::emergencyStop);
-    connect(AxisControl, &PrinterHotendPositionVisualController::clicked, this, &MainWindow::axisControlClicked);
+    connect(axisControl, &AxisControl::clicked, this, &MainWindow::axisControlClicked);
 
     //We love solid, but we need a release :/
     QTimer *timer = new QTimer();
