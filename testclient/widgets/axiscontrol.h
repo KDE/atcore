@@ -34,6 +34,7 @@ class PieButton : public QObject, public QGraphicsEllipseItem
     Q_OBJECT
 public:
     PieButton(QLatin1Char axis, int value, int size, int angle);
+    void setPalette(QPalette palette);
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
@@ -43,6 +44,7 @@ signals:
 private:
     QLatin1Char _axis;
     int _value;
+    QPalette _palette;
 };
 
 class RectButton : public QObject, public QGraphicsRectItem
@@ -51,6 +53,7 @@ class RectButton : public QObject, public QGraphicsRectItem
 
 public:
     RectButton(QLatin1Char axis, int value, int size);
+    void setPalette(QPalette palette);
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
@@ -60,6 +63,7 @@ signals:
 private:
     QLatin1Char _axis;
     int _value;
+    QPalette _palette;
 };
 
 class AxisControl : public QGraphicsView

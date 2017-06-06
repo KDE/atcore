@@ -16,19 +16,23 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "axiscontrol.h"
-#include <QDebug>
 #include <QResizeEvent>
 
 PieButton::PieButton(QLatin1Char axis, int value, int size, int angle) : _axis(axis), _value(value)
 {
     const int delta = 16; // Qt Docs: angle is 16th of a degree.
-    setBrush(QBrush(Qt::white));
+    setBrush(_palette.button());
     setStartAngle(angle * delta);
     setSpanAngle(90 * delta);
     setRect(QRect(QPoint(size * -1, size * -1), QPoint(size, size)));
     setZValue(size * -1);
     setAcceptHoverEvents(true);
     setToolTip(QStringLiteral("Move the hotend to the %1 by %2 units").arg(axis).arg(value));
+}
+
+void PieButton::setPalette(QPalette palette)
+{
+    _palette = palette;
 }
 
 void PieButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
@@ -40,22 +44,27 @@ void PieButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
 void PieButton::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
     Q_UNUSED(event);
-    setBrush(QBrush(QColor(Qt::white).dark(150)));
+    setBrush(_palette.highlight());
 }
 
 void PieButton::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
 {
     Q_UNUSED(event);
-    setBrush(QBrush(QColor(Qt::white)));
+    setBrush(_palette.button());
 }
 
 RectButton::RectButton(QLatin1Char axis, int value, int size) : _axis(axis), _value(value)
 {
-    setBrush(QBrush(Qt::white));
+    setBrush(_palette.button());
     setRect(QRect(QPoint(0, 0), QPoint(size, size)));
     setAcceptHoverEvents(true);
     setZValue(size * -1);
     setToolTip(QStringLiteral("Move the hotend to the %1 by %2 units").arg(axis).arg(value));
+}
+
+void RectButton::setPalette(QPalette palette)
+{
+    _palette = palette;
 }
 
 void RectButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
@@ -67,13 +76,13 @@ void RectButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
 void RectButton::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
     Q_UNUSED(event);
-    setBrush(QBrush(QColor(Qt::white).dark(150)));
+    setBrush(_palette.highlight());
 }
 
 void RectButton::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
 {
     Q_UNUSED(event);
-    setBrush(QBrush(QColor(Qt::white)));
+    setBrush(_palette.button());
 }
 /*  About the Magic Numbers
         I don't have experience programming with QGraphicsScene,
@@ -92,6 +101,7 @@ AxisControl::AxisControl(QWidget *parent) :
 
     auto createPie = [ = ](QLatin1Char axis, int value, int size, int angle) {
         auto pie = new PieButton(axis, value, size, angle);
+        pie->setPalette(this->palette());
         connect(pie, &PieButton::clicked, this, &AxisControl::clicked);
         if (value == 25 || value == -25) {
             setLabels(pie, axis, value);
@@ -101,6 +111,7 @@ AxisControl::AxisControl(QWidget *parent) :
 
     auto createRect = [ = ](QLatin1Char axis, int value, int size, int xPos, int yPos) {
         auto z = new RectButton(axis, value, size);
+        z->setPalette(this->palette());
         z->setPos(xPos, yPos);
         connect(z, &RectButton::clicked, this, &AxisControl::clicked);
         if (value == 25 || value == -25) {
@@ -147,6 +158,9 @@ void AxisControl::resizeEvent(QResizeEvent *event)
 void AxisControl::setLabels(QGraphicsItem *item, QLatin1Char axis, int value)
 {
     auto *lb = new QGraphicsSimpleTextItem();
+
+    lb->setBrush(palette().buttonText());
+
     if (this->logicalDpiX() <= 96) {
         lb->setText((value < 0) ? QStringLiteral(" -") + axis : QStringLiteral("  ") + axis);
     } else {
