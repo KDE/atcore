@@ -423,7 +423,7 @@ void MainWindow::printPBClicked()
 void MainWindow::saveLogPBClicked()
 {
     // Note that if a file with the name newName already exists, copy() returns false (i.e. QFile will not overwrite it).
-    QString fileName = QDir::homePath() + QChar::fromLatin1('/') + QFileInfo(logFile->fileName()).fileName();
+    QString fileName = QDir::homePath() + QChar::fromLatin1('/') + QFileInfo(logFile->fileName()).fileName() + QStringLiteral(".txt");
     QString saveFileName = QFileDialog::getSaveFileName(this, tr("Save Log to file"), fileName);
     QFile::copy(logFile->fileName(), saveFileName);
     logFile->close();
