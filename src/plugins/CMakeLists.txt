@@ -24,6 +24,11 @@ set(AprinterPlugin_SRCS aprinterplugin.cpp)
 add_library(aprinter SHARED ${AprinterPlugin_SRCS})
 target_link_libraries(aprinter Qt5::Core KF5::AtCore)
 
+
+set(SmoothiePlugin_SRCS smoothieplugin.cpp)
+add_library(smoothie SHARED ${SmoothiePlugin_SRCS})
+target_link_libraries(smoothie Qt5::Core KF5::AtCore)
+
 if(WIN32 OR APPLE)
     install(
     TARGETS
@@ -33,6 +38,7 @@ if(WIN32 OR APPLE)
         marlin
         sprinter
         aprinter
+        smoothie
     DESTINATION
         bin/plugins
     )
@@ -47,6 +53,7 @@ if(UNIX AND NOT APPLE)
         marlin
         sprinter
         aprinter
+        smoothie
     DESTINATION
         ${KDE_INSTALL_PLUGINDIR}/KAtCore
     )

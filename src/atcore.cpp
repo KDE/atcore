@@ -133,6 +133,9 @@ void AtCore::findFirmware(const QByteArray &message)
         } else if (message.contains("Grbl")) {
             loadFirmware(QString::fromLatin1("grbl"));
             return;
+        } else if (message.contains("Smoothie")) {
+            loadFirmware(QString::fromLatin1("smoothie"));
+            return;
         }
     }
 
