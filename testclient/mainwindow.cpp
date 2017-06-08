@@ -276,7 +276,14 @@ void MainWindow::locateSerialPort()
     QList<QSerialPortInfo> serialPortInfoList = QSerialPortInfo::availablePorts();
     if (!serialPortInfoList.isEmpty()) {
         foreach (const QSerialPortInfo &serialPortInfo, serialPortInfoList) {
+#ifdef Q_OS_MAC
+            //Mac os has callout serial ports starting with cu. they can only recv data. filter them out
+            if (!serialPortInfo.portName().startsWith(QStringLiteral("cu."), Qt::CaseInsensitive)) {
+                ports.append(serialPortInfo.portName());
+            }
+#else
             ports.append(serialPortInfo.portName());
+#endif
         }
         if (ports == serialPortList) {
             return;
