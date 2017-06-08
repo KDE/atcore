@@ -20,7 +20,6 @@
 #include <QObject>
 #include <QGraphicsView>
 #include <QGraphicsEllipseItem>
-#include <QList>
 
 /* Usage:
  *
@@ -36,9 +35,9 @@ public:
     PieButton(QLatin1Char axis, int value, int size, int angle);
     void setPalette(QPalette palette);
 protected:
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
-    void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);
+    void mousePressEvent(QGraphicsSceneMouseEvent *);
+    void hoverEnterEvent(QGraphicsSceneHoverEvent *);
+    void hoverLeaveEvent(QGraphicsSceneHoverEvent *);
 signals:
     void clicked(QLatin1Char axis, int value);
 private:
@@ -55,9 +54,9 @@ public:
     RectButton(QLatin1Char axis, int value, int size);
     void setPalette(QPalette palette);
 protected:
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
-    void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);
+    void mousePressEvent(QGraphicsSceneMouseEvent *);
+    void hoverEnterEvent(QGraphicsSceneHoverEvent *);
+    void hoverLeaveEvent(QGraphicsSceneHoverEvent *);
 signals:
     void clicked(QLatin1Char axis, int value);
 private:
@@ -77,7 +76,7 @@ private:
     void setLabels(QGraphicsItem *item, QLatin1Char axis, int value);
 
 protected:
-    void resizeEvent(QResizeEvent *event);
+    void resizeEvent(QResizeEvent *);
 
 signals:
     void clicked(QLatin1Char axis, int value);

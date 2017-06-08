@@ -16,7 +16,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "axiscontrol.h"
-#include <QResizeEvent>
 
 PieButton::PieButton(QLatin1Char axis, int value, int size, int angle) : _axis(axis), _value(value)
 {
@@ -35,21 +34,18 @@ void PieButton::setPalette(QPalette palette)
     _palette = palette;
 }
 
-void PieButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void PieButton::mousePressEvent(QGraphicsSceneMouseEvent *)
 {
-    Q_UNUSED(event);
     emit clicked(_axis, _value);
 }
 
-void PieButton::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
+void PieButton::hoverEnterEvent(QGraphicsSceneHoverEvent *)
 {
-    Q_UNUSED(event);
     setBrush(_palette.highlight());
 }
 
-void PieButton::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
+void PieButton::hoverLeaveEvent(QGraphicsSceneHoverEvent *)
 {
-    Q_UNUSED(event);
     setBrush(_palette.button());
 }
 
@@ -67,21 +63,18 @@ void RectButton::setPalette(QPalette palette)
     _palette = palette;
 }
 
-void RectButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void RectButton::mousePressEvent(QGraphicsSceneMouseEvent *)
 {
-    Q_UNUSED(event);
     emit clicked(_axis, _value);
 }
 
-void RectButton::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
+void RectButton::hoverEnterEvent(QGraphicsSceneHoverEvent *)
 {
-    Q_UNUSED(event);
     setBrush(_palette.highlight());
 }
 
-void RectButton::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
+void RectButton::hoverLeaveEvent(QGraphicsSceneHoverEvent *)
 {
-    Q_UNUSED(event);
     setBrush(_palette.button());
 }
 /*  About the Magic Numbers
@@ -149,9 +142,8 @@ AxisControl::AxisControl(QWidget *parent) :
     setSceneRect(scene()->itemsBoundingRect());
 }
 
-void AxisControl::resizeEvent(QResizeEvent *event)
+void AxisControl::resizeEvent(QResizeEvent *)
 {
-    Q_UNUSED(event);
     fitInView(sceneRect(), Qt::KeepAspectRatio);
 }
 
