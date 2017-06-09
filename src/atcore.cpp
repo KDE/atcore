@@ -212,7 +212,7 @@ void AtCore::initSerial(const QString &port, int baud)
     connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
 }
 
-bool AtCore::isInitialized()
+bool AtCore::isInitialized() const
 {
     if (!d->serial) {
         return false;
@@ -249,7 +249,7 @@ void AtCore::setAbsolutePosition()
     pushCommand(GCode::toCommand(GCode::G90));
 }
 
-float AtCore::percentagePrinted()
+float AtCore::percentagePrinted() const
 {
     return d->printerStatus.percentage;
 }
@@ -315,7 +315,7 @@ void AtCore::setState(PrinterState state)
     }
 }
 
-QByteArray AtCore::popCommand()
+QByteArray AtCore::popCommand() const
 {
     return serial()->popCommand();
 }
@@ -348,7 +348,7 @@ void AtCore::requestFirmware()
     }
 }
 
-bool AtCore::pluginLoaded()
+bool AtCore::pluginLoaded() const
 {
     if (plugin()) {
         return true;
@@ -388,7 +388,7 @@ void AtCore::findPlugins()
         qCDebug(ATCORE_CORE) << tr("plugins[%1]=%2").arg(file, pluginString);
     }
 }
-QStringList AtCore::availablePlugins()
+QStringList AtCore::availablePlugins() const
 {
     return d->plugins.keys();
 }
@@ -482,7 +482,7 @@ void AtCore::move(uchar axis, uint arg)
     }
 }
 
-int AtCore::extruderCount()
+int AtCore::extruderCount() const
 {
     return d->extruderCount;
 }

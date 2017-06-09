@@ -76,7 +76,7 @@ public:
     AtCore(QObject *parent = nullptr);
     QList<QSerialPortInfo> serialPorts() const;
     void initSerial(const QString &port, int baud);
-    bool isInitialized();
+    bool isInitialized() const;
     void setSerial(SerialLayer *serial);
     SerialLayer *serial() const;
     void setPlugin(IFirmware *plugin);
@@ -98,12 +98,12 @@ public:
      * @brief extruderCount
      * @return The number of detected Extruders Default is 1
      */
-    int extruderCount();
+    int extruderCount() const;
 
     /**
      * @brief Return true if plugin is loaded
      */
-    bool pluginLoaded();
+    bool pluginLoaded() const;
 
     /**
      * @brief Request firmware sending M115 command
@@ -113,12 +113,12 @@ public:
     /**
      * @brief Return printed percentage
      */
-    float percentagePrinted();
+    float percentagePrinted() const;
 
     /**
      * @brief Request a list of firmware plugins
      */
-    QStringList availablePlugins();
+    QStringList availablePlugins() const;
 
     /**
      * @brief Load A firmware
@@ -137,7 +137,7 @@ public:
      *
      * @return QByteArray
      */
-    QByteArray popCommand();
+    QByteArray popCommand() const;
 
     /**
      * @brief Close the serial connection
