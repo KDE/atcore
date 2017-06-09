@@ -124,17 +124,17 @@ void SerialLayer::push()
     d->_sByteCommands.clear();
 }
 
-QByteArray SerialLayer::popCommand()
+QByteArray SerialLayer::popCommand() const
 {
     return commandAvailable() ? d->_rByteCommands.takeFirst() : QByteArray();
 }
 
-bool SerialLayer::commandAvailable()
+bool SerialLayer::commandAvailable() const
 {
     return !d->_rByteCommands.isEmpty();
 }
 
-QStringList SerialLayer::validBaudRates()
+QStringList SerialLayer::validBaudRates() const
 {
     return _validBaudRates;
 }

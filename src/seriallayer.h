@@ -110,19 +110,19 @@ public:
      *
      * @return bool
      */
-    bool commandAvailable();
+    bool commandAvailable() const;
 
     /**
      * @brief Return FIFO command from printer
      *
      * @return QByteArray
      */
-    QByteArray popCommand();
+    QByteArray popCommand() const;
 
     /**
      * @brief Return a QStringList of valids serial baud rates
      *
      * @return QStringList
      */
-    QStringList validBaudRates();
+    QStringList validBaudRates() const;
 };
