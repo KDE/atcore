@@ -40,7 +40,7 @@ class KATCORE_EXPORT  IFirmware : public QObject
 public:
     IFirmware();
     void init(AtCore *parent);
-    virtual ~IFirmware();
+    ~IFirmware() override;
 
     /* virtuals, needs to reimplement */
     virtual QString name() const = 0;

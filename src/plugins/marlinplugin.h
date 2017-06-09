@@ -37,6 +37,6 @@ private:
 public:
     MarlinPlugin();
     QString name() const override;
-    void validateCommand(const QString &lastMessage);
+    void validateCommand(const QString &lastMessage) override;
     QByteArray translate(const QString &command) override;
 };

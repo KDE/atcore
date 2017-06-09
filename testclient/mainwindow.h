@@ -38,7 +38,7 @@ class  MainWindow: public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    ~MainWindow() override;
 
 public slots:
     /**
@@ -184,7 +184,7 @@ private:
     // Define max number of fans
     static int fanCount;
 
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event) override;
     /**
      * @brief Locate serial port
      *

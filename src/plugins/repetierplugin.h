@@ -37,6 +37,6 @@ private:
 public:
     RepetierPlugin();
     QString name() const override;
-    void validateCommand(const QString &lastMessage);
-    QByteArray translate(const QString &command);
+    void validateCommand(const QString &lastMessage) override;
+    QByteArray translate(const QString &command) override;
 };

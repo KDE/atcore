@@ -31,7 +31,7 @@ class PlotWidget : public QWidget
 
 public:
     explicit PlotWidget(QWidget *parent = nullptr);
-    ~PlotWidget();
+    ~PlotWidget() override;
 
     /**
      * @brief Create a new plot
