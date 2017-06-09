@@ -53,7 +53,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pluginCB->addItems(core->availablePlugins());
 
     AxisControl *axisControl = new AxisControl;
-    ui->dockWidgetContents_5->layout()->addWidget(axisControl);
+    ui->moveDockContents->layout()->addWidget(axisControl);
 
     addLog(tr("Attempting to locate Serial Ports"));
 
