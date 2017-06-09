@@ -61,14 +61,6 @@ enum MeasurementUnits {
     METRIC, IMPERIAL
 };
 
-//TODO: PrinterStatus should also move to d->pointer;
-struct KATCORE_EXPORT PrinterStatus {
-    float percentage;
-    QByteArray posString;
-    Temperature temps;
-    PrinterState printerState;
-};
-
 class KATCORE_EXPORT AtCore : public QObject
 {
     Q_OBJECT

@@ -49,12 +49,15 @@ struct AtCorePrivate {
     QDir pluginsDir;
     QMap<QString, QString> plugins;
     QByteArray lastMessage;
-    PrinterStatus printerStatus;
     int extruderCount = 1;
     Temperature temperature;
     QStringList commandQueue;
     bool ready = false;
     QTimer *tempTimer = nullptr;
+    float percentage;
+    QByteArray posString;
+    Temperature temps;
+    PrinterState printerState;
 };
 
 AtCore::AtCore(QObject *parent) :
@@ -229,9 +232,9 @@ void AtCore::newMessage(const QByteArray &message)
 {
     d->lastMessage = message;
     if (message.startsWith(QString::fromLatin1("X:").toLocal8Bit())) {
-        d->printerStatus.posString = message;
-        d->printerStatus.posString.resize(d->printerStatus.posString.indexOf('E'));
-        d->printerStatus.posString.replace(':', "");
+        d->posString = message;
+        d->posString.resize(d->posString.indexOf('E'));
+        d->posString.replace(':', "");
     }
 
     //Check if have temperature info and decode it
@@ -251,7 +254,7 @@ void AtCore::setAbsolutePosition()
 
 float AtCore::percentagePrinted() const
 {
-    return d->printerStatus.percentage;
+    return d->percentage;
 }
 
 void AtCore::print(const QString &fileName)
@@ -302,16 +305,16 @@ void AtCore::closeConnection()
 
 PrinterState AtCore::state(void)
 {
-    return d->printerStatus.printerState;
+    return d->printerState;
 }
 
 void AtCore::setState(PrinterState state)
 {
-    if (state != d->printerStatus.printerState) {
+    if (state != d->printerState) {
         qCDebug(ATCORE_CORE) << "Atcore state changed from [" \
-                             << d->printerStatus.printerState << "] to [" << state << "]";
-        d->printerStatus.printerState = state;
-        emit(stateChanged(d->printerStatus.printerState));
+                             << d->printerState << "] to [" << state << "]";
+        d->printerState = state;
+        emit(stateChanged(d->printerState));
     }
 }
 
@@ -413,7 +416,7 @@ void AtCore::pause(const QString &pauseActions)
 
 void AtCore::resume()
 {
-    pushCommand(GCode::toCommand(GCode::G0, QString::fromLatin1(d->printerStatus.posString)));
+    pushCommand(GCode::toCommand(GCode::G0, QString::fromLatin1(d->posString)));
     setState(BUSY);
 }
 
