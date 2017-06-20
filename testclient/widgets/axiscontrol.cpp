@@ -150,7 +150,6 @@ void AxisControl::resizeEvent(QResizeEvent *)
 void AxisControl::setLabels(QGraphicsItem *item, QLatin1Char axis, int value)
 {
     auto *lb = new QGraphicsSimpleTextItem();
-
     lb->setBrush(palette().buttonText());
 
     if (this->logicalDpiX() <= 96) {
@@ -174,7 +173,7 @@ void AxisControl::setLabels(QGraphicsItem *item, QLatin1Char axis, int value)
             lb->setY(item->y() - item->boundingRect().height());
         }
     } else {
-
+#ifndef Q_OS_WIN
         if (value < 0) {
             lb->setX(item->x() + lb->boundingRect().width() / fontMetrics().width(lb->text()));
             lb->setY(item->y() - lb->boundingRect().height() / fontMetrics().xHeight());
@@ -182,6 +181,15 @@ void AxisControl::setLabels(QGraphicsItem *item, QLatin1Char axis, int value)
             lb->setX(item->x() + lb->boundingRect().width() / fontMetrics().width(lb->text()));
             lb->setY(item->y() - lb->boundingRect().height() / fontMetrics().xHeight());
         }
+#else
+        if (value < 0) {
+            lb->setX(item->x() + lb->boundingRect().width() / fontMetrics().width(lb->text()));
+            lb->setY(item->y() - lb->boundingRect().height() / fontMetrics().height());
+        } else {
+            lb->setX(item->x() + lb->boundingRect().width() / fontMetrics().width(lb->text()));
+            lb->setY(item->y() - lb->boundingRect().height() / fontMetrics().height());
+        }
+#endif
     }
     scene()->addItem(lb);
 }
