@@ -36,7 +36,7 @@ public:
     qint64 totalSize = 0;
     qint64 stillSize = 0;
     QString cline;
-    PrinterState state = IDLE;
+    AtCore::STATES state = AtCore::IDLE;
     QFile *file = nullptr;
 };
 
@@ -70,10 +70,10 @@ void PrintThread::commandReady()
     }
 
     switch (d->state) {
-    case STARTPRINT:
-    case IDLE:
-    case BUSY:
-        setState(BUSY);
+    case AtCore::STARTPRINT:
+    case AtCore::IDLE:
+    case AtCore::BUSY:
+        setState(AtCore::BUSY);
         nextLine();
         while (d->cline.isEmpty() && !d->gcodestream->atEnd()) {
             nextLine();
@@ -84,16 +84,16 @@ void PrintThread::commandReady()
         }
         break;
 
-    case ERRORSTATE:
+    case AtCore::ERRORSTATE:
         qCDebug(PRINT_THREAD) << "Error State";
         break;
 
-    case STOP: {
+    case AtCore::STOP: {
         endPrint();
         break;
     }
 
-    case PAUSE:
+    case AtCore::PAUSE:
         break;
 
     default:
@@ -109,8 +109,8 @@ void PrintThread::endPrint()
     disconnect(d->core->plugin(), &IFirmware::readyForCommand, this, &PrintThread::commandReady);
     disconnect(this, &PrintThread::nextCommand, d->core, &AtCore::pushCommand);
     disconnect(d->core, &AtCore::stateChanged, this, &PrintThread::setState);
-    emit(stateChanged(FINISHEDPRINT));
-    emit(stateChanged(IDLE));
+    emit(stateChanged(AtCore::FINISHEDPRINT));
+    emit(stateChanged(AtCore::IDLE));
     disconnect(this, &PrintThread::stateChanged, d->core, &AtCore::setState);
     emit finished();
 
@@ -129,7 +129,7 @@ void PrintThread::nextLine()
     d->cline = d->cline.simplified();
 }
 
-void PrintThread::setState(const PrinterState &newState)
+void PrintThread::setState(const AtCore::STATES &newState)
 {
     if (newState != d->state) {
         qCDebug(PRINT_THREAD) << "State Changed from [" << d->state << "] to [" << newState << ']';

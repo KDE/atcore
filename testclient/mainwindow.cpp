@@ -310,7 +310,7 @@ void MainWindow::locateSerialPort()
 
 void MainWindow::connectPBClicked()
 {
-    if (core->state() == DISCONNECTED) {
+    if (core->state() == AtCore::DISCONNECTED) {
         core->initSerial(ui->serialPortCB->currentText(), ui->baudRateLE->currentText().toInt());
         connect(core->serial(), &SerialLayer::receivedCommand, this, &MainWindow::checkReceivedCommand);
         connect(core->serial(), &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
@@ -327,7 +327,7 @@ void MainWindow::connectPBClicked()
         }
     } else {
         core->serial()->close();
-        core->setState(DISCONNECTED);
+        core->setState(AtCore::DISCONNECTED);
         addLog(tr("Disconnected"));
         ui->connectPB->setText(tr("Connect"));
     }
@@ -349,19 +349,19 @@ void MainWindow::homeAllPBClicked()
 void MainWindow::homeXPBClicked()
 {
     addSLog(tr("Home X"));
-    core->home(X);
+    core->home(AtCore::X);
 }
 
 void MainWindow::homeYPBClicked()
 {
     addSLog(tr("Home Y"));
-    core->home(Y);
+    core->home(AtCore::Y);
 }
 
 void MainWindow::homeZPBClicked()
 {
     addSLog(tr("Home Z"));
-    core->home(Z);
+    core->home(AtCore::Z);
 }
 
 void MainWindow::bedTempPBClicked()
@@ -380,11 +380,11 @@ void MainWindow::mvAxisPBClicked()
 {
     addSLog(GCode::toString(GCode::G1));
     if (ui->mvAxisCB->currentIndex() == 0) {
-        core->move(X, ui->mvAxisSB->value());
+        core->move(AtCore::X, ui->mvAxisSB->value());
     } else if (ui->mvAxisCB->currentIndex() == 1) {
-        core->move(Y, ui->mvAxisSB->value());
+        core->move(AtCore::Y, ui->mvAxisSB->value());
     } else if (ui->mvAxisCB->currentIndex() == 2) {
-        core->move(Z, ui->mvAxisSB->value());
+        core->move(AtCore::Z, ui->mvAxisSB->value());
     }
 }
 
@@ -399,16 +399,16 @@ void MainWindow::printPBClicked()
     QString fileName;
     switch (core->state()) {
 
-    case DISCONNECTED:
+    case AtCore::DISCONNECTED:
         QMessageBox::information(this, tr("Error"), tr("Not Connected To a Printer"));
         break;
 
-    case CONNECTING:
+    case AtCore::CONNECTING:
         QMessageBox::information(this, tr("Error"), tr(" A Firmware Plugin was not loaded!\n  Please send the command M115 and let us know what your firmware returns, so we can improve our firmware detection. We have loaded the most common plugin \"repetier\" for you. You may try to print again after this message"));
         ui->pluginCB->setCurrentText(QStringLiteral("repetier"));
         break;
 
-    case IDLE:
+    case AtCore::IDLE:
         fileName = QFileDialog::getOpenFileName(this, tr("Select a file to print"), QDir::homePath(), QStringLiteral("*.gcode"));
         if (fileName.isNull()) {
             addLog(tr("No File Selected"));
@@ -418,11 +418,11 @@ void MainWindow::printPBClicked()
         }
         break;
 
-    case BUSY:
+    case AtCore::BUSY:
         core->pause(ui->postPauseLE->text());
         break;
 
-    case PAUSE:
+    case AtCore::PAUSE:
         core->resume();
         break;
 
@@ -441,7 +441,7 @@ void MainWindow::saveLogPBClicked()
 }
 void MainWindow::pluginCBChanged(QString currentText)
 {
-    if (core->state() != DISCONNECTED) {
+    if (core->state() != AtCore::DISCONNECTED) {
         if (!currentText.contains(tr("Autodetect"))) {
             core->loadFirmware(currentText);
         } else {
@@ -460,16 +460,16 @@ void MainWindow::printerSpeedPBClicked()
     core->setPrinterSpeed(ui->printerSpeedSB->value());
 }
 
-void MainWindow::printerStateChanged(PrinterState state)
+void MainWindow::printerStateChanged(AtCore::STATES state)
 {
     QString stateString;
     switch (state) {
-    case IDLE:
+    case AtCore::IDLE:
         ui->printPB->setText(tr("Print File"));
         stateString = QStringLiteral("Connected to ") + core->serial()->portName();;
         break;
 
-    case STARTPRINT:
+    case AtCore::STARTPRINT:
         stateString = QStringLiteral("START PRINT");
         ui->printPB->setText(tr("Pause Print"));
         ui->printLayout->setVisible(true);
@@ -477,24 +477,24 @@ void MainWindow::printerStateChanged(PrinterState state)
         printTimer->start();
         break;
 
-    case FINISHEDPRINT:
+    case AtCore::FINISHEDPRINT:
         stateString = QStringLiteral("Finished Print");
         ui->printPB->setText(tr("Print File"));
         ui->printLayout->setVisible(false);
         printTimer->stop();
         break;
 
-    case PAUSE:
+    case AtCore::PAUSE:
         stateString = QStringLiteral("Paused");
         ui->printPB->setText(tr("Resume Print"));
         break;
 
-    case BUSY:
+    case AtCore::BUSY:
         stateString = QStringLiteral("Printing");
         ui->printPB->setText(tr("Pause Print"));
         break;
 
-    case DISCONNECTED:
+    case AtCore::DISCONNECTED:
         stateString = QStringLiteral("Not Connected");
         ui->commandDock->setDisabled(true);
         ui->moveDock->setDisabled(true);
@@ -502,7 +502,7 @@ void MainWindow::printerStateChanged(PrinterState state)
         ui->printDock->setDisabled(true);
         break;
 
-    case CONNECTING:
+    case AtCore::CONNECTING:
         stateString = QStringLiteral("Connecting");
         ui->commandDock->setDisabled(false);
         ui->moveDock->setDisabled(false);
@@ -510,11 +510,11 @@ void MainWindow::printerStateChanged(PrinterState state)
         ui->printDock->setDisabled(false);
         break;
 
-    case STOP:
+    case AtCore::STOP:
         stateString = QStringLiteral("Stoping Print");
         break;
 
-    case ERRORSTATE:
+    case AtCore::ERRORSTATE:
         stateString = QStringLiteral("Command ERROR");
         break;
     }

@@ -37,34 +37,37 @@ class SerialLayer;
 class IFirmware;
 class QTime;
 
-enum PrinterState {
-    DISCONNECTED, //Not Connected to a printer, initial state
-    CONNECTING, //Attempting to connect, Fw not probed
-    IDLE, //Connected to printer and ready for commands
-    BUSY, //Printer is working
-    PAUSE, //Printer is paused
-    ERRORSTATE, // Printer Returned Error
-    STOP, // Stop Printing and Clean Queue
-    STARTPRINT, //Just Starting a print job
-    FINISHEDPRINT, //Just Finished print job
-};
-
 struct AtCorePrivate;
-enum AXIS {
-    X = 1 << 0,
-    Y = 1 << 1,
-    Z = 1 << 2,
-    E = 1 << 3,
-};
-
-enum MeasurementUnits {
-    METRIC, IMPERIAL
-};
 
 class KATCORE_EXPORT AtCore : public QObject
 {
     Q_OBJECT
 public:
+
+    enum STATES {
+        DISCONNECTED, //Not Connected to a printer, initial state
+        CONNECTING, //Attempting to connect, Fw not probed
+        IDLE, //Connected to printer and ready for commands
+        BUSY, //Printer is working
+        PAUSE, //Printer is paused
+        ERRORSTATE, // Printer Returned Error
+        STOP, // Stop Printing and Clean Queue
+        STARTPRINT, //Just Starting a print job
+        FINISHEDPRINT, //Just Finished print job
+    };
+
+    enum AXES {
+        X = 1 << 0,
+        Y = 1 << 1,
+        Z = 1 << 2,
+        E = 1 << 3,
+    };
+
+    enum UNITS {
+        METRIC,
+        IMPERIAL
+    };
+
     AtCore(QObject *parent = nullptr);
     QList<QSerialPortInfo> serialPorts() const;
     void initSerial(const QString &port, int baud);
@@ -78,13 +81,13 @@ public:
      * @brief Get Printer state
      * @return State of the printer
      */
-    PrinterState state(void);
+    AtCore::STATES state(void);
 
     /**
      * @brief setState: set Printer state
      * @param state : printer state.
      */
-    void setState(PrinterState state);
+    void setState(AtCore::STATES state);
 
     /**
      * @brief extruderCount
@@ -160,7 +163,7 @@ signals:
      * @brief State Changed
      * @param newState : the new state of the printer
      */
-    void stateChanged(PrinterState newState);
+    void stateChanged(AtCore::STATES newState);
 
 public slots:
     /**
@@ -216,10 +219,10 @@ public slots:
 
     /**
      * @brief move an axis of the printer
-     * @param axis the axis to move AXIS (X Y Z E )
+     * @param axis the axis to move AXES (X Y Z E )
      * @param arg the distance to move the axis or the place to move to depending on printer mode
      */
-    void move(uchar axis, uint arg);
+    void move(AtCore::AXES axis, uint arg);
 
     /**
      * @brief Set the bed temperature
@@ -269,7 +272,7 @@ public slots:
      * @brief setUnits sets the measurement units do be used
      * @param system : the measurement units (METRIC / IMPERIAL)
      */
-    void setUnits(MeasurementUnits units);
+    void setUnits(AtCore::UNITS units);
 
 private slots:
     /**

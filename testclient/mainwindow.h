@@ -151,7 +151,7 @@ private slots:
      * @brief printerStateChanged Catch and proccess printer state commands
      * @param state: new printer state
      */
-    void printerStateChanged(PrinterState state);
+    void printerStateChanged(AtCore::STATES state);
 
     /**
      * @brief showMessage show a message on the printers LCD

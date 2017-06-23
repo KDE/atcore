@@ -39,11 +39,11 @@ signals:
     void error(QString err);
     void printProgressChanged(float);
     void nextCommand(const QString &comm);
-    void stateChanged(const PrinterState &state);
+    void stateChanged(const AtCore::STATES &state);
 
 public slots:
     void start();
-    void setState(const PrinterState &state);
+    void setState(const AtCore::STATES &state);
 
 private slots:
     void commandReady();

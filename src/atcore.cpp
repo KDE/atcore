@@ -57,15 +57,15 @@ struct AtCorePrivate {
     float percentage;
     QByteArray posString;
     Temperature temps;
-    PrinterState printerState;
+    AtCore::STATES printerState;
 };
 
 AtCore::AtCore(QObject *parent) :
     QObject(parent),
     d(new AtCorePrivate)
 {
-    qRegisterMetaType<PrinterState>("PrinterState");
-    setState(DISCONNECTED);
+    qRegisterMetaType<AtCore::STATES>("AtCore::STATES");
+    setState(AtCore::DISCONNECTED);
 
     d->tempTimer = new QTimer;
     d->tempTimer->setInterval(5000);
@@ -88,7 +88,7 @@ AtCore::AtCore(QObject *parent) :
 #endif
     qCDebug(ATCORE_PLUGIN) << d->pluginsDir;
     findPlugins();
-    setState(DISCONNECTED);
+    setState(AtCore::DISCONNECTED);
 }
 
 void AtCore::setSerial(SerialLayer *serial)
@@ -123,12 +123,12 @@ Temperature &AtCore::temperature() const
 
 void AtCore::findFirmware(const QByteArray &message)
 {
-    if (state() == DISCONNECTED) {
+    if (state() == AtCore::DISCONNECTED) {
         qWarning() << "Cant find firwmware, serial not connected !";
         return;
     }
 
-    if (state() == CONNECTING) {
+    if (state() == AtCore::CONNECTING) {
         if (message.contains("start")) {
             qCDebug(ATCORE_CORE) << "Waiting requestFirmware.";
             QTimer::singleShot(500, this, &AtCore::requestFirmware);
@@ -189,7 +189,7 @@ void AtCore::loadFirmware(const QString &fwName)
         if (!pluginLoaded()) {
             qCDebug(ATCORE_PLUGIN) << "No plugin loaded.";
             qCDebug(ATCORE_PLUGIN) << "Looking plugin in folder:" << d->pluginsDir;
-            setState(CONNECTING);
+            setState(AtCore::CONNECTING);
         } else {
             qCDebug(ATCORE_PLUGIN) << "Connected to" << plugin()->name();
             plugin()->init(this);
@@ -210,7 +210,7 @@ void AtCore::initSerial(const QString &port, int baud)
 {
     setSerial(new SerialLayer(port, baud));
     if (isInitialized()) {
-        setState(CONNECTING);
+        setState(AtCore::CONNECTING);
     }
     connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
 }
@@ -259,12 +259,12 @@ float AtCore::percentagePrinted() const
 
 void AtCore::print(const QString &fileName)
 {
-    if (state() == CONNECTING) {
+    if (state() == AtCore::CONNECTING) {
         qCDebug(ATCORE_CORE) << "Load a firmware plugin to print.";
         return;
     }
     //START A THREAD AND CONNECT TO IT
-    setState(STARTPRINT);
+    setState(AtCore::STARTPRINT);
     QThread *thread = new QThread();
     PrintThread *printThread = new PrintThread(this, fileName);
     printThread->moveToThread(thread);
@@ -289,9 +289,9 @@ void AtCore::pushCommand(const QString &comm)
 void AtCore::closeConnection()
 {
     if (isInitialized()) {
-        if (state() == BUSY) {
+        if (state() == AtCore::BUSY) {
             //we have to clean print if printing.
-            setState(STOP);
+            setState(AtCore::STOP);
         }
         if (pluginLoaded()) {
             disconnect(plugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
@@ -299,16 +299,16 @@ void AtCore::closeConnection()
             d->tempTimer->stop();
         }
         serial()->close();
-        setState(DISCONNECTED);
+        setState(AtCore::DISCONNECTED);
     }
 }
 
-PrinterState AtCore::state(void)
+AtCore::STATES AtCore::state(void)
 {
     return d->printerState;
 }
 
-void AtCore::setState(PrinterState state)
+void AtCore::setState(AtCore::STATES state)
 {
     if (state != d->printerState) {
         qCDebug(ATCORE_CORE) << "Atcore state changed from [" \
@@ -325,18 +325,18 @@ QByteArray AtCore::popCommand() const
 
 void AtCore::stop()
 {
-    setState(STOP);
+    setState(AtCore::STOP);
     d->commandQueue.clear();
     setExtruderTemp(0, 0);
     setBedTemp(0);
-    home('X');
+    home(AtCore::X);
 }
 
 void AtCore::emergencyStop()
 {
     switch (state()) {
-    case BUSY:
-        setState(STOP);
+    case AtCore::BUSY:
+        setState(AtCore::STOP);
     default:
         d->commandQueue.clear();
         serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
@@ -405,7 +405,7 @@ void AtCore::detectFirmware()
 void AtCore::pause(const QString &pauseActions)
 {
     pushCommand(GCode::toCommand(GCode::M114));
-    setState(PAUSE);
+    setState(AtCore::PAUSE);
     if (!pauseActions.isNull()) {
         QStringList temp = pauseActions.split(QChar::fromLatin1(','));
         for (int i = 0; i < temp.length(); i++) {
@@ -417,7 +417,7 @@ void AtCore::pause(const QString &pauseActions)
 void AtCore::resume()
 {
     pushCommand(GCode::toCommand(GCode::G0, QString::fromLatin1(d->posString)));
-    setState(BUSY);
+    setState(AtCore::BUSY);
 }
 
 /*~~~~~Control Slots ~~~~~~~~*/
@@ -431,15 +431,15 @@ void AtCore::home(uchar axis)
 {
     QString args;
 
-    if (axis & X) {
+    if (axis & AtCore::X) {
         args.append(QStringLiteral("X0 "));
     }
 
-    if (axis & Y) {
+    if (axis & AtCore::Y) {
         args.append(QStringLiteral("Y0 "));
     }
 
-    if (axis & Z) {
+    if (axis & AtCore::Z) {
         args.append(QStringLiteral("Z0"));
     }
     pushCommand(GCode::toCommand(GCode::G28, args));
@@ -472,15 +472,15 @@ void AtCore::setFlowRate(uint speed)
     pushCommand(GCode::toCommand(GCode::M221, QString::number(speed)));
 }
 
-void AtCore::move(uchar axis, uint arg)
+void AtCore::move(AtCore::AXES axis, uint arg)
 {
-    if (axis & X) {
+    if (axis & AtCore::X) {
         pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("X %1").arg(QString::number(arg))));
-    } else if (axis & Y) {
+    } else if (axis & AtCore::Y) {
         pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("Y %1").arg(QString::number(arg))));
-    } else if (axis & Z) {
+    } else if (axis & AtCore::Z) {
         pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("Z %1").arg(QString::number(arg))));
-    } else if (axis & E) {
+    } else if (axis & AtCore::E) {
         pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("E %1").arg(QString::number(arg))));
     }
 }
@@ -528,13 +528,13 @@ void AtCore::showMessage(const QString &message)
     }
 }
 
-void AtCore::setUnits(MeasurementUnits units)
+void AtCore::setUnits(AtCore::UNITS units)
 {
     switch (units) {
-    case METRIC:
+    case AtCore::METRIC:
         pushCommand(GCode::toCommand(GCode::G21));
         break;
-    case IMPERIAL:
+    case AtCore::IMPERIAL:
         pushCommand(GCode::toCommand(GCode::G20));
         break;
     }
