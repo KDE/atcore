@@ -1,5 +1,10 @@
 [Desktop Entry]
 Name=AtCore Test Client
+Name[nl]=AtCore testclient
+Name[pt]=Cliente de Testes do AtCore
+Name[sv]=AtCore testklient
+Name[uk]=Тестовий клієнт AtCore
+Name[x-test]=xxAtCore Test Clientxx
 Exec=/usr/bin/AtCoreTest
 Icon=AtCoreTest
 Encoding=UTF-8
