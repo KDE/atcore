@@ -1,2 +1,0 @@
-?package(atcore):needs="x11" section="Graphics"\
-  title="AtCore Test Client" command="/usr/bin/AtCoreTest"

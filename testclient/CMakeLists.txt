@@ -21,11 +21,6 @@ if (NOT APPLE)
 	install(TARGETS AtCoreTest RUNTIME DESTINATION bin)
 
 	install(FILES
-        "${CMAKE_CURRENT_SOURCE_DIR}/AtCoreTest.menu"
-        RENAME AtCoreTest
-        DESTINATION share/menu)
-
-	install(FILES
         "${CMAKE_CURRENT_SOURCE_DIR}/AtCoreTest.png"
         DESTINATION share/pixmaps)
 
