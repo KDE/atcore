@@ -29,9 +29,9 @@
 #include <QString>
 #include <QObject>
 
-#include "katcore_export.h"
+#include "atcore_export.h"
 
-class KATCORE_EXPORT GCode
+class ATCORE_EXPORT GCode
 {
     Q_GADGET
 public:

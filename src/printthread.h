@@ -28,7 +28,7 @@
 
 class PrintThreadPrivate;
 
-class KATCORE_EXPORT PrintThread : public QObject
+class ATCORE_EXPORT PrintThread : public QObject
 {
     Q_OBJECT
 public:

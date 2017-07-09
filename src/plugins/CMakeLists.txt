@@ -55,6 +55,6 @@ if(UNIX AND NOT APPLE)
         aprinter
         smoothie
     DESTINATION
-        ${KDE_INSTALL_PLUGINDIR}/KAtCore
+        ${KDE_INSTALL_PLUGINDIR}/AtCore
     )
 endif()

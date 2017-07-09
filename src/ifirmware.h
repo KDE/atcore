@@ -27,14 +27,14 @@
 #include <QObject>
 #include <QString>
 
-#include "katcore_export.h"
+#include "atcore_export.h"
 
 class Temperature;
 class AtCore;
 
 struct IFirmwarePrivate;
 
-class KATCORE_EXPORT  IFirmware : public QObject
+class ATCORE_EXPORT  IFirmware : public QObject
 {
     Q_OBJECT
 public:

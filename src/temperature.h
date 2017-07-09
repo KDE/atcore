@@ -24,11 +24,11 @@
 #pragma once
 
 #include <QObject>
-#include "katcore_export.h"
+#include "atcore_export.h"
 
 class TemperaturePrivate;
 
-class KATCORE_EXPORT Temperature : public QObject
+class ATCORE_EXPORT Temperature : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(float bedTemperature READ bedTemperature WRITE setBedTemperature NOTIFY bedTemperatureChanged);

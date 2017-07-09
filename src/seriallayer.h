@@ -27,11 +27,11 @@
 #include <QSerialPort>
 #include <QVector>
 
-#include "katcore_export.h"
+#include "atcore_export.h"
 
 class SerialLayerPrivate;
 
-class KATCORE_EXPORT SerialLayer : public QSerialPort
+class ATCORE_EXPORT SerialLayer : public QSerialPort
 {
     Q_OBJECT
 

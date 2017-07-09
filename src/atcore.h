@@ -31,7 +31,7 @@
 
 #include "ifirmware.h"
 #include "temperature.h"
-#include "katcore_export.h"
+#include "atcore_export.h"
 
 class SerialLayer;
 class IFirmware;
@@ -39,7 +39,7 @@ class QTime;
 
 struct AtCorePrivate;
 
-class KATCORE_EXPORT AtCore : public QObject
+class ATCORE_EXPORT AtCore : public QObject
 {
     Q_OBJECT
 public:
