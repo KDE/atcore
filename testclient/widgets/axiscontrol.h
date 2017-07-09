@@ -70,7 +70,7 @@ class AxisControl : public QGraphicsView
     Q_OBJECT
 
 public:
-    explicit AxisControl(QWidget *parent = 0);
+    explicit AxisControl(QWidget *parent = nullptr);
 
 private:
     void setLabels(QGraphicsItem *item, QLatin1Char axis, int value);

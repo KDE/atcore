@@ -96,7 +96,7 @@ AxisControl::AxisControl(QWidget *parent) :
         auto pie = new PieButton(axis, value, size, angle);
         pie->setPalette(this->palette());
         connect(pie, &PieButton::clicked, this, &AxisControl::clicked);
-        if (value == 25 || value == -25) {
+        if (abs(value) == 25) {
             setLabels(pie, axis, value);
         }
         scene()->addItem(pie);
@@ -107,7 +107,7 @@ AxisControl::AxisControl(QWidget *parent) :
         z->setPalette(this->palette());
         z->setPos(xPos, yPos);
         connect(z, &RectButton::clicked, this, &AxisControl::clicked);
-        if (value == 25 || value == -25) {
+        if (abs(value) == 25) {
             setLabels(z, axis, value);
         }
         scene()->addItem(z);
@@ -128,13 +128,7 @@ AxisControl::AxisControl(QWidget *parent) :
     int xPos = sceneRect().width() - 50;
     int yPos = -75; //Align with the origin of the scene 3 * 25
     for (auto value : {
-                25, 10, 1
-            }) {
-        createRect(QLatin1Char('Z'), value, currZSize, xPos, yPos);
-        yPos += currZSize;
-    }
-    for (auto value : {
-                -1, -10, -25
+                25, 10, 1, -1, -10, -25
             }) {
         createRect(QLatin1Char('Z'), value, currZSize, xPos, yPos);
         yPos += currZSize;
@@ -173,22 +167,13 @@ void AxisControl::setLabels(QGraphicsItem *item, QLatin1Char axis, int value)
             lb->setY(item->y() - item->boundingRect().height());
         }
     } else {
+
+        lb->setX(item->x() + lb->boundingRect().width() / fontMetrics().width(lb->text()));
+
 #ifndef Q_OS_WIN
-        if (value < 0) {
-            lb->setX(item->x() + lb->boundingRect().width() / fontMetrics().width(lb->text()));
-            lb->setY(item->y() - lb->boundingRect().height() / fontMetrics().xHeight());
-        } else {
-            lb->setX(item->x() + lb->boundingRect().width() / fontMetrics().width(lb->text()));
-            lb->setY(item->y() - lb->boundingRect().height() / fontMetrics().xHeight());
-        }
+        lb->setY(item->y() - lb->boundingRect().height() / fontMetrics().xHeight());
 #else
-        if (value < 0) {
-            lb->setX(item->x() + lb->boundingRect().width() / fontMetrics().width(lb->text()));
-            lb->setY(item->y() - lb->boundingRect().height() / fontMetrics().height());
-        } else {
-            lb->setX(item->x() + lb->boundingRect().width() / fontMetrics().width(lb->text()));
-            lb->setY(item->y() - lb->boundingRect().height() / fontMetrics().height());
-        }
+        lb->setY(item->y() - lb->boundingRect().height() / fontMetrics().height());
 #endif
     }
     scene()->addItem(lb);
