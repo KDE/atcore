@@ -35,10 +35,12 @@ find_package(Qt5 REQUIRED COMPONENTS
     SerialPort
     Charts
 )
+include(ECMPoQmTools)
 
 if(BUILD_TEST_GUI)
     add_subdirectory(testclient)
 endif()
+
 
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX ATCORE
@@ -46,6 +48,11 @@ ecm_setup_version(${PROJECT_VERSION}
     PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5AtCoreConfigVersion.cmake"
     SOVERSION 1
 )
+
+if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
+    ecm_install_po_files_as_qm(po)
+endif()
+
 if(APPLE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++ -std=c++11")
 endif()

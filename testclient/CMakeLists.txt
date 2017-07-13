@@ -9,6 +9,8 @@ set(AtCoreTestClient_SRCS
     mainwindow.cpp
 )
 
+ecm_create_qm_loader(AtCoreTestClient_SRCS atcore_qt)
+
 find_package(Qt5 REQUIRED COMPONENTS
     Core
     Test

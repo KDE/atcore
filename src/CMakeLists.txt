@@ -36,6 +36,7 @@ ecm_generate_headers(ATCORE_HEADERS
     Temperature
     REQUIRED_HEADERS ATCORE_HEADERS
 )
+ecm_create_qm_loader(AtCoreLib_SRCS atcore_qt)
 
 install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/atcore_export.h
