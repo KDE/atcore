@@ -334,13 +334,11 @@ void AtCore::stop()
 
 void AtCore::emergencyStop()
 {
-    switch (state()) {
-    case AtCore::BUSY:
+    if (state() == AtCore::BUSY) {
         setState(AtCore::STOP);
-    default:
-        d->commandQueue.clear();
-        serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
     }
+    d->commandQueue.clear();
+    serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
 }
 
 void AtCore::requestFirmware()
