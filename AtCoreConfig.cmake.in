@@ -4,4 +4,4 @@ include(CMakeFindDependencyMacro)
 find_dependency(Qt5Widgets "@REQUIRED_QT_VERSION@")
 find_dependency(Qt5SerialPort "@REQUIRED_QT_VERSION@")
 
-include("${CMAKE_CURRENT_LIST_DIR}/KF5AtCoreTargets.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/AtCoreTargets.cmake")

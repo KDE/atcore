@@ -14,15 +14,15 @@ set(AtCoreLib_SRCS
     printthread.cpp
 )
 
-add_library(KF5AtCore SHARED ${AtCoreLib_SRCS})
-target_link_libraries(KF5AtCore Qt5::Core Qt5::SerialPort)
+add_library(AtCore SHARED ${AtCoreLib_SRCS})
+target_link_libraries(AtCore Qt5::Core Qt5::SerialPort)
 
-generate_export_header(KF5AtCore BASE_NAME AtCore)
-add_library(KF5::AtCore ALIAS KF5AtCore)
+generate_export_header(AtCore BASE_NAME AtCore)
+add_library(AtCore::AtCore ALIAS AtCore)
 
-target_include_directories(KF5AtCore PUBLIC "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/AtCore>")
+target_include_directories(AtCore PUBLIC "$<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include/AtCore>")
 
-set_target_properties(KF5AtCore PROPERTIES VERSION ${ATCORE_VERSION_STRING}
+set_target_properties(AtCore PROPERTIES VERSION ${ATCORE_VERSION_STRING}
     SOVERSION ${ATCORE_SOVERSION}
     EXPORT_NAME AtCore
 )
@@ -42,11 +42,11 @@ install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/atcore_export.h
     ${CMAKE_CURRENT_BINARY_DIR}/atcore_default_folders.h
     ${ATCORE_HEADERS}
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/AtCore COMPONENT Devel
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/include/AtCore COMPONENT Devel
 )
 
-install(TARGETS KF5AtCore EXPORT KF5AtCoreTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS AtCore EXPORT AtCoreTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME AtCore LIB_NAME AtCore DEPS "Qt5Core Qt5SerialPort" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/AtCore)
+ecm_generate_pri_file(BASE_NAME AtCore LIB_NAME AtCore DEPS "Qt5Core Qt5SerialPort" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/include/AtCore)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})

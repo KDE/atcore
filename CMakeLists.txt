@@ -45,7 +45,7 @@ endif()
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX ATCORE
     VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/atcore_version.h"
-    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5AtCoreConfigVersion.cmake"
+    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/AtCoreConfigVersion.cmake"
     SOVERSION 1
 )
 
@@ -66,30 +66,30 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 add_subdirectory(src)
 add_subdirectory(doc)
 
-set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5AtCore")
-configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/KF5AtCoreConfig.cmake.in"
-                              "${CMAKE_CURRENT_BINARY_DIR}/KF5AtCoreConfig.cmake"
+set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/AtCore")
+configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/AtCoreConfig.cmake.in"
+                              "${CMAKE_CURRENT_BINARY_DIR}/AtCoreConfig.cmake"
                               INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
 )
 
 install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/KF5AtCoreConfig.cmake"
-    "${CMAKE_CURRENT_BINARY_DIR}/KF5AtCoreConfigVersion.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/AtCoreConfig.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/AtCoreConfigVersion.cmake"
     DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
     COMPONENT Devel
 )
 
 install(EXPORT
-     KF5AtCoreTargets
+     AtCoreTargets
      DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-     FILE KF5AtCoreTargets.cmake
-     NAMESPACE KF5::
+     FILE AtCoreTargets.cmake
+     NAMESPACE AtCore::
      COMPONENT Devel
 )
 
 install(FILES
     "${CMAKE_CURRENT_BINARY_DIR}/atcore_version.h"
-    DESTINATION "${KF5_INCLUDE_INSTALL_DIR}"
+    DESTINATION "${CMAKE_INSTALL_PREFIX}/include/AtCore/"
     COMPONENT Devel
 )
 

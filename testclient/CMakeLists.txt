@@ -35,7 +35,7 @@ else()
     install(TARGETS AtCoreTest BUNDLE DESTINATION bin)
 endif()
 
-target_link_libraries(AtCoreTest AtCoreTestWidgets KF5::AtCore Qt5::Widgets Qt5::Charts)
+target_link_libraries(AtCoreTest AtCoreTestWidgets AtCore::AtCore Qt5::Widgets Qt5::Charts)
 
 
 
