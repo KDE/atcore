@@ -3,7 +3,7 @@
 
     Authors:
         Tomaz Canabrava <tcanabrava@kde.org>
-        Chris Rizzitello <sithlord48@gmail.com>
+        Chris Rizzitello <rizzitello@kde.org>
         Patrick José Pereira <patrickelectric@gmail.com>
         Lays Rodrigues <laysrodrigues@gmail.com>
 

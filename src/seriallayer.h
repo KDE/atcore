@@ -3,7 +3,7 @@
 
     Authors:
         Patrick José Pereira <patrickelectric@gmail.com>
-        Chris Rizzitello <sithlord48@gmail.com>
+        Chris Rizzitello <rizzitello@kde.org>
         Tomaz Canabrava <tcanabrava@kde.org>
 
     This library is free software; you can redistribute it and/or

@@ -5,7 +5,7 @@
         Lays Rodrigues <laysrodrigues@gmail.com>
         Tomaz Canabrava <tcanabrava@kde.org>
         Patrick José Pereira <patrickelectric@gmail.com>
-        Chris Rizzitello <sithlord48@gmail.com>
+        Chris Rizzitello <rizzitello@kde.org>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
