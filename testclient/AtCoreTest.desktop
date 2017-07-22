@@ -1,5 +1,16 @@
 [Desktop Entry]
 Name=AtCore Test Client
+Name[ast]=Veceru de prueba d'AtCore
+Name[ca]=Client de prova de l'AtCore
+Name[ca@valencia]=Client de prova de l'AtCore
+Name[cs]=Testovací klient AtCore
+Name[es]=Cliente de prueba de AtCore
+Name[nl]=AtCore testclient
+Name[pt]=Cliente de Testes do AtCore
+Name[sk]=AtCore Test Klient
+Name[sv]=AtCore testklient
+Name[uk]=Тестовий клієнт AtCore
+Name[x-test]=xxAtCore Test Clientxx
 Exec=AtCoreTest
 Icon=AtCoreTest
 Categories=Graphics;Qt;
