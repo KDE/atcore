@@ -54,16 +54,16 @@ PrintThread::PrintThread(AtCore *parent, QString fileName) : d(new PrintThreadPr
 void PrintThread::start()
 {
     // we only want to do this when printing
-    connect(d->core->firmwarePlugin(), &IFirmware::readyForCommand, this, &PrintThread::commandReady, Qt::QueuedConnection);
+    connect(d->core->firmwarePlugin(), &IFirmware::readyForCommand, this, &PrintThread::processJob, Qt::QueuedConnection);
     connect(this, &PrintThread::nextCommand, d->core, &AtCore::pushCommand, Qt::QueuedConnection);
     connect(this, &PrintThread::stateChanged, d->core, &AtCore::setState, Qt::QueuedConnection);
     connect(d->core, &AtCore::stateChanged, this, &PrintThread::setState, Qt::QueuedConnection);
     connect(this, &PrintThread::finished, this, &PrintThread::deleteLater);
     // force a command if the printer doesn't send "wait" when idle
-    commandReady();
+    processJob();
 }
 
-void PrintThread::commandReady()
+void PrintThread::processJob()
 {
     if (d->gcodestream->atEnd()) {
         endPrint();
@@ -106,7 +106,7 @@ void PrintThread::endPrint()
 {
     emit(printProgressChanged(100));
     qCDebug(PRINT_THREAD) << "atEnd";
-    disconnect(d->core->firmwarePlugin(), &IFirmware::readyForCommand, this, &PrintThread::commandReady);
+    disconnect(d->core->firmwarePlugin(), &IFirmware::readyForCommand, this, &PrintThread::processJob);
     disconnect(this, &PrintThread::nextCommand, d->core, &AtCore::pushCommand);
     disconnect(d->core, &AtCore::stateChanged, this, &PrintThread::setState);
     emit(stateChanged(AtCore::FINISHEDPRINT));

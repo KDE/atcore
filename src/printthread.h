@@ -33,7 +33,6 @@ class ATCORE_EXPORT PrintThread : public QObject
     Q_OBJECT
 public:
     PrintThread(AtCore *parent, QString fileName);
-    void nextLine();
 signals:
     void finished();
     void error(QString err);
@@ -43,12 +42,13 @@ signals:
 
 public slots:
     void start();
-    void setState(const AtCore::STATES &state);
 
 private slots:
-    void commandReady();
-    void endPrint();
+    void processJob();
+    void setState(const AtCore::STATES &state);
 
 private:
+    void nextLine();
+    void endPrint();
     PrintThreadPrivate *d;
 };
