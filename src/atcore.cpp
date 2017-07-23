@@ -56,7 +56,6 @@ struct AtCorePrivate {
     QTimer *tempTimer = nullptr;
     float percentage;
     QByteArray posString;
-    Temperature temps;
     AtCore::STATES printerState;
 };
 
@@ -89,16 +88,6 @@ AtCore::AtCore(QObject *parent) :
     qCDebug(ATCORE_PLUGIN) << d->pluginsDir;
     findFirmwarePlugins();
     setState(AtCore::DISCONNECTED);
-}
-
-void AtCore::setSerial(SerialLayer *serial)
-{
-    d->serial = serial;
-}
-
-void AtCore::setFirmwarePlugin(IFirmware *plugin)
-{
-    d->firmwarePlugin = plugin;
 }
 
 SerialLayer *AtCore::serial() const
@@ -184,7 +173,7 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
         } else {
             qCDebug(ATCORE_PLUGIN) << "Loading plugin.";
         }
-        setFirmwarePlugin(qobject_cast<IFirmware *>(d->pluginLoader.instance()));
+        d->firmwarePlugin = qobject_cast<IFirmware *>(d->pluginLoader.instance());
 
         if (!firmwarePluginLoaded()) {
             qCDebug(ATCORE_PLUGIN) << "No plugin loaded.";
@@ -208,7 +197,7 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
 
 void AtCore::initSerial(const QString &port, int baud)
 {
-    setSerial(new SerialLayer(port, baud));
+    d->serial = new SerialLayer(port, baud);
     if (serialInitialized()) {
         setState(AtCore::CONNECTING);
     }

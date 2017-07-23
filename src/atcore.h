@@ -42,6 +42,7 @@ struct AtCorePrivate;
 class ATCORE_EXPORT AtCore : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(AtCore::STATES state READ state WRITE setState NOTIFY stateChanged)
 public:
 
     enum STATES {
@@ -265,9 +266,7 @@ private slots:
 private:
     bool firmwarePluginLoaded() const;
     void requestFirmware();
-    void setSerial(SerialLayer *serial);
     bool serialInitialized() const;
-    void setFirmwarePlugin(IFirmware *plugin);
     void newMessage(const QByteArray &message);
     void findFirmware(const QByteArray &message);
     void findFirmwarePlugins();
