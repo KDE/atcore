@@ -39,55 +39,118 @@ class QTime;
 
 struct AtCorePrivate;
 
+/**
+ * @brief The AtCore class
+ * aims to provides a high level interface for serial based gcode devices<br />
+ *
+ * General Workflow
+ * - Connect to a serial port with initSerial()
+ * - Auto detect the firmware with detectFirmware()
+ * - Send commands to the device (pushCommand(),print(),...)
+ * - AtCore::close() when you are all done.
+ */
 class ATCORE_EXPORT AtCore : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(AtCore::STATES state READ state WRITE setState NOTIFY stateChanged)
 public:
-
+    /**
+     * @brief STATES enum Possible states the printer can be in
+     */
     enum STATES {
-        DISCONNECTED, //Not Connected to a printer, initial state
-        CONNECTING, //Attempting to connect, Fw not probed
-        IDLE, //Connected to printer and ready for commands
-        BUSY, //Printer is working
-        PAUSE, //Printer is paused
-        ERRORSTATE, // Printer Returned Error
-        STOP, // Stop Printing and Clean Queue
-        STARTPRINT, //Just Starting a print job
-        FINISHEDPRINT, //Just Finished print job
+        DISCONNECTED,   //!< Not Connected to a printer, initial state
+        CONNECTING,     //!<Attempting to connect, Fw not probed
+        IDLE,           //!<Connected to printer and ready for commands
+        BUSY,           //!<Printer is Printing or working
+        PAUSE,          //!<Printer is paused
+        ERRORSTATE,     //!<Printer Returned Error
+        STOP,           //!<Stop Printing and Clean Queue
+        STARTPRINT,     //!<Just Starting a print job
+        FINISHEDPRINT,  //!<Just Finished print job
     };
-
+    /**
+     * @brief The AXES enum - Printer Axes.
+     */
     enum AXES {
-        X = 1 << 0,
-        Y = 1 << 1,
-        Z = 1 << 2,
-        E = 1 << 3,
+        X = 1 << 0, //!<X Axis: X Motor
+        Y = 1 << 1, //!<Y Axis Y Motor
+        Z = 1 << 2, //!<Z Axis Z Motor
+        E = 1 << 3, //!<E Axis: Extruder Motor 0
     };
-
+    /**
+     * @brief The UNITS enum - Possible Mesurment Units
+     */
     enum UNITS {
-        METRIC,
-        IMPERIAL
+        METRIC,     //!< Metric Units (Meters)
+        IMPERIAL    //!< Imperial Units (Feet)
     };
 
-    AtCore(QObject *parent = nullptr);
+    /**
+     * @brief AtCore create a new instance of AtCore
+     * @param parent: parent of the object
+     */
+    explicit AtCore(QObject *parent = nullptr);
+
+    /**
+     * @brief Returns a List of detected serial ports
+     * @return List of detected ports
+     * @sa initSerial(),serial(),closeConnection()
+     */
     QList<QSerialPortInfo> serialPorts() const;
 
+    /**
+     * @brief Initialize a connection to \p port at a speed of \p baud <br />
+     * @param port: the port to initialize
+     * @param baud: the baud of the port
+     * @sa serialPorts(),serial(),closeConnection()
+     */
     void initSerial(const QString &port, int baud);
+
+    /**
+     * @brief Main access ot the serialLayer
+     * @return Current serialLayer
+     * @sa initSerial(),serialPorts(),closeConnection()
+     */
     SerialLayer *serial() const;
 
+    /**
+     * @brief Close the current serial connection
+     * @sa initSerial(),serial(),serialPorts(),AtCore::close()
+     */
+    void closeConnection();
+
+    /**
+     * @brief Main access to the loaded firmware plugin
+     * @return IFirmware * to currently loaded plugin
+     * @sa availableFirmwarePlugins(),loadFirmwarePlugin(),detectFirmware()
+     */
     IFirmware *firmwarePlugin() const;
+
+    /**
+     * @brief List of available firmware plugins
+     * @sa loadFirmwarePlugin(),firmwarePlugin(),detectFirmware()
+     */
+    QStringList availableFirmwarePlugins() const;
+
+    /**
+     * @brief Load A firmware plugin
+     * @param fwName : name of the firmware
+     * @sa firmwarePlugin(),availableFirmwarePlugins(),detectFirmware()
+     */
+    void loadFirmwarePlugin(const QString &fwName);
+
+    /**
+     * @brief Attempt to autodetect the firmware of connect serial device
+     * @sa loadFirmwarePlugin(),availableFirmwarePlugins(),firmwarePlugin()
+     */
+    void detectFirmware();
 
     /**
      * @brief Get Printer state
      * @return State of the printer
+     * @sa setState(),stateChanged(),AtCore::STATES
      */
     AtCore::STATES state(void);
-
-    /**
-     * @brief setState: set Printer state
-     * @param state : printer state.
-     */
-    void setState(AtCore::STATES state);
 
     /**
      * @brief extruderCount
@@ -97,30 +160,9 @@ public:
 
     /**
      * @brief Return printed percentage
+     * @sa printProgressChanged()
      */
     float percentagePrinted() const;
-
-    /**
-     * @brief Request a list of firmware plugins
-     */
-    QStringList availableFirmwarePlugins() const;
-
-    /**
-     * @brief Load A firmware plugin
-     *
-     * @param fwName : name of the firmware; {repetier, mariln , ..}
-     */
-    void loadFirmwarePlugin(const QString &fwName);
-
-    /**
-     * @brief detectFirmware attempt to autodetect the firmware
-     */
-    void detectFirmware();
-
-    /**
-     * @brief Close the serial connection
-     */
-    void closeConnection();
 
     /**
      * @brief The temperature of the current hotend as told by the Firmware.
@@ -128,88 +170,111 @@ public:
     Temperature &temperature() const;
 
 signals:
+
     /**
-     * @brief Emit signal when the printing precentabe changes.
-     *
-     * @param msg : Message
+     * @brief Print job's precentage changed.
+     * @param newProgress : Message
+     * @sa percentagePrinted()
      */
     void printProgressChanged(const float &newProgress);
 
     /**
-     * @brief Emit signal when message is received from the printer
-     *
-     * @param msg : Message
+     * @brief New message was received from the printer
+     * @param message: Message that was received
      */
     void receivedMessage(const QByteArray &message);
 
     /**
-     * @brief State Changed
+     * @brief The Printer's State Changed
      * @param newState : the new state of the printer
+     * @sa setState(),state(),AtCore::STATES
      */
     void stateChanged(AtCore::STATES newState);
 
 public slots:
+
     /**
-     * @brief Translate command and push it
+     * @brief Set the printers state
+     * @param state : printer state.
+     * @sa state(),stateChanged(),AtCore::STATES
+     */
+    void setState(AtCore::STATES state);
+
+    /**
+     * @brief Push a command into the command queue
      *
-     * @param msg : Command
+     * @param comm : Command
      */
     void pushCommand(const QString &comm);
 
     /**
      * @brief Public Interface for printing a file
+     * @param fileName: the gcode file to print.
      */
     void print(const QString &fileName);
 
     /**
      * @brief Stop the Printer by empting the queue and aborting the print job (if running)
+     * @sa emergencyStop(),pause(),resume()
      */
     void stop();
 
     /**
      * @brief stop the printer via the emergency stop Command (M112)
+     * @sa stop(),pause(),resume()
      */
     void emergencyStop();
 
     /**
      * @brief pause an in process print job
-     * @param Gcode to run after pausing commands are ',' seperated
+     *
+     * Sends M114 on pause to store the location where the head stoped.
+     * This is known to cause problems on fake printers
+     * @param pauseActions: Gcode to run after pausing commands are ',' seperated
+     * @sa resume(),stop(),emergencyStop()
      */
     void pause(const QString &pauseActions);
 
     /**
      * @brief resume a paused print job.
+     * After returning to location pause was triggered.
+     * @sa pause(),stop(),emergencyStop()
      */
     void resume();
 
     /**
-     * @brief Send home command
+     * @brief Send home \p axis command
      * @param axis: the axis(es) to home (use X Y Z or any combo of)
+     * @sa home(), move()
      */
     void home(uchar axis);
 
     /**
      * @brief Send home all command
+     * @sa home(uchar axis), move()
      */
     void home();
-
-    /**
-     * @brief Set extruder temperature
-     * @param temp : new temperature
-     * @param extruder : extruder number
-     */
-    void setExtruderTemp(uint temp = 0, uint extruder = 0);
 
     /**
      * @brief move an axis of the printer
      * @param axis the axis to move AXES (X Y Z E )
      * @param arg the distance to move the axis or the place to move to depending on printer mode
+     * @sa home(), home(uchar axis)
      */
     void move(AtCore::AXES axis, uint arg);
 
     /**
+     * @brief Set \p extruder to \p temp
+     * @param temp : new temperature
+     * @param extruder : extruder number
+     * @sa setBedTemp()
+     */
+    void setExtruderTemp(uint temp = 0, uint extruder = 0);
+
+    /**
      * @brief Set the bed temperature
      * @param temp : new temperature
+     * @sa setExtruderTemp()
      */
     void setBedTemp(uint temp = 0);
 
@@ -220,7 +285,16 @@ public slots:
      */
     void setFanSpeed(uint speed = 0, uint fanNumber = 0);
 
+    /**
+     * @brief Set printer to absolute position mode
+     * @sa setRelativePosition()
+     */
     void setAbsolutePosition();
+
+    /**
+     * @brief Set printer to relative position mode
+     * @sa setAbsolutePosition()
+     */
     void setRelativePosition();
 
     /**
@@ -231,29 +305,27 @@ public slots:
 
     /**
      * @brief set extruder Flow rate
-     * @parma rate: flow rate in % (default is 100)
+     * @param rate: flow rate in % (default is 100)
      */
     void setFlowRate(uint rate = 100);
 
     /**
-     * @brief checkTemperature send M105 to the printer
-     */
-    void checkTemperature();
-
-    /**
-     * @brief close AtCore
+     * @brief close any open items.
+     * You should call this on close events to force any stuck jobs to close
+     * @sa closeConnection()
      */
     void close();
 
     /**
      * @brief showMessage push a message to the printers LCD
-     * @param message message to show on the LCD
+     * @param message: message to show on the LCD
      */
     void showMessage(const QString &message);
 
     /**
      * @brief setUnits sets the measurement units do be used
-     * @param system : the measurement units (METRIC / IMPERIAL)
+     * @param units : the measurement units to use(METRIC / IMPERIAL)
+     * @sa AtCore::UNITS
      */
     void setUnits(AtCore::UNITS units);
 
@@ -263,12 +335,47 @@ private slots:
      */
     void processQueue();
 
-private:
-    bool firmwarePluginLoaded() const;
-    void requestFirmware();
-    bool serialInitialized() const;
+    /**
+     * @brief Send M105 to the printer if one is not in the Queue
+     */
+    void checkTemperature();
+
+    /**
+     * @brief Connect to SerialLayer::receivedCommand
+     * @param message: new message.
+     */
     void newMessage(const QByteArray &message);
+
+    /**
+     * @brief Search for firmware string in message.
+     * A Helper function for detectFirmware()
+     * @param message
+     */
     void findFirmware(const QByteArray &message);
+
+private:
+    /**
+     * @brief True if a firmware plugin is loaded
+     */
+    bool firmwarePluginLoaded() const;
+
+    /**
+     * @brief True if a serial port is initialized
+     */
+    bool serialInitialized() const;
+
+    /**
+     * @brief send firmware request to the printer
+     */
+    void requestFirmware();
+
+    /**
+     * @brief Search for atcore firmware plugins
+     */
     void findFirmwarePlugins();
+
+    /**
+     * @brief Hold private data of AtCore.
+     */
     AtCorePrivate *d;
 };

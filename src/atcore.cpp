@@ -41,22 +41,24 @@
 
 Q_LOGGING_CATEGORY(ATCORE_PLUGIN, "org.kde.atelier.core.plugin");
 Q_LOGGING_CATEGORY(ATCORE_CORE, "org.kde.atelier.core");
-
+/**
+ * @brief The AtCorePrivate struct
+ */
 struct AtCorePrivate {
-    IFirmware *firmwarePlugin = nullptr;
-    SerialLayer *serial = nullptr;
-    QPluginLoader pluginLoader;
-    QDir pluginsDir;
-    QMap<QString, QString> plugins;
-    QByteArray lastMessage;
-    int extruderCount = 1;
-    Temperature temperature;
-    QStringList commandQueue;
-    bool ready = false;
-    QTimer *tempTimer = nullptr;
-    float percentage;
-    QByteArray posString;
-    AtCore::STATES printerState;
+    IFirmware *firmwarePlugin = nullptr;//!< @param firmwarePlugin: pointer to firmware plugin
+    SerialLayer *serial = nullptr;      //!< @param serial: pointer to the serial layer
+    QPluginLoader pluginLoader;         //!< @param pluginLoader: QPluginLoader
+    QDir pluginsDir;                    //!< @param pluginsDir: Directory where plugins were found
+    QMap<QString, QString> plugins;     //!< @param plugins: Map of plugins name / path
+    QByteArray lastMessage;             //!< @param lastMessage: lastMessage from the printer
+    int extruderCount = 1;              //!< @param extruderCount: extruder count
+    Temperature temperature;            //!< @param temperature: Temperature object
+    QStringList commandQueue;           //!< @param commandQueue: the list of commands to send to the printer
+    bool ready = false;                 //!< @param ready: True if printer is ready for a command
+    QTimer *tempTimer = nullptr;        //!< @param tempTimer: timer connected to the checkTemperature function
+    float percentage;                   //!< @param percentage: print job percent
+    QByteArray posString;               //!< @param posString: stored string from last M114 return
+    AtCore::STATES printerState;        //!< @param printerState: State of the Printer
 };
 
 AtCore::AtCore(QObject *parent) :
