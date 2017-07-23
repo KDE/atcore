@@ -404,7 +404,7 @@ void AtCore::pause(const QString &pauseActions)
 {
     pushCommand(GCode::toCommand(GCode::M114));
     setState(AtCore::PAUSE);
-    if (!pauseActions.isNull()) {
+    if (!pauseActions.isEmpty()) {
         QStringList temp = pauseActions.split(QChar::fromLatin1(','));
         for (int i = 0; i < temp.length(); i++) {
             pushCommand(temp.at(i));
