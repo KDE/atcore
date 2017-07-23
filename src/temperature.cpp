@@ -27,14 +27,18 @@
 
 #include "temperature.h"
 #include <cmath>
-
+/**
+ * @brief The TemperaturePrivate class
+ *
+ * Private Data of Temperature
+ */
 class TemperaturePrivate
 {
 public:
-    float extruderTemp;
-    float extruderTargetTemp;
-    float bedTemp;
-    float bedTargetTemp;
+    float extruderTemp;         //!< @param extruderTemp: Extruder current temperature
+    float extruderTargetTemp;   //!< @param extruderTargetTemp: Extruder target temperature
+    float bedTemp;              //!< @param bedTemp: Bed current temperature
+    float bedTargetTemp;        //!< @param bedTargetTemp: Bed target temperature
 };
 
 Temperature::Temperature(QObject *parent)

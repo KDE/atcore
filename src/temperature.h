@@ -27,7 +27,11 @@
 #include "atcore_export.h"
 
 class TemperaturePrivate;
-
+/**
+ * @brief The Temperature class
+ *
+ * Read and hold the Temperature info for the printer
+ */
 class ATCORE_EXPORT Temperature : public QObject
 {
     Q_OBJECT
@@ -37,23 +41,86 @@ class ATCORE_EXPORT Temperature : public QObject
     Q_PROPERTY(float extruderTargetTemperature READ extruderTargetTemperature WRITE setExtruderTargetTemperature NOTIFY extruderTargetTemperatureChanged);
 
 public:
+    /**
+     * @brief Create a new Temperature object
+     * @param parent
+     */
     Temperature(QObject *parent = nullptr);
+
+    /**
+     * @brief Get bed current temperature
+     */
     float bedTemperature() const;
+
+    /**
+     * @brief Get bed target temperature
+     */
     float bedTargetTemperature() const;
+
+    /**
+     * @brief Get extruder temperature
+     */
     float extruderTemperature() const;
+
+    /**
+     * @brief Get extruder target temperature
+     */
     float extruderTargetTemperature() const;
+
+    /**
+     * @brief decode Temp values from string \p msg
+     * @param msg: string to read vaules from
+     */
     void decodeTemp(const QByteArray &msg);
 
 public slots:
+    /**
+     * @brief Set bed temperature
+     * @param temp: bed temperature
+     */
     void setBedTemperature(float temp);
+
+    /**
+     * @brief Set bed target temperature
+     * @param temp: bed target temperature
+     */
     void setBedTargetTemperature(float temp);
+
+    /**
+     * @brief Set exturder temperature
+     * @param temp: bed temperature
+     */
     void setExtruderTemperature(float temp);
+
+    /**
+    * @brief Set extruder target temperature
+    * @param temp: extruder target temperature
+    */
     void setExtruderTargetTemperature(float temp);
 
 signals:
+    /**
+     * @brief bed temperature has changed
+     * @param temp : new bed temperature
+     */
     void bedTemperatureChanged(float temp);
+
+    /**
+     * @brief bed target temperature has changed
+     * @param temp : new bed target temperature
+     */
     void bedTargetTemperatureChanged(float temp);
+
+    /**
+     * @brief extruder temperature has changed
+     * @param temp : new extruder temperature
+     */
     void extruderTemperatureChanged(float temp);
+
+    /**
+     * @brief extruder target temperature has changed
+     * @param temp : new extruder target temperature
+     */
     void extruderTargetTemperatureChanged(float temp);
 
 private:
