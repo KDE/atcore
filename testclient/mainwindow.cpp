@@ -50,7 +50,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->baudRateLE->setCurrentIndex(9);
 
     ui->pluginCB->addItem(tr("Autodetect"));
-    ui->pluginCB->addItems(core->availablePlugins());
+    ui->pluginCB->addItems(core->availableFirmwarePlugins());
 
     AxisControl *axisControl = new AxisControl;
     ui->moveDockContents->layout()->addWidget(axisControl);
@@ -219,9 +219,9 @@ void MainWindow::addSLog(QString msg)
     writeTempFile(message);
 }
 
-void MainWindow::checkReceivedCommand()
+void MainWindow::checkReceivedCommand(const QByteArray &message)
 {
-    addRLog(QString::fromUtf8(core->popCommand()));
+    addRLog(QString::fromUtf8(message));
 }
 
 void MainWindow::checkPushedCommands(QByteArray bmsg)
@@ -312,17 +312,17 @@ void MainWindow::connectPBClicked()
 {
     if (core->state() == AtCore::DISCONNECTED) {
         core->initSerial(ui->serialPortCB->currentText(), ui->baudRateLE->currentText().toInt());
-        connect(core->serial(), &SerialLayer::receivedCommand, this, &MainWindow::checkReceivedCommand);
+        connect(core, &AtCore::receivedMessage, this, &MainWindow::checkReceivedCommand);
         connect(core->serial(), &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
         addLog(tr("Serial connected"));
         ui->connectPB->setText(tr("Disconnect"));
-        if (!core->pluginLoaded()) {
+        if (core->state() == AtCore::CONNECTING) {
             if (ui->pluginCB->currentText().contains(tr("Autodetect"))) {
                 addLog(tr("No plugin loaded !"));
                 addLog(tr("Requesting Firmware..."));
                 core->detectFirmware();
             } else {
-                core->loadFirmware(ui->pluginCB->currentText());
+                core->loadFirmwarePlugin(ui->pluginCB->currentText());
             }
         }
     } else {
@@ -443,7 +443,7 @@ void MainWindow::pluginCBChanged(QString currentText)
 {
     if (core->state() != AtCore::DISCONNECTED) {
         if (!currentText.contains(tr("Autodetect"))) {
-            core->loadFirmware(currentText);
+            core->loadFirmwarePlugin(currentText);
         } else {
             core->detectFirmware();
         }

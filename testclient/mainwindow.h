@@ -45,7 +45,7 @@ public slots:
      * @brief Check received messages
      *
      */
-    void checkReceivedCommand();
+    void checkReceivedCommand(const QByteArray &message);
 
     /**
      * @brief Check pushed message
