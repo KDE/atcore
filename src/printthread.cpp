@@ -26,18 +26,20 @@
 #include <QTime>
 
 Q_LOGGING_CATEGORY(PRINT_THREAD, "org.kde.atelier.core.printThread");
-
+/**
+ * @brief The PrintThreadPrivate class
+ */
 class PrintThreadPrivate
 {
 public:
-    AtCore *core = nullptr;
-    QTextStream *gcodestream = nullptr;
-    float printProgress = 0;
-    qint64 totalSize = 0;
-    qint64 stillSize = 0;
-    QString cline;
-    AtCore::STATES state = AtCore::IDLE;
-    QFile *file = nullptr;
+    AtCore *core = nullptr;             //!<@param core: Pointer to AtCore
+    QTextStream *gcodestream = nullptr; //!<@param gcodestream: Steam the job is read from
+    float printProgress = 0;            //!<@param printProgress: Progress of the print job
+    qint64 totalSize = 0;               //!<@param totalSize: total file size
+    qint64 stillSize = 0;               //!<@param stillSize: remaining file
+    QString cline;                      //!<@param cline: current line
+    AtCore::STATES state = AtCore::IDLE;//!<@param state: printer state
+    QFile *file = nullptr;              //!<@param file: gcode File to stream from
 };
 
 PrintThread::PrintThread(AtCore *parent, QString fileName) : d(new PrintThreadPrivate)
