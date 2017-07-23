@@ -43,7 +43,7 @@ Q_LOGGING_CATEGORY(ATCORE_PLUGIN, "org.kde.atelier.core.plugin");
 Q_LOGGING_CATEGORY(ATCORE_CORE, "org.kde.atelier.core");
 
 struct AtCorePrivate {
-    IFirmware *fwPlugin = nullptr;
+    IFirmware *firmwarePlugin = nullptr;
     SerialLayer *serial = nullptr;
     QPluginLoader pluginLoader;
     QDir pluginsDir;
@@ -87,7 +87,7 @@ AtCore::AtCore(QObject *parent) :
     d->pluginsDir = qApp->applicationDirPath() + QStringLiteral("/plugins");
 #endif
     qCDebug(ATCORE_PLUGIN) << d->pluginsDir;
-    findPlugins();
+    findFirmwarePlugins();
     setState(AtCore::DISCONNECTED);
 }
 
@@ -96,9 +96,9 @@ void AtCore::setSerial(SerialLayer *serial)
     d->serial = serial;
 }
 
-void AtCore::setPlugin(IFirmware *plugin)
+void AtCore::setFirmwarePlugin(IFirmware *plugin)
 {
-    d->fwPlugin = plugin;
+    d->firmwarePlugin = plugin;
 }
 
 SerialLayer *AtCore::serial() const
@@ -106,9 +106,9 @@ SerialLayer *AtCore::serial() const
     return d->serial;
 }
 
-IFirmware *AtCore::plugin() const
+IFirmware *AtCore::firmwarePlugin() const
 {
-    return d->fwPlugin;
+    return d->firmwarePlugin;
 }
 
 void AtCore::close()
@@ -134,10 +134,10 @@ void AtCore::findFirmware(const QByteArray &message)
             QTimer::singleShot(500, this, &AtCore::requestFirmware);
             return;
         } else if (message.contains("Grbl")) {
-            loadFirmware(QString::fromLatin1("grbl"));
+            loadFirmwarePlugin(QString::fromLatin1("grbl"));
             return;
         } else if (message.contains("Smoothie")) {
-            loadFirmware(QString::fromLatin1("smoothie"));
+            loadFirmwarePlugin(QString::fromLatin1("smoothie"));
             return;
         }
     }
@@ -172,10 +172,10 @@ void AtCore::findFirmware(const QByteArray &message)
     }
     qCDebug(ATCORE_CORE) << "Extruder Count:" << QString::number(extruderCount());
 
-    loadFirmware(fwName);
+    loadFirmwarePlugin(fwName);
 }
 
-void AtCore::loadFirmware(const QString &fwName)
+void AtCore::loadFirmwarePlugin(const QString &fwName)
 {
     if (d->plugins.contains(fwName)) {
         d->pluginLoader.setFileName(d->plugins[fwName]);
@@ -184,18 +184,18 @@ void AtCore::loadFirmware(const QString &fwName)
         } else {
             qCDebug(ATCORE_PLUGIN) << "Loading plugin.";
         }
-        setPlugin(qobject_cast<IFirmware *>(d->pluginLoader.instance()));
+        setFirmwarePlugin(qobject_cast<IFirmware *>(d->pluginLoader.instance()));
 
-        if (!pluginLoaded()) {
+        if (!firmwarePluginLoaded()) {
             qCDebug(ATCORE_PLUGIN) << "No plugin loaded.";
             qCDebug(ATCORE_PLUGIN) << "Looking plugin in folder:" << d->pluginsDir;
             setState(AtCore::CONNECTING);
         } else {
-            qCDebug(ATCORE_PLUGIN) << "Connected to" << plugin()->name();
-            plugin()->init(this);
+            qCDebug(ATCORE_PLUGIN) << "Connected to" << firmwarePlugin()->name();
+            firmwarePlugin()->init(this);
             disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
             connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
-            connect(plugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
+            connect(firmwarePlugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
             d->ready = true; // ready on new firmware load
             connect(d->tempTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
             d->tempTimer->start();
@@ -209,13 +209,13 @@ void AtCore::loadFirmware(const QString &fwName)
 void AtCore::initSerial(const QString &port, int baud)
 {
     setSerial(new SerialLayer(port, baud));
-    if (isInitialized()) {
+    if (serialInitialized()) {
         setState(AtCore::CONNECTING);
     }
     connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
 }
 
-bool AtCore::isInitialized() const
+bool AtCore::serialInitialized() const
 {
     if (!d->serial) {
         return false;
@@ -288,13 +288,13 @@ void AtCore::pushCommand(const QString &comm)
 
 void AtCore::closeConnection()
 {
-    if (isInitialized()) {
+    if (serialInitialized()) {
         if (state() == AtCore::BUSY) {
             //we have to clean print if printing.
             setState(AtCore::STOP);
         }
-        if (pluginLoaded()) {
-            disconnect(plugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
+        if (firmwarePluginLoaded()) {
+            disconnect(firmwarePlugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
             disconnect(d->tempTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
             d->tempTimer->stop();
         }
@@ -318,11 +318,6 @@ void AtCore::setState(AtCore::STATES state)
     }
 }
 
-QByteArray AtCore::popCommand() const
-{
-    return serial()->popCommand();
-}
-
 void AtCore::stop()
 {
     setState(AtCore::STOP);
@@ -344,20 +339,20 @@ void AtCore::emergencyStop()
 void AtCore::requestFirmware()
 {
     qCDebug(ATCORE_CORE) << "Sending " << GCode::toString(GCode::M115);
-    if (isInitialized()) {
+    if (serialInitialized()) {
         serial()->pushCommand(GCode::toCommand(GCode::M115).toLocal8Bit());
     }
 }
 
-bool AtCore::pluginLoaded() const
+bool AtCore::firmwarePluginLoaded() const
 {
-    if (plugin()) {
+    if (firmwarePlugin()) {
         return true;
     } else {
         return false;
     }
 }
-void AtCore::findPlugins()
+void AtCore::findFirmwarePlugins()
 {
     d->plugins.clear();
     qCDebug(ATCORE_PLUGIN) << "plugin dir:" << d->pluginsDir;
@@ -389,7 +384,7 @@ void AtCore::findPlugins()
         qCDebug(ATCORE_CORE) << tr("plugins[%1]=%2").arg(file, pluginString);
     }
 }
-QStringList AtCore::availablePlugins() const
+QStringList AtCore::availableFirmwarePlugins() const
 {
     return d->plugins.keys();
 }
@@ -496,15 +491,15 @@ void AtCore::processQueue()
         return;
     }
 
-    if (!isInitialized()) {
+    if (!serialInitialized()) {
         qCDebug(ATCORE_PLUGIN) << "Can't process queue ! Serial not initialized.";
         return;
     }
 
     QString text = d->commandQueue.takeAt(0);
 
-    if (pluginLoaded()) {
-        serial()->pushCommand(plugin()->translate(text));
+    if (firmwarePluginLoaded()) {
+        serial()->pushCommand(firmwarePlugin()->translate(text));
     } else {
         serial()->pushCommand(text.toLocal8Bit());
     }

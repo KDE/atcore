@@ -54,7 +54,7 @@ PrintThread::PrintThread(AtCore *parent, QString fileName) : d(new PrintThreadPr
 void PrintThread::start()
 {
     // we only want to do this when printing
-    connect(d->core->plugin(), &IFirmware::readyForCommand, this, &PrintThread::commandReady, Qt::QueuedConnection);
+    connect(d->core->firmwarePlugin(), &IFirmware::readyForCommand, this, &PrintThread::commandReady, Qt::QueuedConnection);
     connect(this, &PrintThread::nextCommand, d->core, &AtCore::pushCommand, Qt::QueuedConnection);
     connect(this, &PrintThread::stateChanged, d->core, &AtCore::setState, Qt::QueuedConnection);
     connect(d->core, &AtCore::stateChanged, this, &PrintThread::setState, Qt::QueuedConnection);
@@ -106,7 +106,7 @@ void PrintThread::endPrint()
 {
     emit(printProgressChanged(100));
     qCDebug(PRINT_THREAD) << "atEnd";
-    disconnect(d->core->plugin(), &IFirmware::readyForCommand, this, &PrintThread::commandReady);
+    disconnect(d->core->firmwarePlugin(), &IFirmware::readyForCommand, this, &PrintThread::commandReady);
     disconnect(this, &PrintThread::nextCommand, d->core, &AtCore::pushCommand);
     disconnect(d->core, &AtCore::stateChanged, this, &PrintThread::setState);
     emit(stateChanged(AtCore::FINISHEDPRINT));

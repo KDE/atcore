@@ -124,11 +124,6 @@ void SerialLayer::push()
     d->_sByteCommands.clear();
 }
 
-QByteArray SerialLayer::popCommand() const
-{
-    return commandAvailable() ? d->_rByteCommands.takeFirst() : QByteArray();
-}
-
 bool SerialLayer::commandAvailable() const
 {
     return !d->_rByteCommands.isEmpty();

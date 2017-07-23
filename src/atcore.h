@@ -70,12 +70,11 @@ public:
 
     AtCore(QObject *parent = nullptr);
     QList<QSerialPortInfo> serialPorts() const;
+
     void initSerial(const QString &port, int baud);
-    bool isInitialized() const;
-    void setSerial(SerialLayer *serial);
     SerialLayer *serial() const;
-    void setPlugin(IFirmware *plugin);
-    IFirmware *plugin() const;
+
+    IFirmware *firmwarePlugin() const;
 
     /**
      * @brief Get Printer state
@@ -96,16 +95,6 @@ public:
     int extruderCount() const;
 
     /**
-     * @brief Return true if plugin is loaded
-     */
-    bool pluginLoaded() const;
-
-    /**
-     * @brief Request firmware sending M115 command
-     */
-    void requestFirmware();
-
-    /**
      * @brief Return printed percentage
      */
     float percentagePrinted() const;
@@ -113,26 +102,19 @@ public:
     /**
      * @brief Request a list of firmware plugins
      */
-    QStringList availablePlugins() const;
+    QStringList availableFirmwarePlugins() const;
 
     /**
-     * @brief Load A firmware
+     * @brief Load A firmware plugin
      *
-     * @param fwName : name of the firmware
+     * @param fwName : name of the firmware; {repetier, mariln , ..}
      */
-    void loadFirmware(const QString &fwName);
+    void loadFirmwarePlugin(const QString &fwName);
 
     /**
      * @brief detectFirmware attempt to autodetect the firmware
      */
     void detectFirmware();
-
-    /**
-     * @brief Return FIFO command from printer
-     *
-     * @return QByteArray
-     */
-    QByteArray popCommand() const;
 
     /**
      * @brief Close the serial connection
@@ -281,9 +263,13 @@ private slots:
     void processQueue();
 
 private:
-
+    bool firmwarePluginLoaded() const;
+    void requestFirmware();
+    void setSerial(SerialLayer *serial);
+    bool serialInitialized() const;
+    void setFirmwarePlugin(IFirmware *plugin);
     void newMessage(const QByteArray &message);
     void findFirmware(const QByteArray &message);
-    void findPlugins();
+    void findFirmwarePlugins();
     AtCorePrivate *d;
 };
