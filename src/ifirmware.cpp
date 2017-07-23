@@ -24,7 +24,11 @@
 #include "ifirmware.h"
 #include "temperature.h"
 #include "atcore.h"
-
+/**
+ * @brief The IFirmwarePrivate struct
+ *
+ * @param parent: parent of this objet
+ */
 struct IFirmwarePrivate {
     AtCore *parent;
 };

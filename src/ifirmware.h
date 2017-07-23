@@ -33,7 +33,10 @@ class Temperature;
 class AtCore;
 
 struct IFirmwarePrivate;
-
+/**
+ * @brief The IFirmware class
+ * Base Class for Firmware Plugins
+ */
 class ATCORE_EXPORT  IFirmware : public QObject
 {
     Q_OBJECT
@@ -42,16 +45,45 @@ public:
     void init(AtCore *parent);
     ~IFirmware() override;
 
-    /* virtuals, needs to reimplement */
+    /**
+     * @brief Virtual name to be reimplemnted by Firmware plugin
+     *
+     * Return the name the firmware the plugin is for
+     * @return Firmware Name
+     */
     virtual QString name() const = 0;
+
+    /**
+     * @brief Virtual translate to be reimplemnted by Firmwareplugin
+     *
+     * Translate common commands to firmware specific command.
+     * @param command: Command command to translate
+     * @return firmware specific translated command
+     */
     virtual QByteArray translate(const QString &command) = 0;
+
+    /**
+     * @brief AtCore Parent of the firmware plugin
+     * @return
+     */
     AtCore *core() const;
 private:
     IFirmwarePrivate *d;
+    /**
+     * @brief Vitural validateCommand to filter commands from messages
+     * @param lastMessage: last Message from printer
+     */
     virtual void validateCommand(const QString &lastMessage) = 0;
 public slots:
+    /**
+     * @brief call Validate Command
+     * @param lastMessage: last message from printer
+     */
     void checkCommand(const QByteArray &lastMessage);
 signals:
+    /**
+     * @brief emit when firmware is ready for a command
+     */
     void readyForCommand(void);
 };
 
