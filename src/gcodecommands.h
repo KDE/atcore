@@ -35,18 +35,6 @@ class ATCORE_EXPORT GCode
 {
     Q_GADGET
 public:
-    enum Firmwares {
-        Repetier,
-        Marlin,
-        Teacup,
-        RepRapFirmware,
-        MakerBot,
-        Sprinter,
-        Sjfw,
-        Sailfish,
-        Smoothie
-    };
-    Q_ENUM(Firmwares);
 
     enum GCommands {
         G0, G1, G2, G3, G4,
@@ -113,7 +101,6 @@ public:
     };
     Q_ENUM(MCommands);
 
-    static QString toString(Firmwares firmware);
     static QString toString(GCommands gcode);
     static QString toString(MCommands gcode);
     static QString toCommand(GCommands gcode, const QString &value1 = QString());

@@ -27,12 +27,6 @@
 #include <QObject>
 #include <QMetaEnum>
 
-QString GCode::toString(Firmwares firmware)
-{
-    QMetaEnum metaEnum = QMetaEnum::fromType<GCode::Firmwares>();
-    return QString::fromLatin1(metaEnum.valueToKey(firmware));
-}
-
 QString GCode::toString(GCommands gcode)
 {
     switch (gcode) {
