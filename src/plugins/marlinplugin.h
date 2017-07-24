@@ -26,17 +26,44 @@
 
 #include "ifirmware.h"
 #include <QObject>
-
+/**
+ * @brief The MarlinPlugin class
+ * Plugin for Marlin
+ */
 class MarlinPlugin : public IFirmware
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.kde.atelier.core.firmware" FILE "marlin.json")
     Q_INTERFACES(IFirmware)
+
 private:
+    /**
+     * @brief command finished string
+     */
     static QString _ok;
+
 public:
+    /**
+     * @brief Create new MarlinPlugin
+     */
     MarlinPlugin();
+
+    /**
+     * @brief Return Plugin name
+     * @return Marlin
+     */
     QString name() const override;
+
+    /**
+     * @brief Check if command contains MarlinPlugin::_ok
+     * @param lastMessage: last message from printer
+     */
     void validateCommand(const QString &lastMessage) override;
+
+    /**
+     * @brief Translate common commands to firmware specific command.
+     * @param command: command to translate
+     * @return firmware specific translated command
+     */
     QByteArray translate(const QString &command) override;
 };
