@@ -53,7 +53,7 @@ QString GCode::toString(GCommands gcode)
     case G20://Teacup - Sprinter - Repetier - Smoothie - RepRap Firmware
         return QObject::tr("G20: Set units to inches");
     case G21://Teacup - Sprinter - Repetier - Smoothie - RepRap Firmware
-        return QObject::tr("G21: Set units to millimiters");
+        return QObject::tr("G21: Set units to millimeters");
     case G28://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware - MakerBot
         return QObject::tr("G28: Move to Origin Home");
     case G29://Marlin - Repetier 0.91.7
@@ -177,7 +177,7 @@ QString GCode::toString(MCommands gcode)
     case M42://Sprinter - Marlin - Repetier - RepRap Firmware
         return QObject::tr("M42: Switch I/O pin");
     case M48://Marlin
-        return QObject::tr("M48: Measure Z-Probe repeatabiliy");
+        return QObject::tr("M48: Measure Z-Probe repeatability");
     case M70://MakerBot
         return QObject::tr("M70: Display message");
     case M72://MakerBot
@@ -273,7 +273,7 @@ QString GCode::toString(MCommands gcode)
     case M164://Repetier > 0.92
         return QObject::tr("M164: Store weights");
     case M190://Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
-        return QObject::tr("M190: Wait for bed temperaure to reach target temp");
+        return QObject::tr("M190: Wait for bed temperature to reach target temp");
     case M200://Marlin - Repetier - Smoothie
         return QObject::tr("M200: Set filament diameter");
     case M201://Sprinter - Marlin - Repetier - RepRap Firmware
