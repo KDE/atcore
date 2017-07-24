@@ -30,12 +30,17 @@
 #include <QObject>
 
 #include "atcore_export.h"
-
+/**
+ * @brief The GCode class
+ * Provides Descriptions and Commands strings for G and M Commands
+ */
 class ATCORE_EXPORT GCode
 {
     Q_GADGET
 public:
-
+    /**
+     * @brief The GCommands enum
+     */
     enum GCommands {
         G0, G1, G2, G3, G4,
         G10, G11,
@@ -48,6 +53,9 @@ public:
     };
     Q_ENUM(GCommands);
 
+    /**
+     * @brief The MCommands enum
+     */
     enum MCommands {
         M0, M1, M2, M6,
         M17, M18,
@@ -101,8 +109,33 @@ public:
     };
     Q_ENUM(MCommands);
 
+    /**
+     * @brief Return Description of command \p gcode
+     * @param gcode: Command to describe
+     * @return description of GCommand
+     */
     static QString toString(GCommands gcode);
+
+    /**
+     * @brief Return Description of command \p gcode
+     * @param gcode: Command to describe
+     * @return description of MCommand
+     */
     static QString toString(MCommands gcode);
+    /**
+     * @brief Convert GCode::GCommands to command
+     * @param gcode: GCode::GCommands
+     * @param value1: Value of argument
+     * @return Command String to send to printer
+     */
     static QString toCommand(GCommands gcode, const QString &value1 = QString());
+
+    /**
+     * @brief Convert GCode::MCommands to command
+     * @param gcode: GCode::MCommands
+     * @param value1: Value of argument 1
+     * @param value2: Value of argument 2
+     * @return Command String to send to printer
+     */
     static QString toCommand(MCommands gcode, const QString &value1 = QString(), const QString &value2 = QString());
 };
