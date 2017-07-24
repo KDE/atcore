@@ -26,17 +26,44 @@
 
 #include "ifirmware.h"
 #include <QObject>
-
+/**
+ * @brief The SprinterPlugin class
+ * Plugin for Sprinter
+ */
 class SprinterPlugin : public IFirmware
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.kde.atelier.core.firmware" FILE "sprinter.json")
     Q_INTERFACES(IFirmware)
+
 private:
+    /**
+     * @brief command finished string
+     */
     static QString _ok;
+
 public:
+    /**
+     * @brief Create new SprinterPlugin
+     */
     SprinterPlugin();
+
+    /**
+     * @brief Return Plugin name
+     * @return Sprinter
+     */
     QString name() const override;
+
+    /**
+     * @brief Check if command contains SprinterPlugin::_ok
+     * @param lastMessage: last message from printer
+     */
     void validateCommand(const QString &lastMessage) override;
+
+    /**
+     * @brief Translate common commands to firmware specific command.
+     * @param command: command to translate
+     * @return firmware specific translated command
+     */
     QByteArray translate(const QString &command) override;
 };
