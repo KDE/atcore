@@ -26,15 +26,38 @@
 
 #include "ifirmware.h"
 #include <QObject>
-
+/**
+ * @brief The GrblPlugin class
+ * Plugin for Grbl
+ */
 class GrblPlugin : public IFirmware
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.kde.atelier.core.firmware" FILE "grbl.json")
     Q_INTERFACES(IFirmware)
+
 public:
+    /**
+     * @brief Create new GrblPlugin
+     */
     GrblPlugin();
+
+    /**
+     * @brief Return Plugin name
+     * @return Grbl
+     */
     QString name() const override;
-    QByteArray translate(const QString &command) override;
+
+    /**
+     * @brief Grbl does not return anything on command execution
+     * @param lastMessage: last message from printer
+     */
     void validateCommand(const QString &lastMessage) override;
+
+    /**
+     * @brief Translate common commands to firmware specific command.
+     * @param command: command to translate
+     * @return firmware specific translated command
+     */
+    QByteArray translate(const QString &command) override;
 };
