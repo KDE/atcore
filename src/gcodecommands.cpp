@@ -531,6 +531,12 @@ QString GCode::toCommand(MCommands gcode, const QString &value1, const QString &
     }
     case M107:
         return QStringLiteral("M107");
+    case M109:
+        if (!value1.isEmpty()) {
+            return QStringLiteral("M109 S%1").arg(value1);
+        } else {
+            return QObject::tr("ERROR! M109: It's obligatory to have an argument");
+        }
     case M112:
         return QStringLiteral("M112");
     case M114:
@@ -553,6 +559,13 @@ QString GCode::toCommand(MCommands gcode, const QString &value1, const QString &
             return QStringLiteral("M140 S%1").arg(value1);
         } else {
             return QObject::tr("ERROR! M140: It's obligatory to have an argument");
+        }
+    }
+    case M190: {
+        if (!value1.isEmpty()) {
+            return QStringLiteral("M190 S%1").arg(value1);
+        } else {
+            return QObject::tr("ERROR! M190: It's obligatory to have an argument");
         }
     }
     case M220: {

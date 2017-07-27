@@ -45,6 +45,7 @@ private slots:
     void command_M105();
     void command_M106();
     void command_M107();
+    void command_M109();
     void command_M112();
     void command_M114();
     void command_M115();
@@ -52,6 +53,7 @@ private slots:
     void command_M117();
     void command_M119();
     void command_M140();
+    void command_M190();
     void command_M220();
     void command_M221();
     void command_unsupportedM();
