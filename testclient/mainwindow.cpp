@@ -337,14 +337,22 @@ void MainWindow::homeZPBClicked()
 
 void MainWindow::bedTempPBClicked()
 {
-    addSLog(GCode::toString(GCode::M140));
-    core->setBedTemp(ui->bedTempSB->value());
+    if (ui->cb_andWait->isChecked()) {
+        addSLog(GCode::toString(GCode::M190));
+    } else {
+        addSLog(GCode::toString(GCode::M140));
+    }
+    core->setBedTemp(ui->bedTempSB->value(), ui->cb_andWait->isChecked());
 }
 
 void MainWindow::extTempPBClicked()
 {
-    addSLog(GCode::toString(GCode::M104));
-    core->setExtruderTemp(ui->extTempSB->value(), ui->extTempSelCB->currentIndex());
+    if (ui->cb_andWait->isChecked()) {
+        addSLog(GCode::toString(GCode::M109));
+    } else {
+        addSLog(GCode::toString(GCode::M104));
+    }
+    core->setExtruderTemp(ui->extTempSB->value(), ui->extTempSelCB->currentIndex(), ui->cb_andWait->isChecked());
 }
 
 void MainWindow::mvAxisPBClicked()
