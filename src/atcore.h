@@ -285,6 +285,14 @@ public slots:
     void home();
 
     /**
+     * @brief Set extruder temperature
+     * @param temp : new temperature
+     * @param extruder : extruder number
+     * @param andWait: True for heat and ignore commands untill temperature is reached
+     */
+    void setExtruderTemp(uint temp = 0, uint extruder = 0, bool andWait = false);
+
+    /**
      * @brief move an axis of the printer
      * @param axis the axis to move AXES (X Y Z E )
      * @param arg the distance to move the axis or the place to move to depending on printer mode
@@ -293,19 +301,12 @@ public slots:
     void move(AtCore::AXES axis, uint arg);
 
     /**
-     * @brief Set \p extruder to \p temp
-     * @param temp : new temperature
-     * @param extruder : extruder number
-     * @sa setBedTemp()
-     */
-    void setExtruderTemp(uint temp = 0, uint extruder = 0);
-
-    /**
      * @brief Set the bed temperature
      * @param temp : new temperature
+     * @param andWait: True for heat and ignore commands untill temperature is reached
      * @sa setExtruderTemp()
      */
-    void setBedTemp(uint temp = 0);
+    void setBedTemp(uint temp = 0, bool andWait = false);
 
     /**
      * @brief setFanSpeed set the fan speed
