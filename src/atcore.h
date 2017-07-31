@@ -102,9 +102,10 @@ public:
      * @brief Initialize a connection to \p port at a speed of \p baud <br />
      * @param port: the port to initialize
      * @param baud: the baud of the port
+     * @return True is connection was successful
      * @sa serialPorts(),serial(),closeConnection()
      */
-    void initSerial(const QString &port, int baud);
+    bool initSerial(const QString &port, int baud);
 
     /**
      * @brief Main access ot the serialLayer

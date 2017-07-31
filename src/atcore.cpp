@@ -197,13 +197,17 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
     }
 }
 
-void AtCore::initSerial(const QString &port, int baud)
+bool AtCore::initSerial(const QString &port, int baud)
 {
     d->serial = new SerialLayer(port, baud);
     if (serialInitialized()) {
         setState(AtCore::CONNECTING);
+        connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
+        return true;
+    } else {
+        qCDebug(ATCORE_CORE) << "Failed to open device.";
+        return false;
     }
-    connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
 }
 
 bool AtCore::serialInitialized() const
@@ -329,9 +333,11 @@ void AtCore::emergencyStop()
 
 void AtCore::requestFirmware()
 {
-    qCDebug(ATCORE_CORE) << "Sending " << GCode::toString(GCode::M115);
     if (serialInitialized()) {
+        qCDebug(ATCORE_CORE) << "Sending " << GCode::toString(GCode::M115);
         serial()->pushCommand(GCode::toCommand(GCode::M115).toLocal8Bit());
+    } else {
+        qCDebug(ATCORE_CORE) << "There is no open device to send commands";
     }
 }
 
