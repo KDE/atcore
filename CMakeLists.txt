@@ -64,6 +64,7 @@ endif()
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(src)
+add_subdirectory(unittests)
 if(DOXYGEN_FOUND)
     add_subdirectory(doc)
 endif()

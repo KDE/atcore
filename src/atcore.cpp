@@ -68,7 +68,7 @@ AtCore::AtCore(QObject *parent) :
     qRegisterMetaType<AtCore::STATES>("AtCore::STATES");
     setState(AtCore::DISCONNECTED);
 
-    d->tempTimer = new QTimer;
+    d->tempTimer = new QTimer(this);
     d->tempTimer->setInterval(5000);
     d->tempTimer->setSingleShot(false);
 
