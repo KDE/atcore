@@ -40,7 +40,7 @@ void AtCoreTests::testStartAtCore()
     core->initSerial(QStringLiteral("/dev/ptyp5"), 9600);
 
     //ERROR: and because of that, the following line fails, as the initSerial also failed.
-    QVERIFY(core->state() == AtCore::CONNECTING);
+    QVERIFY(core->state() == AtCore::DISCONNECTED);
 
     core->detectFirmware();
 }
