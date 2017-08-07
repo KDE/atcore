@@ -25,4 +25,5 @@ macro(TEST NAME FILE)
     endif()
 endmacro()
 
-TEST(AtCoreTest atcoretests.cpp)
+TEST(AtCoreTests atcoretests.cpp)
+TEST(GcodeTests gcodetests.cpp)
