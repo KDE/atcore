@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.0)
 find_package(ECM REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
-include(KDECompilerSettings)
+include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(ECMInstallIcons)
@@ -15,6 +15,7 @@ include(GenerateExportHeader)
 include(ECMSetupVersion)
 include(CMakePackageConfigHelpers)
 include(ECMGenerateHeaders)
+
 find_package(Doxygen)
 
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "AtCore" URL "https://projects.kde.org/projects/atcore")
