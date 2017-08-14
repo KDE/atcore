@@ -18,7 +18,7 @@ include(ECMGenerateHeaders)
 
 find_package(Doxygen)
 
-set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "AtCore" URL "https://projects.kde.org/projects/atcore")
+set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra modules and scripts for CMake" URL "git://anongit.kde.org/extra-cmake-modules")
 
 set(PROJECT_VERSION "16.08.0")
 set(KF5_DEP_VERSION "5.24.0") # handled by release scripts
