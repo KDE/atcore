@@ -13,10 +13,10 @@ private slots:
     void setBedTemperature();
     void setBedTargetTemperature();
     void testDecodeRepetier();
+    void testDecodeMarlin();
     void testDecode1();
     void testDecode2();
     void testDecode3();
-    void testDecode4();
 
 private:
     Temperature *temperature;
