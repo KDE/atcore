@@ -13,8 +13,9 @@ private slots:
     void setBedTemperature();
     void setBedTargetTemperature();
     void testDecodeAprinter();
-    void testDecodeRepetier();
     void testDecodeMarlin();
+    void testDecodeRepetier();
+    void testDecodeSprinter();
     void testDecodeTeacup();
 
 private:

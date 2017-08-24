@@ -77,7 +77,13 @@ void TemperatureTests::testDecodeRepetier()
     QVERIFY(temperature->bedTargetTemperature() == 80);
 }
 
-//ok T:154 @:0 B:150
+void TemperatureTests::testDecodeSprinter()
+{
+    temperature->decodeTemp(QByteArray("ok T:154 @:0 B:150"));
+    QVERIFY(temperature->extruderTemperature() == 154);
+    QVERIFY(temperature->bedTemperature() == 150);
+}
+
 void TemperatureTests::testDecodeTeacup()
 {
     temperature->decodeTemp(QByteArray("T:15.50/210.0 B:46.80/82.0"));
