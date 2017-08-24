@@ -76,7 +76,15 @@ void TemperatureTests::testDecodeRepetier()
     QVERIFY(temperature->bedTemperature() == float(69.42));
     QVERIFY(temperature->bedTargetTemperature() == 80);
 }
+void TemperatureTests::testDecodeSmoothie()
+{
+    temperature->decodeTemp(QByteArray("ok T:76.36 /220.0 @0 B:24.1 /60.0 @"));
+    QVERIFY(temperature->extruderTemperature() == float(76.36));
+    QVERIFY(temperature->extruderTargetTemperature() == 220);
+    QVERIFY(temperature->bedTemperature() == float(24.1));
+    QVERIFY(temperature->bedTargetTemperature() == 60);
 
+}
 void TemperatureTests::testDecodeSprinter()
 {
     temperature->decodeTemp(QByteArray("ok T:154 @:0 B:150"));

@@ -15,9 +15,9 @@ private slots:
     void testDecodeAprinter();
     void testDecodeMarlin();
     void testDecodeRepetier();
+    void testDecodeSmoothie();
     void testDecodeSprinter();
     void testDecodeTeacup();
-
 private:
     Temperature *temperature;
 };
