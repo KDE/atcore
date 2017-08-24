@@ -52,5 +52,13 @@ void TeacupPlugin::validateCommand(const QString &lastMessage)
 
 QByteArray TeacupPlugin::translate(const QString &command)
 {
-    return command.toLocal8Bit();
+    QString temp = command;
+    if (command.contains(QStringLiteral("M109"))) {
+        temp.replace(QStringLiteral("M109"), QStringLiteral("M104"));
+        temp.append(QStringLiteral("\r\nM116"));
+    } else if (command.contains(QStringLiteral("M190"))) {
+        temp.replace(QStringLiteral("M190"), QStringLiteral("M140"));
+        temp.append(QStringLiteral("\r\nM116"));
+    }
+    return temp.toLocal8Bit();
 }
