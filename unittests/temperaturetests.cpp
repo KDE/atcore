@@ -50,13 +50,13 @@ void TemperatureTests::setBedTargetTemperature()
     QVERIFY(temperature->bedTargetTemperature() == 20.25);
 }
 
-void TemperatureTests::testDecodeRepetier()
+void TemperatureTests::testDecodeAprinter()
 {
-    temperature->decodeTemp(QByteArray("T:25.47 /230 B:69.42 /80 B@:255 @:0"));
-    QVERIFY(temperature->extruderTemperature() == float(25.47));
-    QVERIFY(temperature->extruderTargetTemperature() == 230);
-    QVERIFY(temperature->bedTemperature() == float(69.42));
-    QVERIFY(temperature->bedTargetTemperature() == 80);
+    temperature->decodeTemp(QByteArray("ok B:49.06 /55 T:64.78 /215"));
+    QVERIFY(temperature->extruderTemperature() == float(64.78));
+    QVERIFY(temperature->extruderTargetTemperature() == 215);
+    QVERIFY(temperature->bedTemperature() == float(49.06));
+    QVERIFY(temperature->bedTargetTemperature() == 55);
 }
 
 void TemperatureTests::testDecodeMarlin()
@@ -68,6 +68,16 @@ void TemperatureTests::testDecodeMarlin()
     QVERIFY(temperature->bedTargetTemperature() == 50);
 }
 
+void TemperatureTests::testDecodeRepetier()
+{
+    temperature->decodeTemp(QByteArray("T:25.47 /230 B:69.42 /80 B@:255 @:0"));
+    QVERIFY(temperature->extruderTemperature() == float(25.47));
+    QVERIFY(temperature->extruderTargetTemperature() == 230);
+    QVERIFY(temperature->bedTemperature() == float(69.42));
+    QVERIFY(temperature->bedTargetTemperature() == 80);
+}
+
+//ok T:154 @:0 B:150
 void TemperatureTests::testDecodeTeacup()
 {
     temperature->decodeTemp(QByteArray("T:15.50/210.0 B:46.80/82.0"));

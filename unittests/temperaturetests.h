@@ -12,6 +12,7 @@ private slots:
     void setExtruderTargetTemperature();
     void setBedTemperature();
     void setBedTargetTemperature();
+    void testDecodeAprinter();
     void testDecodeRepetier();
     void testDecodeMarlin();
     void testDecodeTeacup();
