@@ -1,20 +1,23 @@
 #include "atcoretests.h"
-#include "../src/atcore.h"
 #include <algorithm>
 
 void AtCoreTests::initTestCase()
 {
+    core = new AtCore();
 }
 
 void AtCoreTests::cleanupTestCase()
 {
+    core->close();
 }
 
-void AtCoreTests::testStartAtCore()
+void AtCoreTests::testInitState()
 {
-    AtCore *core = new AtCore();
-    Q_ASSERT(core->state() == AtCore::DISCONNECTED);
+    QVERIFY(core->state() == AtCore::DISCONNECTED);
+}
 
+void AtCoreTests::testPluginDetect()
+{
     QStringList fwPluginsFound = core->availableFirmwarePlugins();
     QStringList fwPluginsActual = {
         QStringLiteral("aprinter"),
@@ -29,20 +32,117 @@ void AtCoreTests::testStartAtCore()
     std::sort(fwPluginsFound.begin(), fwPluginsFound.end());
     std::sort(fwPluginsActual.begin(), fwPluginsActual.end());
     QVERIFY(fwPluginsFound == fwPluginsActual);
+}
 
-    //ERROR: Invalid Null Pointer but no way to test it as detectFirmware is void.
-    // Also, it shouldn't fail gracefully without a good explanatory message like
-    // "Serial Device is not open, maybe you forgot to call initSerial?"
-    core->detectFirmware();
+void AtCoreTests::testConnectInvalidDevice()
+{
+    QEXPECT_FAIL("", "Invalid Device Attempt", Continue);
+    QVERIFY(core->initSerial(QStringLiteral("/dev/ptyp5"), 9600));
+}
 
-    //ERROR: initSerial can fail, but there's no way for us to test
-    // if it actually opened or not.
-    core->initSerial(QStringLiteral("/dev/ptyp5"), 9600);
+void AtCoreTests::testPluginAprinter_load()
+{
+    core->loadFirmwarePlugin(QStringLiteral("aprinter"));
+    QVERIFY(core->firmwarePlugin()->name() == QStringLiteral("Aprinter"));
+}
 
-    //ERROR: and because of that, the following line fails, as the initSerial also failed.
-    QVERIFY(core->state() == AtCore::DISCONNECTED);
+void AtCoreTests::testPluginAprinter_validate()
+{
+    QSignalSpy sSpy(core->firmwarePlugin(), SIGNAL(readyForCommand()));
+    QVERIFY(sSpy.isValid() == true);
+    core->firmwarePlugin()->validateCommand(QStringLiteral("ok"));
+    core->firmwarePlugin()->validateCommand(QStringLiteral("other text"));
+    QVERIFY(sSpy.count() == 1);
+}
 
-    core->detectFirmware();
+void AtCoreTests::testPluginGrbl_load()
+{
+    core->loadFirmwarePlugin(QStringLiteral("grbl"));
+    QVERIFY(core->firmwarePlugin()->name() == QStringLiteral("Grbl"));
+}
+
+void AtCoreTests::testPluginGrbl_validate()
+{
+    QSignalSpy sSpy(core->firmwarePlugin(), SIGNAL(readyForCommand()));
+    QVERIFY(sSpy.isValid() == true);
+    core->firmwarePlugin()->validateCommand(QStringLiteral("ok"));
+    core->firmwarePlugin()->validateCommand(QStringLiteral("other text"));
+    QVERIFY(sSpy.count() == 2);
+}
+
+void AtCoreTests::testPluginMarlin_load()
+{
+    core->loadFirmwarePlugin(QStringLiteral("marlin"));
+    QVERIFY(core->firmwarePlugin()->name() == QStringLiteral("Marlin"));
+}
+
+void AtCoreTests::testPluginMarlin_validate()
+{
+    QSignalSpy sSpy(core->firmwarePlugin(), SIGNAL(readyForCommand()));
+    QVERIFY(sSpy.isValid() == true);
+    core->firmwarePlugin()->validateCommand(QStringLiteral("ok"));
+    core->firmwarePlugin()->validateCommand(QStringLiteral("other text"));
+    QVERIFY(sSpy.count() == 1);
+}
+
+void AtCoreTests::testPluginRepetier_load()
+{
+    core->loadFirmwarePlugin(QStringLiteral("repetier"));
+    QVERIFY(core->firmwarePlugin()->name() == QStringLiteral("Repetier"));
+}
+
+void AtCoreTests::testPluginRepetier_validate()
+{
+    QSignalSpy sSpy(core->firmwarePlugin(), SIGNAL(readyForCommand()));
+    QVERIFY(sSpy.isValid() == true);
+    core->firmwarePlugin()->validateCommand(QStringLiteral("ok"));
+    core->firmwarePlugin()->validateCommand(QStringLiteral("other text"));
+    QVERIFY(sSpy.count() == 1);
+}
+
+void AtCoreTests::testPluginSmoothie_load()
+{
+    core->loadFirmwarePlugin(QStringLiteral("smoothie"));
+    QVERIFY(core->firmwarePlugin()->name() == QStringLiteral("Smoothie"));
+}
+
+void AtCoreTests::testPluginSmoothie_validate()
+{
+    QSignalSpy sSpy(core->firmwarePlugin(), SIGNAL(readyForCommand()));
+    QVERIFY(sSpy.isValid() == true);
+    core->firmwarePlugin()->validateCommand(QStringLiteral("ok"));
+    core->firmwarePlugin()->validateCommand(QStringLiteral("other text"));
+    QVERIFY(sSpy.count() == 1);
+}
+
+void AtCoreTests::testPluginSprinter_load()
+{
+    core->loadFirmwarePlugin(QStringLiteral("sprinter"));
+    QVERIFY(core->firmwarePlugin()->name() == QStringLiteral("Sprinter"));
+}
+
+void AtCoreTests::testPluginSprinter_validate()
+{
+    QSignalSpy sSpy(core->firmwarePlugin(), SIGNAL(readyForCommand()));
+    QVERIFY(sSpy.isValid() == true);
+    core->firmwarePlugin()->validateCommand(QStringLiteral("ok"));
+    core->firmwarePlugin()->validateCommand(QStringLiteral("other text"));
+    QVERIFY(sSpy.count() == 1);
+}
+
+void AtCoreTests::testPluginTeacup_load()
+{
+    core->loadFirmwarePlugin(QStringLiteral("teacup"));
+    QVERIFY(core->firmwarePlugin()->name() == QStringLiteral("Teacup"));
+}
+
+void AtCoreTests::testPluginTeacup_validate()
+{
+    QSignalSpy sSpy(core->firmwarePlugin(), SIGNAL(readyForCommand()));
+    QVERIFY(sSpy.isValid() == true);
+    core->firmwarePlugin()->validateCommand(QStringLiteral("ok"));
+    core->firmwarePlugin()->validateCommand(QStringLiteral("other text"));
+    QVERIFY(sSpy.count() == 1);
 }
 
 QTEST_MAIN(AtCoreTests)
