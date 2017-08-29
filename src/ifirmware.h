@@ -54,6 +54,12 @@ public:
     virtual QString name() const = 0;
 
     /**
+     * @brief Vitural validateCommand to filter commands from messages
+     * @param lastMessage: last Message from printer
+     */
+    virtual void validateCommand(const QString &lastMessage) = 0;
+
+    /**
      * @brief Virtual translate to be reimplemnted by Firmwareplugin
      *
      * Translate common commands to firmware specific command.
@@ -69,11 +75,6 @@ public:
     AtCore *core() const;
 private:
     IFirmwarePrivate *d;
-    /**
-     * @brief Vitural validateCommand to filter commands from messages
-     * @param lastMessage: last Message from printer
-     */
-    virtual void validateCommand(const QString &lastMessage) = 0;
 public slots:
     /**
      * @brief call Validate Command
