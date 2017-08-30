@@ -26,6 +26,7 @@ private slots:
     void testPluginSprinter_validate();
     void testPluginTeacup_load();
     void testPluginTeacup_validate();
+    void testPluginTeacup_translate();
 private:
     AtCore *core = nullptr;
 };

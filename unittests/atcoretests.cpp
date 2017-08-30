@@ -9,7 +9,7 @@ void AtCoreTests::initTestCase()
 
 void AtCoreTests::cleanupTestCase()
 {
-    core->close();
+
 }
 
 void AtCoreTests::testInitState()
@@ -144,6 +144,13 @@ void AtCoreTests::testPluginTeacup_validate()
     core->firmwarePlugin()->validateCommand(QStringLiteral("ok"));
     core->firmwarePlugin()->validateCommand(QStringLiteral("other text"));
     QVERIFY(sSpy.count() == 1);
+}
+
+void AtCoreTests::testPluginTeacup_translate()
+{
+    QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("G28")) == "G28");
+    QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("M109 S50")) == "M104 S50\r\nM116");
+    QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("M190 S50")) == "M140 S50\r\nM116");
 }
 
 QTEST_MAIN(AtCoreTests)

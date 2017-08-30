@@ -189,6 +189,12 @@ void GCodeTests::command_M107()
     QVERIFY(GCode::toCommand(GCode::M107) == QStringLiteral("M107"));
 }
 
+void GCodeTests::command_M109()
+{
+    QVERIFY(GCode::toCommand(GCode::M109) == QStringLiteral("ERROR! M109: It's obligatory to have an argument"));
+    QVERIFY(GCode::toCommand(GCode::M109, QStringLiteral("100")) == QStringLiteral("M109 S100"));
+}
+
 void GCodeTests::command_M112()
 {
     QVERIFY(GCode::toCommand(GCode::M112) == QStringLiteral("M112"));
@@ -224,6 +230,12 @@ void GCodeTests::command_M140()
 {
     QVERIFY(GCode::toCommand(GCode::M140) == QStringLiteral("ERROR! M140: It's obligatory to have an argument"));
     QVERIFY(GCode::toCommand(GCode::M140, QStringLiteral("100")) == QStringLiteral("M140 S100"));
+}
+
+void GCodeTests::command_M190()
+{
+    QVERIFY(GCode::toCommand(GCode::M190) == QStringLiteral("ERROR! M190: It's obligatory to have an argument"));
+    QVERIFY(GCode::toCommand(GCode::M190, QStringLiteral("100")) == QStringLiteral("M190 S100"));
 }
 
 void GCodeTests::command_M220()

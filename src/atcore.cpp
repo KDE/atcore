@@ -492,15 +492,23 @@ void AtCore::home(uchar axis)
     pushCommand(GCode::toCommand(GCode::G28, args));
 }
 
-void AtCore::setExtruderTemp(uint temp, uint extruder)
+void AtCore::setExtruderTemp(uint temp, uint extruder, bool andWait)
 {
-    pushCommand(GCode::toCommand(GCode::M104, QString::number(extruder), QString::number(temp)));
+    if (andWait) {
+        pushCommand(GCode::toCommand(GCode::M109, QString::number(temp), QString::number(extruder)));
+    } else {
+        pushCommand(GCode::toCommand(GCode::M104, QString::number(extruder), QString::number(temp)));
+    }
     temperature().setExtruderTargetTemperature(temp);
 }
 
-void AtCore::setBedTemp(uint temp)
+void AtCore::setBedTemp(uint temp, bool andWait)
 {
-    pushCommand(GCode::toCommand(GCode::M140, QString::number(temp)));
+    if (andWait) {
+        pushCommand(GCode::toCommand(GCode::M190, QString::number(temp)));
+    } else {
+        pushCommand(GCode::toCommand(GCode::M140, QString::number(temp)));
+    }
     temperature().setBedTargetTemperature(temp);
 }
 
