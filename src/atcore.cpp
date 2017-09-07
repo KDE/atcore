@@ -188,8 +188,10 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
             connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
             connect(firmwarePlugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
             d->ready = true; // ready on new firmware load
-            connect(d->tempTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
-            d->tempTimer->start();
+            if (firmwarePlugin()->name() != QStringLiteral("Grbl")) {
+                connect(d->tempTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
+                d->tempTimer->start();
+            }
             setState(IDLE);
         }
     } else {
@@ -290,8 +292,10 @@ void AtCore::closeConnection()
         }
         if (firmwarePluginLoaded()) {
             disconnect(firmwarePlugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
-            disconnect(d->tempTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
-            d->tempTimer->stop();
+            if (firmwarePlugin()->name() != QStringLiteral("Grbl")) {
+                disconnect(d->tempTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
+                d->tempTimer->stop();
+            }
         }
         serial()->close();
         setState(AtCore::DISCONNECTED);
@@ -389,7 +393,6 @@ QStringList AtCore::availableFirmwarePlugins() const
 void AtCore::detectFirmware()
 {
     connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
-    requestFirmware();
 }
 
 void AtCore::pause(const QString &pauseActions)
