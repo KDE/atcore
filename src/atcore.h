@@ -68,6 +68,7 @@ public:
         STARTPRINT,     //!<Just Starting a print job
         FINISHEDPRINT,  //!<Just Finished print job
     };
+    Q_ENUM(STATES)
     /**
      * @brief The AXES enum - Printer Axes.
      */
@@ -77,6 +78,7 @@ public:
         Z = 1 << 2, //!<Z Axis Z Motor
         E = 1 << 3, //!<E Axis: Extruder Motor 0
     };
+    Q_ENUM(AXES)
     /**
      * @brief The UNITS enum - Possible Mesurment Units
      */
@@ -84,7 +86,7 @@ public:
         METRIC,     //!< Metric Units (Meters)
         IMPERIAL    //!< Imperial Units (Feet)
     };
-
+    Q_ENUM(UNITS)
     /**
      * @brief AtCore create a new instance of AtCore
      * @param parent: parent of the object
