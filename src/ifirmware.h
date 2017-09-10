@@ -40,6 +40,7 @@ struct IFirmwarePrivate;
 class ATCORE_EXPORT  IFirmware : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString name READ name)
 public:
     IFirmware();
     void init(AtCore *parent);
