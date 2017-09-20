@@ -107,7 +107,7 @@ public:
      * @return True is connection was successful
      * @sa serialPorts(),serial(),closeConnection()
      */
-    bool initSerial(const QString &port, int baud);
+    Q_INVOKABLE bool initSerial(const QString &port, int baud);
 
     /**
      * @brief Main access ot the serialLayer
