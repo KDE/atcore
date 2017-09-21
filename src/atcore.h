@@ -52,6 +52,8 @@ struct AtCorePrivate;
 class ATCORE_EXPORT AtCore : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QStringList serialPorts READ serialPorts)
+    Q_PROPERTY(QStringList portSpeeds READ portSpeeds)
     Q_PROPERTY(AtCore::STATES state READ state WRITE setState NOTIFY stateChanged)
 public:
     /**
@@ -98,7 +100,7 @@ public:
      * @return List of detected ports
      * @sa initSerial(),serial(),closeConnection()
      */
-    QList<QSerialPortInfo> serialPorts() const;
+    QStringList serialPorts() const;
 
     /**
      * @brief Initialize a connection to \p port at a speed of \p baud <br />
@@ -108,6 +110,11 @@ public:
      * @sa serialPorts(),serial(),closeConnection()
      */
     Q_INVOKABLE bool initSerial(const QString &port, int baud);
+
+    /**
+     * @brief Returns a list of valid baud speeds
+     */
+    QStringList portSpeeds() const;
 
     /**
      * @brief Main access ot the serialLayer

@@ -220,9 +220,23 @@ bool AtCore::serialInitialized() const
     return d->serial->isOpen();
 }
 
-QList<QSerialPortInfo> AtCore::serialPorts() const
+QStringList AtCore::serialPorts() const
 {
-    return QList<QSerialPortInfo>();
+    QStringList ports;
+    QList<QSerialPortInfo> serialPortInfoList = QSerialPortInfo::availablePorts();
+    if (!serialPortInfoList.isEmpty()) {
+        foreach (const QSerialPortInfo &serialPortInfo, serialPortInfoList) {
+#ifdef Q_OS_MAC
+            //Mac os has callout serial ports starting with cu. they can only recv data. filter them out
+            if (!serialPortInfo.portName().startsWith(QStringLiteral("cu."), Qt::CaseInsensitive)) {
+                ports.append(serialPortInfo.portName());
+            }
+#else
+            ports.append(serialPortInfo.portName());
+#endif
+        }
+    }
+    return ports;
 }
 
 void AtCore::newMessage(const QByteArray &message)
@@ -531,4 +545,8 @@ void AtCore::setUnits(AtCore::UNITS units)
         pushCommand(GCode::toCommand(GCode::G20));
         break;
     }
+}
+QStringList AtCore::portSpeeds() const
+{
+    return serial()->validBaudRates();
 }
