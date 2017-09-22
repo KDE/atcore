@@ -227,7 +227,7 @@ QStringList AtCore::serialPorts() const
     if (!serialPortInfoList.isEmpty()) {
         foreach (const QSerialPortInfo &serialPortInfo, serialPortInfoList) {
 #ifdef Q_OS_MAC
-            //Mac os has callout serial ports starting with cu. they can only recv data. filter them out
+            //Mac OS has callout serial ports starting with cu. They can only receive data and it's necessary to filter them out
             if (!serialPortInfo.portName().startsWith(QStringLiteral("cu."), Qt::CaseInsensitive)) {
                 ports.append(serialPortInfo.portName());
             }

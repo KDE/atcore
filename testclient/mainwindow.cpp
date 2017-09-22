@@ -276,24 +276,12 @@ void MainWindow::checkTemperature(uint sensorType, uint number, uint temp)
  */
 void MainWindow::locateSerialPort()
 {
-    QStringList ports;
-    QList<QSerialPortInfo> serialPortInfoList = QSerialPortInfo::availablePorts();
-    if (!serialPortInfoList.isEmpty()) {
-        foreach (const QSerialPortInfo &serialPortInfo, serialPortInfoList) {
-#ifdef Q_OS_MAC
-            //Mac os has callout serial ports starting with cu. they can only recv data. filter them out
-            if (!serialPortInfo.portName().startsWith(QStringLiteral("cu."), Qt::CaseInsensitive)) {
-                ports.append(serialPortInfo.portName());
-            }
-#else
-            ports.append(serialPortInfo.portName());
-#endif
-        }
-        if (ports == serialPortList) {
+    if (!core->serialPorts().isEmpty()) {
+        if (core->serialPorts() == serialPortList) {
             return;
         } else {
             serialPortList.clear();
-            serialPortList = ports;
+            serialPortList = core->serialPorts();
             ui->serialPortCB->clear();
             ui->serialPortCB->addItems(serialPortList);
             addLog(tr("Found %1 Ports").arg(QString::number(serialPortList.count())));
