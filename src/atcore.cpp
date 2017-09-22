@@ -220,6 +220,11 @@ bool AtCore::serialInitialized() const
     return d->serial->isOpen();
 }
 
+QString AtCore::connectedPort() const
+{
+    return serial()->portName();
+}
+
 QStringList AtCore::serialPorts() const
 {
     QStringList ports;

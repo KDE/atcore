@@ -52,8 +52,10 @@ struct AtCorePrivate;
 class ATCORE_EXPORT AtCore : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QStringList availableFirmwarePlugins READ availableFirmwarePlugins)
     Q_PROPERTY(QStringList serialPorts READ serialPorts)
     Q_PROPERTY(QStringList portSpeeds READ portSpeeds)
+    Q_PROPERTY(QString connectedPort READ connectedPort)
     Q_PROPERTY(AtCore::STATES state READ state WRITE setState NOTIFY stateChanged)
 public:
     /**
@@ -101,6 +103,12 @@ public:
      * @sa initSerial(),serial(),closeConnection()
      */
     QStringList serialPorts() const;
+
+    /**
+     * @brief connectedPort
+     * @return the port atcore is connected to or empty string if none
+     */
+    QString connectedPort() const;
 
     /**
      * @brief Initialize a connection to \p port at a speed of \p baud <br />
