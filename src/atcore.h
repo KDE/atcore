@@ -135,14 +135,14 @@ public:
      * @brief Close the current serial connection
      * @sa initSerial(),serial(),serialPorts(),AtCore::close()
      */
-    void closeConnection();
+    Q_INVOKABLE void closeConnection();
 
     /**
      * @brief Main access to the loaded firmware plugin
      * @return IFirmware * to currently loaded plugin
      * @sa availableFirmwarePlugins(),loadFirmwarePlugin(),detectFirmware()
      */
-    IFirmware *firmwarePlugin() const;
+    Q_INVOKABLE IFirmware *firmwarePlugin() const;
 
     /**
      * @brief List of available firmware plugins
@@ -155,13 +155,13 @@ public:
      * @param fwName : name of the firmware
      * @sa firmwarePlugin(),availableFirmwarePlugins(),detectFirmware()
      */
-    void loadFirmwarePlugin(const QString &fwName);
+    Q_INVOKABLE void loadFirmwarePlugin(const QString &fwName);
 
     /**
      * @brief Attempt to autodetect the firmware of connect serial device
      * @sa loadFirmwarePlugin(),availableFirmwarePlugins(),firmwarePlugin()
      */
-    void detectFirmware();
+    Q_INVOKABLE void detectFirmware();
 
     /**
      * @brief Get Printer state
