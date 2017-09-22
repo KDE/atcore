@@ -46,7 +46,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->serialPortCB->setEditable(true);
     QValidator *validator = new QIntValidator();
     ui->baudRateLE->setValidator(validator);
-    ui->baudRateLE->addItems(core->serial()->validBaudRates());
+    ui->baudRateLE->addItems(core->portSpeeds());
     ui->baudRateLE->setCurrentIndex(9);
 
     ui->pluginCB->addItem(tr("Autodetect"));
@@ -314,7 +314,7 @@ void MainWindow::connectPBClicked()
             }
         }
     } else {
-        core->serial()->close();
+        core->closeConnection();
         core->setState(AtCore::DISCONNECTED);
         addLog(tr("Disconnected"));
         ui->connectPB->setText(tr("Connect"));
@@ -454,7 +454,7 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
     switch (state) {
     case AtCore::IDLE:
         ui->printPB->setText(tr("Print File"));
-        stateString = QStringLiteral("Connected to ") + core->serial()->portName();;
+        stateString = QStringLiteral("Connected to ") + core->connectedPort();
         break;
 
     case AtCore::STARTPRINT:
