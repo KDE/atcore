@@ -178,7 +178,6 @@ private:
     Ui::MainWindow *ui;
     AtCore *core;
     QTemporaryFile *logFile;
-    QStringList serialPortList;
     QTime *printTime;
     QTimer *printTimer;
     // Define max number of fans
@@ -189,7 +188,7 @@ private:
      * @brief Locate serial port
      *
      */
-    void locateSerialPort();
+    void locateSerialPort(const QStringList &ports);
 
     /**
      * @brief Return string with actual time

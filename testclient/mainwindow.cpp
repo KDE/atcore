@@ -56,7 +56,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->moveDockContents->layout()->addWidget(axisControl);
 
     addLog(tr("Attempting to locate Serial Ports"));
-
+    core->setSerialTimerInterval(1000);
     populateCBs();
 
     //Icon for actionQuit
@@ -66,8 +66,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //hide the printing progress bar.
     ui->printLayout->setVisible(false);
-
-    locateSerialPort();
 
     ui->statusBar->addWidget(ui->statusBarWidget);
     printTime = new QTime();
@@ -98,13 +96,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
     connect(ui->emergencyStopPB, &QPushButton::clicked, core, &AtCore::emergencyStop);
     connect(axisControl, &AxisControl::clicked, this, &MainWindow::axisControlClicked);
-
-    //We love solid, but we need a release :/
-    QTimer *timer = new QTimer();
-    timer->setInterval(1e3);
-    timer->start();
-    connect(timer, &QTimer::timeout, this, &MainWindow::locateSerialPort);
-
+    connect(core, &AtCore::portsChanged, this, &MainWindow::locateSerialPort);
     connect(core, &AtCore::printProgressChanged, this, &MainWindow::printProgressChanged);
 
     connect(&core->temperature(), &Temperature::bedTemperatureChanged, [ = ](float temp) {
@@ -274,21 +266,13 @@ void MainWindow::checkTemperature(uint sensorType, uint number, uint temp)
  * Locate all active serial ports on the computer and add to the list
  * of serial ports
  */
-void MainWindow::locateSerialPort()
+void MainWindow::locateSerialPort(const QStringList &ports)
 {
-    if (!core->serialPorts().isEmpty()) {
-        if (core->serialPorts() == serialPortList) {
-            return;
-        } else {
-            serialPortList.clear();
-            serialPortList = core->serialPorts();
-            ui->serialPortCB->clear();
-            ui->serialPortCB->addItems(serialPortList);
-            addLog(tr("Found %1 Ports").arg(QString::number(serialPortList.count())));
-        }
+    ui->serialPortCB->clear();
+    if (!ports.isEmpty()) {
+        ui->serialPortCB->addItems(ports);
+        addLog(tr("Found %1 Ports").arg(QString::number(ports.count())));
     } else {
-        serialPortList.clear();
-        ui->serialPortCB->clear();
         QString portError(tr("No available ports! Please connect a serial device to continue!"));
         if (! ui->logTE->toPlainText().endsWith(portError)) {
             addLog(portError);
