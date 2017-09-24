@@ -59,6 +59,8 @@ struct AtCorePrivate {
     float percentage;                   //!< @param percentage: print job percent
     QByteArray posString;               //!< @param posString: stored string from last M114 return
     AtCore::STATES printerState;        //!< @param printerState: State of the Printer
+    QStringList serialPorts;            //!< @param seralPorts: Detected serial Ports
+    QTimer *serialTimer = nullptr;      //!< @param serialTimer: Timer connected to locateSerialPorts
 };
 
 AtCore::AtCore(QObject *parent) :
@@ -241,7 +243,41 @@ QStringList AtCore::serialPorts() const
 #endif
         }
     }
+
     return ports;
+}
+
+void AtCore::locateSerialPort()
+{
+    QStringList ports = serialPorts();
+    if (d->serialPorts != ports) {
+        d->serialPorts = ports;
+        emit portsChanged(d->serialPorts);
+    }
+}
+
+quint16 AtCore::serialTimerInterval() const
+{
+    if (d->serialTimer != nullptr) {
+        return d->serialTimer->interval();
+    }
+    return 0;
+}
+
+void AtCore::setSerialTimerInterval(const quint16 &newTime)
+{
+    if (newTime == 0) {
+        if (d->serialTimer) {
+            disconnect(d->serialTimer, &QTimer::timeout, this, &AtCore::locateSerialPort);
+            delete d->serialTimer;
+        }
+        return;
+    }
+    if (!d->serialTimer) {
+        d->serialTimer = new QTimer();
+        connect(d->serialTimer, &QTimer::timeout, this, &AtCore::locateSerialPort);
+    }
+    d->serialTimer->start(newTime);
 }
 
 void AtCore::newMessage(const QByteArray &message)
