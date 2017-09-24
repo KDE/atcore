@@ -53,7 +53,8 @@ class ATCORE_EXPORT AtCore : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QStringList availableFirmwarePlugins READ availableFirmwarePlugins)
-    Q_PROPERTY(QStringList serialPorts READ serialPorts)
+    Q_PROPERTY(quint16 serialTimerInterval READ serialTimerInterval WRITE setSerialTimerInterval)
+    Q_PROPERTY(QStringList serialPorts READ serialPorts NOTIFY portsChanged)
     Q_PROPERTY(QStringList portSpeeds READ portSpeeds)
     Q_PROPERTY(QString connectedPort READ connectedPort)
     Q_PROPERTY(AtCore::STATES state READ state WRITE setState NOTIFY stateChanged)
@@ -187,6 +188,11 @@ public:
      */
     Temperature &temperature() const;
 
+    /**
+    * @brief Return the amount of miliseconds the serialTimer is set to. 0 = Disabled
+    */
+    quint16 serialTimerInterval() const;
+
 signals:
 
     /**
@@ -208,6 +214,11 @@ signals:
      * @sa setState(),state(),AtCore::STATES
      */
     void stateChanged(AtCore::STATES newState);
+
+    /**
+     * @brief Available serialports Changed
+     */
+    void portsChanged(QStringList);
 
 public slots:
 
@@ -347,6 +358,12 @@ public slots:
      */
     void setUnits(AtCore::UNITS units);
 
+    /**
+     * @brief Set the time between checks for new serialPorts (0 is default)
+     * @param newTime: Milliseconds between checks. 0 will Disable Checks.
+     */
+    void setSerialTimerInterval(const quint16 &newTime);
+
 private slots:
     /**
      * @brief processQueue send commands from the queue.
@@ -370,6 +387,11 @@ private slots:
      * @param message
      */
     void findFirmware(const QByteArray &message);
+
+    /**
+     * @brief Search for new serial ports
+     */
+    void locateSerialPort();
 
 private:
     /**
