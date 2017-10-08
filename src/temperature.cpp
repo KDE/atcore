@@ -93,6 +93,11 @@ void Temperature::setExtruderTemperature(float temp)
 
 void Temperature::decodeTemp(const QByteArray &msg)
 {
+    int bloc = msg.indexOf(QStringLiteral("B:"));
+
+    float firstTargetTemperature = 0;
+    float secondTargetTemperature = 0;
+
     QRegularExpression tempRegEx(QStringLiteral("(T:(?<extruder>\\d+\\.?\\d*))"));
     QRegularExpression targetTempRegEx(QStringLiteral("(\\/)(?<extruderTarget>\\d*)(.+)"));
     QRegularExpressionMatch tempCheck = tempRegEx.match(QString::fromLatin1(msg));
@@ -102,10 +107,10 @@ void Temperature::decodeTemp(const QByteArray &msg)
         setExtruderTemperature(tempCheck.captured(QStringLiteral("extruder")).toFloat());
     }
     if (targetTempCheck.hasMatch()) {
-        setExtruderTargetTemperature(targetTempCheck.captured(QStringLiteral("extruderTarget")).toFloat());
+        firstTargetTemperature = targetTempCheck.captured(QStringLiteral("extruderTarget")).toFloat();
     }
 
-    if (msg.contains(QString::fromLatin1("B:").toLocal8Bit())) {
+    if (bloc != -1) {
         QRegularExpression bedRegEx(QStringLiteral("(B:(?<bed>\\d+\\.?\\d*))"));
         QRegularExpressionMatch bedCheck = bedRegEx.match(QString::fromLatin1(msg));
         QRegularExpression targetBedRegEx(QStringLiteral("B:(.+)(\\/)(?<bedTarget>\\d+)"));
@@ -116,8 +121,17 @@ void Temperature::decodeTemp(const QByteArray &msg)
         }
 
         if (targetBedCheck.hasMatch()) {
-            setBedTargetTemperature(targetBedCheck.captured(QStringLiteral("bedTarget")).toFloat());
+            secondTargetTemperature = targetBedCheck.captured(QStringLiteral("bedTarget")).toFloat();
         }
-
+    }
+    //Currently the first value after / is stored in firstTargetTemperature and the second / in secondTargetTemperature
+    //Because of this we need to check what came first in the return and place the values
+    //The regex for temperature needs to look at the whole T: or B: block to correctly decode targets
+    if (bloc < msg.indexOf(QStringLiteral("T:")) && bloc != -1) {
+        setExtruderTargetTemperature(secondTargetTemperature);
+        setBedTargetTemperature(firstTargetTemperature);
+    } else {
+        setExtruderTargetTemperature(firstTargetTemperature);
+        setBedTargetTemperature(secondTargetTemperature);
     }
 }
