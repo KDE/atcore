@@ -105,6 +105,7 @@ void Temperature::decodeTemp(const QByteArray &msg)
     if (tempCheck.hasMatch()) {
         setExtruderTemperature(tempCheck.captured(QStringLiteral("extruder")).toFloat());
     }
+
     if (targetTempCheck.hasMatch()) {
         firstTargetTemperature = targetTempCheck.captured(QStringLiteral("extruderTarget")).toFloat();
     }
