@@ -34,7 +34,6 @@
 #include <QPluginLoader>
 #include <QCoreApplication>
 #include <QLoggingCategory>
-#include <QDebug>
 #include <QTime>
 #include <QTimer>
 #include <QThread>

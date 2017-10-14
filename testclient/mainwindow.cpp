@@ -25,7 +25,6 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QTextStream>
-#include <QDebug>
 
 #include "mainwindow.h"
 #include "seriallayer.h"
