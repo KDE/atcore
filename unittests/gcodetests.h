@@ -1,5 +1,6 @@
 #include <QtTest>
 #include <QObject>
+#include "../src/gcodecommands.h"
 
 class GCodeTests: public QObject
 {
