@@ -26,8 +26,7 @@
 #include "atcore.h"
 /**
  * @brief The IFirmwarePrivate struct
- *
- * @param parent: parent of this objet
+ * @param parent: parent of this object
  */
 struct IFirmwarePrivate {
     AtCore *parent;

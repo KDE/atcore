@@ -126,7 +126,7 @@ public:
     QStringList portSpeeds() const;
 
     /**
-     * @brief Main access ot the serialLayer
+     * @brief Main access to the serialLayer
      * @return Current serialLayer
      * @sa initSerial(),serialPorts(),closeConnection()
      */
