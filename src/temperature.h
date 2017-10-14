@@ -24,6 +24,7 @@
 #pragma once
 
 #include <QObject>
+
 #include "atcore_export.h"
 
 class TemperaturePrivate;

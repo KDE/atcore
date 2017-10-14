@@ -22,12 +22,12 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include <QLoggingCategory>
+#include <QString>
+
 #include "aprinterplugin.h"
 #include "temperature.h"
 #include "atcore.h"
-
-#include <QLoggingCategory>
-#include <QString>
 
 QString AprinterPlugin::_ok = QStringLiteral("ok");
 

@@ -25,7 +25,6 @@
 */
 #pragma once
 
-//QtIncludes
 #include <QString>
 #include <QObject>
 

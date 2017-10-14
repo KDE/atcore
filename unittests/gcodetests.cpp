@@ -1,5 +1,6 @@
-#include "gcodetests.h"
 #include <algorithm>
+
+#include "gcodetests.h"
 
 void GCodeTests::command_G0()
 {

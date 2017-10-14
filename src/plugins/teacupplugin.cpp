@@ -22,12 +22,11 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include <QString>
+#include <QLoggingCategory>
+
 #include "teacupplugin.h"
 #include "temperature.h"
-
-#include <QLoggingCategory>
-#include <QString>
-
 #include "atcore.h"
 
 QString TeacupPlugin::_ok = QStringLiteral("ok");

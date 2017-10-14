@@ -1,5 +1,6 @@
 #include <QtTest>
 #include <QObject>
+
 #include "../src/temperature.h"
 
 class TemperatureTests: public QObject
