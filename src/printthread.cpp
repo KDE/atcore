@@ -20,12 +20,13 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include <QTime>
+#include <QLoggingCategory>
+
 #include "printthread.h"
 #include "gcodecommands.h"
-#include <QLoggingCategory>
-#include <QTime>
 
-Q_LOGGING_CATEGORY(PRINT_THREAD, "org.kde.atelier.core.printThread");
+Q_LOGGING_CATEGORY(PRINT_THREAD, "org.kde.atelier.core.printThread")
 /**
  * @brief The PrintThreadPrivate class
  */

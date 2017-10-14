@@ -22,15 +22,16 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "marlinplugin.h"
 #include <QLoggingCategory>
 #include <QString>
+
+#include "marlinplugin.h"
 #include "temperature.h"
 #include "atcore.h"
 
 QString MarlinPlugin::_ok = QStringLiteral("ok");
 
-Q_LOGGING_CATEGORY(MARLIN_PLUGIN, "org.kde.atelier.core.firmware.marlin");
+Q_LOGGING_CATEGORY(MARLIN_PLUGIN, "org.kde.atelier.core.firmware.marlin")
 
 QString MarlinPlugin::name() const
 {

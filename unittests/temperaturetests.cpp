@@ -1,5 +1,6 @@
-#include "temperaturetests.h"
 #include <algorithm>
+
+#include "temperaturetests.h"
 
 void TemperatureTests::initTestCase()
 {

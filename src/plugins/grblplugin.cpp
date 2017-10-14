@@ -22,8 +22,9 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "grblplugin.h"
 #include <QString>
+
+#include "grblplugin.h"
 
 QString GrblPlugin::name() const
 {

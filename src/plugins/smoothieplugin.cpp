@@ -22,16 +22,16 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include <QLoggingCategory>
+#include <QString>
+
 #include "smoothieplugin.h"
 #include "temperature.h"
 #include "atcore.h"
 
-#include <QLoggingCategory>
-#include <QString>
-
 QString SmoothiePlugin::_ok = QStringLiteral("ok");
 
-Q_LOGGING_CATEGORY(SMOOTHIE_PLUGIN, "org.kde.atelier.core.firmware.smoothie");
+Q_LOGGING_CATEGORY(SMOOTHIE_PLUGIN, "org.kde.atelier.core.firmware.smoothie")
 
 QString SmoothiePlugin::name() const
 {

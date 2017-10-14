@@ -22,16 +22,16 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include <QString>
+#include <QLoggingCategory>
+
 #include "sprinterplugin.h"
 #include "temperature.h"
 #include "atcore.h"
 
-#include <QLoggingCategory>
-#include <QString>
-
 QString SprinterPlugin::_ok = QStringLiteral("ok");
 
-Q_LOGGING_CATEGORY(SPRINTER_PLUGIN, "org.kde.atelier.core.firmware.sprinter");
+Q_LOGGING_CATEGORY(SPRINTER_PLUGIN, "org.kde.atelier.core.firmware.sprinter")
 
 QString SprinterPlugin::name() const
 {

@@ -22,8 +22,6 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include <QDebug>
-
 #include "seriallayer.h"
 
 namespace
@@ -45,7 +43,7 @@ QStringList _validBaudRates = {
     QStringLiteral("500000"),
     QStringLiteral("1000000")
 };
-};
+}
 /**
  * @brief The SerialLayerPrivate class
  */

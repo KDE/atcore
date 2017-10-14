@@ -23,24 +23,23 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include <QDir>
+#include <QSerialPortInfo>
+#include <QPluginLoader>
+#include <QCoreApplication>
+#include <QLoggingCategory>
+#include <QTime>
+#include <QTimer>
+#include <QThread>
+
 #include "atcore.h"
 #include "seriallayer.h"
 #include "gcodecommands.h"
 #include "printthread.h"
 #include "atcore_default_folders.h"
 
-#include <QDir>
-#include <QSerialPortInfo>
-#include <QPluginLoader>
-#include <QCoreApplication>
-#include <QLoggingCategory>
-#include <QDebug>
-#include <QTime>
-#include <QTimer>
-#include <QThread>
-
-Q_LOGGING_CATEGORY(ATCORE_PLUGIN, "org.kde.atelier.core.plugin");
-Q_LOGGING_CATEGORY(ATCORE_CORE, "org.kde.atelier.core");
+Q_LOGGING_CATEGORY(ATCORE_PLUGIN, "org.kde.atelier.core.plugin")
+Q_LOGGING_CATEGORY(ATCORE_CORE, "org.kde.atelier.core")
 /**
  * @brief The AtCorePrivate struct
  */

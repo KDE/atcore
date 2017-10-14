@@ -25,14 +25,13 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QTextStream>
-#include <QDebug>
 
 #include "mainwindow.h"
 #include "seriallayer.h"
 #include "gcodecommands.h"
 #include "widgets/axiscontrol.h"
 
-Q_LOGGING_CATEGORY(TESTCLIENT_MAINWINDOW, "org.kde.atelier.core");
+Q_LOGGING_CATEGORY(TESTCLIENT_MAINWINDOW, "org.kde.atelier.core")
 
 int MainWindow::fanCount = 4;
 

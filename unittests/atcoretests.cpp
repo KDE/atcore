@@ -1,5 +1,6 @@
-#include "atcoretests.h"
 #include <algorithm>
+
+#include "atcoretests.h"
 
 void AtCoreTests::initTestCase()
 {

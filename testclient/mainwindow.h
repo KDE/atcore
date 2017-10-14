@@ -22,12 +22,11 @@
 */
 #pragma once
 
-#include "ui_mainwindow.h"
-
+#include <QTemporaryFile>
 #include <QMainWindow>
 #include <QSerialPort>
-#include <QTemporaryFile>
 
+#include "ui_mainwindow.h"
 #include "atcore.h"
 
 class SerialLayer;

@@ -24,6 +24,7 @@
 
 #include <QTextStream>
 #include <QFile>
+
 #include "atcore.h"
 
 class PrintThreadPrivate;

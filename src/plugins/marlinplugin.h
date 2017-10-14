@@ -24,8 +24,9 @@
 */
 #pragma once
 
-#include "ifirmware.h"
 #include <QObject>
+
+#include "ifirmware.h"
 /**
  * @brief The MarlinPlugin class
  * Plugin for Marlin

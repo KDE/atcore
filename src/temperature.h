@@ -24,6 +24,7 @@
 #pragma once
 
 #include <QObject>
+
 #include "atcore_export.h"
 
 class TemperaturePrivate;
@@ -35,10 +36,10 @@ class TemperaturePrivate;
 class ATCORE_EXPORT Temperature : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(float bedTemperature READ bedTemperature WRITE setBedTemperature NOTIFY bedTemperatureChanged);
-    Q_PROPERTY(float bedTargetTemperature READ bedTargetTemperature WRITE setBedTargetTemperature NOTIFY bedTargetTemperatureChanged);
-    Q_PROPERTY(float extruderTemperature READ extruderTemperature WRITE setExtruderTemperature NOTIFY extruderTemperatureChanged);
-    Q_PROPERTY(float extruderTargetTemperature READ extruderTargetTemperature WRITE setExtruderTargetTemperature NOTIFY extruderTargetTemperatureChanged);
+    Q_PROPERTY(float bedTemperature READ bedTemperature WRITE setBedTemperature NOTIFY bedTemperatureChanged)
+    Q_PROPERTY(float bedTargetTemperature READ bedTargetTemperature WRITE setBedTargetTemperature NOTIFY bedTargetTemperatureChanged)
+    Q_PROPERTY(float extruderTemperature READ extruderTemperature WRITE setExtruderTemperature NOTIFY extruderTemperatureChanged)
+    Q_PROPERTY(float extruderTargetTemperature READ extruderTargetTemperature WRITE setExtruderTargetTemperature NOTIFY extruderTargetTemperatureChanged)
 
 public:
     /**
