@@ -31,7 +31,7 @@
 
 QString SprinterPlugin::_ok = QStringLiteral("ok");
 
-Q_LOGGING_CATEGORY(SPRINTER_PLUGIN, "org.kde.atelier.core.firmware.sprinter");
+Q_LOGGING_CATEGORY(SPRINTER_PLUGIN, "org.kde.atelier.core.firmware.sprinter")
 
 QString SprinterPlugin::name() const
 {

@@ -26,7 +26,7 @@
 #include "printthread.h"
 #include "gcodecommands.h"
 
-Q_LOGGING_CATEGORY(PRINT_THREAD, "org.kde.atelier.core.printThread");
+Q_LOGGING_CATEGORY(PRINT_THREAD, "org.kde.atelier.core.printThread")
 /**
  * @brief The PrintThreadPrivate class
  */

@@ -31,7 +31,7 @@
 
 QString RepetierPlugin::_ok = QStringLiteral("ok");
 
-Q_LOGGING_CATEGORY(REPETIER_PLUGIN, "org.kde.atelier.core.firmware.repetier");
+Q_LOGGING_CATEGORY(REPETIER_PLUGIN, "org.kde.atelier.core.firmware.repetier")
 
 QString RepetierPlugin::name() const
 {

@@ -31,7 +31,7 @@
 #include "gcodecommands.h"
 #include "widgets/axiscontrol.h"
 
-Q_LOGGING_CATEGORY(TESTCLIENT_MAINWINDOW, "org.kde.atelier.core");
+Q_LOGGING_CATEGORY(TESTCLIENT_MAINWINDOW, "org.kde.atelier.core")
 
 int MainWindow::fanCount = 4;
 

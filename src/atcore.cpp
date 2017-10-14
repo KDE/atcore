@@ -38,8 +38,8 @@
 #include "printthread.h"
 #include "atcore_default_folders.h"
 
-Q_LOGGING_CATEGORY(ATCORE_PLUGIN, "org.kde.atelier.core.plugin");
-Q_LOGGING_CATEGORY(ATCORE_CORE, "org.kde.atelier.core");
+Q_LOGGING_CATEGORY(ATCORE_PLUGIN, "org.kde.atelier.core.plugin")
+Q_LOGGING_CATEGORY(ATCORE_CORE, "org.kde.atelier.core")
 /**
  * @brief The AtCorePrivate struct
  */

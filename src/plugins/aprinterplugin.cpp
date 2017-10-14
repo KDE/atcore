@@ -31,7 +31,7 @@
 
 QString AprinterPlugin::_ok = QStringLiteral("ok");
 
-Q_LOGGING_CATEGORY(APRINTER_PLUGIN, "org.kde.atelier.core.firmware.aprinter");
+Q_LOGGING_CATEGORY(APRINTER_PLUGIN, "org.kde.atelier.core.firmware.aprinter")
 
 QString AprinterPlugin::name() const
 {

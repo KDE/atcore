@@ -31,7 +31,7 @@
 
 QString MarlinPlugin::_ok = QStringLiteral("ok");
 
-Q_LOGGING_CATEGORY(MARLIN_PLUGIN, "org.kde.atelier.core.firmware.marlin");
+Q_LOGGING_CATEGORY(MARLIN_PLUGIN, "org.kde.atelier.core.firmware.marlin")
 
 QString MarlinPlugin::name() const
 {

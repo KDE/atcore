@@ -43,7 +43,7 @@ QStringList _validBaudRates = {
     QStringLiteral("500000"),
     QStringLiteral("1000000")
 };
-};
+}
 /**
  * @brief The SerialLayerPrivate class
  */

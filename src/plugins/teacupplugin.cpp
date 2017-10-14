@@ -31,7 +31,7 @@
 
 QString TeacupPlugin::_ok = QStringLiteral("ok");
 
-Q_LOGGING_CATEGORY(TEACUP_PLUGIN, "org.kde.atelier.core.firmware.teacup");
+Q_LOGGING_CATEGORY(TEACUP_PLUGIN, "org.kde.atelier.core.firmware.teacup")
 
 QString TeacupPlugin::name() const
 {

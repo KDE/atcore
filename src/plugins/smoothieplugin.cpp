@@ -31,7 +31,7 @@
 
 QString SmoothiePlugin::_ok = QStringLiteral("ok");
 
-Q_LOGGING_CATEGORY(SMOOTHIE_PLUGIN, "org.kde.atelier.core.firmware.smoothie");
+Q_LOGGING_CATEGORY(SMOOTHIE_PLUGIN, "org.kde.atelier.core.firmware.smoothie")
 
 QString SmoothiePlugin::name() const
 {
