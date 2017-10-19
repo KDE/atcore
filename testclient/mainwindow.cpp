@@ -42,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     logFile(new QTemporaryFile(QDir::tempPath() + QStringLiteral("/AtCore_")))
 {
     ui->setupUi(this);
+    setWindowTitle(QString::fromLatin1("AtCore (%1) - Test Gui").arg(core->version()));
     ui->serialPortCB->setEditable(true);
     QValidator *validator = new QIntValidator();
     ui->baudRateLE->setValidator(validator);
