@@ -1,3 +1,5 @@
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 include_directories(../src)
@@ -18,7 +20,7 @@ find_package(Qt5 REQUIRED COMPONENTS
     SerialPort
 )
 if (NOT APPLE)
-	add_executable(AtCoreTest ${AtCoreTestClient_SRCS})
+    add_executable(AtCoreTest ${AtCoreTestClient_SRCS} icons.qrc)
 
 	install(TARGETS AtCoreTest RUNTIME DESTINATION bin)
 
@@ -31,7 +33,7 @@ if (NOT APPLE)
         DESTINATION share/applications)
 else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++ -std=c++11")
-    add_executable(AtCoreTest MACOSX_BUNDLE ${AtCoreTestClient_SRCS})
+    add_executable(AtCoreTest MACOSX_BUNDLE ${AtCoreTestClient_SRCS} icons.qrc)
     install(TARGETS AtCoreTest BUNDLE DESTINATION bin)
 endif()
 

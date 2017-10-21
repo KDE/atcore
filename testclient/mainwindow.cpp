@@ -31,6 +31,7 @@
 #include "seriallayer.h"
 #include "gcodecommands.h"
 #include "widgets/axiscontrol.h"
+#include "widgets/about.h"
 
 Q_LOGGING_CATEGORY(TESTCLIENT_MAINWINDOW, "org.kde.atelier.core")
 
@@ -43,7 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
     logFile(new QTemporaryFile(QDir::tempPath() + QStringLiteral("/AtCore_")))
 {
     ui->setupUi(this);
-    setWindowTitle(QString::fromLatin1("AtCore (%1) - Test Gui").arg(core->version()));
+    QCoreApplication::setApplicationVersion(core->version());
     ui->serialPortCB->setEditable(true);
     QValidator *validator = new QIntValidator();
     ui->baudRateLE->setValidator(validator);
@@ -123,6 +124,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->actionQuit, &QAction::triggered, this, &MainWindow::close);
     connect(ui->actionShowDockTitles, &QAction::toggled, this, &MainWindow::toggleDockTitles);
+    connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::about);
 
     ui->menuView->insertAction(nullptr, ui->connectDock->toggleViewAction());
     ui->menuView->insertAction(nullptr, ui->tempControlsDock->toggleViewAction());
@@ -556,6 +558,13 @@ void MainWindow::toggleDockTitles()
         ui->printDock->setTitleBarWidget(new QWidget());
     }
 }
+
+void MainWindow::about()
+{
+    About *aboutDialog = new About(this);
+    aboutDialog->exec();
+}
+
 void MainWindow::axisControlClicked(QChar axis, int value)
 {
     core->setRelativePosition();
