@@ -166,6 +166,11 @@ private slots:
      * @brief show/hide dock titlebars
      */
     void toggleDockTitles();
+
+    /**
+     * @brief Show the about dialog
+     */
+    void about();
 signals:
     /**
      * @brief printFile emit ready to print a file to atcore

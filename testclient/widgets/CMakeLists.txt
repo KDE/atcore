@@ -1,6 +1,7 @@
 set(widgets_SRCS
     plotwidget.cpp
     axiscontrol.cpp
+    about.cpp
     )
 
 add_library(AtCoreTestWidgets STATIC ${widgets_SRCS})

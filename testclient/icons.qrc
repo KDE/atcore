@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file alias="atcore">../doc/atcore.png</file>
+    </qresource>
+</RCC>
+

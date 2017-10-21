@@ -52,6 +52,7 @@ struct AtCorePrivate;
 class ATCORE_EXPORT AtCore : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString version READ version)
     Q_PROPERTY(QStringList availableFirmwarePlugins READ availableFirmwarePlugins)
     Q_PROPERTY(quint16 serialTimerInterval READ serialTimerInterval WRITE setSerialTimerInterval)
     Q_PROPERTY(QStringList serialPorts READ serialPorts NOTIFY portsChanged)
@@ -97,6 +98,12 @@ public:
      * @param parent: parent of the object
      */
     explicit AtCore(QObject *parent = nullptr);
+
+    /**
+     * @brief version
+     * @return Version number
+     */
+    QString version() const;
 
     /**
      * @brief Returns a List of detected serial ports

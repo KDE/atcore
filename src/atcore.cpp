@@ -33,6 +33,7 @@
 #include <QThread>
 
 #include "atcore.h"
+#include "atcore_version.h"
 #include "seriallayer.h"
 #include "gcodecommands.h"
 #include "printthread.h"
@@ -91,6 +92,15 @@ AtCore::AtCore(QObject *parent) :
     qCDebug(ATCORE_PLUGIN) << d->pluginsDir;
     findFirmwarePlugins();
     setState(AtCore::DISCONNECTED);
+}
+
+QString AtCore::version() const
+{
+    QString versionString = QString::fromLatin1(ATCORE_VERSION_STRING);
+    if (!QStringLiteral(GIT_REVISION).isEmpty()) {
+        versionString.append(QString::fromLatin1("-%1").arg(QStringLiteral(GIT_REVISION)));
+    }
+    return versionString;
 }
 
 SerialLayer *AtCore::serial() const
