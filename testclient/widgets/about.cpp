@@ -33,7 +33,6 @@ About::About(QWidget *parent) :
     setWindowIcon(QIcon::fromTheme(QStringLiteral("help-about"), style()->standardIcon(QStyle::SP_MessageBoxInformation)));
 
     QLabel *lbl_version = new QLabel(QString::fromLatin1("Version: %1").arg(QCoreApplication::applicationVersion()));
-    QLabel *lbl_git_version = new QLabel(QString::fromLatin1("GitID: %1").arg(QStringLiteral("GIDIDHERE")));
     QLabel *lbl_qt_version = new QLabel(QString::fromLatin1("Using Qt: %1").arg(QString::fromLatin1(qVersion())));
     QLabel *lbl_authors = new QLabel(QStringLiteral("Authors:\n  Chris Rizzitello <rizzitello@kde.org>\n  Patrick José Pereira <patrickelectric@gmail.com>\n  Lays Rodrigues <laysrodrigues@gmail.com>\n  Tomaz Canabrava <tcanabrava@kde.org>"));
 
@@ -47,7 +46,6 @@ About::About(QWidget *parent) :
 
     QVBoxLayout *versionInfo = new QVBoxLayout;
     versionInfo->addWidget(lbl_version);
-    versionInfo->addWidget(lbl_git_version);
     versionInfo->addWidget(lbl_qt_version);
 
     QVBoxLayout *topLayout = new QVBoxLayout;

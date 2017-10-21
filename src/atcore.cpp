@@ -96,7 +96,11 @@ AtCore::AtCore(QObject *parent) :
 
 QString AtCore::version() const
 {
-    return QString::fromLatin1(ATCORE_VERSION_STRING);
+    QString versionString = QString::fromLatin1(ATCORE_VERSION_STRING);
+    if (!QStringLiteral(GIT_REVISION).isEmpty()) {
+        versionString.append(QString::fromLatin1("-%1").arg(QStringLiteral(GIT_REVISION)));
+    }
+    return versionString;
 }
 
 SerialLayer *AtCore::serial() const
