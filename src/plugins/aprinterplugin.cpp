@@ -26,7 +26,6 @@
 #include <QString>
 
 #include "aprinterplugin.h"
-#include "temperature.h"
 #include "atcore.h"
 
 QString AprinterPlugin::_ok = QStringLiteral("ok");

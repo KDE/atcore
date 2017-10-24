@@ -22,7 +22,6 @@
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "ifirmware.h"
-#include "temperature.h"
 #include "atcore.h"
 /**
  * @brief The IFirmwarePrivate struct

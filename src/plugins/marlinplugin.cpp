@@ -26,7 +26,6 @@
 #include <QString>
 
 #include "marlinplugin.h"
-#include "temperature.h"
 #include "atcore.h"
 
 QString MarlinPlugin::_ok = QStringLiteral("ok");
