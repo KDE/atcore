@@ -34,7 +34,7 @@
 class MarlinPlugin : public IFirmware
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kde.atelier.core.firmware" FILE "marlin.json")
+    Q_PLUGIN_METADATA(IID "org.kde.atelier.core.firmware")
     Q_INTERFACES(IFirmware)
 
 private:

@@ -34,7 +34,7 @@
 class TeacupPlugin : public IFirmware
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kde.atelier.core.firmware" FILE "teacup.json")
+    Q_PLUGIN_METADATA(IID "org.kde.atelier.core.firmware")
     Q_INTERFACES(IFirmware)
 
 private:
