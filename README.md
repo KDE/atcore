@@ -126,10 +126,11 @@ Testing is simple and will help us a lot.
 You can reach us via: <br/>
 [IRC] - freenode #kde-atelier <br/>
 [Telegram] - KDE Atelier group <br/>
-
+[Web] - Our web page
 ### Bugs
 For any bug that you find it you can go on [KDE Bugs] system and report it. Please try to give all the information about the issue, and backtrace if you have one.
     
 [IRC]: https://webchat.freenode.net/
 [Telegram]: telegram.me/KDEAtelier
 [KDE Bugs]: https://bugs.kde.org/enter_bug.cgi?product=Atelier
+[Web]: https://atelier.kde.org
