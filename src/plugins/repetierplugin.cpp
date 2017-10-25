@@ -26,7 +26,6 @@
 #include <QString>
 
 #include "repetierplugin.h"
-#include "temperature.h"
 #include "atcore.h"
 
 QString RepetierPlugin::_ok = QStringLiteral("ok");

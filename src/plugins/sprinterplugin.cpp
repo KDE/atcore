@@ -26,7 +26,6 @@
 #include <QLoggingCategory>
 
 #include "sprinterplugin.h"
-#include "temperature.h"
 #include "atcore.h"
 
 QString SprinterPlugin::_ok = QStringLiteral("ok");

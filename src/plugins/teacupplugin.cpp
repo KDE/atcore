@@ -26,7 +26,6 @@
 #include <QLoggingCategory>
 
 #include "teacupplugin.h"
-#include "temperature.h"
 #include "atcore.h"
 
 QString TeacupPlugin::_ok = QStringLiteral("ok");

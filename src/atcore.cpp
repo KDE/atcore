@@ -299,7 +299,9 @@ void AtCore::newMessage(const QByteArray &message)
     }
 
     //Check if have temperature info and decode it
-    temperature().decodeTemp(message);
+    if (d->lastMessage.contains("T:") || d->lastMessage.contains("B:")) {
+        temperature().decodeTemp(message);
+    }
     emit(receivedMessage(d->lastMessage));
 }
 

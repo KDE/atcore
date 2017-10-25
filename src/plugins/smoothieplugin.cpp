@@ -26,7 +26,6 @@
 #include <QString>
 
 #include "smoothieplugin.h"
-#include "temperature.h"
 #include "atcore.h"
 
 QString SmoothiePlugin::_ok = QStringLiteral("ok");
