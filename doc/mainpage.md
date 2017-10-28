@@ -24,7 +24,7 @@ Tomaz Canabrava <tcanabrava@kde.org><br/>
     
 ### Getting in Touch 
 You can reach us via:<br/>
-[IRC] - freenode #kde-atelier<br/>
+[IRC] - freenode \#kde-atelier<br/>
 [Telegram] - Atelier group<br/>
 [Web] - Our web page<br/>
 ### Bugs

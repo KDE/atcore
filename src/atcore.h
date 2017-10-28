@@ -266,7 +266,7 @@ public slots:
      *
      * Sends M114 on pause to store the location where the head stoped.
      * This is known to cause problems on fake printers
-     * @param pauseActions: Gcode to run after pausing commands are ',' seperated
+     * @param pauseActions: Gcode to run after pausing commands are ',' separated
      * @sa resume(),stop(),emergencyStop()
      */
     void pause(const QString &pauseActions);

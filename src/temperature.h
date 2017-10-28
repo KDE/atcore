@@ -46,7 +46,7 @@ public:
      * @brief Create a new Temperature object
      * @param parent
      */
-    Temperature(QObject *parent = nullptr);
+    explicit Temperature(QObject *parent = nullptr);
 
     /**
      * @brief Get bed current temperature

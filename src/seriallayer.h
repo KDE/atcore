@@ -42,7 +42,7 @@ private:
     SerialLayerPrivate *d;
 
     /**
-     * @brief Read all avaliable serial data
+     * @brief Read all available serial data
      *
      */
     void readAllData();
@@ -83,7 +83,7 @@ public:
     /**
      * @brief Add command to be pushed
      *
-     * @param comm : Commmand, default terminator will be used
+     * @param comm : Command, default terminator will be used
      */
     void add(const QByteArray &comm);
 

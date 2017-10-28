@@ -82,7 +82,7 @@ void RectButton::hoverLeaveEvent(QGraphicsSceneHoverEvent *)
         I don't have experience programming with QGraphicsScene,
         Tomaz is helping me, but until we have a better solution, all the values
         that are dividing or multiplying the items is based only in tests and errors.
-        Those values was choosen because it fit better on the alignment of the items
+        Those values was chosen because it fit better on the alignment of the items
         in the scene. If you have a better solution, please share with us.
         Lays Rodrigues - Jan/2017
 */
