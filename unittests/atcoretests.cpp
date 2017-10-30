@@ -42,6 +42,7 @@ void AtCoreTests::testPluginDetect()
         QStringLiteral("aprinter"),
         QStringLiteral("grbl"),
         QStringLiteral("marlin"),
+        QStringLiteral("redeem"),
         QStringLiteral("repetier"),
         QStringLiteral("smoothie"),
         QStringLiteral("sprinter"),
@@ -96,6 +97,21 @@ void AtCoreTests::testPluginMarlin_load()
 }
 
 void AtCoreTests::testPluginMarlin_validate()
+{
+    QSignalSpy sSpy(core->firmwarePlugin(), SIGNAL(readyForCommand()));
+    QVERIFY(sSpy.isValid() == true);
+    core->firmwarePlugin()->validateCommand(QStringLiteral("ok"));
+    core->firmwarePlugin()->validateCommand(QStringLiteral("other text"));
+    QVERIFY(sSpy.count() == 1);
+}
+
+void AtCoreTests::testPluginRedeem_load()
+{
+    core->loadFirmwarePlugin(QStringLiteral("redeem"));
+    QVERIFY(core->firmwarePlugin()->name() == QStringLiteral("Redeem"));
+}
+
+void AtCoreTests::testPluginRedeem_validate()
 {
     QSignalSpy sSpy(core->firmwarePlugin(), SIGNAL(readyForCommand()));
     QVERIFY(sSpy.isValid() == true);

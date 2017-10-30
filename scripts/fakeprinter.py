@@ -17,6 +17,7 @@ fwlist = {
 			PROTOCOL_VERSION:1.0 MACHINE_TYPE:Mendel EXTRUDER_COUNT:X
 			TEMP_SENSOR_COUNT:X HEATER_COUNT:X\n\r""",
 	'aprinter' :"ok FIRMWARE_NAME:APrinter\n\r",
+	'redeem' :"ok PROTOCOL_VERSION:0.1 FIRMWARE_NAME:Redeem FIRMWARE_VERSION:2.0.0~Red Heat REPLICAPE_KEY:56VCPC6HLLASBYBU3PXO FIRMWARE_URL:http%3A//wiki.thing-printer.com/index.php?title=Redeem MACHINE_TYPE:Unknown EXTRUDER_COUNT:2\n\r",
 }
 
 fwname = 'repetier'

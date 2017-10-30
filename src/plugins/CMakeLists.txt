@@ -29,6 +29,11 @@ set(SmoothiePlugin_SRCS smoothieplugin.cpp)
 add_library(smoothie SHARED ${SmoothiePlugin_SRCS})
 target_link_libraries(smoothie Qt5::Core AtCore::AtCore)
 
+
+set(RedeemPlugin_SRCS redeemplugin.cpp)
+add_library(redeem SHARED ${RedeemPlugin_SRCS})
+target_link_libraries(redeem Qt5::Core AtCore::AtCore)
+
 if(WIN32 OR APPLE)
     install(
     TARGETS
@@ -39,6 +44,7 @@ if(WIN32 OR APPLE)
         sprinter
         aprinter
         smoothie
+        redeem
     DESTINATION
         bin/plugins
     )
@@ -54,6 +60,7 @@ if(UNIX AND NOT APPLE)
         sprinter
         aprinter
         smoothie
+        redeem
     DESTINATION
         ${KDE_INSTALL_PLUGINDIR}/AtCore
     )
