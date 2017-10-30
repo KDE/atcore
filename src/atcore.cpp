@@ -97,9 +97,11 @@ AtCore::AtCore(QObject *parent) :
 QString AtCore::version() const
 {
     QString versionString = QString::fromLatin1(ATCORE_VERSION_STRING);
+#if defined GIT_REVISION
     if (!QStringLiteral(GIT_REVISION).isEmpty()) {
         versionString.append(QString::fromLatin1("-%1").arg(QStringLiteral(GIT_REVISION)));
     }
+#endif
     return versionString;
 }
 
