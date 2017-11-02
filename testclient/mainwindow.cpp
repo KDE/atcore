@@ -44,6 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
     logFile(new QTemporaryFile(QDir::tempPath() + QStringLiteral("/AtCore_")))
 {
     ui->setupUi(this);
+    setWindowIcon(QIcon(QStringLiteral(":/icon/windowIcon")));
     QCoreApplication::setApplicationVersion(core->version());
     ui->serialPortCB->setEditable(true);
     QValidator *validator = new QIntValidator();
