@@ -20,7 +20,7 @@ find_package(Doxygen)
 
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra modules and scripts for CMake" URL "git://anongit.kde.org/extra-cmake-modules")
 
-set(PROJECT_VERSION "0.90.1")
+set(PROJECT_VERSION "0.90.2")
 set(KF5_DEP_VERSION "5.24.0") # handled by release scripts
 set(REQUIRED_QT_VERSION 5.4.0)
 
