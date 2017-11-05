@@ -1,11 +1,15 @@
 language: cpp
+compiler: gcc
+sudo: require
+dist: trusty
+
 before_install:
  - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
- - sudo add-apt-repository --yes ppa:beineri/opt-qt561
+ - sudo add-apt-repository --yes ppa:beineri/opt-qt591-trusty -y
  - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
  - sudo apt-get update -qq
- - sudo apt-get install build-essential qt56base qt56quickcontrols qt56serialport
- - sudo apt-get install -qq g++-4.8
+ - sudo apt-get install build-essential qt59base qt59quickcontrols qt59serialport qt59charts-no-lgpl
+ - sudo apt-get install -qq g++-4.8 git
  - export CXX="g++-4.8"
  - wget http://www.cmake.org/files/v3.5/cmake-3.5.0.tar.gz --no-check-certificate
  - tar xf cmake-3.5.0.tar.gz
@@ -13,8 +17,29 @@ before_install:
  - ./configure
  - sudo make install
  - cd ..
-script:
- - source /opt/qt56/bin/qt56-env.sh
- - mkdir build && cd build
- - cmake ..
+ - git clone git://anongit.kde.org/extra-cmake-modules
+ - cd extra-cmake-modules
+ - mkdir ecm-build
+ - cd ecm-build
+ - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
  - make
+ - sudo make install
+ - cd ../../
+script:
+ - source /opt/qt*/bin/qt*-env.sh
+ - cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr CMakeLists.txt
+ - make
+ - sudo make install
+ - make DESTDIR=appdir/ install; find appdir/
+ - mkdir -p appdir/usr/plugins
+ - mv appdir/usr/lib/x86_64-linux-gnu/plugins/AtCore/ appdir/usr/plugins/AtCore
+ - rm -rf appdir/usr/include appdir/usr/mkspecs appdir/usr/lib/x86_64-linux-gnu/
+ - wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
+ - chmod a+x linuxdeployqt*.AppImage
+ - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
+ - ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
+ - ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -appimage
+ 
+after_success:
+ - find ./appdir -executable -type f -exec ldd {} \; | grep " => /usr" | cut -d " " -f 2-3 | sort | uniq
+ - curl --upload-file ./AtCore*.AppImage https://transfer.sh/atcore-git.$(git rev-parse --short HEAD)-x86_64.AppImage

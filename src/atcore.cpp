@@ -74,7 +74,10 @@ AtCore::AtCore(QObject *parent) :
     d->tempTimer->setInterval(5000);
     d->tempTimer->setSingleShot(false);
 
-    for (const auto &path : AtCoreDirectories::pluginDir) {
+    QStringList pathList = AtCoreDirectories::pluginDir;
+    pathList.append(QLibraryInfo::location(QLibraryInfo::PluginsPath) + QStringLiteral("/AtCore"));
+
+    for (const auto &path : pathList) {
         qCDebug(ATCORE_PLUGIN) << "Lookin for plugins in " << path;
         if (QDir(path).exists()) {
             d->pluginsDir = QDir(path);
