@@ -1,45 +1,78 @@
 language: cpp
-compiler: gcc
 sudo: require
 dist: trusty
 
+os:
+ - linux
+ - osx
+matrix:
+ exclude:
+# Don't build with clang on Linux
+  - os: linux
+    compiler: clang
+# Don't build with gcc on OSX
+  - os: osx
+    compiler: gcc
+
 before_install:
- - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
- - sudo add-apt-repository --yes ppa:beineri/opt-qt591-trusty -y
- - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
- - sudo apt-get update -qq
- - sudo apt-get install build-essential qt59base qt59quickcontrols qt59serialport qt59charts-no-lgpl
- - sudo apt-get install -qq g++-4.8 git
- - export CXX="g++-4.8"
- - wget http://www.cmake.org/files/v3.5/cmake-3.5.0.tar.gz --no-check-certificate
- - tar xf cmake-3.5.0.tar.gz
- - cd cmake-3.5.0
- - ./configure
- - sudo make install
- - cd ..
- - git clone git://anongit.kde.org/extra-cmake-modules
- - cd extra-cmake-modules
- - mkdir ecm-build
- - cd ecm-build
- - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
- - make
- - sudo make install
- - cd ../../
+- if [ "${TRAVIS_OS_NAME}" = "linux" ]; then 
+    sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa; 
+    sudo add-apt-repository --yes ppa:beineri/opt-qt591-trusty; 
+    sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test;
+    sudo add-apt-repository --yes ppa:ppsspp/cmake;
+    sudo apt update -qq;
+    sudo apt install build-essential qt59base qt59quickcontrols qt59serialport qt59charts-no-lgpl g++-4.8 cmake git;
+    export CXX="g++-4.8";
+    git clone git://anongit.kde.org/extra-cmake-modules;
+    cd extra-cmake-modules;
+    mkdir ecm-build;
+    cd ecm-build;
+    cmake -DCMAKE_INSTALL_PREFIX=/usr ..;
+    make;
+    sudo make install;
+    cd ../../;
+  fi
+- if [ "${TRAVIS_OS_NAME}" = "osx" ]; then 
+    brew update > /dev/null; 
+    brew install qt5;
+    brew tap KDE-mac/kde;
+    brew install kf5-extra-cmake-modules;
+    chmod -R 755 /usr/local/opt/qt5/*;
+    export QTDIR="/usr/local/opt/qt5";
+    export PATH="$QTDIR/bin:$PATH";
+  fi
 script:
- - source /opt/qt*/bin/qt*-env.sh
- - cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr CMakeLists.txt
- - make
- - sudo make install
- - make DESTDIR=appdir/ install; find appdir/
- - mkdir -p appdir/usr/plugins
- - mv appdir/usr/lib/x86_64-linux-gnu/plugins/AtCore/ appdir/usr/plugins/AtCore
- - rm -rf appdir/usr/include appdir/usr/mkspecs appdir/usr/lib/x86_64-linux-gnu/
- - wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
- - chmod a+x linuxdeployqt*.AppImage
- - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
- - ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
- - ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -appimage
- 
+- if [ "${TRAVIS_OS_NAME}" = "linux" ]; then 
+    source /opt/qt*/bin/qt*-env.sh; 
+    cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr CMakeLists.txt; 
+    make;
+    sudo make install; 
+    make DESTDIR=appdir/ install; find appdir/; 
+    mkdir -p appdir/usr/plugins; 
+    mv appdir/usr/lib/x86_64-linux-gnu/plugins/AtCore/ appdir/usr/plugins/AtCore; 
+    rm -rf appdir/usr/include appdir/usr/mkspecs appdir/usr/lib/x86_64-linux-gnu/; 
+    wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"; 
+    chmod a+x linuxdeployqt*.AppImage; 
+    unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH; 
+    ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -bundle-non-qt-libs; 
+    ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -appimage; 
+  fi
+- if [ "${TRAVIS_OS_NAME}" = "osx" ]; then 
+    cmake CMakeLists.txt; 
+    make;
+    mkdir testclient/AtCoreTest.app/Contents/MacOS/plugins; 
+    mv src/plugins/*.dylib testclient/AtCoreTest.app/Contents/MacOS/plugins/; 
+    macdeployqt testclient/AtCoreTest.app/ -dmg; 
+  fi
 after_success:
- - find ./appdir -executable -type f -exec ldd {} \; | grep " => /usr" | cut -d " " -f 2-3 | sort | uniq
- - curl --upload-file ./AtCore*.AppImage https://transfer.sh/atcore-git.$(git rev-parse --short HEAD)-x86_64.AppImage
+- wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+- if [ "${TRAVIS_OS_NAME}" = "linux" ]; then 
+    find ./appdir -executable -type f -exec ldd {} \; | grep " => /usr" | cut -d " " -f 2-3 | sort | uniq; 
+    bash ./upload.sh ./AtCore*.AppImage*;
+  fi
+- if [ "${TRAVIS_OS_NAME}" = "osx" ]; then bash ./upload.sh testclient/AtCore*.dmg*; fi 
+ 
+branches:
+  except:
+    - # Do not build tags that we create when we upload to GitHub Releases
+    - /^(?i:continuous)$/
