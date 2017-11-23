@@ -183,6 +183,12 @@ void GCodeTests::string_G162()
     QVERIFY(GCode::toString(GCode::G162) == QObject::tr("G162: Home axis to maximum"));
 }
 
+void GCodeTests::command_M84()
+{
+    QVERIFY(GCode::toCommand(GCode::M84) == QStringLiteral("M84"));
+    QVERIFY(GCode::toCommand(GCode::M84, QStringLiteral("10")) == QStringLiteral("M84 S10"));
+}
+
 void GCodeTests::command_M104()
 {
     QVERIFY(GCode::toCommand(GCode::M104) == QStringLiteral("ERROR! M104: It's obligatory to have an argument"));

@@ -59,6 +59,7 @@ private slots:
     void string_G161();
     void string_G162();
 
+    void command_M84();
     void command_M104();
     void command_M105();
     void command_M106();
