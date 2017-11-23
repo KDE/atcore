@@ -295,7 +295,7 @@ public slots:
      * @brief Set extruder temperature
      * @param temp : new temperature
      * @param extruder : extruder number
-     * @param andWait: True for heat and ignore commands untill temperature is reached
+     * @param andWait: True for heat and ignore commands until temperature is reached
      */
     void setExtruderTemp(uint temp = 0, uint extruder = 0, bool andWait = false);
 
@@ -310,7 +310,7 @@ public slots:
     /**
      * @brief Set the bed temperature
      * @param temp : new temperature
-     * @param andWait: True for heat and ignore commands untill temperature is reached
+     * @param andWait: True for heat and ignore commands until temperature is reached
      * @sa setExtruderTemp()
      */
     void setBedTemp(uint temp = 0, bool andWait = false);
