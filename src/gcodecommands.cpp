@@ -509,6 +509,12 @@ QString GCode::toCommand(MCommands gcode, const QString &value1, const QString &
 {
 
     switch (gcode) {
+    case M84: {
+        if (!value1.isEmpty()) {
+            return QStringLiteral("M84 S%1").arg(value1);
+        }
+        return QStringLiteral("M84");
+    }
     case M104: {
         if (!value2.isEmpty()) {
             return QStringLiteral("M104 P%1 S%2").arg(value1).arg(value2);

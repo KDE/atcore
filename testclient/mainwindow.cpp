@@ -94,6 +94,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->flowRatePB, &QPushButton::clicked, this, &MainWindow::flowRatePBClicked);
     connect(ui->showMessagePB, &QPushButton::clicked, this, &MainWindow::showMessage);
     connect(ui->pluginCB, &QComboBox::currentTextChanged, this, &MainWindow::pluginCBChanged);
+    connect(ui->disableMotorsPB, &QPushButton::clicked, this, &MainWindow::disableMotorsPBClicked);
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
     connect(this, &MainWindow::printFile, core, &AtCore::print);
     connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
@@ -571,4 +572,9 @@ void MainWindow::axisControlClicked(QChar axis, int value)
     core->setRelativePosition();
     core->pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("%1%2").arg(axis, QString::number(value))));
     core->setAbsolutePosition();
+}
+
+void MainWindow::disableMotorsPBClicked()
+{
+    core->setIdleHold(0);
 }

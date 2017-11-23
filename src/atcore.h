@@ -335,6 +335,12 @@ public slots:
     void setRelativePosition();
 
     /**
+     * @brief Disables idle hold of motors after a delay
+     * @param delay: Seconds until idle hold is released. 0= No delay
+     */
+    void setIdleHold(uint delay = 0);
+
+    /**
      * @brief set the Printers speed
      * @param speed: speed in % (default is 100);
      */

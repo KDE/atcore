@@ -615,3 +615,12 @@ QStringList AtCore::portSpeeds() const
 {
     return serial()->validBaudRates();
 }
+
+void AtCore::setIdleHold(uint delay)
+{
+    if (delay != 0) {
+        pushCommand(GCode::toCommand(GCode::M84, QString::number(delay)));
+    } else {
+        pushCommand(GCode::toCommand(GCode::M84));
+    }
+}
