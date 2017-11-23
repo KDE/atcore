@@ -133,4 +133,3 @@ QStringList SerialLayer::validBaudRates() const
 {
     return _validBaudRates;
 }
-

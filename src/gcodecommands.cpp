@@ -582,4 +582,3 @@ QString GCode::toCommand(MCommands gcode, const QString &value1, const QString &
         return QObject::tr("Not supported or implemented!");
     }
 }
-

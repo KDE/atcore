@@ -53,4 +53,3 @@ QByteArray SprinterPlugin::translate(const QString &command)
 {
     return command.toLocal8Bit();
 }
-
