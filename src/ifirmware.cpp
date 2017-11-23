@@ -55,4 +55,3 @@ void IFirmware::checkCommand(const QByteArray &lastMessage)
 {
     validateCommand(QString::fromLatin1(lastMessage));
 }
-
