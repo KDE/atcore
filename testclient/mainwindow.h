@@ -147,6 +147,11 @@ private slots:
     void flowRatePBClicked();
 
     /**
+     * @brief disableMotorsPB has been clicked
+     */
+    void disableMotorsPBClicked();
+
+    /**
      * @brief printerStateChanged Catch and proccess printer state commands
      * @param state: new printer state
      */
