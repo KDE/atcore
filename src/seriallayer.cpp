@@ -22,7 +22,12 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
+
+#include <QLoggingCategory>
+
 #include "seriallayer.h"
+
+Q_LOGGING_CATEGORY(SERIAL_LAYER, "org.kde.atelier.core.serialLayer")
 
 namespace
 {
@@ -44,6 +49,7 @@ QStringList _validBaudRates = {
     QStringLiteral("1000000")
 };
 }
+
 /**
  * @brief The SerialLayerPrivate class
  */
@@ -93,6 +99,10 @@ void SerialLayer::readAllData()
 
 void SerialLayer::pushCommand(const QByteArray &comm, const QByteArray &term)
 {
+    if (!isOpen()) {
+        qCDebug(SERIAL_LAYER) << "Serial not connected !";
+        return;
+    }
     QByteArray tmp = comm + term;
     write(tmp);
     emit(pushedCommand(tmp));
@@ -117,6 +127,10 @@ void SerialLayer::add(const QByteArray &comm)
 
 void SerialLayer::push()
 {
+    if (!isOpen()) {
+        qCDebug(SERIAL_LAYER) << "Serial not connected !";
+        return;
+    }
     foreach (const auto &comm, d->_sByteCommands) {
         write(comm);
         emit(pushedCommand(comm));
