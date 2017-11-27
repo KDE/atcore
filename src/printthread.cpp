@@ -134,6 +134,15 @@ void PrintThread::nextLine()
 
 void PrintThread::setState(const AtCore::STATES &newState)
 {
+    if (d->state == AtCore::STATES::DISCONNECTED &&
+        (
+            newState == AtCore::STATES::PAUSE ||
+            newState == AtCore::STATES::STOP
+        )
+    ) {
+        qCDebug(PRINT_THREAD) << "Serial not connected !";
+        return;
+    }
     if (newState != d->state) {
         qCDebug(PRINT_THREAD) << "State Changed from [" << d->state << "] to [" << newState << ']';
         disconnect(d->core, &AtCore::stateChanged, this, &PrintThread::setState);
