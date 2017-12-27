@@ -42,7 +42,7 @@ ecm_create_qm_loader(AtCoreLib_SRCS atcore_qt)
 
 install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/atcore_export.h
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/AtCore COMPONENT Devel
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/AtCore/AtCore COMPONENT Devel
 )
 
 install(FILES
