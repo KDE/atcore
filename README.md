@@ -1,4 +1,8 @@
-AtCore - KDE Print Service for 3DPrinters [![Build Status](https://build.kde.org/buildStatus/icon?job=atcore%20master%20kf5-qt5)](https://build.kde.org/job/atcore%20master%20kf5-qt5/)
+![Logo](testclient/AtCoreTest.png) AtCore - KDE Print Service for 3DPrinters
+----
+#### Build Status
+Linux [![Build Status](https://build.kde.org/job/Extragear%20atcore%20kf5-qt5%20SUSEQt5.9/badge/icon)](https://build.kde.org/job/Extragear%20atcore%20kf5-qt5%20SUSEQt5.9/) Windows [![Build Status](https://binary-factory.kde.org/job/atcore-master-win32/badge/icon)](https://binary-factory.kde.org/job/atcore-master-win32/) MacOs [![Build Status](https://binary-factory.kde.org/job/atcore-master-macos/badge/icon)](https://binary-factory.kde.org/job/atcore-master-macos/) FreeBSD [![Build Status](https://build.kde.org/job/Extragear%20atcore%20kf5-qt5%20FreeBSDQt5.9/badge/icon)](https://build.kde.org/job/Extragear%20atcore%20kf5-qt5%20FreeBSDQt5.9/)
+
 ----
 
 AtCore is a API to manage the serial connection between the computer and 3D Printers.<br/>
@@ -7,38 +11,39 @@ This project is under LGPL V2+, for more information read COPYING.TXT.
 ----
 ### AtCore is under development! Please have that in mind while testing!
 ----
-### Supported Firmwares
+#### Supported Firmwares
  - Repetier
  - Marlin
  - Teacup
- - APrinter 
+ - APrinter
  - SPrinter
  - Smoothie
  - Grbl
  ---
-### Getting AtCore
+#### Getting AtCore
 
 Install a Premade package for ArchLinux:
  - AUR [atcore-git](https://aur.archlinux.org/packages/atcore-git/)
 ---
-### Building AtCore For Development
+#### Building AtCore For Development
 ##### Minimal Qt Version: 5.7
 
-Dependencies for AtCore: 
+Dependencies for AtCore:
  - qt5-base
  - qt5-serialport
- - extra-cmake-modules 
- 
+ - extra-cmake-modules
+
 Extra Dependencies for Test GUI
  - qt5-charts
 
 Optional Dependencies
  - doxygen
 
-Build Switches 
- - -DBUILD_TEST_GUI = ( ON | OFF )  Build the test client (Default is ON) 
+Build Switches
+ - -DBUILD_TEST_GUI = ( ON | OFF )  Build the test client (Default is ON)
+
 ----
-#### Building on Linux 
+#### Building on Linux
 ```bash
 $ git clone https://github.com/KDE/atcore.git
 $ cmake -DCMAKE_INSTALL_PREFIX=$(qtpaths --install-prefix) -DCMAKE_INSTALL_LIBDIR=lib CMakeLists.txt
@@ -69,7 +74,7 @@ This will give you feedback on the prompt to check what is happening.
 
 For packing:
 ```powershell
-craft --package atcore 
+craft --package atcore
 ```
 At C:/KDE/craft/tmp you will find the installer.
 
@@ -112,24 +117,26 @@ Example: ```--device /dev/ttyUSB0```
 
 ### Testing AtCore
 
-Testing is simple and will help us a lot. 
-  - Build / Install the testclient 
-  - Connect to your printer 
-  - Test the controls in the testclient 
+Testing is simple and will help us a lot.
+  - Build / Install the testclient
+  - Connect to your printer
+  - Test the controls in the testclient
   - Test Print Command
   - Save your log and send it with errors
+  
 ---
  > **Note:**
- > For your test results to be helpful they must include the full log output. 
+ > For your test results to be helpful they must include the full log output.
+
 ---
-### Getting in Touch 
+#### Getting in Touch
 You can reach us via: <br/>
 [IRC] - freenode #kde-atelier <br/>
 [Telegram] - KDE Atelier group <br/>
 [Web] - Our web page
-### Bugs
+#### Bugs
 For any bug that you find it you can go on [KDE Bugs] system and report it. Please try to give all the information about the issue, and backtrace if you have one.
-    
+
 [IRC]: https://webchat.freenode.net/
 [Telegram]: telegram.me/KDEAtelier
 [KDE Bugs]: https://bugs.kde.org/enter_bug.cgi?product=Atelier
