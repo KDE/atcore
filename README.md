@@ -41,6 +41,7 @@ Optional Dependencies
 
 Build Switches
  - -DBUILD_TEST_GUI = ( ON | OFF )  Build the test client (Default is ON)
+ - -DBUILD_DOCS = (ON | OFF ) Build the Documentation (Default is OFF)
 
 ----
 #### Building on Linux
