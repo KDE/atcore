@@ -16,7 +16,7 @@ include(ECMSetupVersion)
 include(CMakePackageConfigHelpers)
 include(ECMGenerateHeaders)
 
-find_package(Doxygen)
+option(BUILD_DOCS "Build and Install Documents (Requires Doxygen)") 
 
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra modules and scripts for CMake" URL "git://anongit.kde.org/extra-cmake-modules")
 
@@ -80,10 +80,13 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(src)
 add_subdirectory(unittests)
-if(DOXYGEN_FOUND)
-    add_subdirectory(doc)
+if (BUILD_DOCS)
+#only build docs when asked
+    find_package(Doxygen)
+    if(DOXYGEN_FOUND)
+        add_subdirectory(doc)
+    endif()
 endif()
-
 set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/AtCore")
 configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/AtCoreConfig.cmake.in"
                               "${CMAKE_CURRENT_BINARY_DIR}/AtCoreConfig.cmake"
