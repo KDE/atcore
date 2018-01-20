@@ -28,8 +28,6 @@
 #include "sprinterplugin.h"
 #include "atcore.h"
 
-QString SprinterPlugin::_ok = QStringLiteral("ok");
-
 Q_LOGGING_CATEGORY(SPRINTER_PLUGIN, "org.kde.atelier.core.firmware.sprinter")
 
 QString SprinterPlugin::name() const
@@ -40,16 +38,4 @@ QString SprinterPlugin::name() const
 SprinterPlugin::SprinterPlugin()
 {
     qCDebug(SPRINTER_PLUGIN) << name() << " plugin loaded!";
-}
-
-void SprinterPlugin::validateCommand(const QString &lastMessage)
-{
-    if (lastMessage.contains(_ok)) {
-        emit readyForCommand();
-    }
-}
-
-QByteArray SprinterPlugin::translate(const QString &command)
-{
-    return command.toLocal8Bit();
 }

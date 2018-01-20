@@ -28,8 +28,6 @@
 #include "marlinplugin.h"
 #include "atcore.h"
 
-QString MarlinPlugin::_ok = QStringLiteral("ok");
-
 Q_LOGGING_CATEGORY(MARLIN_PLUGIN, "org.kde.atelier.core.firmware.marlin")
 
 QString MarlinPlugin::name() const
@@ -40,16 +38,4 @@ QString MarlinPlugin::name() const
 MarlinPlugin::MarlinPlugin()
 {
     qCDebug(MARLIN_PLUGIN) << name() << " plugin loaded!";
-}
-
-void MarlinPlugin::validateCommand(const QString &lastMessage)
-{
-    if (lastMessage.contains(_ok)) {
-        emit readyForCommand();
-    }
-}
-
-QByteArray MarlinPlugin::translate(const QString &command)
-{
-    return command.toLocal8Bit();
 }

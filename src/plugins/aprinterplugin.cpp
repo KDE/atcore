@@ -28,8 +28,6 @@
 #include "aprinterplugin.h"
 #include "atcore.h"
 
-QString AprinterPlugin::_ok = QStringLiteral("ok");
-
 Q_LOGGING_CATEGORY(APRINTER_PLUGIN, "org.kde.atelier.core.firmware.aprinter")
 
 QString AprinterPlugin::name() const
@@ -40,16 +38,4 @@ QString AprinterPlugin::name() const
 AprinterPlugin::AprinterPlugin()
 {
     qCDebug(APRINTER_PLUGIN) << name() << " plugin loaded!";
-}
-
-void AprinterPlugin::validateCommand(const QString &lastMessage)
-{
-    if (lastMessage.contains(_ok)) {
-        emit readyForCommand();
-    }
-}
-
-QByteArray AprinterPlugin::translate(const QString &command)
-{
-    return command.toLocal8Bit();
 }

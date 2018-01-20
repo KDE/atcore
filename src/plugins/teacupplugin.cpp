@@ -28,8 +28,6 @@
 #include "teacupplugin.h"
 #include "atcore.h"
 
-QString TeacupPlugin::_ok = QStringLiteral("ok");
-
 Q_LOGGING_CATEGORY(TEACUP_PLUGIN, "org.kde.atelier.core.firmware.teacup")
 
 QString TeacupPlugin::name() const
@@ -40,13 +38,6 @@ QString TeacupPlugin::name() const
 TeacupPlugin::TeacupPlugin()
 {
     qCDebug(TEACUP_PLUGIN) << name() << " plugin loaded!";
-}
-
-void TeacupPlugin::validateCommand(const QString &lastMessage)
-{
-    if (lastMessage.contains(_ok)) {
-        emit readyForCommand();
-    }
 }
 
 QByteArray TeacupPlugin::translate(const QString &command)

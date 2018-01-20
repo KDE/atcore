@@ -23,13 +23,20 @@
 */
 #include "ifirmware.h"
 #include "atcore.h"
+
 /**
  * @brief The IFirmwarePrivate struct
  * @param parent: parent of this object
  */
 struct IFirmwarePrivate {
     AtCore *parent;
+    /**
+     * @brief command finished string
+     */
+    static const QString _ok;
 };
+
+const QString IFirmwarePrivate::_ok = QStringLiteral("ok");
 
 IFirmware::IFirmware()
     : d(new IFirmwarePrivate)
@@ -54,4 +61,16 @@ IFirmware::~IFirmware()
 void IFirmware::checkCommand(const QByteArray &lastMessage)
 {
     validateCommand(QString::fromLatin1(lastMessage));
+}
+
+void IFirmware::validateCommand(const QString &lastMessage)
+{
+    if (lastMessage.contains(d->_ok)) {
+        emit readyForCommand();
+    }
+}
+
+QByteArray IFirmware::translate(const QString &command)
+{
+    return command.toLocal8Bit();
 }

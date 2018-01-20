@@ -28,8 +28,6 @@
 #include "repetierplugin.h"
 #include "atcore.h"
 
-QString RepetierPlugin::_ok = QStringLiteral("ok");
-
 Q_LOGGING_CATEGORY(REPETIER_PLUGIN, "org.kde.atelier.core.firmware.repetier")
 
 QString RepetierPlugin::name() const
@@ -40,16 +38,4 @@ QString RepetierPlugin::name() const
 RepetierPlugin::RepetierPlugin()
 {
     qCDebug(REPETIER_PLUGIN) << name() << " plugin loaded!";
-}
-
-void RepetierPlugin::validateCommand(const QString &lastMessage)
-{
-    if (lastMessage.contains(_ok)) {
-        emit readyForCommand();
-    }
-}
-
-QByteArray RepetierPlugin::translate(const QString &command)
-{
-    return command.toLocal8Bit();
 }
