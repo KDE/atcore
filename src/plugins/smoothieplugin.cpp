@@ -28,8 +28,6 @@
 #include "smoothieplugin.h"
 #include "atcore.h"
 
-QString SmoothiePlugin::_ok = QStringLiteral("ok");
-
 Q_LOGGING_CATEGORY(SMOOTHIE_PLUGIN, "org.kde.atelier.core.firmware.smoothie")
 
 QString SmoothiePlugin::name() const
@@ -40,16 +38,4 @@ QString SmoothiePlugin::name() const
 SmoothiePlugin::SmoothiePlugin()
 {
     qCDebug(SMOOTHIE_PLUGIN) << name() << " plugin loaded!";
-}
-
-void SmoothiePlugin::validateCommand(const QString &lastMessage)
-{
-    if (lastMessage.contains(_ok)) {
-        emit readyForCommand();
-    }
-}
-
-QByteArray SmoothiePlugin::translate(const QString &command)
-{
-    return command.toLocal8Bit();
 }

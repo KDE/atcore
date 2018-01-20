@@ -58,7 +58,7 @@ public:
      * @brief Vitural validateCommand to filter commands from messages
      * @param lastMessage: last Message from printer
      */
-    virtual void validateCommand(const QString &lastMessage) = 0;
+    virtual void validateCommand(const QString &lastMessage);
 
     /**
      * @brief Virtual translate to be reimplemnted by Firmwareplugin
@@ -67,7 +67,7 @@ public:
      * @param command: Command command to translate
      * @return firmware specific translated command
      */
-    virtual QByteArray translate(const QString &command) = 0;
+    virtual QByteArray translate(const QString &command);
 
     /**
      * @brief AtCore Parent of the firmware plugin

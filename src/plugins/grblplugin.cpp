@@ -36,11 +36,6 @@ GrblPlugin::GrblPlugin()
 
 }
 
-QByteArray GrblPlugin::translate(const QString &command)
-{
-    return command.toLocal8Bit();
-}
-
 void GrblPlugin::validateCommand(const QString &lastMessage)
 {
     Q_UNUSED(lastMessage);
