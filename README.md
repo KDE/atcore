@@ -34,14 +34,17 @@ Dependencies for AtCore:
  - extra-cmake-modules
 
 Extra Dependencies for Test GUI
+ - qt5-widgets
  - qt5-charts
 
 Optional Dependencies
  - doxygen
+ - git
 
 Build Switches
- - -DBUILD_TEST_GUI = ( ON | OFF )  Build the test client (Default is ON)
+ - -DBUILD_GUI = ( ON | OFF )  Build the test client (Default is OFF)
  - -DBUILD_DOCS = (ON | OFF ) Build the Documentation (Default is OFF)
+ - -DBUILD_TESTS = ( ON | OFF ) Build and Run Unittests (Default is OFF) 
 
 ----
 #### Building on Linux
