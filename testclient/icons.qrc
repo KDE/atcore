@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/icon">
         <file alias="atcore">../doc/atcore.png</file>
-        <file alias="windowIcon">AtCoreTest.png</file>
+        <file alias="windowIcon">atcore-gui.png</file>
     </qresource>
 </RCC>
 

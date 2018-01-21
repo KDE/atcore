@@ -1,3 +1,6 @@
+find_package(Qt5 REQUIRED COMPONENTS
+    Test
+)
 # Helper macro TEST used to created rules to build, link, install and run tests
 macro(TEST NAME FILE)
     add_executable(${NAME} ${FILE} )

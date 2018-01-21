@@ -44,7 +44,7 @@ before_install:
 script:
 - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then 
     source /opt/qt*/bin/qt*-env.sh; 
-    cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr CMakeLists.txt; 
+    cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_GUI=ON CMakeLists.txt; 
     make;
     sudo make install; 
     make DESTDIR=appdir/ install; find appdir/; 
@@ -60,17 +60,17 @@ script:
 - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then 
     cmake CMakeLists.txt; 
     make;
-    mkdir testclient/AtCoreTest.app/Contents/MacOS/plugins; 
-    mv src/plugins/*.dylib testclient/AtCoreTest.app/Contents/MacOS/plugins/; 
-    macdeployqt testclient/AtCoreTest.app/ -dmg; 
+    mkdir testclient/atcore-gui.app/Contents/MacOS/plugins; 
+    mv src/plugins/*.dylib testclient/atcore-gui.app/Contents/MacOS/plugins/; 
+    macdeployqt testclient/atcore-gui.app/ -dmg; 
   fi
 after_success:
 - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
 - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then 
     find ./appdir -executable -type f -exec ldd {} \; | grep " => /usr" | cut -d " " -f 2-3 | sort | uniq; 
-    bash ./upload.sh ./AtCore*.AppImage*;
+    bash ./upload.sh ./atcore-gui*.AppImage*;
   fi
-- if [ "${TRAVIS_OS_NAME}" = "osx" ]; then bash ./upload.sh testclient/AtCore*.dmg*; fi 
+- if [ "${TRAVIS_OS_NAME}" = "osx" ]; then bash ./upload.sh testclient/atcore-gui*.dmg*; fi 
  
 branches:
   except:
