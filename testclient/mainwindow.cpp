@@ -303,6 +303,8 @@ void MainWindow::connectPBClicked()
             }
         }
     } else {
+        disconnect(core, &AtCore::receivedMessage, this, &MainWindow::checkReceivedCommand);
+        disconnect(core->serial(), &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
         core->closeConnection();
         core->setState(AtCore::DISCONNECTED);
         addLog(tr("Disconnected"));
