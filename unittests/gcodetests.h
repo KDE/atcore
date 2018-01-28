@@ -35,6 +35,17 @@ private slots:
     void command_unsupportedG();
 
     bool testMCodeNeedsArg(GCode::MCommands code);
+    void command_M20();
+    void command_M21();
+    void command_M22();
+    void command_M23();
+    void command_M24();
+    void command_M25();
+    void command_M26();
+    void command_M27();
+    void command_M28();
+    void command_M29();
+    void command_M30();
     void command_M84();
     void command_M104();
     void command_M105();

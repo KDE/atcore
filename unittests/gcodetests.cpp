@@ -68,6 +68,70 @@ bool GCodeTests::testMCodeNeedsArg(GCode::MCommands code)
     return GCode::toCommand(code) == GCode::commandRequiresArgument.arg(QStringLiteral("M"), QString::number(code));
 }
 
+void GCodeTests::command_M20()
+{
+    QVERIFY(GCode::toCommand(GCode::M20) == QStringLiteral("M20"));
+}
+
+void GCodeTests::command_M21()
+{
+    QVERIFY(GCode::toCommand(GCode::M21) == QStringLiteral("M21"));
+    QVERIFY(GCode::toCommand(GCode::M21, QStringLiteral("2")) == QStringLiteral("M21 P2"));
+}
+
+void GCodeTests::command_M22()
+{
+    QVERIFY(GCode::toCommand(GCode::M22) == QStringLiteral("M22"));
+    QVERIFY(GCode::toCommand(GCode::M22, QStringLiteral("5")) == QStringLiteral("M22 P5"));
+}
+
+void GCodeTests::command_M23()
+{
+    QVERIFY(testMCodeNeedsArg(GCode::M23));
+    QVERIFY(GCode::toCommand(GCode::M23, QStringLiteral("FileName")) == QStringLiteral("M23 FileName"));
+}
+
+void GCodeTests::command_M24()
+{
+    QVERIFY(GCode::toCommand(GCode::M24) == QStringLiteral("M24"));
+}
+
+void GCodeTests::command_M25()
+{
+    QVERIFY(GCode::toCommand(GCode::M25) == QStringLiteral("M25"));
+}
+
+void GCodeTests::command_M26()
+{
+    QVERIFY(testMCodeNeedsArg(GCode::M26));
+    QVERIFY(GCode::toCommand(GCode::M26, QStringLiteral("15%")) == QStringLiteral("M26 P0.15"));
+    QVERIFY(GCode::toCommand(GCode::M26, QStringLiteral("15")) == QStringLiteral("M26 S15"));
+
+}
+
+void GCodeTests::command_M27()
+{
+    QVERIFY(GCode::toCommand(GCode::M27) == QStringLiteral("M27"));
+}
+
+void GCodeTests::command_M28()
+{
+    QVERIFY(testMCodeNeedsArg(GCode::M28));
+    QVERIFY(GCode::toCommand(GCode::M28, QStringLiteral("FileName")) == QStringLiteral("M28 FileName"));
+}
+
+void GCodeTests::command_M29()
+{
+    QVERIFY(testMCodeNeedsArg(GCode::M29));
+    QVERIFY(GCode::toCommand(GCode::M29, QStringLiteral("FileName")) == QStringLiteral("M29 FileName"));
+}
+
+void GCodeTests::command_M30()
+{
+    QVERIFY(testMCodeNeedsArg(GCode::M30));
+    QVERIFY(GCode::toCommand(GCode::M30, QStringLiteral("FileName")) == QStringLiteral("M30 FileName"));
+}
+
 void GCodeTests::command_M84()
 {
     QVERIFY(GCode::toCommand(GCode::M84) == QStringLiteral("M84"));
