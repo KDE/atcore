@@ -96,6 +96,7 @@ QString GCode::toCommand(GCommands gcode, const QString &value1)
     case G90:
     case G91:
         return code;
+
     case G32:
         return code.append(QStringLiteral(" S1"));
     case G0:
@@ -103,6 +104,7 @@ QString GCode::toCommand(GCommands gcode, const QString &value1)
     case G28:
         code = value1.isEmpty() ? code : code.append(QStringLiteral(" %1").arg(value1.toUpper()));
         return code;
+
     default:
         return commandNotSupported;
     }
@@ -129,7 +131,7 @@ QString GCode::description(MCommands gcode)
         return QObject::tr("M21: Initialize SDCard");
     case M22://Teacup - Sprinter - Marlin - Repetier - RepRap Firmware
         return QObject::tr("M22: Release SDCard");
-    case M23:////Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
+    case M23://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
         return QObject::tr("M23: Select SD file");
     case M24://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware
         return QObject::tr("M24: Start/resume SD print");
@@ -289,7 +291,7 @@ QString GCode::description(MCommands gcode)
         return QObject::tr("M231: Set OPS parameter");
     case M232://Repetier
         return QObject::tr("M232: Read and reset max. advance values");
-    case M240: //Marlin
+    case M240://Marlin
         return QObject::tr("M240: Trigger camera");
     case M250://Marlin
         return QObject::tr("M250: Set LCD contrast");
@@ -494,6 +496,10 @@ QString GCode::toCommand(MCommands gcode, const QString &value1, const QString &
 {
     QString code = QStringLiteral("M%1").arg(QString::number(gcode));
     switch (gcode) {
+    case M20:
+    case M24:
+    case M25:
+    case M27:
     case M105:
     case M107:
     case M112:
@@ -502,9 +508,20 @@ QString GCode::toCommand(MCommands gcode, const QString &value1, const QString &
     case M116:
     case M119:
         return code;
-    case M117:
-        code = value1.isEmpty() ? GCode::commandRequiresArgument.arg(QStringLiteral("M"), QString::number(gcode)) : QStringLiteral("M117 %1").arg(value1);
+
+    case M21:
+    case M22:
+        code = value1.isEmpty() ? code : code.append(QStringLiteral(" P%1").arg(value1));
         return code;
+
+    case M23:
+    case M28:
+    case M29:
+    case M30:
+    case M117:
+        code = value1.isEmpty() ? GCode::commandRequiresArgument.arg(QStringLiteral("M"), QString::number(gcode)) : code.append(QStringLiteral(" %1").arg(value1));
+        return code;
+
     case M109:
     case M140:
     case M190:
@@ -512,17 +529,35 @@ QString GCode::toCommand(MCommands gcode, const QString &value1, const QString &
     case M221:
         code = value1.isEmpty() ? GCode::commandRequiresArgument.arg(QStringLiteral("M"), QString::number(gcode)) : code.append(QStringLiteral(" S%1").arg(value1));
         return code;
+
     case M84:
         code = value1.isEmpty() ? code : code.append(QStringLiteral(" S%1").arg(value1));
         return code;
+
     case M104:
         code = value2.isEmpty() ? code.append(QStringLiteral(" S%1").arg(value1)) : code.append(QStringLiteral(" P%1 S%2").arg(value1).arg(value2));
         code = value1.isEmpty() ? GCode::commandRequiresArgument.arg(QStringLiteral("M"), QString::number(gcode)) : code ;
         return code;
+
     case M106:
         code = value2.isEmpty() ? code.append(QStringLiteral(" S%1").arg(value1)) : code.append(QStringLiteral(" P%1 S%2").arg(value1).arg(value2));
         code = value1.isEmpty() ? QStringLiteral("M106") : code ;
         return code;
+
+    /// For M26 values that end with %. AtCore will send the percentage verison of the command (optional in firmwares)
+    /// For all values not ending in % it will start on that byte. This is the standard Sd resume supported by all reprap based firmware.
+    case M26: {
+        if (!value1.isEmpty()) {
+            if (value1.endsWith(QStringLiteral("%"))) {
+                QString temp = value1;
+                temp.replace(QStringLiteral("%"), QStringLiteral(""));
+                return code.append(QStringLiteral(" P%1").arg(temp.toDouble() / 100));
+            }
+            return code.append(QStringLiteral(" S%1").arg(value1));
+        }
+        return GCode::commandRequiresArgument.arg(QStringLiteral("M"), QString::number(gcode));
+    }
+
     default:
         return commandNotSupported;
     }

@@ -61,6 +61,11 @@ struct AtCorePrivate {
     AtCore::STATES printerState;        //!< @param printerState: State of the Printer
     QStringList serialPorts;            //!< @param seralPorts: Detected serial Ports
     QTimer *serialTimer = nullptr;      //!< @param serialTimer: Timer connected to locateSerialPorts
+    bool sdCardMounted = false;         //!< @param sdCardMounted: True if Sd Card is mounted.
+    bool sdCardReadingFileList = false; //!< @param sdCardReadingFileList: True while getting file names from sd card
+    bool sdCardPrinting = false;        //!< @param sdCardPrinting: True if currently printing from sd card.
+    QString sdCardFileName;             //!< @param sdCardFileName: name of file being used from sd card.
+    QStringList sdCardFileList;         //!< @param sdCardFileList: List of files on sd card.
 };
 
 AtCore::AtCore(QObject *parent) :
@@ -325,14 +330,23 @@ float AtCore::percentagePrinted() const
     return d->percentage;
 }
 
-void AtCore::print(const QString &fileName)
+void AtCore::print(const QString &fileName, bool sdPrint)
 {
     if (state() == AtCore::CONNECTING) {
         qCDebug(ATCORE_CORE) << "Load a firmware plugin to print.";
         return;
     }
-    //START A THREAD AND CONNECT TO IT
     setState(AtCore::STARTPRINT);
+    if (sdPrint) {
+        pushCommand(GCode::toCommand(GCode::M23, fileName));
+        d->sdCardFileName = fileName;
+        pushCommand(GCode::toCommand(GCode::M24));
+        setState(AtCore::BUSY);
+        d->sdCardPrinting = true;
+        connect(d->tempTimer, &QTimer::timeout, this, &AtCore::sdCardPrintStatus);
+        return;
+    }
+    //START A THREAD AND CONNECT TO IT
     QThread *thread = new QThread();
     PrintThread *printThread = new PrintThread(this, fileName);
     printThread->moveToThread(thread);
@@ -357,8 +371,9 @@ void AtCore::pushCommand(const QString &comm)
 void AtCore::closeConnection()
 {
     if (serialInitialized()) {
-        if (state() == AtCore::BUSY) {
-            //we have to clean print if printing.
+        if (AtCore::state() == AtCore::BUSY && !d->sdCardPrinting) {
+            //we have to clean print if printing from the host.
+            //disconnecting from a printer printing via sd card should not affect its print.
             setState(AtCore::STOP);
         }
         if (firmwarePluginLoaded()) {
@@ -373,6 +388,7 @@ void AtCore::closeConnection()
         QString msg = d->pluginLoader.unload() ? QStringLiteral("success") : QStringLiteral("FAIL");
         qCDebug(ATCORE_PLUGIN) << QStringLiteral("Firmware plugin %1 unload: %2").arg(name, msg);
         serial()->close();
+        clearSdCardFileList();
         setState(AtCore::DISCONNECTED);
     }
 }
@@ -388,6 +404,10 @@ void AtCore::setState(AtCore::STATES state)
         qCDebug(ATCORE_CORE) << "Atcore state changed from [" \
                              << d->printerState << "] to [" << state << "]";
         d->printerState = state;
+        if (state == AtCore::FINISHEDPRINT && d->sdCardPrinting) {
+            d->sdCardPrinting = false;
+            disconnect(d->tempTimer, &QTimer::timeout, this, &AtCore::sdCardPrintStatus);
+        }
         emit(stateChanged(d->printerState));
     }
 }
@@ -396,6 +416,9 @@ void AtCore::stop()
 {
     setState(AtCore::STOP);
     d->commandQueue.clear();
+    if (d->sdCardPrinting) {
+        stopSdPrint();
+    }
     setExtruderTemp(0, 0);
     setBedTemp(0);
     home(AtCore::X);
@@ -403,11 +426,23 @@ void AtCore::stop()
 
 void AtCore::emergencyStop()
 {
-    if (state() == AtCore::BUSY) {
-        setState(AtCore::STOP);
-    }
     d->commandQueue.clear();
+    if (AtCore::state() == AtCore::BUSY) {
+        if (!d->sdCardPrinting) {
+            //Stop our running print thread
+            setState(AtCore::STOP);
+        }
+    }
     serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
+}
+
+void AtCore::stopSdPrint()
+{
+    pushCommand(GCode::toCommand(GCode::M25));
+    d->sdCardFileName = QString();
+    pushCommand(GCode::toCommand(GCode::M23, d->sdCardFileName));
+    AtCore::setState(AtCore::FINISHEDPRINT);
+    AtCore::setState(AtCore::IDLE);
 }
 
 void AtCore::requestFirmware()
@@ -472,19 +507,26 @@ void AtCore::detectFirmware()
 
 void AtCore::pause(const QString &pauseActions)
 {
+    if (d->sdCardPrinting) {
+        pushCommand(GCode::toCommand(GCode::M25));
+    }
     pushCommand(GCode::toCommand(GCode::M114));
-    setState(AtCore::PAUSE);
     if (!pauseActions.isEmpty()) {
         QStringList temp = pauseActions.split(QChar::fromLatin1(','));
         for (int i = 0; i < temp.length(); i++) {
             pushCommand(temp.at(i));
         }
     }
+    setState(AtCore::PAUSE);
 }
 
 void AtCore::resume()
 {
-    pushCommand(GCode::toCommand(GCode::G0, QString::fromLatin1(d->posString)));
+    if (d->sdCardPrinting) {
+        pushCommand(GCode::toCommand(GCode::M24));
+    } else {
+        pushCommand(GCode::toCommand(GCode::G0, QString::fromLatin1(d->posString)));
+    }
     setState(AtCore::BUSY);
 }
 
@@ -636,9 +678,82 @@ QStringList AtCore::portSpeeds() const
 
 void AtCore::setIdleHold(uint delay)
 {
-    if (delay != 0) {
+    if (delay) {
         pushCommand(GCode::toCommand(GCode::M84, QString::number(delay)));
     } else {
         pushCommand(GCode::toCommand(GCode::M84));
     }
+}
+
+bool AtCore::isSdMounted() const
+{
+    return d->sdCardMounted;
+}
+
+void AtCore::setSdMounted(bool mounted)
+{
+    if (mounted != isSdMounted()) {
+        d->sdCardMounted = mounted;
+        emit(sdMountChanged(d->sdCardMounted));
+    }
+}
+
+void AtCore::getSDFileList()
+{
+    pushCommand(GCode::toCommand(GCode::M20));
+}
+
+QStringList AtCore::sdFileList()
+{
+    if (!d->sdCardReadingFileList) {
+        getSDFileList();
+    }
+    return d->sdCardFileList;
+}
+
+void AtCore::appendSdCardFileList(const QString &fileName)
+{
+    d->sdCardFileList.append(fileName);
+    emit(sdCardFileListChanged(d->sdCardFileList));
+}
+
+void AtCore::clearSdCardFileList()
+{
+    d->sdCardFileList.clear();
+    emit(sdCardFileListChanged(d->sdCardFileList));
+}
+
+void AtCore::sdDelete(const QString &fileName)
+{
+    if (d->sdCardFileList.contains(fileName)) {
+        pushCommand(GCode::toCommand(GCode::M30, fileName));
+        getSDFileList();
+    } else {
+        qCDebug(ATCORE_CORE) << "Delete failed file not found:" << fileName;
+    }
+}
+
+void AtCore::mountSd(uint slot)
+{
+    pushCommand(GCode::toCommand(GCode::M21, QString::number(slot)));
+}
+
+void AtCore::umountSd(uint slot)
+{
+    pushCommand(GCode::toCommand(GCode::M22, QString::number(slot)));
+}
+
+bool AtCore::isReadingSdCardList() const
+{
+    return d->sdCardReadingFileList;
+}
+
+void AtCore::setReadingSdCardList(bool readingList)
+{
+    d->sdCardReadingFileList = readingList;
+}
+
+void AtCore::sdCardPrintStatus()
+{
+    pushCommand(GCode::toCommand(GCode::M27));
 }
