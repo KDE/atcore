@@ -48,4 +48,10 @@ public:
      * @return Repetier
      */
     QString name() const override;
+
+    /**
+     * @brief validateCommand to filter commands from messages
+     * @param lastMessage: last Message from printer
+     */
+    void validateCommand(const QString &lastMessage) override;
 };

@@ -90,11 +90,14 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->mvAxisPB, &QPushButton::clicked, this, &MainWindow::mvAxisPBClicked);
     connect(ui->fanSpeedPB, &QPushButton::clicked, this, &MainWindow::fanSpeedPBClicked);
     connect(ui->printPB, &QPushButton::clicked, this, &MainWindow::printPBClicked);
+    connect(ui->sdPrintPB, &QPushButton::clicked, this, &MainWindow::sdPrintPBClicked);
+    connect(ui->sdDelPB, &QPushButton::clicked, this, &MainWindow::sdDelPBClicked);
     connect(ui->printerSpeedPB, &QPushButton::clicked, this, &MainWindow::printerSpeedPBClicked);
     connect(ui->flowRatePB, &QPushButton::clicked, this, &MainWindow::flowRatePBClicked);
     connect(ui->showMessagePB, &QPushButton::clicked, this, &MainWindow::showMessage);
     connect(ui->pluginCB, &QComboBox::currentTextChanged, this, &MainWindow::pluginCBChanged);
     connect(ui->disableMotorsPB, &QPushButton::clicked, this, &MainWindow::disableMotorsPBClicked);
+    connect(ui->sdListPB, &QPushButton::clicked, this, &MainWindow::getSdList);
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
     connect(this, &MainWindow::printFile, core, &AtCore::print);
     connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
@@ -102,6 +105,12 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(axisControl, &AxisControl::clicked, this, &MainWindow::axisControlClicked);
     connect(core, &AtCore::portsChanged, this, &MainWindow::locateSerialPort);
     connect(core, &AtCore::printProgressChanged, this, &MainWindow::printProgressChanged);
+    connect(core, &AtCore::sdMountChanged, this, &MainWindow::sdChanged);
+
+    connect(core, &AtCore::sdCardFileListChanged, [ & ](QStringList fileList) {
+        ui->sdFileListView->clear();
+        ui->sdFileListView->addItems(fileList);
+    });
 
     connect(&core->temperature(), &Temperature::bedTemperatureChanged, [ this ](float temp) {
         checkTemperature(0x00, 0, temp);
@@ -135,11 +144,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->menuView->insertAction(nullptr, ui->moveDock->toggleViewAction());
     ui->menuView->insertAction(nullptr, ui->tempTimelineDock->toggleViewAction());
     ui->menuView->insertAction(nullptr, ui->logDock->toggleViewAction());
+    ui->menuView->insertAction(nullptr, ui->sdDock->toggleViewAction());
 
     //more dock stuff.
     setTabPosition(Qt::LeftDockWidgetArea, QTabWidget::North);
     setTabPosition(Qt::RightDockWidgetArea, QTabWidget::North);
     tabifyDockWidget(ui->moveDock, ui->tempControlsDock);
+    tabifyDockWidget(ui->moveDock, ui->sdDock);
     ui->moveDock->raise();
 
     tabifyDockWidget(ui->connectDock, ui->printDock);
@@ -488,6 +499,7 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
         ui->moveDock->setDisabled(true);
         ui->tempControlsDock->setDisabled(true);
         ui->printDock->setDisabled(true);
+        ui->sdDock->setDisabled(true);
         break;
 
     case AtCore::CONNECTING:
@@ -496,6 +508,7 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
         ui->moveDock->setDisabled(false);
         ui->tempControlsDock->setDisabled(false);
         ui->printDock->setDisabled(false);
+        ui->sdDock->setDisabled(false);
         break;
 
     case AtCore::STOP:
@@ -553,6 +566,7 @@ void MainWindow::toggleDockTitles()
         delete ui->moveDock->titleBarWidget();
         delete ui->tempControlsDock->titleBarWidget();
         delete ui->printDock->titleBarWidget();
+        delete ui->sdDock->titleBarWidget();
     } else {
         ui->connectDock->setTitleBarWidget(new QWidget());
         ui->logDock->setTitleBarWidget(new QWidget());
@@ -561,6 +575,7 @@ void MainWindow::toggleDockTitles()
         ui->moveDock->setTitleBarWidget(new QWidget());
         ui->tempControlsDock->setTitleBarWidget(new QWidget());
         ui->printDock->setTitleBarWidget(new QWidget());
+        ui->sdDock->setTitleBarWidget(new QWidget());
     }
 }
 
@@ -580,4 +595,34 @@ void MainWindow::axisControlClicked(QLatin1Char axis, int value)
 void MainWindow::disableMotorsPBClicked()
 {
     core->setIdleHold(0);
+}
+
+void MainWindow::sdChanged(bool mounted)
+{
+    QString labelText = mounted ? QStringLiteral("SD") : QString();
+    ui->lbl_sd->setText(labelText);
+}
+
+void MainWindow::getSdList()
+{
+    core->sdFileList();
+}
+
+void MainWindow::sdPrintPBClicked()
+{
+    if (ui->sdFileListView->currentRow() < 0) {
+        QMessageBox::information(this, QStringLiteral("Print Error"), QStringLiteral("You must Select a file from the list"));
+    } else  {
+        core->print(ui->sdFileListView->currentItem()->text(), true);
+    }
+}
+
+void MainWindow::sdDelPBClicked()
+{
+    if (ui->sdFileListView->currentRow() < 0) {
+        QMessageBox::information(this, QStringLiteral("Delete Error"), QStringLiteral("You must Select a file from the list"));
+    } else  {
+        core->sdDelete(ui->sdFileListView->currentItem()->text());
+        ui->sdFileListView->setCurrentRow(-1);
+    }
 }

@@ -132,6 +132,10 @@ private slots:
     void printPBClicked();
 
     /**
+     * @brief Print Button for Sd Prints clicked.
+     */
+    void sdPrintPBClicked();
+    /**
      * @brief Save the log file.
      */
     void saveLogPBClicked();
@@ -176,12 +180,24 @@ private slots:
      * @brief Show the about dialog
      */
     void about();
+
+    /**
+     * @brief List Files on the sd card.
+     */
+    void getSdList();
+
+    /**
+     * @brief Sd Card Delete file clicked
+     */
+    void sdDelPBClicked();
+
 signals:
     /**
      * @brief printFile emit ready to print a file to atcore
      * @param fileName : the file to print
+     * @param sdPrint : True if file is on printers Sd Card
      */
-    void printFile(const QString &fileName);
+    void printFile(const QString &fileName, bool sdPrint = false);
 
 private:
     Ui::MainWindow *ui;
@@ -269,4 +285,9 @@ private:
      * @brief Populate comboboxes
      */
     void populateCBs();
+
+    /**
+     * @brief Gui Changes for when sd card mount status has changed.
+     */
+    void sdChanged(bool mounted);
 };

@@ -59,6 +59,17 @@ class ATCORE_EXPORT AtCore : public QObject
     Q_PROPERTY(QStringList portSpeeds READ portSpeeds)
     Q_PROPERTY(QString connectedPort READ connectedPort)
     Q_PROPERTY(AtCore::STATES state READ state WRITE setState NOTIFY stateChanged)
+    Q_PROPERTY(bool sdMount READ isSdMounted WRITE setSdMounted NOTIFY sdMountChanged)
+    Q_PROPERTY(QStringList sdFileList READ sdFileList NOTIFY sdCardFileListChanged)
+
+    //Add friends as Sd Card support is extended to more plugins.
+    friend class RepetierPlugin;
+    friend class MarlinPlugin;
+    //friend class SmoothiePlugin;
+    //friend class TeacupPlugin;
+    //friend class AprinterPlugin;
+    //friend class SprinterPlugin;
+
 public:
     /**
      * @brief STATES enum Possible states the printer can be in
@@ -200,6 +211,30 @@ public:
     */
     quint16 serialTimerInterval() const;
 
+    /**
+     * @brief Attempt to Mount an sd card
+     * @param slot: Sd card Slot on machine (0 is default)
+     */
+    void mountSd(uint slot = 0);
+
+    /**
+     * @brief Attempt to Unmount an sd card
+     * @param slot: Sd card Slot on machine (0 is default)
+     */
+    void umountSd(uint slot = 0);
+
+    /**
+     * @brief sdFileList
+     * @return List of files on the sd card.
+     */
+    QStringList sdFileList();
+
+    /**
+     * @brief Check if an sd card is mounted on the printer
+     * @return True if card mounted
+     */
+    bool isSdMounted() const;
+
 signals:
 
     /**
@@ -225,7 +260,17 @@ signals:
     /**
      * @brief Available serialports Changed
      */
-    void portsChanged(QStringList);
+    void portsChanged(const QStringList &portList);
+
+    /**
+     * @brief Sd Card Mount Changed
+     */
+    void sdMountChanged(bool newState);
+
+    /**
+     * @brief The files on the sd card have changed.
+     */
+    void sdCardFileListChanged(const QStringList &fileList);
 
 public slots:
 
@@ -246,8 +291,9 @@ public slots:
     /**
      * @brief Public Interface for printing a file
      * @param fileName: the gcode file to print.
+     * @param sdPrint: set true to print fileName from Sd card
      */
-    void print(const QString &fileName);
+    void print(const QString &fileName, bool sdPrint);
 
     /**
      * @brief Stop the Printer by empting the queue and aborting the print job (if running)
@@ -386,6 +432,16 @@ public slots:
      */
     void setSerialTimerInterval(const quint16 &newTime);
 
+    /**
+     * @brief delete file from sd card
+     */
+    void sdDelete(const QString &fileName);
+
+    /**
+     * @brief Queue the Printer for status of sd card print
+     */
+    void sdCardPrintStatus();
+
 private slots:
     /**
      * @brief processQueue send commands from the queue.
@@ -415,6 +471,11 @@ private slots:
      */
     void locateSerialPort();
 
+    /**
+     * @brief Send request to the printer for the sd card file list.
+     */
+    void getSDFileList();
+
 private:
     /**
      * @brief True if a firmware plugin is loaded
@@ -437,7 +498,43 @@ private:
     void findFirmwarePlugins();
 
     /**
+     * @brief returns AtCorePrivate::sdCardReadingFileList
+     * @return True if printer is returning sd card file list
+     */
+    bool isReadingSdCardList() const;
+
+    /**
+     * @brief stops print just for sd prints used internally
+     * @sa stop(),emergencyStop()
+     */
+    void stopSdPrint();
+
+    /**
      * @brief Hold private data of AtCore.
      */
     AtCorePrivate *d;
+
+protected:
+    /**
+     * @brief Append a file to AtCorePrivate::sdCardFileList.
+     * @param fileName: new FileName
+     */
+    void appendSdCardFileList(const QString &fileName);
+
+    /**
+     * @brief Clear AtCorePrivate::sdCardFileList.
+     */
+    void clearSdCardFileList();
+
+    /**
+     * @brief Set if the sd card is mounted by the printer
+     * @param mounted: True is mounted
+     */
+    void setSdMounted(const bool mounted);
+
+    /**
+     * @brief set AtCorePrivate::sdCardReadingFileList
+     * @param readingList set true if reading file list
+     */
+    void setReadingSdCardList(bool readingList);
 };
