@@ -93,7 +93,7 @@ AxisControl::AxisControl(QWidget *parent) :
 
     setScene(new QGraphicsScene());
 
-    auto createPie = [ = ](QLatin1Char axis, int value, int size, int angle) {
+    auto createPie = [ this ](QLatin1Char axis, int value, int size, int angle) {
         auto pie = new PieButton(axis, value, size, angle);
         pie->setPalette(this->palette());
         connect(pie, &PieButton::clicked, this, &AxisControl::clicked);
@@ -103,7 +103,7 @@ AxisControl::AxisControl(QWidget *parent) :
         scene()->addItem(pie);
     };
 
-    auto createRect = [ = ](QLatin1Char axis, int value, int size, int xPos, int yPos) {
+    auto createRect = [ this ](QLatin1Char axis, int value, int size, int xPos, int yPos) {
         auto z = new RectButton(axis, value, size);
         z->setPalette(this->palette());
         z->setPos(xPos, yPos);

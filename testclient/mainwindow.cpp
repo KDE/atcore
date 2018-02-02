@@ -103,22 +103,22 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(core, &AtCore::portsChanged, this, &MainWindow::locateSerialPort);
     connect(core, &AtCore::printProgressChanged, this, &MainWindow::printProgressChanged);
 
-    connect(&core->temperature(), &Temperature::bedTemperatureChanged, [ = ](float temp) {
+    connect(&core->temperature(), &Temperature::bedTemperatureChanged, [ this ](float temp) {
         checkTemperature(0x00, 0, temp);
         ui->plotWidget->appendPoint(tr("Actual Bed"), temp);
         ui->plotWidget->update();
     });
-    connect(&core->temperature(), &Temperature::bedTargetTemperatureChanged, [ = ](float temp) {
+    connect(&core->temperature(), &Temperature::bedTargetTemperatureChanged, [ this ](float temp) {
         checkTemperature(0x01, 0, temp);
         ui->plotWidget->appendPoint(tr("Target Bed"), temp);
         ui->plotWidget->update();
     });
-    connect(&core->temperature(), &Temperature::extruderTemperatureChanged, [ = ](float temp) {
+    connect(&core->temperature(), &Temperature::extruderTemperatureChanged, [ this ](float temp) {
         checkTemperature(0x02, 0, temp);
         ui->plotWidget->appendPoint(tr("Actual Ext.1"), temp);
         ui->plotWidget->update();
     });
-    connect(&core->temperature(), &Temperature::extruderTargetTemperatureChanged, [ = ](float temp) {
+    connect(&core->temperature(), &Temperature::extruderTargetTemperatureChanged, [ this ](float temp) {
         checkTemperature(0x03, 0, temp);
         ui->plotWidget->appendPoint(tr("Target Ext.1"), temp);
         ui->plotWidget->update();
