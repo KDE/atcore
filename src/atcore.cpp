@@ -363,11 +363,15 @@ void AtCore::closeConnection()
         }
         if (firmwarePluginLoaded()) {
             disconnect(firmwarePlugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
+            disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
             if (firmwarePlugin()->name() != QStringLiteral("Grbl")) {
                 disconnect(d->tempTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
                 d->tempTimer->stop();
             }
         }
+        QString name = firmwarePlugin()->name();
+        QString msg = d->pluginLoader.unload() ? QStringLiteral("success") : QStringLiteral("FAIL");
+        qCDebug(ATCORE_PLUGIN) << QStringLiteral("Firmware plugin %1 unload: %2").arg(name, msg);
         serial()->close();
         setState(AtCore::DISCONNECTED);
     }
