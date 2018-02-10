@@ -24,7 +24,6 @@
 #include <QLoggingCategory>
 
 #include "printthread.h"
-#include "gcodecommands.h"
 
 Q_LOGGING_CATEGORY(PRINT_THREAD, "org.kde.atelier.core.printThread")
 /**
