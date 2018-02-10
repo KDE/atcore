@@ -56,7 +56,7 @@ RectButton::RectButton(QLatin1Char axis, int value, int size) : _axis(axis), _va
     setRect(QRect(QPoint(0, 0), QPoint(size, size)));
     setAcceptHoverEvents(true);
     setZValue(size * -1);
-    if (axis == QLatin1Char('Z')) {
+    if (axis != QLatin1Char('E')) {
         setToolTip(QStringLiteral("Move the hotend to the %1 by %2 units").arg(axis).arg(value));
     } else {
         setToolTip(QStringLiteral("Extrude %1 Units").arg(value));
