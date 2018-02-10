@@ -34,7 +34,6 @@ ecm_generate_headers(ATCORE_CamelCase_HEADERS
     IFirmware
     SerialLayer
     Temperature
-    PREFIX AtCore
     REQUIRED_HEADERS ATCORE_HEADERS
 )
 
@@ -42,18 +41,18 @@ ecm_create_qm_loader(AtCoreLib_SRCS atcore_qt)
 
 install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/atcore_export.h
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/AtCore/AtCore COMPONENT Devel
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/AtCore COMPONENT Devel
 )
 
 install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/atcore_default_folders.h
     ${ATCORE_HEADERS}
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/AtCore/atcore COMPONENT Devel
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/AtCore COMPONENT Devel
 )
 
 install(FILES
     ${ATCORE_CamelCase_HEADERS}
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/AtCore/AtCore
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/AtCore
 )
 
 install(TARGETS AtCore EXPORT AtCoreTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
