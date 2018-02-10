@@ -56,7 +56,11 @@ RectButton::RectButton(QLatin1Char axis, int value, int size) : _axis(axis), _va
     setRect(QRect(QPoint(0, 0), QPoint(size, size)));
     setAcceptHoverEvents(true);
     setZValue(size * -1);
-    setToolTip(QStringLiteral("Move the hotend to the %1 by %2 units").arg(axis).arg(value));
+    if (axis == QLatin1Char('Z')) {
+        setToolTip(QStringLiteral("Move the hotend to the %1 by %2 units").arg(axis).arg(value));
+    } else {
+        setToolTip(QStringLiteral("Extrude %1 Units").arg(value));
+    }
 }
 
 void RectButton::setPalette(QPalette palette)
@@ -125,14 +129,24 @@ AxisControl::AxisControl(QWidget *parent) :
         currPieSize += 25;
     }
 
-    int currZSize = 25;
+    int currSize = 25;
     int xPos = sceneRect().width() - 50;
     int yPos = -75; //Align with the origin of the scene 3 * 25
     for (auto value : {
                 25, 10, 1, -1, -10, -25
             }) {
-        createRect(QLatin1Char('Z'), value, currZSize, xPos, yPos);
-        yPos += currZSize;
+        createRect(QLatin1Char('Z'), value, currSize, xPos, yPos);
+        yPos += currSize;
+    }
+
+    currSize = 25;
+    xPos = sceneRect().width() - 50;
+    yPos = -75; //Align with the origin of the scene 3 * 25
+    for (auto value : {
+                -25, -10, -1, 1, 10, 25
+                }) {
+        createRect(QLatin1Char('E'), value, currSize, xPos, yPos);
+        yPos += currSize;
     }
     setSceneRect(scene()->itemsBoundingRect());
 }
