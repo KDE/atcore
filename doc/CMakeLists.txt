@@ -10,5 +10,5 @@ add_custom_target(doc ALL COMMAND ${DOXYGEN_EXECUTABLE} "${CMAKE_CURRENT_SOURCE_
     COMMENT "Building user's documentation into doxyDoc build dir..."
 )
 
-install (DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/doc/html" DESTINATION share/doc/atcore )
+install (DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/doc/html" DESTINATION share/doc/AtCore )
 

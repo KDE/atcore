@@ -109,7 +109,7 @@ install(EXPORT
 
 install(FILES
     "${CMAKE_CURRENT_BINARY_DIR}/atcore_version.h"
-    DESTINATION "${CMAKE_INSTALL_PREFIX}/include/AtCore/AtCore"
+    DESTINATION "${CMAKE_INSTALL_PREFIX}/include/AtCore/"
     COMPONENT Devel
 )
 
