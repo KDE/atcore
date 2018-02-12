@@ -288,12 +288,11 @@ void MainWindow::locateSerialPort(const QStringList &ports)
 void MainWindow::connectPBClicked()
 {
     if (core->state() == AtCore::DISCONNECTED) {
-        core->initSerial(ui->serialPortCB->currentText(), ui->baudRateLE->currentText().toInt());
-        connect(core, &AtCore::receivedMessage, this, &MainWindow::checkReceivedCommand);
-        connect(core->serial(), &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
-        addLog(tr("Serial connected"));
-        ui->connectPB->setText(tr("Disconnect"));
-        if (core->state() == AtCore::CONNECTING) {
+        if (core->initSerial(ui->serialPortCB->currentText(), ui->baudRateLE->currentText().toInt())) {
+            connect(core, &AtCore::receivedMessage, this, &MainWindow::checkReceivedCommand);
+            connect(core->serial(), &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
+            ui->connectPB->setText(tr("Disconnect"));
+            addLog(tr("Serial connected"));
             if (ui->pluginCB->currentText().contains(tr("Autodetect"))) {
                 addLog(tr("No plugin loaded !"));
                 addLog(tr("Requesting Firmware..."));
@@ -301,6 +300,8 @@ void MainWindow::connectPBClicked()
             } else {
                 core->loadFirmwarePlugin(ui->pluginCB->currentText());
             }
+        } else {
+            addLog(tr("Failed to open serial in r/w mode"));
         }
     } else {
         disconnect(core, &AtCore::receivedMessage, this, &MainWindow::checkReceivedCommand);

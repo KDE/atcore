@@ -218,12 +218,12 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
 bool AtCore::initSerial(const QString &port, int baud)
 {
     d->serial = new SerialLayer(port, baud);
-    if (serialInitialized()) {
+    if (serialInitialized() && d->serial->isWritable()) {
         setState(AtCore::CONNECTING);
         connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
         return true;
     } else {
-        qCDebug(ATCORE_CORE) << "Failed to open device.";
+        qCDebug(ATCORE_CORE) << "Failed to open device for Read / Write.";
         return false;
     }
 }
