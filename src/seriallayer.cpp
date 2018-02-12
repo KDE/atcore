@@ -67,8 +67,10 @@ SerialLayer::SerialLayer(const QString &port, uint baud, QObject *parent) :
 {
     setPortName(port);
     setBaudRate(baud);
-    open(QIODevice::ReadWrite);
-    connect(this, &QSerialPort::readyRead, this, &SerialLayer::readAllData);
+    if (open(QIODevice::ReadWrite)) {
+        d->_serialOpened = true;
+        connect(this, &QSerialPort::readyRead, this, &SerialLayer::readAllData);
+    }
 };
 
 void SerialLayer::readAllData()
