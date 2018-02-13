@@ -347,9 +347,9 @@ void MainWindow::homeZPBClicked()
 void MainWindow::bedTempPBClicked()
 {
     if (ui->cb_andWait->isChecked()) {
-        addSLog(GCode::toString(GCode::M190));
+        addSLog(GCode::description(GCode::M190));
     } else {
-        addSLog(GCode::toString(GCode::M140));
+        addSLog(GCode::description(GCode::M140));
     }
     core->setBedTemp(ui->bedTempSB->value(), ui->cb_andWait->isChecked());
 }
@@ -357,16 +357,16 @@ void MainWindow::bedTempPBClicked()
 void MainWindow::extTempPBClicked()
 {
     if (ui->cb_andWait->isChecked()) {
-        addSLog(GCode::toString(GCode::M109));
+        addSLog(GCode::description(GCode::M109));
     } else {
-        addSLog(GCode::toString(GCode::M104));
+        addSLog(GCode::description(GCode::M104));
     }
     core->setExtruderTemp(ui->extTempSB->value(), ui->extTempSelCB->currentIndex(), ui->cb_andWait->isChecked());
 }
 
 void MainWindow::mvAxisPBClicked()
 {
-    addSLog(GCode::toString(GCode::G1));
+    addSLog(GCode::description(GCode::G1));
     if (ui->mvAxisCB->currentIndex() == 0) {
         core->move(AtCore::X, ui->mvAxisSB->value());
     } else if (ui->mvAxisCB->currentIndex() == 1) {
@@ -378,7 +378,7 @@ void MainWindow::mvAxisPBClicked()
 
 void MainWindow::fanSpeedPBClicked()
 {
-    addSLog(GCode::toString(GCode::M106));
+    addSLog(GCode::description(GCode::M106));
     core->setFanSpeed(ui->fanSpeedSB->value(), ui->fanSpeedSelCB->currentIndex());
 }
 

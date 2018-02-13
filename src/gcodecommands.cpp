@@ -28,7 +28,10 @@
 
 #include "gcodecommands.h"
 
-QString GCode::toString(GCommands gcode)
+const QString GCode::commandRequiresArgument = QObject::tr("%1%2: requires an argument");
+const QString GCode::commandNotSupported = QObject::tr("Not implemented or not supported!");
+
+QString GCode::description(GCommands gcode)
 {
     switch (gcode) {
     case G0://Teacup - Sprinter - Marlin - Repetier - Smoothie - RepRap Firmware - MakerBot
@@ -82,43 +85,30 @@ QString GCode::toString(GCommands gcode)
     case G162://Teacup - MakerBot
         return QObject::tr("G162: Home axis to maximum");
     default:
-        return QObject::tr("GCommand not supported!");
+        return commandNotSupported;
     }
 }
 
 QString GCode::toCommand(GCommands gcode, const QString &value1)
 {
+    QString code = QStringLiteral("G%1").arg(QString::number(gcode));
     switch (gcode) {
-    case G0: {
-        if (value1.isEmpty()) {
-            return QStringLiteral("G0");
-        }
-        return QStringLiteral("G0 %1").arg(value1.toUpper());
-    }
-    case G1: {
-        if (value1.isEmpty()) {
-            return QStringLiteral("G1");
-        }
-        return QStringLiteral("G1 %1").arg(value1.toUpper());
-    }
-    case G28: {
-        if (value1.isEmpty()) {
-            return QStringLiteral("G28");
-        }
-        return QStringLiteral("G28 %1").arg(value1.toUpper());
-    }
-    case G32:
-        return QStringLiteral("G32 S1");
     case G90:
-        return QStringLiteral("G90");
     case G91:
-        return QStringLiteral("G91");
+        return code;
+    case G32:
+        return code.append(QStringLiteral(" S1"));
+    case G0:
+    case G1:
+    case G28:
+        code = value1.isEmpty() ? code : code.append(QStringLiteral(" %1").arg(value1.toUpper()));
+        return code;
     default:
-        return QObject::tr("Not implemented or not supported!");
+        return commandNotSupported;
     }
 }
 
-QString GCode::toString(MCommands gcode)
+QString GCode::description(MCommands gcode)
 {
     switch (gcode) {
     case M0://Marlin - Teacup - RepRap Firmware
@@ -496,89 +486,44 @@ QString GCode::toString(MCommands gcode)
     case M999://Marlin - Smoothie - RepRap Firmware
         return QObject::tr("M999: Restart after being stopped by error");
     default:
-        return QObject::tr("Not implemented or not supported!");
-
+        return commandNotSupported;
     }
 }
 
 QString GCode::toCommand(MCommands gcode, const QString &value1, const QString &value2)
 {
+    QString code = QStringLiteral("M%1").arg(QString::number(gcode));
     switch (gcode) {
-    case M84: {
-        if (!value1.isEmpty()) {
-            return QStringLiteral("M84 S%1").arg(value1);
-        }
-        return QStringLiteral("M84");
-    }
-    case M104: {
-        if (!value2.isEmpty() && !value1.isEmpty()) {
-            return QStringLiteral("M104 P%1 S%2").arg(value1).arg(value2);
-        }
-        if (!value1.isEmpty()) {
-            return QStringLiteral("M104 S%1").arg(value1);
-        }
-        return QObject::tr("ERROR! M104: It's obligatory to have an argument");
-    }
     case M105:
-        return QStringLiteral("M105");
-    case M106: {
-        if (!value2.isEmpty() && !value1.isEmpty()) {
-            return QStringLiteral("M106 P%1 S%2").arg(value1).arg(value2);
-        }
-        if (!value1.isEmpty()) {
-            return QStringLiteral("M106 S%1").arg(value1);
-        }
-        return QStringLiteral("M106");
-    }
     case M107:
-        return QStringLiteral("M107");
-    case M109: {
-        if (!value1.isEmpty()) {
-            return QStringLiteral("M109 S%1").arg(value1);
-        }
-        return QObject::tr("ERROR! M109: It's obligatory to have an argument");
-    }
     case M112:
-        return QStringLiteral("M112");
     case M114:
-        return QStringLiteral("M114");
     case M115:
-        return QStringLiteral("M115");
     case M116:
-        return QStringLiteral("M116");
-    case M117: {
-        if (!value1.isEmpty()) {
-            return QStringLiteral("M117 %1").arg(value1);
-        }
-        return QObject::tr("ERROR! M117: It's obligatory to have an argument");
-    }
     case M119:
-        return QStringLiteral("M119");
-    case M140: {
-        if (!value1.isEmpty()) {
-            return QStringLiteral("M140 S%1").arg(value1);
-        }
-        return QObject::tr("ERROR! M140: It's obligatory to have an argument");
-    }
-    case M190: {
-        if (!value1.isEmpty()) {
-            return QStringLiteral("M190 S%1").arg(value1);
-        }
-        return QObject::tr("ERROR! M190: It's obligatory to have an argument");
-    }
-    case M220: {
-        if (!value1.isEmpty()) {
-            return QStringLiteral("M220 S%1").arg(value1);
-        }
-        return QObject::tr("ERROR! M220: It's obligatory to have an argument");
-    }
-    case M221: {
-        if (!value1.isEmpty()) {
-            return QStringLiteral("M221 S%1").arg(value1);
-        }
-        return QObject::tr("ERROR! M221: It's obligatory to have an argument");
-    }
+        return code;
+    case M117:
+        code = value1.isEmpty() ? GCode::commandRequiresArgument.arg(QStringLiteral("M"), QString::number(gcode)) : QStringLiteral("M117 %1").arg(value1);
+        return code;
+    case M109:
+    case M140:
+    case M190:
+    case M220:
+    case M221:
+        code = value1.isEmpty() ? GCode::commandRequiresArgument.arg(QStringLiteral("M"), QString::number(gcode)) : code.append(QStringLiteral(" S%1").arg(value1));
+        return code;
+    case M84:
+        code = value1.isEmpty() ? code : code.append(QStringLiteral(" S%1").arg(value1));
+        return code;
+    case M104:
+        code = value2.isEmpty() ? code.append(QStringLiteral(" S%1").arg(value1)) : code.append(QStringLiteral(" P%1 S%2").arg(value1).arg(value2));
+        code = value1.isEmpty() ? GCode::commandRequiresArgument.arg(QStringLiteral("M"), QString::number(gcode)) : code ;
+        return code;
+    case M106:
+        code = value2.isEmpty() ? code.append(QStringLiteral(" S%1").arg(value1)) : code.append(QStringLiteral(" P%1 S%2").arg(value1).arg(value2));
+        code = value1.isEmpty() ? QStringLiteral("M106") : code ;
+        return code;
     default:
-        return QObject::tr("Not supported or implemented!");
+        return commandNotSupported;
     }
 }
