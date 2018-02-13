@@ -413,7 +413,7 @@ void AtCore::emergencyStop()
 void AtCore::requestFirmware()
 {
     if (serialInitialized()) {
-        qCDebug(ATCORE_CORE) << "Sending " << GCode::toString(GCode::M115);
+        qCDebug(ATCORE_CORE) << "Sending " << GCode::description(GCode::M115);
         serial()->pushCommand(GCode::toCommand(GCode::M115).toLocal8Bit());
     } else {
         qCDebug(ATCORE_CORE) << "There is no open device to send commands";
