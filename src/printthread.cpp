@@ -22,6 +22,8 @@
 */
 #include <QTime>
 #include <QLoggingCategory>
+#include <QCommandLineOption>
+#include <QCommandLineParser>
 
 #include "printthread.h"
 
@@ -40,6 +42,16 @@ public:
     QString cline;                      //!<@param cline: current line
     AtCore::STATES state = AtCore::IDLE;//!<@param state: printer state
     QFile *file = nullptr;              //!<@param file: gcode File to stream from
+    QList<QCommandLineOption> options = {
+        {QCommandLineOption(QStringLiteral("pause"))},
+        {QCommandLineOption(QStringLiteral("extruder temperature"))},
+        {QCommandLineOption(QStringLiteral("bed temperature"))},
+        {QCommandLineOption(QStringLiteral("print speed"))},
+        {QCommandLineOption(QStringLiteral("fan speed"))},
+        {QCommandLineOption(QStringLiteral("flow rate"))},
+        {QCommandLineOption(QStringLiteral("message"))},
+        {QCommandLineOption(QStringLiteral("command"))}
+    };  //!<@param options: injectable commands.
 };
 
 PrintThread::PrintThread(AtCore *parent, QString fileName) : d(new PrintThreadPrivate)
@@ -80,7 +92,7 @@ void PrintThread::processJob()
         while (d->cline.isEmpty() && !d->gcodestream->atEnd()) {
             nextLine();
         }
-        if (!d->cline.isEmpty()) {
+        if (!d->cline.isEmpty() && d->core->state() != AtCore::PAUSE) {
             qCDebug(PRINT_THREAD) << "cline:" << d->cline;
             emit nextCommand(d->cline);
         }
@@ -96,6 +108,9 @@ void PrintThread::processJob()
     }
 
     case AtCore::PAUSE:
+        if (d->cline.startsWith(QStringLiteral(";-"))) {
+            nextLine();
+        }
         break;
 
     default:
@@ -125,6 +140,13 @@ void PrintThread::nextLine()
     d->printProgress = float(d->totalSize - d->stillSize) * 100.0 / float(d->totalSize);
     qCDebug(PRINT_THREAD) << "progress:" << QString::number(d->printProgress);
     emit(printProgressChanged(d->printProgress));
+
+    if (d->cline.startsWith(QStringLiteral(";-"))) {
+        injectCommand(d->cline);
+        d->cline = QStringLiteral("");
+        return;
+    }
+
     if (d->cline.contains(QChar::fromLatin1(';'))) {
         d->cline.resize(d->cline.indexOf(QChar::fromLatin1(';')));
     }
@@ -148,5 +170,48 @@ void PrintThread::setState(const AtCore::STATES &newState)
         d->state = newState;
         emit(stateChanged(d->state));
         connect(d->core, &AtCore::stateChanged, this, &PrintThread::setState, Qt::QueuedConnection);
+    }
+}
+
+void PrintThread::injectCommand(QString &command)
+{
+    //remove the ;
+    command.remove(0, 1);
+    command.prepend(QStringLiteral("0:"));
+    QStringList cmd = command.split(QLatin1Char(':'));
+    cmd.replace(1, cmd.at(1).simplified().toLower());
+    cmd.replace(2, cmd.at(2).simplified());
+
+    static QCommandLineParser parser;
+    if (parser.optionNames().isEmpty()) {
+        parser.setSingleDashWordOptionMode(QCommandLineParser::ParseAsLongOptions);
+        parser.addOptions(d->options);
+    }
+
+    qCDebug(PRINT_THREAD) << "attempting to inject " << cmd;
+    parser.process(cmd);
+
+    if (parser.isSet(QStringLiteral("pause"))) {
+        d->core->pause(parser.positionalArguments().at(0));
+    } else if (parser.isSet(QStringLiteral("extruder temperature"))) {
+        QStringList args = parser.positionalArguments().at(0).split(QLatin1Char(','));
+        bool wait = !QString::compare(args.at(2).simplified(), QStringLiteral("true"), Qt::CaseInsensitive);
+        d->core->setExtruderTemp(args.at(0).toInt(), args.at(1).toInt(), wait);
+    } else if (parser.isSet(QStringLiteral("bed temperature"))) {
+        QStringList args = parser.positionalArguments().at(0).split(QLatin1Char(','));
+        bool wait = !QString::compare(args.at(1).simplified(), QStringLiteral("true"), Qt::CaseInsensitive);
+        d->core->setBedTemp(args.at(0).toInt(), wait);
+    } else if (parser.isSet(QStringLiteral("print speed"))) {
+        d->core->setPrinterSpeed(parser.positionalArguments().at(0).toInt());
+    } else if (parser.isSet(QStringLiteral("fan speed"))) {
+        d->core->setFanSpeed(parser.positionalArguments().at(0).toInt(), parser.positionalArguments().at(1).toInt());
+    } else if (parser.isSet(QStringLiteral("flow rate"))) {
+        d->core->setFlowRate(parser.positionalArguments().at(0).toInt());
+    } else if (parser.isSet(QStringLiteral("message"))) {
+        d->core->showMessage(parser.positionalArguments().at(0));
+    } else if (parser.isSet(QStringLiteral("command"))) {
+        d->core->pushCommand(parser.positionalArguments().at(0));
+    } else {
+        qCDebug(PRINT_THREAD) << "Attempted to inject unknown command: " << parser.positionalArguments();
     }
 }

@@ -561,7 +561,6 @@ void AtCore::setExtruderTemp(uint temp, uint extruder, bool andWait)
     } else {
         pushCommand(GCode::toCommand(GCode::M104, QString::number(extruder), QString::number(temp)));
     }
-    temperature().setExtruderTargetTemperature(temp);
 }
 
 void AtCore::setBedTemp(uint temp, bool andWait)
@@ -571,7 +570,6 @@ void AtCore::setBedTemp(uint temp, bool andWait)
     } else {
         pushCommand(GCode::toCommand(GCode::M140, QString::number(temp)));
     }
-    temperature().setBedTargetTemperature(temp);
 }
 
 void AtCore::setFanSpeed(uint speed, uint fanNumber)
