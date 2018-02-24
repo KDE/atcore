@@ -101,5 +101,53 @@ private:
      * @brief end the print
      */
     void endPrint();
+
+    /**
+     * @brief injectCommand Attempt to inject a Command from the currently printing file.
+     *
+     * One of the following on a line that starts with ';-' \n
+     * example line ;-Message: Hello \n
+     *
+     * - Pause: ppc\n
+     *   Pause the print job and then run the comma seperated commands after pausing the job.\n
+     *     + ppc: A comma seperated list of Commands to send after pause. ex(G91, G0 Z1, G90, G1 X0 Y195)\n
+     *\n
+     * - Extruder %Temperature:newTemp,extnum,wait \n
+     *   Set extruder temperature. \n
+     *     + newTemp: new target temperature. \n
+     *     + extnum: Extruder number you want to Heat. Starting at 0. \n
+     *     + wait: ignore commands until the target is reached. [true | false] \n
+     *\n
+     * - Bed %Temperature: newTemp,wait \n
+     *   Set the bed temperature. \n
+     *      + newTemp: new target temperature \n
+     *      + wait: ignore commands until the target is reached. [true | false] \n
+     *\n
+     * - Fan Speed:newSpeed, fanNum \n
+     *   Set the Fan speed. \n
+     *     + newSpeed: new fan speed. \n
+     *     + fanNum: Fan number. Starting at 0.\n
+     *\n
+     * - Print Speed:newSpeed \n
+     *   Set the printer speed. \n
+     *    + newSpeed: the print speed. 100= movement speed defined in file. \n
+     *\n
+     * - Flow Rate:newRate \n
+     *   Set the flow rate \n
+     *    + newRate: the flow rate. 100 = flow rate defined in file. \n
+     *\n
+     * - Message:message \n
+     *   Show a message the printer's LCD \n
+     *    + message: the message to print. \n
+     *\n
+     * - Command:command \n
+     *   Inject your own command. Command are sent as is. Be sure your line is correct. \n
+     *    + command: Commands to inject \n
+     */
+    void injectCommand(QString &command);
+
+    /**
+     * @brief d: Private storage for the thread
+     */
     PrintThreadPrivate *d;
 };
