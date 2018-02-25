@@ -303,9 +303,17 @@ public slots:
      * @brief move an axis of the printer
      * @param axis the axis to move AXES (X Y Z E )
      * @param arg the distance to move the axis or the place to move to depending on printer mode
-     * @sa home(), home(uchar axis)
+     * @sa home(), home(uchar axis), move(QLatin1Char axis, int arg)
      */
-    void move(AtCore::AXES axis, uint arg);
+    void move(AtCore::AXES axis, int arg);
+
+    /**
+     * @brief move an axis of the printer
+     * @param axis the axis to move AXES (X Y Z E )
+     * @param arg the distance to move the axis or the place to move to depending on printer mode
+     * @sa home(), home(uchar axis), move(AtCore::AXES, int arg)
+     */
+    void move(QLatin1Char axis, int arg);
 
     /**
      * @brief Set the bed temperature

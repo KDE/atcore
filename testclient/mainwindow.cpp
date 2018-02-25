@@ -570,10 +570,10 @@ void MainWindow::about()
     aboutDialog->exec();
 }
 
-void MainWindow::axisControlClicked(QChar axis, int value)
+void MainWindow::axisControlClicked(QLatin1Char axis, int value)
 {
     core->setRelativePosition();
-    core->pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("%1%2").arg(axis, QString::number(value))));
+    core->move(axis, value);
     core->setAbsolutePosition();
 }
 
