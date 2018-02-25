@@ -69,7 +69,7 @@ private slots:
      * @param axis The Axis clicked on (X |Y |Z)
      * @param value Distance Value
      */
-    void axisControlClicked(QChar axis, int value);
+    void axisControlClicked(QLatin1Char axis, int value);
     /**
      * @brief the printing progress has changed
      * @param progress: the new progress

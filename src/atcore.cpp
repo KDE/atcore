@@ -548,17 +548,31 @@ void AtCore::setFlowRate(uint speed)
     pushCommand(GCode::toCommand(GCode::M221, QString::number(speed)));
 }
 
-void AtCore::move(AtCore::AXES axis, uint arg)
+void AtCore::move(AtCore::AXES axis, int arg)
 {
-    if (axis & AtCore::X) {
-        pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("X %1").arg(QString::number(arg))));
-    } else if (axis & AtCore::Y) {
-        pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("Y %1").arg(QString::number(arg))));
-    } else if (axis & AtCore::Z) {
-        pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("Z %1").arg(QString::number(arg))));
-    } else if (axis & AtCore::E) {
-        pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("E %1").arg(QString::number(arg))));
-    }
+    static QLatin1Char a('?');
+    switch (axis) {
+    case AtCore::X:
+        a = QLatin1Char('X');
+        break;
+    case AtCore::Y:
+        a = QLatin1Char('Y');
+        break;
+    case AtCore::Z:
+        a = QLatin1Char('Z');
+        break;
+    case AtCore::E:
+        a = QLatin1Char('E');
+        break;
+    default:
+        break;
+    };
+    move(a, arg);
+}
+
+void AtCore::move(QLatin1Char axis, int arg)
+{
+    pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("%1 %2").arg(axis).arg(QString::number(arg))));
 }
 
 int AtCore::extruderCount() const
