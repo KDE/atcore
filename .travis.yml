@@ -58,7 +58,7 @@ script:
     ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -appimage; 
   fi
 - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then 
-    cmake CMakeLists.txt; 
+    cmake -DBUILD_GUI=ON CMakeLists.txt; 
     make;
     mkdir testclient/atcore-gui.app/Contents/MacOS/plugins; 
     mv src/plugins/*.dylib testclient/atcore-gui.app/Contents/MacOS/plugins/; 
@@ -68,7 +68,7 @@ after_success:
 - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
 - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then 
     find ./appdir -executable -type f -exec ldd {} \; | grep " => /usr" | cut -d " " -f 2-3 | sort | uniq; 
-    bash ./upload.sh ./atcore-gui*.AppImage*;
+    bash ./upload.sh ./AtCore*.AppImage*;
   fi
 - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then bash ./upload.sh testclient/atcore-gui*.dmg*; fi 
  
