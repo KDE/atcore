@@ -28,8 +28,9 @@ if (NOT APPLE)
         DESTINATION share/pixmaps)
 
 	install(FILES
-        "${CMAKE_CURRENT_SOURCE_DIR}/atcore-gui.desktop"
+        "${CMAKE_CURRENT_SOURCE_DIR}/org.kde.atcore.desktop"
         DESTINATION share/applications)
+    install(FILES org.kde.atcore.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++ -std=c++11")
     set(MACOSX_BUNDLE_DISPLAY_NAME "atcore-gui")
