@@ -413,7 +413,7 @@ void MainWindow::printPBClicked()
             addLog(tr("No File Selected"));
         } else {
             addLog(tr("Print: %1").arg(fileName));
-            emit(printFile(fileName));
+            core->print(fileName);
         }
         break;
 
