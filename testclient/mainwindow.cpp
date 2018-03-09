@@ -99,7 +99,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->disableMotorsPB, &QPushButton::clicked, this, &MainWindow::disableMotorsPBClicked);
     connect(ui->sdListPB, &QPushButton::clicked, this, &MainWindow::getSdList);
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
-    connect(this, &MainWindow::printFile, core, &AtCore::print);
     connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
     connect(ui->emergencyStopPB, &QPushButton::clicked, core, &AtCore::emergencyStop);
     connect(axisControl, &AxisControl::clicked, this, &MainWindow::axisControlClicked);
