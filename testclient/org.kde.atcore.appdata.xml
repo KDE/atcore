@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>org.kde.atcore.desktop</id>
+  <name>AtCore Test Client</name>
+  <name xml:lang="ast">Veceru de prueba d'AtCore</name>
+  <name xml:lang="ca">Client de prova de l'AtCore</name>
+  <name xml:lang="ca@valencia">Client de prova de l'AtCore</name>
+  <name xml:lang="cs">Testovací klient AtCore</name>
+  <name xml:lang="da">AtCore-testklient</name>
+  <name xml:lang="de">AtCore-Testprogramm</name>
+  <name xml:lang="el">Εφαρμογή δοκιμής AtCore</name>
+  <name xml:lang="es">Cliente de prueba de AtCore</name>
+  <name xml:lang="gl">Cliente de probas de AtCore</name>
+  <name xml:lang="nl">AtCore testclient</name>
+  <name xml:lang="pl">Klient testowy AtCore</name>
+  <name xml:lang="pt">Cliente de Testes do AtCore</name>
+  <name xml:lang="pt_BR">Cliente de teste AtCore</name>
+  <name xml:lang="ru">Тестовый клиент AtCore</name>
+  <name xml:lang="sk">AtCore Test Klient</name>
+  <name xml:lang="sv">AtCore testklient</name>
+  <name xml:lang="tr">AtCore Test İstemcisi</name>
+  <name xml:lang="uk">Тестовий клієнт AtCore</name>
+  <name xml:lang="zh_CN">AtCore 测试客户端</name>
+  <summary>A test application for the AtCore framework to control 3D printers</summary>
+  <description>
+    <p>
+        AtCore is the API that controls the 3DPrinter and its basic functionalities. AtCore comes with a test client called atcore-gui to manage your printer.
+    </p>
+    <p>
+        This is an AtCore test application to showcase the framework.
+    </p>
+  </description>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>LGPL-2.0+</project_license>
+  <url type="homepage">https://atelier.kde.org</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=atcore</url>
+  <url type="help">https://atelier.kde.org/documentation/atcore</url>
+  <url type="donation">https://kde.org/donate/?app=atcore</url>
+  <project_group>KDE</project_group>
+</component>
