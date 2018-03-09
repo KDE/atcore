@@ -191,14 +191,6 @@ private slots:
      */
     void sdDelPBClicked();
 
-signals:
-    /**
-     * @brief printFile emit ready to print a file to atcore
-     * @param fileName : the file to print
-     * @param sdPrint : True if file is on printers Sd Card
-     */
-    void printFile(const QString &fileName, bool sdPrint = false);
-
 private:
     Ui::MainWindow *ui;
     AtCore *core;

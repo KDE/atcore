@@ -293,7 +293,7 @@ public slots:
      * @param fileName: the gcode file to print.
      * @param sdPrint: set true to print fileName from Sd card
      */
-    void print(const QString &fileName, bool sdPrint);
+    void print(const QString &fileName, bool sdPrint = false);
 
     /**
      * @brief Stop the Printer by empting the queue and aborting the print job (if running)
