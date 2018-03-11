@@ -44,7 +44,51 @@ install:
 
     set QTBIN=%QTDIR%\bin
 build_script:
-- cmd: "mkdir %CMAKE_INSTALL_ROOT%\ndir .\npwd\nmkdir work\ncinst ninja\ncd work\ngit clone -q git://anongit.kde.org/extra-cmake-modules.git\ncd extra-cmake-modules\ncmake -G\"Ninja\" . -DCMAKE_INSTALL_PREFIX=%CMAKE_INSTALL_ROOT% \nninja install\ncd ../..\ndir .\ncd %APPVEYOR_BUILD_FOLDER%\ndir .\nmkdir %APPVEYOR_BUILD_FOLDER%-build\ndir .\ncd %APPVEYOR_BUILD_FOLDER%-build\ndir .\ncmake %APPVEYOR_BUILD_FOLDER% -DCMAKE_BUILD_TYPE=%CONFIGURATION% -DCMAKE_INSTALL_PREFIX=%CMAKE_INSTALL_ROOT% -DCMAKE_BUILD_TYPE=%CONFIGURATION% -DCMAKE_INSTALL_PREFIX=%CMAKE_INSTALL_ROOT% -DBUILD_GUI=ON\ncmake --build . --target ALL_BUILD --config %CONFIGURATION%\ndir .\ntree\ndir /b /s *.exe\ndir /b /s aprinter.dll\ndir /b /s *.dll\ndir /b /s *.exe\nmkdir deploy\ncopy %APPVEYOR_BUILD_FOLDER%-build\\bin\\%CONFIGURATION%\\* deploy\\*\ndir .\ndir deploy\nwindeployqt --compiler-runtime deploy/atcore-gui.exe\nfor %%I in (%ATCORE_LIBS%) do copy %QTBIN%\\%%I deploy\\\ndir .\ndir deploy\ntree\n7z a -tzip AtCore_Test_Client-win.zip deploy -r\ncopy %APPVEYOR_BUILD_FOLDER%-build\\AtCore_Test_Client-win.zip %APPVEYOR_BUILD_FOLDER%\\AtCore_Test_Client-win.zip\ndir /b /s *.zip"
+- cmd: >-
+    mkdir %CMAKE_INSTALL_ROOT%
+    
+    mkdir work
+    
+    cinst ninja
+    
+    cd work
+    
+    git clone -q git://anongit.kde.org/extra-cmake-modules.git
+    
+    cd extra-cmake-modules
+    
+    cmake -G "Ninja" . -DCMAKE_INSTALL_PREFIX=%CMAKE_INSTALL_ROOT% 
+    
+    ninja install
+    
+    cd %APPVEYOR_BUILD_FOLDER%
+    
+    mkdir %APPVEYOR_BUILD_FOLDER%-build
+       
+    cd %APPVEYOR_BUILD_FOLDER%-build
+    
+    cmake %APPVEYOR_BUILD_FOLDER% -DCMAKE_BUILD_TYPE=%CONFIGURATION% -DCMAKE_INSTALL_PREFIX=%CMAKE_INSTALL_ROOT% -DCMAKE_BUILD_TYPE=%CONFIGURATION% -DCMAKE_INSTALL_PREFIX=%CMAKE_INSTALL_ROOT% -DBUILD_GUI=ON
+    
+    cmake --build . --target ALL_BUILD --config %CONFIGURATION%
+    
+    mkdir AtCore_Test_Client-%commit%-win32
+    
+    mkdir AtCore_Test_Client-%commit%-win32\plugins    
+    
+    move %APPVEYOR_BUILD_FOLDER%-build\bin\%CONFIGURATION%\AtCore.dll AtCore_Test_Client-%commit%-win32\
+    
+    move %APPVEYOR_BUILD_FOLDER%-build\bin\%CONFIGURATION%\atcore-gui.exe AtCore_Test_Client-%commit%-win32\
+    
+    move %APPVEYOR_BUILD_FOLDER%-build\bin\%CONFIGURATION%\* AtCore_Test_Client-%commit%-win32\plugins\
+            
+    windeployqt --compiler-runtime AtCore_Test_Client-%commit%-win32/atcore-gui.exe
+    
+    for %%I in (%ATCORE_LIBS%) do copy %QTBIN%\%%I AtCore_Test_Client-%commit%-win32\
+    
+    7z a -tzip AtCore_Test_Client-win.zip AtCore_Test_Client-%commit%-win32 -r
+    
+    copy %APPVEYOR_BUILD_FOLDER%-build\AtCore_Test_Client-win.zip %APPVEYOR_BUILD_FOLDER%\AtCore_Test_Client-win.zip
+    
 artifacts:
 - path: AtCore_Test_Client-win.zip
   name: AtCore
