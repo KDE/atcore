@@ -32,5 +32,5 @@ For any bug that you find it you can go on KDE [Bugs] system and report it. Plea
     
 [IRC]: https://webchat.freenode.net/
 [Telegram]: telegram.me/KDEAtelier
-[Bugs]: https://bugs.kde.org/enter_bug.cgi?product=Atelier
+[Bugs]: https://bugs.kde.org/enter_bug.cgi?product=Atelier&component=AtCore
 [Web]: https://ateler.kde.org
