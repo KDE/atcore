@@ -29,7 +29,9 @@ You can reach us via:<br/>
 [Web] - Our web page<br/>
 ### Bugs
 For any bug that you find it you can go on KDE [Bugs] system and report it. Please try to give all the information about the issue, and backtrace if you have one.
-    
+### Getting Involved.
+If you would like to join us please see our [contributing](contrib.md) page.
+
 [IRC]: https://webchat.freenode.net/
 [Telegram]: telegram.me/KDEAtelier
 [Bugs]: https://bugs.kde.org/enter_bug.cgi?product=Atelier&component=AtCore
