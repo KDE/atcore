@@ -18,8 +18,8 @@ include (AtCore REQUIRED COMPONATES AtCore )
     
 ### Authors
 Chris Rizzitello <rizzitello@kde.org><br/>
-Patrick José Pereira <patrickelectric@gmail.com><br/>
-Lays Rodrigues <laysrodrigues@gmail.com><br/>
+Patrick José Pereira <patrickjp@kde.org><br/>
+Lays Rodrigues <lays@kde.org><br/>
 Tomaz Canabrava <tcanabrava@kde.org><br/>
     
 ### Getting in Touch 
