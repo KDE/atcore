@@ -1,42 +1,52 @@
-# AtCore
-AtCore is a API to manage the serial connection between the computer and 3D Printers.<br/>
-This project is under LGPL V2+, for more information read COPYING.TXT.
+# %AtCore
 
-### Building  Deploying  %AtCore
- See: [Building and Deploying](build.md)
- 
-### Supported Firmwares
- - Repetier
- - Marlin
- - Teacup
- - APrinter 
- - SPrinter
- - Smoothie
- - Grbl
+%AtCore is a API to manage the serial connection between the computer and 3D Printers.
 
-### Importing with CMake 
-CMake should find AtCore using the following in your CMakeLists
+This project is under [LGPL-2.0]+.
+
+%AtCore is written by [KDE] members,
+
+ - Chris Rizzitello <rizzitello@kde.org>
+ - Patrick José Pereira <patrickjp@kde.org>
+ - Lays Rodrigues <lays@kde.org><br/>
+ - Tomaz Canabrava <tcanabrava@kde.org>
+
+## Supported Firmwares
+Currenty the following firmwares are supported.
+
+ Firmware Name |Basic Use| Control SD
+ :------------:|:-------:|:----------:
+ Repetier      | YES     | YES
+ Marlin        | YES     | YES
+ Teacup        | YES     | NO
+ APrinter      | YES     | NO
+ SPrinter      | YES     | NO
+ Smoothie      | YES     | NO
+ GRBL          | YES     | NO
+
+## Building  Deploying  %AtCore
+ See: [Building and Deploying]
+
+## Importing %AtCore in your CMakeList
+CMake should find %AtCore using the following in your CMakeLists
 ```CMake
 include (AtCore REQUIRED COMPONATES AtCore )
 ```
-    
-### Authors
-Chris Rizzitello <rizzitello@kde.org><br/>
-Patrick José Pereira <patrickjp@kde.org><br/>
-Lays Rodrigues <lays@kde.org><br/>
-Tomaz Canabrava <tcanabrava@kde.org><br/>
-    
-### Getting in Touch 
-You can reach us via:<br/>
-[IRC] - freenode \#kde-atelier<br/>
-[Telegram] - Atelier group<br/>
-[Web] - Our web page<br/>
-### Bugs
-For any bug that you find it you can go on KDE [Bugs] system and report it. Please try to give all the information about the issue, and backtrace if you have one.
-### Getting Involved.
-If you would like to join us please see our [contributing](contrib.md) page.
+
+## Getting Involved
+ - [IRC] - freenode \#kde-atelier
+ - [Telegram] - Atelier group
+ - [Web] - Our web page
+ - Report Bugs to our [Bug Tracker].
+ - Support us by making a [Donation]
+ - [Contribute] to %AtCore.
 
 [IRC]: https://webchat.freenode.net/
 [Telegram]: telegram.me/KDEAtelier
-[Bugs]: https://bugs.kde.org/enter_bug.cgi?product=Atelier&component=AtCore
-[Web]: https://ateler.kde.org
+[Bug Tracker]: https://bugs.kde.org/enter_bug.cgi?product=Atelier&component=AtCore
+[KDE]:https://www.kde.org
+[Web]: https://atelier.kde.org
+[LGPL-2.0]:https://www.gnu.org/licenses/old-licenses/lgpl-2.0.html
+[Building and Deploying]:build.md
+[Contribute]:contrib.md
+[Donation]:https://kde.org/donate/?app=atcore
