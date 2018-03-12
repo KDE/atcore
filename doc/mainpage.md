@@ -1,6 +1,10 @@
+# AtCore
 AtCore is a API to manage the serial connection between the computer and 3D Printers.<br/>
 This project is under LGPL V2+, for more information read COPYING.TXT.
 
+### Building  Deploying  %AtCore
+ See: [Building and Deploying](build.md)
+ 
 ### Supported Firmwares
  - Repetier
  - Marlin
