@@ -514,11 +514,6 @@ QStringList AtCore::availableFirmwarePlugins() const
     return d->plugins.keys();
 }
 
-void AtCore::detectFirmware()
-{
-    connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
-}
-
 void AtCore::pause(const QString &pauseActions)
 {
     if (d->sdCardPrinting) {

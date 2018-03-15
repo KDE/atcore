@@ -307,7 +307,6 @@ void MainWindow::connectPBClicked()
             if (ui->pluginCB->currentText().contains(tr("Autodetect"))) {
                 addLog(tr("No plugin loaded !"));
                 addLog(tr("Requesting Firmware..."));
-                core->detectFirmware();
             } else {
                 core->loadFirmwarePlugin(ui->pluginCB->currentText());
             }
@@ -443,8 +442,6 @@ void MainWindow::pluginCBChanged(QString currentText)
     if (core->state() != AtCore::DISCONNECTED) {
         if (!currentText.contains(tr("Autodetect"))) {
             core->loadFirmwarePlugin(currentText);
-        } else {
-            core->detectFirmware();
         }
     }
 }
