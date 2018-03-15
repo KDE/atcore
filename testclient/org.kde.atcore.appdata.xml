@@ -11,6 +11,7 @@
   <name xml:lang="sk">AtCore Test Klient</name>
   <name xml:lang="uk">Тестовий клієнт AtCore</name>
   <name xml:lang="x-test">xxAtCore Test Clientxx</name>
+  <name xml:lang="zh-CN">AtCore 测试客户端</name>
   <summary>A test application for the AtCore framework to control 3D printers</summary>
   <summary xml:lang="ca">Una aplicació de prova per a l'entorn de treball AtCore per controlar impressores 3D</summary>
   <summary xml:lang="ca-valencia">Una aplicació de prova per a l'entorn de treball AtCore per controlar impressores 3D</summary>
