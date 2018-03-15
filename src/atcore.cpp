@@ -191,25 +191,19 @@ void AtCore::findFirmware(const QByteArray &message)
 
 void AtCore::loadFirmwarePlugin(const QString &fwName)
 {
-    //Check if we have a plugin named fwName then attempt to load it.
+    qCDebug(ATCORE_PLUGIN) << "Looking for Plugin:" << fwName;
     if (d->plugins.contains(fwName)) {
         d->pluginLoader.setFileName(d->plugins[fwName]);
         if (!d->pluginLoader.load()) {
-            //Plugin was not loaded, Return the reported error.
+            //Plugin was not loaded, Provide some debug info.
+            qCDebug(ATCORE_PLUGIN) << "Plugin Loading: Failed.";
             qCDebug(ATCORE_PLUGIN) << d->pluginLoader.errorString();
-        } else {
-            qCDebug(ATCORE_PLUGIN) << "Loading plugin.";
-        }
-        d->firmwarePlugin = qobject_cast<IFirmware *>(d->pluginLoader.instance());
-
-        if (!firmwarePluginLoaded()) {
-            qCDebug(ATCORE_PLUGIN) << "No plugin loaded.";
-            qCDebug(ATCORE_PLUGIN) << "Looking plugin in folder:" << d->pluginsDir;
             setState(AtCore::CONNECTING);
         } else {
             //Plugin was loaded successfully.
-            qCDebug(ATCORE_PLUGIN) << "Connected to" << firmwarePlugin()->name();
+            d->firmwarePlugin = qobject_cast<IFirmware *>(d->pluginLoader.instance());
             firmwarePlugin()->init(this);
+            qCDebug(ATCORE_PLUGIN) << "Plugin Loading: Successful";
             disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
             connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
             connect(firmwarePlugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
@@ -221,7 +215,7 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
             setState(IDLE);
         }
     } else {
-        qCDebug(ATCORE_CORE) << "No Firmware Loaded";
+        qCDebug(ATCORE_CORE) << "Plugin:" << fwName << ": Not found.";
     }
 }
 
@@ -290,14 +284,6 @@ quint16 AtCore::serialTimerInterval() const
 
 void AtCore::setSerialTimerInterval(const quint16 &newTime)
 {
-    if (newTime == 0) {
-        //The newTime is 0. Destroy the timer.
-        if (d->serialTimer) {
-            disconnect(d->serialTimer, &QTimer::timeout, this, &AtCore::locateSerialPort);
-            delete d->serialTimer;
-        }
-        return;
-    }
     if (!d->serialTimer) {
         //There is no timer. We need to create one.
         d->serialTimer = new QTimer();
@@ -399,11 +385,11 @@ void AtCore::closeConnection()
                 disconnect(d->tempTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
                 d->tempTimer->stop();
             }
+            //Attempt to unload the firmware plugin.
+            QString name = firmwarePlugin()->name();
+            QString msg = d->pluginLoader.unload() ? QStringLiteral("success") : QStringLiteral("FAIL");
+            qCDebug(ATCORE_PLUGIN) << QStringLiteral("Firmware plugin %1 unload: %2").arg(name, msg);
         }
-        QString name = firmwarePlugin()->name();
-        //Attempt to unload the firmware plugin.
-        QString msg = d->pluginLoader.unload() ? QStringLiteral("success") : QStringLiteral("FAIL");
-        qCDebug(ATCORE_PLUGIN) << QStringLiteral("Firmware plugin %1 unload: %2").arg(name, msg);
         serial()->close();
         //Clear our copy of the sdcard filelist
         clearSdCardFileList();
@@ -489,6 +475,7 @@ bool AtCore::firmwarePluginLoaded() const
         return false;
     }
 }
+
 void AtCore::findFirmwarePlugins()
 {
     d->plugins.clear();
@@ -521,6 +508,7 @@ void AtCore::findFirmwarePlugins()
         qCDebug(ATCORE_CORE) << tr("plugins[%1]=%2").arg(file, pluginString);
     }
 }
+
 QStringList AtCore::availableFirmwarePlugins() const
 {
     return d->plugins.keys();
@@ -699,6 +687,7 @@ void AtCore::setUnits(AtCore::UNITS units)
         break;
     }
 }
+
 QStringList AtCore::portSpeeds() const
 {
     return serial()->validBaudRates();
