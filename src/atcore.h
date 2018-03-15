@@ -43,11 +43,20 @@ struct AtCorePrivate;
  * @brief The AtCore class
  * aims to provides a high level interface for serial based gcode devices<br />
  *
- * General Workflow
+ * #### General Workflow
  * - Connect to a serial port with initSerial()
  * - Auto detect the firmware with detectFirmware()
  * - Send commands to the device (pushCommand(),print(),...)
  * - AtCore::close() when you are all done.
+
+ * #### How AtCore Finds Plugins.
+ *  - Windows and Mac Os will always look in appdir/plugins for plugins.
+ *
+ * Others Search:
+ *  1. Build Dir/plugins (buildtime)
+ *  2. ECM set KDE PLUGIN DIR  (buildtime)
+ *  3. Qt Plugin path/AtCore (runtime)
+ *  4. plugins (runtime)
  */
 class ATCORE_EXPORT AtCore : public QObject
 {
