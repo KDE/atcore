@@ -23,6 +23,16 @@
 #include <QLibraryInfo>
 
 namespace AtCoreDirectories {
+    /**
+     * @brief pluginDir
+     * List of directories that AtCore will look for plugins. Used if OS NOT Windows and Not Mac Os
+     *
+     * In Order:
+     *  1 Build Dir/plugins (buildtime)
+     *  2 ECM set KDE PLUGIN DIR  (buildtime)
+     *  3 Qt Plugin path/AtCore (runtime)
+     *  4 plugins (runtime)
+     */
     const QStringList pluginDir = \
         QStringList(QStringLiteral("@CMAKE_CURRENT_BINARY_DIR@/plugins")) \
         << QStringList(QStringLiteral("@KDE_INSTALL_PLUGINDIR@/AtCore")) \

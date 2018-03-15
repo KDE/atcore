@@ -78,11 +78,13 @@ AtCore::AtCore(QObject *parent) :
     d->tempTimer = new QTimer(this);
     d->tempTimer->setInterval(5000);
     d->tempTimer->setSingleShot(false);
-
-    QStringList pathList = AtCoreDirectories::pluginDir;
-    pathList.append(QLibraryInfo::location(QLibraryInfo::PluginsPath) + QStringLiteral("/AtCore"));
-
-    for (const auto &path : pathList) {
+//Attempt to find our plugins
+//For Windows and Mac we always look in plugins folder of the program using atcore.
+//On others we use AtCoreDirectories::pluginDir to hold a list of dirs to check
+#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
+    d->pluginsDir = qApp->applicationDirPath() + QStringLiteral("/plugins");
+#else
+    for (const auto &path : AtCoreDirectories::pluginDir) {
         qCDebug(ATCORE_PLUGIN) << "Lookin for plugins in " << path;
         if (QDir(path).exists()) {
             d->pluginsDir = QDir(path);
@@ -90,13 +92,10 @@ AtCore::AtCore(QObject *parent) :
             break;
         }
     }
+#endif
     if (!d->pluginsDir.exists()) {
         qCritical() << "No valid path for plugin !";
     }
-
-#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
-    d->pluginsDir = qApp->applicationDirPath() + QStringLiteral("/plugins");
-#endif
     qCDebug(ATCORE_PLUGIN) << d->pluginsDir;
     findFirmwarePlugins();
     setState(AtCore::DISCONNECTED);
