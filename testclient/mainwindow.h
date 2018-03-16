@@ -26,8 +26,8 @@
 #include <QMainWindow>
 #include <QSerialPort>
 
-#include "ui_mainwindow.h"
 #include "atcore.h"
+#include "widgets/plotwidget.h"
 
 class SerialLayer;
 
@@ -173,8 +173,9 @@ private slots:
 
     /**
      * @brief show/hide dock titlebars
+     * @param checked: True if shown
      */
-    void toggleDockTitles();
+    void toggleDockTitles(bool checked);
 
     /**
      * @brief Toggle disable state of dangerous docks
@@ -182,10 +183,6 @@ private slots:
      * @param disabled: True if items are disabled.
      */
     void setDangeriousDocksDisabled(bool disabled);
-    /**
-     * @brief Show the about dialog
-     */
-    void about();
 
     /**
      * @brief List Files on the sd card.
@@ -198,7 +195,6 @@ private slots:
     void sdDelPBClicked();
 
 private:
-    Ui::MainWindow *ui;
     AtCore *core;
     QTemporaryFile *logFile;
     QTime *printTime;
@@ -288,4 +284,77 @@ private:
      * @brief Gui Changes for when sd card mount status has changed.
      */
     void sdChanged(bool mounted);
+
+    //UI Functions
+
+    /**
+     * @brief Create The Menubar
+     */
+    void initMenu();
+
+    /**
+     * @brief Create StatusBar
+     */
+    void initStatusBar();
+
+    /**
+     * @brief Create Main Widgets.
+     */
+    void initWidgets();
+
+//Private GUI Items
+    //menuView is global to allow for docks to be added / removed.
+    QMenu *menuView = nullptr;
+    //Status Bar Items
+    QLabel *lblState = nullptr;
+    QLabel *lblSd = nullptr;
+    QWidget *printProgressWidget = nullptr;
+    QProgressBar *printingProgress = nullptr;
+    QLabel *lblTime = nullptr;
+    QLabel *lblTimeLeft = nullptr;
+    //Docks
+    void makeLogDock();
+    QDockWidget *logDock = nullptr;
+    QPlainTextEdit *textLog = nullptr;
+
+    void makeTempTimelineDock();
+    QDockWidget *tempTimelineDock = nullptr;
+    PlotWidget *plotWidget = nullptr;
+
+    void makeCommandDock();
+    QDockWidget *printDock = nullptr;
+    QDockWidget *commandDock = nullptr;
+    QLineEdit *lineCommand = nullptr;
+    QLineEdit *lineMessage = nullptr;
+
+    void makePrintDock();
+    QPushButton *buttonPrint = nullptr;
+    QLineEdit *linePostPause = nullptr;
+    QSpinBox *sbFlowRate = nullptr;
+    QSpinBox *sbPrintSpeed = nullptr;
+
+    void makeConnectDock();
+    QDockWidget *connectDock = nullptr;
+    QComboBox *comboPort = nullptr;
+    QComboBox *comboBAUD = nullptr;
+    QComboBox *comboPlugin = nullptr;
+    QPushButton *buttonConnect = nullptr;
+
+    void makeMoveDock();
+    QDockWidget *moveDock = nullptr;
+    QComboBox *comboMoveAxis = nullptr;
+    QDoubleSpinBox *sbMoveAxis = nullptr;
+
+    void makeTempControlsDock();
+    QDockWidget *tempControlsDock = nullptr;
+    QCheckBox *checkAndWait = nullptr;
+    QSpinBox *sbBedTemp = nullptr;
+    QComboBox *comboExtruderSelect;
+    QSpinBox *sbExtruderTemp;
+    QComboBox *comboFanSelect;
+    QSpinBox *sbFanSpeed;
+
+    void makeSdDock();
+    QDockWidget *sdDock = nullptr;
+    QListWidget *listSdFiles = nullptr;
 };

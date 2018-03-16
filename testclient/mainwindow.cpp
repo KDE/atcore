@@ -39,124 +39,506 @@ int MainWindow::fanCount = 4;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow),
     core(new AtCore(this)),
     logFile(new QTemporaryFile(QDir::tempPath() + QStringLiteral("/AtCore_")))
 {
-    ui->setupUi(this);
+    setWindowTitle(tr("AtCore - Test Client"));
     setWindowIcon(QIcon(QStringLiteral(":/icon/windowIcon")));
     QCoreApplication::setApplicationVersion(core->version());
-    ui->serialPortCB->setEditable(true);
-    QValidator *validator = new QIntValidator();
-    ui->baudRateLE->setValidator(validator);
-    ui->baudRateLE->addItems(core->portSpeeds());
-    ui->baudRateLE->setCurrentIndex(9);
-
-    ui->pluginCB->addItem(tr("Autodetect"));
-    ui->pluginCB->addItems(core->availableFirmwarePlugins());
-
-    AxisControl *axisControl = new AxisControl;
-    ui->moveDockContents->layout()->addWidget(axisControl);
+    initMenu();
+    initStatusBar();
+    initWidgets();
 
     addLog(tr("Attempting to locate Serial Ports"));
     core->setSerialTimerInterval(1000);
-    setDangeriousDocksDisabled(true);
-    populateCBs();
 
-    //Icon for actionQuit
-#ifndef Q_OS_MAC
-    ui->actionQuit->setIcon(QIcon::fromTheme(QStringLiteral("application-exit")));
-#endif
-
-    //hide the printing progress bar.
-    ui->printLayout->setVisible(false);
-
-    ui->statusBar->addWidget(ui->statusBarWidget);
     printTime = new QTime();
     printTimer = new QTimer();
     printTimer->setInterval(1000);
     printTimer->setSingleShot(false);
     connect(printTimer, &QTimer::timeout, this, &MainWindow::updatePrintTime);
 
-    connect(ui->connectPB, &QPushButton::clicked, this, &MainWindow::connectPBClicked);
-    connect(ui->saveLogPB, &QPushButton::clicked, this, &MainWindow::saveLogPBClicked);
-    connect(ui->sendPB, &QPushButton::clicked, this, &MainWindow::sendPBClicked);
-    connect(ui->commandLE, &QLineEdit::returnPressed, this, &MainWindow::sendPBClicked);
-    connect(ui->homeAllPB, &QPushButton::clicked, this, &MainWindow::homeAllPBClicked);
-    connect(ui->homeXPB, &QPushButton::clicked, this, &MainWindow::homeXPBClicked);
-    connect(ui->homeYPB, &QPushButton::clicked, this, &MainWindow::homeYPBClicked);
-    connect(ui->homeZPB, &QPushButton::clicked, this, &MainWindow::homeZPBClicked);
-    connect(ui->bedTempPB, &QPushButton::clicked, this, &MainWindow::bedTempPBClicked);
-    connect(ui->extTempPB, &QPushButton::clicked, this, &MainWindow::extTempPBClicked);
-    connect(ui->mvAxisPB, &QPushButton::clicked, this, &MainWindow::mvAxisPBClicked);
-    connect(ui->fanSpeedPB, &QPushButton::clicked, this, &MainWindow::fanSpeedPBClicked);
-    connect(ui->printPB, &QPushButton::clicked, this, &MainWindow::printPBClicked);
-    connect(ui->sdPrintPB, &QPushButton::clicked, this, &MainWindow::sdPrintPBClicked);
-    connect(ui->sdDelPB, &QPushButton::clicked, this, &MainWindow::sdDelPBClicked);
-    connect(ui->printerSpeedPB, &QPushButton::clicked, this, &MainWindow::printerSpeedPBClicked);
-    connect(ui->flowRatePB, &QPushButton::clicked, this, &MainWindow::flowRatePBClicked);
-    connect(ui->showMessagePB, &QPushButton::clicked, this, &MainWindow::showMessage);
-    connect(ui->pluginCB, &QComboBox::currentTextChanged, this, &MainWindow::pluginCBChanged);
-    connect(ui->disableMotorsPB, &QPushButton::clicked, this, &MainWindow::disableMotorsPBClicked);
-    connect(ui->sdListPB, &QPushButton::clicked, this, &MainWindow::getSdList);
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
-    connect(ui->stopPB, &QPushButton::clicked, core, &AtCore::stop);
-    connect(ui->emergencyStopPB, &QPushButton::clicked, core, &AtCore::emergencyStop);
-    connect(axisControl, &AxisControl::clicked, this, &MainWindow::axisControlClicked);
     connect(core, &AtCore::portsChanged, this, &MainWindow::locateSerialPort);
     connect(core, &AtCore::printProgressChanged, this, &MainWindow::printProgressChanged);
     connect(core, &AtCore::sdMountChanged, this, &MainWindow::sdChanged);
 
     connect(core, &AtCore::sdCardFileListChanged, [ & ](QStringList fileList) {
-        ui->sdFileListView->clear();
-        ui->sdFileListView->addItems(fileList);
+        listSdFiles->clear();
+        listSdFiles->addItems(fileList);
     });
 
     connect(&core->temperature(), &Temperature::bedTemperatureChanged, [ this ](float temp) {
         checkTemperature(0x00, 0, temp);
-        ui->plotWidget->appendPoint(tr("Actual Bed"), temp);
-        ui->plotWidget->update();
+        plotWidget->appendPoint(tr("Actual Bed"), temp);
+        plotWidget->update();
     });
     connect(&core->temperature(), &Temperature::bedTargetTemperatureChanged, [ this ](float temp) {
         checkTemperature(0x01, 0, temp);
-        ui->plotWidget->appendPoint(tr("Target Bed"), temp);
-        ui->plotWidget->update();
+        plotWidget->appendPoint(tr("Target Bed"), temp);
+        plotWidget->update();
     });
     connect(&core->temperature(), &Temperature::extruderTemperatureChanged, [ this ](float temp) {
         checkTemperature(0x02, 0, temp);
-        ui->plotWidget->appendPoint(tr("Actual Ext.1"), temp);
-        ui->plotWidget->update();
+        plotWidget->appendPoint(tr("Actual Ext.1"), temp);
+        plotWidget->update();
     });
     connect(&core->temperature(), &Temperature::extruderTargetTemperatureChanged, [ this ](float temp) {
         checkTemperature(0x03, 0, temp);
-        ui->plotWidget->appendPoint(tr("Target Ext.1"), temp);
-        ui->plotWidget->update();
+        plotWidget->appendPoint(tr("Target Ext.1"), temp);
+        plotWidget->update();
     });
+}
 
-    connect(ui->actionQuit, &QAction::triggered, this, &MainWindow::close);
-    connect(ui->actionShowDockTitles, &QAction::toggled, this, &MainWindow::toggleDockTitles);
-    connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::about);
+void MainWindow::initMenu()
+{
+    QMenu *menuFile = new QMenu(tr("File"));
+    QAction *actionQuit = new QAction(style()->standardIcon(QStyle::SP_DialogCloseButton), tr("Quit"));
+    connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
+    menuFile->addAction(actionQuit);
 
-    ui->menuView->insertAction(nullptr, ui->connectDock->toggleViewAction());
-    ui->menuView->insertAction(nullptr, ui->tempControlsDock->toggleViewAction());
-    ui->menuView->insertAction(nullptr, ui->commandDock->toggleViewAction());
-    ui->menuView->insertAction(nullptr, ui->printDock->toggleViewAction());
-    ui->menuView->insertAction(nullptr, ui->moveDock->toggleViewAction());
-    ui->menuView->insertAction(nullptr, ui->tempTimelineDock->toggleViewAction());
-    ui->menuView->insertAction(nullptr, ui->logDock->toggleViewAction());
-    ui->menuView->insertAction(nullptr, ui->sdDock->toggleViewAction());
+    menuView = new QMenu(tr("View"));
+    QAction *actionShowDockTitles = new QAction(tr("Show Dock Titles"));
+    actionShowDockTitles->setCheckable(true);
+    actionShowDockTitles->setChecked(true);
+    connect(actionShowDockTitles, &QAction::toggled, this, &MainWindow::toggleDockTitles);
+    menuView->addAction(actionShowDockTitles);
 
-    //more dock stuff.
+    QMenu *menuHelp = new QMenu(tr("Help"));
+    QAction *actionAbout = new QAction(tr("About"));
+    actionAbout->setShortcut(QKeySequence(Qt::Key_F1));
+    connect(actionAbout, &QAction::triggered, [] {
+        auto *dialog = new About;
+        dialog->exec();
+    });
+    menuHelp->addAction(actionAbout);
+
+    menuBar()->addMenu(menuFile);
+    menuBar()->addMenu(menuView);
+    menuBar()->addMenu(menuHelp);
+}
+
+void MainWindow::initStatusBar()
+{
+    //first create the item for the print Progress.
+    printingProgress = new QProgressBar;
+    auto *newButton = new QPushButton(style()->standardIcon(QStyle::SP_BrowserStop), QString());
+    connect(newButton, &QPushButton::clicked, core, &AtCore::stop);
+    lblTime = new QLabel(QStringLiteral("00:00:00"));
+    lblTime->setAlignment(Qt::AlignHCenter);
+    auto *newLabel = new QLabel(QStringLiteral(" / "));
+    lblTimeLeft = new QLabel(QStringLiteral("00:00:00"));
+    lblTimeLeft->setAlignment(Qt::AlignHCenter);
+
+    auto *hBoxLayout = new QHBoxLayout;
+    hBoxLayout->addWidget(printingProgress);
+    hBoxLayout->addWidget(newButton);
+    hBoxLayout->addWidget(lblTime);
+    hBoxLayout->addWidget(newLabel);
+    hBoxLayout->addWidget(lblTimeLeft);
+    printProgressWidget = new QWidget();
+    printProgressWidget->setLayout(hBoxLayout);
+
+    //Then Create the full bar.
+    newLabel = new QLabel(tr("AtCore State:"));
+    lblState = new QLabel(tr("Not Connected"));
+    lblSd = new QLabel();
+
+    hBoxLayout = new QHBoxLayout;
+    hBoxLayout->addWidget(newLabel);
+    hBoxLayout->addWidget(lblState);
+    hBoxLayout->addSpacerItem(new QSpacerItem(10, 20, QSizePolicy::Fixed));
+    hBoxLayout->addWidget(lblSd);
+    hBoxLayout->addSpacerItem(new QSpacerItem(40, 20, QSizePolicy::Expanding));
+    hBoxLayout->addWidget(printProgressWidget);
+
+    //Then put it all into a widget on the bar.
+    QWidget *sBar = new QWidget();
+    sBar->setLayout(hBoxLayout);
+    statusBar()->addPermanentWidget(sBar, 100);
+}
+
+void MainWindow::initWidgets()
+{
+    //Make the Docks
+    makeCommandDock();
+    makePrintDock();
+    makeTempTimelineDock();
+    makeLogDock();
+    makeConnectDock();
+    makeMoveDock();
+    makeTempControlsDock();
+    makeSdDock();
+
+    setDangeriousDocksDisabled(true);
+
     setTabPosition(Qt::LeftDockWidgetArea, QTabWidget::North);
     setTabPosition(Qt::RightDockWidgetArea, QTabWidget::North);
-    tabifyDockWidget(ui->moveDock, ui->tempControlsDock);
-    tabifyDockWidget(ui->moveDock, ui->sdDock);
-    ui->moveDock->raise();
+    tabifyDockWidget(moveDock, tempControlsDock);
+    tabifyDockWidget(moveDock, sdDock);
+    moveDock->raise();
 
-    tabifyDockWidget(ui->connectDock, ui->printDock);
-    tabifyDockWidget(ui->connectDock, ui->commandDock);
-    ui->connectDock->raise();
+    tabifyDockWidget(connectDock, printDock);
+    tabifyDockWidget(connectDock, commandDock);
+    connectDock->raise();
     setCentralWidget(nullptr);
+
+    //More Gui stuff
+    populateCBs();
+    //hide the printing progress bar.
+    printProgressWidget->setVisible(false);
+}
+
+void MainWindow::makeCommandDock()
+{
+    //The processing for making a dock is the same for all docks
+    //Expose the least amount of object outside the creation function.
+
+    // First we make our mainLayout for the dock.
+    auto *mainLayout = new QVBoxLayout;
+
+    //Begin making content from top to bottom or left to right.
+    //Making child layouts in the order you want to put them
+    // onto the mainLayout
+    lineCommand = new QLineEdit;
+    lineCommand->setPlaceholderText(tr("Send Command"));
+
+    //we have a few buttons to make here. Lets name this newButton so its easier to reuse
+    auto *newButton = new QPushButton(tr("Send"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::sendPBClicked);
+
+    //When you have created a Row put the items into layout.
+    auto *hBoxLayout = new QHBoxLayout;
+    hBoxLayout->addWidget(lineCommand);
+    hBoxLayout->addWidget(newButton);
+    //Put the Layout or Widget on the mainLayout when its finished.
+    //This will free your pointers for reuse.
+    mainLayout->addLayout(hBoxLayout);
+
+    //Start making items for the next layout to place onto the mainLayout.
+    lineMessage = new QLineEdit;
+    lineMessage->setPlaceholderText(tr("Show Message"));
+
+    //Here we reuse our  button pointer my having it point to a new button.
+    newButton = new QPushButton(tr("Send"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::showMessage);
+
+    //We reuse the hBoxLayout pointer in the same way as the button pointer.
+    hBoxLayout = new QHBoxLayout;
+    hBoxLayout->addWidget(lineMessage);
+    hBoxLayout->addWidget(newButton);
+    mainLayout->addLayout(hBoxLayout);
+
+    //QDockWidget::setLayout is not ment to be used by us
+    //We must instead Create a widget to hold or dock contents.
+    auto *dockContents = new QWidget;
+    dockContents->setLayout(mainLayout);
+
+    //Finally create the dock, and set the Widget.
+    commandDock = new QDockWidget(tr("Commands"), this);
+    commandDock->setWidget(dockContents);
+
+    //Push the toggle view action into our view menu
+    menuView->insertAction(nullptr, commandDock->toggleViewAction());
+
+    //Place the Dock into a DockWidget Area.
+    //Failure todo this will create some odd side effects at runtime
+    addDockWidget(Qt::LeftDockWidgetArea, commandDock);
+}
+
+void MainWindow::makePrintDock()
+{
+    auto *mainLayout = new QVBoxLayout;
+
+    buttonPrint = new QPushButton(tr("Print File"));
+    connect(buttonPrint, &QPushButton::clicked, this, &MainWindow::printPBClicked);
+
+    auto *newButton = new QPushButton(tr("Emergency Stop"));
+    connect(newButton, &QPushButton::clicked, core, &AtCore::emergencyStop);
+
+    auto *hBoxLayout = new QHBoxLayout;
+    hBoxLayout->addWidget(buttonPrint);
+    hBoxLayout->addWidget(newButton);
+    mainLayout->addLayout(hBoxLayout);
+
+    auto *newLabel = new QLabel(tr("On Pause:"));
+    linePostPause = new QLineEdit;
+    linePostPause->setPlaceholderText(QStringLiteral("G91,G0 Z1,G90,G1 X0 Y195"));
+
+    hBoxLayout = new QHBoxLayout;
+    hBoxLayout->addWidget(newLabel);
+    hBoxLayout->addWidget(linePostPause);
+    mainLayout->addLayout(hBoxLayout);
+
+    newLabel = new QLabel(tr("Printer Speed"));
+    sbPrintSpeed = new QSpinBox;
+    sbPrintSpeed->setRange(1, 300);
+    sbPrintSpeed->setValue(100);
+    sbPrintSpeed->setSuffix(QStringLiteral("%"));
+
+    newButton = new QPushButton(tr("Set"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::printerSpeedPBClicked);
+
+    hBoxLayout = new QHBoxLayout;
+    hBoxLayout->addWidget(newLabel, 35);
+    hBoxLayout->addWidget(sbPrintSpeed, 10);
+    hBoxLayout->addWidget(newButton, 20);
+    mainLayout->addLayout(hBoxLayout);
+
+    newLabel = new QLabel(tr("Flow Rate"));
+    sbFlowRate = new QSpinBox;
+    sbFlowRate->setRange(1, 300);
+    sbFlowRate->setValue(100);
+    sbFlowRate->setSuffix(QStringLiteral("%"));
+
+    newButton = new QPushButton(tr("Set"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::flowRatePBClicked);
+
+    hBoxLayout = new QHBoxLayout;
+    hBoxLayout->addWidget(newLabel, 35);
+    hBoxLayout->addWidget(sbFlowRate, 10);
+    hBoxLayout->addWidget(newButton, 20);
+    mainLayout->addLayout(hBoxLayout);
+
+    auto *dockContents = new QWidget;
+    dockContents->setLayout(mainLayout);
+
+    printDock = new QDockWidget(tr("Print"), this);
+    printDock->setWidget(dockContents);
+
+    menuView->insertAction(nullptr, printDock->toggleViewAction());
+    addDockWidget(Qt::LeftDockWidgetArea, printDock);
+}
+
+void MainWindow::makeTempTimelineDock()
+{
+    plotWidget = new PlotWidget;
+    tempTimelineDock = new QDockWidget(tr("Temperature Timeline"), this);
+    tempTimelineDock->setWidget(plotWidget);
+    menuView->insertAction(nullptr, tempTimelineDock->toggleViewAction());
+    addDockWidget(Qt::RightDockWidgetArea, tempTimelineDock);
+}
+
+void MainWindow::makeLogDock()
+{
+    textLog = new QPlainTextEdit;
+    textLog->setReadOnly(true);
+    textLog->setMaximumBlockCount(1000);
+
+    auto *newButton = new QPushButton(style()->standardIcon(QStyle::SP_DialogSaveButton), tr("Save Session Log"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::saveLogPBClicked);
+
+    auto *mainLayout = new QVBoxLayout;
+    mainLayout->addWidget(textLog);
+    mainLayout->addWidget(newButton);
+
+    auto *dockContents = new QWidget();
+    dockContents->setLayout(mainLayout);
+
+    logDock = new QDockWidget(tr("Session Log"), this);
+    logDock->setWidget(dockContents);
+
+    menuView->insertAction(nullptr, logDock->toggleViewAction());
+    addDockWidget(Qt::RightDockWidgetArea, logDock);
+}
+
+void MainWindow::makeConnectDock()
+{
+    auto *mainLayout = new QVBoxLayout;
+    auto *newLabel = new QLabel(tr("Port:"));
+
+    comboPort = new QComboBox;
+    comboPort->setEditable(true);
+
+    auto *hBoxLayout = new QHBoxLayout;
+    hBoxLayout->addWidget(newLabel);
+    hBoxLayout->addWidget(comboPort, 75);
+    mainLayout->addLayout(hBoxLayout);
+
+    newLabel = new QLabel(tr("Baud Rate:"));
+    comboBAUD = new QComboBox;
+    comboBAUD->addItems(core->portSpeeds());
+    comboBAUD->setCurrentIndex(9);
+
+    hBoxLayout = new QHBoxLayout;
+    hBoxLayout->addWidget(newLabel);
+    hBoxLayout->addWidget(comboBAUD, 75);
+    mainLayout->addLayout(hBoxLayout);
+
+    newLabel = new QLabel(tr("Use Plugin:"));
+    comboPlugin = new QComboBox;
+    comboPlugin->addItem(tr("Autodetect"));
+    comboPlugin->addItems(core->availableFirmwarePlugins());
+    connect(comboPlugin, &QComboBox::currentTextChanged, this, &MainWindow::pluginCBChanged);
+
+    hBoxLayout = new QHBoxLayout;
+    hBoxLayout->addWidget(newLabel);
+    hBoxLayout->addWidget(comboPlugin, 75);
+    mainLayout->addLayout(hBoxLayout);
+
+    buttonConnect = new QPushButton(tr("Connect"));
+    connect(buttonConnect, &QPushButton::clicked, this, &MainWindow::connectPBClicked);
+    mainLayout->addWidget(buttonConnect);
+
+    auto *dockContents = new QWidget;
+    dockContents->setLayout(mainLayout);
+
+    connectDock = new QDockWidget(tr("Connect"), this);
+    connectDock->setWidget(dockContents);
+
+    menuView->insertAction(nullptr, connectDock->toggleViewAction());
+    addDockWidget(Qt::LeftDockWidgetArea, connectDock);
+}
+
+void MainWindow::makeMoveDock()
+{
+    auto *mainLayout = new QVBoxLayout;
+    auto *hBoxLayout = new QHBoxLayout;
+
+    auto *newButton = new QPushButton(tr("Home All"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::homeAllPBClicked);
+    hBoxLayout->addWidget(newButton);
+
+    newButton = new QPushButton(tr("Home X"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::homeXPBClicked);
+    hBoxLayout->addWidget(newButton);
+
+    newButton = new QPushButton(tr("Home Y"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::homeYPBClicked);
+    hBoxLayout->addWidget(newButton);
+
+    newButton = new QPushButton(tr("Home Z"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::homeZPBClicked);
+    hBoxLayout->addWidget(newButton);
+
+    mainLayout->addLayout(hBoxLayout);
+
+    comboMoveAxis = new QComboBox;
+    comboMoveAxis->addItem(tr("Move X Axis to"));
+    comboMoveAxis->addItem(tr("Move Y Axis to"));
+    comboMoveAxis->addItem(tr("Move Z Axis to"));
+
+    sbMoveAxis = new QDoubleSpinBox;
+    sbMoveAxis->setRange(0, 200);
+
+    newButton = new QPushButton(tr("Go"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::mvAxisPBClicked);
+
+    hBoxLayout = new QHBoxLayout;
+    hBoxLayout->addWidget(comboMoveAxis);
+    hBoxLayout->addWidget(sbMoveAxis);
+    hBoxLayout->addWidget(newButton);
+    mainLayout->addLayout(hBoxLayout);
+
+    newButton = new QPushButton(tr("Disable Motors"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::disableMotorsPBClicked);
+    mainLayout->addWidget(newButton);
+
+    auto *axisControl = new AxisControl;
+    connect(axisControl, &AxisControl::clicked, this, &MainWindow::axisControlClicked);
+    mainLayout->addWidget(axisControl);
+
+    auto *dockContents = new QWidget;
+    dockContents->setLayout(mainLayout);
+
+    moveDock = new QDockWidget(tr("Movement"), this);
+    moveDock->setWidget(dockContents);
+
+    menuView->insertAction(nullptr, moveDock->toggleViewAction());
+    addDockWidget(Qt::LeftDockWidgetArea, moveDock);
+}
+
+void MainWindow::makeTempControlsDock()
+{
+    auto *mainLayout = new QVBoxLayout;
+    checkAndWait = new QCheckBox(tr("Wait Untill Temperature Stablizes"));
+    mainLayout->addWidget(checkAndWait);
+
+    auto label = new QLabel(tr("Bed Temp"));
+
+    sbBedTemp = new QSpinBox;
+    sbBedTemp->setRange(0, 120);
+    sbBedTemp->setSuffix(QStringLiteral("°C"));
+
+    auto *newButton = new QPushButton(tr("Set"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::bedTempPBClicked);
+
+    auto *hboxLayout = new QHBoxLayout;
+    hboxLayout->addWidget(label, 80);
+    hboxLayout->addWidget(sbBedTemp);
+    hboxLayout->addWidget(newButton);
+    mainLayout->addItem(hboxLayout);
+
+    comboExtruderSelect = new QComboBox;
+    sbExtruderTemp = new QSpinBox;
+    sbExtruderTemp->setRange(0, 275);
+    sbExtruderTemp->setSuffix(QStringLiteral("°C"));
+
+    newButton = new QPushButton(tr("Set"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::extTempPBClicked);
+    hboxLayout = new QHBoxLayout;
+    hboxLayout->addWidget(comboExtruderSelect, 80);
+    hboxLayout->addWidget(sbExtruderTemp);
+    hboxLayout->addWidget(newButton);
+    mainLayout->addItem(hboxLayout);
+
+    comboFanSelect = new QComboBox;
+    sbFanSpeed = new QSpinBox;
+    sbFanSpeed->setRange(0, 100);
+    sbFanSpeed->setSuffix(QStringLiteral("%"));
+
+    newButton = new QPushButton(tr("Set"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::fanSpeedPBClicked);
+    hboxLayout = new QHBoxLayout;
+    hboxLayout->addWidget(comboFanSelect, 80);
+    hboxLayout->addWidget(sbFanSpeed);
+    hboxLayout->addWidget(newButton);
+    mainLayout->addItem(hboxLayout);
+
+    auto *dockContents = new QWidget;
+    dockContents->setLayout(mainLayout);
+
+    tempControlsDock = new QDockWidget(tr("Temperatures"), this);
+    tempControlsDock->setWidget(dockContents);
+
+    menuView->insertAction(nullptr, tempControlsDock->toggleViewAction());
+    addDockWidget(Qt::LeftDockWidgetArea, tempControlsDock);
+}
+
+void MainWindow::makeSdDock()
+{
+    auto *hBoxLayout = new QHBoxLayout;
+
+    auto *newButton = new QPushButton(tr("Get List"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::getSdList);
+    hBoxLayout->addWidget(newButton);
+
+    newButton = new QPushButton(tr("Print Selected"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::sdPrintPBClicked);
+    hBoxLayout->addWidget(newButton);
+
+    newButton = new QPushButton(tr("Delete Selected"));
+    connect(newButton, &QPushButton::clicked, this, &MainWindow::sdDelPBClicked);
+    hBoxLayout->addWidget(newButton);
+
+    auto *groupFiles =  new QGroupBox(tr("Files On Sd Card"));
+    listSdFiles = new QListWidget;
+    auto *groupLayout = new QVBoxLayout;
+    groupLayout->addWidget(listSdFiles);
+    groupFiles->setLayout(groupLayout);
+
+    auto *mainLayout = new QVBoxLayout;
+    mainLayout->addItem(hBoxLayout);
+    mainLayout->addWidget(groupFiles);
+
+    auto *dockContents = new QWidget;
+    dockContents->setLayout(mainLayout);
+
+    sdDock = new QDockWidget(tr("Sd Card"), this);
+    sdDock->setWidget(dockContents);
+
+    menuView->insertAction(nullptr, sdDock->toggleViewAction());
+    addDockWidget(Qt::LeftDockWidgetArea, sdDock);
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
@@ -168,7 +550,6 @@ void MainWindow::closeEvent(QCloseEvent *event)
 MainWindow::~MainWindow()
 {
     delete logFile;
-    delete ui;
 }
 
 QString MainWindow::getTime()
@@ -209,21 +590,21 @@ void MainWindow::writeTempFile(QString text)
 void MainWindow::addLog(QString msg)
 {
     QString message(logHeader() + msg);
-    ui->logTE->appendPlainText(message);
+    textLog->appendPlainText(message);
     writeTempFile(message);
 }
 
 void MainWindow::addRLog(QString msg)
 {
     QString message(rLogHeader() + msg);
-    ui->logTE->appendPlainText(message);
+    textLog->appendPlainText(message);
     writeTempFile(message);
 }
 
 void MainWindow::addSLog(QString msg)
 {
     QString message(sLogHeader() + msg);
-    ui->logTE->appendPlainText(message);
+    textLog->appendPlainText(message);
     writeTempFile(message);
 }
 
@@ -284,13 +665,13 @@ void MainWindow::checkTemperature(uint sensorType, uint number, uint temp)
  */
 void MainWindow::locateSerialPort(const QStringList &ports)
 {
-    ui->serialPortCB->clear();
+    comboPort->clear();
     if (!ports.isEmpty()) {
-        ui->serialPortCB->addItems(ports);
+        comboPort->addItems(ports);
         addLog(tr("Found %1 Ports").arg(QString::number(ports.count())));
     } else {
         QString portError(tr("No available ports! Please connect a serial device to continue!"));
-        if (! ui->logTE->toPlainText().endsWith(portError)) {
+        if (! textLog->toPlainText().endsWith(portError)) {
             addLog(portError);
         }
     }
@@ -299,16 +680,16 @@ void MainWindow::locateSerialPort(const QStringList &ports)
 void MainWindow::connectPBClicked()
 {
     if (core->state() == AtCore::DISCONNECTED) {
-        if (core->initSerial(ui->serialPortCB->currentText(), ui->baudRateLE->currentText().toInt())) {
+        if (core->initSerial(comboPort->currentText(), comboBAUD->currentText().toInt())) {
             connect(core, &AtCore::receivedMessage, this, &MainWindow::checkReceivedCommand);
             connect(core->serial(), &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
-            ui->connectPB->setText(tr("Disconnect"));
+            buttonConnect->setText(tr("Disconnect"));
             addLog(tr("Serial connected"));
-            if (ui->pluginCB->currentText().contains(tr("Autodetect"))) {
+            if (comboPlugin->currentText().contains(tr("Autodetect"))) {
                 addLog(tr("No plugin loaded !"));
                 addLog(tr("Requesting Firmware..."));
             } else {
-                core->loadFirmwarePlugin(ui->pluginCB->currentText());
+                core->loadFirmwarePlugin(comboPlugin->currentText());
             }
         } else {
             addLog(tr("Failed to open serial in r/w mode"));
@@ -319,15 +700,15 @@ void MainWindow::connectPBClicked()
         core->closeConnection();
         core->setState(AtCore::DISCONNECTED);
         addLog(tr("Disconnected"));
-        ui->connectPB->setText(tr("Connect"));
+        buttonConnect->setText(tr("Connect"));
     }
 }
 
 void MainWindow::sendPBClicked()
 {
-    QString comm = ui->commandLE->text().toUpper();
+    QString comm = lineCommand->text().toUpper();
     core->pushCommand(comm);
-    ui->commandLE->clear();
+    lineCommand->clear();
 }
 
 void MainWindow::homeAllPBClicked()
@@ -356,40 +737,40 @@ void MainWindow::homeZPBClicked()
 
 void MainWindow::bedTempPBClicked()
 {
-    if (ui->cb_andWait->isChecked()) {
+    if (checkAndWait->isChecked()) {
         addSLog(GCode::description(GCode::M190));
     } else {
         addSLog(GCode::description(GCode::M140));
     }
-    core->setBedTemp(ui->bedTempSB->value(), ui->cb_andWait->isChecked());
+    core->setBedTemp(sbBedTemp->value(), checkAndWait->isChecked());
 }
 
 void MainWindow::extTempPBClicked()
 {
-    if (ui->cb_andWait->isChecked()) {
+    if (checkAndWait->isChecked()) {
         addSLog(GCode::description(GCode::M109));
     } else {
         addSLog(GCode::description(GCode::M104));
     }
-    core->setExtruderTemp(ui->extTempSB->value(), ui->extTempSelCB->currentIndex(), ui->cb_andWait->isChecked());
+    core->setExtruderTemp(sbExtruderTemp->value(), comboExtruderSelect->currentIndex(), checkAndWait->isChecked());
 }
 
 void MainWindow::mvAxisPBClicked()
 {
     addSLog(GCode::description(GCode::G1));
-    if (ui->mvAxisCB->currentIndex() == 0) {
-        core->move(AtCore::X, ui->mvAxisSB->value());
-    } else if (ui->mvAxisCB->currentIndex() == 1) {
-        core->move(AtCore::Y, ui->mvAxisSB->value());
-    } else if (ui->mvAxisCB->currentIndex() == 2) {
-        core->move(AtCore::Z, ui->mvAxisSB->value());
+    if (comboMoveAxis->currentIndex() == 0) {
+        core->move(AtCore::X, sbMoveAxis->value());
+    } else if (comboMoveAxis->currentIndex() == 1) {
+        core->move(AtCore::Y, sbMoveAxis->value());
+    } else if (comboMoveAxis->currentIndex() == 2) {
+        core->move(AtCore::Z, sbMoveAxis->value());
     }
 }
 
 void MainWindow::fanSpeedPBClicked()
 {
     addSLog(GCode::description(GCode::M106));
-    core->setFanSpeed(ui->fanSpeedSB->value(), ui->fanSpeedSelCB->currentIndex());
+    core->setFanSpeed(sbFanSpeed->value(), comboFanSelect->currentIndex());
 }
 
 void MainWindow::printPBClicked()
@@ -403,11 +784,11 @@ void MainWindow::printPBClicked()
 
     case AtCore::CONNECTING:
         QMessageBox::information(this, tr("Error"), tr(" A Firmware Plugin was not loaded!\n  Please send the command M115 and let us know what your firmware returns, so we can improve our firmware detection. We have loaded the most common plugin \"repetier\" for you. You may try to print again after this message"));
-        ui->pluginCB->setCurrentText(QStringLiteral("repetier"));
+        comboPlugin->setCurrentText(QStringLiteral("repetier"));
         break;
 
     case AtCore::IDLE:
-        fileName = QFileDialog::getOpenFileName(this, tr("Select a file to print"), QDir::homePath(), QStringLiteral("*.gcode"));
+        fileName = QFileDialog::getOpenFileName(this, tr("Select a file to print"), QDir::homePath(), tr("*.gcode"));
         if (fileName.isNull()) {
             addLog(tr("No File Selected"));
         } else {
@@ -417,7 +798,7 @@ void MainWindow::printPBClicked()
         break;
 
     case AtCore::BUSY:
-        core->pause(ui->postPauseLE->text());
+        core->pause(linePostPause->text());
         break;
 
     case AtCore::PAUSE:
@@ -448,12 +829,12 @@ void MainWindow::pluginCBChanged(QString currentText)
 
 void MainWindow::flowRatePBClicked()
 {
-    core->setFlowRate(ui->flowRateSB->value());
+    core->setFlowRate(sbFlowRate->value());
 }
 
 void MainWindow::printerSpeedPBClicked()
 {
-    core->setPrinterSpeed(ui->printerSpeedSB->value());
+    core->setPrinterSpeed(sbPrintSpeed->value());
 }
 
 void MainWindow::printerStateChanged(AtCore::STATES state)
@@ -461,33 +842,33 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
     QString stateString;
     switch (state) {
     case AtCore::IDLE:
-        ui->printPB->setText(tr("Print File"));
-        stateString = QStringLiteral("Connected to ") + core->connectedPort();
+        buttonPrint->setText(tr("Print File"));
+        stateString = tr("Connected to ") + core->connectedPort();
         break;
 
     case AtCore::STARTPRINT:
-        stateString = QStringLiteral("START PRINT");
-        ui->printPB->setText(tr("Pause Print"));
-        ui->printLayout->setVisible(true);
+        stateString = tr("START PRINT");
+        buttonPrint->setText(tr("Pause Print"));
+        printProgressWidget->setVisible(true);
         printTime->start();
         printTimer->start();
         break;
 
     case AtCore::FINISHEDPRINT:
-        stateString = QStringLiteral("Finished Print");
-        ui->printPB->setText(tr("Print File"));
-        ui->printLayout->setVisible(false);
+        stateString = tr("Finished Print");
+        buttonPrint->setText(tr("Print File"));
+        printProgressWidget->setVisible(false);
         printTimer->stop();
         break;
 
     case AtCore::PAUSE:
-        stateString = QStringLiteral("Paused");
-        ui->printPB->setText(tr("Resume Print"));
+        stateString = tr("Paused");
+        buttonPrint->setText(tr("Resume Print"));
         break;
 
     case AtCore::BUSY:
-        stateString = QStringLiteral("Printing");
-        ui->printPB->setText(tr("Pause Print"));
+        stateString = tr("Printing");
+        buttonPrint->setText(tr("Pause Print"));
         break;
 
     case AtCore::DISCONNECTED:
@@ -501,86 +882,80 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
         break;
 
     case AtCore::STOP:
-        stateString = QStringLiteral("Stoping Print");
+        stateString = tr("Stoping Print");
         break;
 
     case AtCore::ERRORSTATE:
-        stateString = QStringLiteral("Command ERROR");
+        stateString = tr("Command ERROR");
         break;
     }
-    ui->lblState->setText(stateString);
+    lblState->setText(stateString);
 }
 
 void MainWindow::populateCBs()
 {
     // Extruders
     for (int count = 0; count < core->extruderCount(); count++) {
-        ui->extTempSelCB->insertItem(count, tr("Extruder %1").arg(count));
+        comboExtruderSelect->insertItem(count, tr("Extruder %1").arg(count));
     }
 
     // Fan
     for (int count = 0; count < fanCount; count++) {
-        ui->fanSpeedSelCB->insertItem(count, tr("Fan %1 speed").arg(count));
+        comboFanSelect->insertItem(count, tr("Fan %1 speed").arg(count));
     }
 }
 
 void MainWindow::showMessage()
 {
-    core->showMessage(ui->messageLE->text());
+    core->showMessage(lineMessage->text());
 }
 
 void MainWindow::updatePrintTime()
 {
     QTime temp(0, 0, 0);
-    ui->time->setText(temp.addMSecs(printTime->elapsed()).toString(QStringLiteral("hh:mm:ss")));
+    lblTime->setText(temp.addMSecs(printTime->elapsed()).toString(QStringLiteral("hh:mm:ss")));
 }
 
 void MainWindow::printProgressChanged(int progress)
 {
-    ui->printingProgress->setValue(progress);
+    printingProgress->setValue(progress);
     if (progress > 0) {
         QTime temp(0, 0, 0);
-        ui->timeLeft->setText(temp.addMSecs((100 - progress) * (printTime->elapsed() / progress)).toString(QStringLiteral("hh:mm:ss")));
+        lblTimeLeft->setText(temp.addMSecs((100 - progress) * (printTime->elapsed() / progress)).toString(QStringLiteral("hh:mm:ss")));
     } else {
-        ui->timeLeft->setText(QStringLiteral("??:??:??"));
+        lblTimeLeft->setText(QStringLiteral("??:??:??"));
     }
 }
-void MainWindow::toggleDockTitles()
+void MainWindow::toggleDockTitles(bool checked)
 {
-    if (ui->actionShowDockTitles->isChecked()) {
-        delete ui->connectDock->titleBarWidget();
-        delete ui->logDock->titleBarWidget();
-        delete ui->tempTimelineDock->titleBarWidget();
-        delete ui->commandDock->titleBarWidget();
-        delete ui->moveDock->titleBarWidget();
-        delete ui->tempControlsDock->titleBarWidget();
-        delete ui->printDock->titleBarWidget();
-        delete ui->sdDock->titleBarWidget();
+    if (checked) {
+        delete connectDock->titleBarWidget();
+        delete logDock->titleBarWidget();
+        delete tempTimelineDock->titleBarWidget();
+        delete commandDock->titleBarWidget();
+        delete moveDock->titleBarWidget();
+        delete tempControlsDock->titleBarWidget();
+        delete printDock->titleBarWidget();
+        delete sdDock->titleBarWidget();
     } else {
-        ui->connectDock->setTitleBarWidget(new QWidget());
-        ui->logDock->setTitleBarWidget(new QWidget());
-        ui->tempTimelineDock->setTitleBarWidget(new QWidget());
-        ui->commandDock->setTitleBarWidget(new QWidget());
-        ui->moveDock->setTitleBarWidget(new QWidget());
-        ui->tempControlsDock->setTitleBarWidget(new QWidget());
-        ui->printDock->setTitleBarWidget(new QWidget());
-        ui->sdDock->setTitleBarWidget(new QWidget());
+        connectDock->setTitleBarWidget(new QWidget());
+        logDock->setTitleBarWidget(new QWidget());
+        tempTimelineDock->setTitleBarWidget(new QWidget());
+        commandDock->setTitleBarWidget(new QWidget());
+        moveDock->setTitleBarWidget(new QWidget());
+        tempControlsDock->setTitleBarWidget(new QWidget());
+        printDock->setTitleBarWidget(new QWidget());
+        sdDock->setTitleBarWidget(new QWidget());
     }
 }
 
 void MainWindow::setDangeriousDocksDisabled(bool disabled)
 {
-    ui->commandDock->widget()->setDisabled(disabled);
-    ui->moveDock->widget()->setDisabled(disabled);
-    ui->tempControlsDock->widget()->setDisabled(disabled);
-    ui->printDock->widget()->setDisabled(disabled);
-    ui->sdDock->widget()->setDisabled(disabled);
-}
-
-void MainWindow::about()
-{
-    About *aboutDialog = new About(this);
-    aboutDialog->exec();
+    commandDock->widget()->setDisabled(disabled);
+    moveDock->widget()->setDisabled(disabled);
+    tempControlsDock->widget()->setDisabled(disabled);
+    printDock->widget()->setDisabled(disabled);
+    sdDock->widget()->setDisabled(disabled);
 }
 
 void MainWindow::axisControlClicked(QLatin1Char axis, int value)
@@ -597,8 +972,8 @@ void MainWindow::disableMotorsPBClicked()
 
 void MainWindow::sdChanged(bool mounted)
 {
-    QString labelText = mounted ? QStringLiteral("SD") : QString();
-    ui->lbl_sd->setText(labelText);
+    QString labelText = mounted ? tr("SD") : QString();
+    lblSd->setText(labelText);
 }
 
 void MainWindow::getSdList()
@@ -608,19 +983,19 @@ void MainWindow::getSdList()
 
 void MainWindow::sdPrintPBClicked()
 {
-    if (ui->sdFileListView->currentRow() < 0) {
-        QMessageBox::information(this, QStringLiteral("Print Error"), QStringLiteral("You must Select a file from the list"));
+    if (listSdFiles->currentRow() < 0) {
+        QMessageBox::information(this, tr("Print Error"), tr("You must Select a file from the list"));
     } else  {
-        core->print(ui->sdFileListView->currentItem()->text(), true);
+        core->print(listSdFiles->currentItem()->text(), true);
     }
 }
 
 void MainWindow::sdDelPBClicked()
 {
-    if (ui->sdFileListView->currentRow() < 0) {
-        QMessageBox::information(this, QStringLiteral("Delete Error"), QStringLiteral("You must Select a file from the list"));
+    if (listSdFiles->currentRow() < 0) {
+        QMessageBox::information(this, tr("Delete Error"), tr("You must Select a file from the list"));
     } else  {
-        core->sdDelete(ui->sdFileListView->currentItem()->text());
-        ui->sdFileListView->setCurrentRow(-1);
+        core->sdDelete(listSdFiles->currentItem()->text());
+        listSdFiles->setCurrentRow(-1);
     }
 }
