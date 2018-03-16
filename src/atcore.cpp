@@ -43,6 +43,7 @@ Q_LOGGING_CATEGORY(ATCORE_PLUGIN, "org.kde.atelier.core.plugin")
 Q_LOGGING_CATEGORY(ATCORE_CORE, "org.kde.atelier.core")
 /**
  * @brief The AtCorePrivate struct
+ * Provides a private data set for atcore.
  */
 struct AtCorePrivate {
     IFirmware *firmwarePlugin = nullptr;//!< @param firmwarePlugin: pointer to firmware plugin
@@ -72,15 +73,17 @@ AtCore::AtCore(QObject *parent) :
     QObject(parent),
     d(new AtCorePrivate)
 {
+    //Register MetaTypes
     qRegisterMetaType<AtCore::STATES>("AtCore::STATES");
     setState(AtCore::DISCONNECTED);
 
+    //Create and start the timer that checks for temperature.
     d->tempTimer = new QTimer(this);
     d->tempTimer->setInterval(5000);
     d->tempTimer->setSingleShot(false);
-//Attempt to find our plugins
-//For Windows and Mac we always look in plugins folder of the program using atcore.
-//On others we use AtCoreDirectories::pluginDir to hold a list of dirs to check
+    //Attempt to find our plugins
+    //For Windows and Mac we always look in plugins folder of the program using atcore.
+    //On others we use AtCoreDirectories::pluginDir to hold a list of dirs to check
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
     d->pluginsDir = qApp->applicationDirPath() + QStringLiteral("/plugins");
 #else
@@ -140,6 +143,7 @@ void AtCore::findFirmware(const QByteArray &message)
     }
 
     if (state() == AtCore::CONNECTING) {
+        //Most Firmwares will return "start" on connect, some return their firmware name.
         if (message.contains("start")) {
             qCDebug(ATCORE_CORE) << "Waiting requestFirmware.";
             QTimer::singleShot(500, this, &AtCore::requestFirmware);
@@ -152,7 +156,6 @@ void AtCore::findFirmware(const QByteArray &message)
             return;
         }
     }
-
     qCDebug(ATCORE_CORE) << "Find Firmware Called" << message;
     if (!message.contains("FIRMWARE_NAME:")) {
         qCDebug(ATCORE_CORE) << "No firmware yet.";
@@ -188,22 +191,19 @@ void AtCore::findFirmware(const QByteArray &message)
 
 void AtCore::loadFirmwarePlugin(const QString &fwName)
 {
+    qCDebug(ATCORE_PLUGIN) << "Looking for Plugin:" << fwName;
     if (d->plugins.contains(fwName)) {
         d->pluginLoader.setFileName(d->plugins[fwName]);
         if (!d->pluginLoader.load()) {
+            //Plugin was not loaded, Provide some debug info.
+            qCDebug(ATCORE_PLUGIN) << "Plugin Loading: Failed.";
             qCDebug(ATCORE_PLUGIN) << d->pluginLoader.errorString();
-        } else {
-            qCDebug(ATCORE_PLUGIN) << "Loading plugin.";
-        }
-        d->firmwarePlugin = qobject_cast<IFirmware *>(d->pluginLoader.instance());
-
-        if (!firmwarePluginLoaded()) {
-            qCDebug(ATCORE_PLUGIN) << "No plugin loaded.";
-            qCDebug(ATCORE_PLUGIN) << "Looking plugin in folder:" << d->pluginsDir;
             setState(AtCore::CONNECTING);
         } else {
-            qCDebug(ATCORE_PLUGIN) << "Connected to" << firmwarePlugin()->name();
+            //Plugin was loaded successfully.
+            d->firmwarePlugin = qobject_cast<IFirmware *>(d->pluginLoader.instance());
             firmwarePlugin()->init(this);
+            qCDebug(ATCORE_PLUGIN) << "Plugin Loading: Successful";
             disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
             connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
             connect(firmwarePlugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
@@ -215,7 +215,7 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
             setState(IDLE);
         }
     } else {
-        qCDebug(ATCORE_CORE) << "No Firmware Loaded";
+        qCDebug(ATCORE_CORE) << "Plugin:" << fwName << ": Not found.";
     }
 }
 
@@ -252,7 +252,8 @@ QStringList AtCore::serialPorts() const
     if (!serialPortInfoList.isEmpty()) {
         foreach (const QSerialPortInfo &serialPortInfo, serialPortInfoList) {
 #ifdef Q_OS_MAC
-            //Mac OS has callout serial ports starting with cu. They can only receive data and it's necessary to filter them out
+            //Mac OS has callout serial ports starting with cu these devices are read only.
+            //It is necessary to filter them out to help prevent user error.
             if (!serialPortInfo.portName().startsWith(QStringLiteral("cu."), Qt::CaseInsensitive)) {
                 ports.append(serialPortInfo.portName());
             }
@@ -261,7 +262,6 @@ QStringList AtCore::serialPorts() const
 #endif
         }
     }
-
     return ports;
 }
 
@@ -284,23 +284,20 @@ quint16 AtCore::serialTimerInterval() const
 
 void AtCore::setSerialTimerInterval(const quint16 &newTime)
 {
-    if (newTime == 0) {
-        if (d->serialTimer) {
-            disconnect(d->serialTimer, &QTimer::timeout, this, &AtCore::locateSerialPort);
-            delete d->serialTimer;
-        }
-        return;
-    }
     if (!d->serialTimer) {
+        //There is no timer. We need to create one.
         d->serialTimer = new QTimer();
         connect(d->serialTimer, &QTimer::timeout, this, &AtCore::locateSerialPort);
     }
+    //Start over with the new time.
     d->serialTimer->start(newTime);
 }
 
 void AtCore::newMessage(const QByteArray &message)
 {
+    //Evaluate the messages coming from the printer.
     d->lastMessage = message;
+    //Check if the message has current coordinates.
     if (message.startsWith(QString::fromLatin1("X:").toLocal8Bit())) {
         d->posString = message;
         d->posString.resize(d->posString.indexOf('E'));
@@ -335,8 +332,10 @@ void AtCore::print(const QString &fileName, bool sdPrint)
         qCDebug(ATCORE_CORE) << "Load a firmware plugin to print.";
         return;
     }
+    //Start a print job.
     setState(AtCore::STARTPRINT);
     if (sdPrint) {
+        //Printing from the sd card requires us to send some M commands.
         pushCommand(GCode::toCommand(GCode::M23, fileName));
         d->sdCardFileName = fileName;
         pushCommand(GCode::toCommand(GCode::M24));
@@ -345,7 +344,9 @@ void AtCore::print(const QString &fileName, bool sdPrint)
         connect(d->tempTimer, &QTimer::timeout, this, &AtCore::sdCardPrintStatus);
         return;
     }
-    //START A THREAD AND CONNECT TO IT
+    //Process the gcode with a printThread.
+    //The Thread processes the gcode without freezing the libary.
+    //Only sends a command back when the printer is ready, avoiding buffer overflow in the printer.
     QThread *thread = new QThread();
     PrintThread *printThread = new PrintThread(this, fileName);
     printThread->moveToThread(thread);
@@ -361,8 +362,10 @@ void AtCore::print(const QString &fileName, bool sdPrint)
 
 void AtCore::pushCommand(const QString &comm)
 {
+    //Append command to the commandQueue
     d->commandQueue.append(comm);
     if (d->ready) {
+        //The printer is ready for a command now so push one.
         processQueue();
     }
 }
@@ -371,8 +374,8 @@ void AtCore::closeConnection()
 {
     if (serialInitialized()) {
         if (AtCore::state() == AtCore::BUSY && !d->sdCardPrinting) {
-            //we have to clean print if printing from the host.
-            //disconnecting from a printer printing via sd card should not affect its print.
+            //We have to clean up the print job if printing from the host.
+            //However disconnecting while printing from sd card should not affect the print job.
             setState(AtCore::STOP);
         }
         if (firmwarePluginLoaded()) {
@@ -382,11 +385,13 @@ void AtCore::closeConnection()
                 disconnect(d->tempTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
                 d->tempTimer->stop();
             }
+            //Attempt to unload the firmware plugin.
+            QString name = firmwarePlugin()->name();
+            QString msg = d->pluginLoader.unload() ? QStringLiteral("success") : QStringLiteral("FAIL");
+            qCDebug(ATCORE_PLUGIN) << QStringLiteral("Firmware plugin %1 unload: %2").arg(name, msg);
         }
-        QString name = firmwarePlugin()->name();
-        QString msg = d->pluginLoader.unload() ? QStringLiteral("success") : QStringLiteral("FAIL");
-        qCDebug(ATCORE_PLUGIN) << QStringLiteral("Firmware plugin %1 unload: %2").arg(name, msg);
         serial()->close();
+        //Clear our copy of the sdcard filelist
         clearSdCardFileList();
         setState(AtCore::DISCONNECTED);
     }
@@ -404,6 +409,7 @@ void AtCore::setState(AtCore::STATES state)
                              << d->printerState << "] to [" << state << "]";
         d->printerState = state;
         if (state == AtCore::FINISHEDPRINT && d->sdCardPrinting) {
+            //Clean up the sd card print
             d->sdCardPrinting = false;
             disconnect(d->tempTimer, &QTimer::timeout, this, &AtCore::sdCardPrintStatus);
         }
@@ -413,6 +419,7 @@ void AtCore::setState(AtCore::STATES state)
 
 void AtCore::stop()
 {
+    //Stop a print job
     setState(AtCore::STOP);
     d->commandQueue.clear();
     if (d->sdCardPrinting) {
@@ -425,6 +432,10 @@ void AtCore::stop()
 
 void AtCore::emergencyStop()
 {
+    //Emergency Stop. Stops the machine
+    //Clear the queue, and any print job
+    //Before sending the command to ensure
+    //Less chance of movement after the restart.
     d->commandQueue.clear();
     if (AtCore::state() == AtCore::BUSY) {
         if (!d->sdCardPrinting) {
@@ -432,11 +443,13 @@ void AtCore::emergencyStop()
             setState(AtCore::STOP);
         }
     }
+    //push command through serial to bypass atcore's queue.
     serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
 }
 
 void AtCore::stopSdPrint()
 {
+    //Stop an SdCard Print.
     pushCommand(GCode::toCommand(GCode::M25));
     d->sdCardFileName = QString();
     pushCommand(GCode::toCommand(GCode::M23, d->sdCardFileName));
@@ -462,6 +475,7 @@ bool AtCore::firmwarePluginLoaded() const
         return false;
     }
 }
+
 void AtCore::findFirmwarePlugins()
 {
     d->plugins.clear();
@@ -494,14 +508,10 @@ void AtCore::findFirmwarePlugins()
         qCDebug(ATCORE_CORE) << tr("plugins[%1]=%2").arg(file, pluginString);
     }
 }
+
 QStringList AtCore::availableFirmwarePlugins() const
 {
     return d->plugins.keys();
-}
-
-void AtCore::detectFirmware()
-{
-    connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
 }
 
 void AtCore::pause(const QString &pauseActions)
@@ -509,6 +519,8 @@ void AtCore::pause(const QString &pauseActions)
     if (d->sdCardPrinting) {
         pushCommand(GCode::toCommand(GCode::M25));
     }
+    //Push the command to request current coordinates.
+    //This will be read by AtCore::newMessage and stored for use on resume.
     pushCommand(GCode::toCommand(GCode::M114));
     if (!pauseActions.isEmpty()) {
         QStringList temp = pauseActions.split(QChar::fromLatin1(','));
@@ -524,6 +536,7 @@ void AtCore::resume()
     if (d->sdCardPrinting) {
         pushCommand(GCode::toCommand(GCode::M24));
     } else {
+        //Move back to previous coordinates.
         pushCommand(GCode::toCommand(GCode::G0, QString::fromLatin1(d->posString)));
     }
     setState(AtCore::BUSY);
@@ -644,6 +657,7 @@ void AtCore::processQueue()
 
 void AtCore::checkTemperature()
 {
+    //One request for the temperature in the queue at a time.
     if (d->commandQueue.contains(GCode::toCommand(GCode::M105))) {
         return;
     }
@@ -668,20 +682,22 @@ void AtCore::setUnits(AtCore::UNITS units)
         break;
     }
 }
+
 QStringList AtCore::portSpeeds() const
 {
     return serial()->validBaudRates();
 }
 
-void AtCore::setIdleHold(uint delay)
+void AtCore::disableMotors(uint delay)
 {
+    //Disables motors
     if (delay) {
         pushCommand(GCode::toCommand(GCode::M84, QString::number(delay)));
     } else {
         pushCommand(GCode::toCommand(GCode::M84));
     }
 }
-
+//Most firmwares will not report if an sdcard is mounted on boot.
 bool AtCore::isSdMounted() const
 {
     return d->sdCardMounted;

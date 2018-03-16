@@ -45,7 +45,7 @@ struct AtCorePrivate;
  *
  * #### General Workflow
  * - Connect to a serial port with initSerial()
- * - Auto detect the firmware with detectFirmware()
+ * - Firmware will be auto detected. Use loadFirmwarePLugin() to force load a firmware.
  * - Send commands to the device (pushCommand(),print(),...)
  * - AtCore::close() when you are all done.
 
@@ -170,28 +170,22 @@ public:
     /**
      * @brief Main access to the loaded firmware plugin
      * @return IFirmware * to currently loaded plugin
-     * @sa availableFirmwarePlugins(),loadFirmwarePlugin(),detectFirmware()
+     * @sa availableFirmwarePlugins(),loadFirmwarePlugin()
      */
     Q_INVOKABLE IFirmware *firmwarePlugin() const;
 
     /**
      * @brief List of available firmware plugins
-     * @sa loadFirmwarePlugin(),firmwarePlugin(),detectFirmware()
+     * @sa loadFirmwarePlugin(),firmwarePlugin()
      */
     QStringList availableFirmwarePlugins() const;
 
     /**
      * @brief Load A firmware plugin
      * @param fwName : name of the firmware
-     * @sa firmwarePlugin(),availableFirmwarePlugins(),detectFirmware()
+     * @sa firmwarePlugin(),availableFirmwarePlugins()
      */
     Q_INVOKABLE void loadFirmwarePlugin(const QString &fwName);
-
-    /**
-     * @brief Attempt to autodetect the firmware of connect serial device
-     * @sa loadFirmwarePlugin(),availableFirmwarePlugins(),firmwarePlugin()
-     */
-    Q_INVOKABLE void detectFirmware();
 
     /**
      * @brief Get Printer state
@@ -267,10 +261,10 @@ signals:
      */
     void receivedMessage(const QByteArray &message);
 
-     /**
-     * @brief New interval between serial timer
-     * @sa setSerialTimerInterval()
-     */
+    /**
+    * @brief New interval between serial timer
+    * @sa setSerialTimerInterval()
+    */
     void serialTimerIntervalChanged();
 
     /**
@@ -412,10 +406,10 @@ public slots:
     Q_INVOKABLE void setRelativePosition();
 
     /**
-     * @brief Disables idle hold of motors after a delay
-     * @param delay: Seconds until idle hold is released. 0= No delay
+     * @brief Disable motors after a delay
+     * @param delay: Seconds until motors are disabled. 0= No delay
      */
-    Q_INVOKABLE void setIdleHold(uint delay = 0);
+    Q_INVOKABLE void disableMotors(uint delay = 0);
 
     /**
      * @brief set the Printers speed
@@ -484,7 +478,7 @@ private slots:
 
     /**
      * @brief Search for firmware string in message.
-     * A Helper function for detectFirmware()
+     * A Helper function for Firmware detection
      * @param message
      */
     void findFirmware(const QByteArray &message);
