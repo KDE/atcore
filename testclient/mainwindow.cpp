@@ -592,7 +592,7 @@ void MainWindow::axisControlClicked(QLatin1Char axis, int value)
 
 void MainWindow::disableMotorsPBClicked()
 {
-    core->setIdleHold(0);
+    core->disableMotors(0);
 }
 
 void MainWindow::sdChanged(bool mounted)

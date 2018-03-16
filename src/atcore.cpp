@@ -688,7 +688,7 @@ QStringList AtCore::portSpeeds() const
     return serial()->validBaudRates();
 }
 
-void AtCore::setIdleHold(uint delay)
+void AtCore::disableMotors(uint delay)
 {
     //Disables motors
     if (delay) {

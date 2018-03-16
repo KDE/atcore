@@ -406,11 +406,10 @@ public slots:
     Q_INVOKABLE void setRelativePosition();
 
     /**
-     * @brief Disables idle hold of motors after a delay
-     * Motors will be disabled after the delay
-     * @param delay: Seconds until idle hold is released. 0= No delay
+     * @brief Disable motors after a delay
+     * @param delay: Seconds until motors are disabled. 0= No delay
      */
-    Q_INVOKABLE void setIdleHold(uint delay = 0);
+    Q_INVOKABLE void disableMotors(uint delay = 0);
 
     /**
      * @brief set the Printers speed
