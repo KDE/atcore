@@ -63,8 +63,10 @@ class ATCORE_EXPORT AtCore : public QObject
     Q_OBJECT
     Q_PROPERTY(QString version READ version)
     Q_PROPERTY(QStringList availableFirmwarePlugins READ availableFirmwarePlugins)
-    Q_PROPERTY(quint16 serialTimerInterval READ serialTimerInterval WRITE setSerialTimerInterval)
+    Q_PROPERTY(int extruderCount READ extruderCount NOTIFY extruderCountChanged)
+    Q_PROPERTY(quint16 serialTimerInterval READ serialTimerInterval WRITE setSerialTimerInterval NOTIFY serialTimerIntervalChanged)
     Q_PROPERTY(QStringList serialPorts READ serialPorts NOTIFY portsChanged)
+    Q_PROPERTY(float percentagePrinted READ percentagePrinted NOTIFY printProgressChanged)
     Q_PROPERTY(QStringList portSpeeds READ portSpeeds)
     Q_PROPERTY(QString connectedPort READ connectedPort)
     Q_PROPERTY(AtCore::STATES state READ state WRITE setState NOTIFY stateChanged)
@@ -224,13 +226,13 @@ public:
      * @brief Attempt to Mount an sd card
      * @param slot: Sd card Slot on machine (0 is default)
      */
-    void mountSd(uint slot = 0);
+    Q_INVOKABLE void mountSd(uint slot = 0);
 
     /**
      * @brief Attempt to Unmount an sd card
      * @param slot: Sd card Slot on machine (0 is default)
      */
-    void umountSd(uint slot = 0);
+    Q_INVOKABLE void umountSd(uint slot = 0);
 
     /**
      * @brief sdFileList
@@ -247,6 +249,12 @@ public:
 signals:
 
     /**
+     * @brief New number of extruders
+     * @sa extruderCount()
+     */
+    void extruderCountChanged();
+
+    /**
      * @brief Print job's precentage changed.
      * @param newProgress : Message
      * @sa percentagePrinted()
@@ -258,6 +266,12 @@ signals:
      * @param message: Message that was received
      */
     void receivedMessage(const QByteArray &message);
+
+     /**
+     * @brief New interval between serial timer
+     * @sa setSerialTimerInterval()
+     */
+    void serialTimerIntervalChanged();
 
     /**
      * @brief The Printer's State Changed
@@ -295,26 +309,26 @@ public slots:
      *
      * @param comm : Command
      */
-    void pushCommand(const QString &comm);
+    Q_INVOKABLE void pushCommand(const QString &comm);
 
     /**
      * @brief Public Interface for printing a file
      * @param fileName: the gcode file to print.
      * @param sdPrint: set true to print fileName from Sd card
      */
-    void print(const QString &fileName, bool sdPrint = false);
+    Q_INVOKABLE void print(const QString &fileName, bool sdPrint = false);
 
     /**
      * @brief Stop the Printer by empting the queue and aborting the print job (if running)
      * @sa emergencyStop(),pause(),resume()
      */
-    void stop();
+    Q_INVOKABLE void stop();
 
     /**
      * @brief stop the printer via the emergency stop Command (M112)
      * @sa stop(),pause(),resume()
      */
-    void emergencyStop();
+    Q_INVOKABLE void emergencyStop();
 
     /**
      * @brief pause an in process print job
@@ -331,20 +345,20 @@ public slots:
      * After returning to location pause was triggered.
      * @sa pause(),stop(),emergencyStop()
      */
-    void resume();
+    Q_INVOKABLE void resume();
 
     /**
      * @brief Send home \p axis command
      * @param axis: the axis(es) to home (use X Y Z or any combo of)
      * @sa home(), move()
      */
-    void home(uchar axis);
+    Q_INVOKABLE void home(uchar axis);
 
     /**
      * @brief Send home all command
      * @sa home(uchar axis), move()
      */
-    void home();
+    Q_INVOKABLE void home();
 
     /**
      * @brief Set extruder temperature
@@ -352,7 +366,7 @@ public slots:
      * @param extruder : extruder number
      * @param andWait: True for heat and ignore commands until temperature is reached
      */
-    void setExtruderTemp(uint temp = 0, uint extruder = 0, bool andWait = false);
+    Q_INVOKABLE void setExtruderTemp(uint temp = 0, uint extruder = 0, bool andWait = false);
 
     /**
      * @brief move an axis of the printer
@@ -360,7 +374,7 @@ public slots:
      * @param arg the distance to move the axis or the place to move to depending on printer mode
      * @sa home(), home(uchar axis), move(QLatin1Char axis, int arg)
      */
-    void move(AtCore::AXES axis, int arg);
+    Q_INVOKABLE void move(AtCore::AXES axis, int arg);
 
     /**
      * @brief move an axis of the printer
@@ -368,7 +382,7 @@ public slots:
      * @param arg the distance to move the axis or the place to move to depending on printer mode
      * @sa home(), home(uchar axis), move(AtCore::AXES, int arg)
      */
-    void move(QLatin1Char axis, int arg);
+    Q_INVOKABLE void move(QLatin1Char axis, int arg);
 
     /**
      * @brief Set the bed temperature
@@ -376,64 +390,64 @@ public slots:
      * @param andWait: True for heat and ignore commands until temperature is reached
      * @sa setExtruderTemp()
      */
-    void setBedTemp(uint temp = 0, bool andWait = false);
+    Q_INVOKABLE void setBedTemp(uint temp = 0, bool andWait = false);
 
     /**
      * @brief setFanSpeed set the fan speed
      * @param fanNumber: fan number
      * @param speed: new speed of the fan 0-100
      */
-    void setFanSpeed(uint speed = 0, uint fanNumber = 0);
+    Q_INVOKABLE void setFanSpeed(uint speed = 0, uint fanNumber = 0);
 
     /**
      * @brief Set printer to absolute position mode
      * @sa setRelativePosition()
      */
-    void setAbsolutePosition();
+    Q_INVOKABLE void setAbsolutePosition();
 
     /**
      * @brief Set printer to relative position mode
      * @sa setAbsolutePosition()
      */
-    void setRelativePosition();
+    Q_INVOKABLE void setRelativePosition();
 
     /**
      * @brief Disables idle hold of motors after a delay
      * @param delay: Seconds until idle hold is released. 0= No delay
      */
-    void setIdleHold(uint delay = 0);
+    Q_INVOKABLE void setIdleHold(uint delay = 0);
 
     /**
      * @brief set the Printers speed
      * @param speed: speed in % (default is 100);
      */
-    void setPrinterSpeed(uint speed = 100);
+    Q_INVOKABLE void setPrinterSpeed(uint speed = 100);
 
     /**
      * @brief set extruder Flow rate
      * @param rate: flow rate in % (default is 100)
      */
-    void setFlowRate(uint rate = 100);
+    Q_INVOKABLE void setFlowRate(uint rate = 100);
 
     /**
      * @brief close any open items.
      * You should call this on close events to force any stuck jobs to close
      * @sa closeConnection()
      */
-    void close();
+    Q_INVOKABLE void close();
 
     /**
      * @brief showMessage push a message to the printers LCD
      * @param message: message to show on the LCD
      */
-    void showMessage(const QString &message);
+    Q_INVOKABLE void showMessage(const QString &message);
 
     /**
      * @brief setUnits sets the measurement units do be used
      * @param units : the measurement units to use(METRIC / IMPERIAL)
      * @sa AtCore::UNITS
      */
-    void setUnits(AtCore::UNITS units);
+    Q_INVOKABLE void setUnits(AtCore::UNITS units);
 
     /**
      * @brief Set the time between checks for new serialPorts (0 is default)
@@ -444,7 +458,7 @@ public slots:
     /**
      * @brief delete file from sd card
      */
-    void sdDelete(const QString &fileName);
+    Q_INVOKABLE void sdDelete(const QString &fileName);
 
     /**
      * @brief Queue the Printer for status of sd card print
