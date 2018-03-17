@@ -197,9 +197,6 @@
     </layout>
    </widget>
    <widget class="QDockWidget" name="printDock">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -354,9 +351,6 @@
     </widget>
    </widget>
    <widget class="QDockWidget" name="commandDock">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -416,9 +410,6 @@
     </widget>
    </widget>
    <widget class="QDockWidget" name="sdDock">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -722,9 +713,6 @@
    </property>
   </widget>
   <widget class="QDockWidget" name="moveDock">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
    <property name="minimumSize">
     <size>
      <width>0</width>
@@ -855,9 +843,6 @@
    </widget>
   </widget>
   <widget class="QDockWidget" name="tempControlsDock">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
    <property name="minimumSize">
     <size>
      <width>0</width>

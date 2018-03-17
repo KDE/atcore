@@ -177,6 +177,12 @@ private slots:
     void toggleDockTitles();
 
     /**
+     * @brief Toggle disable state of dangerous docks
+     * Command, Sd Card, Movement, Temperature Controls and Printing docks
+     * @param disabled: True if items are disabled.
+     */
+    void setDangeriousDocksDisabled(bool disabled);
+    /**
      * @brief Show the about dialog
      */
     void about();
