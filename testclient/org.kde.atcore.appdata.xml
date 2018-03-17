@@ -49,7 +49,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <url type="homepage">https://atelier.kde.org</url>
-  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=Atelier&component=AtCore</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=Atelier&amp;component=AtCore</url>
   <url type="help">https://atelier.kde.org/documentation/atcore</url>
   <url type="donation">https://kde.org/donate/?app=atcore</url>
   <project_group>KDE</project_group>
