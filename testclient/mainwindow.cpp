@@ -60,6 +60,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     addLog(tr("Attempting to locate Serial Ports"));
     core->setSerialTimerInterval(1000);
+    setDangeriousDocksDisabled(true);
     populateCBs();
 
     //Icon for actionQuit
@@ -494,20 +495,12 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
 
     case AtCore::DISCONNECTED:
         stateString = QStringLiteral("Not Connected");
-        ui->commandDock->setDisabled(true);
-        ui->moveDock->setDisabled(true);
-        ui->tempControlsDock->setDisabled(true);
-        ui->printDock->setDisabled(true);
-        ui->sdDock->setDisabled(true);
+        setDangeriousDocksDisabled(true);
         break;
 
     case AtCore::CONNECTING:
         stateString = QStringLiteral("Connecting");
-        ui->commandDock->setDisabled(false);
-        ui->moveDock->setDisabled(false);
-        ui->tempControlsDock->setDisabled(false);
-        ui->printDock->setDisabled(false);
-        ui->sdDock->setDisabled(false);
+        setDangeriousDocksDisabled(false);
         break;
 
     case AtCore::STOP:
@@ -576,6 +569,15 @@ void MainWindow::toggleDockTitles()
         ui->printDock->setTitleBarWidget(new QWidget());
         ui->sdDock->setTitleBarWidget(new QWidget());
     }
+}
+
+void MainWindow::setDangeriousDocksDisabled(bool disabled)
+{
+    ui->commandDock->widget()->setDisabled(disabled);
+    ui->moveDock->widget()->setDisabled(disabled);
+    ui->tempControlsDock->widget()->setDisabled(disabled);
+    ui->printDock->widget()->setDisabled(disabled);
+    ui->sdDock->widget()->setDisabled(disabled);
 }
 
 void MainWindow::about()
