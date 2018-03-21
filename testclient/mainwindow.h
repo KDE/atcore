@@ -28,6 +28,7 @@
 
 #include "atcore.h"
 #include "widgets/plotwidget.h"
+#include "widgets/commandwidget.h"
 
 class SerialLayer;
 
@@ -80,11 +81,6 @@ private slots:
      * @brief Connect Button Clicked will connect or disconnect based on printer state
      */
     void connectPBClicked();
-
-    /**
-     * @brief Send Command Clicked
-     */
-    void sendPBClicked();
 
     /**
      * @brief Home All Clicked
@@ -160,11 +156,6 @@ private slots:
      * @param state: new printer state
      */
     void printerStateChanged(AtCore::STATES state);
-
-    /**
-     * @brief showMessage show a message on the printers LCD
-     */
-    void showMessage();
 
     /**
      * @brief Update the print Time
@@ -322,12 +313,11 @@ private:
     PlotWidget *plotWidget = nullptr;
 
     void makeCommandDock();
-    QDockWidget *printDock = nullptr;
     QDockWidget *commandDock = nullptr;
-    QLineEdit *lineCommand = nullptr;
-    QLineEdit *lineMessage = nullptr;
+    CommandWidget *commandWidget = nullptr;
 
     void makePrintDock();
+    QDockWidget *printDock = nullptr;
     QPushButton *buttonPrint = nullptr;
     QLineEdit *linePostPause = nullptr;
     QSpinBox *sbFlowRate = nullptr;

@@ -191,52 +191,18 @@ void MainWindow::initWidgets()
 
 void MainWindow::makeCommandDock()
 {
-    //The processing for making a dock is the same for all docks
-    //Expose the least amount of object outside the creation function.
-
-    // First we make our mainLayout for the dock.
-    auto *mainLayout = new QVBoxLayout;
-
-    //Begin making content from top to bottom or left to right.
-    //Making child layouts in the order you want to put them
-    // onto the mainLayout
-    lineCommand = new QLineEdit;
-    lineCommand->setPlaceholderText(tr("Send Command"));
-
-    //we have a few buttons to make here. Lets name this newButton so its easier to reuse
-    auto *newButton = new QPushButton(tr("Send"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::sendPBClicked);
-
-    //When you have created a Row put the items into layout.
-    auto *hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(lineCommand);
-    hBoxLayout->addWidget(newButton);
-    //Put the Layout or Widget on the mainLayout when its finished.
-    //This will free your pointers for reuse.
-    mainLayout->addLayout(hBoxLayout);
-
-    //Start making items for the next layout to place onto the mainLayout.
-    lineMessage = new QLineEdit;
-    lineMessage->setPlaceholderText(tr("Show Message"));
-
-    //Here we reuse our  button pointer my having it point to a new button.
-    newButton = new QPushButton(tr("Send"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::showMessage);
-
-    //We reuse the hBoxLayout pointer in the same way as the button pointer.
-    hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(lineMessage);
-    hBoxLayout->addWidget(newButton);
-    mainLayout->addLayout(hBoxLayout);
-
-    //QDockWidget::setLayout is not ment to be used by us
-    //We must instead Create a widget to hold or dock contents.
-    auto *dockContents = new QWidget;
-    dockContents->setLayout(mainLayout);
-
-    //Finally create the dock, and set the Widget.
+    commandWidget = new CommandWidget;
+    //Connect the commandPressed signal
+    connect(commandWidget, &CommandWidget::commandPressed, [this](const QString & command) {
+        core->pushCommand(command.toUpper());
+    });
+    //Connect the messagePressed signal
+    connect(commandWidget, &CommandWidget::messagePressed, [this](const QString & message) {
+        core->showMessage(message);
+    });
+    //Create the dock, and set the Widget.
     commandDock = new QDockWidget(tr("Commands"), this);
-    commandDock->setWidget(dockContents);
+    commandDock->setWidget(commandWidget);
 
     //Push the toggle view action into our view menu
     menuView->insertAction(nullptr, commandDock->toggleViewAction());
@@ -704,13 +670,6 @@ void MainWindow::connectPBClicked()
     }
 }
 
-void MainWindow::sendPBClicked()
-{
-    QString comm = lineCommand->text().toUpper();
-    core->pushCommand(comm);
-    lineCommand->clear();
-}
-
 void MainWindow::homeAllPBClicked()
 {
     addSLog(tr("Home All"));
@@ -903,11 +862,6 @@ void MainWindow::populateCBs()
     for (int count = 0; count < fanCount; count++) {
         comboFanSelect->insertItem(count, tr("Fan %1 speed").arg(count));
     }
-}
-
-void MainWindow::showMessage()
-{
-    core->showMessage(lineMessage->text());
 }
 
 void MainWindow::updatePrintTime()
