@@ -214,63 +214,20 @@ void MainWindow::makeCommandDock()
 
 void MainWindow::makePrintDock()
 {
-    auto *mainLayout = new QVBoxLayout;
+    printWidget = new PrintWidget;
+    connect(printWidget, &PrintWidget::printPressed, this, &MainWindow::printPBClicked);
+    connect(printWidget, &PrintWidget::emergencyStopPressed, core, &AtCore::emergencyStop);
 
-    buttonPrint = new QPushButton(tr("Print File"));
-    connect(buttonPrint, &QPushButton::clicked, this, &MainWindow::printPBClicked);
+    connect(printWidget, &PrintWidget::printSpeedChanged, [this](const int speed) {
+        core->setPrinterSpeed(speed);
+    });
 
-    auto *newButton = new QPushButton(tr("Emergency Stop"));
-    connect(newButton, &QPushButton::clicked, core, &AtCore::emergencyStop);
-
-    auto *hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(buttonPrint);
-    hBoxLayout->addWidget(newButton);
-    mainLayout->addLayout(hBoxLayout);
-
-    auto *newLabel = new QLabel(tr("On Pause:"));
-    linePostPause = new QLineEdit;
-    linePostPause->setPlaceholderText(QStringLiteral("G91,G0 Z1,G90,G1 X0 Y195"));
-
-    hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(newLabel);
-    hBoxLayout->addWidget(linePostPause);
-    mainLayout->addLayout(hBoxLayout);
-
-    newLabel = new QLabel(tr("Printer Speed"));
-    sbPrintSpeed = new QSpinBox;
-    sbPrintSpeed->setRange(1, 300);
-    sbPrintSpeed->setValue(100);
-    sbPrintSpeed->setSuffix(QStringLiteral("%"));
-
-    newButton = new QPushButton(tr("Set"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::printerSpeedPBClicked);
-
-    hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(newLabel, 35);
-    hBoxLayout->addWidget(sbPrintSpeed, 10);
-    hBoxLayout->addWidget(newButton, 20);
-    mainLayout->addLayout(hBoxLayout);
-
-    newLabel = new QLabel(tr("Flow Rate"));
-    sbFlowRate = new QSpinBox;
-    sbFlowRate->setRange(1, 300);
-    sbFlowRate->setValue(100);
-    sbFlowRate->setSuffix(QStringLiteral("%"));
-
-    newButton = new QPushButton(tr("Set"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::flowRatePBClicked);
-
-    hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(newLabel, 35);
-    hBoxLayout->addWidget(sbFlowRate, 10);
-    hBoxLayout->addWidget(newButton, 20);
-    mainLayout->addLayout(hBoxLayout);
-
-    auto *dockContents = new QWidget;
-    dockContents->setLayout(mainLayout);
+    connect(printWidget, &PrintWidget::flowRateChanged, [this](const int rate) {
+        core->setFlowRate(rate);
+    });
 
     printDock = new QDockWidget(tr("Print"), this);
-    printDock->setWidget(dockContents);
+    printDock->setWidget(printWidget);
 
     menuView->insertAction(nullptr, printDock->toggleViewAction());
     addDockWidget(Qt::LeftDockWidgetArea, printDock);
@@ -757,7 +714,7 @@ void MainWindow::printPBClicked()
         break;
 
     case AtCore::BUSY:
-        core->pause(linePostPause->text());
+        core->pause(printWidget->postPauseCommand());
         break;
 
     case AtCore::PAUSE:
@@ -786,28 +743,18 @@ void MainWindow::pluginCBChanged(QString currentText)
     }
 }
 
-void MainWindow::flowRatePBClicked()
-{
-    core->setFlowRate(sbFlowRate->value());
-}
-
-void MainWindow::printerSpeedPBClicked()
-{
-    core->setPrinterSpeed(sbPrintSpeed->value());
-}
-
 void MainWindow::printerStateChanged(AtCore::STATES state)
 {
     QString stateString;
     switch (state) {
     case AtCore::IDLE:
-        buttonPrint->setText(tr("Print File"));
+        printWidget->setPrintText(tr("Print File"));
         stateString = tr("Connected to ") + core->connectedPort();
         break;
 
     case AtCore::STARTPRINT:
         stateString = tr("START PRINT");
-        buttonPrint->setText(tr("Pause Print"));
+        printWidget->setPrintText(tr("Pause Print"));
         printProgressWidget->setVisible(true);
         printTime->start();
         printTimer->start();
@@ -815,19 +762,19 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
 
     case AtCore::FINISHEDPRINT:
         stateString = tr("Finished Print");
-        buttonPrint->setText(tr("Print File"));
+        printWidget->setPrintText(tr("Print File"));
         printProgressWidget->setVisible(false);
         printTimer->stop();
         break;
 
     case AtCore::PAUSE:
         stateString = tr("Paused");
-        buttonPrint->setText(tr("Resume Print"));
+        printWidget->setPrintText(tr("Resume Print"));
         break;
 
     case AtCore::BUSY:
         stateString = tr("Printing");
-        buttonPrint->setText(tr("Pause Print"));
+        printWidget->setPrintText(tr("Pause Print"));
         break;
 
     case AtCore::DISCONNECTED:

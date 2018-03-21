@@ -3,6 +3,7 @@ set(widgets_SRCS
     axiscontrol.cpp
     about.cpp
     commandwidget.cpp
+    printwidget.cpp
     )
 
 add_library(AtCoreTestWidgets STATIC ${widgets_SRCS})

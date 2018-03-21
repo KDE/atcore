@@ -29,6 +29,7 @@
 #include "atcore.h"
 #include "widgets/plotwidget.h"
 #include "widgets/commandwidget.h"
+#include "widgets/printwidget.h"
 
 class SerialLayer;
 
@@ -135,16 +136,6 @@ private slots:
      * @brief Save the log file.
      */
     void saveLogPBClicked();
-
-    /**
-     * @brief  set printer speed clicked
-     */
-    void printerSpeedPBClicked();
-
-    /**
-     * @brief lowRatePB has been clicked
-     */
-    void flowRatePBClicked();
 
     /**
      * @brief disableMotorsPB has been clicked
@@ -318,10 +309,7 @@ private:
 
     void makePrintDock();
     QDockWidget *printDock = nullptr;
-    QPushButton *buttonPrint = nullptr;
-    QLineEdit *linePostPause = nullptr;
-    QSpinBox *sbFlowRate = nullptr;
-    QSpinBox *sbPrintSpeed = nullptr;
+    PrintWidget *printWidget = nullptr;
 
     void makeConnectDock();
     QDockWidget *connectDock = nullptr;
