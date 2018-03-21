@@ -20,7 +20,6 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include <QTime>
 #include <QSerialPortInfo>
 #include <QMessageBox>
 #include <QFileDialog>
@@ -39,8 +38,7 @@ int MainWindow::fanCount = 4;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    core(new AtCore(this)),
-    logFile(new QTemporaryFile(QDir::tempPath() + QStringLiteral("/AtCore_")))
+    core(new AtCore(this))
 {
     setWindowTitle(tr("AtCore - Test Client"));
     setWindowIcon(QIcon(QStringLiteral(":/icon/windowIcon")));
@@ -49,7 +47,7 @@ MainWindow::MainWindow(QWidget *parent) :
     initStatusBar();
     initWidgets();
 
-    addLog(tr("Attempting to locate Serial Ports"));
+    logWidget->appendLog(tr("Attempting to locate Serial Ports"));
     core->setSerialTimerInterval(1000);
 
     printTime = new QTime();
@@ -244,22 +242,9 @@ void MainWindow::makeTempTimelineDock()
 
 void MainWindow::makeLogDock()
 {
-    textLog = new QPlainTextEdit;
-    textLog->setReadOnly(true);
-    textLog->setMaximumBlockCount(1000);
-
-    auto *newButton = new QPushButton(style()->standardIcon(QStyle::SP_DialogSaveButton), tr("Save Session Log"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::saveLogPBClicked);
-
-    auto *mainLayout = new QVBoxLayout;
-    mainLayout->addWidget(textLog);
-    mainLayout->addWidget(newButton);
-
-    auto *dockContents = new QWidget();
-    dockContents->setLayout(mainLayout);
-
+    logWidget = new LogWidget(new QTemporaryFile(QDir::tempPath() + QStringLiteral("/AtCore_")));
     logDock = new QDockWidget(tr("Session Log"), this);
-    logDock->setWidget(dockContents);
+    logDock->setWidget(logWidget);
 
     menuView->insertAction(nullptr, logDock->toggleViewAction());
     addDockWidget(Qt::RightDockWidgetArea, logDock);
@@ -472,78 +457,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
 MainWindow::~MainWindow()
 {
-    delete logFile;
-}
 
-QString MainWindow::getTime()
-{
-    return QTime::currentTime().toString(QStringLiteral("hh:mm:ss:zzz"));
-}
-
-QString MainWindow::logHeader()
-{
-    return QStringLiteral("[%1]  ").arg(getTime());
-}
-
-QString MainWindow::rLogHeader()
-{
-    return QStringLiteral("[%1]< ").arg(getTime());
-}
-
-QString MainWindow::sLogHeader()
-{
-    return QStringLiteral("[%1]> ").arg(getTime());
-}
-
-void MainWindow::writeTempFile(QString text)
-{
-    /*
-    A QTemporaryFile will always be opened in QIODevice::ReadWrite mode,
-    this allows easy access to the data in the file. This function will
-    return true upon success and will set the fileName() to the unique
-    filename used.
-    */
-    logFile->open();
-    logFile->seek(logFile->size());
-    logFile->write(text.toLatin1());
-    logFile->putChar('\n');
-    logFile->close();
-}
-
-void MainWindow::addLog(QString msg)
-{
-    QString message(logHeader() + msg);
-    textLog->appendPlainText(message);
-    writeTempFile(message);
-}
-
-void MainWindow::addRLog(QString msg)
-{
-    QString message(rLogHeader() + msg);
-    textLog->appendPlainText(message);
-    writeTempFile(message);
-}
-
-void MainWindow::addSLog(QString msg)
-{
-    QString message(sLogHeader() + msg);
-    textLog->appendPlainText(message);
-    writeTempFile(message);
-}
-
-void MainWindow::checkReceivedCommand(const QByteArray &message)
-{
-    addRLog(QString::fromUtf8(message));
-}
-
-void MainWindow::checkPushedCommands(QByteArray bmsg)
-{
-    QString msg = QString::fromUtf8(bmsg);
-    QRegExp _newLine(QChar::fromLatin1('\n'));
-    QRegExp _return(QChar::fromLatin1('\r'));
-    msg.replace(_newLine, QStringLiteral("\\n"));
-    msg.replace(_return, QStringLiteral("\\r"));
-    addSLog(msg);
 }
 
 void MainWindow::checkTemperature(uint sensorType, uint number, uint temp)
@@ -579,7 +493,7 @@ void MainWindow::checkTemperature(uint sensorType, uint number, uint temp)
     msg = msg.arg(QString::number(number))
           .arg(QString::number(temp));
 
-    addRLog(msg);
+    logWidget->appendLog(msg);
 }
 /**
  * @brief MainWindow::locateSerialPort
@@ -591,11 +505,11 @@ void MainWindow::locateSerialPort(const QStringList &ports)
     comboPort->clear();
     if (!ports.isEmpty()) {
         comboPort->addItems(ports);
-        addLog(tr("Found %1 Ports").arg(QString::number(ports.count())));
+        logWidget->appendLog(tr("Found %1 Ports").arg(QString::number(ports.count())));
     } else {
         QString portError(tr("No available ports! Please connect a serial device to continue!"));
-        if (! textLog->toPlainText().endsWith(portError)) {
-            addLog(portError);
+        if (! logWidget->endsWith(portError)) {
+            logWidget->appendLog(portError);
         }
     }
 }
@@ -604,59 +518,59 @@ void MainWindow::connectPBClicked()
 {
     if (core->state() == AtCore::DISCONNECTED) {
         if (core->initSerial(comboPort->currentText(), comboBAUD->currentText().toInt())) {
-            connect(core, &AtCore::receivedMessage, this, &MainWindow::checkReceivedCommand);
-            connect(core->serial(), &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
+            connect(core, &AtCore::receivedMessage, logWidget, &LogWidget::appendRLog);
+            connect(core->serial(), &SerialLayer::pushedCommand, logWidget, &LogWidget::appendSLog);
             buttonConnect->setText(tr("Disconnect"));
-            addLog(tr("Serial connected"));
+            logWidget->appendLog(tr("Serial connected"));
             if (comboPlugin->currentText().contains(tr("Autodetect"))) {
-                addLog(tr("No plugin loaded !"));
-                addLog(tr("Requesting Firmware..."));
+                logWidget->appendLog(tr("No plugin loaded !"));
+                logWidget->appendLog(tr("Requesting Firmware..."));
             } else {
                 core->loadFirmwarePlugin(comboPlugin->currentText());
             }
         } else {
-            addLog(tr("Failed to open serial in r/w mode"));
+            logWidget->appendLog(tr("Failed to open serial in r/w mode"));
         }
     } else {
-        disconnect(core, &AtCore::receivedMessage, this, &MainWindow::checkReceivedCommand);
-        disconnect(core->serial(), &SerialLayer::pushedCommand, this, &MainWindow::checkPushedCommands);
+        disconnect(core, &AtCore::receivedMessage, logWidget, &LogWidget::appendRLog);
+        disconnect(core->serial(), &SerialLayer::pushedCommand, logWidget, &LogWidget::appendSLog);
         core->closeConnection();
         core->setState(AtCore::DISCONNECTED);
-        addLog(tr("Disconnected"));
+        logWidget->appendLog(tr("Disconnected"));
         buttonConnect->setText(tr("Connect"));
     }
 }
 
 void MainWindow::homeAllPBClicked()
 {
-    addSLog(tr("Home All"));
+    logWidget->appendLog(tr("Home All"));
     core->home();
 }
 
 void MainWindow::homeXPBClicked()
 {
-    addSLog(tr("Home X"));
+    logWidget->appendLog(tr("Home X"));
     core->home(AtCore::X);
 }
 
 void MainWindow::homeYPBClicked()
 {
-    addSLog(tr("Home Y"));
+    logWidget->appendLog(tr("Home Y"));
     core->home(AtCore::Y);
 }
 
 void MainWindow::homeZPBClicked()
 {
-    addSLog(tr("Home Z"));
+    logWidget->appendLog(tr("Home Z"));
     core->home(AtCore::Z);
 }
 
 void MainWindow::bedTempPBClicked()
 {
     if (checkAndWait->isChecked()) {
-        addSLog(GCode::description(GCode::M190));
+        logWidget->appendLog(GCode::description(GCode::M190));
     } else {
-        addSLog(GCode::description(GCode::M140));
+        logWidget->appendLog(GCode::description(GCode::M140));
     }
     core->setBedTemp(sbBedTemp->value(), checkAndWait->isChecked());
 }
@@ -664,16 +578,16 @@ void MainWindow::bedTempPBClicked()
 void MainWindow::extTempPBClicked()
 {
     if (checkAndWait->isChecked()) {
-        addSLog(GCode::description(GCode::M109));
+        logWidget->appendLog(GCode::description(GCode::M109));
     } else {
-        addSLog(GCode::description(GCode::M104));
+        logWidget->appendLog(GCode::description(GCode::M104));
     }
     core->setExtruderTemp(sbExtruderTemp->value(), comboExtruderSelect->currentIndex(), checkAndWait->isChecked());
 }
 
 void MainWindow::mvAxisPBClicked()
 {
-    addSLog(GCode::description(GCode::G1));
+    logWidget->appendLog(GCode::description(GCode::G1));
     if (comboMoveAxis->currentIndex() == 0) {
         core->move(AtCore::X, sbMoveAxis->value());
     } else if (comboMoveAxis->currentIndex() == 1) {
@@ -685,7 +599,7 @@ void MainWindow::mvAxisPBClicked()
 
 void MainWindow::fanSpeedPBClicked()
 {
-    addSLog(GCode::description(GCode::M106));
+    logWidget->appendLog(GCode::description(GCode::M106));
     core->setFanSpeed(sbFanSpeed->value(), comboFanSelect->currentIndex());
 }
 
@@ -706,9 +620,9 @@ void MainWindow::printPBClicked()
     case AtCore::IDLE:
         fileName = QFileDialog::getOpenFileName(this, tr("Select a file to print"), QDir::homePath(), tr("*.gcode"));
         if (fileName.isNull()) {
-            addLog(tr("No File Selected"));
+            logWidget->appendLog(tr("No File Selected"));
         } else {
-            addLog(tr("Print: %1").arg(fileName));
+            logWidget->appendLog(tr("Print: %1").arg(fileName));
             core->print(fileName);
         }
         break;
@@ -726,14 +640,6 @@ void MainWindow::printPBClicked()
     }
 }
 
-void MainWindow::saveLogPBClicked()
-{
-    // Note that if a file with the name newName already exists, copy() returns false (i.e. QFile will not overwrite it).
-    QString fileName = QDir::homePath() + QChar::fromLatin1('/') + QFileInfo(logFile->fileName()).fileName() + QStringLiteral(".txt");
-    QString saveFileName = QFileDialog::getSaveFileName(this, tr("Save Log to file"), fileName);
-    QFile::copy(logFile->fileName(), saveFileName);
-    logFile->close();
-}
 void MainWindow::pluginCBChanged(QString currentText)
 {
     if (core->state() != AtCore::DISCONNECTED) {

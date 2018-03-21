@@ -4,6 +4,7 @@ set(widgets_SRCS
     about.cpp
     commandwidget.cpp
     printwidget.cpp
+    logwidget.cpp
     )
 
 add_library(AtCoreTestWidgets STATIC ${widgets_SRCS})

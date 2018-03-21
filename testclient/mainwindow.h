@@ -22,7 +22,6 @@
 */
 #pragma once
 
-#include <QTemporaryFile>
 #include <QMainWindow>
 #include <QSerialPort>
 
@@ -30,6 +29,7 @@
 #include "widgets/plotwidget.h"
 #include "widgets/commandwidget.h"
 #include "widgets/printwidget.h"
+#include "widgets/logwidget.h"
 
 class SerialLayer;
 
@@ -42,19 +42,6 @@ public:
     ~MainWindow() override;
 
 public slots:
-    /**
-     * @brief Check received messages
-     *
-     */
-    void checkReceivedCommand(const QByteArray &message);
-
-    /**
-     * @brief Check pushed message
-     *
-     * @param  bmsg : Message
-     */
-    void checkPushedCommands(QByteArray);
-
     /**
      * @brief Check temperature
      *
@@ -132,10 +119,6 @@ private slots:
      * @brief Print Button for Sd Prints clicked.
      */
     void sdPrintPBClicked();
-    /**
-     * @brief Save the log file.
-     */
-    void saveLogPBClicked();
 
     /**
      * @brief disableMotorsPB has been clicked
@@ -178,7 +161,6 @@ private slots:
 
 private:
     AtCore *core;
-    QTemporaryFile *logFile;
     QTime *printTime;
     QTimer *printTimer;
     // Define max number of fans
@@ -190,62 +172,6 @@ private:
      *
      */
     void locateSerialPort(const QStringList &ports);
-
-    /**
-     * @brief Return string with actual time
-     *
-     * @return QString
-     */
-    QString getTime();
-
-    /**
-     * @brief Append text in temporary file
-     *
-     * @param text
-     */
-    void writeTempFile(QString text);
-
-    /**
-     * @brief Normal header
-     *
-     * @return QString
-     */
-    QString logHeader();
-
-    /**
-     * @brief Header of type received
-     *
-     * @return QString
-     */
-    QString rLogHeader();
-
-    /**
-     * @brief Header of type send
-     *
-     * @return QString
-     */
-    QString sLogHeader();
-
-    /**
-     * @brief Add in logger normal type message
-     *
-     * @param  msg: Message
-     */
-    void addLog(QString msg);
-
-    /**
-     * @brief Add in logger received type message
-     *
-     * @param  msg: Message
-     */
-    void addRLog(QString msg);
-
-    /**
-     * @brief Add in logger send type message
-     *
-     * @param  msg: Message
-     */
-    void addSLog(QString msg);
 
     /**
      * @brief pluginCB index changed
@@ -297,7 +223,7 @@ private:
     //Docks
     void makeLogDock();
     QDockWidget *logDock = nullptr;
-    QPlainTextEdit *textLog = nullptr;
+    LogWidget *logWidget = nullptr;
 
     void makeTempTimelineDock();
     QDockWidget *tempTimelineDock = nullptr;
