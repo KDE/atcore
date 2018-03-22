@@ -31,6 +31,7 @@
 #include "widgets/movementwidget.h"
 #include "widgets/plotwidget.h"
 #include "widgets/printwidget.h"
+#include "widgets/sdwidget.h"
 #include "widgets/statuswidget.h"
 #include "widgets/temperaturewidget.h"
 
@@ -68,11 +69,6 @@ private slots:
     void printPBClicked();
 
     /**
-     * @brief Print Button for Sd Prints clicked.
-     */
-    void sdPrintPBClicked();
-
-    /**
      * @brief printerStateChanged Catch and proccess printer state commands
      * @param state: new printer state
      */
@@ -90,16 +86,6 @@ private slots:
      * @param disabled: True if items are disabled.
      */
     void setDangeriousDocksDisabled(bool disabled);
-
-    /**
-     * @brief List Files on the sd card.
-     */
-    void getSdList();
-
-    /**
-     * @brief Sd Card Delete file clicked
-     */
-    void sdDelPBClicked();
 
 private:
     AtCore *core;
@@ -189,5 +175,5 @@ private:
 
     void makeSdDock();
     QDockWidget *sdDock = nullptr;
-    QListWidget *listSdFiles = nullptr;
+    SdWidget *sdWidget = nullptr;
 };

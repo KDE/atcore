@@ -52,10 +52,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
     connect(core, &AtCore::portsChanged, this, &MainWindow::locateSerialPort);
 
-    connect(core, &AtCore::sdCardFileListChanged, [ & ](QStringList fileList) {
-        listSdFiles->clear();
-        listSdFiles->addItems(fileList);
-    });
+    connect(core, &AtCore::sdCardFileListChanged, sdWidget, &SdWidget::updateFilelist);
 
     connect(&core->temperature(), &Temperature::bedTemperatureChanged, [ this ](float temp) {
         checkTemperature(0x00, 0, temp);
@@ -318,36 +315,28 @@ void MainWindow::makeTempControlsDock()
 
 void MainWindow::makeSdDock()
 {
-    auto *hBoxLayout = new QHBoxLayout;
 
-    auto *newButton = new QPushButton(tr("Get List"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::getSdList);
-    hBoxLayout->addWidget(newButton);
+    sdWidget = new SdWidget;
+    connect(sdWidget, &SdWidget::requestSdList, core, &AtCore::sdFileList);
 
-    newButton = new QPushButton(tr("Print Selected"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::sdPrintPBClicked);
-    hBoxLayout->addWidget(newButton);
+    connect(sdWidget, &SdWidget::printSdFile, [this](const QString & fileName) {
+        if (fileName.isEmpty()) {
+            QMessageBox::information(this, tr("Print Error"), tr("You must Select a file from the list"));
+        } else  {
+            core->print(fileName, true);
+        }
+    });
 
-    newButton = new QPushButton(tr("Delete Selected"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::sdDelPBClicked);
-    hBoxLayout->addWidget(newButton);
-
-    auto *groupFiles =  new QGroupBox(tr("Files On Sd Card"));
-    listSdFiles = new QListWidget;
-    auto *groupLayout = new QVBoxLayout;
-    groupLayout->addWidget(listSdFiles);
-    groupFiles->setLayout(groupLayout);
-
-    auto *mainLayout = new QVBoxLayout;
-    mainLayout->addItem(hBoxLayout);
-    mainLayout->addWidget(groupFiles);
-
-    auto *dockContents = new QWidget;
-    dockContents->setLayout(mainLayout);
+    connect(sdWidget, &SdWidget::deleteSdFile, [this](const QString & fileName) {
+        if (fileName.isEmpty()) {
+            QMessageBox::information(this, tr("Delete Error"), tr("You must Select a file from the list"));
+        } else  {
+            core->sdDelete(fileName);
+        }
+    });
 
     sdDock = new QDockWidget(tr("Sd Card"), this);
-    sdDock->setWidget(dockContents);
-
+    sdDock->setWidget(sdWidget);
     menuView->insertAction(nullptr, sdDock->toggleViewAction());
     addDockWidget(Qt::LeftDockWidgetArea, sdDock);
 }
@@ -576,29 +565,5 @@ void MainWindow::setDangeriousDocksDisabled(bool disabled)
     if (!disabled) {
         temperatureWidget->updateExtruderCount(core->extruderCount());
         temperatureWidget->updateFanCount(fanCount);
-    }
-}
-
-void MainWindow::getSdList()
-{
-    core->sdFileList();
-}
-
-void MainWindow::sdPrintPBClicked()
-{
-    if (listSdFiles->currentRow() < 0) {
-        QMessageBox::information(this, tr("Print Error"), tr("You must Select a file from the list"));
-    } else  {
-        core->print(listSdFiles->currentItem()->text(), true);
-    }
-}
-
-void MainWindow::sdDelPBClicked()
-{
-    if (listSdFiles->currentRow() < 0) {
-        QMessageBox::information(this, tr("Delete Error"), tr("You must Select a file from the list"));
-    } else  {
-        core->sdDelete(listSdFiles->currentItem()->text());
-        listSdFiles->setCurrentRow(-1);
     }
 }

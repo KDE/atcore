@@ -6,6 +6,7 @@ set(widgets_SRCS
     movementwidget.cpp
     plotwidget.cpp
     printwidget.cpp
+    sdwidget.cpp
     statuswidget.cpp
     temperaturewidget.cpp
     )
