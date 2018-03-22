@@ -768,5 +768,9 @@ void AtCore::setReadingSdCardList(bool readingList)
 
 void AtCore::sdCardPrintStatus()
 {
+    //One request for the Sd Job status in the queue at a time.
+    if (d->commandQueue.contains(GCode::toCommand(GCode::M27))) {
+        return;
+    }
     pushCommand(GCode::toCommand(GCode::M27));
 }
