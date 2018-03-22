@@ -26,10 +26,11 @@
 #include <QSerialPort>
 
 #include "atcore.h"
-#include "widgets/plotwidget.h"
 #include "widgets/commandwidget.h"
-#include "widgets/printwidget.h"
 #include "widgets/logwidget.h"
+#include "widgets/plotwidget.h"
+#include "widgets/printwidget.h"
+#include "widgets/statuswidget.h"
 
 class SerialLayer;
 
@@ -59,11 +60,6 @@ private slots:
      * @param value Distance Value
      */
     void axisControlClicked(QLatin1Char axis, int value);
-    /**
-     * @brief the printing progress has changed
-     * @param progress: the new progress
-     */
-    void printProgressChanged(int progress);
 
     /**
      * @brief Connect Button Clicked will connect or disconnect based on printer state
@@ -132,11 +128,6 @@ private slots:
     void printerStateChanged(AtCore::STATES state);
 
     /**
-     * @brief Update the print Time
-     */
-    void updatePrintTime();
-
-    /**
      * @brief show/hide dock titlebars
      * @param checked: True if shown
      */
@@ -161,8 +152,6 @@ private slots:
 
 private:
     AtCore *core;
-    QTime *printTime;
-    QTimer *printTimer;
     // Define max number of fans
     static int fanCount;
 
@@ -214,12 +203,7 @@ private:
     //menuView is global to allow for docks to be added / removed.
     QMenu *menuView = nullptr;
     //Status Bar Items
-    QLabel *lblState = nullptr;
-    QLabel *lblSd = nullptr;
-    QWidget *printProgressWidget = nullptr;
-    QProgressBar *printingProgress = nullptr;
-    QLabel *lblTime = nullptr;
-    QLabel *lblTimeLeft = nullptr;
+    StatusWidget *statusWidget = nullptr;
     //Docks
     void makeLogDock();
     QDockWidget *logDock = nullptr;

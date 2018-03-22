@@ -50,16 +50,8 @@ MainWindow::MainWindow(QWidget *parent) :
     logWidget->appendLog(tr("Attempting to locate Serial Ports"));
     core->setSerialTimerInterval(1000);
 
-    printTime = new QTime();
-    printTimer = new QTimer();
-    printTimer->setInterval(1000);
-    printTimer->setSingleShot(false);
-    connect(printTimer, &QTimer::timeout, this, &MainWindow::updatePrintTime);
-
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
     connect(core, &AtCore::portsChanged, this, &MainWindow::locateSerialPort);
-    connect(core, &AtCore::printProgressChanged, this, &MainWindow::printProgressChanged);
-    connect(core, &AtCore::sdMountChanged, this, &MainWindow::sdChanged);
 
     connect(core, &AtCore::sdCardFileListChanged, [ & ](QStringList fileList) {
         listSdFiles->clear();
@@ -118,42 +110,11 @@ void MainWindow::initMenu()
 
 void MainWindow::initStatusBar()
 {
-    //first create the item for the print Progress.
-    printingProgress = new QProgressBar;
-    auto *newButton = new QPushButton(style()->standardIcon(QStyle::SP_BrowserStop), QString());
-    connect(newButton, &QPushButton::clicked, core, &AtCore::stop);
-    lblTime = new QLabel(QStringLiteral("00:00:00"));
-    lblTime->setAlignment(Qt::AlignHCenter);
-    auto *newLabel = new QLabel(QStringLiteral(" / "));
-    lblTimeLeft = new QLabel(QStringLiteral("00:00:00"));
-    lblTimeLeft->setAlignment(Qt::AlignHCenter);
-
-    auto *hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(printingProgress);
-    hBoxLayout->addWidget(newButton);
-    hBoxLayout->addWidget(lblTime);
-    hBoxLayout->addWidget(newLabel);
-    hBoxLayout->addWidget(lblTimeLeft);
-    printProgressWidget = new QWidget();
-    printProgressWidget->setLayout(hBoxLayout);
-
-    //Then Create the full bar.
-    newLabel = new QLabel(tr("AtCore State:"));
-    lblState = new QLabel(tr("Not Connected"));
-    lblSd = new QLabel();
-
-    hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(newLabel);
-    hBoxLayout->addWidget(lblState);
-    hBoxLayout->addSpacerItem(new QSpacerItem(10, 20, QSizePolicy::Fixed));
-    hBoxLayout->addWidget(lblSd);
-    hBoxLayout->addSpacerItem(new QSpacerItem(40, 20, QSizePolicy::Expanding));
-    hBoxLayout->addWidget(printProgressWidget);
-
-    //Then put it all into a widget on the bar.
-    QWidget *sBar = new QWidget();
-    sBar->setLayout(hBoxLayout);
-    statusBar()->addPermanentWidget(sBar, 100);
+    statusWidget = new StatusWidget;
+    connect(statusWidget, &StatusWidget::stopPressed, core, &AtCore::stop);
+    connect(core, &AtCore::printProgressChanged, statusWidget, &StatusWidget::updatePrintProgress);
+    connect(core, &AtCore::sdMountChanged, statusWidget, &StatusWidget::setSD);
+    statusBar()->addPermanentWidget(statusWidget, 100);
 }
 
 void MainWindow::initWidgets()
@@ -184,7 +145,7 @@ void MainWindow::initWidgets()
     //More Gui stuff
     populateCBs();
     //hide the printing progress bar.
-    printProgressWidget->setVisible(false);
+    statusWidget->showPrintArea(false);
 }
 
 void MainWindow::makeCommandDock()
@@ -661,16 +622,13 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
     case AtCore::STARTPRINT:
         stateString = tr("START PRINT");
         printWidget->setPrintText(tr("Pause Print"));
-        printProgressWidget->setVisible(true);
-        printTime->start();
-        printTimer->start();
+        statusWidget->showPrintArea(true);
         break;
 
     case AtCore::FINISHEDPRINT:
         stateString = tr("Finished Print");
         printWidget->setPrintText(tr("Print File"));
-        printProgressWidget->setVisible(false);
-        printTimer->stop();
+        statusWidget->showPrintArea(false);
         break;
 
     case AtCore::PAUSE:
@@ -701,7 +659,7 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
         stateString = tr("Command ERROR");
         break;
     }
-    lblState->setText(stateString);
+    statusWidget->setState(stateString);
 }
 
 void MainWindow::populateCBs()
@@ -717,22 +675,6 @@ void MainWindow::populateCBs()
     }
 }
 
-void MainWindow::updatePrintTime()
-{
-    QTime temp(0, 0, 0);
-    lblTime->setText(temp.addMSecs(printTime->elapsed()).toString(QStringLiteral("hh:mm:ss")));
-}
-
-void MainWindow::printProgressChanged(int progress)
-{
-    printingProgress->setValue(progress);
-    if (progress > 0) {
-        QTime temp(0, 0, 0);
-        lblTimeLeft->setText(temp.addMSecs((100 - progress) * (printTime->elapsed() / progress)).toString(QStringLiteral("hh:mm:ss")));
-    } else {
-        lblTimeLeft->setText(QStringLiteral("??:??:??"));
-    }
-}
 void MainWindow::toggleDockTitles(bool checked)
 {
     if (checked) {
@@ -775,12 +717,6 @@ void MainWindow::axisControlClicked(QLatin1Char axis, int value)
 void MainWindow::disableMotorsPBClicked()
 {
     core->disableMotors(0);
-}
-
-void MainWindow::sdChanged(bool mounted)
-{
-    QString labelText = mounted ? tr("SD") : QString();
-    lblSd->setText(labelText);
 }
 
 void MainWindow::getSdList()
