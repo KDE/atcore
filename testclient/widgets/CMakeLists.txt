@@ -1,7 +1,14 @@
 set(widgets_SRCS
-    plotwidget.cpp
-    axiscontrol.cpp
     about.cpp
+    axiscontrol.cpp
+    commandwidget.cpp
+    logwidget.cpp
+    movementwidget.cpp
+    plotwidget.cpp
+    printwidget.cpp
+    sdwidget.cpp
+    statuswidget.cpp
+    temperaturewidget.cpp
     )
 
 add_library(AtCoreTestWidgets STATIC ${widgets_SRCS})

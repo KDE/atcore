@@ -22,12 +22,18 @@
 */
 #pragma once
 
-#include <QTemporaryFile>
 #include <QMainWindow>
 #include <QSerialPort>
 
 #include "atcore.h"
+#include "widgets/commandwidget.h"
+#include "widgets/logwidget.h"
+#include "widgets/movementwidget.h"
 #include "widgets/plotwidget.h"
+#include "widgets/printwidget.h"
+#include "widgets/sdwidget.h"
+#include "widgets/statuswidget.h"
+#include "widgets/temperaturewidget.h"
 
 class SerialLayer;
 
@@ -41,19 +47,6 @@ public:
 
 public slots:
     /**
-     * @brief Check received messages
-     *
-     */
-    void checkReceivedCommand(const QByteArray &message);
-
-    /**
-     * @brief Check pushed message
-     *
-     * @param  bmsg : Message
-     */
-    void checkPushedCommands(QByteArray);
-
-    /**
      * @brief Check temperature
      *
      * @param  sensorType : type of sensor
@@ -64,17 +57,6 @@ public slots:
 
 private slots:
     //ButtonEvents
-    /**
-     * @brief axisControlClicked Used to catch the axis control.
-     * @param axis The Axis clicked on (X |Y |Z)
-     * @param value Distance Value
-     */
-    void axisControlClicked(QLatin1Char axis, int value);
-    /**
-     * @brief the printing progress has changed
-     * @param progress: the new progress
-     */
-    void printProgressChanged(int progress);
 
     /**
      * @brief Connect Button Clicked will connect or disconnect based on printer state
@@ -82,94 +64,15 @@ private slots:
     void connectPBClicked();
 
     /**
-     * @brief Send Command Clicked
-     */
-    void sendPBClicked();
-
-    /**
-     * @brief Home All Clicked
-     */
-    void homeAllPBClicked();
-
-    /**
-     * @brief Home X Axis Clicked
-     */
-    void homeXPBClicked();
-
-    /**
-     * @brief Home Y Axis Clicked
-     */
-    void homeYPBClicked();
-
-    /**
-     * @brief Home Z Axis Clicked
-     */
-    void homeZPBClicked();
-
-    /**
-     * @brief Set Bed Temp Clicked
-     */
-    void bedTempPBClicked();
-
-    /**
-     * @brief Set Extruder Temp Clicked
-     */
-    void extTempPBClicked();
-
-    /**
-     * @brief Move Axis Clicked
-     */
-    void mvAxisPBClicked();
-
-    /**
-     * @brief Set Fan Speed Clicked
-     */
-    void fanSpeedPBClicked();
-
-    /**
      * @brief Print Button Clicked, can also pause /resue print based on printer state
      */
     void printPBClicked();
-
-    /**
-     * @brief Print Button for Sd Prints clicked.
-     */
-    void sdPrintPBClicked();
-    /**
-     * @brief Save the log file.
-     */
-    void saveLogPBClicked();
-
-    /**
-     * @brief  set printer speed clicked
-     */
-    void printerSpeedPBClicked();
-
-    /**
-     * @brief lowRatePB has been clicked
-     */
-    void flowRatePBClicked();
-
-    /**
-     * @brief disableMotorsPB has been clicked
-     */
-    void disableMotorsPBClicked();
 
     /**
      * @brief printerStateChanged Catch and proccess printer state commands
      * @param state: new printer state
      */
     void printerStateChanged(AtCore::STATES state);
-
-    /**
-     * @brief showMessage show a message on the printers LCD
-     */
-    void showMessage();
-
-    /**
-     * @brief Update the print Time
-     */
-    void updatePrintTime();
 
     /**
      * @brief show/hide dock titlebars
@@ -184,21 +87,8 @@ private slots:
      */
     void setDangeriousDocksDisabled(bool disabled);
 
-    /**
-     * @brief List Files on the sd card.
-     */
-    void getSdList();
-
-    /**
-     * @brief Sd Card Delete file clicked
-     */
-    void sdDelPBClicked();
-
 private:
     AtCore *core;
-    QTemporaryFile *logFile;
-    QTime *printTime;
-    QTimer *printTimer;
     // Define max number of fans
     static int fanCount;
 
@@ -208,62 +98,6 @@ private:
      *
      */
     void locateSerialPort(const QStringList &ports);
-
-    /**
-     * @brief Return string with actual time
-     *
-     * @return QString
-     */
-    QString getTime();
-
-    /**
-     * @brief Append text in temporary file
-     *
-     * @param text
-     */
-    void writeTempFile(QString text);
-
-    /**
-     * @brief Normal header
-     *
-     * @return QString
-     */
-    QString logHeader();
-
-    /**
-     * @brief Header of type received
-     *
-     * @return QString
-     */
-    QString rLogHeader();
-
-    /**
-     * @brief Header of type send
-     *
-     * @return QString
-     */
-    QString sLogHeader();
-
-    /**
-     * @brief Add in logger normal type message
-     *
-     * @param  msg: Message
-     */
-    void addLog(QString msg);
-
-    /**
-     * @brief Add in logger received type message
-     *
-     * @param  msg: Message
-     */
-    void addRLog(QString msg);
-
-    /**
-     * @brief Add in logger send type message
-     *
-     * @param  msg: Message
-     */
-    void addSLog(QString msg);
 
     /**
      * @brief pluginCB index changed
@@ -306,32 +140,23 @@ private:
     //menuView is global to allow for docks to be added / removed.
     QMenu *menuView = nullptr;
     //Status Bar Items
-    QLabel *lblState = nullptr;
-    QLabel *lblSd = nullptr;
-    QWidget *printProgressWidget = nullptr;
-    QProgressBar *printingProgress = nullptr;
-    QLabel *lblTime = nullptr;
-    QLabel *lblTimeLeft = nullptr;
+    StatusWidget *statusWidget = nullptr;
     //Docks
     void makeLogDock();
     QDockWidget *logDock = nullptr;
-    QPlainTextEdit *textLog = nullptr;
+    LogWidget *logWidget = nullptr;
 
     void makeTempTimelineDock();
     QDockWidget *tempTimelineDock = nullptr;
     PlotWidget *plotWidget = nullptr;
 
     void makeCommandDock();
-    QDockWidget *printDock = nullptr;
     QDockWidget *commandDock = nullptr;
-    QLineEdit *lineCommand = nullptr;
-    QLineEdit *lineMessage = nullptr;
+    CommandWidget *commandWidget = nullptr;
 
     void makePrintDock();
-    QPushButton *buttonPrint = nullptr;
-    QLineEdit *linePostPause = nullptr;
-    QSpinBox *sbFlowRate = nullptr;
-    QSpinBox *sbPrintSpeed = nullptr;
+    QDockWidget *printDock = nullptr;
+    PrintWidget *printWidget = nullptr;
 
     void makeConnectDock();
     QDockWidget *connectDock = nullptr;
@@ -342,19 +167,13 @@ private:
 
     void makeMoveDock();
     QDockWidget *moveDock = nullptr;
-    QComboBox *comboMoveAxis = nullptr;
-    QDoubleSpinBox *sbMoveAxis = nullptr;
+    MovementWidget *movementWidget = nullptr;
 
     void makeTempControlsDock();
     QDockWidget *tempControlsDock = nullptr;
-    QCheckBox *checkAndWait = nullptr;
-    QSpinBox *sbBedTemp = nullptr;
-    QComboBox *comboExtruderSelect;
-    QSpinBox *sbExtruderTemp;
-    QComboBox *comboFanSelect;
-    QSpinBox *sbFanSpeed;
+    TemperatureWidget *temperatureWidget = nullptr;
 
     void makeSdDock();
     QDockWidget *sdDock = nullptr;
-    QListWidget *listSdFiles = nullptr;
+    SdWidget *sdWidget = nullptr;
 };
