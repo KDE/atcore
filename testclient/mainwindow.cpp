@@ -451,7 +451,7 @@ void MainWindow::makeMoveDock()
 void MainWindow::makeTempControlsDock()
 {
     auto *mainLayout = new QVBoxLayout;
-    checkAndWait = new QCheckBox(tr("Wait Untill Temperature Stablizes"));
+    checkAndWait = new QCheckBox(tr("Wait Until Temperature Stabilizes"));
     mainLayout->addWidget(checkAndWait);
 
     auto label = new QLabel(tr("Bed Temp"));
@@ -882,7 +882,7 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
         break;
 
     case AtCore::STOP:
-        stateString = tr("Stoping Print");
+        stateString = tr("Stopping Print");
         break;
 
     case AtCore::ERRORSTATE:
