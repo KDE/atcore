@@ -28,6 +28,7 @@
 #include "atcore.h"
 #include "widgets/commandwidget.h"
 #include "widgets/logwidget.h"
+#include "widgets/movementwidget.h"
 #include "widgets/plotwidget.h"
 #include "widgets/printwidget.h"
 #include "widgets/statuswidget.h"
@@ -54,37 +55,11 @@ public slots:
 
 private slots:
     //ButtonEvents
-    /**
-     * @brief axisControlClicked Used to catch the axis control.
-     * @param axis The Axis clicked on (X |Y |Z)
-     * @param value Distance Value
-     */
-    void axisControlClicked(QLatin1Char axis, int value);
 
     /**
      * @brief Connect Button Clicked will connect or disconnect based on printer state
      */
     void connectPBClicked();
-
-    /**
-     * @brief Home All Clicked
-     */
-    void homeAllPBClicked();
-
-    /**
-     * @brief Home X Axis Clicked
-     */
-    void homeXPBClicked();
-
-    /**
-     * @brief Home Y Axis Clicked
-     */
-    void homeYPBClicked();
-
-    /**
-     * @brief Home Z Axis Clicked
-     */
-    void homeZPBClicked();
 
     /**
      * @brief Set Bed Temp Clicked
@@ -95,11 +70,6 @@ private slots:
      * @brief Set Extruder Temp Clicked
      */
     void extTempPBClicked();
-
-    /**
-     * @brief Move Axis Clicked
-     */
-    void mvAxisPBClicked();
 
     /**
      * @brief Set Fan Speed Clicked
@@ -115,11 +85,6 @@ private slots:
      * @brief Print Button for Sd Prints clicked.
      */
     void sdPrintPBClicked();
-
-    /**
-     * @brief disableMotorsPB has been clicked
-     */
-    void disableMotorsPBClicked();
 
     /**
      * @brief printerStateChanged Catch and proccess printer state commands
@@ -230,8 +195,7 @@ private:
 
     void makeMoveDock();
     QDockWidget *moveDock = nullptr;
-    QComboBox *comboMoveAxis = nullptr;
-    QDoubleSpinBox *sbMoveAxis = nullptr;
+    MovementWidget *movementWidget = nullptr;
 
     void makeTempControlsDock();
     QDockWidget *tempControlsDock = nullptr;

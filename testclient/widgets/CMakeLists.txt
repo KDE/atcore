@@ -3,6 +3,7 @@ set(widgets_SRCS
     axiscontrol.cpp
     commandwidget.cpp
     logwidget.cpp
+    movementwidget.cpp
     plotwidget.cpp
     printwidget.cpp
     statuswidget.cpp

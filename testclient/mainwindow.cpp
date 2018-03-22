@@ -29,7 +29,6 @@
 #include "mainwindow.h"
 #include "seriallayer.h"
 #include "gcodecommands.h"
-#include "widgets/axiscontrol.h"
 #include "widgets/about.h"
 
 Q_LOGGING_CATEGORY(TESTCLIENT_MAINWINDOW, "org.kde.atelier.core")
@@ -261,57 +260,45 @@ void MainWindow::makeConnectDock()
 
 void MainWindow::makeMoveDock()
 {
-    auto *mainLayout = new QVBoxLayout;
-    auto *hBoxLayout = new QHBoxLayout;
+    movementWidget = new MovementWidget;
 
-    auto *newButton = new QPushButton(tr("Home All"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::homeAllPBClicked);
-    hBoxLayout->addWidget(newButton);
+    connect(movementWidget, &MovementWidget::homeAllPressed, [this] {
+        logWidget->appendLog(tr("Home All"));
+        core->home();
+    });
 
-    newButton = new QPushButton(tr("Home X"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::homeXPBClicked);
-    hBoxLayout->addWidget(newButton);
+    connect(movementWidget, &MovementWidget::homeXPressed, [this] {
+        logWidget->appendLog(tr("Home X"));
+        core->home(AtCore::X);
+    });
 
-    newButton = new QPushButton(tr("Home Y"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::homeYPBClicked);
-    hBoxLayout->addWidget(newButton);
+    connect(movementWidget, &MovementWidget::homeYPressed, [this] {
+        logWidget->appendLog(tr("Home Y"));
+        core->home(AtCore::Y);
+    });
 
-    newButton = new QPushButton(tr("Home Z"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::homeZPBClicked);
-    hBoxLayout->addWidget(newButton);
+    connect(movementWidget, &MovementWidget::homeZPressed, [this] {
+        logWidget->appendLog(tr("Home Z"));
+        core->home(AtCore::Z);
+    });
 
-    mainLayout->addLayout(hBoxLayout);
+    connect(movementWidget, &MovementWidget::absoluteMove, [this](const QLatin1Char & axis, const double & value) {
+        logWidget->appendLog(GCode::description(GCode::G1));
+        core->move(axis, value);
+    });
 
-    comboMoveAxis = new QComboBox;
-    comboMoveAxis->addItem(tr("Move X Axis to"));
-    comboMoveAxis->addItem(tr("Move Y Axis to"));
-    comboMoveAxis->addItem(tr("Move Z Axis to"));
+    connect(movementWidget, &MovementWidget::disableMotorsPressed, [this] {
+        core->disableMotors(0);
+    });
 
-    sbMoveAxis = new QDoubleSpinBox;
-    sbMoveAxis->setRange(0, 200);
-
-    newButton = new QPushButton(tr("Go"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::mvAxisPBClicked);
-
-    hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(comboMoveAxis);
-    hBoxLayout->addWidget(sbMoveAxis);
-    hBoxLayout->addWidget(newButton);
-    mainLayout->addLayout(hBoxLayout);
-
-    newButton = new QPushButton(tr("Disable Motors"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::disableMotorsPBClicked);
-    mainLayout->addWidget(newButton);
-
-    auto *axisControl = new AxisControl;
-    connect(axisControl, &AxisControl::clicked, this, &MainWindow::axisControlClicked);
-    mainLayout->addWidget(axisControl);
-
-    auto *dockContents = new QWidget;
-    dockContents->setLayout(mainLayout);
+    connect(movementWidget, &MovementWidget::relativeMove, [this](const QLatin1Char & axis, const double & value) {
+        core->setRelativePosition();
+        core->move(axis, value);
+        core->setAbsolutePosition();
+    });
 
     moveDock = new QDockWidget(tr("Movement"), this);
-    moveDock->setWidget(dockContents);
+    moveDock->setWidget(movementWidget);
 
     menuView->insertAction(nullptr, moveDock->toggleViewAction());
     addDockWidget(Qt::LeftDockWidgetArea, moveDock);
@@ -502,30 +489,6 @@ void MainWindow::connectPBClicked()
     }
 }
 
-void MainWindow::homeAllPBClicked()
-{
-    logWidget->appendLog(tr("Home All"));
-    core->home();
-}
-
-void MainWindow::homeXPBClicked()
-{
-    logWidget->appendLog(tr("Home X"));
-    core->home(AtCore::X);
-}
-
-void MainWindow::homeYPBClicked()
-{
-    logWidget->appendLog(tr("Home Y"));
-    core->home(AtCore::Y);
-}
-
-void MainWindow::homeZPBClicked()
-{
-    logWidget->appendLog(tr("Home Z"));
-    core->home(AtCore::Z);
-}
-
 void MainWindow::bedTempPBClicked()
 {
     if (checkAndWait->isChecked()) {
@@ -544,18 +507,6 @@ void MainWindow::extTempPBClicked()
         logWidget->appendLog(GCode::description(GCode::M104));
     }
     core->setExtruderTemp(sbExtruderTemp->value(), comboExtruderSelect->currentIndex(), checkAndWait->isChecked());
-}
-
-void MainWindow::mvAxisPBClicked()
-{
-    logWidget->appendLog(GCode::description(GCode::G1));
-    if (comboMoveAxis->currentIndex() == 0) {
-        core->move(AtCore::X, sbMoveAxis->value());
-    } else if (comboMoveAxis->currentIndex() == 1) {
-        core->move(AtCore::Y, sbMoveAxis->value());
-    } else if (comboMoveAxis->currentIndex() == 2) {
-        core->move(AtCore::Z, sbMoveAxis->value());
-    }
 }
 
 void MainWindow::fanSpeedPBClicked()
@@ -705,18 +656,6 @@ void MainWindow::setDangeriousDocksDisabled(bool disabled)
     tempControlsDock->widget()->setDisabled(disabled);
     printDock->widget()->setDisabled(disabled);
     sdDock->widget()->setDisabled(disabled);
-}
-
-void MainWindow::axisControlClicked(QLatin1Char axis, int value)
-{
-    core->setRelativePosition();
-    core->move(axis, value);
-    core->setAbsolutePosition();
-}
-
-void MainWindow::disableMotorsPBClicked()
-{
-    core->disableMotors(0);
 }
 
 void MainWindow::getSdList()
