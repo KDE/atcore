@@ -7,6 +7,7 @@ set(widgets_SRCS
     plotwidget.cpp
     printwidget.cpp
     statuswidget.cpp
+    temperaturewidget.cpp
     )
 
 add_library(AtCoreTestWidgets STATIC ${widgets_SRCS})

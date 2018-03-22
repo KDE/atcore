@@ -32,6 +32,7 @@
 #include "widgets/plotwidget.h"
 #include "widgets/printwidget.h"
 #include "widgets/statuswidget.h"
+#include "widgets/temperaturewidget.h"
 
 class SerialLayer;
 
@@ -60,21 +61,6 @@ private slots:
      * @brief Connect Button Clicked will connect or disconnect based on printer state
      */
     void connectPBClicked();
-
-    /**
-     * @brief Set Bed Temp Clicked
-     */
-    void bedTempPBClicked();
-
-    /**
-     * @brief Set Extruder Temp Clicked
-     */
-    void extTempPBClicked();
-
-    /**
-     * @brief Set Fan Speed Clicked
-     */
-    void fanSpeedPBClicked();
 
     /**
      * @brief Print Button Clicked, can also pause /resue print based on printer state
@@ -199,12 +185,7 @@ private:
 
     void makeTempControlsDock();
     QDockWidget *tempControlsDock = nullptr;
-    QCheckBox *checkAndWait = nullptr;
-    QSpinBox *sbBedTemp = nullptr;
-    QComboBox *comboExtruderSelect;
-    QSpinBox *sbExtruderTemp;
-    QComboBox *comboFanSelect;
-    QSpinBox *sbFanSpeed;
+    TemperatureWidget *temperatureWidget = nullptr;
 
     void makeSdDock();
     QDockWidget *sdDock = nullptr;

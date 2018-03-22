@@ -142,7 +142,6 @@ void MainWindow::initWidgets()
     setCentralWidget(nullptr);
 
     //More Gui stuff
-    populateCBs();
     //hide the printing progress bar.
     statusWidget->showPrintArea(false);
 }
@@ -306,57 +305,13 @@ void MainWindow::makeMoveDock()
 
 void MainWindow::makeTempControlsDock()
 {
-    auto *mainLayout = new QVBoxLayout;
-    checkAndWait = new QCheckBox(tr("Wait Until Temperature Stabilizes"));
-    mainLayout->addWidget(checkAndWait);
-
-    auto label = new QLabel(tr("Bed Temp"));
-
-    sbBedTemp = new QSpinBox;
-    sbBedTemp->setRange(0, 120);
-    sbBedTemp->setSuffix(QStringLiteral("°C"));
-
-    auto *newButton = new QPushButton(tr("Set"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::bedTempPBClicked);
-
-    auto *hboxLayout = new QHBoxLayout;
-    hboxLayout->addWidget(label, 80);
-    hboxLayout->addWidget(sbBedTemp);
-    hboxLayout->addWidget(newButton);
-    mainLayout->addItem(hboxLayout);
-
-    comboExtruderSelect = new QComboBox;
-    sbExtruderTemp = new QSpinBox;
-    sbExtruderTemp->setRange(0, 275);
-    sbExtruderTemp->setSuffix(QStringLiteral("°C"));
-
-    newButton = new QPushButton(tr("Set"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::extTempPBClicked);
-    hboxLayout = new QHBoxLayout;
-    hboxLayout->addWidget(comboExtruderSelect, 80);
-    hboxLayout->addWidget(sbExtruderTemp);
-    hboxLayout->addWidget(newButton);
-    mainLayout->addItem(hboxLayout);
-
-    comboFanSelect = new QComboBox;
-    sbFanSpeed = new QSpinBox;
-    sbFanSpeed->setRange(0, 100);
-    sbFanSpeed->setSuffix(QStringLiteral("%"));
-
-    newButton = new QPushButton(tr("Set"));
-    connect(newButton, &QPushButton::clicked, this, &MainWindow::fanSpeedPBClicked);
-    hboxLayout = new QHBoxLayout;
-    hboxLayout->addWidget(comboFanSelect, 80);
-    hboxLayout->addWidget(sbFanSpeed);
-    hboxLayout->addWidget(newButton);
-    mainLayout->addItem(hboxLayout);
-
-    auto *dockContents = new QWidget;
-    dockContents->setLayout(mainLayout);
+    temperatureWidget = new TemperatureWidget;
+    connect(temperatureWidget, &TemperatureWidget::bedTempChanged, core, &AtCore::setBedTemp);
+    connect(temperatureWidget, &TemperatureWidget::extTempChanged, core, &AtCore::setExtruderTemp);
+    connect(temperatureWidget, &TemperatureWidget::fanSpeedChanged, core, &AtCore::setFanSpeed);
 
     tempControlsDock = new QDockWidget(tr("Temperatures"), this);
-    tempControlsDock->setWidget(dockContents);
-
+    tempControlsDock->setWidget(temperatureWidget);
     menuView->insertAction(nullptr, tempControlsDock->toggleViewAction());
     addDockWidget(Qt::LeftDockWidgetArea, tempControlsDock);
 }
@@ -489,32 +444,6 @@ void MainWindow::connectPBClicked()
     }
 }
 
-void MainWindow::bedTempPBClicked()
-{
-    if (checkAndWait->isChecked()) {
-        logWidget->appendLog(GCode::description(GCode::M190));
-    } else {
-        logWidget->appendLog(GCode::description(GCode::M140));
-    }
-    core->setBedTemp(sbBedTemp->value(), checkAndWait->isChecked());
-}
-
-void MainWindow::extTempPBClicked()
-{
-    if (checkAndWait->isChecked()) {
-        logWidget->appendLog(GCode::description(GCode::M109));
-    } else {
-        logWidget->appendLog(GCode::description(GCode::M104));
-    }
-    core->setExtruderTemp(sbExtruderTemp->value(), comboExtruderSelect->currentIndex(), checkAndWait->isChecked());
-}
-
-void MainWindow::fanSpeedPBClicked()
-{
-    logWidget->appendLog(GCode::description(GCode::M106));
-    core->setFanSpeed(sbFanSpeed->value(), comboFanSelect->currentIndex());
-}
-
 void MainWindow::printPBClicked()
 {
     QString fileName;
@@ -613,19 +542,6 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
     statusWidget->setState(stateString);
 }
 
-void MainWindow::populateCBs()
-{
-    // Extruders
-    for (int count = 0; count < core->extruderCount(); count++) {
-        comboExtruderSelect->insertItem(count, tr("Extruder %1").arg(count));
-    }
-
-    // Fan
-    for (int count = 0; count < fanCount; count++) {
-        comboFanSelect->insertItem(count, tr("Fan %1 speed").arg(count));
-    }
-}
-
 void MainWindow::toggleDockTitles(bool checked)
 {
     if (checked) {
@@ -656,6 +572,11 @@ void MainWindow::setDangeriousDocksDisabled(bool disabled)
     tempControlsDock->widget()->setDisabled(disabled);
     printDock->widget()->setDisabled(disabled);
     sdDock->widget()->setDisabled(disabled);
+
+    if (!disabled) {
+        temperatureWidget->updateExtruderCount(core->extruderCount());
+        temperatureWidget->updateFanCount(fanCount);
+    }
 }
 
 void MainWindow::getSdList()
