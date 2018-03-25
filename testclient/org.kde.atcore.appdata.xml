@@ -9,6 +9,7 @@
   <name xml:lang="nl">AtCore testclient</name>
   <name xml:lang="pt">Cliente de Testes do AtCore</name>
   <name xml:lang="sk">AtCore Test Klient</name>
+  <name xml:lang="sv">AtCore testklient</name>
   <name xml:lang="uk">Тестовий клієнт AtCore</name>
   <name xml:lang="x-test">xxAtCore Test Clientxx</name>
   <name xml:lang="zh-CN">AtCore 测试客户端</name>
@@ -19,6 +20,7 @@
   <summary xml:lang="es">Una aplicación de pruebas para la infraestructura AtCore de control de impresoras en 3D</summary>
   <summary xml:lang="nl">Een testtoepassing voor het AtCore-framework om 3D-printers te besturen</summary>
   <summary xml:lang="pt">Uma aplicação de testes da plataforma AtCore para controlar as impressoras 3D</summary>
+  <summary xml:lang="sv">Ett testprogram av ramverket AtCore för att styra 3D-skrivare</summary>
   <summary xml:lang="uk">Тестова програма для бібліотек AtCore, які призначено для керування 3D-принтерами</summary>
   <summary xml:lang="x-test">xxA test application for the AtCore framework to control 3D printersxx</summary>
   <description>
@@ -31,6 +33,7 @@
     <p xml:lang="es">AtCore es la API que controla la impresión en 3D y sus funcionalidades básicas. AtCore contiene una aplicación cliente de pruebas llamada «atcore-gui» para gestionar la impresora.</p>
     <p xml:lang="nl">AtCore is de API die de 3D-printer en zijn basis functionaliteiten bestuurt. AtCore komt met een testclient genaamd atcore-gui om uw printer te beheren.</p>
     <p xml:lang="pt">O AtCore é a API que controla as impressoras 3D e a suas funcionalidades básicas. O AtCore vem com um cliente de testes chamado 'atcore-gui' para gerir a sua impressora.</p>
+    <p xml:lang="sv">AtCore är programmeringsgränssnittet som styr 3D-skrivaren och dess grundfunktioner. AtCore levereras med en testklient som kallas atcore-gui för att hantera skrivaren.</p>
     <p xml:lang="uk">AtCore — програмний інтерфейс для керування 3D-принтером та його базовими можливостями. AtCore постачається із тестовим клієнтом із назвою atcore-gui, за допомогою якого можна керувати вашим принтером.</p>
     <p xml:lang="x-test">xxAtCore is the API that controls the 3DPrinter and its basic functionalities. AtCore comes with a test client called atcore-gui to manage your printer.xx</p>
     <p>
@@ -43,6 +46,7 @@
     <p xml:lang="es">Esto es una aplicación de pruebas de AtCore mara mostrar la infraestructura.</p>
     <p xml:lang="nl">Dit is een AtCore testtoepassing om het framework te tonen.</p>
     <p xml:lang="pt">Esta é uma aplicação de testes do AtCore para demonstrar a plataforma.</p>
+    <p xml:lang="sv">Det här är ett testprogram för AtCore för att visa upp ramverket</p>
     <p xml:lang="uk">Це тестова програма AtCore, яка демонструє можливості бібліотеки.</p>
     <p xml:lang="x-test">xxThis is an AtCore test application to showcase the framework.xx</p>
   </description>
