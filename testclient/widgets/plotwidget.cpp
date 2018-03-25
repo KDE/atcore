@@ -27,6 +27,9 @@ PlotWidget::PlotWidget(QWidget *parent) :
     QWidget(parent)
 {
     _chart = new QChartView;
+    if (palette().text().color().value() >= QColor(Qt::lightGray).value()) {
+        _chart->chart()->setTheme(QChart::ChartThemeDark);
+    }
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->addWidget(_chart);
     this->setLayout(mainLayout);
