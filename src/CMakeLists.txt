@@ -1,4 +1,5 @@
 add_subdirectory(plugins)
+add_subdirectory(widgets)
 
 configure_file(
     atcore_default_folders.h.in

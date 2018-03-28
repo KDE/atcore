@@ -16,40 +16,27 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #pragma once
-#include <QLabel>
-#include <QProgressBar>
-#include <QTimer>
+
+#include <QListWidget>
 #include <QWidget>
 
+#include "atcorewidgets_export.h"
 /* Usage:
  *
- * Create a instance of the status widget.
+ * Create a instance of the sd widget.
  */
 
-class StatusWidget : public QWidget
+class ATCOREWIDGETS_EXPORT SdWidget : public QWidget
 {
     Q_OBJECT
 public:
-    StatusWidget(QWidget *parent = nullptr);
-
-    void setSD(bool hasSd);
-    void setState(const QString &state);
-    void showPrintArea(bool visible);
-    void updatePrintProgress(const float &progress);
-
+    SdWidget(QWidget *parent = nullptr);
+    void updateFilelist(const QStringList &fileList);
 signals:
-    void stopPressed();
-
-private slots:
-    void updatePrintTime();
+    void requestSdList();
+    void printSdFile(const QString &fileName);
+    void deleteSdFile(const QString &fileName);
 
 private:
-    QLabel *lblState = nullptr;
-    QLabel *lblSd = nullptr;
-    QLabel *lblTime = nullptr;
-    QLabel *lblTimeLeft = nullptr;
-    QTime *printTime = nullptr;
-    QTimer *printTimer = nullptr;
-    QProgressBar *printingProgress = nullptr;
-    QWidget *printProgressWidget = nullptr;
+    QListWidget *listSdFiles = nullptr;
 };

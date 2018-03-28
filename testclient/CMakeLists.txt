@@ -2,13 +2,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-find_package(Qt5 REQUIRED COMPONENTS
-    Charts
-    Widgets
-)
-
 include_directories(../src)
-add_subdirectory(widgets)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set(AtCoreTestClient_SRCS
@@ -46,7 +40,4 @@ else()
     install(TARGETS atcore-gui BUNDLE DESTINATION bin)
 endif()
 
-target_link_libraries(atcore-gui AtCoreTestWidgets AtCore::AtCore Qt5::Widgets Qt5::Charts)
-
-
-
+target_link_libraries(atcore-gui AtCore::AtCoreWidgets AtCore::AtCore Qt5::Widgets Qt5::Charts)

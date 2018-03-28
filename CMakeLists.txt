@@ -46,7 +46,10 @@ add_definitions(-DQT_NO_CAST_FROM_ASCII
 find_package(Qt5 REQUIRED COMPONENTS
     Core
     SerialPort
+    Charts
+    Widgets
 )
+
 include(ECMPoQmTools)
 
 ecm_setup_version(${PROJECT_VERSION}
