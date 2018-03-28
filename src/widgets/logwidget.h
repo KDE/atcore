@@ -21,12 +21,13 @@
 #include <QTemporaryFile>
 #include <QWidget>
 
+#include "atcorewidgets_export.h"
 /* Usage:
  *
  * Create a instance of the log widget.
  */
 
-class LogWidget : public QWidget
+class ATCOREWIDGETS_EXPORT LogWidget : public QWidget
 {
     Q_OBJECT
 public:

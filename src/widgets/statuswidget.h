@@ -16,32 +16,41 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #pragma once
-
-#include <QComboBox>
-#include <QDoubleSpinBox>
+#include <QLabel>
+#include <QProgressBar>
+#include <QTimer>
 #include <QWidget>
 
+#include "atcorewidgets_export.h"
 /* Usage:
  *
- * Create a instance of the movement widget.
+ * Create a instance of the status widget.
  */
 
-class MovementWidget : public QWidget
+class ATCOREWIDGETS_EXPORT StatusWidget : public QWidget
 {
     Q_OBJECT
 public:
-    MovementWidget(QWidget *parent = nullptr);
+    StatusWidget(QWidget *parent = nullptr);
+
+    void setSD(bool hasSd);
+    void setState(const QString &state);
+    void showPrintArea(bool visible);
+    void updatePrintProgress(const float &progress);
 
 signals:
-    void homeAllPressed();
-    void homeXPressed();
-    void homeYPressed();
-    void homeZPressed();
-    void absoluteMove(const QLatin1Char &axis, const double &value);
-    void relativeMove(const QLatin1Char &axis, const double &value);
-    void disableMotorsPressed();
+    void stopPressed();
+
+private slots:
+    void updatePrintTime();
 
 private:
-    QComboBox *comboMoveAxis = nullptr;
-    QDoubleSpinBox *sbMoveAxis = nullptr;
+    QLabel *lblState = nullptr;
+    QLabel *lblSd = nullptr;
+    QLabel *lblTime = nullptr;
+    QLabel *lblTimeLeft = nullptr;
+    QTime *printTime = nullptr;
+    QTimer *printTimer = nullptr;
+    QProgressBar *printingProgress = nullptr;
+    QWidget *printProgressWidget = nullptr;
 };

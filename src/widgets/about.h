@@ -23,7 +23,9 @@
 
 #include <QDialog>
 
-class About : public QDialog
+#include "atcorewidgets_export.h"
+
+class ATCOREWIDGETS_EXPORT About : public QDialog
 {
     Q_OBJECT
 public:

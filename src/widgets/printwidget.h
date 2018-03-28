@@ -17,25 +17,34 @@
 */
 #pragma once
 
-#include <QListWidget>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QSpinBox>
 #include <QWidget>
 
+#include "atcorewidgets_export.h"
 /* Usage:
  *
- * Create a instance of the sd widget.
+ * Create a instance of the print widget.
  */
 
-class SdWidget : public QWidget
+class ATCOREWIDGETS_EXPORT PrintWidget : public QWidget
 {
     Q_OBJECT
 public:
-    SdWidget(QWidget *parent = nullptr);
-    void updateFilelist(const QStringList &fileList);
+    PrintWidget(QWidget *parent = nullptr);
+    QString postPauseCommand() const;
+    void setPrintText(const QString &text);
+
 signals:
-    void requestSdList();
-    void printSdFile(const QString &fileName);
-    void deleteSdFile(const QString &fileName);
+    void emergencyStopPressed();
+    void flowRateChanged(const int rate);
+    void printPressed();
+    void printSpeedChanged(const int speed);
 
 private:
-    QListWidget *listSdFiles = nullptr;
+    QPushButton *buttonPrint = nullptr;
+    QLineEdit *linePostPause = nullptr;
+    QSpinBox *sbFlowRate = nullptr;
+    QSpinBox *sbPrintSpeed = nullptr;
 };

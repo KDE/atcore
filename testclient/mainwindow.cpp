@@ -29,7 +29,7 @@
 #include "mainwindow.h"
 #include "seriallayer.h"
 #include "gcodecommands.h"
-#include "widgets/about.h"
+#include "about.h"
 
 Q_LOGGING_CATEGORY(TESTCLIENT_MAINWINDOW, "org.kde.atelier.core")
 

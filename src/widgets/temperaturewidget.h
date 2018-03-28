@@ -17,25 +17,35 @@
 */
 #pragma once
 
-#include <QLineEdit>
+#include <QCheckBox>
+#include <QComboBox>
+#include <QSpinBox>
 #include <QWidget>
 
+#include "atcorewidgets_export.h"
 /* Usage:
  *
- * Create a instance of the command widget.
+ * Create a instance of the temperature widget.
  */
 
-class CommandWidget : public QWidget
+class ATCOREWIDGETS_EXPORT TemperatureWidget : public QWidget
 {
     Q_OBJECT
 public:
-    CommandWidget(QWidget *parent = nullptr);
+    TemperatureWidget(QWidget *parent = nullptr);
+    void updateExtruderCount(const int count);
+    void updateFanCount(const int count);
 
 signals:
-    void commandPressed(const QString &command);
-    void messagePressed(const QString &message);
+    void bedTempChanged(const int temperature, bool andWait);
+    void extTempChanged(const int temperature, const int extNum, bool andWait);
+    void fanSpeedChanged(const int speed, const int fanNum);
 
 private:
-    QLineEdit *lineCommand = nullptr;
-    QLineEdit *lineMessage = nullptr;
+    QCheckBox *checkAndWait = nullptr;
+    QComboBox *comboExtruderSelect;
+    QComboBox *comboFanSelect;
+    QSpinBox *sbBedTemp = nullptr;
+    QSpinBox *sbExtruderTemp;
+    QSpinBox *sbFanSpeed;
 };

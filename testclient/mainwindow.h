@@ -26,14 +26,14 @@
 #include <QSerialPort>
 
 #include "atcore.h"
-#include "widgets/commandwidget.h"
-#include "widgets/logwidget.h"
-#include "widgets/movementwidget.h"
-#include "widgets/plotwidget.h"
-#include "widgets/printwidget.h"
-#include "widgets/sdwidget.h"
-#include "widgets/statuswidget.h"
-#include "widgets/temperaturewidget.h"
+#include "commandwidget.h"
+#include "logwidget.h"
+#include "movementwidget.h"
+#include "plotwidget.h"
+#include "printwidget.h"
+#include "sdwidget.h"
+#include "statuswidget.h"
+#include "temperaturewidget.h"
 
 class SerialLayer;
 

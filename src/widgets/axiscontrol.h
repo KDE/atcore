@@ -22,6 +22,7 @@
 #include <QGraphicsView>
 #include <QGraphicsEllipseItem>
 
+#include "atcorewidgets_export.h"
 /* Usage:
  *
  * Create a instance of PrinterHotendPositionVisualController and
@@ -29,7 +30,7 @@
  * that was clicked.
  */
 
-class PieButton : public QObject, public QGraphicsEllipseItem
+class ATCOREWIDGETS_EXPORT PieButton : public QObject, public QGraphicsEllipseItem
 {
     Q_OBJECT
 public:
@@ -47,7 +48,7 @@ private:
     QPalette _palette;
 };
 
-class RectButton : public QObject, public QGraphicsRectItem
+class ATCOREWIDGETS_EXPORT RectButton : public QObject, public QGraphicsRectItem
 {
     Q_OBJECT
 
@@ -66,7 +67,7 @@ private:
     QPalette _palette;
 };
 
-class AxisControl : public QGraphicsView
+class ATCOREWIDGETS_EXPORT AxisControl : public QGraphicsView
 {
     Q_OBJECT
 

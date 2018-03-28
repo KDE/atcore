@@ -25,7 +25,9 @@
 #include <QWidget>
 #include <QtCharts>
 
-class PlotWidget : public QWidget
+#include "atcorewidgets_export.h"
+
+class ATCOREWIDGETS_EXPORT PlotWidget : public QWidget
 {
     Q_OBJECT
 

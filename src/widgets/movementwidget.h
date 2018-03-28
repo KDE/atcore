@@ -17,33 +17,32 @@
 */
 #pragma once
 
-#include <QLineEdit>
-#include <QPushButton>
-#include <QSpinBox>
+#include <QComboBox>
+#include <QDoubleSpinBox>
 #include <QWidget>
 
+#include "atcorewidgets_export.h"
 /* Usage:
  *
- * Create a instance of the print widget.
+ * Create a instance of the movement widget.
  */
 
-class PrintWidget : public QWidget
+class ATCOREWIDGETS_EXPORT MovementWidget : public QWidget
 {
     Q_OBJECT
 public:
-    PrintWidget(QWidget *parent = nullptr);
-    QString postPauseCommand() const;
-    void setPrintText(const QString &text);
+    MovementWidget(QWidget *parent = nullptr);
 
 signals:
-    void emergencyStopPressed();
-    void flowRateChanged(const int rate);
-    void printPressed();
-    void printSpeedChanged(const int speed);
+    void homeAllPressed();
+    void homeXPressed();
+    void homeYPressed();
+    void homeZPressed();
+    void absoluteMove(const QLatin1Char &axis, const double &value);
+    void relativeMove(const QLatin1Char &axis, const double &value);
+    void disableMotorsPressed();
 
 private:
-    QPushButton *buttonPrint = nullptr;
-    QLineEdit *linePostPause = nullptr;
-    QSpinBox *sbFlowRate = nullptr;
-    QSpinBox *sbPrintSpeed = nullptr;
+    QComboBox *comboMoveAxis = nullptr;
+    QDoubleSpinBox *sbMoveAxis = nullptr;
 };
