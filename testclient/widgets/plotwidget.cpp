@@ -21,7 +21,6 @@
 
 #include "plotwidget.h"
 #include <QChart>
-#include <KLocalizedString>
 
 PlotWidget::PlotWidget(QWidget *parent) :
     QWidget(parent),
@@ -36,7 +35,7 @@ PlotWidget::PlotWidget(QWidget *parent) :
     _axisX->setTickCount(3);
     _axisX->setFormat(QStringLiteral("hh:mm:ss"));
     _axisY->setLabelFormat(QStringLiteral("%d"));
-    _axisY->setTitleText(i18n("Temp."));
+    _axisY->setTitleText(tr("Temp."));
 
     _chart->chart()->addAxis(_axisY, Qt::AlignLeft);
     _chart->chart()->addAxis(_axisX, Qt::AlignBottom);
@@ -47,11 +46,11 @@ PlotWidget::PlotWidget(QWidget *parent) :
         _chart->chart()->setTheme(QChart::ChartThemeDark);
     }
 
-    newPlot(i18n("Actual Bed"));
-    newPlot(i18n("Target Bed"));
+    newPlot(tr("Actual Bed"));
+    newPlot(tr("Target Bed"));
     // The extruder need to be added after some signal emitted (ExtruderCountChanged)
-    newPlot(i18n("Actual Ext.1"));
-    newPlot(i18n("Target Ext.1"));
+    newPlot(tr("Actual Ext.1"));
+    newPlot(tr("Target Ext.1"));
 
 }
 
