@@ -18,6 +18,7 @@
 #pragma once
 #include <QLabel>
 #include <QProgressBar>
+#include <QSpacerItem>
 #include <QTimer>
 #include <QWidget>
 
@@ -71,6 +72,7 @@ private:
     QLabel *lblTimeLeft = nullptr;
     QTime *printTime = nullptr;
     QTimer *printTimer = nullptr;
+    QSpacerItem *spacer = nullptr;
     QProgressBar *printingProgress = nullptr;
     QWidget *printProgressWidget = nullptr;
 };

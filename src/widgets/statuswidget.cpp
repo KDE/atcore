@@ -30,6 +30,7 @@ StatusWidget::StatusWidget(bool showStop, QWidget *parent) :
     auto hBoxLayout = new QHBoxLayout;
 
     printingProgress = new QProgressBar;
+    printingProgress->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
     hBoxLayout->addWidget(printingProgress);
 
     if(showStop) {
@@ -57,12 +58,14 @@ StatusWidget::StatusWidget(bool showStop, QWidget *parent) :
     lblState = new QLabel(tr("Not Connected"));
     lblSd = new QLabel();
 
+    spacer = new QSpacerItem(10, 20,QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
+
     hBoxLayout = new QHBoxLayout;
     hBoxLayout->addWidget(newLabel);
     hBoxLayout->addWidget(lblState);
-    hBoxLayout->addSpacerItem(new QSpacerItem(10, 20, QSizePolicy::Fixed));
+    hBoxLayout->addSpacerItem(new QSpacerItem(5, 20, QSizePolicy::Fixed));
     hBoxLayout->addWidget(lblSd);
-    hBoxLayout->addSpacerItem(new QSpacerItem(40, 20, QSizePolicy::Expanding));
+    hBoxLayout->addSpacerItem(spacer);
     hBoxLayout->addWidget(printProgressWidget);
 
     setLayout(hBoxLayout);
@@ -88,10 +91,12 @@ void StatusWidget::showPrintArea(bool visible)
 {
     printProgressWidget->setVisible(visible);
     if (visible) {
+        layout()->removeItem(spacer);
         printTime->start();
         printTimer->start();
     } else {
         printTimer->stop();
+        layout()->addItem(spacer);
     }
 }
 
