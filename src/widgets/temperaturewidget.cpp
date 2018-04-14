@@ -61,22 +61,6 @@ TemperatureWidget::TemperatureWidget(QWidget *parent) :
     hboxLayout->addWidget(newButton);
     mainLayout->addItem(hboxLayout);
 
-    comboFanSelect = new QComboBox;
-    sbFanSpeed = new QSpinBox;
-    sbFanSpeed->setRange(0, 100);
-    sbFanSpeed->setSuffix(QStringLiteral("%"));
-
-    newButton = new QPushButton(tr("Set"));
-    connect(newButton, &QPushButton::clicked, [this] {
-        emit(fanSpeedChanged(sbFanSpeed->value(), comboFanSelect->currentIndex()));
-    });
-
-    hboxLayout = new QHBoxLayout;
-    hboxLayout->addWidget(comboFanSelect, 80);
-    hboxLayout->addWidget(sbFanSpeed);
-    hboxLayout->addWidget(newButton);
-    mainLayout->addItem(hboxLayout);
-
     setLayout(mainLayout);
 }
 
@@ -84,12 +68,5 @@ void TemperatureWidget::updateExtruderCount(const int count)
 {
     for (int i = 0; i < count; i++) {
         comboExtruderSelect->insertItem(i, tr("Extruder %1").arg(i));
-    }
-}
-
-void TemperatureWidget::updateFanCount(const int count)
-{
-    for (int i = 0; i < count; i++) {
-        comboFanSelect->insertItem(i, tr("Fan %1 speed").arg(i));
     }
 }

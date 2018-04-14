@@ -34,18 +34,14 @@ class ATCOREWIDGETS_EXPORT TemperatureWidget : public QWidget
 public:
     TemperatureWidget(QWidget *parent = nullptr);
     void updateExtruderCount(const int count);
-    void updateFanCount(const int count);
 
 signals:
     void bedTempChanged(const int temperature, bool andWait);
     void extTempChanged(const int temperature, const int extNum, bool andWait);
-    void fanSpeedChanged(const int speed, const int fanNum);
 
 private:
     QCheckBox *checkAndWait = nullptr;
     QComboBox *comboExtruderSelect;
-    QComboBox *comboFanSelect;
     QSpinBox *sbBedTemp = nullptr;
     QSpinBox *sbExtruderTemp;
-    QSpinBox *sbFanSpeed;
 };
