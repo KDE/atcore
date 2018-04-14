@@ -24,14 +24,14 @@
 #include "atcorewidgets_export.h"
 /* Usage:
  *
- * Create a instance of the movement widget.
+ * Create a instance of the movement widget. This widget will provide Basic Movement
  */
 
 class ATCOREWIDGETS_EXPORT MovementWidget : public QWidget
 {
     Q_OBJECT
 public:
-    MovementWidget(QWidget *parent = nullptr);
+    MovementWidget(bool showHomeAndDisableWidgets = true, QWidget *parent = nullptr);
 
 signals:
     void homeAllPressed();
