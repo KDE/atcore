@@ -24,23 +24,69 @@
 #include "atcorewidgets_export.h"
 /* Usage:
  *
- * Create a instance of the movement widget.
+ * Create a instance of the movement widget. This widget will provide Basic Movement Controls. Create it with "showHomeAndDisableWidgets" false if your client provides its own actions for homing and disabling the motors.
  */
 
 class ATCOREWIDGETS_EXPORT MovementWidget : public QWidget
 {
     Q_OBJECT
 public:
-    MovementWidget(QWidget *parent = nullptr);
+    /**
+     * @brief Create a Movement Widget
+     * @param showHomeAndDisableWidgets: set False to hide the Home and Disable Motors buttons [default = true]
+     * @param parent: Parent of this widget.
+     */
+    MovementWidget(bool showHomeAndDisableWidgets = true, QWidget *parent = nullptr);
 
 signals:
+    /**
+     * @brief The Home All button was clicked.
+     * This should be connected to AtCore::home()
+     */
     void homeAllPressed();
+
+    /**
+     * @brief The Home X button was clicked.
+     * This should be connected to AtCore::home(AtCore::X)
+     */
     void homeXPressed();
+
+    /**
+     * @brief The Home Y button was clicked.
+     * This should be connected to AtCore::home(AtCore::Y)
+     */
     void homeYPressed();
+
+    /**
+     * @brief The Home Z button was clicked.
+     * This should be connected to AtCore::home(AtCore::Z)
+     */
     void homeZPressed();
-    void absoluteMove(const QLatin1Char &axis, const double &value);
-    void relativeMove(const QLatin1Char &axis, const double &value);
+
+    /**
+     * @brief The Disable Motors button was clicked.
+     * This should be connected to AtCore::disableMotors(0)
+     */
     void disableMotorsPressed();
+
+    /**
+     * @brief An absoluteMove was requested
+     * This should be connected to AtCore::move(axis,value)
+     * @param axis: the axis to move
+     * @param value: where to move
+     */
+    void absoluteMove(const QLatin1Char &axis, const double &value);
+
+    /**
+     * @brief A relativeMove was requested.
+     * This should connect to a function that does the following
+     *  AtCore::setRelativePosition()
+     *  AtCore::move(axis, value)
+     *  AtCore::setAbsolutePosition()
+     * @param axis: the axis to move.
+     * @param value: the value to move it by.
+     */
+    void relativeMove(const QLatin1Char &axis, const double &value);
 
 private:
     QComboBox *comboMoveAxis = nullptr;
