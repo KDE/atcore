@@ -23,16 +23,22 @@
 
 #include "statuswidget.h"
 
-StatusWidget::StatusWidget(QWidget *parent) :
+StatusWidget::StatusWidget(bool showStop, QWidget *parent) :
     QWidget(parent)
 {
     //first create the item for the print Progress.
-    printingProgress = new QProgressBar;
+    auto hBoxLayout = new QHBoxLayout;
 
-    auto newButton = new QPushButton(style()->standardIcon(QStyle::SP_BrowserStop), QString());
-    connect(newButton, &QPushButton::clicked, [this] {
-        emit(stopPressed());
-    });
+    printingProgress = new QProgressBar;
+    hBoxLayout->addWidget(printingProgress);
+
+    if(showStop) {
+        auto newButton = new QPushButton(style()->standardIcon(QStyle::SP_BrowserStop), QString());
+        connect(newButton, &QPushButton::clicked, [this] {
+            emit(stopPressed());
+        });
+        hBoxLayout->addWidget(newButton);
+    }
 
     lblTime = new QLabel(QStringLiteral("00:00:00"));
     lblTime->setAlignment(Qt::AlignHCenter);
@@ -40,9 +46,6 @@ StatusWidget::StatusWidget(QWidget *parent) :
     lblTimeLeft = new QLabel(QStringLiteral("??:??:??"));
     lblTimeLeft->setAlignment(Qt::AlignHCenter);
 
-    auto hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(printingProgress);
-    hBoxLayout->addWidget(newButton);
     hBoxLayout->addWidget(lblTime);
     hBoxLayout->addWidget(newLabel);
     hBoxLayout->addWidget(lblTimeLeft);

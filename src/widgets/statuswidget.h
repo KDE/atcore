@@ -31,8 +31,7 @@ class ATCOREWIDGETS_EXPORT StatusWidget : public QWidget
 {
     Q_OBJECT
 public:
-    StatusWidget(QWidget *parent = nullptr);
-
+    StatusWidget(bool showStop = true, QWidget *parent = nullptr);
     void setSD(bool hasSd);
     void setState(const QString &state);
     void showPrintArea(bool visible);
