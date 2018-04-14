@@ -23,16 +23,23 @@
 
 #include "statuswidget.h"
 
-StatusWidget::StatusWidget(QWidget *parent) :
+StatusWidget::StatusWidget(bool showStop, QWidget *parent) :
     QWidget(parent)
 {
     //first create the item for the print Progress.
-    printingProgress = new QProgressBar;
+    auto hBoxLayout = new QHBoxLayout;
 
-    auto newButton = new QPushButton(style()->standardIcon(QStyle::SP_BrowserStop), QString());
-    connect(newButton, &QPushButton::clicked, [this] {
-        emit(stopPressed());
-    });
+    printingProgress = new QProgressBar;
+    printingProgress->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
+    hBoxLayout->addWidget(printingProgress);
+
+    if(showStop) {
+        auto newButton = new QPushButton(style()->standardIcon(QStyle::SP_BrowserStop), QString());
+        connect(newButton, &QPushButton::clicked, [this] {
+            emit(stopPressed());
+        });
+        hBoxLayout->addWidget(newButton);
+    }
 
     lblTime = new QLabel(QStringLiteral("00:00:00"));
     lblTime->setAlignment(Qt::AlignHCenter);
@@ -40,9 +47,6 @@ StatusWidget::StatusWidget(QWidget *parent) :
     lblTimeLeft = new QLabel(QStringLiteral("??:??:??"));
     lblTimeLeft->setAlignment(Qt::AlignHCenter);
 
-    auto hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(printingProgress);
-    hBoxLayout->addWidget(newButton);
     hBoxLayout->addWidget(lblTime);
     hBoxLayout->addWidget(newLabel);
     hBoxLayout->addWidget(lblTimeLeft);
@@ -54,12 +58,14 @@ StatusWidget::StatusWidget(QWidget *parent) :
     lblState = new QLabel(tr("Not Connected"));
     lblSd = new QLabel();
 
+    spacer = new QSpacerItem(10, 20,QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
+
     hBoxLayout = new QHBoxLayout;
     hBoxLayout->addWidget(newLabel);
     hBoxLayout->addWidget(lblState);
-    hBoxLayout->addSpacerItem(new QSpacerItem(10, 20, QSizePolicy::Fixed));
+    hBoxLayout->addSpacerItem(new QSpacerItem(5, 20, QSizePolicy::Fixed));
     hBoxLayout->addWidget(lblSd);
-    hBoxLayout->addSpacerItem(new QSpacerItem(40, 20, QSizePolicy::Expanding));
+    hBoxLayout->addSpacerItem(spacer);
     hBoxLayout->addWidget(printProgressWidget);
 
     setLayout(hBoxLayout);
@@ -85,10 +91,12 @@ void StatusWidget::showPrintArea(bool visible)
 {
     printProgressWidget->setVisible(visible);
     if (visible) {
+        layout()->removeItem(spacer);
         printTime->start();
         printTimer->start();
     } else {
         printTimer->stop();
+        layout()->addItem(spacer);
     }
 }
 

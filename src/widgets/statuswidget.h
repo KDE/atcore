@@ -18,6 +18,7 @@
 #pragma once
 #include <QLabel>
 #include <QProgressBar>
+#include <QSpacerItem>
 #include <QTimer>
 #include <QWidget>
 
@@ -31,11 +32,31 @@ class ATCOREWIDGETS_EXPORT StatusWidget : public QWidget
 {
     Q_OBJECT
 public:
-    StatusWidget(QWidget *parent = nullptr);
-
+    /**
+     * @brief Make A new Status widget
+     * @param showStop: Set False if your client has the print job stop in another widget.
+     * @param parent: parent of this widget.
+     */
+    StatusWidget(bool showStop = true, QWidget *parent = nullptr);
+    /**
+     * @brief Set if the status area should show SD card inserted.
+     * @param hasSd
+     */
     void setSD(bool hasSd);
+    /**
+     * @brief Set the State String
+     * @param state: String to be shown
+     */
     void setState(const QString &state);
+    /**
+     * @brief Show or hide the Print progress and time
+     * @param visible : true for show
+     */
     void showPrintArea(bool visible);
+    /**
+     * @brief Update the progres to the new progress
+     * @param progress: new progress.
+     */
     void updatePrintProgress(const float &progress);
 
 signals:
@@ -51,6 +72,7 @@ private:
     QLabel *lblTimeLeft = nullptr;
     QTime *printTime = nullptr;
     QTimer *printTimer = nullptr;
+    QSpacerItem *spacer = nullptr;
     QProgressBar *printingProgress = nullptr;
     QWidget *printProgressWidget = nullptr;
 };
