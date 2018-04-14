@@ -171,6 +171,7 @@ void MainWindow::makePrintDock()
     printWidget = new PrintWidget;
     connect(printWidget, &PrintWidget::printPressed, this, &MainWindow::printPBClicked);
     connect(printWidget, &PrintWidget::emergencyStopPressed, core, &AtCore::emergencyStop);
+    connect(printWidget, &PrintWidget::fanSpeedChanged, core, &AtCore::setFanSpeed);
 
     connect(printWidget, &PrintWidget::printSpeedChanged, [this](const int speed) {
         core->setPrinterSpeed(speed);
@@ -305,7 +306,6 @@ void MainWindow::makeTempControlsDock()
     temperatureWidget = new TemperatureWidget;
     connect(temperatureWidget, &TemperatureWidget::bedTempChanged, core, &AtCore::setBedTemp);
     connect(temperatureWidget, &TemperatureWidget::extTempChanged, core, &AtCore::setExtruderTemp);
-    connect(temperatureWidget, &TemperatureWidget::fanSpeedChanged, core, &AtCore::setFanSpeed);
 
     tempControlsDock = new QDockWidget(tr("Temperatures"), this);
     tempControlsDock->setWidget(temperatureWidget);
@@ -564,6 +564,6 @@ void MainWindow::setDangeriousDocksDisabled(bool disabled)
 
     if (!disabled) {
         temperatureWidget->updateExtruderCount(core->extruderCount());
-        temperatureWidget->updateFanCount(fanCount);
+        printWidget->updateFanCount(fanCount);
     }
 }

@@ -92,9 +92,9 @@ signals:
 
 private:
     QPushButton *buttonPrint = nullptr;
+    QComboBox *comboFanSelect = nullptr;
     QLineEdit *linePostPause = nullptr;
     QSpinBox *sbFlowRate = nullptr;
     QSpinBox *sbPrintSpeed = nullptr;
-    QComboBox *comboFanSelect = nullptr;
     QSpinBox *sbFanSpeed = nullptr;
 };
