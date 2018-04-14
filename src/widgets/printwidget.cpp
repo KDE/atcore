@@ -21,35 +21,39 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 
-PrintWidget::PrintWidget(QWidget *parent) :
+PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
     QWidget(parent)
 {
     auto mainLayout = new QVBoxLayout;
+    QPushButton *newButton = nullptr;
+    QLabel *newLabel = nullptr;
+    QHBoxLayout *hBoxLayout =nullptr;
+    if(showAllControls) {
+        buttonPrint = new QPushButton(tr("Print File"));
+        connect(buttonPrint, &QPushButton::clicked, [this] {
+            emit(printPressed());
+        });
 
-    buttonPrint = new QPushButton(tr("Print File"));
-    connect(buttonPrint, &QPushButton::clicked, [this] {
-        emit(printPressed());
-    });
+        newButton = new QPushButton(tr("Emergency Stop"));
+        connect(newButton, &QPushButton::clicked, [this] {
+            emit(emergencyStopPressed());
+        });
 
-    auto newButton = new QPushButton(tr("Emergency Stop"));
-    connect(newButton, &QPushButton::clicked, [this] {
-        emit(emergencyStopPressed());
-    });
+        hBoxLayout = new QHBoxLayout;
+        hBoxLayout->addWidget(buttonPrint);
+        hBoxLayout->addWidget(newButton);
+        mainLayout->addLayout(hBoxLayout);
 
-    auto hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(buttonPrint);
-    hBoxLayout->addWidget(newButton);
-    mainLayout->addLayout(hBoxLayout);
+        newLabel = new QLabel(tr("On Pause:"));
 
-    auto newLabel = new QLabel(tr("On Pause:"));
+        linePostPause = new QLineEdit;
+        linePostPause->setPlaceholderText(QStringLiteral("G91,G0 Z1,G90,G1 X0 Y195"));
 
-    linePostPause = new QLineEdit;
-    linePostPause->setPlaceholderText(QStringLiteral("G91,G0 Z1,G90,G1 X0 Y195"));
-
-    hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(newLabel);
-    hBoxLayout->addWidget(linePostPause);
-    mainLayout->addLayout(hBoxLayout);
+        hBoxLayout = new QHBoxLayout;
+        hBoxLayout->addWidget(newLabel);
+        hBoxLayout->addWidget(linePostPause);
+        mainLayout->addLayout(hBoxLayout);
+    }
 
     newLabel = new QLabel(tr("Printer Speed"));
     sbPrintSpeed = new QSpinBox;
@@ -84,6 +88,22 @@ PrintWidget::PrintWidget(QWidget *parent) :
     hBoxLayout->addWidget(newButton, 20);
     mainLayout->addLayout(hBoxLayout);
 
+    comboFanSelect = new QComboBox;
+    sbFanSpeed = new QSpinBox;
+    sbFanSpeed->setRange(0, 100);
+    sbFanSpeed->setSuffix(QStringLiteral("%"));
+
+    newButton = new QPushButton(tr("Set"));
+    connect(newButton, &QPushButton::clicked, [this] {
+        emit(fanSpeedChanged(sbFanSpeed->value(), comboFanSelect->currentIndex()));
+    });
+
+    hBoxLayout = new QHBoxLayout;
+    hBoxLayout->addWidget(comboFanSelect, 80);
+    hBoxLayout->addWidget(sbFanSpeed);
+    hBoxLayout->addWidget(newButton);
+    mainLayout->addLayout(hBoxLayout);
+
     setLayout(mainLayout);
 }
 
@@ -95,4 +115,11 @@ QString PrintWidget::postPauseCommand(void) const
 void PrintWidget::setPrintText(const QString &text)
 {
     buttonPrint->setText(text);
+}
+
+void PrintWidget::updateFanCount(const int count)
+{
+    for (int i = 0; i < count; i++) {
+        comboFanSelect->insertItem(i, tr("Fan %1 speed").arg(i));
+    }
 }
