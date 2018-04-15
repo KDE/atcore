@@ -92,10 +92,12 @@ void StatusWidget::showPrintArea(bool visible)
     printProgressWidget->setVisible(visible);
     if (visible) {
         layout()->removeItem(spacer);
+        delete spacer;
         printTime->start();
         printTimer->start();
     } else {
         printTimer->stop();
+        spacer = new QSpacerItem(10, 20,QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
         layout()->addItem(spacer);
     }
 }
