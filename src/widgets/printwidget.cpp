@@ -67,8 +67,8 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
     });
 
     hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(newLabel, 35);
-    hBoxLayout->addWidget(sbPrintSpeed, 10);
+    hBoxLayout->addWidget(newLabel, 60);
+    hBoxLayout->addWidget(sbPrintSpeed, 20);
     hBoxLayout->addWidget(newButton, 20);
     mainLayout->addLayout(hBoxLayout);
 
@@ -83,8 +83,8 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
         emit(flowRateChanged(sbFlowRate->value()));
     });
     hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(newLabel, 35);
-    hBoxLayout->addWidget(sbFlowRate, 10);
+    hBoxLayout->addWidget(newLabel, 60);
+    hBoxLayout->addWidget(sbFlowRate, 20);
     hBoxLayout->addWidget(newButton, 20);
     mainLayout->addLayout(hBoxLayout);
 
@@ -99,9 +99,9 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
     });
 
     hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(comboFanSelect, 80);
-    hBoxLayout->addWidget(sbFanSpeed);
-    hBoxLayout->addWidget(newButton);
+    hBoxLayout->addWidget(comboFanSelect, 60);
+    hBoxLayout->addWidget(sbFanSpeed, 20);
+    hBoxLayout->addWidget(newButton, 20);
     mainLayout->addLayout(hBoxLayout);
 
     setLayout(mainLayout);
