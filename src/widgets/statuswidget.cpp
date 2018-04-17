@@ -97,7 +97,6 @@ void StatusWidget::showPrintArea(bool visible)
     } else {
         printTimer->stop();
         spacer->changeSize(10, 20, QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
-        layout()->addItem(spacer);
     }
 }
 
