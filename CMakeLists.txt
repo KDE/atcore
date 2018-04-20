@@ -68,6 +68,18 @@ if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUXX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
 endif()
 
+# Set default build type to be release
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
+
+# Turn warnings on by default
+set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+# Set debug mode to use -g
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+# Use optimization
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 set(CMAKE_AUTOMOC ON)
 
