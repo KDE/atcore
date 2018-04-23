@@ -17,8 +17,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "axiscontrol.h"
+#include <algorithm>
 
-PieButton::PieButton(QLatin1Char axis, int value, int size, int angle) : _axis(axis), _value(value)
+PieButton::PieButton(QLatin1Char& axis, int value, int size, int angle) : _axis(axis), _value(value)
 {
     const int delta = 16; // Qt Docs: angle is 16th of a degree.
     setBrush(_palette.button());
@@ -50,7 +51,7 @@ void PieButton::hoverLeaveEvent(QGraphicsSceneHoverEvent *)
     setBrush(_palette.button());
 }
 
-RectButton::RectButton(QLatin1Char axis, int value, int size) : _axis(axis), _value(value)
+RectButton::RectButton(QLatin1Char& axis, int value, int size) : _axis(axis), _value(value)
 {
     setBrush(_palette.button());
     setRect(QRect(QPoint(0, 0), QPoint(size, size)));
@@ -90,62 +91,83 @@ void RectButton::hoverLeaveEvent(QGraphicsSceneHoverEvent *)
         in the scene. If you have a better solution, please share with us.
         Lays Rodrigues - Jan/2017
 */
-AxisControl::AxisControl(QWidget *parent) :
+AxisControl::AxisControl(const QList<int> &movementValues, QWidget* parent) :
     QGraphicsView(parent)
 {
     setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
     setScene(new QGraphicsScene());
 
-    auto createPie = [ this ](QLatin1Char axis, int value, int size, int angle) {
+    const int listSize = movementValues.size();
+    int maxValue = *std::max_element(movementValues.begin(), movementValues.end());
+    QList<int> lessList = movementValues;
+    std::sort(lessList.begin(), lessList.end(), std::less<int>());
+    QList<int> greaterList = movementValues;
+    std::sort(greaterList.begin(), greaterList.end(), std::greater<int>());
+
+    auto createPie = [ this, maxValue ](QLatin1Char& axis, int value, int size, int angle) {
         auto pie = new PieButton(axis, value, size, angle);
         pie->setPalette(this->palette());
         connect(pie, &PieButton::clicked, this, &AxisControl::clicked);
-        if (abs(value) == 25) {
+        if (abs(value) == maxValue) {
             setLabels(pie, axis, value);
         }
         scene()->addItem(pie);
     };
 
-    auto createRect = [ this ](QLatin1Char axis, int value, int size, int xPos, int yPos) {
+    auto createRect = [ this, maxValue ](QLatin1Char& axis, int value, int size, int xPos, int yPos) {
         auto z = new RectButton(axis, value, size);
         z->setPalette(this->palette());
         z->setPos(xPos, yPos);
         connect(z, &RectButton::clicked, this, &AxisControl::clicked);
-        if (abs(value) == 25) {
+        if (abs(value) == maxValue) {
             setLabels(z, axis, value);
         }
         scene()->addItem(z);
     };
 
     int currPieSize = 25;
-    for (auto value : {
-                1, 10, 25
-            }) {
-        createPie(QLatin1Char('X'), value, currPieSize, -45);       // Left
-        createPie(QLatin1Char('X'), value * -1, currPieSize, 135);  // Right
-        createPie(QLatin1Char('Y'), value, currPieSize, 45);        // Top
-        createPie(QLatin1Char('Y'), value * -1, currPieSize, 225);  // Bottom
+    auto xchar = QLatin1Char('X');
+    auto ychar = QLatin1Char('Y');
+    auto zchar = QLatin1Char('Z');
+    auto echar = QLatin1Char('E');
+    for(const int &value: lessList) {
+        createPie(xchar, value, currPieSize, -45);       // Left
+        createPie(xchar, value * -1, currPieSize, 135);  // Right
+        createPie(ychar, value, currPieSize, 45);        // Top
+        createPie(ychar, value * -1, currPieSize, 225);  // Bottom
         currPieSize += 25;
     }
 
     int currSize = 25;
     int xPos = sceneRect().width() - 50;
-    int yPos = -75; //Align with the origin of the scene 3 * 25
-    for (auto value : {
-                25, 10, 1, -1, -10, -25
-            }) {
-        createRect(QLatin1Char('Z'), value, currSize, xPos, yPos);
+    int yPos = -(listSize * 25); //Align with the origin
+
+    // Z+
+    for(const int &value: greaterList) {
+        createRect(zchar, value, currSize, xPos, yPos);
+        yPos += currSize;
+    }
+
+    // Z-
+    for(const int &value: lessList){
+        createRect(zchar, -value, currSize, xPos, yPos);
         yPos += currSize;
     }
 
     currSize = 25;
     xPos = sceneRect().width() - 50;
-    yPos = -75; //Align with the origin of the scene 3 * 25
-    for (auto value : {
-                -25, -10, -1, 1, 10, 25
-                }) {
-        createRect(QLatin1Char('E'), value, currSize, xPos, yPos);
+    yPos = -(listSize * 25); //Align with the origin
+
+    // E-
+    for(const int &value: greaterList){
+        createRect(echar, -value, currSize, xPos, yPos);
+        yPos += currSize;
+    }
+
+    // E+
+    for(const int &value: lessList){
+        createRect(echar, value, currSize, xPos, yPos);
         yPos += currSize;
     }
     setSceneRect(scene()->itemsBoundingRect());
@@ -156,7 +178,7 @@ void AxisControl::resizeEvent(QResizeEvent *)
     fitInView(sceneRect(), Qt::KeepAspectRatio);
 }
 
-void AxisControl::setLabels(QGraphicsItem *item, QLatin1Char axis, int value)
+void AxisControl::setLabels(QGraphicsItem *item, QLatin1Char& axis, int value)
 {
     auto *lb = new QGraphicsSimpleTextItem();
     lb->setBrush(palette().buttonText());
