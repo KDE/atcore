@@ -76,12 +76,14 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
 
-# Turn warnings on by default
-set(CMAKE_CXX_FLAGS "-Wall -Wextra")
-# Set debug mode to use -g
-set(CMAKE_CXX_FLAGS_DEBUG "-g")
-# Use optimization
-set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUXX OR CMAKE_COMPILER_IS_CLANG)
+    # Turn warnings on by default
+    set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+    # Set debug mode to use -g
+    set(CMAKE_CXX_FLAGS_DEBUG "-g")
+    # Use optimization
+    set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+endif()
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 set(CMAKE_AUTOMOC ON)
