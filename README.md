@@ -1,6 +1,12 @@
 ![Logo](testclient/atcore-gui.png) AtCore - KDE Print Service for 3DPrinters
 ----
-**Linux** [![Build Status](https://build.kde.org/job/Extragear%20atcore%20kf5-qt5%20SUSEQt5.9/badge/icon)](https://build.kde.org/job/Extragear%20atcore%20kf5-qt5%20SUSEQt5.9/) **Windows** [![Build Status](https://binary-factory.kde.org/job/atcore-master-win32/badge/icon)](https://binary-factory.kde.org/job/atcore-master-win32/) **MacOs** [![Build Status](https://binary-factory.kde.org/job/atcore-master-macos/badge/icon)](https://binary-factory.kde.org/job/atcore-master-macos/) **FreeBSD** [![Build Status](https://build.kde.org/job/Extragear%20atcore%20kf5-qt5%20FreeBSDQt5.9/badge/icon)](https://build.kde.org/job/Extragear%20atcore%20kf5-qt5%20FreeBSDQt5.9/)
+OS   | Build Status
+:---:|:----:
+**Linux** | [![Build Status](https://build.kde.org/job/Extragear%20atcore%20kf5-qt5%20SUSEQt5.9/badge/icon)](https://build.kde.org/job/Extragear%20atcore%20kf5-qt5%20SUSEQt5.9/)
+**Windows** | [![Build Status](https://binary-factory.kde.org/job/AtCore_Nightly_win32/badge/icon)](https://binary-factory.kde.org/job/AtCore_Nightly_win32/)
+**FreeBSD** | [![Build Status](https://build.kde.org/job/Extragear%20atcore%20kf5-qt5%20FreeBSDQt5.9/badge/icon)](https://build.kde.org/job/Extragear%20atcore%20kf5-qt5%20FreeBSDQt5.9/)
+**MacOs** | [![Build Status](https://binary-factory.kde.org/job/AtCore_Nightly_macos/badge/icon)](https://binary-factory.kde.org/job/AtCore_Nightly_macos/)
+
 
 AtCore is a API to manage the serial connection between the computer and 3D Printers.<br/>
 This project is under LGPL V2+, for more information read ![COPYING.TXT](COPYING.TXT).
@@ -45,4 +51,3 @@ include (AtCore REQUIRED COMPONATES AtCore )
 [Building and Deploying]:doc/build.md
 [Contribute]:doc/contrib.md
 [Donation]:https://kde.org/donate/?app=atcore
-
