@@ -2,9 +2,9 @@
     Copyright (C) <2016>
 
     Authors:
-        Lays Rodrigues <laysrodrigues@gmail.com>
+        Lays Rodrigues <lays.rodrigues@kde.org>
         Tomaz Canabrava <tcanabrava@kde.org>
-        Patrick José Pereira <patrickelectric@gmail.com>
+        Patrick José Pereira <patrickjp@kde.org>
         Chris Rizzitello <rizzitello@kde.org>
 
     This library is free software; you can redistribute it and/or

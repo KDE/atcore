@@ -8,7 +8,7 @@ This project is under [LGPL-2.0]+.
 
  - Chris Rizzitello <rizzitello@kde.org>
  - Patrick José Pereira <patrickjp@kde.org>
- - Lays Rodrigues <lays.rodrigues@kde.org><br/>
+ - Lays Rodrigues <lays.rodrigues@kde.org>
  - Tomaz Canabrava <tcanabrava@kde.org>
 
 ## Supported Firmwares

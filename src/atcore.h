@@ -4,8 +4,8 @@
     Authors:
         Tomaz Canabrava <tcanabrava@kde.org>
         Chris Rizzitello <rizzitello@kde.org>
-        Patrick José Pereira <patrickelectric@gmail.com>
-        Lays Rodrigues <laysrodrigues@gmail.com>
+        Patrick José Pereira <patrickjp@kde.org>
+        Lays Rodrigues <lays.rodrigues@kde.org>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public

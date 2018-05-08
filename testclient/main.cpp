@@ -2,8 +2,8 @@
     Copyright (C) <2016>
 
     Authors:
-        Lays Rodrigues <laysrodrigues@gmail.com>
-        Patrick José Pereira <patrickelectric@gmail.com>
+        Lays Rodrigues <lays.rodrigues@kde.org>
+        Patrick José Pereira <patrickjp@kde.org>
         Chris Rizzitello <rizzitello@kde.org>
         Tomaz Canabrava <tcanabrava@kde.org>
 

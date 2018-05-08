@@ -3,7 +3,7 @@
 
     Authors:
         Tomaz Canabrava <tcanabrava@kde.org>
-        Patrick José Pereira <patrickelectric@gmail.com>
+        Patrick José Pereira <patrickjp@kde.org>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public

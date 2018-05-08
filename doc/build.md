@@ -31,8 +31,6 @@ make
 In addition to a working development enviroment for your system you will need the following to build %AtCore
  - qt5-base
  - qt5-serialport
-
-Building atcore-gui adds the following dependencies:
  - qt5-widgets
  - qt5-charts
  
@@ -73,14 +71,14 @@ sudo make install
 ### Windows/Mac OS
 On these systems atcore will look in the path of the program using it for firmware plugins 
 
-On Windows This is in a directory next to the program
+On Windows this is in a directory next to the program
 ```
 C:\atcore_test_GUI\atcore-gui.exe
 C:\atcore_test_GUI\AtCore.dll
 C:\atcore_test_GUI\plugins\repetier.dll
 ```
 
-On Mac Os This is In the app Bundle 
+On Mac OS this is in the app bundle 
 ```
 atcore-gui.app/Contents/MacOS/atcore-gui
 atcore-gui.app/Contents/MacOS/AtCore.dylib
