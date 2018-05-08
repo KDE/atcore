@@ -2,7 +2,7 @@
     Copyright (C) <2016>
 
     Authors:
-        Patrick José Pereira <patrickelectric@gmail.com>
+        Patrick José Pereira <patrickjp@kde.org>
         Chris Rizzitello <rizzitello@kde.org>
         Tomaz Canabrava <tcanabrava@kde.org>
 
