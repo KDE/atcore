@@ -28,7 +28,7 @@ Keeping a clean project history requires that we take care when choosing how we 
  - Reviewers: rizzitello, patrickelectric, laysrodrigues, tcanabrava
  - Be sure to make things "done" in phabricator.
  - Update your revisions with `arc diff --update <diff number>`
- - Ammend your local commits to fix review issues.
+ - Amend your local commits to fix review issues.
  - Revisions require a majority acceptance rate before landing
  - Land your code with `arc land <branch>`
  
