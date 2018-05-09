@@ -54,4 +54,11 @@ public:
      * @param lastMessage: last message from printer
      */
     void validateCommand(const QString &lastMessage) override;
+
+    /**
+     * @brief Translate common commands to firmware specific command.
+     * @param command: command to translate
+     * @return firmware specific translated command
+     */
+    QByteArray translate(const QString &command) override;
 };
