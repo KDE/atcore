@@ -22,9 +22,12 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include <QLoggingCategory>
+#include <QRegularExpressionMatch>
 #include <QString>
-
 #include "grblplugin.h"
+
+Q_LOGGING_CATEGORY(GRBL_PLUGIN, "org.kde.atelier.core.firmware.grbl")
 
 QString GrblPlugin::name() const
 {
@@ -33,11 +36,34 @@ QString GrblPlugin::name() const
 
 GrblPlugin::GrblPlugin()
 {
-
+    qCDebug(GRBL_PLUGIN) << name() << " plugin loaded!";
 }
 
 void GrblPlugin::validateCommand(const QString &lastMessage)
 {
-    Q_UNUSED(lastMessage);
-    emit readyForCommand();
+    if (lastMessage.contains(QStringLiteral("ok"))) {
+        emit readyForCommand();
+    }
+}
+
+QByteArray GrblPlugin::translate(const QString &command)
+{
+    QString temp = command;
+    //Match all G and M Commands up until the start of the next G/M command or the end of the string.
+    //ex: G28 X Y M1 would capture "G28 X Y" and "M1"
+    static const auto regEx = QRegularExpression(QStringLiteral("[GM]\\d+.[^GM]+"));
+    QRegularExpressionMatch secondCommand = regEx.match(temp, 1);
+
+    if (secondCommand.hasMatch()) {
+        QRegularExpressionMatchIterator commandMatch = regEx.globalMatch(temp);
+        temp.clear();
+        while (commandMatch.hasNext()) {
+            QRegularExpressionMatch t = commandMatch.next();
+            temp.append(t.captured());
+            if (commandMatch.hasNext()) {
+                temp.append(QStringLiteral("\r\n"));
+            }
+        }
+    }
+    return temp.toLocal8Bit();
 }
