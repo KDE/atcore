@@ -155,6 +155,8 @@ void AtCore::findFirmware(const QByteArray &message)
             loadFirmwarePlugin(QString::fromLatin1("smoothie"));
             return;
         }
+
+        qCDebug(ATCORE_CORE) << "Waiting for printer...";
     }
     qCDebug(ATCORE_CORE) << "Find Firmware Called" << message;
     if (!message.contains("FIRMWARE_NAME:")) {
