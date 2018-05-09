@@ -24,6 +24,7 @@
 #include <QLoggingCategory>
 #include <QCommandLineOption>
 #include <QCommandLineParser>
+#include <QRegularExpression>
 
 #include "printthread.h"
 
@@ -146,10 +147,19 @@ void PrintThread::nextLine()
         d->cline = QStringLiteral("");
         return;
     }
-
+    //Remove Comments from the gcode.
+    //Type 1: Anything after ; is comment.
+    //Example G28 Z; Home Axis Z
     if (d->cline.contains(QChar::fromLatin1(';'))) {
         d->cline.resize(d->cline.indexOf(QChar::fromLatin1(';')));
     }
+    //Type 2: Block Type anything between ( and ) is a comment
+    // Example G28 (Home)Z
+    if (d->cline.contains(QChar::fromLatin1('('))) {
+        //Remove (.....) from the line
+        d->cline.remove(QRegularExpression(QStringLiteral(".(?<=[(])(.*)(?=[)]).")));
+    }
+
     d->cline = d->cline.simplified();
 }
 
