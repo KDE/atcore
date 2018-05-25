@@ -1,5 +1,3 @@
-include_directories(..)
-
 set(RepetierPlugin_SRCS repetierplugin.cpp)
 add_library(repetier SHARED ${RepetierPlugin_SRCS})
 target_link_libraries(repetier Qt5::Core AtCore::AtCore)
@@ -44,7 +42,7 @@ if(WIN32 OR APPLE)
     )
 endif()
 
-if(UNIX AND NOT APPLE) 
+if(UNIX AND NOT APPLE)
     install(
     TARGETS
         repetier
