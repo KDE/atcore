@@ -27,7 +27,7 @@ set(SmoothiePlugin_SRCS smoothieplugin.cpp)
 add_library(smoothie SHARED ${SmoothiePlugin_SRCS})
 target_link_libraries(smoothie Qt5::Core AtCore::AtCore)
 
-if(WIN32 OR APPLE)
+if(DEPLOY_PLUGINS_WITH_BINARY)
     install(
     TARGETS
         repetier
@@ -40,9 +40,8 @@ if(WIN32 OR APPLE)
     DESTINATION
         bin/plugins
     )
-endif()
 
-if(UNIX AND NOT APPLE)
+else (NOT DEPLOY_PLUGINS_WITH_BINARY)
     install(
     TARGETS
         repetier

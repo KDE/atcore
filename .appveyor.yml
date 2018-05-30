@@ -77,6 +77,8 @@ build_script:
     
     move %APPVEYOR_BUILD_FOLDER%-build\bin\%CONFIGURATION%\AtCore.dll AtCore_Test_Client-%commit%-win32\
     
+    move %APPVEYOR_BUILD_FOLDER%-build\bin\%CONFIGURATION%\AtCoreWidgets.dll AtCore_Test_Client-%commit%-win32\
+    
     move %APPVEYOR_BUILD_FOLDER%-build\bin\%CONFIGURATION%\atcore-gui.exe AtCore_Test_Client-%commit%-win32\
     
     move %APPVEYOR_BUILD_FOLDER%-build\bin\%CONFIGURATION%\* AtCore_Test_Client-%commit%-win32\plugins\

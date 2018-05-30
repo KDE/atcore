@@ -87,7 +87,7 @@ install(
         AtCore
     EXPORT
         AtCoreTargets
-    ${KF5_INSTALL_TARGETS_DEFAULT_ARGS}
+    ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
 ecm_generate_pri_file(

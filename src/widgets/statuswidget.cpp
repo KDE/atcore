@@ -33,7 +33,7 @@ StatusWidget::StatusWidget(bool showStop, QWidget *parent) :
     printingProgress->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
     hBoxLayout->addWidget(printingProgress);
 
-    if(showStop) {
+    if (showStop) {
         auto newButton = new QPushButton(style()->standardIcon(QStyle::SP_BrowserStop), QString());
         connect(newButton, &QPushButton::clicked, [this] {
             emit(stopPressed());
@@ -58,7 +58,7 @@ StatusWidget::StatusWidget(bool showStop, QWidget *parent) :
     lblState = new QLabel(tr("Not Connected"));
     lblSd = new QLabel();
 
-    spacer = new QSpacerItem(10, 20,QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
+    spacer = new QSpacerItem(10, 20, QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
 
     hBoxLayout = new QHBoxLayout;
     hBoxLayout->addWidget(newLabel);
@@ -91,7 +91,7 @@ void StatusWidget::showPrintArea(bool visible)
 {
     printProgressWidget->setVisible(visible);
     if (visible) {
-        spacer->changeSize(10, 20, QSizePolicy::Fixed,QSizePolicy::Fixed);
+        spacer->changeSize(10, 20, QSizePolicy::Fixed, QSizePolicy::Fixed);
         printTime->start();
         printTimer->start();
     } else {

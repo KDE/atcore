@@ -27,8 +27,8 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
     auto mainLayout = new QVBoxLayout;
     QPushButton *newButton = nullptr;
     QLabel *newLabel = nullptr;
-    QHBoxLayout *hBoxLayout =nullptr;
-    if(showAllControls) {
+    QHBoxLayout *hBoxLayout = nullptr;
+    if (showAllControls) {
         buttonPrint = new QPushButton(tr("Print File"));
         connect(buttonPrint, &QPushButton::clicked, [this] {
             emit(printPressed());
