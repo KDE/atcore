@@ -24,8 +24,9 @@
 
 namespace AtCoreDirectories {
     const QStringList pluginDir = \
-        QStringList(QStringLiteral("@CMAKE_CURRENT_BINARY_DIR@/plugins")) \
+        QStringList(QStringLiteral("@CMAKE_CURRENT_BINARY_DIR@/../plugins")) \
         << QStringList(QStringLiteral("@KDE_INSTALL_PLUGINDIR@/AtCore")) \
         << QStringList(QLibraryInfo::location(QLibraryInfo::PluginsPath) + QStringLiteral("/AtCore")) \
+        << QStringList(QStringLiteral("@CMAKE_INSTALL_PREFIX@/@KDE_INSTALL_PLUGINDIR@/AtCore")) \
         << QStringList(QStringLiteral("plugins"));
-};
+}
