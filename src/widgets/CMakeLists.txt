@@ -71,7 +71,7 @@ install(
         AtCoreWidgets
     EXPORT
         AtCoreTargets
-    ${KF5_INSTALL_TARGETS_DEFAULT_ARGS}
+    ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
 
