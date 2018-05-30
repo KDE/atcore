@@ -34,7 +34,7 @@ class ATCOREWIDGETS_EXPORT PieButton : public QObject, public QGraphicsEllipseIt
 {
     Q_OBJECT
 public:
-    PieButton(QLatin1Char& axis, int value, int size, int angle);
+    PieButton(QLatin1Char &axis, int value, int size, int angle);
     void setPalette(QPalette palette);
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *);
@@ -53,7 +53,7 @@ class ATCOREWIDGETS_EXPORT RectButton : public QObject, public QGraphicsRectItem
     Q_OBJECT
 
 public:
-    RectButton(QLatin1Char& axis, int value, int size);
+    RectButton(QLatin1Char &axis, int value, int size);
     void setPalette(QPalette palette);
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *);
@@ -75,7 +75,7 @@ public:
     explicit AxisControl(const QList<int> &movementValues = {1, 10, 25}, QWidget *parent = nullptr);
 
 private:
-    void setLabels(QGraphicsItem *item, QLatin1Char& axis, int value);
+    void setLabels(QGraphicsItem *item, QLatin1Char &axis, int value);
 
 protected:
     void resizeEvent(QResizeEvent *);

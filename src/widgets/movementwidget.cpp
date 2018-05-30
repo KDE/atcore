@@ -29,7 +29,7 @@ MovementWidget::MovementWidget(bool showHomeAndDisableWidgets, QWidget *parent) 
     auto hBoxLayout = new QHBoxLayout;
     auto newButton = new QPushButton;
 
-    if( showHomeAndDisableWidgets) {
+    if (showHomeAndDisableWidgets) {
         newButton = new QPushButton(tr("Home All"));
         hBoxLayout->addWidget(newButton);
         connect(newButton, &QPushButton::clicked, [this] {

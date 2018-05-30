@@ -19,7 +19,7 @@
 #include "axiscontrol.h"
 #include <algorithm>
 
-PieButton::PieButton(QLatin1Char& axis, int value, int size, int angle) : _axis(axis), _value(value)
+PieButton::PieButton(QLatin1Char &axis, int value, int size, int angle) : _axis(axis), _value(value)
 {
     const int delta = 16; // Qt Docs: angle is 16th of a degree.
     setBrush(_palette.button());
@@ -51,7 +51,7 @@ void PieButton::hoverLeaveEvent(QGraphicsSceneHoverEvent *)
     setBrush(_palette.button());
 }
 
-RectButton::RectButton(QLatin1Char& axis, int value, int size) : _axis(axis), _value(value)
+RectButton::RectButton(QLatin1Char &axis, int value, int size) : _axis(axis), _value(value)
 {
     setBrush(_palette.button());
     setRect(QRect(QPoint(0, 0), QPoint(size, size)));
@@ -91,7 +91,7 @@ void RectButton::hoverLeaveEvent(QGraphicsSceneHoverEvent *)
         in the scene. If you have a better solution, please share with us.
         Lays Rodrigues - Jan/2017
 */
-AxisControl::AxisControl(const QList<int> &movementValues, QWidget* parent) :
+AxisControl::AxisControl(const QList<int> &movementValues, QWidget *parent) :
     QGraphicsView(parent)
 {
     setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
@@ -105,7 +105,7 @@ AxisControl::AxisControl(const QList<int> &movementValues, QWidget* parent) :
     QList<int> greaterList = movementValues;
     std::sort(greaterList.begin(), greaterList.end(), std::greater<int>());
 
-    auto createPie = [ this, maxValue ](QLatin1Char& axis, int value, int size, int angle) {
+    auto createPie = [ this, maxValue ](QLatin1Char & axis, int value, int size, int angle) {
         auto pie = new PieButton(axis, value, size, angle);
         pie->setPalette(this->palette());
         connect(pie, &PieButton::clicked, this, &AxisControl::clicked);
@@ -115,7 +115,7 @@ AxisControl::AxisControl(const QList<int> &movementValues, QWidget* parent) :
         scene()->addItem(pie);
     };
 
-    auto createRect = [ this, maxValue ](QLatin1Char& axis, int value, int size, int xPos, int yPos) {
+    auto createRect = [ this, maxValue ](QLatin1Char & axis, int value, int size, int xPos, int yPos) {
         auto z = new RectButton(axis, value, size);
         z->setPalette(this->palette());
         z->setPos(xPos, yPos);
@@ -131,7 +131,7 @@ AxisControl::AxisControl(const QList<int> &movementValues, QWidget* parent) :
     auto ychar = QLatin1Char('Y');
     auto zchar = QLatin1Char('Z');
     auto echar = QLatin1Char('E');
-    for(const int &value: lessList) {
+    for (const int &value : lessList) {
         createPie(xchar, value, currPieSize, -45);       // Left
         createPie(xchar, value * -1, currPieSize, 135);  // Right
         createPie(ychar, value, currPieSize, 45);        // Top
@@ -144,13 +144,13 @@ AxisControl::AxisControl(const QList<int> &movementValues, QWidget* parent) :
     int yPos = -(listSize * 25); //Align with the origin
 
     // Z+
-    for(const int &value: greaterList) {
+    for (const int &value : greaterList) {
         createRect(zchar, value, currSize, xPos, yPos);
         yPos += currSize;
     }
 
     // Z-
-    for(const int &value: lessList){
+    for (const int &value : lessList) {
         createRect(zchar, -value, currSize, xPos, yPos);
         yPos += currSize;
     }
@@ -160,13 +160,13 @@ AxisControl::AxisControl(const QList<int> &movementValues, QWidget* parent) :
     yPos = -(listSize * 25); //Align with the origin
 
     // E-
-    for(const int &value: greaterList){
+    for (const int &value : greaterList) {
         createRect(echar, -value, currSize, xPos, yPos);
         yPos += currSize;
     }
 
     // E+
-    for(const int &value: lessList){
+    for (const int &value : lessList) {
         createRect(echar, value, currSize, xPos, yPos);
         yPos += currSize;
     }
@@ -178,7 +178,7 @@ void AxisControl::resizeEvent(QResizeEvent *)
     fitInView(sceneRect(), Qt::KeepAspectRatio);
 }
 
-void AxisControl::setLabels(QGraphicsItem *item, QLatin1Char& axis, int value)
+void AxisControl::setLabels(QGraphicsItem *item, QLatin1Char &axis, int value)
 {
     auto *lb = new QGraphicsSimpleTextItem();
     lb->setBrush(palette().buttonText());

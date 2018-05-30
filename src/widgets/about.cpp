@@ -35,11 +35,11 @@ About::About(QWidget *parent) :
     QLabel *lbl_version = new QLabel(QString::fromLatin1("Version: %1").arg(QCoreApplication::applicationVersion()));
     QLabel *lbl_qt_version = new QLabel(QString::fromLatin1("Using Qt: %1").arg(QString::fromLatin1(qVersion())));
     QLabel *lbl_authors = new QLabel(QStringLiteral("Authors:\n"
-                                                    "  Chris Rizzitello <rizzitello@kde.org>\n"
-                                                    "  Patrick José Pereira <patrickjp@kde.org>\n"
-                                                    "  Lays Rodrigues <lays.rodrigues@kde.org>\n"
-                                                    "  Tomaz Canabrava <tcanabrava@kde.org>"
-                                                    ""));
+                                     "  Chris Rizzitello <rizzitello@kde.org>\n"
+                                     "  Patrick José Pereira <patrickjp@kde.org>\n"
+                                     "  Lays Rodrigues <lays.rodrigues@kde.org>\n"
+                                     "  Tomaz Canabrava <tcanabrava@kde.org>"
+                                     ""));
 
     QLabel *lbl_icon = new QLabel();
     lbl_icon->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
