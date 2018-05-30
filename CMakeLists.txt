@@ -21,6 +21,7 @@ include(KDECMakeSettings)
 option(BUILD_GUI "Build the Test Gui")
 option(BUILD_DOCS "Build and Install Documents (Requires Doxygen)")
 option(BUILD_TESTS "Build and Run Unittests")
+option(DEPLOY_PLUGINS_WITH_BINARY "Deploy Plugins to bin/plugins (Use for win/mac)")
 
 set_package_properties(
     ECM PROPERTIES

@@ -8,7 +8,8 @@ In order to configure your build you will need [cmake] and [extra-cmake-modules]
  - -DBUILD_GUI = ( ON | OFF )  Build the test client (Default is OFF)
  - -DBUILD_DOCS = (ON | OFF ) Build the Documentation (Default is OFF)
  - -DBUILD_TESTS = ( ON | OFF ) Build and Run Unittests (Default is OFF)
-
+ - -DDEPLOY_PLUGINS_WITH_BINARY ( ON | OFF ) Deploy the plugins to bin/plugins (Default is OFF, Turn on for win/mac)
+ 
 Recommended CMake Command
 
 Linux
@@ -18,7 +19,7 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL+LIBDIR=lib CMakeLists.txt
 
 Mac OS/ Windows
 ```
-cmake CMakeLists.txt
+cmake -DDEPLOY_PLUGINS_WITH_BINARY=ON CMakeLists.txt
 ```
 ## Building
 After Configuring you Should be able to run make to build all targets.
@@ -68,9 +69,15 @@ From the build dir the command below to install atcore with its plugins to the s
 ```
 sudo make install
 ```
-### Windows/Mac OS
-On these systems atcore will look in the path of the program using it for firmware plugins 
+### Finding Plugins
+AtCore will look in a few places for plugins these are.
+    1. BUILDDIR for plugins.
+    2. KDE_PLUGIN_DIR/AtCore
+    3. Qt's Plugin Path/AtCore
+    4. INSTALL_PREFIX/KDE_PLUGIN_DIR/AtCore
+    5. Binary using atcore's path/plugins (see Below)
 
+For the last place bin/plugins atcore will look next to the binary using atcore.
 On Windows this is in a directory next to the program
 ```
 C:\atcore_test_GUI\atcore-gui.exe
