@@ -50,20 +50,19 @@ struct AtCorePrivate;
  * - AtCore::close() when you are all done.
 
  * #### How AtCore Finds Plugins.
- *  - Windows and Mac Os will always look in appdir/plugins for plugins.
- *
- * Others Search:
+ * Searched Paths:
  *  1. Build Dir/plugins (buildtime)
  *  2. ECM set KDE PLUGIN DIR  (buildtime)
  *  3. Qt Plugin path/AtCore (runtime)
- *  4. plugins (runtime)
+ *  4. Fullpath of KDE_PLUGIN_DIR (buildtime)
+ *  5. Program using atcore's path/plugins (runtime)
  */
 class ATCORE_EXPORT AtCore : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString version READ version)
     Q_PROPERTY(QStringList availableFirmwarePlugins READ availableFirmwarePlugins)
-    Q_PROPERTY(int extruderCount READ extruderCount NOTIFY extruderCountChanged)
+    Q_PROPERTY(int extruderCount READ extruderCount WRITE setExtruderCount NOTIFY extruderCountChanged)
     Q_PROPERTY(quint16 serialTimerInterval READ serialTimerInterval WRITE setSerialTimerInterval NOTIFY serialTimerIntervalChanged)
     Q_PROPERTY(QStringList serialPorts READ serialPorts NOTIFY portsChanged)
     Q_PROPERTY(float percentagePrinted READ percentagePrinted NOTIFY printProgressChanged)
@@ -73,6 +72,7 @@ class ATCORE_EXPORT AtCore : public QObject
     Q_PROPERTY(bool sdMount READ isSdMounted WRITE setSdMounted NOTIFY sdMountChanged)
     Q_PROPERTY(QStringList sdFileList READ sdFileList NOTIFY sdCardFileListChanged)
 
+    friend class AtCoreTests;
     //Add friends as Sd Card support is extended to more plugins.
     friend class RepetierPlugin;
     friend class MarlinPlugin;
@@ -197,6 +197,7 @@ public:
     /**
      * @brief extruderCount
      * @return The number of detected Extruders Default is 1
+     * @sa setExtruderCount(int newCount), extruderCountChanged(int newCount)
      */
     int extruderCount() const;
 
@@ -244,9 +245,9 @@ signals:
 
     /**
      * @brief New number of extruders
-     * @sa extruderCount()
+     * @sa extruderCount(), setExtruderCount(int newCount)
      */
-    void extruderCountChanged();
+    void extruderCountChanged(const int newCount);
 
     /**
      * @brief Print job's precentage changed.
@@ -265,7 +266,7 @@ signals:
     * @brief New interval between serial timer
     * @sa setSerialTimerInterval()
     */
-    void serialTimerIntervalChanged();
+    void serialTimerIntervalChanged(const quint16 newTime);
 
     /**
      * @brief The Printer's State Changed
@@ -532,6 +533,12 @@ private:
     AtCorePrivate *d;
 
 protected:
+    /**
+     * @brief Set the number of extruders on the machine.
+     * @param newCount
+     * @sa extruderCount(), extruderCountChanged(int newCount)
+     */
+    void setExtruderCount(int newCount);
     /**
      * @brief Append a file to AtCorePrivate::sdCardFileList.
      * @param fileName: new FileName

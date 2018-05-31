@@ -59,6 +59,110 @@ void AtCoreTests::testConnectInvalidDevice()
     QVERIFY(core->initSerial(QStringLiteral("/dev/ptyp5"), 9600));
 }
 
+void AtCoreTests::testStateChange()
+{
+    QList<QVariant> args;
+    QSignalSpy sSpy(core, SIGNAL(stateChanged(AtCore::STATES)));
+    QVERIFY(sSpy.isValid());
+
+    core->setState(AtCore::CONNECTING);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::CONNECTING);
+
+    core->setState(AtCore::IDLE);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::IDLE);
+
+    core->setState(AtCore::BUSY);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::BUSY);
+
+    core->setState(AtCore::PAUSE);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::PAUSE);
+
+    core->setState(AtCore::STOP);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::STOP);
+
+    core->setState(AtCore::ERRORSTATE);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::ERRORSTATE);
+
+    core->setState(AtCore::STARTPRINT);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::STARTPRINT);
+
+    core->setState(AtCore::FINISHEDPRINT);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::FINISHEDPRINT);
+
+    core->setState(AtCore::DISCONNECTED);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::DISCONNECTED);
+}
+
+void AtCoreTests::testSdMountChanged()
+{
+    QList<QVariant> args;
+    QSignalSpy sSpy(core, SIGNAL(sdMountChanged(bool)));
+    QVERIFY(sSpy.isValid());
+
+    core->setSdMounted(true);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toBool() == true);
+
+    core->setSdMounted(false);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toBool() == false);
+}
+
+void AtCoreTests::testSdFileList()
+{
+    QSignalSpy sSpy(core, SIGNAL(sdCardFileListChanged(QStringList)));
+    QVERIFY(sSpy.isValid());
+    core->appendSdCardFileList(QStringLiteral("FILE1"));
+    core->appendSdCardFileList(QStringLiteral("FILE2"));
+    core->appendSdCardFileList(QStringLiteral("FILE3"));
+    core->appendSdCardFileList(QStringLiteral("FILE4"));
+    core->appendSdCardFileList(QStringLiteral("FILE5"));
+
+    QList<QVariant> args = sSpy.takeLast();
+    QStringList fileList = {
+        QStringLiteral("FILE1"),
+        QStringLiteral("FILE2"),
+        QStringLiteral("FILE3"),
+        QStringLiteral("FILE4"),
+        QStringLiteral("FILE5")
+    };
+    QVERIFY(args.at(0).toStringList() == fileList);
+
+    core->clearSdCardFileList();
+    args = sSpy.takeLast();
+    QVERIFY(args.at(0).toStringList() == QStringList());
+}
+
+void AtCoreTests::testSerialTimerIntervalChanged()
+{
+    QSignalSpy sSpy(core, SIGNAL(serialTimerIntervalChanged(quint16)));
+    QVERIFY(sSpy.isValid());
+    core->setSerialTimerInterval(1000);
+    core->setSerialTimerInterval(1000);
+    core->setSerialTimerInterval(2000);
+    core->setSerialTimerInterval(0);
+    QVERIFY(sSpy.count() == 3);
+}
+
+void AtCoreTests::testExtruderCountChanged()
+{
+    QSignalSpy sSpy(core, SIGNAL(extruderCountChanged(int)));
+    QVERIFY(sSpy.isValid());
+    core->setExtruderCount(1);
+    core->setExtruderCount(2);
+    core->setExtruderCount(1);
+    QVERIFY(sSpy.count() == 2);
+}
+
 void AtCoreTests::testPluginAprinter_load()
 {
     core->loadFirmwarePlugin(QStringLiteral("aprinter"));
@@ -86,7 +190,16 @@ void AtCoreTests::testPluginGrbl_validate()
     QVERIFY(sSpy.isValid() == true);
     core->firmwarePlugin()->validateCommand(QStringLiteral("ok"));
     core->firmwarePlugin()->validateCommand(QStringLiteral("other text"));
-    QVERIFY(sSpy.count() == 2);
+    QVERIFY(sSpy.count() == 1);
+}
+
+void AtCoreTests::testPluginGrbl_translate()
+{
+    QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("G28")) == "G28");
+    QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("M104 S50 G28 X")) == "M104 S50\r\nG28 X");
+    QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("G00 G43 H0  Z0.1")) == "G00\r\nG43 H0  Z0.1");
+    QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("M6 T0")) == "M6 T0");
+
 }
 
 void AtCoreTests::testPluginMarlin_load()

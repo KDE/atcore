@@ -178,10 +178,8 @@ void AtCore::findFirmware(const QByteArray &message)
 
     if (message.contains("EXTRUDER_COUNT:")) {
         //this code is broken if more then 9 extruders are detected. since only one char is returned
-        d->extruderCount = message.at(message.indexOf("EXTRUDER_COUNT:") + 15) - '0';
+        setExtruderCount(message.at(message.indexOf("EXTRUDER_COUNT:") + 15) - '0');
     }
-    qCDebug(ATCORE_CORE) << "Extruder Count:" << QString::number(extruderCount());
-
     loadFirmwarePlugin(fwName);
 }
 
@@ -285,7 +283,11 @@ void AtCore::setSerialTimerInterval(const quint16 &newTime)
         d->serialTimer = new QTimer();
         connect(d->serialTimer, &QTimer::timeout, this, &AtCore::locateSerialPort);
     }
-    //Start over with the new time.
+    //emit the newtime if it has changed.
+    if (newTime != d->serialTimer->interval()) {
+        emit serialTimerIntervalChanged(newTime);
+    }
+    //Start the timer.
     d->serialTimer->start(newTime);
 }
 
@@ -628,6 +630,14 @@ int AtCore::extruderCount() const
     return d->extruderCount;
 }
 
+void AtCore::setExtruderCount(int newCount)
+{
+    if (d->extruderCount != newCount && newCount >= 1) {
+        d->extruderCount = newCount;
+        emit extruderCountChanged(newCount);
+        qCDebug(ATCORE_CORE) << "Extruder Count:" << QString::number(extruderCount());
+    }
+}
 void AtCore::processQueue()
 {
     d->ready = true;

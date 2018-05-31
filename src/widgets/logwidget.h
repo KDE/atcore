@@ -22,11 +22,10 @@
 #include <QWidget>
 
 #include "atcorewidgets_export.h"
-/* Usage:
- *
- * Create a instance of the log widget.
- */
 
+/**
+ * @brief The LogWidget will display the log for the connected atcore. Create with a pointer to a new QTemporaryFile.
+ */
 class ATCOREWIDGETS_EXPORT LogWidget : public QWidget
 {
     Q_OBJECT
@@ -34,22 +33,19 @@ public:
     LogWidget(QTemporaryFile *tempFile, QWidget *parent = nullptr);
 
     /**
-     * @brief Add in logger normal type message
-     *
+     * @brief Add a message to the log.
      * @param  msg: Message
      */
     void appendLog(const QString &msg);
 
     /**
-     * @brief Add in logger received type message
-     *
+     * @brief Connect to AtCore::receivedMessage
      * @param  bmsg: Message
      */
     void appendRLog(const QByteArray &bmsg);
 
     /**
-     * @brief Add in logger send type message
-     *
+     * @brief Connect to AtCore::SerialLayer::pushedCommand
      * @param  bmsg: Message
      */
     void appendSLog(const QByteArray &bmsg);
@@ -64,7 +60,6 @@ public:
 private:
     /**
      * @brief Return string with actual time
-     *
      * @return QString
      */
     QString getTime();
@@ -76,7 +71,6 @@ private:
 
     /**
      * @brief Append text in temporary file
-     *
      * @param text
      */
     void writeTempFile(QString text);

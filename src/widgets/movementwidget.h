@@ -22,11 +22,10 @@
 #include <QWidget>
 
 #include "atcorewidgets_export.h"
-/* Usage:
- *
- * Create a instance of the movement widget. This widget will provide Basic Movement Controls. Create it with "showHomeAndDisableWidgets" false if your client provides its own actions for homing and disabling the motors.
+/**
+ * @brief The MovementWidget class
+ * This widget will provide Basic Movement Controls. Create it with "showHomeAndDisableWidgets" false if your client provides its own actions for homing and disabling the motors.
  */
-
 class ATCOREWIDGETS_EXPORT MovementWidget : public QWidget
 {
     Q_OBJECT
@@ -78,7 +77,7 @@ signals:
     void absoluteMove(const QLatin1Char &axis, const double &value);
 
     /**
-     * @brief A relativeMove was requested.
+     * @brief A relativeMove was requested from the AxisControl
      * This should connect to a function that does the following
      *  AtCore::setRelativePosition()
      *  AtCore::move(axis, value)

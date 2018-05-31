@@ -19,7 +19,7 @@
 #include <QtTest>
 #include <QObject>
 
-#include "../src/temperature.h"
+#include "../src/core/temperature.h"
 
 class TemperatureTests: public QObject
 {

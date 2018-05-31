@@ -19,7 +19,8 @@
 #include <QtTest>
 #include <QObject>
 
-#include "../src/atcore.h"
+#include "../src/core/atcore.h"
+#include "../src/core/seriallayer.h"
 
 class AtCoreTests: public QObject
 {
@@ -30,10 +31,16 @@ private slots:
     void testPluginDetect();
     void testConnectInvalidDevice();
     void cleanupTestCase();
+    void testStateChange();
+    void testSdMountChanged();
+    void testSdFileList();
+    void testSerialTimerIntervalChanged();
+    void testExtruderCountChanged();
     void testPluginAprinter_load();
     void testPluginAprinter_validate();
     void testPluginGrbl_load();
     void testPluginGrbl_validate();
+    void testPluginGrbl_translate();
     void testPluginMarlin_load();
     void testPluginMarlin_validate();
     void testPluginRepetier_load();

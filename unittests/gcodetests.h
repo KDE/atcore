@@ -19,7 +19,7 @@
 #include <QtTest>
 #include <QObject>
 
-#include "../src/gcodecommands.h"
+#include "../src/core/gcodecommands.h"
 
 class GCodeTests: public QObject
 {

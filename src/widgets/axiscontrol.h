@@ -23,12 +23,6 @@
 #include <QGraphicsEllipseItem>
 
 #include "atcorewidgets_export.h"
-/* Usage:
- *
- * Create a instance of PrinterHotendPositionVisualController and
- * connect the clicked signal, it will give you the axis and value
- * that was clicked.
- */
 
 class ATCOREWIDGETS_EXPORT PieButton : public QObject, public QGraphicsEllipseItem
 {
@@ -67,6 +61,12 @@ private:
     QPalette _palette;
 };
 
+/**
+ * @brief AxisControl is a Widget to generate axis relative movements.
+ *
+ * Usage:
+ * Create a instance of AxisControl and connect the clicked signal, it will give you the axis and value that was clicked.
+ */
 class ATCOREWIDGETS_EXPORT AxisControl : public QGraphicsView
 {
     Q_OBJECT
@@ -81,6 +81,11 @@ protected:
     void resizeEvent(QResizeEvent *);
 
 signals:
+    /**
+     * @brief User has clicked to move an axis.
+     * @param axis: Axis to move
+     * @param value: Amount to move
+     */
     void clicked(QLatin1Char axis, int value);
 
 };

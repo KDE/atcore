@@ -23,20 +23,40 @@
 #include <QWidget>
 
 #include "atcorewidgets_export.h"
-/* Usage:
- *
- * Create a instance of the temperature widget.
+/**
+ * @brief The TemperatureWidget Control the bed and extruder(s) temperatures
  */
-
 class ATCOREWIDGETS_EXPORT TemperatureWidget : public QWidget
 {
     Q_OBJECT
 public:
+
+    /**
+     * @brief TemperatureWidget
+     * @param parent
+     */
     TemperatureWidget(QWidget *parent = nullptr);
+
+    /**
+     * @brief Update widget with count extruder controls
+     * @param count: number of extruder controls needed.
+     */
     void updateExtruderCount(const int count);
 
 signals:
+    /**
+     * @brief User has changed the bed temperature.
+     * @param temperature: new temperature
+     * @param andWait: true if heat and wait mode
+     */
     void bedTempChanged(const int temperature, bool andWait);
+
+    /**
+     * @brief User has changed the extruder temperature.
+     * @param temperature: new temperature
+     * @param extNum: the extruder to change temperature of
+     * @param andWait: true if head and wait mode.
+     */
     void extTempChanged(const int temperature, const int extNum, bool andWait);
 
 private:

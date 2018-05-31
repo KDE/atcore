@@ -21,11 +21,12 @@
 #include <QWidget>
 
 #include "atcorewidgets_export.h"
-/* Usage:
+/**
+ * @brief CommandWidget provides a widget to send commands or messages to the printer.
  *
- * Create a instance of the command widget.
+ * Usage:
+ * Connect to commandPressed or messagePressed to capture the events.
  */
-
 class ATCOREWIDGETS_EXPORT CommandWidget : public QWidget
 {
     Q_OBJECT
@@ -33,7 +34,16 @@ public:
     CommandWidget(QWidget *parent = nullptr);
 
 signals:
+    /**
+     * @brief User has requested to send a command.
+     * @param command: The command to send.
+     */
     void commandPressed(const QString &command);
+
+    /**
+     * @brief User has requested to send a message
+     * @param message: The message to send.
+     */
     void messagePressed(const QString &message);
 
 private:
