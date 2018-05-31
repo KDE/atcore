@@ -23,11 +23,9 @@
 #include <QWidget>
 
 #include "atcorewidgets_export.h"
-/* Usage:
- *
- * Create a instance of the status widget.
+/**
+ * @brief The StatusWidget class Status Bar information for atcore
  */
-
 class ATCOREWIDGETS_EXPORT StatusWidget : public QWidget
 {
     Q_OBJECT

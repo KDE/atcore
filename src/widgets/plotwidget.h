@@ -26,7 +26,9 @@
 #include <QtCharts>
 
 #include "atcorewidgets_export.h"
-
+/**
+ * @brief PlotWidget Show a graph of the temperature over time.
+ */
 class ATCOREWIDGETS_EXPORT PlotWidget : public QWidget
 {
     Q_OBJECT
@@ -37,21 +39,18 @@ public:
 
     /**
      * @brief Create a new plot
-     *
      * @param name p_name: plot name
      */
     void newPlot(const QString &name);
 
     /**
      * @brief Delete plot with name
-     *
      * @param name p_name: name
      */
     void deletePlot(const QString &name);
 
     /**
      * @brief Append point to plot
-     *
      * @param name p_name: plot name
      * @param value p_value: value
      */
@@ -59,7 +58,6 @@ public:
 
     /**
      * @brief Update plot list, need to run after ALL plots added
-     *
      */
     void update();
 private:

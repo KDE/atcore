@@ -23,11 +23,10 @@
 #include <QWidget>
 
 #include "atcorewidgets_export.h"
-/* Usage:
- *
- * Create a instance of the print widget.
+/**
+ * @brief PrintWidget
+ * provide a basic print widget.
  */
-
 class ATCOREWIDGETS_EXPORT PrintWidget : public QWidget
 {
     Q_OBJECT
@@ -73,6 +72,7 @@ signals:
 
     /**
      * @brief printPressed
+     * Users requested to print a file.
      */
     void printPressed();
 

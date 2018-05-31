@@ -21,20 +21,41 @@
 #include <QWidget>
 
 #include "atcorewidgets_export.h"
-/* Usage:
- *
- * Create a instance of the sd widget.
+/**
+ * @brief The SdWidget class
+ * Provide basic Sd card actions. Requires Fw Support.
  */
-
 class ATCOREWIDGETS_EXPORT SdWidget : public QWidget
 {
     Q_OBJECT
 public:
+    /**
+     * @brief SdWidget
+     * @param parent
+     */
     SdWidget(QWidget *parent = nullptr);
+
+    /**
+     * @brief update the list of files on the card.
+     * @param fileList
+     */
     void updateFilelist(const QStringList &fileList);
 signals:
+    /**
+     * @brief request a list of files on the card.
+     */
     void requestSdList();
+
+    /**
+     * @brief User has selected to print a file for the sd card.
+     * @param fileName: file to print.
+     */
     void printSdFile(const QString &fileName);
+
+    /**
+     * @brief User has selected to delete a file for the sd card.
+     * @param fileName: file to delete
+     */
     void deleteSdFile(const QString &fileName);
 
 private:

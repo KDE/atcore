@@ -25,6 +25,10 @@
 
 #include "atcorewidgets_export.h"
 
+/**
+ * @brief An About AtCore dialog.
+ */
+
 class ATCOREWIDGETS_EXPORT About : public QDialog
 {
     Q_OBJECT
