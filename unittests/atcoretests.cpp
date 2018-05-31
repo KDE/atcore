@@ -86,7 +86,16 @@ void AtCoreTests::testPluginGrbl_validate()
     QVERIFY(sSpy.isValid() == true);
     core->firmwarePlugin()->validateCommand(QStringLiteral("ok"));
     core->firmwarePlugin()->validateCommand(QStringLiteral("other text"));
-    QVERIFY(sSpy.count() == 2);
+    QVERIFY(sSpy.count() == 1);
+}
+
+void AtCoreTests::testPluginGrbl_translate()
+{
+    QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("G28")) == "G28");
+    QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("M104 S50 G28 X")) == "M104 S50\r\nG28 X");
+    QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("G00 G43 H0  Z0.1")) == "G00\r\nG43 H0  Z0.1");
+    QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("M6 T0")) == "M6 T0");
+
 }
 
 void AtCoreTests::testPluginMarlin_load()

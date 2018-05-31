@@ -34,6 +34,7 @@ private slots:
     void testPluginAprinter_validate();
     void testPluginGrbl_load();
     void testPluginGrbl_validate();
+    void testPluginGrbl_translate();
     void testPluginMarlin_load();
     void testPluginMarlin_validate();
     void testPluginRepetier_load();

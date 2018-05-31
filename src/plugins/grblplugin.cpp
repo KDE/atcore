@@ -61,6 +61,7 @@ QByteArray GrblPlugin::translate(const QString &command)
             QRegularExpressionMatch t = commandMatch.next();
             temp.append(t.captured());
             if (commandMatch.hasNext()) {
+                temp = temp.simplified();
                 temp.append(QStringLiteral("\r\n"));
             }
         }
