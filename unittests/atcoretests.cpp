@@ -59,6 +59,110 @@ void AtCoreTests::testConnectInvalidDevice()
     QVERIFY(core->initSerial(QStringLiteral("/dev/ptyp5"), 9600));
 }
 
+void AtCoreTests::testStateChange()
+{
+    QList<QVariant> args;
+    QSignalSpy sSpy(core, SIGNAL(stateChanged(AtCore::STATES)));
+    QVERIFY(sSpy.isValid());
+
+    core->setState(AtCore::CONNECTING);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::CONNECTING);
+
+    core->setState(AtCore::IDLE);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::IDLE);
+
+    core->setState(AtCore::BUSY);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::BUSY);
+
+    core->setState(AtCore::PAUSE);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::PAUSE);
+
+    core->setState(AtCore::STOP);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::STOP);
+
+    core->setState(AtCore::ERRORSTATE);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::ERRORSTATE);
+
+    core->setState(AtCore::STARTPRINT);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::STARTPRINT);
+
+    core->setState(AtCore::FINISHEDPRINT);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::FINISHEDPRINT);
+
+    core->setState(AtCore::DISCONNECTED);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toInt() == AtCore::DISCONNECTED);
+}
+
+void AtCoreTests::testSdMountChanged()
+{
+    QList<QVariant> args;
+    QSignalSpy sSpy(core, SIGNAL(sdMountChanged(bool)));
+    QVERIFY(sSpy.isValid());
+
+    core->setSdMounted(true);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toBool() == true);
+
+    core->setSdMounted(false);
+    args = sSpy.takeFirst();
+    QVERIFY(args.at(0).toBool() == false);
+}
+
+void AtCoreTests::testSdFileList()
+{
+    QSignalSpy sSpy(core, SIGNAL(sdCardFileListChanged(QStringList)));
+    QVERIFY(sSpy.isValid());
+    core->appendSdCardFileList(QStringLiteral("FILE1"));
+    core->appendSdCardFileList(QStringLiteral("FILE2"));
+    core->appendSdCardFileList(QStringLiteral("FILE3"));
+    core->appendSdCardFileList(QStringLiteral("FILE4"));
+    core->appendSdCardFileList(QStringLiteral("FILE5"));
+
+    QList<QVariant> args = sSpy.takeLast();
+    QStringList fileList = {
+        QStringLiteral("FILE1"),
+        QStringLiteral("FILE2"),
+        QStringLiteral("FILE3"),
+        QStringLiteral("FILE4"),
+        QStringLiteral("FILE5")
+    };
+    QVERIFY(args.at(0).toStringList() == fileList);
+
+    core->clearSdCardFileList();
+    args = sSpy.takeLast();
+    QVERIFY(args.at(0).toStringList() == QStringList());
+}
+
+void AtCoreTests::testSerialTimerIntervalChanged()
+{
+    QSignalSpy sSpy(core, SIGNAL(serialTimerIntervalChanged(quint16)));
+    QVERIFY(sSpy.isValid());
+    core->setSerialTimerInterval(1000);
+    core->setSerialTimerInterval(1000);
+    core->setSerialTimerInterval(2000);
+    core->setSerialTimerInterval(0);
+    QVERIFY(sSpy.count() == 3);
+}
+
+void AtCoreTests::testExtruderCountChanged()
+{
+    QSignalSpy sSpy(core, SIGNAL(extruderCountChanged(int)));
+    QVERIFY(sSpy.isValid());
+    core->setExtruderCount(1);
+    core->setExtruderCount(2);
+    core->setExtruderCount(1);
+    QVERIFY(sSpy.count() == 2);
+}
+
 void AtCoreTests::testPluginAprinter_load()
 {
     core->loadFirmwarePlugin(QStringLiteral("aprinter"));

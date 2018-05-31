@@ -20,6 +20,7 @@
 #include <QObject>
 
 #include "../src/core/atcore.h"
+#include "../src/core/seriallayer.h"
 
 class AtCoreTests: public QObject
 {
@@ -30,6 +31,11 @@ private slots:
     void testPluginDetect();
     void testConnectInvalidDevice();
     void cleanupTestCase();
+    void testStateChange();
+    void testSdMountChanged();
+    void testSdFileList();
+    void testSerialTimerIntervalChanged();
+    void testExtruderCountChanged();
     void testPluginAprinter_load();
     void testPluginAprinter_validate();
     void testPluginGrbl_load();
