@@ -15,7 +15,7 @@ The following guidelines apply to all submited code.
  - Use constant referances when possible
  - Includes should be alphabetical.
  - Run the style script before you commit.
- - Headers should use #pragma once not #ifndef Def.
+ - Headers should use `#pragma once`.
  - Auto should not be used if the type is not explict.
  - Doxygen comments should be created/updated with code.
  - Objects should have logical varible and function names

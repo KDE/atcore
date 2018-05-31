@@ -50,13 +50,12 @@ struct AtCorePrivate;
  * - AtCore::close() when you are all done.
 
  * #### How AtCore Finds Plugins.
- *  - Windows and Mac Os will always look in appdir/plugins for plugins.
- *
- * Others Search:
+ * Searched Paths:
  *  1. Build Dir/plugins (buildtime)
  *  2. ECM set KDE PLUGIN DIR  (buildtime)
  *  3. Qt Plugin path/AtCore (runtime)
- *  4. plugins (runtime)
+ *  4. Fullpath of KDE_PLUGIN_DIR (buildtime)
+ *  5. Program using atcore's path/plugins (runtime)
  */
 class ATCORE_EXPORT AtCore : public QObject
 {
