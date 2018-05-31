@@ -19,7 +19,7 @@
 #include <QtTest>
 #include <QObject>
 
-#include "../src/atcore.h"
+#include "../src/core/atcore.h"
 
 class AtCoreTests: public QObject
 {
