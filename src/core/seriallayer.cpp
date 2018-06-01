@@ -133,7 +133,7 @@ void SerialLayer::push()
         qCDebug(SERIAL_LAYER) << "Serial not connected !";
         return;
     }
-    foreach (const auto &comm, d->_sByteCommands) {
+    for (const auto &comm : d->_sByteCommands) {
         write(comm);
         emit(pushedCommand(comm));
     }

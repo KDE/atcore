@@ -244,7 +244,7 @@ QStringList AtCore::serialPorts() const
     QStringList ports;
     QList<QSerialPortInfo> serialPortInfoList = QSerialPortInfo::availablePorts();
     if (!serialPortInfoList.isEmpty()) {
-        foreach (const QSerialPortInfo &serialPortInfo, serialPortInfoList) {
+        for (const QSerialPortInfo &serialPortInfo : serialPortInfoList) {
 #ifdef Q_OS_MAC
             //Mac OS has callout serial ports starting with cu these devices are read only.
             //It is necessary to filter them out to help prevent user error.
@@ -479,7 +479,7 @@ void AtCore::findFirmwarePlugins()
     d->plugins.clear();
     qCDebug(ATCORE_PLUGIN) << "plugin dir:" << d->pluginsDir;
     QStringList files = d->pluginsDir.entryList(QDir::Files);
-    foreach (const QString &f, files) {
+    for (const QString &f : files) {
         QString file = f;
 #if defined(Q_OS_WIN)
         if (file.endsWith(QStringLiteral(".dll")))
