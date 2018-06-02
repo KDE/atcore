@@ -495,8 +495,7 @@ void AtCore::findFirmwarePlugins()
             file = file.remove(QStringLiteral("lib"));
         }
         file = file.toLower().simplified();
-        QString pluginString;
-        pluginString.append(d->pluginsDir.path());
+        QString pluginString = d->pluginsDir.absolutePath();
         pluginString.append(QChar::fromLatin1('/'));
         pluginString.append(f);
         d->plugins[file] = pluginString;
