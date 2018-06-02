@@ -147,7 +147,8 @@ void AtCore::findFirmware(const QByteArray &message)
             return;
         }
 
-        qCDebug(ATCORE_CORE) << "Waiting for printer...";
+        qCDebug(ATCORE_CORE) << "Waiting for firmware detect.";
+        emit atcoreMessage(tr("Waiting for firmware detect."));
     }
     qCDebug(ATCORE_CORE) << "Find Firmware: " << message;
     if (!message.contains("FIRMWARE_NAME:")) {
@@ -206,6 +207,7 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
         }
     } else {
         qCDebug(ATCORE_CORE) << "Plugin:" << fwName << ": Not found.";
+        emit atcoreMessage(tr("No plugin found for %1.").arg(fwName));
     }
 }
 
@@ -218,6 +220,7 @@ bool AtCore::initSerial(const QString &port, int baud)
         return true;
     } else {
         qCDebug(ATCORE_CORE) << "Failed to open device for Read / Write.";
+        emit atcoreMessage(tr("Failed to open device in read/write mode."));
         return false;
     }
 }

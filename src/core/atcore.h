@@ -244,6 +244,17 @@ public:
 signals:
 
     /**
+     * @brief Message emit from atcore these should be displayed to the user for debug.
+     *
+     * Possable Messages Are:
+     *   - Waiting for firmware detect.
+     *   - No Plugin found for (detected FW)
+     *   - Failed to open device in Read / Write mode.
+     * @param msg: the message.
+     */
+    void atcoreMessage(const QString &msg);
+
+    /**
      * @brief New number of extruders
      * @sa extruderCount(), setExtruderCount(int newCount)
      */
