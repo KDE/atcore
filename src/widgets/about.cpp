@@ -32,21 +32,21 @@ About::About(QWidget *parent) :
     setWindowTitle(QStringLiteral("About Atcore"));
     setWindowIcon(QIcon::fromTheme(QStringLiteral("help-about"), style()->standardIcon(QStyle::SP_MessageBoxInformation)));
 
-    QLabel *lbl_version = new QLabel(QString::fromLatin1("Version: %1").arg(QCoreApplication::applicationVersion()));
-    QLabel *lbl_qt_version = new QLabel(QString::fromLatin1("Using Qt: %1").arg(QString::fromLatin1(qVersion())));
-    QLabel *lbl_authors = new QLabel(QStringLiteral("Authors:\n"
-                                     "  Chris Rizzitello <rizzitello@kde.org>\n"
-                                     "  Patrick José Pereira <patrickjp@kde.org>\n"
-                                     "  Lays Rodrigues <lays.rodrigues@kde.org>\n"
-                                     "  Tomaz Canabrava <tcanabrava@kde.org>"
-                                     ""));
+    QLabel *lbl_version = new QLabel(tr("Version: %1").arg(QCoreApplication::applicationVersion()));
+    QLabel *lbl_qt_version = new QLabel(tr("Using Qt: %1").arg(QString::fromLatin1(qVersion())));
+    QLabel *lbl_authors = new QLabel(tr("Authors:\n"
+                                        "  Chris Rizzitello <rizzitello@kde.org>\n"
+                                        "  Patrick José Pereira <patrickjp@kde.org>\n"
+                                        "  Lays Rodrigues <lays.rodrigues@kde.org>\n"
+                                        "  Tomaz Canabrava <tcanabrava@kde.org>"
+                                        ""));
 
     QLabel *lbl_icon = new QLabel();
     lbl_icon->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     lbl_icon->setScaledContents(true);
     lbl_icon->setPixmap(QPixmap(QStringLiteral(":/icon/atcore")));
 
-    QPushButton *btn_close = new QPushButton(QStringLiteral("&Close"));
+    QPushButton *btn_close = new QPushButton(tr("Close"));
     connect(btn_close, &QPushButton::clicked, this, &QDialog::close);
 
     QVBoxLayout *versionInfo = new QVBoxLayout;

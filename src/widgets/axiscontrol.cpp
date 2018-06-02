@@ -28,7 +28,7 @@ PieButton::PieButton(QLatin1Char &axis, int value, int size, int angle) : _axis(
     setRect(QRect(QPoint(size * -1, size * -1), QPoint(size, size)));
     setZValue(size * -1);
     setAcceptHoverEvents(true);
-    setToolTip(QStringLiteral("Move the hotend to the %1 by %2 units").arg(axis).arg(value));
+    setToolTip(tr("Move the hotend to the %1 by %2 units").arg(axis).arg(value));
 }
 
 void PieButton::setPalette(QPalette palette)
@@ -58,9 +58,9 @@ RectButton::RectButton(QLatin1Char &axis, int value, int size) : _axis(axis), _v
     setAcceptHoverEvents(true);
     setZValue(size * -1);
     if (axis != QLatin1Char('E')) {
-        setToolTip(QStringLiteral("Move the hotend to the %1 by %2 units").arg(axis).arg(value));
+        setToolTip(tr("Move the hotend to the %1 by %2 units").arg(axis).arg(value));
     } else {
-        setToolTip(QStringLiteral("Extrude %1 Units").arg(value));
+        setToolTip(tr("Extrude %1 Units").arg(value));
     }
 }
 
