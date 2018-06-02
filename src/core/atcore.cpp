@@ -90,9 +90,6 @@ AtCore::AtCore(QObject *parent) :
             break;
         }
     }
-    if (!d->pluginsDir.exists()) {
-        qCritical() << "No valid path found!";
-    }
     qCDebug(ATCORE_PLUGIN) << "PluginDir" << d->pluginsDir;
     findFirmwarePlugins();
     setState(AtCore::DISCONNECTED);
