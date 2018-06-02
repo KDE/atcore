@@ -46,6 +46,7 @@ MainWindow::MainWindow(QWidget *parent) :
     initStatusBar();
     initWidgets();
 
+    connect(core, &AtCore::atcoreMessage, logWidget, &LogWidget::appendLog);
     logWidget->appendLog(tr("Attempting to locate Serial Ports"));
     core->setSerialTimerInterval(1000);
 
@@ -414,14 +415,9 @@ void MainWindow::connectPBClicked()
             connect(core->serial(), &SerialLayer::pushedCommand, logWidget, &LogWidget::appendSLog);
             buttonConnect->setText(tr("Disconnect"));
             logWidget->appendLog(tr("Serial connected"));
-            if (comboPlugin->currentText().contains(tr("Autodetect"))) {
-                logWidget->appendLog(tr("No plugin loaded !"));
-                logWidget->appendLog(tr("Requesting Firmware..."));
-            } else {
+            if (!comboPlugin->currentText().contains(tr("Autodetect"))) {
                 core->loadFirmwarePlugin(comboPlugin->currentText());
             }
-        } else {
-            logWidget->appendLog(tr("Failed to open serial in r/w mode"));
         }
     } else {
         disconnect(core, &AtCore::receivedMessage, logWidget, &LogWidget::appendRLog);

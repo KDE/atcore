@@ -82,18 +82,15 @@ AtCore::AtCore(QObject *parent) :
     d->tempTimer->setInterval(5000);
     d->tempTimer->setSingleShot(false);
     //Attempt to find our plugins
+    qCDebug(ATCORE_PLUGIN) << "Detecting Plugin path";
     for (const auto &path : AtCoreDirectories::pluginDir) {
-        qCDebug(ATCORE_PLUGIN) << "Lookin for plugins in " << path;
+        qCDebug(ATCORE_PLUGIN) << "Checking: " << path;
         if (QDir(path).exists()) {
             d->pluginsDir = QDir(path);
-            qCDebug(ATCORE_PLUGIN) << "Valid path for plugins found !";
             break;
         }
     }
-    if (!d->pluginsDir.exists()) {
-        qCritical() << "No valid path for plugin !";
-    }
-    qCDebug(ATCORE_PLUGIN) << d->pluginsDir;
+    qCDebug(ATCORE_PLUGIN) << "PluginDir" << d->pluginsDir;
     findFirmwarePlugins();
     setState(AtCore::DISCONNECTED);
 }
@@ -132,7 +129,7 @@ Temperature &AtCore::temperature() const
 void AtCore::findFirmware(const QByteArray &message)
 {
     if (state() == AtCore::DISCONNECTED) {
-        qWarning() << "Cant find firwmware, serial not connected !";
+        qCWarning(ATCORE_CORE) << tr("Cant find firwmware, serial not connected!");
         return;
     }
 
@@ -150,9 +147,10 @@ void AtCore::findFirmware(const QByteArray &message)
             return;
         }
 
-        qCDebug(ATCORE_CORE) << "Waiting for printer...";
+        qCDebug(ATCORE_CORE) << "Waiting for firmware detect.";
+        emit atcoreMessage(tr("Waiting for firmware detect."));
     }
-    qCDebug(ATCORE_CORE) << "Find Firmware Called" << message;
+    qCDebug(ATCORE_CORE) << "Find Firmware: " << message;
     if (!message.contains("FIRMWARE_NAME:")) {
         qCDebug(ATCORE_CORE) << "No firmware yet.";
         return;
@@ -185,19 +183,18 @@ void AtCore::findFirmware(const QByteArray &message)
 
 void AtCore::loadFirmwarePlugin(const QString &fwName)
 {
-    qCDebug(ATCORE_PLUGIN) << "Looking for Plugin:" << fwName;
+    qCDebug(ATCORE_CORE) << "Loading plugin: " << fwName;
     if (d->plugins.contains(fwName)) {
         d->pluginLoader.setFileName(d->plugins[fwName]);
         if (!d->pluginLoader.load()) {
             //Plugin was not loaded, Provide some debug info.
-            qCDebug(ATCORE_PLUGIN) << "Plugin Loading: Failed.";
-            qCDebug(ATCORE_PLUGIN) << d->pluginLoader.errorString();
+            qCDebug(ATCORE_CORE) << "Plugin Loading: Failed.";
+            qCDebug(ATCORE_CORE) << d->pluginLoader.errorString();
             setState(AtCore::CONNECTING);
         } else {
             //Plugin was loaded successfully.
             d->firmwarePlugin = qobject_cast<IFirmware *>(d->pluginLoader.instance());
             firmwarePlugin()->init(this);
-            qCDebug(ATCORE_PLUGIN) << "Plugin Loading: Successful";
             disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
             connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
             connect(firmwarePlugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
@@ -210,6 +207,7 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
         }
     } else {
         qCDebug(ATCORE_CORE) << "Plugin:" << fwName << ": Not found.";
+        emit atcoreMessage(tr("No plugin found for %1.").arg(fwName));
     }
 }
 
@@ -222,6 +220,7 @@ bool AtCore::initSerial(const QString &port, int baud)
         return true;
     } else {
         qCDebug(ATCORE_CORE) << "Failed to open device for Read / Write.";
+        emit atcoreMessage(tr("Failed to open device in read/write mode."));
         return false;
     }
 }
@@ -244,7 +243,7 @@ QStringList AtCore::serialPorts() const
     QStringList ports;
     QList<QSerialPortInfo> serialPortInfoList = QSerialPortInfo::availablePorts();
     if (!serialPortInfoList.isEmpty()) {
-        foreach (const QSerialPortInfo &serialPortInfo, serialPortInfoList) {
+        for (const QSerialPortInfo &serialPortInfo : serialPortInfoList) {
 #ifdef Q_OS_MAC
             //Mac OS has callout serial ports starting with cu these devices are read only.
             //It is necessary to filter them out to help prevent user error.
@@ -385,8 +384,8 @@ void AtCore::closeConnection()
             }
             //Attempt to unload the firmware plugin.
             QString name = firmwarePlugin()->name();
-            QString msg = d->pluginLoader.unload() ? QStringLiteral("success") : QStringLiteral("FAIL");
-            qCDebug(ATCORE_PLUGIN) << QStringLiteral("Firmware plugin %1 unload: %2").arg(name, msg);
+            QString msg = d->pluginLoader.unload() ? QStringLiteral("closed.") : QStringLiteral("Failed to close.");
+            qCDebug(ATCORE_CORE) << QStringLiteral("Firmware plugin %1 %2").arg(name, msg);
         }
         serial()->close();
         //Clear our copy of the sdcard filelist
@@ -403,8 +402,9 @@ AtCore::STATES AtCore::state(void)
 void AtCore::setState(AtCore::STATES state)
 {
     if (state != d->printerState) {
-        qCDebug(ATCORE_CORE) << "Atcore state changed from [" \
-                             << d->printerState << "] to [" << state << "]";
+        qCDebug(ATCORE_CORE) << QStringLiteral("Atcore state changed from [%1] to [%2]")
+                             .arg(QVariant::fromValue(d->printerState).value<QString>())
+                             .arg(QVariant::fromValue(state).value<QString>());
         d->printerState = state;
         if (state == AtCore::FINISHEDPRINT && d->sdCardPrinting) {
             //Clean up the sd card print
@@ -477,9 +477,8 @@ bool AtCore::firmwarePluginLoaded() const
 void AtCore::findFirmwarePlugins()
 {
     d->plugins.clear();
-    qCDebug(ATCORE_PLUGIN) << "plugin dir:" << d->pluginsDir;
     QStringList files = d->pluginsDir.entryList(QDir::Files);
-    foreach (const QString &f, files) {
+    for (const QString &f : files) {
         QString file = f;
 #if defined(Q_OS_WIN)
         if (file.endsWith(QStringLiteral(".dll")))
@@ -490,20 +489,17 @@ void AtCore::findFirmwarePlugins()
 #endif
             file = file.split(QChar::fromLatin1('.')).at(0);
         else {
-            qCDebug(ATCORE_PLUGIN) << "File" << file << "not plugin.";
             continue;
         }
-        qCDebug(ATCORE_CORE) << "Found plugin file" << f;
         if (file.startsWith(QStringLiteral("lib"))) {
             file = file.remove(QStringLiteral("lib"));
         }
         file = file.toLower().simplified();
-        QString pluginString;
-        pluginString.append(d->pluginsDir.path());
+        QString pluginString = d->pluginsDir.absolutePath();
         pluginString.append(QChar::fromLatin1('/'));
         pluginString.append(f);
         d->plugins[file] = pluginString;
-        qCDebug(ATCORE_CORE) << tr("plugins[%1]=%2").arg(file, pluginString);
+        qCDebug(ATCORE_PLUGIN) << QStringLiteral("Plugin:[%1]=%2").arg(file, pluginString);
     }
 }
 
