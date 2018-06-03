@@ -2,6 +2,7 @@
 <component type="desktop">
   <id>org.kde.atcore.desktop</id>
   <name>AtCore Test Client</name>
+  <name xml:lang="ast">Veceru de prueba d'AtCore</name>
   <name xml:lang="ca">Client de prova de l'AtCore</name>
   <name xml:lang="ca-valencia">Client de prova de l'AtCore</name>
   <name xml:lang="cs">Testovací klient AtCore</name>
