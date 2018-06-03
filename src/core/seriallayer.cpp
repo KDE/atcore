@@ -77,15 +77,11 @@ void SerialLayer::readAllData()
 {
     d->_rawData.append(readAll());
 
-    /*
-     * Check if \r exist and remove
-     * Both \n\r and \n are used in string's end and some protocols
-     */
-    if (d->_rawData.contains(_return)) {
-        d->_rawData = d->_rawData.replace(_return, QByteArray());
-    }
+    //Remove any \r in the string, then split by \n.
+    //This removes any trailing \r or \n from the commands
+    // Proper line endings are added when the command is pushed.
+    d->_rawData = d->_rawData.replace(_return, QByteArray());
 
-    QByteArray tempArray;
     QList<QByteArray> tempList = d->_rawData.split(_newLine.at(0));
     for (auto i = tempList.begin(); i != tempList.end(); ++i) {
         // Get finished line to _byteCommands
