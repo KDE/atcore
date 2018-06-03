@@ -197,9 +197,10 @@ void AtCoreTests::testPluginGrbl_translate()
 {
     QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("G28")) == "G28");
     QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("M104 S50 G28 X")) == "M104 S50\r\nG28 X");
-    QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("G00 G43 H0  Z0.1")) == "G00\r\nG43 H0  Z0.1");
+    QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("G00 G43 H0  Z0.1")) == "G00\r\nG43 H0 Z0.1");
     QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("M6 T0")) == "M6 T0");
-
+    QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("G0 G49 G40 G17 G80 G50 G90")) == "G0\r\nG49\r\nG40\r\nG17\r\nG80\r\nG50\r\nG90");
+    QVERIFY(core->firmwarePlugin()->translate(QStringLiteral("G0 S49 XY G40")) == "G0 S49 XY\r\nG40");
 }
 
 void AtCoreTests::testPluginMarlin_load()
