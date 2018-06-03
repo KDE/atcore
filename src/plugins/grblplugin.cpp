@@ -49,9 +49,12 @@ void GrblPlugin::validateCommand(const QString &lastMessage)
 QByteArray GrblPlugin::translate(const QString &command)
 {
     QString temp = command;
-    //Match all G and M Commands up until the start of the next G/M command or the end of the string.
+    //Match all G and M commands followed by one or more digits up to and include the space,
+    //if thats followed by a letter capture any non G or M starting text
+    //else just grab the digits that follow.
     //ex: G28 X Y M1 would capture "G28 X Y" and "M1"
-    static const auto regEx = QRegularExpression(QStringLiteral("[GM]\\d+.[^GM]+"));
+    static const auto regEx = QRegularExpression(QStringLiteral("[GM]\\d+.(?(?=\\D)[^GM]+|\\d+)?"));
+
     QRegularExpressionMatch secondCommand = regEx.match(temp, 1);
 
     if (secondCommand.hasMatch()) {
@@ -59,9 +62,8 @@ QByteArray GrblPlugin::translate(const QString &command)
         temp.clear();
         while (commandMatch.hasNext()) {
             QRegularExpressionMatch t = commandMatch.next();
-            temp.append(t.captured());
+            temp.append(t.captured().simplified());
             if (commandMatch.hasNext()) {
-                temp = temp.simplified();
                 temp.append(QStringLiteral("\r\n"));
             }
         }
