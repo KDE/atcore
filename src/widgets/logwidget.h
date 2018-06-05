@@ -33,7 +33,7 @@ public:
     LogWidget(QTemporaryFile *tempFile, QWidget *parent = nullptr);
 
     /**
-     * @brief Add a message to the log.
+     * @brief Add a message to the log. Should always also be connected to AtCore::atcoreMessage;
      * @param  msg: Message
      */
     void appendLog(const QString &msg);
