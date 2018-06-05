@@ -50,12 +50,12 @@ struct AtCorePrivate;
  * - AtCore::close() when you are all done.
 
  * #### How AtCore Finds Plugins.
- * Searched Paths:
- *  1. Build Dir/plugins (buildtime)
- *  2. ECM set KDE PLUGIN DIR  (buildtime)
+ * AtCore will check each directory below for plugins.
+ *  1. QApplication::applicationDirPath/plugins (runtime)
+ *  2. Fullpath of KDE_PLUGIN_DIR (buildtime)
  *  3. Qt Plugin path/AtCore (runtime)
- *  4. Fullpath of KDE_PLUGIN_DIR (buildtime)
- *  5. Program using atcore's path/plugins (runtime)
+ *  4. ECM set KDE PLUGIN DIR  (buildtime)
+ *  5. Build Dir/plugins (buildtime)
  */
 class ATCORE_EXPORT AtCore : public QObject
 {
@@ -523,8 +523,10 @@ private:
 
     /**
      * @brief Search for atcore firmware plugins
+     * @param path: the path to check
+     * @return QMap of the plugings found
      */
-    void findFirmwarePlugins();
+    QMap<QString, QString> findFirmwarePlugins(const QString &path);
 
     /**
      * @brief returns AtCorePrivate::sdCardReadingFileList
