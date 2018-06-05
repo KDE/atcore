@@ -70,22 +70,23 @@ From the build dir the command below to install atcore with its plugins to the s
 sudo make install
 ```
 ### Finding Plugins
-AtCore will look in a few places for plugins these are.
-    1. BUILDDIR for plugins.
-    2. KDE_PLUGIN_DIR/AtCore
-    3. Qt's Plugin Path/AtCore
-    4. INSTALL_PREFIX/KDE_PLUGIN_DIR/AtCore
-    5. Binary using atcore's path/plugins (see Below)
+AtCore will check each directory below for plugins.
 
-For the last place bin/plugins atcore will look next to the binary using atcore.
-On Windows this is in a directory next to the program
+    1. QApplication::applicationDirPath/plugins (see Below)
+    2. INSTALL_PREFIX/KDE_PLUGIN_DIR/AtCore
+    3. QT_Plugin_Path/AtCore
+    4. KDE_PLUGIN_DIR/AtCore
+    5. BUILDDIR for plugins.
+
+For 'QApplication::applicationDirPath/plugins' atcore will look next to the binary using atcore.
+Usually this is in a directory next to the program
 ```
-C:\atcore_test_GUI\atcore-gui.exe
-C:\atcore_test_GUI\AtCore.dll
-C:\atcore_test_GUI\plugins\repetier.dll
+atcore_test_GUI\atcore-gui.exe
+atcore_test_GUI\AtCore.dll
+atcore_test_GUI\plugins\repetier.dll
 ```
 
-On Mac OS this is in the app bundle 
+But on Mac OS this is in the app bundle 
 ```
 atcore-gui.app/Contents/MacOS/atcore-gui
 atcore-gui.app/Contents/MacOS/AtCore.dylib

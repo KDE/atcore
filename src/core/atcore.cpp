@@ -49,7 +49,6 @@ struct AtCorePrivate {
     IFirmware *firmwarePlugin = nullptr;//!< @param firmwarePlugin: pointer to firmware plugin
     SerialLayer *serial = nullptr;      //!< @param serial: pointer to the serial layer
     QPluginLoader pluginLoader;         //!< @param pluginLoader: QPluginLoader
-    QDir pluginsDir;                    //!< @param pluginsDir: Directory where plugins were found
     QMap<QString, QString> plugins;     //!< @param plugins: Map of plugins name / path
     QByteArray lastMessage;             //!< @param lastMessage: lastMessage from the printer
     int extruderCount = 1;              //!< @param extruderCount: extruder count
@@ -82,16 +81,18 @@ AtCore::AtCore(QObject *parent) :
     d->tempTimer->setInterval(5000);
     d->tempTimer->setSingleShot(false);
     //Attempt to find our plugins
+    QStringList paths = AtCoreDirectories::pluginDir;
+    //Add Our current run path/ plugins to the list
+    paths.prepend(qApp->applicationDirPath() + QStringLiteral("/plugins"));
     qCDebug(ATCORE_PLUGIN) << "Detecting Plugin path";
-    for (const auto &path : AtCoreDirectories::pluginDir) {
+    for (const auto &path : paths) {
         qCDebug(ATCORE_PLUGIN) << "Checking: " << path;
-        if (QDir(path).exists()) {
-            d->pluginsDir = QDir(path);
-            break;
+        QMap <QString, QString> tempMap = findFirmwarePlugins(path);
+        if (!tempMap.isEmpty()) {
+            d->plugins = tempMap;
+            return;
         }
     }
-    qCDebug(ATCORE_PLUGIN) << "PluginDir" << d->pluginsDir;
-    findFirmwarePlugins();
     setState(AtCore::DISCONNECTED);
 }
 
@@ -183,7 +184,7 @@ void AtCore::findFirmware(const QByteArray &message)
 
 void AtCore::loadFirmwarePlugin(const QString &fwName)
 {
-    qCDebug(ATCORE_CORE) << "Loading plugin: " << fwName;
+    qCDebug(ATCORE_CORE) << "Loading plugin: " << d->plugins[fwName];
     if (d->plugins.contains(fwName)) {
         d->pluginLoader.setFileName(d->plugins[fwName]);
         if (!d->pluginLoader.load()) {
@@ -474,10 +475,10 @@ bool AtCore::firmwarePluginLoaded() const
     }
 }
 
-void AtCore::findFirmwarePlugins()
+QMap<QString, QString> AtCore::findFirmwarePlugins(const QString &path)
 {
-    d->plugins.clear();
-    QStringList files = d->pluginsDir.entryList(QDir::Files);
+    QMap<QString, QString> detectedPlugins;
+    QStringList files = QDir(path).entryList(QDir::Files);
     for (const QString &f : files) {
         QString file = f;
 #if defined(Q_OS_WIN)
@@ -495,12 +496,13 @@ void AtCore::findFirmwarePlugins()
             file = file.remove(QStringLiteral("lib"));
         }
         file = file.toLower().simplified();
-        QString pluginString = d->pluginsDir.absolutePath();
+        QString pluginString = path;
         pluginString.append(QChar::fromLatin1('/'));
         pluginString.append(f);
-        d->plugins[file] = pluginString;
+        detectedPlugins[file] = pluginString;
         qCDebug(ATCORE_PLUGIN) << QStringLiteral("Plugin:[%1]=%2").arg(file, pluginString);
     }
+    return detectedPlugins;
 }
 
 QStringList AtCore::availableFirmwarePlugins() const
