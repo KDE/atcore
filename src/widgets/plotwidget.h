@@ -41,13 +41,13 @@ public:
      * @brief Create a new plot
      * @param name p_name: plot name
      */
-    void newPlot(const QString &name);
+    void addPlot(const QString &name);
 
     /**
      * @brief Delete plot with name
      * @param name p_name: name
      */
-    void deletePlot(const QString &name);
+    void removePlot(const QString &name);
 
     /**
      * @brief Append point to plot
@@ -57,9 +57,23 @@ public:
     void appendPoint(const QString &name, float value);
 
     /**
-     * @brief Update plot list, need to run after ALL plots added
+     * @brief plots
+     * @return List of all named plots
      */
-    void update();
+    QStringList plots();
+
+    /**
+     * @brief set The Maximum Number of points per series the plot widget stores
+     * @param newMax: new maximum Number (default:24)
+     */
+    void setMaximumPoints(const uint newMax);
+
+    /**
+     * @brief set the maximum temperature shown on the plot
+     * @param maxTemp : number greater then 0
+     */
+    void setMaximumTemperature(const uint maxTemp);
+
 private:
     class plot
     {
@@ -105,10 +119,14 @@ private:
         QLineSeries *_series;
         QString _name;
     };
+    /**
+     * @brief Update plot list, need to run after ALL plots added
+     */
+    void update();
+
     QChartView *_chart;
     QDateTimeAxis *_axisX;
     QValueAxis *_axisY;
-
-    QHash<QString, int> _name2Index;
-    QVector<plot> _plots;
+    QMap<QString, plot> _plots;
+    int m_maximumPoints;
 };

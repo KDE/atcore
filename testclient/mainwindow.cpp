@@ -52,29 +52,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
     connect(core, &AtCore::portsChanged, this, &MainWindow::locateSerialPort);
-
     connect(core, &AtCore::sdCardFileListChanged, sdWidget, &SdWidget::updateFilelist);
-
-    connect(&core->temperature(), &Temperature::bedTemperatureChanged, [ this ](float temp) {
-        checkTemperature(0x00, 0, temp);
-        plotWidget->appendPoint(tr("Actual Bed"), temp);
-        plotWidget->update();
-    });
-    connect(&core->temperature(), &Temperature::bedTargetTemperatureChanged, [ this ](float temp) {
-        checkTemperature(0x01, 0, temp);
-        plotWidget->appendPoint(tr("Target Bed"), temp);
-        plotWidget->update();
-    });
-    connect(&core->temperature(), &Temperature::extruderTemperatureChanged, [ this ](float temp) {
-        checkTemperature(0x02, 0, temp);
-        plotWidget->appendPoint(tr("Actual Ext.1"), temp);
-        plotWidget->update();
-    });
-    connect(&core->temperature(), &Temperature::extruderTargetTemperatureChanged, [ this ](float temp) {
-        checkTemperature(0x03, 0, temp);
-        plotWidget->appendPoint(tr("Target Ext.1"), temp);
-        plotWidget->update();
-    });
 }
 
 void MainWindow::initMenu()
@@ -192,6 +170,31 @@ void MainWindow::makePrintDock()
 void MainWindow::makeTempTimelineDock()
 {
     plotWidget = new PlotWidget;
+    //make and connect our plots in the widget.
+    plotWidget->addPlot(tr("Actual Bed"));
+    connect(&core->temperature(), &Temperature::bedTemperatureChanged, [ this ](float temp) {
+        checkTemperature(0x00, 0, temp);
+        plotWidget->appendPoint(tr("Actual Bed"), temp);
+    });
+
+    plotWidget->addPlot(tr("Target Bed"));
+    connect(&core->temperature(), &Temperature::bedTargetTemperatureChanged, [ this ](float temp) {
+        checkTemperature(0x01, 0, temp);
+        plotWidget->appendPoint(tr("Target Bed"), temp);
+    });
+
+    plotWidget->addPlot(tr("Actual Ext.1"));
+    connect(&core->temperature(), &Temperature::extruderTemperatureChanged, [ this ](float temp) {
+        checkTemperature(0x02, 0, temp);
+        plotWidget->appendPoint(tr("Actual Ext.1"), temp);
+    });
+
+    plotWidget->addPlot(tr("Target Ext.1"));
+    connect(&core->temperature(), &Temperature::extruderTargetTemperatureChanged, [ this ](float temp) {
+        checkTemperature(0x03, 0, temp);
+        plotWidget->appendPoint(tr("Target Ext.1"), temp);
+    });
+
     tempTimelineDock = new QDockWidget(tr("Temperature Timeline"), this);
     tempTimelineDock->setWidget(plotWidget);
     menuView->insertAction(nullptr, tempTimelineDock->toggleViewAction());

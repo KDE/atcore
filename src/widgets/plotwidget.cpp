@@ -23,14 +23,12 @@
 #include <QChart>
 
 PlotWidget::PlotWidget(QWidget *parent) :
-    QWidget(parent),
-    _chart(new QChartView()),
-    _axisX(new QDateTimeAxis()),
-    _axisY(new QValueAxis())
+    QWidget(parent)
+    , _chart(new QChartView(this))
+    , _axisX(new QDateTimeAxis(this))
+    , _axisY(new QValueAxis(this))
+    , m_maximumPoints(24)
 {
-    QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->addWidget(_chart);
-    setLayout(mainLayout);
 
     _axisX->setTickCount(3);
     _axisX->setFormat(QStringLiteral("hh:mm:ss"));
@@ -46,39 +44,54 @@ PlotWidget::PlotWidget(QWidget *parent) :
         _chart->chart()->setTheme(QChart::ChartThemeDark);
     }
 
-    newPlot(tr("Actual Bed"));
-    newPlot(tr("Target Bed"));
-    // The extruder need to be added after some signal emitted (ExtruderCountChanged)
-    newPlot(tr("Actual Ext.1"));
-    newPlot(tr("Target Ext.1"));
-
+    QHBoxLayout *mainLayout = new QHBoxLayout;
+    mainLayout->addWidget(_chart);
+    setLayout(mainLayout);
 }
 
-void PlotWidget::newPlot(const QString &name)
+void PlotWidget::addPlot(const QString &name)
 {
-    _name2Index[name] = _plots.size();
     plot _newPlot;
     _newPlot.setName(name);
     _chart->chart()->addSeries(_newPlot.serie());
     _newPlot.serie()->attachAxis(_axisY);
     _newPlot.serie()->attachAxis(_axisX);
-    _plots.append(_newPlot);
+    _plots.insert(name, _newPlot);
 }
 
-void PlotWidget::deletePlot(const QString &name)
+void PlotWidget::removePlot(const QString &name)
 {
-    _plots.remove(_name2Index[name]);
-    _name2Index.remove(name);
+    _chart->chart()->removeSeries(_plots[name].serie());
+    _plots.remove(name);
 }
 
 void PlotWidget::appendPoint(const QString &name, float value)
 {
-    _plots[_name2Index[name]].pushPoint(value);
+    if (_plots[name].serie()->count() > m_maximumPoints) {
+        _plots[name].serie()->remove(0);
+    }
+    _plots[name].pushPoint(value);
+    update();
 }
 
 void PlotWidget::update()
 {
     _chart->chart()->axisX()->setRange(QDateTime::currentDateTime().addSecs(-120), QDateTime::currentDateTime());
+}
+
+QStringList PlotWidget::plots()
+{
+    return _plots.keys();
+}
+
+void PlotWidget::setMaximumPoints(const uint newMax)
+{
+    m_maximumPoints = newMax;
+}
+
+void PlotWidget::setMaximumTemperature(const uint maxTemp)
+{
+    _chart->chart()->axisY()->setRange(0, maxTemp);
 }
 
 PlotWidget::~PlotWidget()
