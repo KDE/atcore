@@ -75,6 +75,11 @@ private:
      */
     void writeTempFile(QString text);
 
+    /**
+     * @brief flush unwritten strings to temp file
+     */
+    void flushTemp();
+    QStringList unsyncedStrings;
     QTemporaryFile *logFile = nullptr;
     QPlainTextEdit *textLog = nullptr;
 };

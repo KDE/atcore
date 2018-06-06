@@ -117,6 +117,15 @@ void LogWidget::appendSLog(const QByteArray &bmsg)
 
 void LogWidget::writeTempFile(QString text)
 {
+    //Add text to our unsynced string list when that hits 100 sync to the temp file.
+    unsyncedStrings.append(text);
+    if (unsyncedStrings.count() > 100) {
+        flushTemp();
+    }
+}
+
+void LogWidget::flushTemp()
+{
     /*
     A QTemporaryFile will always be opened in QIODevice::ReadWrite mode,
     this allows easy access to the data in the file. This function will
@@ -125,13 +134,18 @@ void LogWidget::writeTempFile(QString text)
     */
     logFile->open();
     logFile->seek(logFile->size());
-    logFile->write(text.toLatin1());
-    logFile->putChar('\n');
+    for (const auto &string : unsyncedStrings) {
+        logFile->write(string.toLatin1());
+        logFile->putChar('\n');
+    }
     logFile->close();
+    unsyncedStrings.clear();
 }
 
 void LogWidget::savePressed()
 {
+    //If saving be sure we have flushed to temp.
+    flushTemp();
     // Note that if a file with the name newName already exists, copy() returns false (i.e. QFile will not overwrite it).
     QString fileName = QDir::homePath() + QChar::fromLatin1('/') + QFileInfo(logFile->fileName()).fileName() + QStringLiteral(".txt");
     QString saveFileName = QFileDialog::getSaveFileName(this, tr("Save Log to file"), fileName);
@@ -143,4 +157,3 @@ bool LogWidget::endsWith(const QString &string)
 {
     return textLog->toPlainText().endsWith(string);
 }
-
