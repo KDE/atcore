@@ -218,6 +218,7 @@ bool AtCore::initSerial(const QString &port, int baud)
     if (serialInitialized() && d->serial->isWritable()) {
         setState(AtCore::CONNECTING);
         connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
+        d->serialTimer->stop();
         return true;
     } else {
         qCDebug(ATCORE_CORE) << "Failed to open device for Read / Write.";
@@ -392,6 +393,7 @@ void AtCore::closeConnection()
         //Clear our copy of the sdcard filelist
         clearSdCardFileList();
         setState(AtCore::DISCONNECTED);
+        d->serialTimer->start();
     }
 }
 
