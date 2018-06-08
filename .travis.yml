@@ -44,12 +44,10 @@ before_install:
 script:
 - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then 
     source /opt/qt*/bin/qt*-env.sh; 
-    cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_GUI=ON CMakeLists.txt; 
+    cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_GUI=ON -DDEPLOY_PLUGINS_WITH_BINARY=ON CMakeLists.txt; 
     make;
     sudo make install; 
     make DESTDIR=appdir/ install; find appdir/; 
-    mkdir -p appdir/usr/plugins; 
-    mv appdir/usr/lib/x86_64-linux-gnu/plugins/AtCore/ appdir/usr/plugins/AtCore; 
     rm -rf appdir/usr/include appdir/usr/mkspecs appdir/usr/lib/x86_64-linux-gnu/; 
     wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"; 
     chmod a+x linuxdeployqt*.AppImage; 
