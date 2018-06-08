@@ -29,9 +29,12 @@ Currenty the following firmwares are supported.
  See: [Building and Deploying]
 
 ## Importing AtCore in your CMakeList
-CMake should find AtCore using the following in your CMakeLists
+CMake should find %AtCore and link it to MYAPP using the following in your CMakeLists
 ```CMake
 include (AtCore REQUIRED COMPONATES AtCore )
+include (AtCore REQUIRED COMPONATES AtCoreWidgets )
+...
+target_link_libraries(MYAPP AtCore::AtCore AtCore::AtCoreWidgets ... )
 ```
 
 ## Getting Involved
