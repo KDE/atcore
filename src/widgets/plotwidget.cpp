@@ -27,7 +27,7 @@ PlotWidget::PlotWidget(QWidget *parent) :
     , _chart(new QChartView(this))
     , _axisX(new QDateTimeAxis(this))
     , _axisY(new QValueAxis(this))
-    , m_maximumPoints(24)
+    , m_maximumPoints(120)
 {
 
     _axisX->setTickCount(3);
