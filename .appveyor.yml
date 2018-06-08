@@ -46,51 +46,51 @@ install:
 build_script:
 - cmd: >-
     mkdir %CMAKE_INSTALL_ROOT%
-    
+
     mkdir work
-    
+
     cinst ninja
-    
+
     cd work
-    
+
     git clone -q git://anongit.kde.org/extra-cmake-modules.git
-    
+
     cd extra-cmake-modules
-    
+
     cmake -G "Ninja" . -DCMAKE_INSTALL_PREFIX=%CMAKE_INSTALL_ROOT% 
-    
+
     ninja install
-    
+
     cd %APPVEYOR_BUILD_FOLDER%
-    
+
     mkdir %APPVEYOR_BUILD_FOLDER%-build
-       
+
     cd %APPVEYOR_BUILD_FOLDER%-build
-    
+
     cmake %APPVEYOR_BUILD_FOLDER% -DCMAKE_BUILD_TYPE=%CONFIGURATION% -DCMAKE_INSTALL_PREFIX=%CMAKE_INSTALL_ROOT% -DCMAKE_BUILD_TYPE=%CONFIGURATION% -DCMAKE_INSTALL_PREFIX=%CMAKE_INSTALL_ROOT% -DBUILD_GUI=ON
-    
+
     cmake --build . --target ALL_BUILD --config %CONFIGURATION%
-    
+
     mkdir AtCore_Test_Client-%commit%-win32
-    
-    mkdir AtCore_Test_Client-%commit%-win32\plugins    
-    
+
+    mkdir AtCore_Test_Client-%commit%-win32\plugins
+
     move %APPVEYOR_BUILD_FOLDER%-build\bin\%CONFIGURATION%\AtCore.dll AtCore_Test_Client-%commit%-win32\
-    
+
     move %APPVEYOR_BUILD_FOLDER%-build\bin\%CONFIGURATION%\AtCoreWidgets.dll AtCore_Test_Client-%commit%-win32\
-    
+
     move %APPVEYOR_BUILD_FOLDER%-build\bin\%CONFIGURATION%\atcore-gui.exe AtCore_Test_Client-%commit%-win32\
-    
+
     move %APPVEYOR_BUILD_FOLDER%-build\bin\%CONFIGURATION%\* AtCore_Test_Client-%commit%-win32\plugins\
-            
+
     windeployqt --compiler-runtime AtCore_Test_Client-%commit%-win32/atcore-gui.exe
-    
+
     for %%I in (%ATCORE_LIBS%) do copy %QTBIN%\%%I AtCore_Test_Client-%commit%-win32\
-    
+
     7z a -tzip AtCore_Test_Client-win.zip AtCore_Test_Client-%commit%-win32 -r
-    
+
     copy %APPVEYOR_BUILD_FOLDER%-build\AtCore_Test_Client-win.zip %APPVEYOR_BUILD_FOLDER%\AtCore_Test_Client-win.zip
-    
+
 artifacts:
 - path: AtCore_Test_Client-win.zip
   name: AtCore
