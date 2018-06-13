@@ -29,6 +29,7 @@
   <summary xml:lang="sv">Ett testprogram av ramverket AtCore för att styra 3D-skrivare</summary>
   <summary xml:lang="uk">Тестова програма для бібліотек AtCore, які призначено для керування 3D-принтерами</summary>
   <summary xml:lang="x-test">xxA test application for the AtCore framework to control 3D printersxx</summary>
+  <summary xml:lang="zh-CN">一个测试应用程序，用于控制 3D 打印机的 AtCore 框架</summary>
   <description>
     <p>
         AtCore is the API that controls the 3DPrinter and its basic functionalities. AtCore comes with a test client called atcore-gui to manage your printer.
@@ -44,6 +45,7 @@
     <p xml:lang="sv">AtCore är programmeringsgränssnittet som styr 3D-skrivaren och dess grundfunktioner. AtCore levereras med en testklient som kallas atcore-gui för att hantera skrivaren.</p>
     <p xml:lang="uk">AtCore — програмний інтерфейс для керування 3D-принтером та його базовими можливостями. AtCore постачається із тестовим клієнтом із назвою atcore-gui, за допомогою якого можна керувати вашим принтером.</p>
     <p xml:lang="x-test">xxAtCore is the API that controls the 3DPrinter and its basic functionalities. AtCore comes with a test client called atcore-gui to manage your printer.xx</p>
+    <p xml:lang="zh-CN">AtCore 是用于控制 3D 打印机及它基础功能的 API。AtCore 包含一个用于管里您的打印机的测试客户端，叫做 atcore-gui。</p>
     <p>
         This is an AtCore test application to showcase the framework.
     </p>
@@ -59,6 +61,7 @@
     <p xml:lang="sv">Det här är ett testprogram för AtCore för att visa upp ramverket</p>
     <p xml:lang="uk">Це тестова програма AtCore, яка демонструє можливості бібліотеки.</p>
     <p xml:lang="x-test">xxThis is an AtCore test application to showcase the framework.xx</p>
+    <p xml:lang="zh-CN">这是用于展示这个框架的 AtCore 测试引用程序。</p>
   </description>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
