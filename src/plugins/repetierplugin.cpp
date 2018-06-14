@@ -35,6 +35,11 @@ QString RepetierPlugin::name() const
     return QStringLiteral("Repetier");
 }
 
+bool RepetierPlugin::isSdSupported() const
+{
+    return true;
+}
+
 RepetierPlugin::RepetierPlugin()
 {
     qCDebug(REPETIER_PLUGIN) << name() << " plugin loaded!";

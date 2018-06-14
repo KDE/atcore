@@ -35,6 +35,11 @@ QString TeacupPlugin::name() const
     return QStringLiteral("Teacup");
 }
 
+bool TeacupPlugin::isSdSupported() const
+{
+    return false;
+}
+
 TeacupPlugin::TeacupPlugin()
 {
     qCDebug(TEACUP_PLUGIN) << name() << " plugin loaded!";

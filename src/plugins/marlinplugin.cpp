@@ -35,6 +35,11 @@ QString MarlinPlugin::name() const
     return QStringLiteral("Marlin");
 }
 
+bool MarlinPlugin::isSdSupported() const
+{
+    return true;
+}
+
 MarlinPlugin::MarlinPlugin()
 {
     qCDebug(MARLIN_PLUGIN) << name() << " plugin loaded!";

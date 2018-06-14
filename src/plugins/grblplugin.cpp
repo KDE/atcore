@@ -39,6 +39,11 @@ GrblPlugin::GrblPlugin()
     qCDebug(GRBL_PLUGIN) << name() << " plugin loaded!";
 }
 
+bool GrblPlugin::isSdSupported() const
+{
+    return false;
+}
+
 void GrblPlugin::validateCommand(const QString &lastMessage)
 {
     if (lastMessage.contains(QStringLiteral("ok"))) {

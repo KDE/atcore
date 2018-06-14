@@ -41,10 +41,17 @@ class ATCORE_EXPORT  IFirmware : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString name READ name)
+    Q_PROPERTY(bool sdSupport READ isSdSupported)
 public:
     IFirmware();
     void init(AtCore *parent);
     ~IFirmware() override;
+
+    /**
+     * @brief Check for plugin support of sd cards.
+     * @return True if firmware plugin supports sd cards.
+     */
+    virtual bool isSdSupported() const = 0;
 
     /**
      * @brief Virtual name to be reimplemnted by Firmware plugin
