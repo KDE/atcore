@@ -333,15 +333,18 @@ void AtCore::print(const QString &fileName, bool sdPrint)
     }
     //Start a print job.
     setState(AtCore::STARTPRINT);
-    if (sdPrint) {
-        //Printing from the sd card requires us to send some M commands.
-        pushCommand(GCode::toCommand(GCode::M23, fileName));
-        d->sdCardFileName = fileName;
-        pushCommand(GCode::toCommand(GCode::M24));
-        setState(AtCore::BUSY);
-        d->sdCardPrinting = true;
-        connect(d->tempTimer, &QTimer::timeout, this, &AtCore::sdCardPrintStatus);
-        return;
+    //Only try to print from Sd if the firmware has support for sd cards
+    if (firmwarePlugin()->isSdSupported()) {
+        if (sdPrint) {
+            //Printing from the sd card requires us to send some M commands.
+            pushCommand(GCode::toCommand(GCode::M23, fileName));
+            d->sdCardFileName = fileName;
+            pushCommand(GCode::toCommand(GCode::M24));
+            setState(AtCore::BUSY);
+            d->sdCardPrinting = true;
+            connect(d->tempTimer, &QTimer::timeout, this, &AtCore::sdCardPrintStatus);
+            return;
+        }
     }
     //Process the gcode with a printThread.
     //The Thread processes the gcode without freezing the libary.

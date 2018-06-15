@@ -474,6 +474,7 @@ void MainWindow::pluginCBChanged(QString currentText)
     if (core->state() != AtCore::DISCONNECTED) {
         if (!currentText.contains(tr("Autodetect"))) {
             core->loadFirmwarePlugin(currentText);
+            sdDock->setVisible(core->firmwarePlugin()->isSdSupported());
         }
     }
 }
@@ -485,6 +486,7 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
     case AtCore::IDLE:
         printWidget->setPrintText(tr("Print File"));
         stateString = tr("Connected to ") + core->connectedPort();
+        sdDock->setVisible(core->firmwarePlugin()->isSdSupported());
         break;
 
     case AtCore::STARTPRINT:
