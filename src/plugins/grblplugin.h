@@ -50,10 +50,10 @@ public:
     QString name() const override;
 
     /**
-     * @brief Grbl does not return anything on command execution
-     * @param lastMessage: last message from printer
+     * @brief sdSupport
+     * @return True if plugins supports sd cards
      */
-    void validateCommand(const QString &lastMessage) override;
+    bool isSdSupported() const override;
 
     /**
      * @brief Translate common commands to firmware specific command.
@@ -61,4 +61,10 @@ public:
      * @return firmware specific translated command
      */
     QByteArray translate(const QString &command) override;
+
+    /**
+     * @brief Grbl does not return anything on command execution
+     * @param lastMessage: last message from printer
+     */
+    void validateCommand(const QString &lastMessage) override;
 };

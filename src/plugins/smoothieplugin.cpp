@@ -35,6 +35,11 @@ QString SmoothiePlugin::name() const
     return QStringLiteral("Smoothie");
 }
 
+bool SmoothiePlugin::isSdSupported() const
+{
+    return false;
+}
+
 SmoothiePlugin::SmoothiePlugin()
 {
     qCDebug(SMOOTHIE_PLUGIN) << name() << " plugin loaded!";

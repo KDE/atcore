@@ -35,6 +35,11 @@ QString SprinterPlugin::name() const
     return QStringLiteral("Sprinter");
 }
 
+bool SprinterPlugin::isSdSupported() const
+{
+    return false;
+}
+
 SprinterPlugin::SprinterPlugin()
 {
     qCDebug(SPRINTER_PLUGIN) << name() << " plugin loaded!";

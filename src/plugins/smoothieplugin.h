@@ -44,6 +44,12 @@ public:
     SmoothiePlugin();
 
     /**
+     * @brief Check for plugin support of sd cards.
+     * @return True if firmware plugin supports sd cards.
+     */
+    virtual bool isSdSupported() const override;
+
+    /**
      * @brief Return Plugin name
      * @return Smoothie
      */

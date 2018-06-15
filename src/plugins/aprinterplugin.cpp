@@ -35,6 +35,11 @@ QString AprinterPlugin::name() const
     return QStringLiteral("Aprinter");
 }
 
+bool AprinterPlugin::isSdSupported() const
+{
+    return false;
+}
+
 AprinterPlugin::AprinterPlugin()
 {
     qCDebug(APRINTER_PLUGIN) << name() << " plugin loaded!";

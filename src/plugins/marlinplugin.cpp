@@ -35,6 +35,11 @@ QString MarlinPlugin::name() const
     return QStringLiteral("Marlin");
 }
 
+bool MarlinPlugin::isSdSupported() const
+{
+    return true;
+}
+
 MarlinPlugin::MarlinPlugin()
 {
     qCDebug(MARLIN_PLUGIN) << name() << " plugin loaded!";
@@ -61,6 +66,14 @@ void MarlinPlugin::validateCommand(const QString &lastMessage)
             core()->clearSdCardFileList();
             core()->setReadingSdCardList(true);
         } else if (lastMessage.contains(QStringLiteral("SD printing byte"))) {
+            if (core()->state() != AtCore::BUSY) {
+                //This should only happen if Attached to an Sd printing machine.
+                //Just tell the client were starting a job like normal.
+                //For this to work the client should check if sdCardPrintStatus()
+                //Upon the Connection to a known firmware with sdSupport
+                core()->setState(AtCore::STARTPRINT);
+                core()->setState(AtCore::BUSY);
+            }
             QString temp = lastMessage;
             temp.replace(QStringLiteral("SD printing byte"), QString());
             qlonglong total = temp.mid(temp.lastIndexOf(QChar::fromLatin1('/')) + 1, temp.length() - temp.lastIndexOf(QChar::fromLatin1('/'))).toLongLong();
