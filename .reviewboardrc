@@ -1,3 +1,0 @@
-REPOSITORY = "atcore"
-REVIEWBOARD_URL = "https://git.reviewboard.kde.org"
-TARGET_GROUPS = "atelier"
