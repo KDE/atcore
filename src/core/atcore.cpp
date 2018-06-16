@@ -32,6 +32,7 @@
 #include <QTimer>
 #include <QThread>
 #include <QMetaEnum>
+#include <QProcess>
 
 #include "atcore.h"
 #include "atcore_version.h"
@@ -215,8 +216,12 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
     }
 }
 
-bool AtCore::initSerial(const QString &port, int baud)
+bool AtCore::initSerial(const QString &port, int baud, bool disableROC)
 {
+    if (disableROC) {
+        disableResetOnConnect(port);
+    }
+
     d->serial = new SerialLayer(port, baud);
     if (serialInitialized() && d->serial->isWritable()) {
         setState(AtCore::CONNECTING);
@@ -395,6 +400,7 @@ void AtCore::closeConnection()
             QString msg = d->pluginLoader.unload() ? QStringLiteral("closed.") : QStringLiteral("Failed to close.");
             qCDebug(ATCORE_CORE) << QStringLiteral("Firmware plugin %1 %2").arg(name, msg);
         }
+        //Do not reset the connect on disconnect when closing this will cause a reset on connect for the next connection.
         serial()->close();
         //Clear our copy of the sdcard filelist
         clearSdCardFileList();
@@ -769,4 +775,22 @@ void AtCore::sdCardPrintStatus()
         return;
     }
     pushCommand(GCode::toCommand(GCode::M27));
+}
+
+void AtCore::disableResetOnConnect(const QString &port)
+{
+#ifdef Q_OS_UNIX
+//should work on all unix'
+    QProcess process;
+    QStringList args({QStringLiteral("-F/dev/%1").arg(port), QStringLiteral("-hupcl")});
+    process.start(QStringLiteral("stty"), args);
+    process.waitForFinished(500);
+
+    connect(&process, &QProcess::errorOccurred, this, [this, &process] {
+        qCDebug(ATCORE_CORE) << "Stty Error:" << process.errorString();
+    });
+
+#elif Q_OS_WIN
+    //TODO: Disable hangup on windows.
+#endif
 }

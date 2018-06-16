@@ -143,10 +143,11 @@ public:
      * @brief Initialize a connection to \p port at a speed of \p baud <br />
      * @param port: the port to initialize
      * @param baud: the baud of the port
+     * @param disableROC: atcore will attempt to disable reset on connect for this device.
      * @return True is connection was successful
      * @sa serialPorts(),serial(),closeConnection()
      */
-    Q_INVOKABLE bool initSerial(const QString &port, int baud);
+    Q_INVOKABLE bool initSerial(const QString &port, int baud, bool disableROC = false);
 
     /**
      * @brief Returns a list of valid baud speeds
@@ -498,6 +499,12 @@ private slots:
      * @brief Search for new serial ports
      */
     void locateSerialPort();
+
+    /**
+     * @brief Attempts to disableResetOnConnect for the selected port.
+     * @param port: the port.
+     */
+    void disableResetOnConnect(const QString &port);
 
     /**
      * @brief Send request to the printer for the sd card file list.

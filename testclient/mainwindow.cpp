@@ -24,6 +24,7 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QTextStream>
+#include <QTimer>
 #include <QLoggingCategory>
 
 #include "mainwindow.h"
@@ -245,6 +246,14 @@ void MainWindow::makeConnectDock()
     hBoxLayout->addWidget(comboPlugin, 75);
     mainLayout->addLayout(hBoxLayout);
 
+    cbReset = new QCheckBox(tr("Attempt to stop Reset on connect"));
+    cbReset->setHidden(true);
+    mainLayout->addWidget(cbReset);
+
+    connect(comboPlugin, &QComboBox::currentTextChanged, this, [this](const QString & currentText) {
+        cbReset->setHidden(currentText == tr("Autodetect"));
+    });
+
     buttonConnect = new QPushButton(tr("Connect"));
     connect(buttonConnect, &QPushButton::clicked, this, &MainWindow::connectPBClicked);
     mainLayout->addWidget(buttonConnect);
@@ -413,13 +422,17 @@ void MainWindow::locateSerialPort(const QStringList &ports)
 void MainWindow::connectPBClicked()
 {
     if (core->state() == AtCore::DISCONNECTED) {
-        if (core->initSerial(comboPort->currentText(), comboBAUD->currentText().toInt())) {
+        if (core->initSerial(comboPort->currentText(), comboBAUD->currentText().toInt(), cbReset->isChecked())) {
             connect(core, &AtCore::receivedMessage, logWidget, &LogWidget::appendRLog);
             connect(core->serial(), &SerialLayer::pushedCommand, logWidget, &LogWidget::appendSLog);
             buttonConnect->setText(tr("Disconnect"));
             logWidget->appendLog(tr("Serial connected"));
             if (!comboPlugin->currentText().contains(tr("Autodetect"))) {
                 core->loadFirmwarePlugin(comboPlugin->currentText());
+                if (cbReset->isChecked()) {
+                    //Wait a few seconds after connect to avoid the normal errors
+                    QTimer::singleShot(5000, core, &AtCore::sdCardPrintStatus);
+                }
             }
         }
     } else {
