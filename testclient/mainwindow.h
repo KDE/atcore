@@ -164,6 +164,7 @@ private:
     QComboBox *comboBAUD = nullptr;
     QComboBox *comboPlugin = nullptr;
     QPushButton *buttonConnect = nullptr;
+    QCheckBox *cbReset = nullptr;
 
     void makeMoveDock();
     QDockWidget *moveDock = nullptr;
