@@ -72,14 +72,16 @@ sudo make install
 ### Finding Plugins
 AtCore will check each directory below for plugins.
 
-    1. QApplication::applicationDirPath/plugins (see Below)
-    2. INSTALL_PREFIX/KDE_PLUGIN_DIR/AtCore
-    3. QT_Plugin_Path/AtCore
-    4. KDE_PLUGIN_DIR/AtCore
-    5. BUILDDIR for plugins.
+    1. QApplication::applicationDirPath/plugins
+    2. QApplication::applicationDirPath/AtCore
+    3. QApplication::applicationDirPath/../PlugIns/AtCore
+    4. INSTALL_PREFIX/KDE_PLUGIN_DIR/AtCore
+    5. QT_Plugin_Path/AtCore
+    6. KDE_PLUGIN_DIR/AtCore
+    7. BUILDDIR for plugins.
 
-For 'QApplication::applicationDirPath/plugins' atcore will look next to the binary using atcore.
-Usually this is in a directory next to the program
+For Locations starting with 'QApplication::applicationDirPath'  atcore will look next to the binary using atcore.
+Usually this is in a directory next to the program 
 ```
 atcore_test_GUI\atcore-gui.exe
 atcore_test_GUI\AtCore.dll
