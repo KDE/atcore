@@ -81,11 +81,8 @@ AtCore::AtCore(QObject *parent) :
     d->tempTimer->setInterval(5000);
     d->tempTimer->setSingleShot(false);
     //Attempt to find our plugins
-    QStringList paths = AtCoreDirectories::pluginDir;
-    //Add Our current run path/ plugins to the list
-    paths.prepend(qApp->applicationDirPath() + QStringLiteral("/plugins"));
     qCDebug(ATCORE_PLUGIN) << "Detecting Plugin path";
-    for (const auto &path : paths) {
+    for (const auto &path : AtCoreDirectories::pluginDir) {
         qCDebug(ATCORE_PLUGIN) << "Checking: " << path;
         QMap <QString, QString> tempMap = findFirmwarePlugins(path);
         if (!tempMap.isEmpty()) {
