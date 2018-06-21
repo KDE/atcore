@@ -72,7 +72,7 @@ void MainWindow::initMenu()
     QMenu *menuHelp = new QMenu(tr("Help"));
     QAction *actionAbout = new QAction(tr("About"));
     actionAbout->setShortcut(QKeySequence(Qt::Key_F1));
-    connect(actionAbout, &QAction::triggered, [] {
+    connect(actionAbout, &QAction::triggered, this, [] {
         auto *dialog = new About;
         dialog->exec();
     });
@@ -152,7 +152,7 @@ void MainWindow::makePrintDock()
     connect(printWidget, &PrintWidget::emergencyStopPressed, core, &AtCore::emergencyStop);
     connect(printWidget, &PrintWidget::fanSpeedChanged, core, &AtCore::setFanSpeed);
 
-    connect(printWidget, &PrintWidget::printSpeedChanged, [this](const int speed) {
+    connect(printWidget, &PrintWidget::printSpeedChanged, this, [this](const int speed) {
         core->setPrinterSpeed(speed);
     });
 
@@ -172,25 +172,25 @@ void MainWindow::makeTempTimelineDock()
     plotWidget = new PlotWidget;
     //make and connect our plots in the widget.
     plotWidget->addPlot(tr("Actual Bed"));
-    connect(&core->temperature(), &Temperature::bedTemperatureChanged, [ this ](float temp) {
+    connect(&core->temperature(), &Temperature::bedTemperatureChanged, this, [this](float temp) {
         checkTemperature(0x00, 0, temp);
         plotWidget->appendPoint(tr("Actual Bed"), temp);
     });
 
     plotWidget->addPlot(tr("Target Bed"));
-    connect(&core->temperature(), &Temperature::bedTargetTemperatureChanged, [ this ](float temp) {
+    connect(&core->temperature(), &Temperature::bedTargetTemperatureChanged, this, [this](float temp) {
         checkTemperature(0x01, 0, temp);
         plotWidget->appendPoint(tr("Target Bed"), temp);
     });
 
     plotWidget->addPlot(tr("Actual Ext.1"));
-    connect(&core->temperature(), &Temperature::extruderTemperatureChanged, [ this ](float temp) {
+    connect(&core->temperature(), &Temperature::extruderTemperatureChanged, this, [this](float temp) {
         checkTemperature(0x02, 0, temp);
         plotWidget->appendPoint(tr("Actual Ext.1"), temp);
     });
 
     plotWidget->addPlot(tr("Target Ext.1"));
-    connect(&core->temperature(), &Temperature::extruderTargetTemperatureChanged, [ this ](float temp) {
+    connect(&core->temperature(), &Temperature::extruderTargetTemperatureChanged, this, [this](float temp) {
         checkTemperature(0x03, 0, temp);
         plotWidget->appendPoint(tr("Target Ext.1"), temp);
     });
@@ -263,36 +263,36 @@ void MainWindow::makeMoveDock()
 {
     movementWidget = new MovementWidget;
 
-    connect(movementWidget, &MovementWidget::homeAllPressed, [this] {
+    connect(movementWidget, &MovementWidget::homeAllPressed, this, [this] {
         logWidget->appendLog(tr("Home All"));
         core->home();
     });
 
-    connect(movementWidget, &MovementWidget::homeXPressed, [this] {
+    connect(movementWidget, &MovementWidget::homeXPressed, this, [this] {
         logWidget->appendLog(tr("Home X"));
         core->home(AtCore::X);
     });
 
-    connect(movementWidget, &MovementWidget::homeYPressed, [this] {
+    connect(movementWidget, &MovementWidget::homeYPressed, this, [this] {
         logWidget->appendLog(tr("Home Y"));
         core->home(AtCore::Y);
     });
 
-    connect(movementWidget, &MovementWidget::homeZPressed, [this] {
+    connect(movementWidget, &MovementWidget::homeZPressed, this, [this] {
         logWidget->appendLog(tr("Home Z"));
         core->home(AtCore::Z);
     });
 
-    connect(movementWidget, &MovementWidget::absoluteMove, [this](const QLatin1Char & axis, const double & value) {
+    connect(movementWidget, &MovementWidget::absoluteMove, this, [this](const QLatin1Char & axis, const double & value) {
         logWidget->appendLog(GCode::description(GCode::G1));
         core->move(axis, value);
     });
 
-    connect(movementWidget, &MovementWidget::disableMotorsPressed, [this] {
+    connect(movementWidget, &MovementWidget::disableMotorsPressed, this, [this] {
         core->disableMotors(0);
     });
 
-    connect(movementWidget, &MovementWidget::relativeMove, [this](const QLatin1Char & axis, const double & value) {
+    connect(movementWidget, &MovementWidget::relativeMove, this, [this](const QLatin1Char & axis, const double & value) {
         core->setRelativePosition();
         core->move(axis, value);
         core->setAbsolutePosition();
@@ -323,7 +323,7 @@ void MainWindow::makeSdDock()
     sdWidget = new SdWidget;
     connect(sdWidget, &SdWidget::requestSdList, core, &AtCore::sdFileList);
 
-    connect(sdWidget, &SdWidget::printSdFile, [this](const QString & fileName) {
+    connect(sdWidget, &SdWidget::printSdFile, this, [this](const QString & fileName) {
         if (fileName.isEmpty()) {
             QMessageBox::information(this, tr("Print Error"), tr("You must Select a file from the list"));
         } else  {
@@ -331,7 +331,7 @@ void MainWindow::makeSdDock()
         }
     });
 
-    connect(sdWidget, &SdWidget::deleteSdFile, [this](const QString & fileName) {
+    connect(sdWidget, &SdWidget::deleteSdFile, this, [this](const QString & fileName) {
         if (fileName.isEmpty()) {
             QMessageBox::information(this, tr("Delete Error"), tr("You must Select a file from the list"));
         } else  {

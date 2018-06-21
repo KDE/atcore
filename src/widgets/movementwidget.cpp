@@ -32,32 +32,32 @@ MovementWidget::MovementWidget(bool showHomeAndDisableWidgets, QWidget *parent) 
     if (showHomeAndDisableWidgets) {
         newButton = new QPushButton(tr("Home All"));
         hBoxLayout->addWidget(newButton);
-        connect(newButton, &QPushButton::clicked, [this] {
+        connect(newButton, &QPushButton::clicked, this, [this] {
             emit(homeAllPressed());
         });
 
         newButton = new QPushButton(tr("Home X"));
         hBoxLayout->addWidget(newButton);
-        connect(newButton, &QPushButton::clicked, [this] {
+        connect(newButton, &QPushButton::clicked, this, [this] {
             emit(homeXPressed());
         });
 
         newButton = new QPushButton(tr("Home Y"));
         hBoxLayout->addWidget(newButton);
-        connect(newButton, &QPushButton::clicked, [this] {
+        connect(newButton, &QPushButton::clicked, this, [this] {
             emit(homeYPressed());
         });
 
         newButton = new QPushButton(tr("Home Z"));
         hBoxLayout->addWidget(newButton);
-        connect(newButton, &QPushButton::clicked, [this] {
+        connect(newButton, &QPushButton::clicked, this, [this] {
             emit(homeZPressed());
         });
         mainLayout->addLayout(hBoxLayout);
 
         newButton = new QPushButton(tr("Disable Motors"));
         mainLayout->addWidget(newButton);
-        connect(newButton, &QPushButton::clicked, [this] {
+        connect(newButton, &QPushButton::clicked, this, [this] {
             emit(disableMotorsPressed());
         });
 
