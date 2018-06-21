@@ -22,12 +22,14 @@
 #include <QStyle>
 #include <QStackedWidget>
 #include <QTime>
+#include <QToolButton>
 #include <QVBoxLayout>
 
 LogWidget::LogWidget(QTemporaryFile *tempFile, QWidget *parent) :
     QWidget(parent),
     logFile(tempFile)
 {
+    QSize iconSize = QSize(fontMetrics().height(), fontMetrics().height());
     auto *page = new QWidget;
     textLog = new QPlainTextEdit;
     textLog->setReadOnly(true);
@@ -62,15 +64,15 @@ LogWidget::LogWidget(QTemporaryFile *tempFile, QWidget *parent) :
     mainStack->insertWidget(1, page);
 
     auto saveButton = new QPushButton(QIcon::fromTheme(QStringLiteral("document-save"), style()->standardIcon(QStyle::SP_DialogSaveButton)), tr("Save Session Log"));
+    saveButton->setIconSize(iconSize);
     connect(saveButton, &QPushButton::clicked, this, &LogWidget::savePressed);
 
-    auto helpButton = new QPushButton();
-    helpButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    helpButton->setText(QStringLiteral("Info"));
+    auto helpButton = new QToolButton();
     helpButton->setCheckable(true);
     helpButton->setChecked(false);
+    helpButton->setIconSize(iconSize);
     helpButton->setIcon(QIcon::fromTheme(QStringLiteral("help-about"), style()->standardIcon(QStyle::SP_DialogHelpButton)));
-    connect(helpButton, &QPushButton::clicked, [this, mainStack](bool checked) {
+    connect(helpButton, &QToolButton::clicked, this, [this, mainStack](bool checked) {
         mainStack->setCurrentIndex(checked);
     });
 
