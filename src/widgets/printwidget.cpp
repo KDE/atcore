@@ -30,12 +30,12 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
     QHBoxLayout *hBoxLayout = nullptr;
     if (showAllControls) {
         buttonPrint = new QPushButton(tr("Print File"));
-        connect(buttonPrint, &QPushButton::clicked, [this] {
+        connect(buttonPrint, &QPushButton::clicked, this, [this] {
             emit(printPressed());
         });
 
         newButton = new QPushButton(tr("Emergency Stop"));
-        connect(newButton, &QPushButton::clicked, [this] {
+        connect(newButton, &QPushButton::clicked, this, [this] {
             emit(emergencyStopPressed());
         });
 
@@ -62,7 +62,7 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
     sbPrintSpeed->setSuffix(QStringLiteral("%"));
 
     newButton = new QPushButton(tr("Set"));
-    connect(newButton, &QPushButton::clicked, [this] {
+    connect(newButton, &QPushButton::clicked, this, [this] {
         emit(printSpeedChanged(sbPrintSpeed->value()));
     });
 
@@ -79,7 +79,7 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
     sbFlowRate->setSuffix(QStringLiteral("%"));
 
     newButton = new QPushButton(tr("Set"));
-    connect(newButton, &QPushButton::clicked, [this] {
+    connect(newButton, &QPushButton::clicked, this, [this] {
         emit(flowRateChanged(sbFlowRate->value()));
     });
     hBoxLayout = new QHBoxLayout;
@@ -94,7 +94,7 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
     sbFanSpeed->setSuffix(QStringLiteral("%"));
 
     newButton = new QPushButton(tr("Set"));
-    connect(newButton, &QPushButton::clicked, [this] {
+    connect(newButton, &QPushButton::clicked, this, [this] {
         emit(fanSpeedChanged(sbFanSpeed->value(), comboFanSelect->currentIndex()));
     });
 
