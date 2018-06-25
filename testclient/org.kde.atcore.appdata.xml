@@ -6,6 +6,7 @@
   <name xml:lang="ca">Client de prova de l'AtCore</name>
   <name xml:lang="ca-valencia">Client de prova de l'AtCore</name>
   <name xml:lang="cs">Testovací klient AtCore</name>
+  <name xml:lang="de">AtCore-Testprogramm</name>
   <name xml:lang="en-GB">AtCore Test Client</name>
   <name xml:lang="es">Cliente de prueba de AtCore</name>
   <name xml:lang="gl">Cliente de probas de AtCore</name>
@@ -20,6 +21,7 @@
   <summary>A test application for the AtCore framework to control 3D printers</summary>
   <summary xml:lang="ca">Una aplicació de prova per a l'entorn de treball AtCore per controlar impressores 3D</summary>
   <summary xml:lang="ca-valencia">Una aplicació de prova per a l'entorn de treball AtCore per controlar impressores 3D</summary>
+  <summary xml:lang="de">Ein Testprogramm für die AtCore-Bibliothek zur Steuerung von 3D-Druckern</summary>
   <summary xml:lang="en-GB">A test application for the AtCore framework to control 3D printers</summary>
   <summary xml:lang="es">Una aplicación de pruebas para la infraestructura AtCore de control de impresoras en 3D</summary>
   <summary xml:lang="gl">Un aplicativo de probas para a infraestrutura AtCore para controlar impresoras 3D</summary>
