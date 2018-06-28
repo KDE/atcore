@@ -385,9 +385,9 @@ void MainWindow::checkTemperature(uint sensorType, uint number, uint temp)
         break;
     }
 
-    msg.append(QString::fromLatin1("[%1] : %2"));
-    msg = msg.arg(QString::number(number))
-          .arg(QString::number(temp));
+    msg.append(QString::fromLatin1("[%1] : %2").arg(
+                   QString::number(number), QString::number(temp)
+               ));
 
     logWidget->appendLog(msg);
 }

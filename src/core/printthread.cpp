@@ -176,8 +176,8 @@ void PrintThread::setState(const AtCore::STATES &newState)
     }
     if (newState != d->state) {
         qCDebug(PRINT_THREAD) << QStringLiteral("State changed from [%1] to [%2]")
-                              .arg(QVariant::fromValue(d->state).value<QString>())
-                              .arg(QVariant::fromValue(newState).value<QString>());
+                              .arg(QVariant::fromValue(d->state).value<QString>(),
+                                   QVariant::fromValue(newState).value<QString>());
         disconnect(d->core, &AtCore::stateChanged, this, &PrintThread::setState);
         d->state = newState;
         emit(stateChanged(d->state));
