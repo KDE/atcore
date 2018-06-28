@@ -36,7 +36,7 @@ TemperatureWidget::TemperatureWidget(QWidget *parent) :
 
     auto *newButton = new QPushButton(tr("Set"));
     connect(newButton, &QPushButton::clicked, this, [this] {
-        emit(bedTempChanged(sbBedTemp->value(), checkAndWait->isChecked()));
+        emit bedTempChanged(sbBedTemp->value(), checkAndWait->isChecked());
     });
 
     auto *hboxLayout = new QHBoxLayout;
@@ -52,7 +52,7 @@ TemperatureWidget::TemperatureWidget(QWidget *parent) :
 
     newButton = new QPushButton(tr("Set"));
     connect(newButton, &QPushButton::clicked, this, [this] {
-        emit(extTempChanged(sbExtruderTemp->value(), comboExtruderSelect->currentIndex(), checkAndWait->isChecked()));
+        emit extTempChanged(sbExtruderTemp->value(), comboExtruderSelect->currentIndex(), checkAndWait->isChecked());
     });
 
     hboxLayout = new QHBoxLayout;

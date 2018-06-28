@@ -33,32 +33,32 @@ MovementWidget::MovementWidget(bool showHomeAndDisableWidgets, QWidget *parent) 
         newButton = new QPushButton(tr("Home All"));
         hBoxLayout->addWidget(newButton);
         connect(newButton, &QPushButton::clicked, this, [this] {
-            emit(homeAllPressed());
+            emit homeAllPressed();
         });
 
         newButton = new QPushButton(tr("Home X"));
         hBoxLayout->addWidget(newButton);
         connect(newButton, &QPushButton::clicked, this, [this] {
-            emit(homeXPressed());
+            emit homeXPressed();
         });
 
         newButton = new QPushButton(tr("Home Y"));
         hBoxLayout->addWidget(newButton);
         connect(newButton, &QPushButton::clicked, this, [this] {
-            emit(homeYPressed());
+            emit homeYPressed();
         });
 
         newButton = new QPushButton(tr("Home Z"));
         hBoxLayout->addWidget(newButton);
         connect(newButton, &QPushButton::clicked, this, [this] {
-            emit(homeZPressed());
+            emit homeZPressed();
         });
         mainLayout->addLayout(hBoxLayout);
 
         newButton = new QPushButton(tr("Disable Motors"));
         mainLayout->addWidget(newButton);
         connect(newButton, &QPushButton::clicked, this, [this] {
-            emit(disableMotorsPressed());
+            emit disableMotorsPressed();
         });
 
     }
@@ -74,13 +74,13 @@ MovementWidget::MovementWidget(bool showHomeAndDisableWidgets, QWidget *parent) 
     connect(newButton, &QPushButton::clicked, this, [this] {
         if (comboMoveAxis->currentIndex() == 0)
         {
-            emit(absoluteMove(QLatin1Char('X'), sbMoveAxis->value()));
+            emit absoluteMove(QLatin1Char('X'), sbMoveAxis->value());
         } else if (comboMoveAxis->currentIndex() == 1)
         {
-            emit(absoluteMove(QLatin1Char('Y'), sbMoveAxis->value()));
+            emit absoluteMove(QLatin1Char('Y'), sbMoveAxis->value());
         } else if (comboMoveAxis->currentIndex() == 2)
         {
-            emit(absoluteMove(QLatin1Char('Z'), sbMoveAxis->value()));
+            emit absoluteMove(QLatin1Char('Z'), sbMoveAxis->value());
         }
     });
 

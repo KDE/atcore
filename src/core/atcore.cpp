@@ -304,7 +304,7 @@ void AtCore::newMessage(const QByteArray &message)
     if (d->lastMessage.contains("T:") || d->lastMessage.contains("B:")) {
         temperature().decodeTemp(message);
     }
-    emit(receivedMessage(d->lastMessage));
+    emit receivedMessage(d->lastMessage);
 }
 
 void AtCore::setRelativePosition()
@@ -414,7 +414,7 @@ void AtCore::setState(AtCore::STATES state)
             d->sdCardPrinting = false;
             disconnect(d->tempTimer, &QTimer::timeout, this, &AtCore::sdCardPrintStatus);
         }
-        emit(stateChanged(d->printerState));
+        emit stateChanged(d->printerState);
     }
 }
 
@@ -713,7 +713,7 @@ void AtCore::setSdMounted(bool mounted)
 {
     if (mounted != isSdMounted()) {
         d->sdCardMounted = mounted;
-        emit(sdMountChanged(d->sdCardMounted));
+        emit sdMountChanged(d->sdCardMounted);
     }
 }
 
@@ -733,13 +733,13 @@ QStringList AtCore::sdFileList()
 void AtCore::appendSdCardFileList(const QString &fileName)
 {
     d->sdCardFileList.append(fileName);
-    emit(sdCardFileListChanged(d->sdCardFileList));
+    emit sdCardFileListChanged(d->sdCardFileList);
 }
 
 void AtCore::clearSdCardFileList()
 {
     d->sdCardFileList.clear();
-    emit(sdCardFileListChanged(d->sdCardFileList));
+    emit sdCardFileListChanged(d->sdCardFileList);
 }
 
 void AtCore::sdDelete(const QString &fileName)

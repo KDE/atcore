@@ -30,7 +30,7 @@ SdWidget::SdWidget(QWidget *parent) :
     auto newButton = new QPushButton(tr("Get List"));
     hBoxLayout->addWidget(newButton);
     connect(newButton, &QPushButton::clicked, this, [this] {
-        emit(requestSdList());
+        emit requestSdList();
     });
 
     newButton = new QPushButton(tr("Print Selected"));
@@ -38,7 +38,7 @@ SdWidget::SdWidget(QWidget *parent) :
     connect(newButton, &QPushButton::clicked, this, [this] {
         if (listSdFiles->currentRow() != -1)
         {
-            emit(printSdFile(listSdFiles->currentItem()->text()));
+            emit printSdFile(listSdFiles->currentItem()->text());
         }
     });
 
@@ -47,7 +47,7 @@ SdWidget::SdWidget(QWidget *parent) :
     connect(newButton, &QPushButton::clicked, this, [this] {
         if (listSdFiles->currentRow() != -1)
         {
-            emit(deleteSdFile(listSdFiles->currentItem()->text()));
+            emit deleteSdFile(listSdFiles->currentItem()->text());
             listSdFiles->setCurrentRow(-1);
         }
     });
