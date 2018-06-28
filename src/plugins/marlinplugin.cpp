@@ -81,7 +81,7 @@ void MarlinPlugin::validateCommand(const QString &lastMessage)
                 temp.chop(temp.length() - temp.lastIndexOf(QChar::fromLatin1('/')));
                 qlonglong remaining = total - temp.toLongLong();
                 float progress = float(total - remaining) * 100 / float(total);
-                core()->printProgressChanged(progress);
+                emit core()->printProgressChanged(progress);
                 if (progress >= 100) {
                     core()->setState(AtCore::FINISHEDPRINT);
                     core()->setState(AtCore::IDLE);
