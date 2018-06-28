@@ -136,7 +136,7 @@ void LogWidget::flushTemp()
     */
     logFile->open();
     logFile->seek(logFile->size());
-    for (const auto &string : unsyncedStrings) {
+    for (const auto &string : qAsConst(unsyncedStrings)) {
         logFile->write(string.toLatin1());
         logFile->putChar('\n');
     }
