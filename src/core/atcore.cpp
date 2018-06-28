@@ -406,8 +406,8 @@ void AtCore::setState(AtCore::STATES state)
 {
     if (state != d->printerState) {
         qCDebug(ATCORE_CORE) << QStringLiteral("Atcore state changed from [%1] to [%2]")
-                             .arg(QVariant::fromValue(d->printerState).value<QString>())
-                             .arg(QVariant::fromValue(state).value<QString>());
+                             .arg(QVariant::fromValue(d->printerState).value<QString>(),
+                                  QVariant::fromValue(state).value<QString>());
         d->printerState = state;
         if (state == AtCore::FINISHEDPRINT && d->sdCardPrinting) {
             //Clean up the sd card print
