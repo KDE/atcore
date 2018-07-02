@@ -28,7 +28,7 @@
  * @brief The IFirmwarePrivate struct
  * @param parent: parent of this object
  */
-struct IFirmwarePrivate {
+struct IFirmware::IFirmwarePrivate {
     AtCore *parent;
     /**
      * @brief command finished string
@@ -36,7 +36,7 @@ struct IFirmwarePrivate {
     static const QString _ok;
 };
 
-const QString IFirmwarePrivate::_ok = QStringLiteral("ok");
+const QString IFirmware::IFirmwarePrivate::_ok = QStringLiteral("ok");
 
 IFirmware::IFirmware()
     : d(new IFirmwarePrivate)

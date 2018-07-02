@@ -37,8 +37,6 @@ class SerialLayer;
 class IFirmware;
 class QTime;
 
-struct AtCorePrivate;
-
 /**
  * @brief The AtCore class
  * aims to provides a high level interface for serial based gcode devices<br />
@@ -545,6 +543,7 @@ private:
     /**
      * @brief Hold private data of AtCore.
      */
+    struct AtCorePrivate;
     AtCorePrivate *d;
 
 protected:

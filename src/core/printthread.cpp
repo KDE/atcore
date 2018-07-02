@@ -32,7 +32,7 @@ Q_LOGGING_CATEGORY(PRINT_THREAD, "org.kde.atelier.core.printThread")
 /**
  * @brief The PrintThreadPrivate class
  */
-class PrintThreadPrivate
+class PrintThread::PrintThreadPrivate
 {
 public:
     AtCore *core = nullptr;             //!<@param core: Pointer to AtCore

@@ -45,7 +45,7 @@ Q_LOGGING_CATEGORY(ATCORE_CORE, "org.kde.atelier.core")
  * @brief The AtCorePrivate struct
  * Provides a private data set for atcore.
  */
-struct AtCorePrivate {
+struct AtCore::AtCorePrivate {
     IFirmware *firmwarePlugin = nullptr;//!< @param firmwarePlugin: pointer to firmware plugin
     SerialLayer *serial = nullptr;      //!< @param serial: pointer to the serial layer
     QPluginLoader pluginLoader;         //!< @param pluginLoader: QPluginLoader
