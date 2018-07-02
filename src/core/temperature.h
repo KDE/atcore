@@ -27,7 +27,6 @@
 
 #include "atcore_export.h"
 
-class TemperaturePrivate;
 /**
  * @brief The Temperature class
  *
@@ -125,5 +124,6 @@ signals:
     void extruderTargetTemperatureChanged(float temp);
 
 private:
+    class TemperaturePrivate;
     TemperaturePrivate *d;
 };

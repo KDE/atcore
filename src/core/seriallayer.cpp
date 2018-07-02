@@ -53,7 +53,7 @@ QStringList _validBaudRates = {
 /**
  * @brief The SerialLayerPrivate class
  */
-class SerialLayerPrivate
+class SerialLayer::SerialLayerPrivate
 {
 public:
     bool _serialOpened;                 //!< @param _serialOpened: is serial port opened

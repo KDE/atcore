@@ -32,7 +32,6 @@
 class Temperature;
 class AtCore;
 
-struct IFirmwarePrivate;
 /**
  * @brief The IFirmware class
  * Base Class for Firmware Plugins
@@ -82,6 +81,7 @@ public:
      */
     AtCore *core() const;
 private:
+    struct IFirmwarePrivate;
     IFirmwarePrivate *d;
 public slots:
     /**

@@ -31,7 +31,7 @@
  *
  * Private Data of Temperature
  */
-class TemperaturePrivate
+class Temperature::TemperaturePrivate
 {
 public:
     float extruderTemp;         //!< @param extruderTemp: Extruder current temperature

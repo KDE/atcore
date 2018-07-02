@@ -29,7 +29,6 @@
 
 #include "atcore_export.h"
 
-class SerialLayerPrivate;
 /**
  * @brief The SerialLayer class.
  * Provide the low level serial operations
@@ -39,6 +38,7 @@ class ATCORE_EXPORT SerialLayer : public QSerialPort
     Q_OBJECT
 
 private:
+    class SerialLayerPrivate;
     SerialLayerPrivate *d;
 
     /**
