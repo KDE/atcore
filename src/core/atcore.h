@@ -26,7 +26,6 @@
 #pragma once
 
 #include <QObject>
-#include <QList>
 #include <QSerialPortInfo>
 
 #include "ifirmware.h"
