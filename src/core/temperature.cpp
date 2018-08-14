@@ -92,14 +92,11 @@ void Temperature::setExtruderTemperature(float temp)
 
 void Temperature::decodeTemp(const QByteArray &msg)
 {
-    int bloc = msg.indexOf(QStringLiteral("B:"));
-
-    float firstTargetTemperature = 0;
-    float secondTargetTemperature = 0;
-
-    QRegularExpression tempRegEx(QStringLiteral("(T:(?<extruder>\\d+\\.?\\d*))"));
-    QRegularExpression targetTempRegEx(QStringLiteral("(\\/)(?<extruderTarget>\\d*)(.+)"));
+    //Capture after T: until next space
+    static QRegularExpression tempRegEx(QStringLiteral("T:(?<extruder>\\d+\\.?\\d*)"));
     QRegularExpressionMatch tempCheck = tempRegEx.match(QString::fromLatin1(msg));
+    //Find T:## /## and store the second set of numbers
+    static QRegularExpression targetTempRegEx(QStringLiteral("T:[^\\/]*\\/(?<extruderTarget>\\d+\\.?\\d*)"));
     QRegularExpressionMatch targetTempCheck = targetTempRegEx.match(QString::fromLatin1(msg));
 
     if (tempCheck.hasMatch()) {
@@ -107,13 +104,15 @@ void Temperature::decodeTemp(const QByteArray &msg)
     }
 
     if (targetTempCheck.hasMatch()) {
-        firstTargetTemperature = targetTempCheck.captured(QStringLiteral("extruderTarget")).toFloat();
+        setExtruderTargetTemperature(targetTempCheck.captured(QStringLiteral("extruderTarget")).toFloat());
     }
 
-    if (bloc != -1) {
-        QRegularExpression bedRegEx(QStringLiteral("(B:(?<bed>\\d+\\.?\\d*))"));
+    if ( msg.indexOf(QStringLiteral("B:")) != -1) {
+        //Capture after B: until next space
+        static QRegularExpression bedRegEx(QStringLiteral("B:(?<bed>\\d+\\.?\\d*)"));
         QRegularExpressionMatch bedCheck = bedRegEx.match(QString::fromLatin1(msg));
-        QRegularExpression targetBedRegEx(QStringLiteral("B:(.+)(\\/)(?<bedTarget>\\d+)"));
+        //Find B:## /## and store the second set of numbers
+        static QRegularExpression targetBedRegEx(QStringLiteral("B:[^\\/]*\\/(?<bedTarget>\\d+\\.?\\d*)"));
         QRegularExpressionMatch targetBedCheck = targetBedRegEx.match(QString::fromLatin1(msg));
 
         if (bedCheck.hasMatch()) {
@@ -121,17 +120,7 @@ void Temperature::decodeTemp(const QByteArray &msg)
         }
 
         if (targetBedCheck.hasMatch()) {
-            secondTargetTemperature = targetBedCheck.captured(QStringLiteral("bedTarget")).toFloat();
+            setBedTargetTemperature(targetBedCheck.captured(QStringLiteral("bedTarget")).toFloat());
         }
-    }
-    //Currently the first value after / is stored in firstTargetTemperature and the second / in secondTargetTemperature
-    //Because of this we need to check what came first in the return and place the values
-    //The regex for temperature needs to look at the whole T: or B: block to correctly decode targets
-    if (bloc < msg.indexOf(QStringLiteral("T:")) && bloc != -1) {
-        setExtruderTargetTemperature(secondTargetTemperature);
-        setBedTargetTemperature(firstTargetTemperature);
-    } else {
-        setExtruderTargetTemperature(firstTargetTemperature);
-        setBedTargetTemperature(secondTargetTemperature);
     }
 }
