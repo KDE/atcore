@@ -87,6 +87,15 @@ void TemperatureTests::testDecodeMarlin()
     QVERIFY(temperature->bedTargetTemperature() == 50);
 }
 
+void TemperatureTests::testDecodeMarlinCreality()
+{
+    temperature->decodeTemp(QByteArray("ok T:48.8 /215.0 B:57.5 /70.0 T0:48.8 /0.0 @:0 B@:0"));
+    QVERIFY(temperature->extruderTemperature() == float(48.8));
+    QVERIFY(temperature->extruderTargetTemperature() == 215);
+    QVERIFY(temperature->bedTemperature() == float(57.5));
+    QVERIFY(temperature->bedTargetTemperature() == 70);
+}
+
 void TemperatureTests::testDecodeRepetier()
 {
     temperature->decodeTemp(QByteArray("T:25.47 /230 B:69.42 /80 B@:255 @:0"));

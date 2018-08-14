@@ -33,6 +33,7 @@ private slots:
     void setBedTargetTemperature();
     void testDecodeAprinter();
     void testDecodeMarlin();
+    void testDecodeMarlinCreality();
     void testDecodeRepetier();
     void testDecodeSmoothie();
     void testDecodeSprinter();
