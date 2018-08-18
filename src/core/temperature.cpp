@@ -107,7 +107,7 @@ void Temperature::decodeTemp(const QByteArray &msg)
         setExtruderTargetTemperature(targetTempCheck.captured(QStringLiteral("extruderTarget")).toFloat());
     }
 
-    if ( msg.indexOf(QStringLiteral("B:")) != -1) {
+    if (msg.indexOf(QStringLiteral("B:")) != -1) {
         //Capture after B: until next space
         static QRegularExpression bedRegEx(QStringLiteral("B:(?<bed>\\d+\\.?\\d*)"));
         QRegularExpressionMatch bedCheck = bedRegEx.match(QString::fromLatin1(msg));
