@@ -31,6 +31,7 @@
 #include <QTime>
 #include <QTimer>
 #include <QThread>
+#include <QMetaEnum>
 
 #include "atcore.h"
 #include "atcore_version.h"
@@ -600,24 +601,8 @@ void AtCore::setFlowRate(uint speed)
 
 void AtCore::move(AtCore::AXES axis, int arg)
 {
-    static QLatin1Char a('?');
-    switch (axis) {
-    case AtCore::X:
-        a = QLatin1Char('X');
-        break;
-    case AtCore::Y:
-        a = QLatin1Char('Y');
-        break;
-    case AtCore::Z:
-        a = QLatin1Char('Z');
-        break;
-    case AtCore::E:
-        a = QLatin1Char('E');
-        break;
-    default:
-        break;
-    };
-    move(a, arg);
+    const auto axisAsString = QMetaEnum::fromType<AtCore::AXES>().valueToKey(axis);
+    move(QLatin1Char(axisAsString[0]), arg);
 }
 
 void AtCore::move(QLatin1Char axis, int arg)
