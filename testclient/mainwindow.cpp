@@ -1,5 +1,5 @@
 /* AtCore Test Client
-    Copyright (C) <2016>
+    Copyright (C) <2016 - 2018>
 
     Authors:
         Patrick José Pereira <patrickjp@kde.org>
@@ -425,7 +425,6 @@ void MainWindow::connectPBClicked()
         if (core->initSerial(comboPort->currentText(), comboBAUD->currentText().toInt(), cbReset->isChecked())) {
             connect(core, &AtCore::receivedMessage, logWidget, &LogWidget::appendRLog);
             connect(core->serial(), &SerialLayer::pushedCommand, logWidget, &LogWidget::appendSLog);
-            buttonConnect->setText(tr("Disconnect"));
             logWidget->appendLog(tr("Serial connected"));
             if (!comboPlugin->currentText().contains(tr("Autodetect"))) {
                 core->loadFirmwarePlugin(comboPlugin->currentText());
@@ -441,7 +440,6 @@ void MainWindow::connectPBClicked()
         core->closeConnection();
         core->setState(AtCore::DISCONNECTED);
         logWidget->appendLog(tr("Disconnected"));
-        buttonConnect->setText(tr("Connect"));
     }
 }
 
@@ -497,6 +495,7 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
     QString stateString;
     switch (state) {
     case AtCore::IDLE:
+        buttonConnect->setText(tr("Disconnect"));
         printWidget->setPrintText(tr("Print File"));
         stateString = tr("Connected to ") + core->connectedPort();
         sdDock->setVisible(core->firmwarePlugin()->isSdSupported());
@@ -526,6 +525,7 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
 
     case AtCore::DISCONNECTED:
         stateString = QStringLiteral("Not Connected");
+        buttonConnect->setText(tr("Connect"));
         setDangeriousDocksDisabled(true);
         break;
 
@@ -579,5 +579,8 @@ void MainWindow::setDangeriousDocksDisabled(bool disabled)
     if (!disabled) {
         temperatureWidget->updateExtruderCount(core->extruderCount());
         printWidget->updateFanCount(fanCount);
+    } else {
+        printWidget->setPrintText(tr("Print File"));
+        statusWidget->showPrintArea(false);
     }
 }
