@@ -1,5 +1,5 @@
 /* AtCore
-    Copyright (C) <2016>
+    Copyright (C) <2016 - 2018>
 
     Authors:
         Tomaz Canabrava <tcanabrava@kde.org>
@@ -223,6 +223,7 @@ bool AtCore::initSerial(const QString &port, int baud, bool disableROC)
     }
 
     d->serial = new SerialLayer(port, baud);
+    connect(serial(), &SerialLayer::serialError, this, &AtCore::handleSerialError);
     if (serialInitialized() && d->serial->isWritable()) {
         setState(AtCore::CONNECTING);
         connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
@@ -401,6 +402,7 @@ void AtCore::closeConnection()
             qCDebug(ATCORE_CORE) << QStringLiteral("Firmware plugin %1 %2").arg(name, msg);
         }
         //Do not reset the connect on disconnect when closing this will cause a reset on connect for the next connection.
+        disconnect(serial(), &SerialLayer::serialError, this, &AtCore::handleSerialError);
         serial()->close();
         //Clear our copy of the sdcard filelist
         clearSdCardFileList();
@@ -793,4 +795,44 @@ void AtCore::disableResetOnConnect(const QString &port)
 #elif Q_OS_WIN
     //TODO: Disable hangup on windows.
 #endif
+}
+
+void AtCore::handleSerialError(QSerialPort::SerialPortError error)
+{
+    QString errorString;
+
+    switch (error) {
+    case (QSerialPort::DeviceNotFoundError):
+        errorString = tr("Device not found");
+        break;
+    case (QSerialPort::WriteError):
+        errorString = tr("Unable to write to device");
+        break;
+    case (QSerialPort::ReadError):
+        errorString = tr("Unable to read from device");
+        break;
+    case (QSerialPort::ResourceError):
+    case (QSerialPort::TimeoutError):
+        errorString = tr("The device no longer available");
+        closeConnection();
+        break;
+    case (QSerialPort::UnsupportedOperationError):
+        errorString = tr("Device does not support opperation");
+        break;
+    case (QSerialPort::UnknownError):
+        errorString = tr("Unknown Error");
+        break;
+    default:
+        //Not Directly processed errors
+        //QSerialPort::NoError, No error has happened
+        //QSerialPort::PermissionError), Already handled.
+        //QSerialPort::OpenError), Already handled.
+        //QSerialPort::NotOpenError, SerialLayer destroyed if not connected.
+        //QSerialPort::ParityError, Obsolete. Qt Docs "We strongly advise against using it in new code."
+        //QSerialPort::FramingError, Obsolete. Qt Docs "We strongly advise against using it in new code."
+        //QSerialPort::BreakConditionError, Obsolete. Qt Docs "We strongly advise against using it in new code."
+        return;
+    };//End of Switch
+    qCDebug(ATCORE_CORE) << "SerialError:" << errorString;
+    emit atcoreMessage(QStringLiteral("SerialError: %1").arg(errorString));
 }

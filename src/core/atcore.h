@@ -1,5 +1,5 @@
 /* AtCore
-    Copyright (C) <2016>
+    Copyright (C) <2016 - 2018>
 
     Authors:
         Tomaz Canabrava <tcanabrava@kde.org>
@@ -26,6 +26,7 @@
 #pragma once
 
 #include <QObject>
+#include <QSerialPort>
 #include <QSerialPortInfo>
 
 #include "ifirmware.h"
@@ -250,6 +251,7 @@ signals:
      *   - Waiting for firmware detect.
      *   - No Plugin found for (detected FW)
      *   - Failed to open device in Read / Write mode.
+     *   - Device Errors.
      * @param msg: the message.
      */
     void atcoreMessage(const QString &msg);
@@ -510,6 +512,11 @@ private slots:
      * @brief Send request to the printer for the sd card file list.
      */
     void getSDFileList();
+
+    /**
+     * @brief Handle serial Errors.
+     */
+    void handleSerialError(QSerialPort::SerialPortError error);
 
 private:
     /**

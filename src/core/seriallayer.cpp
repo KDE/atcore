@@ -1,5 +1,5 @@
 /* AtCore
-    Copyright (C) <2016>
+    Copyright (C) <2016 - 2018>
 
     Authors:
         Patrick José Pereira <patrickjp@kde.org>
@@ -57,6 +57,7 @@ class SerialLayer::SerialLayerPrivate
 {
 public:
     bool _serialOpened;                 //!< @param _serialOpened: is serial port opened
+    QSerialPort::SerialPortError _lastError; //!< @param _lastError: the last reported error
     QByteArray _rawData;                //!< @param _rawData: the raw serial data
     QVector<QByteArray> _rByteCommands; //!< @param _rByteCommand: received Messages
     QVector<QByteArray> _sByteCommands; //!< @param _sByteCommand: sent Messages
@@ -70,6 +71,7 @@ SerialLayer::SerialLayer(const QString &port, uint baud, QObject *parent) :
     if (open(QIODevice::ReadWrite)) {
         d->_serialOpened = true;
         connect(this, &QSerialPort::readyRead, this, &SerialLayer::readAllData);
+        connect(this, &QSerialPort::errorOccurred, this, &SerialLayer::handleError);
     }
 };
 
@@ -144,4 +146,14 @@ bool SerialLayer::commandAvailable() const
 QStringList SerialLayer::validBaudRates() const
 {
     return _validBaudRates;
+}
+
+void SerialLayer::handleError(QSerialPort::SerialPortError error)
+{
+    if (d->_lastError == error) {
+        return;
+    }
+
+    d->_lastError = error;
+    emit serialError(error);
 }
