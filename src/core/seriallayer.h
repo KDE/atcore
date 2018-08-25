@@ -1,5 +1,5 @@
 /* AtCore
-    Copyright (C) <2016>
+    Copyright (C) <2016 - 2018>
 
     Authors:
         Patrick José Pereira <patrickjp@kde.org>
@@ -61,6 +61,12 @@ signals:
      * @param comm : Command
      */
     void receivedCommand(const QByteArray &comm);
+
+    /**
+     * @brief Emit a signal if an error has happened.
+     * @param error: the Error
+     */
+    void serialError(QSerialPort::SerialPortError error);
 public:
 
     /**
@@ -86,6 +92,12 @@ public:
      * @param comm : Command, default terminator will be used
      */
     void add(const QByteArray &comm);
+
+    /**
+     * @brief handleError Handle Errors from the serial port
+     * @param error: The reported error
+     */
+    void handleError(QSerialPort::SerialPortError error);
 
     /**
      * @brief Push command directly
