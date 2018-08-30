@@ -108,8 +108,8 @@ private:
      * example line ;-Message: Hello \n
      *
      * - Pause: ppc\n
-     *   Pause the print job and then run the comma seperated commands after pausing the job.\n
-     *     + ppc: A comma seperated list of Commands to send after pause. ex(G91, G0 Z1, G90, G1 X0 Y195)\n
+     *   Pause the print job and then run the comma-separated commands after pausing the job.\n
+     *     + ppc: A comma-separated list of Commands to send after pause. ex(G91, G0 Z1, G90, G1 X0 Y195)\n
      *\n
      * - Extruder %Temperature:newTemp,extnum,wait \n
      *   Set extruder temperature. \n
