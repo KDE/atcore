@@ -781,18 +781,18 @@ void AtCore::sdCardPrintStatus()
 
 void AtCore::disableResetOnConnect(const QString &port)
 {
-#ifdef Q_OS_UNIX
+#if defined(Q_OS_UNIX)
 //should work on all unix'
     QProcess process;
     QStringList args({QStringLiteral("-F/dev/%1").arg(port), QStringLiteral("-hupcl")});
     process.start(QStringLiteral("stty"), args);
     process.waitForFinished(500);
 
-    connect(&process, &QProcess::errorOccurred, this, [this, &process] {
+    connect(&process, &QProcess::errorOccurred, this, [&process] {
         qCDebug(ATCORE_CORE) << "Stty Error:" << process.errorString();
     });
 
-#elif Q_OS_WIN
+#elif defined(Q_OS_WIN)
     //TODO: Disable hangup on windows.
 #endif
 }
