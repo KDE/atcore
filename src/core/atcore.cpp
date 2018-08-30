@@ -817,7 +817,7 @@ void AtCore::handleSerialError(QSerialPort::SerialPortError error)
         closeConnection();
         break;
     case (QSerialPort::UnsupportedOperationError):
-        errorString = tr("Device does not support operation");
+        errorString = tr("Device does not support the operation");
         break;
     case (QSerialPort::UnknownError):
         errorString = tr("Unknown Error");
