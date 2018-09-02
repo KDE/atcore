@@ -382,7 +382,7 @@ public slots:
      * @param arg the distance to move the axis or the place to move to depending on printer mode
      * @sa home(), home(uchar axis), move(QLatin1Char axis, int arg)
      */
-    Q_INVOKABLE void move(AtCore::AXES axis, int arg);
+    Q_INVOKABLE void move(AtCore::AXES axis, double arg);
 
     /**
      * @brief move an axis of the printer
@@ -390,7 +390,7 @@ public slots:
      * @param arg the distance to move the axis or the place to move to depending on printer mode
      * @sa home(), home(uchar axis), move(AtCore::AXES, int arg)
      */
-    Q_INVOKABLE void move(QLatin1Char axis, int arg);
+    Q_INVOKABLE void move(QLatin1Char axis, double arg);
 
     /**
      * @brief Set the bed temperature
