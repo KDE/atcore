@@ -615,15 +615,18 @@ void AtCore::setFlowRate(uint speed)
     pushCommand(GCode::toCommand(GCode::M221, QString::number(speed)));
 }
 
-void AtCore::move(AtCore::AXES axis, int arg)
+void AtCore::move(AtCore::AXES axis, double arg)
 {
     const auto axisAsString = QMetaEnum::fromType<AtCore::AXES>().valueToKey(axis);
     move(QLatin1Char(axisAsString[0]), arg);
 }
 
-void AtCore::move(QLatin1Char axis, int arg)
+void AtCore::move(QLatin1Char axis, double arg)
 {
-    pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("%1 %2").arg(axis).arg(QString::number(arg))));
+    //Using QString::number(double, format, precision)
+    //f = 'format as [-]9.9'
+    //3 = use 3 decimal precision
+    pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("%1 %2").arg(axis).arg(QString::number(arg, 'f', 3))));
 }
 
 int AtCore::extruderCount() const
