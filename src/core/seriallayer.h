@@ -76,7 +76,7 @@ public:
      * @param baud : Baud rate (115200)
      * @param parent : Parent
      */
-    SerialLayer(const QString &port, uint baud, QObject *parent = nullptr);
+    SerialLayer(const QString &port, int32_t baud, QObject *parent = nullptr);
 
     /**
      * @brief Add command to be pushed

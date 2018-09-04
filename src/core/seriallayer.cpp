@@ -63,7 +63,7 @@ public:
     QVector<QByteArray> _sByteCommands; //!< @param _sByteCommand: sent Messages
 };
 
-SerialLayer::SerialLayer(const QString &port, uint baud, QObject *parent) :
+SerialLayer::SerialLayer(const QString &port, int32_t baud, QObject *parent) :
     QSerialPort(parent), d(new SerialLayerPrivate())
 {
     setPortName(port);
