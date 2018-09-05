@@ -63,7 +63,7 @@ class ATCORE_EXPORT AtCore : public QObject
     Q_PROPERTY(QString version READ version)
     Q_PROPERTY(QStringList availableFirmwarePlugins READ availableFirmwarePlugins)
     Q_PROPERTY(int extruderCount READ extruderCount WRITE setExtruderCount NOTIFY extruderCountChanged)
-    Q_PROPERTY(quint16 serialTimerInterval READ serialTimerInterval WRITE setSerialTimerInterval NOTIFY serialTimerIntervalChanged)
+    Q_PROPERTY(int serialTimerInterval READ serialTimerInterval WRITE setSerialTimerInterval NOTIFY serialTimerIntervalChanged)
     Q_PROPERTY(QStringList serialPorts READ serialPorts NOTIFY portsChanged)
     Q_PROPERTY(float percentagePrinted READ percentagePrinted NOTIFY printProgressChanged)
     Q_PROPERTY(QStringList portSpeeds READ portSpeeds)
@@ -216,7 +216,7 @@ public:
     /**
     * @brief Return the amount of miliseconds the serialTimer is set to. 0 = Disabled
     */
-    quint16 serialTimerInterval() const;
+    int serialTimerInterval() const;
 
     /**
      * @brief Attempt to Mount an sd card
@@ -279,7 +279,7 @@ signals:
     * @brief New interval between serial timer
     * @sa setSerialTimerInterval()
     */
-    void serialTimerIntervalChanged(const quint16 newTime);
+    void serialTimerIntervalChanged(const int newTime);
 
     /**
      * @brief The Printer's State Changed
@@ -459,9 +459,9 @@ public slots:
 
     /**
      * @brief Set the time between checks for new serialPorts (0 is default)
-     * @param newTime: Milliseconds between checks. 0 will Disable Checks.
+     * @param newTime: Milliseconds between checks. values <= 0 will Disable Checks.
      */
-    void setSerialTimerInterval(const quint16 &newTime);
+    void setSerialTimerInterval(int newTime);
 
     /**
      * @brief delete file from sd card

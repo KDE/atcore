@@ -278,7 +278,7 @@ void AtCore::locateSerialPort()
     }
 }
 
-quint16 AtCore::serialTimerInterval() const
+int AtCore::serialTimerInterval() const
 {
     if (d->serialTimer != nullptr) {
         return d->serialTimer->interval();
@@ -286,8 +286,11 @@ quint16 AtCore::serialTimerInterval() const
     return 0;
 }
 
-void AtCore::setSerialTimerInterval(const quint16 &newTime)
+void AtCore::setSerialTimerInterval(int newTime)
 {
+    if (newTime < 0) {
+        newTime = 0;
+    }
     if (!d->serialTimer) {
         //There is no timer. We need to create one.
         d->serialTimer = new QTimer();

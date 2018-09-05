@@ -51,7 +51,7 @@ public:
         G130 = 130, G131, G132, G133,
         G161 = 161, G162
     };
-    Q_ENUM(GCommands);
+    Q_ENUM(GCommands)
 
     /**
      * @brief The MCommands enum
@@ -107,7 +107,7 @@ public:
         M928 = 928,
         M997 = 997, M998, M999
     };
-    Q_ENUM(MCommands);
+    Q_ENUM(MCommands)
 
     /**
      * @brief Return Description of command \p gcode
