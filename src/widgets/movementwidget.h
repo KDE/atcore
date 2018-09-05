@@ -74,7 +74,7 @@ signals:
      * @param axis: the axis to move
      * @param value: where to move
      */
-    void absoluteMove(const QLatin1Char &axis, const double &value);
+    void absoluteMove(const QLatin1Char &axis, const double value);
 
     /**
      * @brief A relativeMove was requested from the AxisControl
@@ -85,7 +85,7 @@ signals:
      * @param axis: the axis to move.
      * @param value: the value to move it by.
      */
-    void relativeMove(const QLatin1Char &axis, const double &value);
+    void relativeMove(const QLatin1Char &axis, const double value);
 
 private:
     QComboBox *comboMoveAxis = nullptr;
