@@ -72,7 +72,7 @@ LogWidget::LogWidget(QTemporaryFile *tempFile, QWidget *parent) :
     helpButton->setChecked(false);
     helpButton->setIconSize(iconSize);
     helpButton->setIcon(QIcon::fromTheme(QStringLiteral("help-about"), style()->standardIcon(QStyle::SP_DialogHelpButton)));
-    connect(helpButton, &QToolButton::clicked, this, [this, mainStack](bool checked) {
+    connect(helpButton, &QToolButton::clicked, this, [mainStack](bool checked) {
         mainStack->setCurrentIndex(checked);
     });
 
