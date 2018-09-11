@@ -87,6 +87,13 @@ signals:
      */
     void relativeMove(const QLatin1Char &axis, const double value);
 
+    /**
+     * @brief A Change of units was requested from the AxisControl
+     * This should connect to a function that calls AtCore::setUnits
+     * @param units: 0=Metric 1=Imperial
+     */
+    void unitsChanged(int units);
+
 private:
     QComboBox *comboMoveAxis = nullptr;
     QDoubleSpinBox *sbMoveAxis = nullptr;

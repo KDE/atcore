@@ -93,6 +93,7 @@ MovementWidget::MovementWidget(bool showHomeAndDisableWidgets, QWidget *parent) 
     auto axisControl = new AxisControl;
     mainLayout->addWidget(axisControl);
     connect(axisControl, &AxisControl::clicked, this, &MovementWidget::relativeMove);
+    connect(axisControl, &AxisControl::unitsChanged, this, &MovementWidget::unitsChanged);
 
     setLayout(mainLayout);
 }

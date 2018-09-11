@@ -1,7 +1,8 @@
-/* Atelier KDE Printer Host for 3D Printing
-    Copyright (C) <2016>
-    Author: Lays Rodrigues - lays.rodrigues@kde.org
-            Chris Rizzitello - rizzitello@kde.org
+/* AtCore Test Client
+    Copyright (C) <2016 - 2018>
+
+    Authors:
+        Chris Rizzitello <rizzitello@kde.org>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,201 +18,106 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "axiscontrol.h"
-#include <algorithm>
+#include <QComboBox>
+#include <QGridLayout>
+#include <QHBoxLayout>
+#include <QLabel>
 
-PieButton::PieButton(QLatin1Char &axis, int value, int size, int angle) : _axis(axis), _value(value)
+AxisControl::AxisControl(QWidget *parent) :
+    QWidget(parent)
+    , sbValue(new QDoubleSpinBox)
 {
-    const int delta = 16; // Qt Docs: angle is 16th of a degree.
-    setBrush(_palette.button());
-    setStartAngle(angle * delta);
-    setSpanAngle(90 * delta);
-    setRect(QRect(QPoint(size * -1, size * -1), QPoint(size, size)));
-    setZValue(size * -1);
-    setAcceptHoverEvents(true);
-    setToolTip(tr("Move the hotend to the %1 by %2 units").arg(axis).arg(value));
-}
+    auto mainLayout = new QVBoxLayout;
+    auto newLabel = new QLabel(tr("Move Axis"));
+    sbValue->setSuffix(QStringLiteral(" mm"));
+    sbValue->setDecimals(3);
+    sbValue->setMaximum(100.0);
+    sbValue->setValue(1);
 
-void PieButton::setPalette(QPalette palette)
-{
-    _palette = palette;
-}
+    auto comboUnits = new QComboBox();
+    comboUnits->addItems(QStringList {QStringLiteral("Metric"), QStringLiteral("Imperial")});
 
-void PieButton::mousePressEvent(QGraphicsSceneMouseEvent *)
-{
-    emit clicked(_axis, _value);
-}
-
-void PieButton::hoverEnterEvent(QGraphicsSceneHoverEvent *)
-{
-    setBrush(_palette.highlight());
-}
-
-void PieButton::hoverLeaveEvent(QGraphicsSceneHoverEvent *)
-{
-    setBrush(_palette.button());
-}
-
-RectButton::RectButton(QLatin1Char &axis, int value, int size) : _axis(axis), _value(value)
-{
-    setBrush(_palette.button());
-    setRect(QRect(QPoint(0, 0), QPoint(size, size)));
-    setAcceptHoverEvents(true);
-    setZValue(size * -1);
-    if (axis != QLatin1Char('E')) {
-        setToolTip(tr("Move the hotend to the %1 by %2 units").arg(axis).arg(value));
-    } else {
-        setToolTip(tr("Extrude %1 Units").arg(value));
-    }
-}
-
-void RectButton::setPalette(QPalette palette)
-{
-    _palette = palette;
-}
-
-void RectButton::mousePressEvent(QGraphicsSceneMouseEvent *)
-{
-    emit clicked(_axis, _value);
-}
-
-void RectButton::hoverEnterEvent(QGraphicsSceneHoverEvent *)
-{
-    setBrush(_palette.highlight());
-}
-
-void RectButton::hoverLeaveEvent(QGraphicsSceneHoverEvent *)
-{
-    setBrush(_palette.button());
-}
-/*  About the Magic Numbers
-        I don't have experience programming with QGraphicsScene,
-        Tomaz is helping me, but until we have a better solution, all the values
-        that are dividing or multiplying the items is based only in tests and errors.
-        Those values was chosen because it fit better on the alignment of the items
-        in the scene. If you have a better solution, please share with us.
-        Lays Rodrigues - Jan/2017
-*/
-AxisControl::AxisControl(const QList<int> &movementValues, QWidget *parent) :
-    QGraphicsView(parent)
-{
-    setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
-
-    setScene(new QGraphicsScene());
-
-    const int listSize = movementValues.size();
-    int maxValue = *std::max_element(movementValues.begin(), movementValues.end());
-    QList<int> lessList = movementValues;
-    std::sort(lessList.begin(), lessList.end(), std::less<int>());
-    QList<int> greaterList = movementValues;
-    std::sort(greaterList.begin(), greaterList.end(), std::greater<int>());
-
-    auto createPie = [ this, maxValue ](QLatin1Char & axis, int value, int size, int angle) {
-        auto pie = new PieButton(axis, value, size, angle);
-        pie->setPalette(this->palette());
-        connect(pie, &PieButton::clicked, this, &AxisControl::clicked);
-        if (abs(value) == maxValue) {
-            setLabels(pie, axis, value);
-        }
-        scene()->addItem(pie);
-    };
-
-    auto createRect = [ this, maxValue ](QLatin1Char & axis, int value, int size, int xPos, int yPos) {
-        auto z = new RectButton(axis, value, size);
-        z->setPalette(this->palette());
-        z->setPos(xPos, yPos);
-        connect(z, &RectButton::clicked, this, &AxisControl::clicked);
-        if (abs(value) == maxValue) {
-            setLabels(z, axis, value);
-        }
-        scene()->addItem(z);
-    };
-
-    int currPieSize = 25;
-    auto xchar = QLatin1Char('X');
-    auto ychar = QLatin1Char('Y');
-    auto zchar = QLatin1Char('Z');
-    auto echar = QLatin1Char('E');
-    for (const int &value : lessList) {
-        createPie(xchar, value, currPieSize, -45);       // Left
-        createPie(xchar, value * -1, currPieSize, 135);  // Right
-        createPie(ychar, value, currPieSize, 45);        // Top
-        createPie(ychar, value * -1, currPieSize, 225);  // Bottom
-        currPieSize += 25;
-    }
-
-    int currSize = 25;
-    int xPos = sceneRect().width() - 50;
-    int yPos = -(listSize * 25); //Align with the origin
-
-    // Z+
-    for (const int &value : greaterList) {
-        createRect(zchar, value, currSize, xPos, yPos);
-        yPos += currSize;
-    }
-
-    // Z-
-    for (const int &value : lessList) {
-        createRect(zchar, -value, currSize, xPos, yPos);
-        yPos += currSize;
-    }
-
-    currSize = 25;
-    xPos = sceneRect().width() - 50;
-    yPos = -(listSize * 25); //Align with the origin
-
-    // E-
-    for (const int &value : greaterList) {
-        createRect(echar, -value, currSize, xPos, yPos);
-        yPos += currSize;
-    }
-
-    // E+
-    for (const int &value : lessList) {
-        createRect(echar, value, currSize, xPos, yPos);
-        yPos += currSize;
-    }
-    setSceneRect(scene()->itemsBoundingRect());
-}
-
-void AxisControl::resizeEvent(QResizeEvent *)
-{
-    fitInView(sceneRect(), Qt::KeepAspectRatio);
-}
-
-void AxisControl::setLabels(QGraphicsItem *item, QLatin1Char &axis, int value)
-{
-    auto *lb = new QGraphicsSimpleTextItem();
-    lb->setBrush(palette().buttonText());
-
-    if (this->logicalDpiX() <= 96) {
-        lb->setText((value < 0) ? QStringLiteral(" -") + axis : QStringLiteral("  ") + axis);
-    } else {
-        lb->setText((value < 0) ? QStringLiteral("-") + axis : QStringLiteral(" ") + axis);
-    }
-
-    if (axis.toLatin1() == 'X') {
-        lb->setY(item->y() - lb->boundingRect().width());
-        if (value < 0) {
-            lb->setX(item->x() - item->boundingRect().width() / 1.2 - lb->boundingRect().width() / 2);
+    connect(comboUnits, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this](int selection) {
+        if (selection == 0) {
+            sbValue->setSuffix(QStringLiteral(" mm"));
         } else {
-            lb->setX(item->x() + item->boundingRect().width() / 1.2 - lb->boundingRect().width() / 2);
+            sbValue->setSuffix(QStringLiteral(" in"));
         }
-    } else if (axis.toLatin1() == 'Y') {
-        lb->setX(item->x() - lb->boundingRect().width() / 2);
-        if (value < 0) {
-            lb->setY(item->y() + item->boundingRect().height() / 1.5);
-        } else {
-            lb->setY(item->y() - item->boundingRect().height());
-        }
+        emit unitsChanged(selection);
+    });
+
+    auto layout = new QHBoxLayout();
+    layout->addWidget(newLabel);
+    layout->addWidget(sbValue);
+    layout->addWidget(comboUnits);
+
+    auto newWidget = new QWidget();
+    newWidget->setLayout(layout);
+    newWidget->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+    mainLayout->addWidget(newWidget);
+
+    QSize iconSize = QSize(fontMetrics().height(), fontMetrics().height());
+    auto glayout = new QGridLayout();
+    newLabel = new QLabel(QStringLiteral("X/Y"));
+    newLabel->setAlignment(Qt::AlignCenter);
+    glayout->addWidget(newLabel, 2, 1);
+
+    //Y-Axis
+    glayout->addWidget(makeButton(QLatin1Char('Y'), 1, iconSize, QStringLiteral("arrow-up"), QStringLiteral("↑")), 1, 1);
+    glayout->addWidget(makeButton(QLatin1Char('Y'), -1, iconSize, QStringLiteral("arrow-down"), QStringLiteral("↓")), 3, 1);
+
+    //X-Axis
+    glayout->addWidget(makeButton(QLatin1Char('X'), -1, iconSize, QStringLiteral("arrow-left"), QStringLiteral("←")), 2, 0);
+    glayout->addWidget(makeButton(QLatin1Char('X'), 1, iconSize, QStringLiteral("arrow-right"), QStringLiteral("→")), 2, 3);
+
+    auto bottomLayout = new QHBoxLayout();
+    bottomLayout->addItem(glayout);
+
+    newWidget = makeSimpleAxis(QLatin1Char('Z'), iconSize);
+    bottomLayout->addWidget(newWidget);
+
+    newWidget = makeSimpleAxis(QLatin1Char('E'), iconSize);
+    bottomLayout->addWidget(newWidget);
+
+    mainLayout->addItem(bottomLayout);
+    setLayout(mainLayout);
+}
+
+QPushButton *AxisControl::makeButton(const QLatin1Char axis, int multiplier, const QSize &iconSize, const QString &themeIcon, const QString &fallbackText)
+{
+    auto button = new QPushButton(QIcon::fromTheme(themeIcon), QString());
+    button->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    if (button->icon().isNull()) {
+        button->setText(fallbackText);
     } else {
-
-        lb->setX(item->x() + lb->boundingRect().width() / fontMetrics().width(lb->text()));
-
-#ifndef Q_OS_WIN
-        lb->setY(item->y() - lb->boundingRect().height() / fontMetrics().xHeight());
-#else
-        lb->setY(item->y() - lb->boundingRect().height() / fontMetrics().height());
-#endif
+        button->setIconSize(iconSize);
     }
-    scene()->addItem(lb);
+
+    connect(button, &QPushButton::clicked, this, [this, axis, multiplier] {
+        emit clicked(axis, sbValue->value() *multiplier);
+    });
+    return button;
+}
+
+QWidget *AxisControl::makeSimpleAxis(const QLatin1Char axis, const QSize &iconSize)
+{
+    int multiplier = 1;
+    if (axis == QLatin1Char('E')) {
+        multiplier = -1;
+    }
+
+    auto vLayout = new QVBoxLayout;
+
+    vLayout->addWidget(makeButton(axis, multiplier, iconSize, QStringLiteral("arrow-up"), QStringLiteral("↑")));
+
+    auto label = new QLabel(QString(axis));
+    label->setAlignment(Qt::AlignCenter);
+    vLayout->addWidget(label);
+
+    multiplier *= -1;
+    vLayout->addWidget(makeButton(axis, multiplier, iconSize, QStringLiteral("arrow-down"), QStringLiteral("↓")));
+
+    auto widget = new QWidget();
+    widget->setLayout(vLayout);
+    return widget;
 }

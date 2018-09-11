@@ -307,6 +307,11 @@ void MainWindow::makeMoveDock()
         core->setAbsolutePosition();
     });
 
+    connect(movementWidget, &MovementWidget::unitsChanged, this, [this](int units) {
+        auto selection = static_cast<AtCore::UNITS>(units);
+        core->setUnits(selection);
+    });
+
     moveDock = new QDockWidget(tr("Movement"), this);
     moveDock->setWidget(movementWidget);
 
