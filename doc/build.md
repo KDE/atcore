@@ -14,7 +14,7 @@ Recommended CMake Command
 
 Linux
 ```
-cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL+LIBDIR=lib CMakeLists.txt
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib CMakeLists.txt
 ```
 
 Mac OS/ Windows
