@@ -95,7 +95,9 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
 
     newButton = new QPushButton(tr("Set"));
     connect(newButton, &QPushButton::clicked, this, [this] {
-        emit fanSpeedChanged(sbFanSpeed->value(), comboFanSelect->currentIndex());
+        //Fan speed has a range of 0-255.
+        int speed = sbFanSpeed->value() * 255 / 100;
+        emit fanSpeedChanged(speed, comboFanSelect->currentIndex());
     });
 
     hBoxLayout = new QHBoxLayout;
