@@ -208,17 +208,17 @@ void PrintThread::injectCommand(QString &command)
     } else if (parser.isSet(QStringLiteral("extruder temperature"))) {
         QStringList args = parser.positionalArguments().at(0).split(QLatin1Char(','));
         bool wait = !QString::compare(args.at(2).simplified(), QStringLiteral("true"), Qt::CaseInsensitive);
-        d->core->setExtruderTemp(args.at(0).toInt(), args.at(1).toInt(), wait);
+        d->core->setExtruderTemp(args.at(0).toUInt(), args.at(1).toUInt(), wait);
     } else if (parser.isSet(QStringLiteral("bed temperature"))) {
         QStringList args = parser.positionalArguments().at(0).split(QLatin1Char(','));
         bool wait = !QString::compare(args.at(1).simplified(), QStringLiteral("true"), Qt::CaseInsensitive);
-        d->core->setBedTemp(args.at(0).toInt(), wait);
+        d->core->setBedTemp(args.at(0).toUInt(), wait);
     } else if (parser.isSet(QStringLiteral("print speed"))) {
-        d->core->setPrinterSpeed(parser.positionalArguments().at(0).toInt());
+        d->core->setPrinterSpeed(parser.positionalArguments().at(0).toUInt());
     } else if (parser.isSet(QStringLiteral("fan speed"))) {
-        d->core->setFanSpeed(parser.positionalArguments().at(0).toInt(), parser.positionalArguments().at(1).toInt());
+        d->core->setFanSpeed(parser.positionalArguments().at(0).toUInt(), parser.positionalArguments().at(1).toUInt());
     } else if (parser.isSet(QStringLiteral("flow rate"))) {
-        d->core->setFlowRate(parser.positionalArguments().at(0).toInt());
+        d->core->setFlowRate(parser.positionalArguments().at(0).toUInt());
     } else if (parser.isSet(QStringLiteral("message"))) {
         d->core->showMessage(parser.positionalArguments().at(0));
     } else if (parser.isSet(QStringLiteral("command"))) {
