@@ -144,7 +144,7 @@ void AtCoreTests::testSdFileList()
 
 void AtCoreTests::testSerialTimerIntervalChanged()
 {
-    QSignalSpy sSpy(core, SIGNAL(serialTimerIntervalChanged(quint16)));
+    QSignalSpy sSpy(core, SIGNAL(serialTimerIntervalChanged(int)));
     QVERIFY(sSpy.isValid());
     core->setSerialTimerInterval(1000);
     core->setSerialTimerInterval(1000);

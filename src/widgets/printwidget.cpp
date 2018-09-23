@@ -121,6 +121,7 @@ void PrintWidget::setPrintText(const QString &text)
 
 void PrintWidget::updateFanCount(const int count)
 {
+    comboFanSelect->clear();
     for (int i = 0; i < count; i++) {
         comboFanSelect->insertItem(i, tr("Fan %1 speed").arg(i));
     }

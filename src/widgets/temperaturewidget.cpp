@@ -66,6 +66,7 @@ TemperatureWidget::TemperatureWidget(QWidget *parent) :
 
 void TemperatureWidget::updateExtruderCount(const int count)
 {
+    comboExtruderSelect->clear();
     for (int i = 0; i < count; i++) {
         comboExtruderSelect->insertItem(i, tr("Extruder %1").arg(i));
     }
