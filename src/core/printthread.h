@@ -59,7 +59,7 @@ signals:
     /**
      * @brief The print job's progress has changed
      */
-    void printProgressChanged(float);
+    void printProgressChanged(const float);
 
     /**
      * @brief the next command of the job

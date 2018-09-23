@@ -267,7 +267,7 @@ signals:
      * @param newProgress : Message
      * @sa percentagePrinted()
      */
-    void printProgressChanged(const float &newProgress);
+    void printProgressChanged(const float newProgress);
 
     /**
      * @brief New message was received from the printer

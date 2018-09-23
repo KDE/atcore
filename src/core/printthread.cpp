@@ -138,8 +138,8 @@ void PrintThread::nextLine()
     d->cline = d->gcodestream->readLine();
     qCDebug(PRINT_THREAD) << "Nextline:" << d->cline;
     d->stillSize -= d->cline.size() + 1; //remove read chars
-    d->printProgress = float(d->totalSize - d->stillSize) * 100.0 / float(d->totalSize);
-    qCDebug(PRINT_THREAD) << "progress:" << QString::number(d->printProgress);
+    d->printProgress = float(d->totalSize - d->stillSize) * 100 / float(d->totalSize);
+    qCDebug(PRINT_THREAD) << "progress:" << QString::number(double(d->printProgress));
     emit printProgressChanged(d->printProgress);
 
     if (d->cline.startsWith(QStringLiteral(";-"))) {
