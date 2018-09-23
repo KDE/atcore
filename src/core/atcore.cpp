@@ -584,6 +584,9 @@ void AtCore::home(uchar axis)
 
 void AtCore::setExtruderTemp(uint temp, uint extruder, bool andWait)
 {
+    temp = std::min<uint>(temp, 10000);
+    extruder = std::min<uint>(extruder, 10000);
+
     if (andWait) {
         pushCommand(GCode::toCommand(GCode::M109, QString::number(temp), QString::number(extruder)));
     } else {
@@ -593,6 +596,8 @@ void AtCore::setExtruderTemp(uint temp, uint extruder, bool andWait)
 
 void AtCore::setBedTemp(uint temp, bool andWait)
 {
+    temp = std::min<uint>(temp, 10000);
+
     if (andWait) {
         pushCommand(GCode::toCommand(GCode::M190, QString::number(temp)));
     } else {
@@ -602,16 +607,21 @@ void AtCore::setBedTemp(uint temp, bool andWait)
 
 void AtCore::setFanSpeed(uint speed, uint fanNumber)
 {
+    speed = std::min<uint>(speed, 10000);
+    fanNumber = std::min<uint>(fanNumber, 10000);
+
     pushCommand(GCode::toCommand(GCode::M106, QString::number(fanNumber), QString::number(speed)));
 }
 
 void AtCore::setPrinterSpeed(uint speed)
 {
+    speed = std::min<uint>(speed, 10000);
     pushCommand(GCode::toCommand(GCode::M220, QString::number(speed)));
 }
 
 void AtCore::setFlowRate(uint speed)
 {
+    speed = std::min<uint>(speed, 10000);
     pushCommand(GCode::toCommand(GCode::M221, QString::number(speed)));
 }
 
