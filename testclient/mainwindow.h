@@ -53,7 +53,7 @@ public slots:
      * @param  number     : index of sensor
      * @param  temp       : temperature
      */
-    void checkTemperature(uint sensorType, uint number, uint temp);
+    void checkTemperature(uint sensorType, uint number, float temp);
 
 private slots:
     //ButtonEvents

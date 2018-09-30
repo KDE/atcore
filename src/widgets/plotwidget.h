@@ -66,7 +66,7 @@ public:
      * @brief set The Maximum Number of points per series the plot widget stores
      * @param newMax: new maximum Number (default:120)
      */
-    void setMaximumPoints(const uint newMax);
+    void setMaximumPoints(const int newMax);
 
     /**
      * @brief set the maximum temperature shown on the plot

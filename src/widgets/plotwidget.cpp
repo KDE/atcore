@@ -84,9 +84,9 @@ QStringList PlotWidget::plots()
     return _plots.keys();
 }
 
-void PlotWidget::setMaximumPoints(const uint newMax)
+void PlotWidget::setMaximumPoints(const int newMax)
 {
-    m_maximumPoints = newMax;
+    m_maximumPoints = std::max(newMax, 0);
 }
 
 void PlotWidget::setMaximumTemperature(const uint maxTemp)

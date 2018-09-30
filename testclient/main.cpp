@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
-    QCoreApplication::setApplicationName(QStringLiteral("AtCore - KDE Print Service"));
+    QCoreApplication::setApplicationName(QStringLiteral("AtCore - Test Client"));
 
     MainWindow window;
     window.show();

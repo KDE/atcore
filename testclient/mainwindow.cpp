@@ -154,11 +154,11 @@ void MainWindow::makePrintDock()
     connect(printWidget, &PrintWidget::fanSpeedChanged, core, &AtCore::setFanSpeed);
 
     connect(printWidget, &PrintWidget::printSpeedChanged, this, [this](const int speed) {
-        core->setPrinterSpeed(speed);
+        core->setPrinterSpeed(uint(std::max(1, speed)));
     });
 
     connect(printWidget, &PrintWidget::flowRateChanged, [this](const int rate) {
-        core->setFlowRate(rate);
+        core->setFlowRate(uint(std::max(1, rate)));
     });
 
     printDock = new QDockWidget(tr("Print"), this);
@@ -370,7 +370,7 @@ MainWindow::~MainWindow()
 
 }
 
-void MainWindow::checkTemperature(uint sensorType, uint number, uint temp)
+void MainWindow::checkTemperature(uint sensorType, uint number, float temp)
 {
     QString msg;
     switch (sensorType) {
@@ -400,7 +400,7 @@ void MainWindow::checkTemperature(uint sensorType, uint number, uint temp)
     }
 
     msg.append(QString::fromLatin1("[%1] : %2").arg(
-                   QString::number(number), QString::number(temp)
+                   QString::number(number), QString::number(double(temp), 'f', 2)
                ));
 
     logWidget->appendLog(msg);
