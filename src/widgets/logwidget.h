@@ -45,7 +45,7 @@ public:
     void appendRLog(const QByteArray &bmsg);
 
     /**
-     * @brief Connect to AtCore::SerialLayer::pushedCommand
+     * @brief Connect to AtCore::pushedCommand
      * @param  bmsg: Message
      */
     void appendSLog(const QByteArray &bmsg);

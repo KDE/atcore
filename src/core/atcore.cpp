@@ -111,11 +111,6 @@ QString AtCore::version() const
     return versionString;
 }
 
-SerialLayer *AtCore::serial() const
-{
-    return d->serial;
-}
-
 IFirmware *AtCore::firmwarePlugin() const
 {
     return d->firmwarePlugin;
@@ -200,8 +195,8 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
             //Plugin was loaded successfully.
             d->firmwarePlugin = qobject_cast<IFirmware *>(d->pluginLoader.instance());
             firmwarePlugin()->init(this);
-            disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
-            connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
+            disconnect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
+            connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::newMessage);
             connect(firmwarePlugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
             d->ready = true; // ready on new firmware load
             if (firmwarePlugin()->name() != QStringLiteral("Grbl")) {
@@ -223,10 +218,11 @@ bool AtCore::initSerial(const QString &port, int baud, bool disableROC)
     }
 
     d->serial = new SerialLayer(port, baud);
-    connect(serial(), &SerialLayer::serialError, this, &AtCore::handleSerialError);
+    connect(d->serial, &SerialLayer::serialError, this, &AtCore::handleSerialError);
     if (serialInitialized() && d->serial->isWritable()) {
-        setState(AtCore::STATES::CONNECTING);
-        connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
+        setState(AtCore::CONNECTING);
+        connect(d->serial, &SerialLayer::pushedCommand, this, &AtCore::newCommand);
+        connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
         d->serialTimer->stop();
         return true;
     } else {
@@ -246,7 +242,7 @@ bool AtCore::serialInitialized() const
 
 QString AtCore::connectedPort() const
 {
-    return serial()->portName();
+    return d->serial->portName();
 }
 
 QStringList AtCore::serialPorts() const
@@ -322,6 +318,11 @@ void AtCore::newMessage(const QByteArray &message)
     emit receivedMessage(d->lastMessage);
 }
 
+void AtCore::newCommand(const QByteArray &command)
+{
+    emit pushedCommand(command);
+}
+
 void AtCore::setRelativePosition()
 {
     pushCommand(GCode::toCommand(GCode::GCommands::G91));
@@ -394,7 +395,7 @@ void AtCore::closeConnection()
         }
         if (firmwarePluginLoaded()) {
             disconnect(firmwarePlugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
-            disconnect(serial(), &SerialLayer::receivedCommand, this, &AtCore::newMessage);
+            disconnect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::newMessage);
             if (firmwarePlugin()->name() != QStringLiteral("Grbl")) {
                 disconnect(d->tempTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
                 d->tempTimer->stop();
@@ -405,8 +406,9 @@ void AtCore::closeConnection()
             qCDebug(ATCORE_CORE) << QStringLiteral("Firmware plugin %1 %2").arg(name, msg);
         }
         //Do not reset the connect on disconnect when closing this will cause a reset on connect for the next connection.
-        disconnect(serial(), &SerialLayer::serialError, this, &AtCore::handleSerialError);
-        serial()->close();
+        disconnect(d->serial, &SerialLayer::serialError, this, &AtCore::handleSerialError);
+        disconnect(d->serial, &SerialLayer::pushedCommand, this, &AtCore::newMessage);
+        d->serial->close();
         //Clear our copy of the sdcard filelist
         clearSdCardFileList();
         setState(AtCore::STATES::DISCONNECTED);
@@ -462,7 +464,7 @@ void AtCore::emergencyStop()
         }
     }
     //push command through serial to bypass atcore's queue.
-    serial()->pushCommand(GCode::toCommand(GCode::MCommands::M112).toLocal8Bit());
+    d->serial->pushCommand(GCode::toCommand(GCode::MCommands::M112).toLocal8Bit());
 }
 
 void AtCore::stopSdPrint()
@@ -479,7 +481,7 @@ void AtCore::requestFirmware()
 {
     if (serialInitialized()) {
         qCDebug(ATCORE_CORE) << "Sending " << GCode::description(GCode::MCommands::M115);
-        serial()->pushCommand(GCode::toCommand(GCode::MCommands::M115).toLocal8Bit());
+        d->serial->pushCommand(GCode::toCommand(GCode::MCommands::M115).toLocal8Bit());
     } else {
         qCDebug(ATCORE_CORE) << "There is no open device to send commands";
     }
@@ -668,9 +670,9 @@ void AtCore::processQueue()
     QString text = d->commandQueue.takeAt(0);
 
     if (firmwarePluginLoaded()) {
-        serial()->pushCommand(firmwarePlugin()->translate(text));
+        d->serial->pushCommand(firmwarePlugin()->translate(text));
     } else {
-        serial()->pushCommand(text.toLocal8Bit());
+        d->serial->pushCommand(text.toLocal8Bit());
     }
     d->ready = false;
 }
@@ -705,7 +707,7 @@ void AtCore::setUnits(AtCore::UNITS units)
 
 QStringList AtCore::portSpeeds() const
 {
-    return serial()->validBaudRates();
+    return d->serial->validBaudRates();
 }
 
 void AtCore::disableMotors(uint delay)
