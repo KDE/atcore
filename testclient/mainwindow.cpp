@@ -429,7 +429,7 @@ void MainWindow::connectPBClicked()
     if (core->state() == AtCore::DISCONNECTED) {
         if (core->initSerial(comboPort->currentText(), comboBAUD->currentText().toInt(), cbReset->isChecked())) {
             connect(core, &AtCore::receivedMessage, logWidget, &LogWidget::appendRLog);
-            connect(core->serial(), &SerialLayer::pushedCommand, logWidget, &LogWidget::appendSLog);
+            connect(core, &AtCore::pushedCommand, logWidget, &LogWidget::appendSLog);
             logWidget->appendLog(tr("Serial connected"));
             if (!comboPlugin->currentText().contains(tr("Autodetect"))) {
                 core->loadFirmwarePlugin(comboPlugin->currentText());
@@ -441,7 +441,7 @@ void MainWindow::connectPBClicked()
         }
     } else {
         disconnect(core, &AtCore::receivedMessage, logWidget, &LogWidget::appendRLog);
-        disconnect(core->serial(), &SerialLayer::pushedCommand, logWidget, &LogWidget::appendSLog);
+        disconnect(core, &AtCore::pushedCommand, logWidget, &LogWidget::appendSLog);
         core->closeConnection();
         core->setState(AtCore::DISCONNECTED);
         logWidget->appendLog(tr("Disconnected"));

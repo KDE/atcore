@@ -156,13 +156,6 @@ public:
     QStringList portSpeeds() const;
 
     /**
-     * @brief Main access to the serialLayer
-     * @return Current serialLayer
-     * @sa initSerial(),serialPorts(),closeConnection()
-     */
-    SerialLayer *serial() const;
-
-    /**
      * @brief Close the current serial connection
      * @sa initSerial(),serial(),serialPorts(),AtCore::close()
      */
@@ -302,6 +295,12 @@ signals:
      * @brief The files on the sd card have changed.
      */
     void sdCardFileListChanged(const QStringList &fileList);
+
+    /**
+     * @brief pushedCommand via serialLayer connect this to your log to see send commands
+     * @param comm: the command sent.
+     */
+    void pushedCommand(const QByteArray &comm);
 
 public slots:
 
@@ -489,6 +488,12 @@ private slots:
      * @param message: new message.
      */
     void newMessage(const QByteArray &message);
+
+    /**
+     * @brief Connect to SerialLayer::pushedCommand
+     * @param command: newCommand.
+     */
+    void newCommand(const QByteArray &command);
 
     /**
      * @brief Search for firmware string in message.
