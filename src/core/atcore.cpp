@@ -377,8 +377,12 @@ void AtCore::print(const QString &fileName, bool sdPrint)
 
 void AtCore::pushCommand(const QString &comm)
 {
-    //Append command to the commandQueue
-    d->commandQueue.append(comm);
+//Be sure our M112 is first in the queue.
+    if (comm == GCode::toCommand(GCode::MCommands::M112)) {
+        d->commandQueue.prepend(comm);
+    } else {
+        d->commandQueue.append(comm);
+    }
     if (d->ready) {
         //The printer is ready for a command now so push one.
         processQueue();
@@ -463,8 +467,7 @@ void AtCore::emergencyStop()
             setState(AtCore::STATES::STOP);
         }
     }
-    //push command through serial to bypass atcore's queue.
-    d->serial->pushCommand(GCode::toCommand(GCode::MCommands::M112).toLocal8Bit());
+    pushCommand(GCode::toCommand(GCode::MCommands::M112));
 }
 
 void AtCore::stopSdPrint()
@@ -480,8 +483,10 @@ void AtCore::stopSdPrint()
 void AtCore::requestFirmware()
 {
     if (serialInitialized()) {
+        //ensure M115 is sent on cold connect.
+        d->ready = true;
         qCDebug(ATCORE_CORE) << "Sending " << GCode::description(GCode::MCommands::M115);
-        d->serial->pushCommand(GCode::toCommand(GCode::MCommands::M115).toLocal8Bit());
+        pushCommand(GCode::toCommand(GCode::MCommands::M115));
     } else {
         qCDebug(ATCORE_CORE) << "There is no open device to send commands";
     }
