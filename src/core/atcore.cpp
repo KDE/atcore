@@ -76,7 +76,7 @@ AtCore::AtCore(QObject *parent) :
 {
     //Register MetaTypes
     qRegisterMetaType<AtCore::STATES>("AtCore::STATES");
-    setState(AtCore::DISCONNECTED);
+    setState(AtCore::STATES::DISCONNECTED);
 
     //Create and start the timer that checks for temperature.
     d->tempTimer = new QTimer(this);
@@ -97,7 +97,7 @@ AtCore::AtCore(QObject *parent) :
             return;
         }
     }
-    setState(AtCore::DISCONNECTED);
+    setState(AtCore::STATES::DISCONNECTED);
 }
 
 QString AtCore::version() const
@@ -133,12 +133,12 @@ Temperature &AtCore::temperature() const
 
 void AtCore::findFirmware(const QByteArray &message)
 {
-    if (state() == AtCore::DISCONNECTED) {
+    if (state() == AtCore::STATES::DISCONNECTED) {
         qCWarning(ATCORE_CORE) << tr("Cant find firwmware, serial not connected!");
         return;
     }
 
-    if (state() == AtCore::CONNECTING) {
+    if (state() == AtCore::STATES::CONNECTING) {
         //Most Firmwares will return "start" on connect, some return their firmware name.
         if (message.contains("start")) {
             qCDebug(ATCORE_CORE) << "Waiting requestFirmware.";
@@ -195,7 +195,7 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
             //Plugin was not loaded, Provide some debug info.
             qCDebug(ATCORE_CORE) << "Plugin Loading: Failed.";
             qCDebug(ATCORE_CORE) << d->pluginLoader.errorString();
-            setState(AtCore::CONNECTING);
+            setState(AtCore::STATES::CONNECTING);
         } else {
             //Plugin was loaded successfully.
             d->firmwarePlugin = qobject_cast<IFirmware *>(d->pluginLoader.instance());
@@ -225,7 +225,7 @@ bool AtCore::initSerial(const QString &port, int baud, bool disableROC)
     d->serial = new SerialLayer(port, baud);
     connect(serial(), &SerialLayer::serialError, this, &AtCore::handleSerialError);
     if (serialInitialized() && d->serial->isWritable()) {
-        setState(AtCore::CONNECTING);
+        setState(AtCore::STATES::CONNECTING);
         connect(serial(), &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
         d->serialTimer->stop();
         return true;
@@ -324,12 +324,12 @@ void AtCore::newMessage(const QByteArray &message)
 
 void AtCore::setRelativePosition()
 {
-    pushCommand(GCode::toCommand(GCode::G91));
+    pushCommand(GCode::toCommand(GCode::GCommands::G91));
 }
 
 void AtCore::setAbsolutePosition()
 {
-    pushCommand(GCode::toCommand(GCode::G90));
+    pushCommand(GCode::toCommand(GCode::GCommands::G90));
 }
 
 float AtCore::percentagePrinted() const
@@ -339,20 +339,20 @@ float AtCore::percentagePrinted() const
 
 void AtCore::print(const QString &fileName, bool sdPrint)
 {
-    if (state() == AtCore::CONNECTING) {
+    if (state() == AtCore::STATES::CONNECTING) {
         qCDebug(ATCORE_CORE) << "Load a firmware plugin to print.";
         return;
     }
     //Start a print job.
-    setState(AtCore::STARTPRINT);
+    setState(AtCore::STATES::STARTPRINT);
     //Only try to print from Sd if the firmware has support for sd cards
     if (firmwarePlugin()->isSdSupported()) {
         if (sdPrint) {
             //Printing from the sd card requires us to send some M commands.
-            pushCommand(GCode::toCommand(GCode::M23, fileName));
+            pushCommand(GCode::toCommand(GCode::MCommands::M23, fileName));
             d->sdCardFileName = fileName;
-            pushCommand(GCode::toCommand(GCode::M24));
-            setState(AtCore::BUSY);
+            pushCommand(GCode::toCommand(GCode::MCommands::M24));
+            setState(AtCore::STATES::BUSY);
             d->sdCardPrinting = true;
             connect(d->tempTimer, &QTimer::timeout, this, &AtCore::sdCardPrintStatus);
             return;
@@ -387,10 +387,10 @@ void AtCore::pushCommand(const QString &comm)
 void AtCore::closeConnection()
 {
     if (serialInitialized()) {
-        if (AtCore::state() == AtCore::BUSY && !d->sdCardPrinting) {
+        if (AtCore::state() == AtCore::STATES::BUSY && !d->sdCardPrinting) {
             //We have to clean up the print job if printing from the host.
             //However disconnecting while printing from sd card should not affect the print job.
-            setState(AtCore::STOP);
+            setState(AtCore::STATES::STOP);
         }
         if (firmwarePluginLoaded()) {
             disconnect(firmwarePlugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
@@ -409,7 +409,7 @@ void AtCore::closeConnection()
         serial()->close();
         //Clear our copy of the sdcard filelist
         clearSdCardFileList();
-        setState(AtCore::DISCONNECTED);
+        setState(AtCore::STATES::DISCONNECTED);
         d->serialTimer->start();
     }
 }
@@ -426,7 +426,7 @@ void AtCore::setState(AtCore::STATES state)
                              .arg(QVariant::fromValue(d->printerState).value<QString>(),
                                   QVariant::fromValue(state).value<QString>());
         d->printerState = state;
-        if (state == AtCore::FINISHEDPRINT && d->sdCardPrinting) {
+        if (state == AtCore::STATES::FINISHEDPRINT && d->sdCardPrinting) {
             //Clean up the sd card print
             d->sdCardPrinting = false;
             disconnect(d->tempTimer, &QTimer::timeout, this, &AtCore::sdCardPrintStatus);
@@ -438,14 +438,14 @@ void AtCore::setState(AtCore::STATES state)
 void AtCore::stop()
 {
     //Stop a print job
-    setState(AtCore::STOP);
+    setState(AtCore::STATES::STOP);
     d->commandQueue.clear();
     if (d->sdCardPrinting) {
         stopSdPrint();
     }
     setExtruderTemp(0, 0);
     setBedTemp(0);
-    home(AtCore::X);
+    home(AtCore::AXES::X);
 }
 
 void AtCore::emergencyStop()
@@ -455,31 +455,31 @@ void AtCore::emergencyStop()
     //Before sending the command to ensure
     //Less chance of movement after the restart.
     d->commandQueue.clear();
-    if (AtCore::state() == AtCore::BUSY) {
+    if (AtCore::state() == AtCore::STATES::BUSY) {
         if (!d->sdCardPrinting) {
             //Stop our running print thread
-            setState(AtCore::STOP);
+            setState(AtCore::STATES::STOP);
         }
     }
     //push command through serial to bypass atcore's queue.
-    serial()->pushCommand(GCode::toCommand(GCode::M112).toLocal8Bit());
+    serial()->pushCommand(GCode::toCommand(GCode::MCommands::M112).toLocal8Bit());
 }
 
 void AtCore::stopSdPrint()
 {
     //Stop an SdCard Print.
-    pushCommand(GCode::toCommand(GCode::M25));
+    pushCommand(GCode::toCommand(GCode::MCommands::M25));
     d->sdCardFileName = QString();
-    pushCommand(GCode::toCommand(GCode::M23, d->sdCardFileName));
-    AtCore::setState(AtCore::FINISHEDPRINT);
-    AtCore::setState(AtCore::IDLE);
+    pushCommand(GCode::toCommand(GCode::MCommands::M23, d->sdCardFileName));
+    AtCore::setState(AtCore::STATES::FINISHEDPRINT);
+    AtCore::setState(AtCore::STATES::IDLE);
 }
 
 void AtCore::requestFirmware()
 {
     if (serialInitialized()) {
-        qCDebug(ATCORE_CORE) << "Sending " << GCode::description(GCode::M115);
-        serial()->pushCommand(GCode::toCommand(GCode::M115).toLocal8Bit());
+        qCDebug(ATCORE_CORE) << "Sending " << GCode::description(GCode::MCommands::M115);
+        serial()->pushCommand(GCode::toCommand(GCode::MCommands::M115).toLocal8Bit());
     } else {
         qCDebug(ATCORE_CORE) << "There is no open device to send commands";
     }
@@ -532,11 +532,11 @@ QStringList AtCore::availableFirmwarePlugins() const
 void AtCore::pause(const QString &pauseActions)
 {
     if (d->sdCardPrinting) {
-        pushCommand(GCode::toCommand(GCode::M25));
+        pushCommand(GCode::toCommand(GCode::MCommands::M25));
     }
     //Push the command to request current coordinates.
     //This will be read by AtCore::newMessage and stored for use on resume.
-    pushCommand(GCode::toCommand(GCode::M114));
+    pushCommand(GCode::toCommand(GCode::MCommands::M114));
     if (!pauseActions.isEmpty()) {
         QStringList temp = pauseActions.split(QChar::fromLatin1(','));
         for (int i = 0; i < temp.length(); i++) {
@@ -549,10 +549,10 @@ void AtCore::pause(const QString &pauseActions)
 void AtCore::resume()
 {
     if (d->sdCardPrinting) {
-        pushCommand(GCode::toCommand(GCode::M24));
+        pushCommand(GCode::toCommand(GCode::MCommands::M24));
     } else {
         //Move back to previous coordinates.
-        pushCommand(GCode::toCommand(GCode::G0, QString::fromLatin1(d->posString)));
+        pushCommand(GCode::toCommand(GCode::GCommands::G0, QString::fromLatin1(d->posString)));
     }
     setState(AtCore::BUSY);
 }
@@ -561,25 +561,25 @@ void AtCore::resume()
 
 void AtCore::home()
 {
-    pushCommand(GCode::toCommand(GCode::G28));
+    pushCommand(GCode::toCommand(GCode::GCommands::G28));
 }
 
 void AtCore::home(uchar axis)
 {
     QString args;
 
-    if (axis & AtCore::X) {
+    if (axis & AtCore::AXES::X) {
         args.append(QStringLiteral("X0 "));
     }
 
-    if (axis & AtCore::Y) {
+    if (axis & AtCore::AXES::Y) {
         args.append(QStringLiteral("Y0 "));
     }
 
-    if (axis & AtCore::Z) {
+    if (axis & AtCore::AXES::Z) {
         args.append(QStringLiteral("Z0"));
     }
-    pushCommand(GCode::toCommand(GCode::G28, args));
+    pushCommand(GCode::toCommand(GCode::GCommands::G28, args));
 }
 
 void AtCore::setExtruderTemp(uint temp, uint extruder, bool andWait)
@@ -588,9 +588,9 @@ void AtCore::setExtruderTemp(uint temp, uint extruder, bool andWait)
     extruder = std::min<uint>(extruder, 10000);
 
     if (andWait) {
-        pushCommand(GCode::toCommand(GCode::M109, QString::number(temp), QString::number(extruder)));
+        pushCommand(GCode::toCommand(GCode::MCommands::M109, QString::number(temp), QString::number(extruder)));
     } else {
-        pushCommand(GCode::toCommand(GCode::M104, QString::number(extruder), QString::number(temp)));
+        pushCommand(GCode::toCommand(GCode::MCommands::M104, QString::number(extruder), QString::number(temp)));
     }
 }
 
@@ -599,9 +599,9 @@ void AtCore::setBedTemp(uint temp, bool andWait)
     temp = std::min<uint>(temp, 10000);
 
     if (andWait) {
-        pushCommand(GCode::toCommand(GCode::M190, QString::number(temp)));
+        pushCommand(GCode::toCommand(GCode::MCommands::M190, QString::number(temp)));
     } else {
-        pushCommand(GCode::toCommand(GCode::M140, QString::number(temp)));
+        pushCommand(GCode::toCommand(GCode::MCommands::M140, QString::number(temp)));
     }
 }
 
@@ -610,19 +610,19 @@ void AtCore::setFanSpeed(uint speed, uint fanNumber)
     speed = std::min<uint>(speed, 10000);
     fanNumber = std::min<uint>(fanNumber, 10000);
 
-    pushCommand(GCode::toCommand(GCode::M106, QString::number(fanNumber), QString::number(speed)));
+    pushCommand(GCode::toCommand(GCode::MCommands::M106, QString::number(fanNumber), QString::number(speed)));
 }
 
 void AtCore::setPrinterSpeed(uint speed)
 {
     speed = std::min<uint>(speed, 10000);
-    pushCommand(GCode::toCommand(GCode::M220, QString::number(speed)));
+    pushCommand(GCode::toCommand(GCode::MCommands::M220, QString::number(speed)));
 }
 
 void AtCore::setFlowRate(uint speed)
 {
     speed = std::min<uint>(speed, 10000);
-    pushCommand(GCode::toCommand(GCode::M221, QString::number(speed)));
+    pushCommand(GCode::toCommand(GCode::MCommands::M221, QString::number(speed)));
 }
 
 void AtCore::move(AtCore::AXES axis, double arg)
@@ -636,7 +636,7 @@ void AtCore::move(QLatin1Char axis, double arg)
     //Using QString::number(double, format, precision)
     //f = 'format as [-]9.9'
     //3 = use 3 decimal precision
-    pushCommand(GCode::toCommand(GCode::G1, QStringLiteral("%1 %2").arg(axis).arg(QString::number(arg, 'f', 3))));
+    pushCommand(GCode::toCommand(GCode::GCommands::G1, QStringLiteral("%1 %2").arg(axis).arg(QString::number(arg, 'f', 3))));
 }
 
 int AtCore::extruderCount() const
@@ -678,27 +678,27 @@ void AtCore::processQueue()
 void AtCore::checkTemperature()
 {
     //One request for the temperature in the queue at a time.
-    if (d->commandQueue.contains(GCode::toCommand(GCode::M105))) {
+    if (d->commandQueue.contains(GCode::toCommand(GCode::MCommands::M105))) {
         return;
     }
-    pushCommand(GCode::toCommand(GCode::M105));
+    pushCommand(GCode::toCommand(GCode::MCommands::M105));
 }
 
 void AtCore::showMessage(const QString &message)
 {
     if (!message.isEmpty()) {
-        pushCommand(GCode::toCommand((GCode::M117), message));
+        pushCommand(GCode::toCommand((GCode::MCommands::M117), message));
     }
 }
 
 void AtCore::setUnits(AtCore::UNITS units)
 {
     switch (units) {
-    case AtCore::METRIC:
-        pushCommand(GCode::toCommand(GCode::G21));
+    case AtCore::UNITS::METRIC:
+        pushCommand(GCode::toCommand(GCode::GCommands::G21));
         break;
-    case AtCore::IMPERIAL:
-        pushCommand(GCode::toCommand(GCode::G20));
+    case AtCore::UNITS::IMPERIAL:
+        pushCommand(GCode::toCommand(GCode::GCommands::G20));
         break;
     }
 }
@@ -712,9 +712,9 @@ void AtCore::disableMotors(uint delay)
 {
     //Disables motors
     if (delay) {
-        pushCommand(GCode::toCommand(GCode::M84, QString::number(delay)));
+        pushCommand(GCode::toCommand(GCode::MCommands::M84, QString::number(delay)));
     } else {
-        pushCommand(GCode::toCommand(GCode::M84));
+        pushCommand(GCode::toCommand(GCode::MCommands::M84));
     }
 }
 //Most firmwares will not report if an sdcard is mounted on boot.
@@ -733,7 +733,7 @@ void AtCore::setSdMounted(bool mounted)
 
 void AtCore::getSDFileList()
 {
-    pushCommand(GCode::toCommand(GCode::M20));
+    pushCommand(GCode::toCommand(GCode::MCommands::M20));
 }
 
 QStringList AtCore::sdFileList()
@@ -759,7 +759,7 @@ void AtCore::clearSdCardFileList()
 void AtCore::sdDelete(const QString &fileName)
 {
     if (d->sdCardFileList.contains(fileName)) {
-        pushCommand(GCode::toCommand(GCode::M30, fileName));
+        pushCommand(GCode::toCommand(GCode::MCommands::M30, fileName));
         getSDFileList();
     } else {
         qCDebug(ATCORE_CORE) << "Delete failed file not found:" << fileName;
@@ -768,12 +768,12 @@ void AtCore::sdDelete(const QString &fileName)
 
 void AtCore::mountSd(uint slot)
 {
-    pushCommand(GCode::toCommand(GCode::M21, QString::number(slot)));
+    pushCommand(GCode::toCommand(GCode::MCommands::M21, QString::number(slot)));
 }
 
 void AtCore::umountSd(uint slot)
 {
-    pushCommand(GCode::toCommand(GCode::M22, QString::number(slot)));
+    pushCommand(GCode::toCommand(GCode::MCommands::M22, QString::number(slot)));
 }
 
 bool AtCore::isReadingSdCardList() const
@@ -789,10 +789,10 @@ void AtCore::setReadingSdCardList(bool readingList)
 void AtCore::sdCardPrintStatus()
 {
     //One request for the Sd Job status in the queue at a time.
-    if (d->commandQueue.contains(GCode::toCommand(GCode::M27))) {
+    if (d->commandQueue.contains(GCode::toCommand(GCode::MCommands::M27))) {
         return;
     }
-    pushCommand(GCode::toCommand(GCode::M27));
+    pushCommand(GCode::toCommand(GCode::MCommands::M27));
 }
 
 void AtCore::disableResetOnConnect(const QString &port)
@@ -818,24 +818,24 @@ void AtCore::handleSerialError(QSerialPort::SerialPortError error)
     QString errorString;
 
     switch (error) {
-    case (QSerialPort::DeviceNotFoundError):
+    case (QSerialPort::SerialPortError::DeviceNotFoundError):
         errorString = tr("Device not found");
         break;
-    case (QSerialPort::WriteError):
+    case (QSerialPort::SerialPortError::WriteError):
         errorString = tr("Unable to write to device");
         break;
-    case (QSerialPort::ReadError):
+    case (QSerialPort::SerialPortError::ReadError):
         errorString = tr("Unable to read from device");
         break;
-    case (QSerialPort::ResourceError):
-    case (QSerialPort::TimeoutError):
+    case (QSerialPort::SerialPortError::ResourceError):
+    case (QSerialPort::SerialPortError::TimeoutError):
         errorString = tr("The device no longer available");
         closeConnection();
         break;
-    case (QSerialPort::UnsupportedOperationError):
+    case (QSerialPort::SerialPortError::UnsupportedOperationError):
         errorString = tr("Device does not support the operation");
         break;
-    case (QSerialPort::UnknownError):
+    case (QSerialPort::SerialPortError::UnknownError):
         errorString = tr("Unknown Error");
         break;
     default:
