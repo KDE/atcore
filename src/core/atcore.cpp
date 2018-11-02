@@ -408,6 +408,7 @@ void AtCore::closeConnection()
             QString name = firmwarePlugin()->name();
             QString msg = d->pluginLoader.unload() ? QStringLiteral("closed.") : QStringLiteral("Failed to close.");
             qCDebug(ATCORE_CORE) << QStringLiteral("Firmware plugin %1 %2").arg(name, msg);
+            d->firmwarePlugin = nullptr;
         }
         //Do not reset the connect on disconnect when closing this will cause a reset on connect for the next connection.
         disconnect(d->serial, &SerialLayer::serialError, this, &AtCore::handleSerialError);
