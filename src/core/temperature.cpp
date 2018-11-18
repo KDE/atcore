@@ -34,10 +34,10 @@
 class Temperature::TemperaturePrivate
 {
 public:
-    float extruderTemp;         //!< @param extruderTemp: Extruder current temperature
-    float extruderTargetTemp;   //!< @param extruderTargetTemp: Extruder target temperature
-    float bedTemp;              //!< @param bedTemp: Bed current temperature
-    float bedTargetTemp;        //!< @param bedTargetTemp: Bed target temperature
+    float extruderTemp = 0.0;         //!< @param extruderTemp: Extruder current temperature
+    float extruderTargetTemp = 0.0;   //!< @param extruderTargetTemp: Extruder target temperature
+    float bedTemp = 0.0;              //!< @param bedTemp: Bed current temperature
+    float bedTargetTemp = 0.0;        //!< @param bedTargetTemp: Bed target temperature
 };
 
 Temperature::Temperature(QObject *parent)
