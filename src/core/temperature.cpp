@@ -93,10 +93,10 @@ void Temperature::setExtruderTemperature(float temp)
 void Temperature::decodeTemp(const QByteArray &msg)
 {
     //Capture after T: until next space
-    static QRegularExpression tempRegEx(QStringLiteral("T:(?<extruder>\\d+\\.?\\d*)"));
+    static const QRegularExpression tempRegEx(QStringLiteral("T:(?<extruder>\\d+\\.?\\d*)"));
     QRegularExpressionMatch tempCheck = tempRegEx.match(QString::fromLatin1(msg));
     //Find T:## /## and store the second set of numbers
-    static QRegularExpression targetTempRegEx(QStringLiteral("T:[^\\/]*\\/(?<extruderTarget>\\d+\\.?\\d*)"));
+    static const QRegularExpression targetTempRegEx(QStringLiteral("T:[^\\/]*\\/(?<extruderTarget>\\d+\\.?\\d*)"));
     QRegularExpressionMatch targetTempCheck = targetTempRegEx.match(QString::fromLatin1(msg));
 
     if (tempCheck.hasMatch()) {
@@ -109,7 +109,7 @@ void Temperature::decodeTemp(const QByteArray &msg)
 
     if (msg.indexOf(QStringLiteral("B:")) != -1) {
         //Capture after B: until next space
-        static QRegularExpression bedRegEx(QStringLiteral("B:(?<bed>\\d+\\.?\\d*)"));
+        static const QRegularExpression bedRegEx(QStringLiteral("B:(?<bed>\\d+\\.?\\d*)"));
         QRegularExpressionMatch bedCheck = bedRegEx.match(QString::fromLatin1(msg));
         //Find B:## /## and store the second set of numbers
         static QRegularExpression targetBedRegEx(QStringLiteral("B:[^\\/]*\\/(?<bedTarget>\\d+\\.?\\d*)"));
