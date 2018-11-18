@@ -34,10 +34,10 @@
 class Temperature::TemperaturePrivate
 {
 public:
-    float extruderTemp;         //!< @param extruderTemp: Extruder current temperature
-    float extruderTargetTemp;   //!< @param extruderTargetTemp: Extruder target temperature
-    float bedTemp;              //!< @param bedTemp: Bed current temperature
-    float bedTargetTemp;        //!< @param bedTargetTemp: Bed target temperature
+    float extruderTemp = 0.0;         //!< @param extruderTemp: Extruder current temperature
+    float extruderTargetTemp = 0.0;   //!< @param extruderTargetTemp: Extruder target temperature
+    float bedTemp = 0.0;              //!< @param bedTemp: Bed current temperature
+    float bedTargetTemp = 0.0;        //!< @param bedTargetTemp: Bed target temperature
 };
 
 Temperature::Temperature(QObject *parent)
@@ -93,10 +93,10 @@ void Temperature::setExtruderTemperature(float temp)
 void Temperature::decodeTemp(const QByteArray &msg)
 {
     //Capture after T: until next space
-    static QRegularExpression tempRegEx(QStringLiteral("T:(?<extruder>\\d+\\.?\\d*)"));
+    static const QRegularExpression tempRegEx(QStringLiteral(R"(T:(?<extruder>\d+\.\d*))"));
     QRegularExpressionMatch tempCheck = tempRegEx.match(QString::fromLatin1(msg));
     //Find T:## /## and store the second set of numbers
-    static QRegularExpression targetTempRegEx(QStringLiteral("T:[^\\/]*\\/(?<extruderTarget>\\d+\\.?\\d*)"));
+    static const QRegularExpression targetTempRegEx(QStringLiteral(R"(T:[^\/]*\/(?<extruderTarget>\d+\.?\d*))"));
     QRegularExpressionMatch targetTempCheck = targetTempRegEx.match(QString::fromLatin1(msg));
 
     if (tempCheck.hasMatch()) {
@@ -109,10 +109,10 @@ void Temperature::decodeTemp(const QByteArray &msg)
 
     if (msg.indexOf(QStringLiteral("B:")) != -1) {
         //Capture after B: until next space
-        static QRegularExpression bedRegEx(QStringLiteral("B:(?<bed>\\d+\\.?\\d*)"));
+        static const QRegularExpression bedRegEx(QStringLiteral(R"(B:(?<bed>\d+\.\d*))"));
         QRegularExpressionMatch bedCheck = bedRegEx.match(QString::fromLatin1(msg));
         //Find B:## /## and store the second set of numbers
-        static QRegularExpression targetBedRegEx(QStringLiteral("B:[^\\/]*\\/(?<bedTarget>\\d+\\.?\\d*)"));
+        static QRegularExpression targetBedRegEx(QStringLiteral(R"(B:[^\/]*\/(?<bedTarget>\d+\.?\d*))"));
         QRegularExpressionMatch targetBedCheck = targetBedRegEx.match(QString::fromLatin1(msg));
 
         if (bedCheck.hasMatch()) {
