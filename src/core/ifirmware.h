@@ -53,7 +53,7 @@ public:
     virtual bool isSdSupported() const = 0;
 
     /**
-     * @brief Virtual name to be reimplemnted by Firmware plugin
+     * @brief Virtual name to be reimplemented by Firmware plugin
      *
      * Return the name the firmware the plugin is for
      * @return Firmware Name
@@ -61,13 +61,13 @@ public:
     virtual QString name() const = 0;
 
     /**
-     * @brief Vitural validateCommand to filter commands from messages
+     * @brief Virtual validateCommand to filter commands from messages
      * @param lastMessage: last Message from printer
      */
     virtual void validateCommand(const QString &lastMessage);
 
     /**
-     * @brief Virtual translate to be reimplemnted by Firmwareplugin
+     * @brief Virtual translate to be reimplemented by Firmwareplugin
      *
      * Translate common commands to firmware specific command.
      * @param command: Command command to translate
