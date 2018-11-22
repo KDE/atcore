@@ -120,6 +120,7 @@ public:
      * @param parent: parent of the object
      */
     explicit AtCore(QObject *parent = nullptr);
+    ~AtCore() = default;
 
     /**
      * @brief version
@@ -186,7 +187,7 @@ public:
      * @return State of the printer
      * @sa setState(),stateChanged(),AtCore::STATES
      */
-    AtCore::STATES state(void);
+    AtCore::STATES state();
 
     /**
      * @brief extruderCount
