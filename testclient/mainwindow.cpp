@@ -365,44 +365,36 @@ void MainWindow::closeEvent(QCloseEvent *event)
     event->accept();
 }
 
-MainWindow::~MainWindow()
-{
-
-}
-
 void MainWindow::checkTemperature(uint sensorType, uint number, float temp)
 {
     QString msg;
     switch (sensorType) {
     case 0x00: // bed
-        msg = QString::fromLatin1("Bed Temperature ");
+        msg = QString::fromLatin1("Bed Temperature");
         break;
 
     case 0x01: // bed target
-        msg = QString::fromLatin1("Bed Target Temperature ");
+        msg = QString::fromLatin1("Bed Target Temperature");
         break;
 
     case 0x02: // extruder
-        msg = QString::fromLatin1("Extruder Temperature ");
+        msg = QString::fromLatin1("Extruder[%1] Temperature").arg(QString::number(number));;
         break;
 
     case 0x03: // extruder target
-        msg = QString::fromLatin1("Extruder Target Temperature ");
+        msg = QString::fromLatin1("Extruder[%1] Target Temperature").arg(QString::number(number));
         break;
 
     case 0x04: // enclosure
-        msg = QString::fromLatin1("Enclosure Temperature ");
+        msg = QString::fromLatin1("Enclosure Temperature");
         break;
 
     case 0x05: // enclosure target
-        msg = QString::fromLatin1("Enclosure Target Temperature ");
+        msg = QString::fromLatin1("Enclosure Target Temperature");
         break;
     }
 
-    msg.append(QString::fromLatin1("[%1] : %2").arg(
-                   QString::number(number), QString::number(double(temp), 'f', 2)
-               ));
-
+    msg.append(QString::fromLatin1(": %1").arg(QString::number(double(temp), 'f', 2)));
     logWidget->appendLog(msg);
 }
 /**
@@ -485,7 +477,7 @@ void MainWindow::printPBClicked()
     }
 }
 
-void MainWindow::pluginCBChanged(QString currentText)
+void MainWindow::pluginCBChanged(const QString &currentText)
 {
     if (core->state() != AtCore::DISCONNECTED) {
         if (!currentText.contains(tr("Autodetect"))) {
