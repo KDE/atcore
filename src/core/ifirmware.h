@@ -44,7 +44,7 @@ class ATCORE_EXPORT  IFirmware : public QObject
 public:
     IFirmware();
     void init(AtCore *parent);
-    ~IFirmware() override;
+    ~IFirmware() override = default;
 
     /**
      * @brief Check for plugin support of sd cards.

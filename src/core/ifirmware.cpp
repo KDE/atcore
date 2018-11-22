@@ -45,6 +45,7 @@ IFirmware::IFirmware()
 
 void IFirmware::init(AtCore *parent)
 {
+    setParent(parent);
     d->parent = parent;
     connect(d->parent, &AtCore::receivedMessage, this, &IFirmware::checkCommand);
 }
@@ -54,10 +55,6 @@ AtCore *IFirmware::core() const
     return d->parent;
 }
 
-IFirmware::~IFirmware()
-{
-}
-
 void IFirmware::checkCommand(const QByteArray &lastMessage)
 {
     validateCommand(QString::fromLatin1(lastMessage));
@@ -65,7 +62,7 @@ void IFirmware::checkCommand(const QByteArray &lastMessage)
 
 void IFirmware::validateCommand(const QString &lastMessage)
 {
-    if (lastMessage.contains(d->_ok)) {
+    if (lastMessage.contains(IFirmwarePrivate::_ok)) {
         emit readyForCommand();
     }
 }
