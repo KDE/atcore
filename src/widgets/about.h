@@ -34,6 +34,6 @@ class ATCOREWIDGETS_EXPORT About : public QDialog
     Q_OBJECT
 public:
     explicit About(QWidget *parent = 0);
-    ~About();
+    ~About() = default;
 };
 #endif // ABOUT_H
