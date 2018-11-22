@@ -43,7 +43,7 @@ public:
      * @param parent: Parent of the tread
      * @param fileName: gcode File to print
      */
-    PrintThread(AtCore *parent, QString fileName);
+    PrintThread(AtCore *parent, const QString &fileName);
 signals:
     /**
     * @brief Print job has finished
