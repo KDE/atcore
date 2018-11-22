@@ -44,7 +44,7 @@ PlotWidget::PlotWidget(QWidget *parent) :
         _chart->chart()->setTheme(QChart::ChartThemeDark);
     }
 
-    QHBoxLayout *mainLayout = new QHBoxLayout;
+    auto mainLayout = new QHBoxLayout;
     mainLayout->addWidget(_chart);
     setLayout(mainLayout);
 }
@@ -92,8 +92,4 @@ void PlotWidget::setMaximumPoints(const int newMax)
 void PlotWidget::setMaximumTemperature(const uint maxTemp)
 {
     _chart->chart()->axisY()->setRange(0, maxTemp);
-}
-
-PlotWidget::~PlotWidget()
-{
 }
