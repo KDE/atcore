@@ -30,19 +30,19 @@ LogWidget::LogWidget(QTemporaryFile *tempFile, QWidget *parent) :
     logFile(tempFile)
 {
     QSize iconSize = QSize(fontMetrics().height(), fontMetrics().height());
-    auto *page = new QWidget;
-    textLog = new QPlainTextEdit;
+    auto page = new QWidget(this);
+    textLog = new QPlainTextEdit(this);
     textLog->setReadOnly(true);
     textLog->setMaximumBlockCount(1000);
     auto pageLayout = new QVBoxLayout;
     pageLayout->addWidget(textLog);
     page->setLayout(pageLayout);
 
-    QStackedWidget *mainStack = new QStackedWidget;
+    auto mainStack = new QStackedWidget(this);
     mainStack->insertWidget(0, page);
 
-    page = new QWidget;
-    auto textbox = new QTextEdit;
+    page = new QWidget(this);
+    auto textbox = new QTextEdit(this);
     textbox->setReadOnly(true);
     textbox->setHtml(tr("\
                         <h4>Special Log Entries</h4> \
@@ -63,11 +63,11 @@ LogWidget::LogWidget(QTemporaryFile *tempFile, QWidget *parent) :
     page->setLayout(pageLayout);
     mainStack->insertWidget(1, page);
 
-    auto saveButton = new QPushButton(QIcon::fromTheme(QStringLiteral("document-save"), style()->standardIcon(QStyle::SP_DialogSaveButton)), tr("Save Session Log"));
+    auto saveButton = new QPushButton(QIcon::fromTheme(QStringLiteral("document-save"), style()->standardIcon(QStyle::SP_DialogSaveButton)), tr("Save Session Log"), this);
     saveButton->setIconSize(iconSize);
     connect(saveButton, &QPushButton::clicked, this, &LogWidget::savePressed);
 
-    auto helpButton = new QToolButton();
+    auto helpButton = new QToolButton(this);
     helpButton->setCheckable(true);
     helpButton->setChecked(false);
     helpButton->setIconSize(iconSize);
@@ -117,7 +117,7 @@ void LogWidget::appendSLog(const QByteArray &bmsg)
     writeTempFile(message);
 }
 
-void LogWidget::writeTempFile(QString text)
+void LogWidget::writeTempFile(const QString &text)
 {
     //Add text to our unsynced string list when that hits 100 sync to the temp file.
     unsyncedStrings.append(text);

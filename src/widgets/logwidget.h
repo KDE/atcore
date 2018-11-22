@@ -73,7 +73,7 @@ private:
      * @brief Append text in temporary file
      * @param text
      */
-    void writeTempFile(QString text);
+    void writeTempFile(const QString &text);
 
     /**
      * @brief flush unwritten strings to temp file
