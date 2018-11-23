@@ -28,13 +28,13 @@ AxisControl::AxisControl(QWidget *parent) :
     , sbValue(new QDoubleSpinBox)
 {
     auto mainLayout = new QVBoxLayout;
-    auto newLabel = new QLabel(tr("Move Axis"));
+    auto newLabel = new QLabel(tr("Move Axis"), this);
     sbValue->setSuffix(QStringLiteral(" mm"));
     sbValue->setDecimals(3);
     sbValue->setMaximum(100.0);
     sbValue->setValue(1);
 
-    auto comboUnits = new QComboBox();
+    auto comboUnits = new QComboBox(this);
     comboUnits->addItems(QStringList {QStringLiteral("Metric"), QStringLiteral("Imperial")});
 
     connect(comboUnits, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this](int selection) {
@@ -51,14 +51,14 @@ AxisControl::AxisControl(QWidget *parent) :
     layout->addWidget(sbValue);
     layout->addWidget(comboUnits);
 
-    auto newWidget = new QWidget();
+    auto newWidget = new QWidget(this);
     newWidget->setLayout(layout);
     newWidget->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     mainLayout->addWidget(newWidget);
 
     QSize iconSize = QSize(fontMetrics().height(), fontMetrics().height());
     auto glayout = new QGridLayout();
-    newLabel = new QLabel(QStringLiteral("X/Y"));
+    newLabel = new QLabel(QStringLiteral("X/Y"), this);
     newLabel->setAlignment(Qt::AlignCenter);
     glayout->addWidget(newLabel, 2, 1);
 
@@ -85,7 +85,7 @@ AxisControl::AxisControl(QWidget *parent) :
 
 QPushButton *AxisControl::makeButton(const QLatin1Char axis, int multiplier, const QSize &iconSize, const QString &themeIcon, const QString &fallbackText)
 {
-    auto button = new QPushButton(QIcon::fromTheme(themeIcon), QString());
+    auto button = new QPushButton(QIcon::fromTheme(themeIcon), QString(), this);
     button->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     if (button->icon().isNull()) {
         button->setText(fallbackText);
@@ -110,14 +110,14 @@ QWidget *AxisControl::makeSimpleAxis(const QLatin1Char axis, const QSize &iconSi
 
     vLayout->addWidget(makeButton(axis, multiplier, iconSize, QStringLiteral("arrow-up"), QStringLiteral("↑")));
 
-    auto label = new QLabel(QString(axis));
+    auto label = new QLabel(QString(axis), this);
     label->setAlignment(Qt::AlignCenter);
     vLayout->addWidget(label);
 
     multiplier *= -1;
     vLayout->addWidget(makeButton(axis, multiplier, iconSize, QStringLiteral("arrow-down"), QStringLiteral("↓")));
 
-    auto widget = new QWidget();
+    auto widget = new QWidget(this);
     widget->setLayout(vLayout);
     return widget;
 }

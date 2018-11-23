@@ -36,6 +36,7 @@ public:
      * @param parent: Parent of this widget.
      */
     MovementWidget(bool showHomeAndDisableWidgets = true, QWidget *parent = nullptr);
+    ~MovementWidget() = default;
 
 signals:
     /**

@@ -29,34 +29,34 @@ StatusWidget::StatusWidget(bool showStop, QWidget *parent) :
     //first create the item for the print Progress.
     auto hBoxLayout = new QHBoxLayout;
 
-    printingProgress = new QProgressBar;
+    printingProgress = new QProgressBar(this);
     printingProgress->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
     hBoxLayout->addWidget(printingProgress);
 
     if (showStop) {
-        auto newButton = new QPushButton(style()->standardIcon(QStyle::SP_BrowserStop), QString());
+        auto newButton = new QPushButton(style()->standardIcon(QStyle::SP_BrowserStop), QString(), this);
         connect(newButton, &QPushButton::clicked, this, [this] {
             emit stopPressed();
         });
         hBoxLayout->addWidget(newButton);
     }
 
-    lblTime = new QLabel(QStringLiteral("00:00:00"));
+    lblTime = new QLabel(QStringLiteral("00:00:00"), this);
     lblTime->setAlignment(Qt::AlignHCenter);
-    auto newLabel = new QLabel(QStringLiteral(" / "));
-    lblTimeLeft = new QLabel(QStringLiteral("??:??:??"));
+    auto newLabel = new QLabel(QStringLiteral(" / "), this);
+    lblTimeLeft = new QLabel(QStringLiteral("??:??:??"), this);
     lblTimeLeft->setAlignment(Qt::AlignHCenter);
 
     hBoxLayout->addWidget(lblTime);
     hBoxLayout->addWidget(newLabel);
     hBoxLayout->addWidget(lblTimeLeft);
-    printProgressWidget = new QWidget();
+    printProgressWidget = new QWidget(this);
     printProgressWidget->setLayout(hBoxLayout);
 
     //Then Create the full bar.
-    newLabel = new QLabel(tr("AtCore State:"));
-    lblState = new QLabel(tr("Not Connected"));
-    lblSd = new QLabel();
+    newLabel = new QLabel(tr("AtCore State:"), this);
+    lblState = new QLabel(tr("Not Connected"), this);
+    lblSd = new QLabel(this);
 
     spacer = new QSpacerItem(10, 20, QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
 
@@ -71,7 +71,7 @@ StatusWidget::StatusWidget(bool showStop, QWidget *parent) :
     setLayout(hBoxLayout);
 
     printTime = new QTime();
-    printTimer = new QTimer();
+    printTimer = new QTimer(this);
     printTimer->setInterval(1000);
     printTimer->setSingleShot(false);
     connect(printTimer, &QTimer::timeout, this, &StatusWidget::updatePrintTime);
