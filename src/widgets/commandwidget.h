@@ -32,6 +32,7 @@ class ATCOREWIDGETS_EXPORT CommandWidget : public QWidget
     Q_OBJECT
 public:
     CommandWidget(QWidget *parent = nullptr);
+    ~CommandWidget() = default;
 
 signals:
     /**

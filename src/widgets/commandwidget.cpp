@@ -31,11 +31,11 @@ CommandWidget::CommandWidget(QWidget *parent) :
     //Begin making content from top to bottom or left to right.
     //Making child layouts in the order you want to put them
     // onto the mainLayout
-    lineCommand = new QLineEdit;
+    lineCommand = new QLineEdit(this);
     lineCommand->setPlaceholderText(tr("Send Command"));
 
     //we have a few buttons to make here. Lets name this newButton so its easier to reuse
-    auto newButton = new QPushButton(tr("Send"));
+    auto newButton = new QPushButton(tr("Send"), this);
     connect(newButton, &QPushButton::clicked, this, [this] {
         emit commandPressed(lineCommand->text());
         lineCommand->clear();
@@ -49,11 +49,11 @@ CommandWidget::CommandWidget(QWidget *parent) :
     mainLayout->addLayout(hBoxLayout);
 
     //Start making items for the next layout to place onto the mainLayout.
-    lineMessage = new QLineEdit;
+    lineMessage = new QLineEdit(this);
     lineMessage->setPlaceholderText(tr("Show Message"));
 
     //Reuse our button pointer.
-    newButton = new QPushButton(tr("Send"));
+    newButton = new QPushButton(tr("Send"), this);
 
     connect(newButton, &QPushButton::clicked, this, [this] {
         emit messagePressed(lineMessage->text());

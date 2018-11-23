@@ -42,7 +42,7 @@ public:
      * @brief Create new AprinterPlugin
      */
     AprinterPlugin();
-
+    ~AprinterPlugin() = default;
     /**
      * @brief Check for plugin support of sd cards.
      * @return True if firmware plugin supports sd cards.

@@ -34,6 +34,7 @@ public:
      * @param parent
      */
     SdWidget(QWidget *parent = nullptr);
+    ~SdWidget() = default;
 
     /**
      * @brief update the list of files on the card.

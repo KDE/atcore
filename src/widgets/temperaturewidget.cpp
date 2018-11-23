@@ -25,16 +25,16 @@ TemperatureWidget::TemperatureWidget(QWidget *parent) :
     QWidget(parent)
 {
     auto *mainLayout = new QVBoxLayout;
-    checkAndWait = new QCheckBox(tr("Wait Until Temperature Stabilizes"));
+    checkAndWait = new QCheckBox(tr("Wait Until Temperature Stabilizes"), this);
     mainLayout->addWidget(checkAndWait);
 
-    auto label = new QLabel(tr("Bed Temp"));
+    auto label = new QLabel(tr("Bed Temp"), this);
 
-    sbBedTemp = new QSpinBox;
+    sbBedTemp = new QSpinBox(this);
     sbBedTemp->setRange(0, 120);
     sbBedTemp->setSuffix(QStringLiteral("°C"));
 
-    auto *newButton = new QPushButton(tr("Set"));
+    auto *newButton = new QPushButton(tr("Set"), this);
     connect(newButton, &QPushButton::clicked, this, [this] {
         emit bedTempChanged(sbBedTemp->value(), checkAndWait->isChecked());
     });
@@ -45,12 +45,12 @@ TemperatureWidget::TemperatureWidget(QWidget *parent) :
     hboxLayout->addWidget(newButton);
     mainLayout->addItem(hboxLayout);
 
-    comboExtruderSelect = new QComboBox;
-    sbExtruderTemp = new QSpinBox;
+    comboExtruderSelect = new QComboBox(this);
+    sbExtruderTemp = new QSpinBox(this);
     sbExtruderTemp->setRange(0, 275);
     sbExtruderTemp->setSuffix(QStringLiteral("°C"));
 
-    newButton = new QPushButton(tr("Set"));
+    newButton = new QPushButton(tr("Set"), this);
     connect(newButton, &QPushButton::clicked, this, [this] {
         emit extTempChanged(sbExtruderTemp->value(), comboExtruderSelect->currentIndex(), checkAndWait->isChecked());
     });

@@ -43,7 +43,7 @@ class  MainWindow: public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow() override;
+    ~MainWindow() override = default;
 
 public slots:
     /**
@@ -102,7 +102,7 @@ private:
     /**
      * @brief pluginCB index changed
      */
-    void pluginCBChanged(QString currentText);
+    void pluginCBChanged(const QString &currentText);
 
     /**
      * @brief setupActions for KXMLGui

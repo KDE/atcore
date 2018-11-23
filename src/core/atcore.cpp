@@ -48,26 +48,46 @@ Q_LOGGING_CATEGORY(ATCORE_CORE, "org.kde.atelier.core")
  * Provides a private data set for atcore.
  */
 struct AtCore::AtCorePrivate {
-    IFirmware *firmwarePlugin = nullptr;//!< @param firmwarePlugin: pointer to firmware plugin
-    SerialLayer *serial = nullptr;      //!< @param serial: pointer to the serial layer
-    QPluginLoader pluginLoader;         //!< @param pluginLoader: QPluginLoader
-    QMap<QString, QString> plugins;     //!< @param plugins: Map of plugins name / path
-    QByteArray lastMessage;             //!< @param lastMessage: lastMessage from the printer
-    int extruderCount = 1;              //!< @param extruderCount: extruder count
-    Temperature temperature;            //!< @param temperature: Temperature object
-    QStringList commandQueue;           //!< @param commandQueue: the list of commands to send to the printer
-    bool ready = false;                 //!< @param ready: True if printer is ready for a command
-    QTimer *tempTimer = nullptr;        //!< @param tempTimer: timer connected to the checkTemperature function
-    float percentage;                   //!< @param percentage: print job percent
-    QByteArray posString;               //!< @param posString: stored string from last M114 return
-    AtCore::STATES printerState;        //!< @param printerState: State of the Printer
-    QStringList serialPorts;            //!< @param seralPorts: Detected serial Ports
-    QTimer *serialTimer = nullptr;      //!< @param serialTimer: Timer connected to locateSerialPorts
-    bool sdCardMounted = false;         //!< @param sdCardMounted: True if Sd Card is mounted.
-    bool sdCardReadingFileList = false; //!< @param sdCardReadingFileList: True while getting file names from sd card
-    bool sdCardPrinting = false;        //!< @param sdCardPrinting: True if currently printing from sd card.
-    QString sdCardFileName;             //!< @param sdCardFileName: name of file being used from sd card.
-    QStringList sdCardFileList;         //!< @param sdCardFileList: List of files on sd card.
+    /** firmwarePlugin: pointer to firmware plugin */
+    IFirmware *firmwarePlugin = nullptr;
+    /** serial: pointer to the serial layer */
+    SerialLayer *serial = nullptr;
+    /** pluginLoader: QPluginLoader */
+    QPluginLoader pluginLoader;
+    /** plugins: Map of plugins name / path */
+    QMap<QString, QString> plugins;
+    /** lastMessage: lastMessage from the printer */
+    QByteArray lastMessage;
+    /** extruderCount: extruder count */
+    int extruderCount = 1;
+    /** temperature: Temperature object */
+    Temperature temperature;
+    /** commandQueue: the list of commands to send to the printer */
+    QStringList commandQueue;
+    /** ready: True if printer is ready for a command */
+    bool ready = false;
+    /** tempTimer: timer connected to the checkTemperature function */
+    QTimer *tempTimer = nullptr;
+    /** percentage: print job percent */
+    float percentage = 0.0;
+    /** posString: stored string from last M114 return */
+    QByteArray posString;
+    /** printerState: State of the Printer */
+    AtCore::STATES printerState = AtCore::DISCONNECTED;
+    /** seralPorts: Detected serial Ports */
+    QStringList serialPorts;
+    /** serialTimer: Timer connected to locateSerialPorts */
+    QTimer *serialTimer = nullptr;
+    /** sdCardMounted: True if Sd Card is mounted. */
+    bool sdCardMounted = false;
+    /** sdCardReadingFileList: True while getting file names from sd card */
+    bool sdCardReadingFileList = false;
+    /** sdCardPrinting: True if currently printing from sd card. */
+    bool sdCardPrinting = false;
+    /** sdCardFileName: name of file being used from sd card. */
+    QString sdCardFileName;
+    /** sdCardFileList: List of files on sd card. */
+    QStringList sdCardFileList;
 };
 
 AtCore::AtCore(QObject *parent) :
@@ -139,10 +159,12 @@ void AtCore::findFirmware(const QByteArray &message)
             qCDebug(ATCORE_CORE) << "Waiting requestFirmware.";
             QTimer::singleShot(500, this, &AtCore::requestFirmware);
             return;
-        } else if (message.contains("Grbl")) {
+        }
+        if (message.contains("Grbl")) {
             loadFirmwarePlugin(QString::fromLatin1("grbl"));
             return;
-        } else if (message.contains("Smoothie")) {
+        }
+        if (message.contains("Smoothie")) {
             loadFirmwarePlugin(QString::fromLatin1("smoothie"));
             return;
         }
@@ -217,7 +239,7 @@ bool AtCore::initSerial(const QString &port, int baud, bool disableROC)
         disableResetOnConnect(port);
     }
 
-    d->serial = new SerialLayer(port, baud);
+    d->serial = new SerialLayer(port, baud, this);
     connect(d->serial, &SerialLayer::serialError, this, &AtCore::handleSerialError);
     if (serialInitialized() && d->serial->isWritable()) {
         setState(AtCore::CONNECTING);
@@ -225,11 +247,11 @@ bool AtCore::initSerial(const QString &port, int baud, bool disableROC)
         connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
         d->serialTimer->stop();
         return true;
-    } else {
-        qCDebug(ATCORE_CORE) << "Failed to open device for Read / Write.";
-        emit atcoreMessage(tr("Failed to open device in read/write mode."));
-        return false;
     }
+    qCDebug(ATCORE_CORE) << "Failed to open device for Read / Write.";
+    emit atcoreMessage(tr("Failed to open device in read/write mode."));
+    return false;
+
 }
 
 bool AtCore::serialInitialized() const
@@ -362,8 +384,8 @@ void AtCore::print(const QString &fileName, bool sdPrint)
     //Process the gcode with a printThread.
     //The Thread processes the gcode without freezing the libary.
     //Only sends a command back when the printer is ready, avoiding buffer overflow in the printer.
-    QThread *thread = new QThread();
-    PrintThread *printThread = new PrintThread(this, fileName);
+    auto thread = new QThread(this);
+    auto printThread = new PrintThread(this, fileName);
     printThread->moveToThread(thread);
 
     connect(printThread, &PrintThread::printProgressChanged, this, &AtCore::printProgressChanged, Qt::QueuedConnection);
@@ -421,7 +443,7 @@ void AtCore::closeConnection()
     }
 }
 
-AtCore::STATES AtCore::state(void)
+AtCore::STATES AtCore::state()
 {
     return d->printerState;
 }
@@ -430,8 +452,8 @@ void AtCore::setState(AtCore::STATES state)
 {
     if (state != d->printerState) {
         qCDebug(ATCORE_CORE) << QStringLiteral("Atcore state changed from [%1] to [%2]")
-                             .arg(QVariant::fromValue(d->printerState).value<QString>(),
-                                  QVariant::fromValue(state).value<QString>());
+                             .arg(QVariant::fromValue(d->printerState).toString(),
+                                  QVariant::fromValue(state).toString());
         d->printerState = state;
         if (state == AtCore::STATES::FINISHEDPRINT && d->sdCardPrinting) {
             //Clean up the sd card print
@@ -495,11 +517,7 @@ void AtCore::requestFirmware()
 
 bool AtCore::firmwarePluginLoaded() const
 {
-    if (firmwarePlugin()) {
-        return true;
-    } else {
-        return false;
-    }
+    return firmwarePlugin();
 }
 
 QMap<QString, QString> AtCore::findFirmwarePlugins(const QString &path)
@@ -807,7 +825,7 @@ void AtCore::disableResetOnConnect(const QString &port)
 {
 #if defined(Q_OS_UNIX)
 //should work on all unix'
-    QProcess process;
+    QProcess process(this);
     QStringList args({QStringLiteral("-F/dev/%1").arg(port), QStringLiteral("-hupcl")});
     process.start(QStringLiteral("stty"), args);
     process.waitForFinished(500);

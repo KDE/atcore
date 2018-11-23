@@ -36,6 +36,7 @@ public:
      * @param parent: parent of this widget.
      */
     StatusWidget(bool showStop = true, QWidget *parent = nullptr);
+    ~StatusWidget() = default;
     /**
      * @brief Set if the status area should show SD card inserted.
      * @param hasSd

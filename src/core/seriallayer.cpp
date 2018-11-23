@@ -56,11 +56,16 @@ QStringList _validBaudRates = {
 class SerialLayer::SerialLayerPrivate
 {
 public:
-    bool _serialOpened;                 //!< @param _serialOpened: is serial port opened
-    QSerialPort::SerialPortError _lastError; //!< @param _lastError: the last reported error
-    QByteArray _rawData;                //!< @param _rawData: the raw serial data
-    QVector<QByteArray> _rByteCommands; //!< @param _rByteCommand: received Messages
-    QVector<QByteArray> _sByteCommands; //!< @param _sByteCommand: sent Messages
+    /** _serialOpened: is Serial port opened */
+    bool _serialOpened = false;
+    /** _lastError: the last reported error */
+    QSerialPort::SerialPortError _lastError = QSerialPort::NoError;
+    /** _rawData: the raw serial data */
+    QByteArray _rawData;
+    /** _rByteCommand: received Messages */
+    QVector<QByteArray> _rByteCommands;
+    /** _sByteCommand: sent Messages */
+    QVector<QByteArray> _sByteCommands;
 };
 
 SerialLayer::SerialLayer(const QString &port, int32_t baud, QObject *parent) :

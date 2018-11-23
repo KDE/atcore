@@ -35,7 +35,7 @@ class ATCOREWIDGETS_EXPORT PlotWidget : public QWidget
 
 public:
     explicit PlotWidget(QWidget *parent = nullptr);
-    ~PlotWidget();
+    ~PlotWidget() = default;
 
     /**
      * @brief Create a new plot

@@ -42,6 +42,7 @@ public:
      * @brief Create new GrblPlugin
      */
     GrblPlugin();
+    ~GrblPlugin() = default;
 
     /**
      * @brief Return Plugin name

@@ -32,41 +32,36 @@ About::About(QWidget *parent) :
     setWindowTitle(QStringLiteral("About Atcore"));
     setWindowIcon(QIcon::fromTheme(QStringLiteral("help-about"), style()->standardIcon(QStyle::SP_MessageBoxInformation)));
 
-    QLabel *lbl_version = new QLabel(tr("Version: %1").arg(QCoreApplication::applicationVersion()));
-    QLabel *lbl_qt_version = new QLabel(tr("Using Qt: %1").arg(QString::fromLatin1(qVersion())));
-    QLabel *lbl_authors = new QLabel(tr("Authors:\n"
-                                        "  Chris Rizzitello <rizzitello@kde.org>\n"
-                                        "  Patrick José Pereira <patrickjp@kde.org>\n"
-                                        "  Lays Rodrigues <lays.rodrigues@kde.org>\n"
-                                        "  Tomaz Canabrava <tcanabrava@kde.org>"
-                                        ""));
+    auto lbl_version = new QLabel(tr("Version: %1").arg(QCoreApplication::applicationVersion()), this);
+    auto lbl_qt_version = new QLabel(tr("Using Qt: %1").arg(QString::fromLatin1(qVersion())), this);
+    auto lbl_authors = new QLabel(tr("Authors:\n"
+                                     "  Chris Rizzitello <rizzitello@kde.org>\n"
+                                     "  Patrick José Pereira <patrickjp@kde.org>\n"
+                                     "  Lays Rodrigues <lays.rodrigues@kde.org>\n"
+                                     "  Tomaz Canabrava <tcanabrava@kde.org>"
+                                     ""), this);
 
-    QLabel *lbl_icon = new QLabel();
+    auto lbl_icon = new QLabel(this);
     lbl_icon->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     lbl_icon->setScaledContents(true);
     lbl_icon->setPixmap(QPixmap(QStringLiteral(":/icon/atcore")));
 
-    QPushButton *btn_close = new QPushButton(tr("Close"));
+    auto btn_close = new QPushButton(tr("Close"), this);
     connect(btn_close, &QPushButton::clicked, this, &QDialog::close);
 
-    QVBoxLayout *versionInfo = new QVBoxLayout;
+    auto versionInfo = new QVBoxLayout;
     versionInfo->addWidget(lbl_version);
     versionInfo->addWidget(lbl_qt_version);
 
-    QVBoxLayout *topLayout = new QVBoxLayout;
+    auto topLayout = new QVBoxLayout;
     topLayout->setContentsMargins(0, 0, 0, 0);
     topLayout->addWidget(lbl_icon);
     topLayout->addItem(versionInfo);
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto mainLayout = new QVBoxLayout;
     mainLayout->addItem(topLayout);
     mainLayout->addWidget(lbl_authors);
     mainLayout->addWidget(btn_close);
 
     setLayout(mainLayout);
-}
-
-About::~About()
-{
-
 }

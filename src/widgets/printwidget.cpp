@@ -29,12 +29,12 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
     QLabel *newLabel = nullptr;
     QHBoxLayout *hBoxLayout = nullptr;
     if (showAllControls) {
-        buttonPrint = new QPushButton(tr("Print File"));
+        buttonPrint = new QPushButton(tr("Print File"), this);
         connect(buttonPrint, &QPushButton::clicked, this, [this] {
             emit printPressed();
         });
 
-        newButton = new QPushButton(tr("Emergency Stop"));
+        newButton = new QPushButton(tr("Emergency Stop"), this);
         connect(newButton, &QPushButton::clicked, this, [this] {
             emit emergencyStopPressed();
         });
@@ -44,9 +44,9 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
         hBoxLayout->addWidget(newButton);
         mainLayout->addLayout(hBoxLayout);
 
-        newLabel = new QLabel(tr("On Pause:"));
+        newLabel = new QLabel(tr("On Pause:"), this);
 
-        linePostPause = new QLineEdit;
+        linePostPause = new QLineEdit(this);
         linePostPause->setPlaceholderText(QStringLiteral("G91,G0 Z1,G90,G1 X0 Y195"));
 
         hBoxLayout = new QHBoxLayout;
@@ -55,13 +55,13 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
         mainLayout->addLayout(hBoxLayout);
     }
 
-    newLabel = new QLabel(tr("Printer Speed"));
-    sbPrintSpeed = new QSpinBox;
+    newLabel = new QLabel(tr("Printer Speed"), this);
+    sbPrintSpeed = new QSpinBox(this);
     sbPrintSpeed->setRange(1, 300);
     sbPrintSpeed->setValue(100);
     sbPrintSpeed->setSuffix(QStringLiteral("%"));
 
-    newButton = new QPushButton(tr("Set"));
+    newButton = new QPushButton(tr("Set"), this);
     connect(newButton, &QPushButton::clicked, this, [this] {
         emit printSpeedChanged(sbPrintSpeed->value());
     });
@@ -72,13 +72,13 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
     hBoxLayout->addWidget(newButton, 20);
     mainLayout->addLayout(hBoxLayout);
 
-    newLabel = new QLabel(tr("Flow Rate"));
-    sbFlowRate = new QSpinBox;
+    newLabel = new QLabel(tr("Flow Rate"), this);
+    sbFlowRate = new QSpinBox(this);
     sbFlowRate->setRange(1, 300);
     sbFlowRate->setValue(100);
     sbFlowRate->setSuffix(QStringLiteral("%"));
 
-    newButton = new QPushButton(tr("Set"));
+    newButton = new QPushButton(tr("Set"), this);
     connect(newButton, &QPushButton::clicked, this, [this] {
         emit flowRateChanged(sbFlowRate->value());
     });
@@ -88,12 +88,12 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
     hBoxLayout->addWidget(newButton, 20);
     mainLayout->addLayout(hBoxLayout);
 
-    comboFanSelect = new QComboBox;
-    sbFanSpeed = new QSpinBox;
+    comboFanSelect = new QComboBox(this);
+    sbFanSpeed = new QSpinBox(this);
     sbFanSpeed->setRange(0, 100);
     sbFanSpeed->setSuffix(QStringLiteral("%"));
 
-    newButton = new QPushButton(tr("Set"));
+    newButton = new QPushButton(tr("Set"), this);
     connect(newButton, &QPushButton::clicked, this, [this] {
         //Fan speed has a range of 0-255.
         int speed = sbFanSpeed->value() * 255 / 100;
@@ -109,7 +109,7 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
     setLayout(mainLayout);
 }
 
-QString PrintWidget::postPauseCommand(void) const
+QString PrintWidget::postPauseCommand() const
 {
     return linePostPause->text();
 }

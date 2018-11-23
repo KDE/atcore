@@ -27,50 +27,50 @@ MovementWidget::MovementWidget(bool showHomeAndDisableWidgets, QWidget *parent) 
 {
     auto mainLayout = new QVBoxLayout;
     auto hBoxLayout = new QHBoxLayout;
-    auto newButton = new QPushButton;
+    auto newButton = new QPushButton(this);
 
     if (showHomeAndDisableWidgets) {
-        newButton = new QPushButton(tr("Home All"));
+        newButton = new QPushButton(tr("Home All"), this);
         hBoxLayout->addWidget(newButton);
         connect(newButton, &QPushButton::clicked, this, [this] {
             emit homeAllPressed();
         });
 
-        newButton = new QPushButton(tr("Home X"));
+        newButton = new QPushButton(tr("Home X"), this);
         hBoxLayout->addWidget(newButton);
         connect(newButton, &QPushButton::clicked, this, [this] {
             emit homeXPressed();
         });
 
-        newButton = new QPushButton(tr("Home Y"));
+        newButton = new QPushButton(tr("Home Y"), this);
         hBoxLayout->addWidget(newButton);
         connect(newButton, &QPushButton::clicked, this, [this] {
             emit homeYPressed();
         });
 
-        newButton = new QPushButton(tr("Home Z"));
+        newButton = new QPushButton(tr("Home Z"), this);
         hBoxLayout->addWidget(newButton);
         connect(newButton, &QPushButton::clicked, this, [this] {
             emit homeZPressed();
         });
         mainLayout->addLayout(hBoxLayout);
 
-        newButton = new QPushButton(tr("Disable Motors"));
+        newButton = new QPushButton(tr("Disable Motors"), this);
         mainLayout->addWidget(newButton);
         connect(newButton, &QPushButton::clicked, this, [this] {
             emit disableMotorsPressed();
         });
 
     }
-    comboMoveAxis = new QComboBox;
+    comboMoveAxis = new QComboBox(this);
     comboMoveAxis->addItem(tr("Move X Axis to"));
     comboMoveAxis->addItem(tr("Move Y Axis to"));
     comboMoveAxis->addItem(tr("Move Z Axis to"));
 
-    sbMoveAxis = new QDoubleSpinBox;
+    sbMoveAxis = new QDoubleSpinBox(this);
     sbMoveAxis->setRange(0, 200);
 
-    newButton = new QPushButton(tr("Go"));
+    newButton = new QPushButton(tr("Go"), this);
     connect(newButton, &QPushButton::clicked, this, [this] {
         if (comboMoveAxis->currentIndex() == 0)
         {
@@ -90,7 +90,7 @@ MovementWidget::MovementWidget(bool showHomeAndDisableWidgets, QWidget *parent) 
     hBoxLayout->addWidget(newButton);
     mainLayout->addLayout(hBoxLayout);
 
-    auto axisControl = new AxisControl;
+    auto axisControl = new AxisControl(this);
     mainLayout->addWidget(axisControl);
     connect(axisControl, &AxisControl::clicked, this, &MovementWidget::relativeMove);
     connect(axisControl, &AxisControl::unitsChanged, this, &MovementWidget::unitsChanged);

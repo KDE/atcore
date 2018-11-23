@@ -535,12 +535,12 @@ QString GCode::toCommand(MCommands gcode, const QString &value1, const QString &
         return code;
 
     case M104:
-        code = value2.isEmpty() ? code.append(QStringLiteral(" S%1").arg(value1)) : code.append(QStringLiteral(" P%1 S%2").arg(value1).arg(value2));
+        code = value2.isEmpty() ? code.append(QStringLiteral(" S%1").arg(value1)) : code.append(QStringLiteral(" P%1 S%2").arg(value1, value2));
         code = value1.isEmpty() ? GCode::commandRequiresArgument.arg(QStringLiteral("M"), QString::number(gcode)) : code ;
         return code;
 
     case M106:
-        code = value2.isEmpty() ? code.append(QStringLiteral(" S%1").arg(value1)) : code.append(QStringLiteral(" P%1 S%2").arg(value1).arg(value2));
+        code = value2.isEmpty() ? code.append(QStringLiteral(" S%1").arg(value1)) : code.append(QStringLiteral(" P%1 S%2").arg(value1, value2));
         code = value1.isEmpty() ? QStringLiteral("M106") : code ;
         return code;
 

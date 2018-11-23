@@ -42,6 +42,7 @@ public:
      * @brief Create new MarlinPlugin
      */
     MarlinPlugin();
+    ~MarlinPlugin() = default;
 
     /**
      * @brief Check for plugin support of sd cards.

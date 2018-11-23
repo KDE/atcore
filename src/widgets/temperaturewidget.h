@@ -36,6 +36,7 @@ public:
      * @param parent
      */
     TemperatureWidget(QWidget *parent = nullptr);
+    ~TemperatureWidget() = default;
 
     /**
      * @brief Update widget with count extruder controls
