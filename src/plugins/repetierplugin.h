@@ -42,6 +42,7 @@ public:
      * @brief Create new RepetierPlugin
      */
     RepetierPlugin();
+    ~RepetierPlugin() = default;
 
     /**
      * @brief Check for plugin support of sd cards.

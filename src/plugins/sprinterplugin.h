@@ -42,6 +42,7 @@ public:
      * @brief Create new SprinterPlugin
      */
     SprinterPlugin();
+    ~SprinterPlugin() = default;
 
     /**
      * @brief Check for plugin support of sd cards.

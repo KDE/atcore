@@ -42,6 +42,7 @@ public:
      * @brief Create new TeacupPlugin
      */
     TeacupPlugin();
+    ~TeacupPlugin() = default;
 
     /**
      * @brief Check for plugin support of sd cards.

@@ -42,6 +42,7 @@ public:
      * @brief Create new SmoothiePlugin
      */
     SmoothiePlugin();
+    ~SmoothiePlugin() = default;
 
     /**
      * @brief Check for plugin support of sd cards.
