@@ -124,6 +124,6 @@ signals:
     void extruderTargetTemperatureChanged(float temp);
 
 private:
-    class TemperaturePrivate;
+    struct TemperaturePrivate;
     TemperaturePrivate *d;
 };
