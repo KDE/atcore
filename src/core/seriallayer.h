@@ -38,7 +38,7 @@ class ATCORE_EXPORT SerialLayer : public QSerialPort
     Q_OBJECT
 
 private:
-    class SerialLayerPrivate;
+    struct SerialLayerPrivate;
     SerialLayerPrivate *d;
 
     /**
