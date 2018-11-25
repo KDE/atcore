@@ -31,14 +31,30 @@
  *
  * Private Data of Temperature
  */
-class Temperature::TemperaturePrivate
-{
-public:
-    float extruderTemp = 0.0;         //!< @param extruderTemp: Extruder current temperature
-    float extruderTargetTemp = 0.0;   //!< @param extruderTargetTemp: Extruder target temperature
-    float bedTemp = 0.0;              //!< @param bedTemp: Bed current temperature
-    float bedTargetTemp = 0.0;        //!< @param bedTargetTemp: Bed target temperature
+
+struct Temperature::TemperaturePrivate {
+    /** Regex to capture Bed Temperature grabs : B: to the next space */
+    static const QRegularExpression bedRegEx;
+    /** bedTemp: Bed current temperature */
+    float bedTemp = 0.0;
+    /** bedTargetTemp: Bed target temperature */
+    float bedTargetTemp = 0.0;
+    /** extruderTemp: Extruder current temperature */
+    float extruderTemp = 0.0;
+    /** extruderTargetTemp: Extruder target temperature */
+    float extruderTargetTemp = 0.0;
+    /** Regex to capture Bed Target Temperature: Find B:## /## and grab the second set of numbers */
+    static const QRegularExpression targetBedRegEx;
+    /** Regex to capture Extruder Target Temperature Finds T:## /## and grabs the second set of numbers */
+    static const QRegularExpression targetTempRegEx;
+    /** Regex to capture Extruder Temperature Grabs "T: to next space" */
+    static const QRegularExpression tempRegEx;
 };
+
+const QRegularExpression Temperature::TemperaturePrivate::bedRegEx = QRegularExpression(QStringLiteral(R"(B:(?<bed>\d+\.\d*))"));
+const QRegularExpression Temperature::TemperaturePrivate::targetBedRegEx = QRegularExpression(QStringLiteral(R"(B:[^\/]*\/(?<bedTarget>\d+\.?\d*))"));
+const QRegularExpression Temperature::TemperaturePrivate::targetTempRegEx = QRegularExpression(QStringLiteral(R"(T:[^\/]*\/(?<extruderTarget>\d+\.?\d*))"));
+const QRegularExpression Temperature::TemperaturePrivate::tempRegEx = QRegularExpression(QStringLiteral(R"(T:(?<extruder>\d+\.\d*))"));
 
 Temperature::Temperature(QObject *parent)
     : QObject(parent)
@@ -92,12 +108,9 @@ void Temperature::setExtruderTemperature(float temp)
 
 void Temperature::decodeTemp(const QByteArray &msg)
 {
-    //Capture after T: until next space
-    static const QRegularExpression tempRegEx(QStringLiteral(R"(T:(?<extruder>\d+\.\d*))"));
-    QRegularExpressionMatch tempCheck = tempRegEx.match(QString::fromLatin1(msg));
-    //Find T:## /## and store the second set of numbers
-    static const QRegularExpression targetTempRegEx(QStringLiteral(R"(T:[^\/]*\/(?<extruderTarget>\d+\.?\d*))"));
-    QRegularExpressionMatch targetTempCheck = targetTempRegEx.match(QString::fromLatin1(msg));
+    QString msgString = QString::fromLatin1(msg);
+    QRegularExpressionMatch tempCheck = d->tempRegEx.match(msgString);
+    QRegularExpressionMatch targetTempCheck = d->targetTempRegEx.match(msgString);
 
     if (tempCheck.hasMatch()) {
         setExtruderTemperature(tempCheck.captured(QStringLiteral("extruder")).toFloat());
@@ -108,12 +121,8 @@ void Temperature::decodeTemp(const QByteArray &msg)
     }
 
     if (msg.indexOf(QStringLiteral("B:")) != -1) {
-        //Capture after B: until next space
-        static const QRegularExpression bedRegEx(QStringLiteral(R"(B:(?<bed>\d+\.\d*))"));
-        QRegularExpressionMatch bedCheck = bedRegEx.match(QString::fromLatin1(msg));
-        //Find B:## /## and store the second set of numbers
-        static QRegularExpression targetBedRegEx(QStringLiteral(R"(B:[^\/]*\/(?<bedTarget>\d+\.?\d*))"));
-        QRegularExpressionMatch targetBedCheck = targetBedRegEx.match(QString::fromLatin1(msg));
+        QRegularExpressionMatch bedCheck = d->bedRegEx.match(msgString);
+        QRegularExpressionMatch targetBedCheck = d->targetBedRegEx.match(msgString);
 
         if (bedCheck.hasMatch()) {
             setBedTemperature(bedCheck.captured(QStringLiteral("bed")).toFloat());
