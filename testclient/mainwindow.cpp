@@ -270,7 +270,7 @@ void MainWindow::makeConnectDock()
 
 void MainWindow::makeMoveDock()
 {
-    movementWidget = new MovementWidget;
+    movementWidget = new MovementWidget(true, this);
 
     connect(movementWidget, &MovementWidget::homeAllPressed, this, [this] {
         logWidget->appendLog(tr("Home All"));
