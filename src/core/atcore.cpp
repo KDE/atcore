@@ -77,7 +77,7 @@ struct AtCore::AtCorePrivate {
     /** seralPorts: Detected serial Ports */
     QStringList serialPorts;
     /** serialTimer: Timer connected to locateSerialPorts */
-    QTimer *serialTimer = nullptr;
+    QTimer serialTimer;
     /** sdCardMounted: True if Sd Card is mounted. */
     bool sdCardMounted = false;
     /** sdCardReadingFileList: True while getting file names from sd card */
@@ -97,7 +97,7 @@ AtCore::AtCore(QObject *parent) :
     //Register MetaTypes
     qRegisterMetaType<AtCore::STATES>("AtCore::STATES");
     setState(AtCore::STATES::DISCONNECTED);
-
+    connect(&d->serialTimer, &QTimer::timeout, this, &AtCore::locateSerialPort);
     //Create and start the timer that checks for temperature.
     d->tempTimer = new QTimer(this);
     d->tempTimer->setInterval(5000);
@@ -245,7 +245,7 @@ bool AtCore::initSerial(const QString &port, int baud, bool disableROC)
         setState(AtCore::CONNECTING);
         connect(d->serial, &SerialLayer::pushedCommand, this, &AtCore::newCommand);
         connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
-        d->serialTimer->stop();
+        d->serialTimer.stop();
         return true;
     }
     qCDebug(ATCORE_CORE) << "Failed to open device for Read / Write.";
@@ -298,28 +298,20 @@ void AtCore::locateSerialPort()
 
 int AtCore::serialTimerInterval() const
 {
-    if (d->serialTimer != nullptr) {
-        return d->serialTimer->interval();
-    }
-    return 0;
+    return d->serialTimer.interval();
 }
 
 void AtCore::setSerialTimerInterval(int newTime)
 {
-    if (newTime < 0) {
-        newTime = 0;
-    }
-    if (!d->serialTimer) {
-        //There is no timer. We need to create one.
-        d->serialTimer = new QTimer();
-        connect(d->serialTimer, &QTimer::timeout, this, &AtCore::locateSerialPort);
-    }
-    //emit the newtime if it has changed.
-    if (newTime != d->serialTimer->interval()) {
+    newTime = std::max(newTime, 0);
+    if (newTime != d->serialTimer.interval()) {
         emit serialTimerIntervalChanged(newTime);
     }
-    //Start the timer.
-    d->serialTimer->start(newTime);
+    if (newTime == 0) {
+        d->serialTimer.stop();
+    } else {
+        d->serialTimer.start(newTime);
+    }
 }
 
 void AtCore::newMessage(const QByteArray &message)
@@ -439,7 +431,7 @@ void AtCore::closeConnection()
         //Clear our copy of the sdcard filelist
         clearSdCardFileList();
         setState(AtCore::STATES::DISCONNECTED);
-        d->serialTimer->start();
+        d->serialTimer.start();
     }
 }
 
