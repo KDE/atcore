@@ -34,11 +34,13 @@ PlotWidget::PlotWidget(QWidget *parent) :
     _axisX->setFormat(QStringLiteral("hh:mm:ss"));
     _axisY->setLabelFormat(QStringLiteral("%d"));
     _axisY->setTitleText(tr("Temp."));
+    _axisY->setRange(0, 3e2);
+
+    _axisX->setRange(QDateTime::currentDateTime().addSecs(-120), QDateTime::currentDateTime());
 
     _chart->chart()->addAxis(_axisY, Qt::AlignLeft);
     _chart->chart()->addAxis(_axisX, Qt::AlignBottom);
-    _chart->chart()->axisY()->setRange(0, 3e2);
-    _chart->chart()->axisX()->setRange(QDateTime::currentDateTime().addSecs(-120), QDateTime::currentDateTime());
+
     _chart->setRenderHint(QPainter::Antialiasing);
     if (palette().text().color().value() >= QColor(Qt::lightGray).value()) {
         _chart->chart()->setTheme(QChart::ChartThemeDark);
@@ -76,7 +78,7 @@ void PlotWidget::appendPoint(const QString &name, float value)
 
 void PlotWidget::update()
 {
-    _chart->chart()->axisX()->setRange(QDateTime::currentDateTime().addSecs(-120), QDateTime::currentDateTime());
+    _axisX->setRange(QDateTime::currentDateTime().addSecs(-120), QDateTime::currentDateTime());
 }
 
 QStringList PlotWidget::plots()
@@ -91,5 +93,5 @@ void PlotWidget::setMaximumPoints(const int newMax)
 
 void PlotWidget::setMaximumTemperature(const uint maxTemp)
 {
-    _chart->chart()->axisY()->setRange(0, maxTemp);
+    _axisY->setRange(0, maxTemp);
 }
