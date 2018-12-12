@@ -68,6 +68,8 @@ struct AtCore::AtCorePrivate {
     bool ready = false;
     /** tempTimer: timer connected to the checkTemperature function */
     QTimer *tempTimer = nullptr;
+    /** sdPrintProgressTimer: timer used to check in on sdJobs */
+    QTimer sdPrintProgressTimer;
     /** percentage: print job percent */
     float percentage = 0.0;
     /** posString: stored string from last M114 return */
@@ -97,6 +99,8 @@ AtCore::AtCore(QObject *parent) :
     //Register MetaTypes
     qRegisterMetaType<AtCore::STATES>("AtCore::STATES");
     setState(AtCore::STATES::DISCONNECTED);
+    //Connect our Timers
+    connect(&d->sdPrintProgressTimer, &QTimer::timeout, this, &AtCore::sdCardPrintStatus);
     connect(&d->serialTimer, &QTimer::timeout, this, &AtCore::locateSerialPort);
     //Create and start the timer that checks for temperature.
     d->tempTimer = new QTimer(this);
@@ -369,7 +373,7 @@ void AtCore::print(const QString &fileName, bool sdPrint)
             pushCommand(GCode::toCommand(GCode::MCommands::M24));
             setState(AtCore::STATES::BUSY);
             d->sdCardPrinting = true;
-            connect(d->tempTimer, &QTimer::timeout, this, &AtCore::sdCardPrintStatus);
+            d->sdPrintProgressTimer.start(5000);
             return;
         }
     }
@@ -450,7 +454,7 @@ void AtCore::setState(AtCore::STATES state)
         if (state == AtCore::STATES::FINISHEDPRINT && d->sdCardPrinting) {
             //Clean up the sd card print
             d->sdCardPrinting = false;
-            disconnect(d->tempTimer, &QTimer::timeout, this, &AtCore::sdCardPrintStatus);
+            d->sdPrintProgressTimer.stop();
         }
         emit stateChanged(d->printerState);
     }

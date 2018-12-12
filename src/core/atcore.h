@@ -270,7 +270,7 @@ signals:
     void receivedMessage(const QByteArray &message);
 
     /**
-    * @brief New interval between serial timer
+    * @brief New interval for serial timer
     * @sa setSerialTimerInterval()
     */
     void serialTimerIntervalChanged(const int newTime);
