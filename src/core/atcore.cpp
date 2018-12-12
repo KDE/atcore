@@ -66,8 +66,8 @@ struct AtCore::AtCorePrivate {
     QStringList commandQueue;
     /** ready: True if printer is ready for a command */
     bool ready = false;
-    /** tempTimer: timer connected to the checkTemperature function */
-    QTimer *tempTimer = nullptr;
+    /** temperatureTimer: timer connected to the checkTemperature function */
+    QTimer temperatureTimer;
     /** sdPrintProgressTimer: timer used to check in on sdJobs */
     QTimer sdPrintProgressTimer;
     /** percentage: print job percent */
@@ -102,10 +102,7 @@ AtCore::AtCore(QObject *parent) :
     //Connect our Timers
     connect(&d->sdPrintProgressTimer, &QTimer::timeout, this, &AtCore::sdCardPrintStatus);
     connect(&d->serialTimer, &QTimer::timeout, this, &AtCore::locateSerialPort);
-    //Create and start the timer that checks for temperature.
-    d->tempTimer = new QTimer(this);
-    d->tempTimer->setInterval(5000);
-    d->tempTimer->setSingleShot(false);
+    connect(&d->temperatureTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
     //Attempt to find our plugins
     qCDebug(ATCORE_PLUGIN) << "Detecting Plugin path";
     QStringList paths = AtCoreDirectories::pluginDir;
@@ -226,8 +223,7 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
             connect(firmwarePlugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
             d->ready = true; // ready on new firmware load
             if (firmwarePlugin()->name() != QStringLiteral("Grbl")) {
-                connect(d->tempTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
-                d->tempTimer->start();
+                setTemperatureTimerInterval(5000);
             }
             setState(IDLE);
         }
@@ -315,6 +311,24 @@ void AtCore::setSerialTimerInterval(int newTime)
         d->serialTimer.stop();
     } else {
         d->serialTimer.start(newTime);
+    }
+}
+
+int AtCore::temperatureTimerInterval() const
+{
+    return d->temperatureTimer.interval();
+}
+
+void AtCore::setTemperatureTimerInterval(int newTime)
+{
+    newTime = std::max(newTime, 0);
+    if (newTime != d->temperatureTimer.interval()) {
+        emit temperatureTimerIntervalChanged(newTime);
+    }
+    if (newTime == 0) {
+        d->temperatureTimer.stop();
+    } else {
+        d->temperatureTimer.start(newTime);
     }
 }
 
@@ -419,8 +433,7 @@ void AtCore::closeConnection()
             disconnect(firmwarePlugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
             disconnect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::newMessage);
             if (firmwarePlugin()->name() != QStringLiteral("Grbl")) {
-                disconnect(d->tempTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
-                d->tempTimer->stop();
+                setTemperatureTimerInterval(0);
             }
             //Attempt to unload the firmware plugin.
             QString name = firmwarePlugin()->name();

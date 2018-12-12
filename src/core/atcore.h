@@ -63,6 +63,7 @@ class ATCORE_EXPORT AtCore : public QObject
     Q_PROPERTY(QString version READ version)
     Q_PROPERTY(QStringList availableFirmwarePlugins READ availableFirmwarePlugins)
     Q_PROPERTY(int extruderCount READ extruderCount WRITE setExtruderCount NOTIFY extruderCountChanged)
+    Q_PROPERTY(int temperatureTimerInterval READ temperatureTimerInterval WRITE setTemperatureTimerInterval NOTIFY temperatureTimerIntervalChanged);
     Q_PROPERTY(int serialTimerInterval READ serialTimerInterval WRITE setSerialTimerInterval NOTIFY serialTimerIntervalChanged)
     Q_PROPERTY(QStringList serialPorts READ serialPorts NOTIFY portsChanged)
     Q_PROPERTY(float percentagePrinted READ percentagePrinted NOTIFY printProgressChanged)
@@ -213,6 +214,11 @@ public:
     int serialTimerInterval() const;
 
     /**
+    * @brief Return the amount of miliseconds the temperatureTimer is set to. 0 = Disabled
+    */
+    int temperatureTimerInterval() const;
+
+    /**
      * @brief Attempt to Mount an sd card
      * @param slot: Sd card Slot on machine (0 is default)
      */
@@ -274,6 +280,12 @@ signals:
     * @sa setSerialTimerInterval()
     */
     void serialTimerIntervalChanged(const int newTime);
+
+    /**
+    * @brief New interval for temperature timer
+    * @sa setTemperatureTimerInterval()
+    */
+    void temperatureTimerIntervalChanged(const int newTime);
 
     /**
      * @brief The Printer's State Changed
@@ -462,6 +474,12 @@ public slots:
      * @param newTime: Milliseconds between checks. values <= 0 will Disable Checks.
      */
     void setSerialTimerInterval(int newTime);
+
+    /**
+     * @brief Set the time between checks for new Temperature (5000 is default on new connections)
+     * @param newTime: Milliseconds between checks. values <= 0 will Disable Checks.
+     */
+    void setTemperatureTimerInterval(int newTime);
 
     /**
      * @brief delete file from sd card
