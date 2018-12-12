@@ -54,6 +54,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
     connect(core, &AtCore::portsChanged, this, &MainWindow::locateSerialPort);
     connect(core, &AtCore::sdCardFileListChanged, sdWidget, &SdWidget::updateFilelist);
+    comboPort->setFocus(Qt::OtherFocusReason);
 }
 
 void MainWindow::initMenu()
@@ -196,8 +197,35 @@ void MainWindow::makeTempTimelineDock()
         plotWidget->appendPoint(tr("Target Ext.1"), temp);
     });
 
+    auto timerLayout = new QHBoxLayout;
+    auto lblTimer = new QLabel(tr("Seconds Between Temperature Checks"), this);
+    auto sbTemperatureTimer = new QSpinBox(this);
+    sbTemperatureTimer->setRange(0, 90);
+
+    connect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
+        core->setTemperatureTimerInterval(value * 1000);
+    });
+
+    connect(core, &AtCore::temperatureTimerIntervalChanged, this, [sbTemperatureTimer](int value) {
+        if (value != sbTemperatureTimer->value()) {
+            sbTemperatureTimer->blockSignals(true);
+            sbTemperatureTimer->setValue(value / 1000);
+            sbTemperatureTimer->blockSignals(false);
+        }
+    });
+
+    timerLayout->addWidget(lblTimer);
+    timerLayout->addWidget(sbTemperatureTimer);
+
+    auto tempDockLayout = new QVBoxLayout;
+    tempDockLayout->addWidget(plotWidget);
+    tempDockLayout->addLayout(timerLayout);
+
+    auto tempDockMainWidget = new QWidget(this);
+    tempDockMainWidget->setLayout(tempDockLayout);
+
     tempTimelineDock = new QDockWidget(tr("Temperature Timeline"), this);
-    tempTimelineDock->setWidget(plotWidget);
+    tempTimelineDock->setWidget(tempDockMainWidget);
     menuView->insertAction(nullptr, tempTimelineDock->toggleViewAction());
     addDockWidget(Qt::RightDockWidgetArea, tempTimelineDock);
 }
