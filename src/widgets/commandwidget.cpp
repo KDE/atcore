@@ -37,8 +37,11 @@ CommandWidget::CommandWidget(QWidget *parent) :
     //we have a few buttons to make here. Lets name this newButton so its easier to reuse
     auto newButton = new QPushButton(tr("Send"), this);
     connect(newButton, &QPushButton::clicked, this, [this] {
-        emit commandPressed(lineCommand->text());
-        lineCommand->clear();
+        if (!lineCommand->text().isEmpty())
+        {
+            emit commandPressed(lineCommand->text());
+            lineCommand->clear();
+        }
     });
     //When you have created a Row put the items into layout.
     auto hBoxLayout = new QHBoxLayout;
@@ -56,8 +59,11 @@ CommandWidget::CommandWidget(QWidget *parent) :
     newButton = new QPushButton(tr("Send"), this);
 
     connect(newButton, &QPushButton::clicked, this, [this] {
-        emit messagePressed(lineMessage->text());
-        lineMessage->clear();
+        if (!lineMessage->text().isEmpty())
+        {
+            emit messagePressed(lineMessage->text());
+            lineMessage->clear();
+        }
     });
 
     //We reuse the hBoxLayout pointer in the same way as the button pointer.
