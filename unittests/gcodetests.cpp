@@ -18,6 +18,8 @@
 */
 #include <algorithm>
 
+#include <QtTest>
+
 #include "gcodetests.h"
 
 bool GCodeTests::testGCodeNeedsArg(GCode::GCommands code)
