@@ -23,7 +23,6 @@
 #pragma once
 
 #include <QMainWindow>
-#include <QSerialPort>
 
 #include "atcore.h"
 #include "commandwidget.h"
