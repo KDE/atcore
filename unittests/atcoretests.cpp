@@ -18,6 +18,8 @@
 */
 #include <algorithm>
 
+#include <QtTest>
+
 #include "atcoretests.h"
 
 void AtCoreTests::initTestCase()

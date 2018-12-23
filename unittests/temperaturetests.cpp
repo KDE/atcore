@@ -18,6 +18,8 @@
 */
 #include <algorithm>
 
+#include <QtTest>
+
 #include "temperaturetests.h"
 
 void TemperatureTests::initTestCase()
