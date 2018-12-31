@@ -284,6 +284,15 @@ void MainWindow::makeConnectDock()
 
     buttonConnect = new QPushButton(tr("Connect"));
     connect(buttonConnect, &QPushButton::clicked, this, &MainWindow::connectPBClicked);
+
+    connectionTimer = new QTimer(this);
+    connectionTimer->setInterval(20000);
+    connectionTimer->setSingleShot(true);
+    connect(connectionTimer, &QTimer::timeout, this, [this] {
+        buttonConnect->clicked();
+        QMessageBox::critical(this, tr("Connection Error"), tr("Your machine did not respond after 20 seconds.\n\nBefore connecting again check that your printer is on and your are connecting using the correct BAUD Rate for your device."));
+    });
+
     mainLayout->addWidget(buttonConnect);
 
     auto *dockContents = new QWidget;
@@ -520,6 +529,9 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
     QString stateString;
     switch (state) {
     case AtCore::IDLE:
+        if (connectionTimer->isActive()) {
+            connectionTimer->stop();
+        }
         buttonConnect->setText(tr("Disconnect"));
         printWidget->setPrintText(tr("Print File"));
         stateString = tr("Connected to ") + core->connectedPort();
@@ -549,6 +561,9 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
         break;
 
     case AtCore::DISCONNECTED:
+        if (connectionTimer->isActive()) {
+            connectionTimer->stop();
+        }
         stateString = QStringLiteral("Not Connected");
         buttonConnect->setText(tr("Connect"));
         setDangeriousDocksDisabled(true);
@@ -556,6 +571,8 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
 
     case AtCore::CONNECTING:
         stateString = QStringLiteral("Connecting");
+        buttonConnect->setText(tr("Abort"));
+        connectionTimer->start();
         setDangeriousDocksDisabled(false);
         break;
 
