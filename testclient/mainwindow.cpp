@@ -1,5 +1,5 @@
 /* AtCore Test Client
-    Copyright (C) <2016 - 2018>
+    Copyright (C) <2016 - 2019>
 
     Authors:
         Patrick José Pereira <patrickjp@kde.org>
@@ -267,7 +267,6 @@ void MainWindow::makeConnectDock()
     comboPlugin = new QComboBox;
     comboPlugin->addItem(tr("Autodetect"));
     comboPlugin->addItems(core->availableFirmwarePlugins());
-    connect(comboPlugin, &QComboBox::currentTextChanged, this, &MainWindow::pluginCBChanged);
 
     hBoxLayout = new QHBoxLayout;
     hBoxLayout->addWidget(newLabel);
@@ -279,7 +278,7 @@ void MainWindow::makeConnectDock()
     mainLayout->addWidget(cbReset);
 
     connect(comboPlugin, &QComboBox::currentTextChanged, this, [this](const QString & currentText) {
-        cbReset->setHidden(currentText == tr("Autodetect"));
+        cbReset->setHidden(!core->availableFirmwarePlugins().contains(currentText));
     });
 
     buttonConnect = new QPushButton(tr("Connect"));
@@ -456,12 +455,11 @@ void MainWindow::locateSerialPort(const QStringList &ports)
 void MainWindow::connectPBClicked()
 {
     if (core->state() == AtCore::DISCONNECTED) {
-        if (core->initSerial(comboPort->currentText(), comboBAUD->currentText().toInt(), cbReset->isChecked())) {
+        if (core->newConnection(comboPort->currentText(), comboBAUD->currentText().toInt(), comboPlugin->currentText(), cbReset->isChecked())) {
             connect(core, &AtCore::receivedMessage, logWidget, &LogWidget::appendRLog);
             connect(core, &AtCore::pushedCommand, logWidget, &LogWidget::appendSLog);
             logWidget->appendLog(tr("Serial connected"));
-            if (!comboPlugin->currentText().contains(tr("Autodetect"))) {
-                core->loadFirmwarePlugin(comboPlugin->currentText());
+            if (core->availableFirmwarePlugins().contains(comboPlugin->currentText())) {
                 if (cbReset->isChecked()) {
                     //Wait a few seconds after connect to avoid the normal errors
                     QTimer::singleShot(5000, core, &AtCore::sdCardPrintStatus);
@@ -514,16 +512,6 @@ void MainWindow::printPBClicked()
     }
 }
 
-void MainWindow::pluginCBChanged(const QString &currentText)
-{
-    if (core->state() != AtCore::DISCONNECTED) {
-        if (!currentText.contains(tr("Autodetect"))) {
-            core->loadFirmwarePlugin(currentText);
-            sdDock->setVisible(core->firmwarePlugin()->isSdSupported());
-        }
-    }
-}
-
 void MainWindow::printerStateChanged(AtCore::STATES state)
 {
     QString stateString;
@@ -566,6 +554,7 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
         }
         stateString = QStringLiteral("Not Connected");
         buttonConnect->setText(tr("Connect"));
+        setConnectionWidgetsEnabled(true);
         setDangeriousDocksDisabled(true);
         break;
 
@@ -573,6 +562,7 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
         stateString = QStringLiteral("Connecting");
         buttonConnect->setText(tr("Abort"));
         connectionTimer->start();
+        setConnectionWidgetsEnabled(false);
         setDangeriousDocksDisabled(false);
         break;
 
@@ -625,4 +615,11 @@ void MainWindow::setDangeriousDocksDisabled(bool disabled)
         printWidget->setPrintText(tr("Print File"));
         statusWidget->showPrintArea(false);
     }
+}
+
+void MainWindow::setConnectionWidgetsEnabled(bool enabled)
+{
+    comboBAUD->setEnabled(enabled);
+    comboPlugin->setEnabled(enabled);
+    comboPort->setEnabled(enabled);
 }

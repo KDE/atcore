@@ -1,5 +1,5 @@
 /* AtCore Test Client
-    Copyright (C) <2016>
+    Copyright (C) <2016 - 2019>
 
     Authors:
         Patrick José Pereira <patrickjp@kde.org>
@@ -80,6 +80,11 @@ private slots:
     void toggleDockTitles(bool checked);
 
     /**
+     * @brief set enabled for connection option widgets (port, baud and fw selector)
+     * @param enbled: true if enabled.
+     */
+    void setConnectionWidgetsEnabled(bool enbled);
+    /**
      * @brief Toggle disable state of dangerous docks
      * Command, Sd Card, Movement, Temperature Controls and Printing docks
      * @param disabled: True if items are disabled.
@@ -97,11 +102,6 @@ private:
      *
      */
     void locateSerialPort(const QStringList &ports);
-
-    /**
-     * @brief pluginCB index changed
-     */
-    void pluginCBChanged(const QString &currentText);
 
     /**
      * @brief setupActions for KXMLGui
