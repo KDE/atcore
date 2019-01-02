@@ -1,7 +1,7 @@
 /*
     This file is part of the KDE project
 
-    Copyright (C) 2017 Chris Rizzitello <rizzitello@kde.org>
+    Copyright (C) 2017 - 2019 Chris Rizzitello <rizzitello@kde.org>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -58,7 +58,7 @@ void AtCoreTests::testPluginDetect()
 void AtCoreTests::testConnectInvalidDevice()
 {
     QEXPECT_FAIL("", "Invalid Device Attempt", Continue);
-    QVERIFY(core->initSerial(QStringLiteral("/dev/ptyp5"), 9600));
+    QVERIFY(core->newConnection(QStringLiteral("/dev/ptyp5"), 9600, QStringLiteral("FirmwareNAME")));
 }
 
 void AtCoreTests::testStateChange()

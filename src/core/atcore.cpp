@@ -1,5 +1,5 @@
 /* AtCore
-    Copyright (C) <2016 - 2018>
+    Copyright (C) <2016 - 2019>
 
     Authors:
         Tomaz Canabrava <tcanabrava@kde.org>
@@ -149,30 +149,8 @@ Temperature &AtCore::temperature() const
 
 void AtCore::findFirmware(const QByteArray &message)
 {
-    if (state() == AtCore::STATES::DISCONNECTED) {
-        qCWarning(ATCORE_CORE) << tr("Cant find firwmware, serial not connected!");
-        return;
-    }
-
-    if (state() == AtCore::STATES::CONNECTING) {
-        //Most Firmwares will return "start" on connect, some return their firmware name.
-        if (message.contains("start")) {
-            qCDebug(ATCORE_CORE) << "Waiting requestFirmware.";
-            QTimer::singleShot(500, this, &AtCore::requestFirmware);
-            return;
-        }
-        if (message.contains("Grbl")) {
-            loadFirmwarePlugin(QString::fromLatin1("grbl"));
-            return;
-        }
-        if (message.contains("Smoothie")) {
-            loadFirmwarePlugin(QString::fromLatin1("smoothie"));
-            return;
-        }
-
-        qCDebug(ATCORE_CORE) << "Waiting for firmware detect.";
-        emit atcoreMessage(tr("Waiting for firmware detect."));
-    }
+    emit receivedMessage(message);
+    emit atcoreMessage(tr("Waiting for firmware detect."));
     qCDebug(ATCORE_CORE) << "Find Firmware: " << message;
     if (!message.contains("FIRMWARE_NAME:")) {
         qCDebug(ATCORE_CORE) << "No firmware yet.";
@@ -218,7 +196,7 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
             //Plugin was loaded successfully.
             d->firmwarePlugin = qobject_cast<IFirmware *>(d->pluginLoader.instance());
             firmwarePlugin()->init(this);
-            disconnect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
+            disconnect(d->serial, &SerialLayer::receivedCommand, this, {});
             connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::newMessage);
             connect(firmwarePlugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
             d->ready = true; // ready on new firmware load
@@ -226,6 +204,7 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
                 setTemperatureTimerInterval(5000);
             }
             setState(IDLE);
+            emit atcoreMessage(tr("Connected to printer using %1 plugin").arg(d->firmwarePlugin->name()));
         }
     } else {
         qCDebug(ATCORE_CORE) << "Plugin:" << fwName << ": Not found.";
@@ -233,7 +212,30 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
     }
 }
 
-bool AtCore::initSerial(const QString &port, int baud, bool disableROC)
+void AtCore::waitForPrinterReboot(const QByteArray &message, const QString &fwName)
+{
+    emit receivedMessage(message);
+    if (message.isEmpty()) {
+        return;
+    }
+
+    if (message.contains("Grbl")) {
+        loadFirmwarePlugin(QString::fromLatin1("grbl"));
+    } else if (message.contains("Smoothie")) {
+        loadFirmwarePlugin(QString::fromLatin1("smoothie"));
+    } else if (message.contains("start")) {
+        if (!d->plugins.contains(fwName)) {
+            disconnect(d->serial, &SerialLayer::receivedCommand, this, {});
+            connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
+            QTimer::singleShot(500, this, &AtCore::requestFirmware);
+        } else {
+            loadFirmwarePlugin(fwName);
+        }
+    }
+
+}
+
+bool AtCore::newConnection(const QString &port, int baud, const QString &fwName, bool disableROC)
 {
     if (disableROC) {
         disableResetOnConnect(port);
@@ -242,16 +244,23 @@ bool AtCore::initSerial(const QString &port, int baud, bool disableROC)
     d->serial = new SerialLayer(port, baud, this);
     connect(d->serial, &SerialLayer::serialError, this, &AtCore::handleSerialError);
     if (serialInitialized() && d->serial->isWritable()) {
-        setState(AtCore::CONNECTING);
+        setState(AtCore::STATES::CONNECTING);
         connect(d->serial, &SerialLayer::pushedCommand, this, &AtCore::newCommand);
-        connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::findFirmware);
+
+        if (!disableROC) {
+            emit atcoreMessage(tr("Waiting for machine restart"));
+            connect(d->serial, &SerialLayer::receivedCommand, this, [this, fwName](const QByteArray & message) {
+                waitForPrinterReboot(message, fwName);
+            });
+        } else {
+            loadFirmwarePlugin(fwName);
+        }
         d->serialTimer.stop();
         return true;
     }
     qCDebug(ATCORE_CORE) << "Failed to open device for Read / Write.";
     emit atcoreMessage(tr("Failed to open device in read/write mode."));
     return false;
-
 }
 
 bool AtCore::serialInitialized() const

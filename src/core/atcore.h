@@ -1,5 +1,5 @@
 /* AtCore
-    Copyright (C) <2016 - 2018>
+    Copyright (C) <2016 - 2019>
 
     Authors:
         Tomaz Canabrava <tcanabrava@kde.org>
@@ -42,9 +42,8 @@ class QTime;
  * aims to provides a high level interface for serial based gcode devices<br />
  *
  * #### General Workflow
- * - Connect to a serial port with initSerial()
- * - Firmware will be auto detected. Use loadFirmwarePLugin() to force load a firmware.
- * - Send commands to the device (pushCommand(),print(),...)
+ * - Connect to a serial port with newConnection()
+ * - Send commands to the device (pushCommand(), print(), ...)
  * - AtCore::close() when you are all done.
 
  * #### How AtCore Finds Plugins.
@@ -132,7 +131,7 @@ public:
     /**
      * @brief Returns a List of detected serial ports
      * @return List of detected ports
-     * @sa initSerial(),serial(),closeConnection()
+     * @sa newConnection(), serial(), closeConnection()
      */
     QStringList serialPorts() const;
 
@@ -143,14 +142,15 @@ public:
     QString connectedPort() const;
 
     /**
-     * @brief Initialize a connection to \p port at a speed of \p baud <br />
+     * @brief Connect to a device.
      * @param port: the port to initialize
      * @param baud: the baud of the port
+     * @param fwName: Firmware name of plugin to use (will try to autodetect if fwName is unknown)
      * @param disableROC: atcore will attempt to disable reset on connect for this device.
      * @return True is connection was successful
-     * @sa serialPorts(),serial(),closeConnection()
+     * @sa serialPorts(), serial(), closeConnection()
      */
-    Q_INVOKABLE bool initSerial(const QString &port, int baud, bool disableROC = false);
+    Q_INVOKABLE bool newConnection(const QString &port, int baud, const QString &fwName, bool disableROC = false);
 
     /**
      * @brief Returns a list of valid baud speeds
@@ -159,34 +159,27 @@ public:
 
     /**
      * @brief Close the current serial connection
-     * @sa initSerial(),serial(),serialPorts(),AtCore::close()
+     * @sa newConnection(), serial(), serialPorts(), close()
      */
     Q_INVOKABLE void closeConnection();
 
     /**
      * @brief Main access to the loaded firmware plugin
      * @return IFirmware * to currently loaded plugin
-     * @sa availableFirmwarePlugins(),loadFirmwarePlugin()
+     * @sa availableFirmwarePlugins(), loadFirmwarePlugin()
      */
     Q_INVOKABLE IFirmware *firmwarePlugin() const;
 
     /**
      * @brief List of available firmware plugins
-     * @sa loadFirmwarePlugin(),firmwarePlugin()
+     * @sa loadFirmwarePlugin(), firmwarePlugin()
      */
     QStringList availableFirmwarePlugins() const;
 
     /**
-     * @brief Load A firmware plugin
-     * @param fwName : name of the firmware
-     * @sa firmwarePlugin(),availableFirmwarePlugins()
-     */
-    Q_INVOKABLE void loadFirmwarePlugin(const QString &fwName);
-
-    /**
      * @brief Get Printer state
      * @return State of the printer
-     * @sa setState(),stateChanged(),AtCore::STATES
+     * @sa setState(), stateChanged(), AtCore::STATES
      */
     AtCore::STATES state();
 
@@ -290,7 +283,7 @@ signals:
     /**
      * @brief The Printer's State Changed
      * @param newState : the new state of the printer
-     * @sa setState(),state(),AtCore::STATES
+     * @sa setState(), state(), AtCore::STATES
      */
     void stateChanged(AtCore::STATES newState);
 
@@ -320,7 +313,7 @@ public slots:
     /**
      * @brief Set the printers state
      * @param state : printer state.
-     * @sa state(),stateChanged(),AtCore::STATES
+     * @sa state(), stateChanged(), AtCore::STATES
      */
     void setState(AtCore::STATES state);
 
@@ -340,13 +333,13 @@ public slots:
 
     /**
      * @brief Stop the Printer by empting the queue and aborting the print job (if running)
-     * @sa emergencyStop(),pause(),resume()
+     * @sa emergencyStop(), pause(), resume()
      */
     Q_INVOKABLE void stop();
 
     /**
      * @brief stop the printer via the emergency stop Command (M112)
-     * @sa stop(),pause(),resume()
+     * @sa stop(), pause(), resume()
      */
     Q_INVOKABLE void emergencyStop();
 
@@ -356,14 +349,14 @@ public slots:
      * Sends M114 on pause to store the location where the head stoped.
      * This is known to cause problems on fake printers
      * @param pauseActions: Gcode to run after pausing commands are ',' separated
-     * @sa resume(),stop(),emergencyStop()
+     * @sa resume(), stop(), emergencyStop()
      */
     void pause(const QString &pauseActions);
 
     /**
      * @brief resume a paused print job.
      * After returning to location pause was triggered.
-     * @sa pause(),stop(),emergencyStop()
+     * @sa pause(), stop(), emergencyStop()
      */
     Q_INVOKABLE void resume();
 
@@ -543,6 +536,14 @@ private slots:
     void handleSerialError(QSerialPort::SerialPortError error);
 
 private:
+
+    /**
+     * @brief Load A firmware plugin
+     * @param fwName : name of the firmware
+     * @sa firmwarePlugin(), availableFirmwarePlugins()
+     */
+    Q_INVOKABLE void loadFirmwarePlugin(const QString &fwName);
+
     /**
      * @brief True if a firmware plugin is loaded
      */
@@ -573,9 +574,16 @@ private:
 
     /**
      * @brief stops print just for sd prints used internally
-     * @sa stop(),emergencyStop()
+     * @sa stop(), emergencyStop()
      */
     void stopSdPrint();
+
+    /**
+     * @brief New connections need to wait for the machine to be ready if it needs reboot
+     * @param message: message from the firmware
+     * @param fwName: fwName to load
+     */
+    void waitForPrinterReboot(const QByteArray &message, const QString &fwName);
 
     /**
      * @brief Hold private data of AtCore.
