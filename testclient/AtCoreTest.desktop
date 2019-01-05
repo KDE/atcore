@@ -25,6 +25,7 @@ Name[tr]=AtCore Test İstemcisi
 Name[uk]=Тестовий клієнт AtCore
 Name[x-test]=xxAtCore Test Clientxx
 Name[zh_CN]=AtCore 测试客户端
+Name[zh_TW]=AtCore 測試客戶端
 Exec=AtCoreTest
 Icon=AtCoreTest
 Categories=Graphics;Qt;
