@@ -314,6 +314,7 @@ void AtCore::setSerialTimerInterval(int newTime)
 {
     newTime = std::max(newTime, 0);
     if (newTime != d->serialTimer.interval()) {
+        d->serialTimer.setInterval(newTime);
         emit serialTimerIntervalChanged(newTime);
     }
     if (newTime == 0) {
@@ -332,6 +333,7 @@ void AtCore::setTemperatureTimerInterval(int newTime)
 {
     newTime = std::max(newTime, 0);
     if (newTime != d->temperatureTimer.interval()) {
+        d->temperatureTimer.setInterval(newTime);
         emit temperatureTimerIntervalChanged(newTime);
     }
     if (newTime == 0) {
