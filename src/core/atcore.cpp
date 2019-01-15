@@ -316,7 +316,11 @@ void AtCore::setSerialTimerInterval(int newTime)
     if (newTime != d->serialTimer.interval()) {
         emit serialTimerIntervalChanged(newTime);
     }
-    d->serialTimer.start(newTime);
+    if (newTime == 0) {
+        d->serialTimer.stop();
+    } else {
+        d->serialTimer.start(newTime);
+    }
 }
 
 int AtCore::temperatureTimerInterval() const
@@ -330,7 +334,11 @@ void AtCore::setTemperatureTimerInterval(int newTime)
     if (newTime != d->temperatureTimer.interval()) {
         emit temperatureTimerIntervalChanged(newTime);
     }
-    d->temperatureTimer.start(newTime);
+    if (newTime == 0) {
+        d->temperatureTimer.stop();
+    } else {
+        d->temperatureTimer.start(newTime);
+    }
 }
 
 void AtCore::newMessage(const QByteArray &message)
