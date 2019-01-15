@@ -255,7 +255,9 @@ bool AtCore::newConnection(const QString &port, int baud, const QString &fwName,
         } else {
             loadFirmwarePlugin(fwName);
         }
-        d->serialTimer.stop();
+        if (d->serialTimer.isActive()) {
+            d->serialTimer.stop();
+        }
         return true;
     }
     qCDebug(ATCORE_CORE) << "Failed to open device for Read / Write.";
@@ -317,7 +319,7 @@ void AtCore::setSerialTimerInterval(int newTime)
         d->serialTimer.setInterval(newTime);
         emit serialTimerIntervalChanged(newTime);
     }
-    if (newTime == 0) {
+    if (newTime == 0 && d->serialTimer.isActive()) {
         d->serialTimer.stop();
     } else {
         d->serialTimer.start(newTime);
@@ -336,7 +338,7 @@ void AtCore::setTemperatureTimerInterval(int newTime)
         d->temperatureTimer.setInterval(newTime);
         emit temperatureTimerIntervalChanged(newTime);
     }
-    if (newTime == 0) {
+    if (!newTime && d->temperatureTimer.isActive()) {
         d->temperatureTimer.stop();
     } else {
         d->temperatureTimer.start(newTime);
@@ -478,7 +480,9 @@ void AtCore::setState(AtCore::STATES state)
         if (state == AtCore::STATES::FINISHEDPRINT && d->sdCardPrinting) {
             //Clean up the sd card print
             d->sdCardPrinting = false;
-            d->sdPrintProgressTimer.stop();
+            if (d->sdPrintProgressTimer.isActive()) {
+                d->sdPrintProgressTimer.stop();
+            }
         }
         emit stateChanged(d->printerState);
     }
