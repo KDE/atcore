@@ -207,6 +207,12 @@ void GCodeTests::command_M140()
     QVERIFY(GCode::toCommand(GCode::M140, QStringLiteral("100")) == QStringLiteral("M140 S100"));
 }
 
+void GCodeTests::command_M155()
+{
+    QVERIFY(testMCodeNeedsArg(GCode::M155));
+    QVERIFY(GCode::toCommand(GCode::M155, QStringLiteral("1")) == QStringLiteral("M155 S1"));
+}
+
 void GCodeTests::command_M190()
 {
     QVERIFY(testMCodeNeedsArg(GCode::M190));
