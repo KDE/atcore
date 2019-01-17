@@ -251,6 +251,8 @@ QString GCode::description(MCommands gcode)
         return QObject::tr("M144: Stand by your bed");
     case M150://Marlin
         return QObject::tr("M150: Set display color");
+    case M155: //Look for Cap:AUTOREPORT_TEMP:1 in M115 to check for support
+        return QObject::tr("M155: Set Temperature auto report");
     case M163://Repetier > 0.92
         return QObject::tr("M163: Set weight of mixed material");
     case M164://Repetier > 0.92
@@ -524,6 +526,7 @@ QString GCode::toCommand(MCommands gcode, const QString &value1, const QString &
 
     case M109:
     case M140:
+    case M155:
     case M190:
     case M220:
     case M221:
