@@ -531,6 +531,7 @@ void AtCore::requestFirmware()
 {
     if (serialInitialized()) {
         //ensure M115 is sent on cold connect.
+        d->commandQueue.clear();
         d->ready = true;
         qCDebug(ATCORE_CORE) << "Sending " << GCode::description(GCode::MCommands::M115);
         pushCommand(GCode::toCommand(GCode::MCommands::M115));
