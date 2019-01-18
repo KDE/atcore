@@ -90,7 +90,11 @@ private slots:
      * @param disabled: True if items are disabled.
      */
     void setDangeriousDocksDisabled(bool disabled);
-
+    /**
+     * @brief Called when atcore changes it temperature reporting mode
+     * @param autoReport: True if using temperature auto reporting
+     */
+    void updateAutoTemperatureReport(bool autoReport);
 private:
     AtCore *core;
     // Define max number of fans
@@ -165,7 +169,7 @@ private:
     QPushButton *buttonConnect = nullptr;
     QCheckBox *cbReset = nullptr;
     QTimer *connectionTimer = nullptr;
-
+    QSpinBox *sbTemperatureTimer = nullptr;
     void makeMoveDock();
     QDockWidget *moveDock = nullptr;
     MovementWidget *movementWidget = nullptr;

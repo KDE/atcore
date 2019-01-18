@@ -54,6 +54,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(core, &AtCore::stateChanged, this, &MainWindow::printerStateChanged);
     connect(core, &AtCore::portsChanged, this, &MainWindow::locateSerialPort);
     connect(core, &AtCore::sdCardFileListChanged, sdWidget, &SdWidget::updateFilelist);
+    connect(core, &AtCore::autoTemperatureReportChanged, this, &MainWindow::updateAutoTemperatureReport);
     comboPort->setFocus(Qt::OtherFocusReason);
 }
 
@@ -203,14 +204,12 @@ void MainWindow::makeTempTimelineDock()
 
     auto timerLayout = new QHBoxLayout;
     auto lblTimer = new QLabel(tr("Seconds Between Temperature Checks"), this);
-    auto sbTemperatureTimer = new QSpinBox(this);
+    sbTemperatureTimer = new QSpinBox(this);
     sbTemperatureTimer->setRange(0, 90);
-
     connect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
         core->setTemperatureTimerInterval(value * 1000);
     });
-
-    connect(core, &AtCore::temperatureTimerIntervalChanged, this, [sbTemperatureTimer](int value) {
+    connect(core, &AtCore::temperatureTimerIntervalChanged, this, [this](int value) {
         if (value != sbTemperatureTimer->value()) {
             sbTemperatureTimer->blockSignals(true);
             sbTemperatureTimer->setValue(value / 1000);
@@ -556,6 +555,7 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
         if (connectionTimer->isActive()) {
             connectionTimer->stop();
         }
+        sbTemperatureTimer->setValue(0);
         stateString = QStringLiteral("Not Connected");
         buttonConnect->setText(tr("Connect"));
         setConnectionWidgetsEnabled(true);
@@ -626,4 +626,35 @@ void MainWindow::setConnectionWidgetsEnabled(bool enabled)
     comboBAUD->setEnabled(enabled);
     comboPlugin->setEnabled(enabled);
     comboPort->setEnabled(enabled);
+}
+
+void MainWindow::updateAutoTemperatureReport(bool autoReport)
+{
+    disconnect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, {});
+    disconnect(core, &AtCore::temperatureTimerIntervalChanged, this, {});
+    disconnect(core, &AtCore::autoCheckTemperatureIntervalChanged, this, {});
+
+    if (autoReport) {
+        connect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
+            core->setAutoCheckTemperatureInterval(value);
+        });
+        connect(core, &AtCore::autoCheckTemperatureIntervalChanged, this, [this](int value) {
+            if (value != sbTemperatureTimer->value()) {
+                sbTemperatureTimer->blockSignals(true);
+                sbTemperatureTimer->setValue(value);
+                sbTemperatureTimer->blockSignals(false);
+            }
+        });
+    } else {
+        connect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
+            core->setTemperatureTimerInterval(value * 1000);
+        });
+        connect(core, &AtCore::temperatureTimerIntervalChanged, this, [this](int value) {
+            if (value != sbTemperatureTimer->value()) {
+                sbTemperatureTimer->blockSignals(true);
+                sbTemperatureTimer->setValue(value / 1000);
+                sbTemperatureTimer->blockSignals(false);
+            }
+        });
+    }
 }
