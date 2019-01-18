@@ -64,6 +64,8 @@ struct AtCore::AtCorePrivate {
     int extruderCount = 1;
     /** temperature: Temperature object */
     std::shared_ptr<Temperature> temperature = nullptr;
+    /** autoTemperatureReport: True if using auto Temperature Reporting*/
+    bool autoTemperatureReport = false;
     /** commandQueue: the list of commands to send to the printer */
     QStringList commandQueue;
     /** ready: True if printer is ready for a command */
@@ -349,9 +351,46 @@ void AtCore::setTemperatureTimerInterval(int newTime)
     }
 }
 
+void AtCore::setAutoTemperatureReport(bool autoReport)
+{
+    if (autoReport == d->autoTemperatureReport) {
+        return;
+    }
+
+    d->autoTemperatureReport = autoReport;
+    emit autoTemperatureReportChanged(autoReport);
+
+    if (autoReport) {
+        setTemperatureTimerInterval(0);
+        d->commandQueue.removeAll(GCode::toCommand(GCode::M105));
+        setAutoCheckTemperatureInterval(5);
+    } else {
+        setAutoCheckTemperatureInterval(0);
+        setTemperatureTimerInterval(5000);
+    }
+
+}
+
+void AtCore::setAutoCheckTemperatureInterval(int newTime)
+{
+    if (state() >= 2 && state() != AtCore::ERRORSTATE) {
+        pushCommand(GCode::toCommand(GCode::M155, QString::number(newTime)));
+    }
+    emit autoCheckTemperatureIntervalChanged(newTime);
+}
+
+bool AtCore::autoTemperatureReport() const
+{
+    return d->autoTemperatureReport;
+}
+
 void AtCore::newMessage(const QByteArray &message)
 {
     d->lastMessage = message;
+    if (d->lastMessage.contains(QString::fromLatin1("Cap:AUTOREPORT_TEMP:1").toLocal8Bit())) {
+        setAutoTemperatureReport(true);
+    }
+
     //Check if the message has current coordinates.
     if (d->lastCommand.startsWith(GCode::toCommand(GCode::MCommands::M114))
             && d->lastMessage.startsWith(QString::fromLatin1("X:").toLocal8Bit())) {
@@ -449,9 +488,12 @@ void AtCore::closeConnection()
         if (firmwarePluginLoaded()) {
             disconnect(firmwarePlugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
             disconnect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::newMessage);
-            if (firmwarePlugin()->name() != QStringLiteral("Grbl")) {
-                setTemperatureTimerInterval(0);
+            if (d->autoTemperatureReport) {
+                blockSignals(true);
+                setAutoTemperatureReport(false);
+                blockSignals(false);
             }
+            setTemperatureTimerInterval(0);
             //Attempt to unload the firmware plugin.
             QString name = firmwarePlugin()->name();
             QString msg = d->pluginLoader.unload() ? QStringLiteral("closed.") : QStringLiteral("Failed to close.");

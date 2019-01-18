@@ -71,6 +71,7 @@ class ATCORE_EXPORT AtCore : public QObject
     Q_PROPERTY(AtCore::STATES state READ state WRITE setState NOTIFY stateChanged)
     Q_PROPERTY(bool sdMount READ isSdMounted WRITE setSdMounted NOTIFY sdMountChanged)
     Q_PROPERTY(QStringList sdFileList READ sdFileList NOTIFY sdCardFileListChanged)
+    Q_PROPERTY(bool autoTemperatureReport READ autoTemperatureReport WRITE setAutoTemperatureReport NOTIFY autoTemperatureReportChanged)
 
     friend class AtCoreTests;
     //Add friends as Sd Card support is extended to more plugins.
@@ -235,6 +236,12 @@ public:
      */
     bool isSdMounted() const;
 
+    /**
+     * @brief Check if using automatic Temperature reporting to monitor temperatures
+     * @return True if using automatic temperature reporting
+     */
+    bool autoTemperatureReport() const;
+
 signals:
 
     /**
@@ -279,6 +286,18 @@ signals:
     * @sa setTemperatureTimerInterval()
     */
     void temperatureTimerIntervalChanged(const int newTime);
+
+    /**
+     * @brief use of automatic temperature reporting has changed
+     * @param autoReport: True if using automatic Reporting mode.
+     */
+    void autoTemperatureReportChanged(bool autoReport);
+
+    /**
+    * @brief New interval for automatic temperature report
+    * @sa setautoTemperatureReport()
+    */
+    void autoCheckTemperatureIntervalChanged(const int newTime);
 
     /**
      * @brief The Printer's State Changed
@@ -478,6 +497,18 @@ public slots:
      * @param newTime: Milliseconds between checks. values <= 0 will Disable Checks.
      */
     void setTemperatureTimerInterval(int newTime);
+
+    /** @brief Set if atcore should Enable auto temperature reporting. Temperature timer will also be stopped.
+     *  @param autoReport: True to enable automatic reporting of temperatures.
+     *  @sa setAutoCheckTemperature
+     */
+    void setAutoTemperatureReport(bool autoReport);
+
+    /**
+     * @brief Tell the machine to start reporting its temperature automaticly
+     * @param newTime: Time in seconds between reports (0: disabled)
+     */
+    Q_INVOKABLE void setAutoCheckTemperatureInterval(int newTime);
 
     /**
      * @brief delete file from sd card
