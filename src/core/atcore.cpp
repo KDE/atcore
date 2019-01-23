@@ -66,6 +66,8 @@ struct AtCore::AtCorePrivate {
     std::shared_ptr<Temperature> temperature = nullptr;
     /** autoTemperatureReport: True if using auto Temperature Reporting*/
     bool autoTemperatureReport = false;
+    /** bedDeform: BedDeform object */
+    std::shared_ptr<BedDeform> bedDeform = nullptr;
     /** commandQueue: the list of commands to send to the printer */
     QStringList commandQueue;
     /** ready: True if printer is ready for a command */
@@ -94,6 +96,8 @@ struct AtCore::AtCorePrivate {
     QString sdCardFileName;
     /** sdCardFileList: List of files on sd card. */
     QStringList sdCardFileList;
+    /** tempMultiString: Hold temp returns for multiline returns when needed */
+    QStringList tempMultiString;
 };
 
 AtCore::AtCore(QObject *parent) :
@@ -101,6 +105,7 @@ AtCore::AtCore(QObject *parent) :
     d(new AtCorePrivate)
 {
     d->temperature.reset(new Temperature);
+    d->bedDeform.reset(new BedDeform);
     //Register MetaTypes
     qRegisterMetaType<AtCore::STATES>("AtCore::STATES");
     setState(AtCore::STATES::DISCONNECTED);
@@ -108,6 +113,12 @@ AtCore::AtCore(QObject *parent) :
     connect(&d->sdPrintProgressTimer, &QTimer::timeout, this, &AtCore::sdCardPrintStatus);
     connect(&d->serialTimer, &QTimer::timeout, this, &AtCore::locateSerialPort);
     connect(&d->temperatureTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
+
+    //<<<<<<TESTING FUNCTION ONLY REMOVE AFTER TESTING IS COMPLETE>>>>>>>>
+    connect(d->bedDeform.get(), &BedDeform::dataChanged, this, [](const QVariantList & bedData) {
+        qDebug() << bedData;
+    });
+
     //Attempt to find our plugins
     qCDebug(ATCORE_PLUGIN) << "Detecting Plugin path";
     QStringList paths = AtCoreDirectories::pluginDir;
@@ -391,6 +402,12 @@ void AtCore::newMessage(const QByteArray &message)
         setAutoTemperatureReport(true);
     }
 
+    if (d->lastCommand.startsWith(GCode::toCommand(GCode::GCode::G29))) {
+        if (d->lastMessage.contains("ok")) {
+            d->bedDeform.get()->decodeDeform(d->tempMultiString);
+        }
+        d->tempMultiString.append(QString::fromLatin1(d->lastMessage));
+    }
     //Check if the message has current coordinates.
     if (d->lastCommand.startsWith(GCode::toCommand(GCode::MCommands::M114))
             && d->lastMessage.startsWith(QString::fromLatin1("X:").toLocal8Bit())) {
@@ -948,4 +965,9 @@ void AtCore::handleSerialError(QSerialPort::SerialPortError error)
     };//End of Switch
     qCDebug(ATCORE_CORE) << "SerialError:" << errorString;
     emit atcoreMessage(QStringLiteral("SerialError: %1").arg(errorString));
+}
+
+std::shared_ptr<BedDeform> AtCore::bedDeform()
+{
+    return d->bedDeform;
 }
