@@ -58,6 +58,8 @@ struct AtCore::AtCorePrivate {
     QMap<QString, QString> plugins;
     /** lastMessage: lastMessage from the printer */
     QByteArray lastMessage;
+    /** lastCommand: the last command sent to the printer */
+    QString lastCommand;
     /** extruderCount: extruder count */
     int extruderCount = 1;
     /** temperature: Temperature object */
@@ -347,10 +349,10 @@ void AtCore::setTemperatureTimerInterval(int newTime)
 
 void AtCore::newMessage(const QByteArray &message)
 {
-    //Evaluate the messages coming from the printer.
     d->lastMessage = message;
     //Check if the message has current coordinates.
-    if (message.startsWith(QString::fromLatin1("X:").toLocal8Bit())) {
+    if (d->lastCommand.startsWith(GCode::toCommand(GCode::MCommands::M114))
+            && d->lastMessage.startsWith(QString::fromLatin1("X:").toLocal8Bit())) {
         d->posString = message;
         d->posString.resize(d->posString.indexOf('E'));
         d->posString.replace(':', "");
@@ -358,7 +360,7 @@ void AtCore::newMessage(const QByteArray &message)
 
     //Check if have temperature info and decode it
     if (d->lastMessage.contains("T:") || d->lastMessage.contains("B:")) {
-        temperature().decodeTemp(message);
+        temperature().decodeTemp(d->lastMessage);
     }
     emit receivedMessage(d->lastMessage);
 }
@@ -716,12 +718,12 @@ void AtCore::processQueue()
         return;
     }
 
-    QString text = d->commandQueue.takeAt(0);
+    d->lastCommand = d->commandQueue.takeAt(0);
 
     if (firmwarePluginLoaded()) {
-        d->serial->pushCommand(firmwarePlugin()->translate(text));
+        d->serial->pushCommand(firmwarePlugin()->translate(d->lastCommand));
     } else {
-        d->serial->pushCommand(text.toLocal8Bit());
+        d->serial->pushCommand(d->lastCommand.toLocal8Bit());
     }
     d->ready = false;
 }
