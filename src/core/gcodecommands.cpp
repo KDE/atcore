@@ -93,6 +93,7 @@ QString GCode::toCommand(GCommands gcode, const QString &value1)
 {
     QString code = QStringLiteral("G%1").arg(QString::number(gcode));
     switch (gcode) {
+    case G29:
     case G90:
     case G91:
         return code;
