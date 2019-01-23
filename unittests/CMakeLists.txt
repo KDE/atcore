@@ -31,3 +31,5 @@ endmacro()
 TEST(AtCoreTests atcoretests.cpp)
 TEST(GcodeTests gcodetests.cpp)
 TEST(TemperatureTests temperaturetests.cpp)
+TEST(BedDeformTests beddeformtests.cpp)
+

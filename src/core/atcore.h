@@ -32,6 +32,7 @@
 #include "ifirmware.h"
 #include "temperature.h"
 #include "atcore_export.h"
+#include "beddeform.h"
 
 class SerialLayer;
 class IFirmware;
@@ -196,6 +197,11 @@ public:
      * @sa printProgressChanged()
      */
     float percentagePrinted() const;
+
+    /**
+     * @brief The Bed Deform data as told by the Firmware.
+     */
+    std::shared_ptr<BedDeform> bedDeform();
 
     /**
      * @brief The temperature of the current hotend as told by the Firmware.

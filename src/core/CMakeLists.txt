@@ -12,12 +12,13 @@ find_package(Qt5 REQUIRED COMPONENTS
 
 set(AtCoreLib_SRCS
     atcore.cpp
-    seriallayer.cpp
+    beddeform.cpp
     gcodecommands.cpp
     ifirmware.cpp
-    temperature.cpp
-    printthread.cpp
     machineinfo.cpp
+    printthread.cpp
+    seriallayer.cpp   
+    temperature.cpp    
 )
 
 add_library(AtCore SHARED ${AtCoreLib_SRCS})
@@ -42,11 +43,12 @@ set_target_properties(AtCore PROPERTIES VERSION ${ATCORE_VERSION_STRING}
 ecm_generate_headers(ATCORE_CamelCase_HEADERS
     HEADER_NAMES
     AtCore
+    BedDeform
     GCodeCommands
     IFirmware
+    MachineInfo
     SerialLayer
     Temperature
-    MachineInfo
     REQUIRED_HEADERS ATCORE_HEADERS
 )
 
