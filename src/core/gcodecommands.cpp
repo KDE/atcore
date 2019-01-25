@@ -102,7 +102,7 @@ QString GCode::toCommand(GCommands gcode, const QString &value1)
     case G0:
     case G1:
     case G28:
-        code = value1.isEmpty() ? code : code.append(QStringLiteral(" %1").arg(value1.toUpper()));
+        code = value1.isEmpty() ? code : code.append(QStringLiteral(" %1").arg(value1));
         return code;
 
     default:

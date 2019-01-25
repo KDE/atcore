@@ -39,6 +39,11 @@ CommandWidget::CommandWidget(QWidget *parent) :
     connect(newButton, &QPushButton::clicked, this, [this] {
         if (!lineCommand->text().isEmpty())
         {
+            if (lineCommand->text().startsWith(QStringLiteral("g"))) {
+                lineCommand->setText(lineCommand->text().replace(0, 1, QStringLiteral("G")));
+            } else if (lineCommand->text().startsWith(QStringLiteral("m"))) {
+                lineCommand->setText(lineCommand->text().replace(0, 1, QStringLiteral("M")));
+            }
             emit commandPressed(lineCommand->text());
             lineCommand->clear();
         }
