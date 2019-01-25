@@ -129,7 +129,7 @@ void MainWindow::makeCommandDock()
     commandWidget = new CommandWidget;
     //Connect the commandPressed signal
     connect(commandWidget, &CommandWidget::commandPressed, [this](const QString & command) {
-        core->pushCommand(command.toUpper());
+        core->pushCommand(command);
     });
     //Connect the messagePressed signal
     connect(commandWidget, &CommandWidget::messagePressed, [this](const QString & message) {
