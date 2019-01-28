@@ -33,7 +33,7 @@
  */
 
 struct Temperature::TemperaturePrivate {
-    /** Regex to capture Bed Temperature grabs : B: to the next space */
+    /** Regex to capture Bed Temperature. Looks for B: then grabs ##.## */
     static const QRegularExpression bedRegEx;
     /** bedTemp: Bed current temperature */
     float bedTemp = 0.0;
@@ -47,14 +47,45 @@ struct Temperature::TemperaturePrivate {
     static const QRegularExpression targetBedRegEx;
     /** Regex to capture Extruder Target Temperature Finds T:## /## and grabs the second set of numbers */
     static const QRegularExpression targetTempRegEx;
-    /** Regex to capture Extruder Temperature Grabs "T: to next space" */
+    /** Regex to capture Extruder Temperature. Looks for T: then grabs ##.## */
     static const QRegularExpression tempRegEx;
 };
 
-const QRegularExpression Temperature::TemperaturePrivate::bedRegEx = QRegularExpression(QStringLiteral(R"(B:(?<bed>\d+\.\d*))"));
+/**
+ * @brief Temperature::TemperaturePrivate::bedRegEx
+ *  Look for B: capture Any int or float as "bed"
+ *  Examples:
+ *   B: 25.0/50.0 (Captures 25.0)
+ *   B: 25/50  (Captures 25)
+ */
+const QRegularExpression Temperature::TemperaturePrivate::bedRegEx = QRegularExpression(QStringLiteral(R"(B:(?<bed>\d+\.?\d*))"));
+
+/**
+ * @brief Temperature::TemperaturePrivate::targetBedRegEx
+ *  Look for B: [anything ] /. Capture any int or float after the '/' as "bedTarget"
+ *  Examples:
+ *   B: 25.0 /50.0 (Captures 50.0)
+ *   B: 25/50 (Captures 50)
+ */
 const QRegularExpression Temperature::TemperaturePrivate::targetBedRegEx = QRegularExpression(QStringLiteral(R"(B:[^\/]*\/(?<bedTarget>\d+\.?\d*))"));
+
+/**
+ * @brief Temperature::TemperaturePrivate::targetTempRegEx
+ *  Look for T: [anything ] /. Capture any int or float after the '/' as "extruderTarget"
+ *  Examples:
+ *   T: 25.0 /50.0 (Captures 50.0)
+ *   T: 25/50 (Captures 50)
+ */
 const QRegularExpression Temperature::TemperaturePrivate::targetTempRegEx = QRegularExpression(QStringLiteral(R"(T:[^\/]*\/(?<extruderTarget>\d+\.?\d*))"));
-const QRegularExpression Temperature::TemperaturePrivate::tempRegEx = QRegularExpression(QStringLiteral(R"(T:(?<extruder>\d+\.\d*))"));
+
+/**
+ * @brief Temperature::TemperaturePrivate::tempRegEx
+ *  Look for T: capture Any int or float as "extruder"
+ *  Examples:
+ *   T: 25.0 /50 (Captures 25.0)
+ *   T: 25/50 (Captures 25)
+ */
+const QRegularExpression Temperature::TemperaturePrivate::tempRegEx = QRegularExpression(QStringLiteral(R"(T:(?<extruder>\d+\.?\d*))"));
 
 Temperature::Temperature(QObject *parent)
     : QObject(parent)
