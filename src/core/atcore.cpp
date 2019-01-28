@@ -63,7 +63,7 @@ struct AtCore::AtCorePrivate {
     /** extruderCount: extruder count */
     int extruderCount = 1;
     /** temperature: Temperature object */
-    Temperature temperature;
+    std::shared_ptr<Temperature> temperature = nullptr;
     /** commandQueue: the list of commands to send to the printer */
     QStringList commandQueue;
     /** ready: True if printer is ready for a command */
@@ -98,6 +98,7 @@ AtCore::AtCore(QObject *parent) :
     QObject(parent),
     d(new AtCorePrivate)
 {
+    d->temperature.reset(new Temperature);
     //Register MetaTypes
     qRegisterMetaType<AtCore::STATES>("AtCore::STATES");
     setState(AtCore::STATES::DISCONNECTED);
@@ -144,7 +145,7 @@ void AtCore::close()
     exit(0);
 }
 
-Temperature &AtCore::temperature() const
+std::shared_ptr<Temperature> AtCore::temperature()
 {
     return d->temperature;
 }
@@ -360,7 +361,7 @@ void AtCore::newMessage(const QByteArray &message)
 
     //Check if have temperature info and decode it
     if (d->lastMessage.contains("T:") || d->lastMessage.contains("B:")) {
-        temperature().decodeTemp(d->lastMessage);
+        temperature().get()->decodeTemp(d->lastMessage);
     }
     emit receivedMessage(d->lastMessage);
 }

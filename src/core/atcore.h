@@ -24,7 +24,7 @@
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
 #pragma once
-
+#include <memory>
 #include <QObject>
 #include <QSerialPort>
 #include <QSerialPortInfo>
@@ -199,7 +199,7 @@ public:
     /**
      * @brief The temperature of the current hotend as told by the Firmware.
      */
-    Temperature &temperature() const;
+    std::shared_ptr<Temperature> temperature();
 
     /**
     * @brief Return the amount of miliseconds the serialTimer is set to. 0 = Disabled
