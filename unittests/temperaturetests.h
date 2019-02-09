@@ -26,10 +26,6 @@ class TemperatureTests: public QObject
 private slots:
     void initTestCase();
     void cleanup();
-    void setExtruderTemperature();
-    void setExtruderTargetTemperature();
-    void setBedTemperature();
-    void setBedTargetTemperature();
     void testDecodeAprinter();
     void testDecodeMarlin();
     void testDecodeMarlinCreality();
