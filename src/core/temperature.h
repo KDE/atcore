@@ -35,10 +35,12 @@
 class ATCORE_EXPORT Temperature : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(float bedTemperature READ bedTemperature WRITE setBedTemperature NOTIFY bedTemperatureChanged)
-    Q_PROPERTY(float bedTargetTemperature READ bedTargetTemperature WRITE setBedTargetTemperature NOTIFY bedTargetTemperatureChanged)
-    Q_PROPERTY(float extruderTemperature READ extruderTemperature WRITE setExtruderTemperature NOTIFY extruderTemperatureChanged)
-    Q_PROPERTY(float extruderTargetTemperature READ extruderTargetTemperature WRITE setExtruderTargetTemperature NOTIFY extruderTargetTemperatureChanged)
+    Q_PROPERTY(float bedTemperature READ bedTemperature NOTIFY bedTemperatureChanged)
+    Q_PROPERTY(float bedTargetTemperature READ bedTargetTemperature NOTIFY bedTargetTemperatureChanged)
+    Q_PROPERTY(float extruderTemperature READ extruderTemperature NOTIFY extruderTemperatureChanged)
+    Q_PROPERTY(float extruderTargetTemperature READ extruderTargetTemperature NOTIFY extruderTargetTemperatureChanged)
+
+    friend class TemperatureTests;
 
 public:
     /**
@@ -58,6 +60,12 @@ public:
     float bedTargetTemperature() const;
 
     /**
+     * @brief decode Temp values from string \p msg
+     * @param msg: string to read vaules from
+     */
+    void decodeTemp(const QByteArray &msg);
+
+    /**
      * @brief Get extruder temperature
      */
     float extruderTemperature() const;
@@ -67,62 +75,32 @@ public:
      */
     float extruderTargetTemperature() const;
 
-    /**
-     * @brief decode Temp values from string \p msg
-     * @param msg: string to read vaules from
-     */
-    void decodeTemp(const QByteArray &msg);
-
-public slots:
-    /**
-     * @brief Set bed temperature
-     * @param temp: bed temperature
-     */
-    void setBedTemperature(float temp);
-
-    /**
-     * @brief Set bed target temperature
-     * @param temp: bed target temperature
-     */
-    void setBedTargetTemperature(float temp);
-
-    /**
-     * @brief Set exturder temperature
-     * @param temp: bed temperature
-     */
-    void setExtruderTemperature(float temp);
-
-    /**
-    * @brief Set extruder target temperature
-    * @param temp: extruder target temperature
-    */
-    void setExtruderTargetTemperature(float temp);
-
 signals:
     /**
      * @brief bed temperature has changed
-     * @param temp : new bed temperature
      */
-    void bedTemperatureChanged(float temp);
+    void bedTemperatureChanged();
 
     /**
      * @brief bed target temperature has changed
-     * @param temp : new bed target temperature
      */
-    void bedTargetTemperatureChanged(float temp);
+    void bedTargetTemperatureChanged();
 
     /**
      * @brief extruder temperature has changed
-     * @param temp : new extruder temperature
      */
-    void extruderTemperatureChanged(float temp);
+    void extruderTemperatureChanged();
 
     /**
      * @brief extruder target temperature has changed
-     * @param temp : new extruder target temperature
      */
-    void extruderTargetTemperatureChanged(float temp);
+    void extruderTargetTemperatureChanged();
 
+protected:
+    /**
+     * @brief Reset internal temperature data, For Tests-Only
+     */
+    void resetData();
 private:
     struct TemperaturePrivate;
     TemperaturePrivate *d;

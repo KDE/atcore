@@ -113,30 +113,6 @@ float Temperature::extruderTemperature() const
     return d->extruderTemp;
 }
 
-void Temperature::setBedTargetTemperature(float temp)
-{
-    d->bedTargetTemp = temp;
-    emit bedTargetTemperatureChanged(temp);
-}
-
-void Temperature::setBedTemperature(float temp)
-{
-    d->bedTemp = temp;
-    emit bedTemperatureChanged(temp);
-}
-
-void Temperature::setExtruderTargetTemperature(float temp)
-{
-    d->extruderTargetTemp = temp;
-    emit extruderTargetTemperatureChanged(temp);
-}
-
-void Temperature::setExtruderTemperature(float temp)
-{
-    d->extruderTemp = temp;
-    emit extruderTemperatureChanged(temp);
-}
-
 void Temperature::decodeTemp(const QByteArray &msg)
 {
     QString msgString = QString::fromLatin1(msg);
@@ -144,11 +120,13 @@ void Temperature::decodeTemp(const QByteArray &msg)
     QRegularExpressionMatch targetTempCheck = d->targetTempRegEx.match(msgString);
 
     if (tempCheck.hasMatch()) {
-        setExtruderTemperature(tempCheck.captured(QStringLiteral("extruder")).toFloat());
+        d->extruderTemp = tempCheck.captured(QStringLiteral("extruder")).toFloat();
+        emit extruderTemperatureChanged();
     }
 
     if (targetTempCheck.hasMatch()) {
-        setExtruderTargetTemperature(targetTempCheck.captured(QStringLiteral("extruderTarget")).toFloat());
+        d->extruderTargetTemp = targetTempCheck.captured(QStringLiteral("extruderTarget")).toFloat();
+        emit extruderTargetTemperatureChanged();
     }
 
     if (msg.indexOf(QStringLiteral("B:")) != -1) {
@@ -156,11 +134,21 @@ void Temperature::decodeTemp(const QByteArray &msg)
         QRegularExpressionMatch targetBedCheck = d->targetBedRegEx.match(msgString);
 
         if (bedCheck.hasMatch()) {
-            setBedTemperature(bedCheck.captured(QStringLiteral("bed")).toFloat());
+            d->bedTemp = bedCheck.captured(QStringLiteral("bed")).toFloat();
+            emit bedTemperatureChanged();
         }
 
         if (targetBedCheck.hasMatch()) {
-            setBedTargetTemperature(targetBedCheck.captured(QStringLiteral("bedTarget")).toFloat());
+            d->bedTargetTemp = targetBedCheck.captured(QStringLiteral("bedTarget")).toFloat();
+            emit bedTargetTemperatureChanged();
         }
     }
+}
+
+void Temperature::resetData()
+{
+    d->extruderTemp = 0.0;
+    d->extruderTargetTemp = 0.0;
+    d->bedTemp = 0.0;
+    d->bedTargetTemp = 0.0;
 }

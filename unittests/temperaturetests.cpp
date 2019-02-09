@@ -29,46 +29,7 @@ void TemperatureTests::initTestCase()
 
 void TemperatureTests::cleanup()
 {
-    temperature->setBedTemperature(0);
-    temperature->setBedTargetTemperature(0);
-    temperature->setExtruderTemperature(0);
-    temperature->setExtruderTargetTemperature(0);
-}
-
-void TemperatureTests::setExtruderTemperature()
-{
-    temperature->setExtruderTemperature(20);
-    QVERIFY(temperature->extruderTemperature() == 20);
-
-    temperature->setExtruderTemperature(20.25);
-    QVERIFY(temperature->extruderTemperature() == 20.25);
-}
-
-void TemperatureTests::setExtruderTargetTemperature()
-{
-    temperature->setExtruderTargetTemperature(20);
-    QVERIFY(temperature->extruderTargetTemperature() == 20);
-
-    temperature->setExtruderTargetTemperature(20.25);
-    QVERIFY(temperature->extruderTargetTemperature() == 20.25);
-}
-
-void TemperatureTests::setBedTemperature()
-{
-    temperature->setBedTemperature(20);
-    QVERIFY(temperature->bedTemperature() == 20);
-
-    temperature->setBedTemperature(20.25);
-    QVERIFY(temperature->bedTemperature() == 20.25);
-}
-
-void TemperatureTests::setBedTargetTemperature()
-{
-    temperature->setBedTargetTemperature(20);
-    QVERIFY(temperature->bedTargetTemperature() == 20);
-
-    temperature->setBedTargetTemperature(20.25);
-    QVERIFY(temperature->bedTargetTemperature() == 20.25);
+    temperature->resetData();
 }
 
 void TemperatureTests::testDecodeAprinter()

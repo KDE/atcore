@@ -174,25 +174,29 @@ void MainWindow::makeTempTimelineDock()
     plotWidget = new PlotWidget;
     //make and connect our plots in the widget.
     plotWidget->addPlot(tr("Actual Bed"));
-    connect(core->temperature().get(), &Temperature::bedTemperatureChanged, this, [this](float temp) {
+    connect(core->temperature().get(), &Temperature::bedTemperatureChanged, this, [this] {
+        float temp = core->temperature().get()->bedTemperature();
         checkTemperature(0x00, 0, temp);
         plotWidget->appendPoint(tr("Actual Bed"), temp);
     });
 
     plotWidget->addPlot(tr("Target Bed"));
-    connect(core->temperature().get(), &Temperature::bedTargetTemperatureChanged, this, [this](float temp) {
+    connect(core->temperature().get(), &Temperature::bedTargetTemperatureChanged, this, [this] {
+        float temp = core->temperature().get()->bedTargetTemperature();
         checkTemperature(0x01, 0, temp);
         plotWidget->appendPoint(tr("Target Bed"), temp);
     });
 
     plotWidget->addPlot(tr("Actual Ext.1"));
-    connect(core->temperature().get(), &Temperature::extruderTemperatureChanged, this, [this](float temp) {
+    connect(core->temperature().get(), &Temperature::extruderTemperatureChanged, this, [this] {
+        float temp = core->temperature().get()->extruderTemperature();
         checkTemperature(0x02, 0, temp);
         plotWidget->appendPoint(tr("Actual Ext.1"), temp);
     });
 
     plotWidget->addPlot(tr("Target Ext.1"));
-    connect(core->temperature().get(), &Temperature::extruderTargetTemperatureChanged, this, [this](float temp) {
+    connect(core->temperature().get(), &Temperature::extruderTargetTemperatureChanged, this, [this] {
+        float temp = core->temperature().get()->extruderTargetTemperature();
         checkTemperature(0x03, 0, temp);
         plotWidget->appendPoint(tr("Target Ext.1"), temp);
     });
