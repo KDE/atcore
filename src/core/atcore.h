@@ -60,7 +60,7 @@ class ATCORE_EXPORT AtCore : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString version READ version CONSTANT)
-    Q_PROPERTY(QStringList availableFirmwarePlugins READ availableFirmwarePlugins)
+    Q_PROPERTY(QStringList availableFirmwarePlugins READ availableFirmwarePlugins NOTIFY availableFirmwarePluginsChanged)
     Q_PROPERTY(int extruderCount READ extruderCount WRITE setExtruderCount NOTIFY extruderCountChanged)
     Q_PROPERTY(int temperatureTimerInterval READ temperatureTimerInterval WRITE setTemperatureTimerInterval NOTIFY temperatureTimerIntervalChanged);
     Q_PROPERTY(int serialTimerInterval READ serialTimerInterval WRITE setSerialTimerInterval NOTIFY serialTimerIntervalChanged)
@@ -307,6 +307,11 @@ signals:
      * @param comm: the command sent.
      */
     void pushedCommand(const QByteArray &comm);
+
+    /**
+     * @brief availableFirmwarePluginsChanged notify about the new plugins available
+     */
+    void availableFirmwarePluginsChanged();
 
 public slots:
 
