@@ -39,8 +39,8 @@ class AtCore;
 class ATCORE_EXPORT  IFirmware : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString name READ name)
-    Q_PROPERTY(bool sdSupport READ isSdSupported)
+    Q_PROPERTY(QString name READ name CONSTANT)
+    Q_PROPERTY(bool sdSupport READ isSdSupported CONSTANT)
 public:
     IFirmware();
     void init(AtCore *parent);
