@@ -117,6 +117,7 @@ AtCore::AtCore(QObject *parent) :
         QMap <QString, QString> tempMap = findFirmwarePlugins(path);
         if (!tempMap.isEmpty()) {
             d->plugins = tempMap;
+            emit availableFirmwarePluginsChanged();
             return;
         }
     }
