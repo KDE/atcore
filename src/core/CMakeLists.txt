@@ -6,6 +6,10 @@ configure_file(
     ${CMAKE_CURRENT_BINARY_DIR}/atcore_default_folders.h
 )
 
+find_package(Qt5 REQUIRED COMPONENTS
+    Quick
+)
+
 set(AtCoreLib_SRCS
     atcore.cpp
     seriallayer.cpp
@@ -13,10 +17,11 @@ set(AtCoreLib_SRCS
     ifirmware.cpp
     temperature.cpp
     printthread.cpp
+    machineinfo.cpp
 )
 
 add_library(AtCore SHARED ${AtCoreLib_SRCS})
-target_link_libraries(AtCore Qt5::Core Qt5::SerialPort)
+target_link_libraries(AtCore Qt5::Core Qt5::SerialPort Qt5::Quick)
 
 #
 #
@@ -33,6 +38,7 @@ set_target_properties(AtCore PROPERTIES VERSION ${ATCORE_VERSION_STRING}
     EXPORT_NAME AtCore
 )
 
+
 ecm_generate_headers(ATCORE_CamelCase_HEADERS
     HEADER_NAMES
     AtCore
@@ -40,6 +46,7 @@ ecm_generate_headers(ATCORE_CamelCase_HEADERS
     IFirmware
     SerialLayer
     Temperature
+    MachineInfo
     REQUIRED_HEADERS ATCORE_HEADERS
 )
 
