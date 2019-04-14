@@ -417,7 +417,7 @@ void MainWindow::checkTemperature(uint sensorType, uint number, float temp)
         break;
 
     case 0x02: // extruder
-        msg = QString::fromLatin1("Extruder[%1] Temperature").arg(QString::number(number));;
+        msg = QString::fromLatin1("Extruder[%1] Temperature").arg(QString::number(number));
         break;
 
     case 0x03: // extruder target
