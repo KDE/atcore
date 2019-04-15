@@ -10,6 +10,7 @@ set(widgetsLIB_SRCS
     sdwidget.cpp
     statuswidget.cpp
     temperaturewidget.cpp
+    profilemanager.cpp
 )
 
 add_library(AtCoreWidgets ${widgetsLIB_SRCS})
@@ -50,6 +51,7 @@ ecm_generate_headers(ATCOREWIDGETS_CamelCase_HEADERS
     SdWidget
     StatusWidget
     TemperatureWidget
+    ProfileManager
     REQUIRED_HEADERS ATCOREWIDGETS_HEADERS
 )
 

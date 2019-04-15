@@ -43,16 +43,6 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
         hBoxLayout->addWidget(buttonPrint);
         hBoxLayout->addWidget(newButton);
         mainLayout->addLayout(hBoxLayout);
-
-        newLabel = new QLabel(tr("On Pause:"), this);
-
-        linePostPause = new QLineEdit(this);
-        linePostPause->setPlaceholderText(QStringLiteral("G91,G0 Z1,G90,G1 X0 Y195"));
-
-        hBoxLayout = new QHBoxLayout;
-        hBoxLayout->addWidget(newLabel);
-        hBoxLayout->addWidget(linePostPause);
-        mainLayout->addLayout(hBoxLayout);
     }
 
     newLabel = new QLabel(tr("Printer Speed"), this);
@@ -107,11 +97,6 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent) :
     mainLayout->addLayout(hBoxLayout);
 
     setLayout(mainLayout);
-}
-
-QString PrintWidget::postPauseCommand() const
-{
-    return linePostPause->text();
 }
 
 void PrintWidget::setPrintText(const QString &text)

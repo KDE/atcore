@@ -1,0 +1,336 @@
+/* AtCore - Widgets
+    Copyright (C) <2019>
+    Author: Chris Rizzitello - rizzitello@kde.org
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#include "profilemanager.h"
+#include "atcore_default_folders.h"
+#include "machineinfo.h"
+
+#include <QCoreApplication>
+#include <QDir>
+#include <QToolButton>
+#include <QLineEdit>
+#include <QGroupBox>
+#include <QButtonGroup>
+
+ProfileManager::ProfileManager(QWidget *parent) :
+    QWidget(parent)
+{
+    auto newLabel = new QLabel(tr("Profile:"));
+    cbProfile = new QComboBox();
+    cbProfile->setEditable(true);
+    cbProfile->setAutoCompletion(true);
+    cbProfile->addItems(MachineInfo::instance()->profileNames());
+    connect(MachineInfo::instance(), &MachineInfo::profilesChanged, this, [this] {
+        int index = cbProfile->currentIndex();
+        cbProfile->clear();
+        cbProfile->addItems(MachineInfo::instance()->profileNames());
+        cbProfile->setCurrentIndex(std::min<int>(index, cbProfile->count() - 1));
+    });
+
+    connect(cbProfile, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this] {
+        if (MachineInfo::instance()->profileNames().contains(cbProfile->currentText()))
+        {
+            loadProfile(cbProfile->currentText());
+        }
+    });
+
+    connect(cbProfile->lineEdit(), &QLineEdit::editingFinished, this, &ProfileManager::onCbProfileEditingFinished);
+
+    auto newHLayout = new QHBoxLayout();
+    newHLayout->addWidget(newLabel);
+    newHLayout->addWidget(cbProfile, 75);
+
+    auto newButton = new QToolButton();
+    newButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete"), style()->standardIcon(QStyle::SP_DialogDiscardButton)));
+    newButton->setToolTip(tr("Delete Current Profile"));
+    newButton->setIconSize(QSize(fontMetrics().height(), fontMetrics().height()));
+    connect(newButton, &QToolButton::clicked, this, [this] {
+        if (!cbProfile->currentText().isEmpty())
+        {
+            MachineInfo::instance()->removeProfile(cbProfile->currentText());
+        }
+    });
+
+    auto mainLayout = new QVBoxLayout();
+    newHLayout->addWidget(newButton);
+    mainLayout->addLayout(newHLayout);
+    auto profileLayout = new QVBoxLayout();
+    auto boxLayout = new QVBoxLayout();
+
+    newLabel = new QLabel(tr("Name"));
+    lineName = new QLineEdit();
+    connect(lineName, &QLineEdit::editingFinished, this, [this] {
+        QString itemName = lineName->text();
+        if (MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::NAME, itemName))
+        {
+            loadProfile(itemName);
+        }
+    });
+    newHLayout = new QHBoxLayout;
+    newHLayout->addWidget(newLabel);
+    newHLayout->addWidget(lineName);
+    profileLayout->addLayout(newHLayout);
+
+    newLabel = new QLabel(tr("Printer Type:"));
+    radioDelta = new QRadioButton(tr("Delta"));
+    radioCartesian = new QRadioButton(tr("Cartesian"));
+    radioCartesian->setChecked(true);
+    connect(radioCartesian, &QRadioButton::toggled, this, &ProfileManager::onRadioCartesianToggled);
+
+    newHLayout = new QHBoxLayout;
+    newHLayout->addWidget(newLabel);
+    newHLayout->addWidget(radioCartesian);
+    newHLayout->addWidget(radioDelta);
+    boxLayout->addLayout(newHLayout);
+
+    lblX = new QLabel(tr("Maximum X"));
+    sbMaxX = new QSpinBox();
+    sbMaxX->setMaximum(std::numeric_limits<int>::max());
+    sbMaxX->setSuffix(QStringLiteral("mm"));
+    connect(sbMaxX, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::XMAX, value);
+    });
+
+    newHLayout = new QHBoxLayout;
+    newHLayout->addWidget(lblX);
+    newHLayout->addWidget(sbMaxX);
+    boxLayout->addLayout(newHLayout);
+
+    newLabel = new QLabel(tr("Maximum Y"));
+    sbMaxY = new QSpinBox();
+    sbMaxY->setMaximum(std::numeric_limits<int>::max());
+    sbMaxY->setSuffix(QStringLiteral("mm"));
+    connect(sbMaxY, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::YMAX, value);
+    });
+
+    newHLayout = new QHBoxLayout;
+    newHLayout->setContentsMargins(0, 0, 0, 0);
+    newHLayout->addWidget(newLabel);
+    newHLayout->addWidget(sbMaxY);
+    axisY = new QWidget(this);
+    axisY->setLayout(newHLayout);
+    boxLayout->addWidget(axisY);
+
+    lblZ = new QLabel(tr("Maximum Z"));
+    sbMaxZ = new QSpinBox();
+    sbMaxZ->setMaximum(std::numeric_limits<int>::max());
+    sbMaxZ->setSuffix(QStringLiteral("mm"));
+    connect(sbMaxZ, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::ZMAX, value);
+    });
+
+    newHLayout = new QHBoxLayout;
+    newHLayout->addWidget(lblZ);
+    newHLayout->addWidget(sbMaxZ);
+    boxLayout->addLayout(newHLayout);
+
+    auto groupBox = new QGroupBox(tr("Mechanics"));
+    groupBox->setLayout(boxLayout);
+    profileLayout->addWidget(groupBox);
+
+    boxLayout = new QVBoxLayout;
+    newLabel = new QLabel(tr("Bed Maximum"));
+    sbMaxBedTemp = new QSpinBox();
+    sbMaxBedTemp->setMaximum(999);
+    sbMaxBedTemp->setSuffix(QStringLiteral(" ºC"));
+    connect(sbMaxBedTemp, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::MAXBEDTEMP, value);
+    });
+
+    newHLayout = new QHBoxLayout;
+    newHLayout->addWidget(newLabel);
+    newHLayout->addWidget(sbMaxBedTemp);
+    boxLayout->addLayout(newHLayout);
+
+    sbMaxExtTemp = new QSpinBox();
+    sbMaxExtTemp->setMaximum(999);
+    newLabel = new QLabel(tr("Extruder Maximum"));
+    sbMaxExtTemp->setSuffix(QStringLiteral(" ºC"));
+    connect(sbMaxExtTemp, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::MAXEXTTEMP, value);
+    });
+
+    newHLayout = new QHBoxLayout();
+    newHLayout->addWidget(newLabel);
+    newHLayout->addWidget(sbMaxExtTemp);
+    boxLayout->addLayout(newHLayout);
+
+    checkAutoTempReport = new QCheckBox(tr("Auto Temperature Report"));
+    checkAutoTempReport->setLayoutDirection(Qt::RightToLeft);
+    connect(checkAutoTempReport, &QCheckBox::toggled, this, [this](bool checked) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::AUTOTEMPREPORT, checked);
+    });
+    boxLayout->addWidget(checkAutoTempReport, 0, Qt::AlignRight);
+
+    groupBox = new QGroupBox(tr("Temperature"));
+    groupBox->setLayout(boxLayout);
+    profileLayout->addWidget(groupBox);
+
+    boxLayout = new QVBoxLayout();
+    cbBaud = new QComboBox();
+    cbBaud->addItems(SERIAL::BAUDS);
+    cbBaud->setCurrentText(QStringLiteral("115200"));
+    connect(cbBaud, &QComboBox::currentTextChanged, this, [this](const QString & newText) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::BAUDRATE, newText);
+    });
+
+    newLabel = new QLabel(tr("Bit Rate"));
+    newHLayout = new QHBoxLayout();
+    newHLayout->addWidget(newLabel);
+    newHLayout->addWidget(cbBaud);
+    boxLayout->addLayout(newHLayout);
+
+    newLabel = new QLabel(tr("Firmware"));
+    cbFirmware = new QComboBox();
+    cbFirmware->addItem(QStringLiteral("Auto-Detect"));
+    cbFirmware->addItems(detectFWPlugins());
+    connect(cbFirmware, &QComboBox::currentTextChanged, this, [this](const QString & newText) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::FIRMWARE, newText);
+    });
+
+    newHLayout = new QHBoxLayout();
+    newHLayout->addWidget(newLabel);
+    newHLayout->addWidget(cbFirmware);
+    boxLayout->addLayout(newHLayout);
+
+    linePostPause = new QLineEdit();
+    connect(linePostPause, &QLineEdit::editingFinished, this, [this] {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::POSTPAUSE, linePostPause->text());
+    });
+
+    newLabel = new QLabel(tr("PostPause"));
+    newHLayout = new QHBoxLayout();
+    newHLayout->addWidget(newLabel);
+    newHLayout->addWidget(linePostPause);
+    boxLayout->addLayout(newHLayout);
+
+    groupBox = new QGroupBox(tr("Advanced"));
+    groupBox->setLayout(boxLayout);
+    profileLayout->addWidget(groupBox);
+    groupBox = new QGroupBox(tr("Profile"));
+    groupBox->setLayout(profileLayout);
+    mainLayout->addWidget(groupBox);
+    setLayout(mainLayout);
+    loadProfile(cbProfile->currentText());
+}
+
+void ProfileManager::onCbProfileEditingFinished()
+{
+    if (MachineInfo::instance()->profileNames().contains(cbProfile->currentText())) {
+        loadProfile(cbProfile->currentText());
+        return;
+    }
+    QMap <MachineInfo::KEY, QVariant> newProfile = {
+        {MachineInfo::KEY::NAME, cbProfile->currentText()},
+        {MachineInfo::KEY::FIRMWARE, cbFirmware->currentText()},
+        {MachineInfo::KEY::BAUDRATE, cbBaud->currentText()},
+        {MachineInfo::KEY::POSTPAUSE, linePostPause->text()},
+        {MachineInfo::KEY::ISCARTESIAN, radioCartesian->isChecked()},
+        {MachineInfo::KEY::XMAX, sbMaxX->value()},
+        {MachineInfo::KEY::YMAX, sbMaxY->value()},
+        {MachineInfo::KEY::ZMAX, sbMaxZ->value()},
+        {MachineInfo::KEY::AUTOTEMPREPORT, checkAutoTempReport->isChecked()},
+        {MachineInfo::KEY::MAXBEDTEMP, sbMaxBedTemp->value()},
+        {MachineInfo::KEY::MAXEXTTEMP, sbMaxExtTemp->value()}
+    };
+    MachineInfo::instance()->storeProfile(newProfile);
+    loadProfile(newProfile[MachineInfo::KEY::NAME].toString());
+}
+
+void ProfileManager::onRadioCartesianToggled(bool checked)
+{
+    axisY->setVisible(checked);
+    if (checked) {
+        lblX->setText(tr("Maximum X"));
+        lblZ->setText(tr("Maximum Z"));
+    } else {
+        lblX->setText(tr("Radius"));
+        lblZ->setText(tr("Height"));
+    }
+    if (MachineInfo::instance()->profileNames().contains(cbProfile->currentText())) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::ISCARTESIAN, checked);
+    }
+}
+
+void ProfileManager::loadProfile(const QString &profileName)
+{
+    if (profileName.isEmpty()) {
+        return;
+    }
+    blockSignals(true);
+    lineName->setText(MachineInfo::instance()->readKey(profileName, MachineInfo::KEY::NAME).toString());
+    radioCartesian->setChecked(MachineInfo::instance()->readKey(profileName, MachineInfo::KEY::ISCARTESIAN).toBool());
+    radioDelta->setChecked(!MachineInfo::instance()->readKey(profileName, MachineInfo::KEY::ISCARTESIAN).toBool());
+    sbMaxX->setValue(MachineInfo::instance()->readKey(profileName, MachineInfo::KEY::XMAX).toInt());
+    sbMaxY->setValue(MachineInfo::instance()->readKey(profileName, MachineInfo::KEY::YMAX).toInt());
+    sbMaxZ->setValue(MachineInfo::instance()->readKey(profileName, MachineInfo::KEY::ZMAX).toInt());
+    checkAutoTempReport->setChecked(MachineInfo::instance()->readKey(profileName, MachineInfo::KEY::AUTOTEMPREPORT).toBool());
+    sbMaxBedTemp->setValue(MachineInfo::instance()->readKey(profileName, MachineInfo::KEY::MAXBEDTEMP).toInt());
+    sbMaxExtTemp->setValue(MachineInfo::instance()->readKey(profileName, MachineInfo::KEY::MAXEXTTEMP).toInt());
+    cbFirmware->setCurrentText(MachineInfo::instance()->readKey(profileName, MachineInfo::KEY::FIRMWARE).toString());
+    cbBaud->setCurrentText(MachineInfo::instance()->readKey(profileName, MachineInfo::KEY::BAUDRATE).toString());
+    linePostPause->setText(MachineInfo::instance()->readKey(profileName, MachineInfo::KEY::POSTPAUSE).toString());
+    cbProfile->setCurrentText(profileName);
+    cbProfile->setCurrentIndex(MachineInfo::instance()->profileNames().indexOf(profileName));
+    blockSignals(false);
+}
+
+QStringList ProfileManager::detectFWPlugins()
+{
+    QStringList firmwares;
+    QStringList paths = AtCoreDirectories::pluginDir;
+    //Add our runtime paths
+    const QString &p(qApp->applicationDirPath());
+    paths.prepend(p + QStringLiteral("/../Plugins/AtCore"));
+    paths.prepend(p + QStringLiteral("/AtCore"));
+    paths.prepend(p + QStringLiteral("/plugins"));
+    for (const QString &path : qAsConst(paths)) {
+        firmwares = firmwaresInPath(path);
+        if (!firmwares.isEmpty()) {
+            //use path where plugins were detected.
+            break;
+        }
+    }
+    return firmwares;
+}
+
+QStringList ProfileManager::firmwaresInPath(const QString &path)
+{
+    QStringList firmwares;
+    QStringList files = QDir(path).entryList(QDir::Files);
+    for (QString file : files) {
+#if defined(Q_OS_WIN)
+        if (file.endsWith(QStringLiteral(".dll")))
+#elif defined(Q_OS_MAC)
+        if (file.endsWith(QStringLiteral(".dylib")))
+#else
+        if (file.endsWith(QStringLiteral(".so")))
+#endif
+            file = file.split(QChar::fromLatin1('.')).at(0);
+        else {
+            continue;
+        }
+        if (file.startsWith(QStringLiteral("lib"))) {
+            file = file.remove(QStringLiteral("lib"));
+        }
+        file = file.toLower().simplified();
+        firmwares.append(file);
+    }
+    return firmwares;
+}
