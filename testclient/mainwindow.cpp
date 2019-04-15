@@ -28,6 +28,7 @@
 #include <QLoggingCategory>
 
 #include "mainwindow.h"
+#include "machineinfo.h"
 #include "seriallayer.h"
 #include "gcodecommands.h"
 #include "about.h"
@@ -55,7 +56,16 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(core, &AtCore::portsChanged, this, &MainWindow::locateSerialPort);
     connect(core, &AtCore::sdCardFileListChanged, sdWidget, &SdWidget::updateFilelist);
     connect(core, &AtCore::autoTemperatureReportChanged, this, &MainWindow::updateAutoTemperatureReport);
+
     comboPort->setFocus(Qt::OtherFocusReason);
+
+    if (comboProfile->count() == 0) {
+        QMessageBox::information(this, tr("AtCore First Run"), tr("No Profiles Detected, the Profile Manager to create one."));
+        profileDock->setVisible(true);
+        move(profileDock->geometry().center());
+        profileDock->move(geometry().center());
+        profileDock->activateWindow();
+    }
 }
 
 void MainWindow::initMenu()
@@ -106,6 +116,7 @@ void MainWindow::initWidgets()
     makeMoveDock();
     makeTempControlsDock();
     makeSdDock();
+    makeProfileDock();
 
     setDangeriousDocksDisabled(true);
 
@@ -118,6 +129,9 @@ void MainWindow::initWidgets()
     tabifyDockWidget(connectDock, printDock);
     tabifyDockWidget(connectDock, commandDock);
     connectDock->raise();
+
+    tabifyDockWidget(logDock, profileDock);
+    logDock->raise();
     setCentralWidget(nullptr);
 
     //More Gui stuff
@@ -256,32 +270,35 @@ void MainWindow::makeConnectDock()
     hBoxLayout->addWidget(comboPort, 75);
     mainLayout->addLayout(hBoxLayout);
 
-    newLabel = new QLabel(tr("Baud Rate:"));
-    comboBAUD = new QComboBox;
-    comboBAUD->addItems(core->portSpeeds());
-    comboBAUD->setCurrentIndex(9);
+    comboProfile = new QComboBox();
+    comboProfile->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    comboProfile->addItems(MachineInfo::instance()->profileNames());
 
-    hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(newLabel);
-    hBoxLayout->addWidget(comboBAUD, 75);
-    mainLayout->addLayout(hBoxLayout);
+    connect(MachineInfo::instance(), &MachineInfo::profilesChanged, this, [this] {
+        int index = comboProfile->currentIndex();
+        comboProfile->clear();
+        comboProfile->addItems(MachineInfo::instance()->profileNames());
+        comboProfile->setCurrentIndex(std::min<int>(index, comboProfile->count() - 1));
+    });
 
-    newLabel = new QLabel(tr("Use Plugin:"));
-    comboPlugin = new QComboBox;
-    comboPlugin->addItem(tr("Autodetect"));
-    comboPlugin->addItems(core->availableFirmwarePlugins());
-
-    hBoxLayout = new QHBoxLayout;
-    hBoxLayout->addWidget(newLabel);
-    hBoxLayout->addWidget(comboPlugin, 75);
-    mainLayout->addLayout(hBoxLayout);
+    newLabel = new QLabel(tr("Profile:"));
+    auto profileLayout = new QHBoxLayout();
+    profileLayout->addWidget(newLabel);
+    profileLayout->addWidget(comboProfile);
+    mainLayout->addLayout(profileLayout);
 
     cbReset = new QCheckBox(tr("Attempt to stop Reset on connect"));
-    cbReset->setHidden(true);
+    if (MachineInfo::instance()->profileNames().isEmpty()) {
+        cbReset->setHidden(true);
+    } else {
+        cbReset->setHidden(MachineInfo::instance()->readKey(
+                               comboProfile->currentText(), MachineInfo::KEY::FIRMWARE).toString().contains(QStringLiteral("Auto-Detect")));
+    }
     mainLayout->addWidget(cbReset);
 
-    connect(comboPlugin, &QComboBox::currentTextChanged, this, [this](const QString & currentText) {
-        cbReset->setHidden(!core->availableFirmwarePlugins().contains(currentText));
+    connect(comboProfile, &QComboBox::currentTextChanged, this, [this](const QString & currentText) {
+        cbReset->setHidden(MachineInfo::instance()->readKey(
+                               currentText, MachineInfo::KEY::FIRMWARE).toString().contains(QStringLiteral("Auto-Detect")));
     });
 
     buttonConnect = new QPushButton(tr("Connect"));
@@ -398,6 +415,17 @@ void MainWindow::makeSdDock()
     addDockWidget(Qt::LeftDockWidgetArea, sdDock);
 }
 
+void MainWindow::makeProfileDock()
+{
+    profileManager = new ProfileManager();
+    profileDock = new QDockWidget(tr("Profile Manager"), this);
+    profileDock->setWidget(profileManager);
+    menuView->insertAction(nullptr, profileDock->toggleViewAction());
+    addDockWidget(Qt::RightDockWidgetArea, profileDock);
+    profileDock->setFloating(true);
+    profileDock->setVisible(false);
+}
+
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     core->close();
@@ -458,15 +486,15 @@ void MainWindow::locateSerialPort(const QStringList &ports)
 void MainWindow::connectPBClicked()
 {
     if (core->state() == AtCore::DISCONNECTED) {
-        if (core->newConnection(comboPort->currentText(), comboBAUD->currentText().toInt(), comboPlugin->currentText(), cbReset->isChecked())) {
+        int baud = MachineInfo::instance()->readKey(comboProfile->currentText(), MachineInfo::KEY::BAUDRATE).toInt();
+        QString plugin = MachineInfo::instance()->readKey(comboProfile->currentText(), MachineInfo::KEY::FIRMWARE).toString();
+        if (core->newConnection(comboPort->currentText(), baud, plugin, cbReset->isChecked())) {
             connect(core, &AtCore::receivedMessage, logWidget, &LogWidget::appendRLog);
             connect(core, &AtCore::pushedCommand, logWidget, &LogWidget::appendSLog);
             logWidget->appendLog(tr("Serial connected"));
-            if (core->availableFirmwarePlugins().contains(comboPlugin->currentText())) {
-                if (cbReset->isChecked()) {
-                    //Wait a few seconds after connect to avoid the normal errors
-                    QTimer::singleShot(5000, core, &AtCore::sdCardPrintStatus);
-                }
+            if ((!plugin.contains(QStringLiteral("Auto-Detect"))) && cbReset->isChecked()) {
+                //Wait a few seconds after connect to avoid the normal errors
+                QTimer::singleShot(5000, core, &AtCore::sdCardPrintStatus);
             }
         }
     } else {
@@ -488,8 +516,8 @@ void MainWindow::printPBClicked()
         break;
 
     case AtCore::CONNECTING:
-        QMessageBox::information(this, tr("Error"), tr(" A Firmware Plugin was not loaded!\n  Please send the command M115 and let us know what your firmware returns, so we can improve our firmware detection. We have loaded the most common plugin \"repetier\" for you. You may try to print again after this message"));
-        comboPlugin->setCurrentText(QStringLiteral("repetier"));
+        QMessageBox::information(this, tr("Error"), tr(" A Firmware Plugin was not loaded!\n  Please send the command M115 and let us know what your firmware returns, so we can improve our firmware detection. Edit your profile to use \"marlin\" and try again."));
+        //comboPlugin->setCurrentText(QStringLiteral("marlin"));
         break;
 
     case AtCore::IDLE:
@@ -503,7 +531,7 @@ void MainWindow::printPBClicked()
         break;
 
     case AtCore::BUSY:
-        core->pause(printWidget->postPauseCommand());
+        core->pause(MachineInfo::instance()->readKey(comboProfile->currentText(), MachineInfo::KEY::POSTPAUSE).toString());
         break;
 
     case AtCore::PAUSE:
@@ -592,6 +620,7 @@ void MainWindow::toggleDockTitles(bool checked)
         delete tempControlsDock->titleBarWidget();
         delete printDock->titleBarWidget();
         delete sdDock->titleBarWidget();
+        delete profileDock->titleBarWidget();
     } else {
         connectDock->setTitleBarWidget(new QWidget());
         logDock->setTitleBarWidget(new QWidget());
@@ -601,6 +630,7 @@ void MainWindow::toggleDockTitles(bool checked)
         tempControlsDock->setTitleBarWidget(new QWidget());
         printDock->setTitleBarWidget(new QWidget());
         sdDock->setTitleBarWidget(new QWidget());
+        profileDock->setTitleBarWidget(new QWidget());
     }
 }
 
@@ -623,8 +653,7 @@ void MainWindow::setDangeriousDocksDisabled(bool disabled)
 
 void MainWindow::setConnectionWidgetsEnabled(bool enabled)
 {
-    comboBAUD->setEnabled(enabled);
-    comboPlugin->setEnabled(enabled);
+    comboProfile->setEnabled(enabled);
     comboPort->setEnabled(enabled);
 }
 

@@ -30,6 +30,7 @@
 #include "movementwidget.h"
 #include "plotwidget.h"
 #include "printwidget.h"
+#include "profilemanager.h"
 #include "sdwidget.h"
 #include "statuswidget.h"
 #include "temperaturewidget.h"
@@ -164,8 +165,7 @@ private:
     void makeConnectDock();
     QDockWidget *connectDock = nullptr;
     QComboBox *comboPort = nullptr;
-    QComboBox *comboBAUD = nullptr;
-    QComboBox *comboPlugin = nullptr;
+    QComboBox *comboProfile = nullptr;
     QPushButton *buttonConnect = nullptr;
     QCheckBox *cbReset = nullptr;
     QTimer *connectionTimer = nullptr;
@@ -181,4 +181,8 @@ private:
     void makeSdDock();
     QDockWidget *sdDock = nullptr;
     SdWidget *sdWidget = nullptr;
+
+    void makeProfileDock();
+    QDockWidget *profileDock = nullptr;
+    ProfileManager *profileManager = nullptr;
 };

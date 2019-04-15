@@ -39,12 +39,6 @@ public:
     PrintWidget(bool showAllControls = true, QWidget *parent = nullptr);
 
     /**
-     * @brief Get post pause string
-     * @return The Post Pause string.
-     */
-    QString postPauseCommand() const;
-
-    /**
      * @brief set Post Pause string text.
      * @param text: text to set to.
      */
