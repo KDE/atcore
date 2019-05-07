@@ -60,7 +60,7 @@ MainWindow::MainWindow(QWidget *parent) :
     comboPort->setFocus(Qt::OtherFocusReason);
 
     if (comboProfile->count() == 0) {
-        QMessageBox::information(this, tr("AtCore First Run"), tr("No Profiles Detected, the Profile Manager to create one."));
+        QMessageBox::information(this, tr("AtCore First Run"), tr("No Profiles Detected, use the Profile Manager to create one."));
         profileDock->setVisible(true);
         move(profileDock->geometry().center());
         profileDock->move(geometry().center());
