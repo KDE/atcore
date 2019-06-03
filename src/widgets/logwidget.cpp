@@ -25,6 +25,12 @@
 #include <QToolButton>
 #include <QVBoxLayout>
 
+namespace
+{
+static constexpr QChar _newLine = QChar::fromLatin1('\n');
+static constexpr QChar _return = QChar::fromLatin1('\r');
+}
+
 LogWidget::LogWidget(QTemporaryFile *tempFile, QWidget *parent) :
     QWidget(parent),
     logFile(tempFile)
@@ -108,8 +114,6 @@ void LogWidget::appendRLog(const QByteArray &bmsg)
 void LogWidget::appendSLog(const QByteArray &bmsg)
 {
     QString msg = QString::fromUtf8(bmsg);
-    QRegExp _newLine(QChar::fromLatin1('\n'));
-    QRegExp _return(QChar::fromLatin1('\r'));
     msg.replace(_newLine, QStringLiteral("\\n"));
     msg.replace(_return, QStringLiteral("\\r"));
     QString message(QStringLiteral("[%1]> %2").arg(getTime(), msg));
