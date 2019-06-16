@@ -517,7 +517,6 @@ void MainWindow::printPBClicked()
 
     case AtCore::CONNECTING:
         QMessageBox::information(this, tr("Error"), tr(" A Firmware Plugin was not loaded!\n  Please send the command M115 and let us know what your firmware returns, so we can improve our firmware detection. Edit your profile to use \"marlin\" and try again."));
-        //comboPlugin->setCurrentText(QStringLiteral("marlin"));
         break;
 
     case AtCore::IDLE:
@@ -549,6 +548,7 @@ void MainWindow::printerStateChanged(AtCore::STATES state)
     switch (state) {
     case AtCore::IDLE:
         if (connectionTimer->isActive()) {
+            core->setAutoTemperatureReport(MachineInfo::instance()->readKey(comboProfile->currentText(), MachineInfo::KEY::AUTOTEMPREPORT).toBool());
             connectionTimer->stop();
         }
         buttonConnect->setText(tr("Disconnect"));
