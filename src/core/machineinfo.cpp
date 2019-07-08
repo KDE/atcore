@@ -184,3 +184,12 @@ QStringList MachineInfo::profileNames() const
     m_settings->sync();
     return m_settings->childGroups();
 }
+
+QString MachineInfo::keyName(const MachineInfo::KEY key) const
+{
+    auto it = decoderMap.find(key);
+    if(it != decoderMap.end()){
+        return it.value().name;
+    }
+    return QString();
+}

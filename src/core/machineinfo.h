@@ -124,6 +124,14 @@ public:
      */
     Q_INVOKABLE QStringList profileNames() const;
 
+    /**
+     * @brief Translate a key enum to string
+     * @param key: name of the key to be translated.
+     * @return key string if successful.
+     */
+    Q_INVOKABLE QString keyName(const MachineInfo::KEY key) const;
+
+
 signals:
     /**
      * @brief A profile has changed
