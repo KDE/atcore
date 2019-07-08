@@ -168,9 +168,19 @@ void MachineInfo::storeProfile(const QMap<MachineInfo::KEY, QVariant> &profile) 
     emit profilesChanged();
 }
 
+void MachineInfo::storeProfile(const QVariantMap &profile) const
+{
+    m_settings->beginGroup(profile.first().toString());
+    for(auto it = profile.begin(), end = profile.end(); it != end; ++it){
+        m_settings->setValue(it.key(), it.value());
+    }
+    m_settings->endGroup();
+    m_settings->sync();
+    emit profilesChanged();
+}
+
 QStringList MachineInfo::profileNames() const
 {
     m_settings->sync();
     return m_settings->childGroups();
 }
-
