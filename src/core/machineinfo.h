@@ -27,6 +27,7 @@
 #include <QObject>
 #include <QSettings>
 #include <QQmlEngine>
+#include <QVariant>
 
 class ATCORE_EXPORT MachineInfo : public QObject
 {
@@ -83,7 +84,14 @@ public:
      * @param profile: A complete machine profile or one that at very least has MachineInfo::Name and any other valid Key.
      * @sa storeKey()
      */
-    Q_INVOKABLE void storeProfile(const QMap<MachineInfo::KEY, QVariant> &profile) const;
+    void storeProfile(const QMap<MachineInfo::KEY, QVariant> &profile) const;
+
+    /**
+     * @brief Store a new profile, Must be used for new profiles or to override a profile.
+     * @param profile: A complete machine profile or one that at very least has a profile Name and any other valid Key.
+     * @sa storeKey()
+     */
+    Q_INVOKABLE void storeProfile(const QVariantMap &profile) const;
 
     /**
      * @brief Store a key to an existing profile, Sending a key of Key::NAME will rename the profile
@@ -115,6 +123,14 @@ public:
      * @return QStringList containing the stored profile names.
      */
     Q_INVOKABLE QStringList profileNames() const;
+
+    /**
+     * @brief Translate a key enum to string
+     * @param key: name of the key to be translated.
+     * @return key string if successful.
+     */
+    Q_INVOKABLE QString keyName(const MachineInfo::KEY key) const;
+
 
 signals:
     /**
