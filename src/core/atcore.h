@@ -73,6 +73,7 @@ class ATCORE_EXPORT AtCore : public QObject
     Q_PROPERTY(bool sdMount READ isSdMounted WRITE setSdMounted NOTIFY sdMountChanged)
     Q_PROPERTY(QStringList sdFileList READ sdFileList NOTIFY sdCardFileListChanged)
     Q_PROPERTY(bool autoTemperatureReport READ autoTemperatureReport WRITE setAutoTemperatureReport NOTIFY autoTemperatureReportChanged)
+    Q_PROPERTY(Temperature* temperature READ temperature CONSTANT)
 
     friend class AtCoreTests;
     //Add friends as Sd Card support is extended to more plugins.
@@ -206,7 +207,7 @@ public:
     /**
      * @brief The temperature of the current hotend as told by the Firmware.
      */
-    std::shared_ptr<Temperature> temperature();
+    Temperature* temperature();
 
     /**
     * @brief Return the amount of miliseconds the serialTimer is set to. 0 = Disabled

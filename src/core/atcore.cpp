@@ -159,9 +159,9 @@ void AtCore::close()
     exit(0);
 }
 
-std::shared_ptr<Temperature> AtCore::temperature()
+Temperature* AtCore::temperature()
 {
-    return d->temperature;
+    return d->temperature.get();
 }
 
 void AtCore::findFirmware(const QByteArray &message)
@@ -418,7 +418,7 @@ void AtCore::newMessage(const QByteArray &message)
 
     //Check if have temperature info and decode it
     if (d->lastMessage.contains("T:") || d->lastMessage.contains("B:")) {
-        temperature().get()->decodeTemp(d->lastMessage);
+        temperature()->decodeTemp(d->lastMessage);
     }
     emit receivedMessage(d->lastMessage);
 }
