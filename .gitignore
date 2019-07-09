@@ -4,4 +4,7 @@ doc/html*
 doc/latex*
 *.diff
 *.patch
+install/*
+.vscode
+CMakeLists.txt.user
 
