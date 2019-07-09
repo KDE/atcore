@@ -68,7 +68,7 @@ class ATCORE_EXPORT AtCore : public QObject
     Q_PROPERTY(QStringList serialPorts READ serialPorts NOTIFY portsChanged)
     Q_PROPERTY(float percentagePrinted READ percentagePrinted NOTIFY printProgressChanged)
     Q_PROPERTY(QStringList portSpeeds READ portSpeeds CONSTANT)
-    Q_PROPERTY(QString connectedPort READ connectedPort)
+    Q_PROPERTY(QString connectedPort READ connectedPort CONSTANT)
     Q_PROPERTY(AtCore::STATES state READ state WRITE setState NOTIFY stateChanged)
     Q_PROPERTY(bool sdMount READ isSdMounted WRITE setSdMounted NOTIFY sdMountChanged)
     Q_PROPERTY(QStringList sdFileList READ sdFileList NOTIFY sdCardFileListChanged)
