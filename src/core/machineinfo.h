@@ -32,6 +32,7 @@
 class ATCORE_EXPORT MachineInfo : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QStringList profileNames READ profileNames NOTIFY profilesChanged)
 public:
     /**
      * @brief KEYS enum Possible keys for the printer settings
@@ -122,7 +123,7 @@ public:
      * @brief Get a list of all the profile names
      * @return QStringList containing the stored profile names.
      */
-    Q_INVOKABLE QStringList profileNames() const;
+    QStringList profileNames() const;
 
     /**
      * @brief Translate a key enum to string
