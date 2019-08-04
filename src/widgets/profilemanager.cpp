@@ -20,12 +20,13 @@
 #include "atcore_default_folders.h"
 #include "machineinfo.h"
 
+#include <QButtonGroup>
+#include <QCompleter>
 #include <QCoreApplication>
 #include <QDir>
-#include <QToolButton>
-#include <QLineEdit>
 #include <QGroupBox>
-#include <QButtonGroup>
+#include <QLineEdit>
+#include <QToolButton>
 
 ProfileManager::ProfileManager(QWidget *parent) :
     QWidget(parent)
@@ -33,12 +34,14 @@ ProfileManager::ProfileManager(QWidget *parent) :
     auto newLabel = new QLabel(tr("Profile:"));
     cbProfile = new QComboBox();
     cbProfile->setEditable(true);
-    cbProfile->setAutoCompletion(true);
     cbProfile->addItems(MachineInfo::instance()->profileNames());
+    cbProfile->setCompleter(new QCompleter(MachineInfo::instance()->profileNames()));
     connect(MachineInfo::instance(), &MachineInfo::profilesChanged, this, [this] {
         int index = cbProfile->currentIndex();
         cbProfile->clear();
+        cbProfile->completer()->deleteLater();
         cbProfile->addItems(MachineInfo::instance()->profileNames());
+        cbProfile->setCompleter(new QCompleter(MachineInfo::instance()->profileNames()));
         cbProfile->setCurrentIndex(std::min<int>(index, cbProfile->count() - 1));
     });
 
