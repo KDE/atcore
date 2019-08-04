@@ -171,7 +171,7 @@ void MachineInfo::storeProfile(const QMap<MachineInfo::KEY, QVariant> &profile) 
 void MachineInfo::storeProfile(const QVariantMap &profile) const
 {
     m_settings->beginGroup(profile.first().toString());
-    for(auto it = profile.begin(), end = profile.end(); it != end; ++it){
+    for (auto it = profile.begin(), end = profile.end(); it != end; ++it) {
         m_settings->setValue(it.key(), it.value());
     }
     m_settings->endGroup();
@@ -188,7 +188,7 @@ QStringList MachineInfo::profileNames() const
 QString MachineInfo::keyName(const MachineInfo::KEY key) const
 {
     auto it = decoderMap.find(key);
-    if(it != decoderMap.end()){
+    if (it != decoderMap.end()) {
         return it.value().name;
     }
     return QString();

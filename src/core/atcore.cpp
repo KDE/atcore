@@ -159,7 +159,7 @@ void AtCore::close()
     exit(0);
 }
 
-Temperature* AtCore::temperature()
+Temperature *AtCore::temperature()
 {
     return d->temperature.get();
 }
