@@ -316,23 +316,11 @@ QStringList ProfileManager::detectFWPlugins()
 QStringList ProfileManager::firmwaresInPath(const QString &path)
 {
     QStringList firmwares;
-    QStringList files = QDir(path).entryList(QDir::Files);
-    for (QString file : files) {
-#if defined(Q_OS_WIN)
-        if (file.endsWith(QStringLiteral(".dll")))
-#elif defined(Q_OS_MAC)
-        if (file.endsWith(QStringLiteral(".dylib")))
-#else
-        if (file.endsWith(QStringLiteral(".so")))
-#endif
-            file = file.split(QChar::fromLatin1('.')).at(0);
-        else {
-            continue;
-        }
+    for (QString file : QDir(path).entryList({AtCoreDirectories::pluginExtFilter}, QDir::Files)) {
+        file = file.split(QStringLiteral(".")).at(0).toLower().simplified();
         if (file.startsWith(QStringLiteral("lib"))) {
             file = file.remove(QStringLiteral("lib"));
         }
-        file = file.toLower().simplified();
         firmwares.append(file);
     }
     return firmwares;

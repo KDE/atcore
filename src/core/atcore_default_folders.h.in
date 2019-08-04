@@ -29,4 +29,12 @@ namespace AtCoreDirectories {
         , QStringLiteral("@KDE_INSTALL_PLUGINDIR@/AtCore")
         , QStringLiteral("@CMAKE_CURRENT_BINARY_DIR@/../plugins")
     };
+    const QString pluginExtFilter =
+        #if defined(Q_OS_WIN)
+            QStringLiteral("*.dll");
+        #elif defined(Q_OS_MAC)
+            QStringLiteral("*.dylib");
+        #else
+            QStringLiteral("*.so");
+        #endif
 }

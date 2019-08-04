@@ -611,27 +611,13 @@ bool AtCore::firmwarePluginLoaded() const
 QMap<QString, QString> AtCore::findFirmwarePlugins(const QString &path)
 {
     QMap<QString, QString> detectedPlugins;
-    QStringList files = QDir(path).entryList(QDir::Files);
-    for (const QString &f : files) {
+    for (const QString &f : QDir(path).entryList({AtCoreDirectories::pluginExtFilter}, QDir::Files)) {
         QString file = f;
-#if defined(Q_OS_WIN)
-        if (file.endsWith(QStringLiteral(".dll")))
-#elif defined(Q_OS_MAC)
-        if (file.endsWith(QStringLiteral(".dylib")))
-#else
-        if (file.endsWith(QStringLiteral(".so")))
-#endif
-            file = file.split(QChar::fromLatin1('.')).at(0);
-        else {
-            continue;
-        }
+        file = file.split(QStringLiteral(".")).at(0).toLower().simplified();
         if (file.startsWith(QStringLiteral("lib"))) {
             file = file.remove(QStringLiteral("lib"));
         }
-        file = file.toLower().simplified();
-        QString pluginString = path;
-        pluginString.append(QChar::fromLatin1('/'));
-        pluginString.append(f);
+        QString pluginString = QStringLiteral("%1/%2").arg(path, f);
         detectedPlugins[file] = pluginString;
         qCDebug(ATCORE_PLUGIN) << QStringLiteral("Plugin:[%1]=%2").arg(file, pluginString);
     }
