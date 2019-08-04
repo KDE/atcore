@@ -66,7 +66,7 @@ QVariantMap MachineInfo::readProfile(const QString &profileName) const
     m_settings->sync();
     m_settings->beginGroup(profileName);
     QVariantMap data{{decoderMap[KEY::NAME].name, m_settings->group()}};
-    for (int i = 1 ; i <= 10; i++) {
+    for (int i = 1; i < decoderMap.size(); i++) {
         data.insert(decoderMap[MachineInfo::KEY(i)].name, m_settings->value(decoderMap[MachineInfo::KEY(i)].name, decoderMap[MachineInfo::KEY(i)].defaultValue));
     }
     m_settings->endGroup();
@@ -129,7 +129,7 @@ bool MachineInfo::copyProfile(const QString &srcProfile, const QString &destProf
     }
     QVariantMap newProfile = readProfile(srcProfile);
     m_settings->beginGroup(destProfile);
-    for (int i = 1 ; i <= 10; i++) {
+    for (int i = 1; i < decoderMap.size(); i++) {
         m_settings->setValue(decoderMap[MachineInfo::KEY(i)].name, newProfile[decoderMap[MachineInfo::KEY(i)].name]);
     }
     m_settings->endGroup();
@@ -160,7 +160,7 @@ bool MachineInfo::removeProfile(const QString &profileName) const
 void MachineInfo::storeProfile(const QMap<MachineInfo::KEY, QVariant> &profile) const
 {
     m_settings->beginGroup(profile[KEY::NAME].toString());
-    for (int i = 1 ; i <= 10; i++) {
+    for (int i = 1; i < decoderMap.size(); i++) {
         m_settings->setValue(decoderMap[MachineInfo::KEY(i)].name, profile[MachineInfo::KEY(i)]);
     }
     m_settings->endGroup();
