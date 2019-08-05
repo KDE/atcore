@@ -82,9 +82,9 @@ private slots:
 
     /**
      * @brief set enabled for connection option widgets (port, baud and fw selector)
-     * @param enbled: true if enabled.
+     * @param enabled: true if enabled.
      */
-    void setConnectionWidgetsEnabled(bool enbled);
+    void setConnectionWidgetsEnabled(bool enabled);
     /**
      * @brief Toggle disable state of dangerous docks
      * Command, Sd Card, Movement, Temperature Controls and Printing docks

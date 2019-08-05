@@ -613,24 +613,51 @@ void MainWindow::toggleDockTitles(bool checked)
 {
     if (checked) {
         delete connectDock->titleBarWidget();
+        connectDock->setTitleBarWidget(nullptr);
         delete logDock->titleBarWidget();
+        logDock->setTitleBarWidget(nullptr);
         delete tempTimelineDock->titleBarWidget();
+        tempTimelineDock->setTitleBarWidget(nullptr);
         delete commandDock->titleBarWidget();
+        commandDock->setTitleBarWidget(nullptr);
         delete moveDock->titleBarWidget();
+        moveDock->setTitleBarWidget(nullptr);
         delete tempControlsDock->titleBarWidget();
+        tempControlsDock->setTitleBarWidget(nullptr);
         delete printDock->titleBarWidget();
+        printDock->setTitleBarWidget(nullptr);
         delete sdDock->titleBarWidget();
+        sdDock->setTitleBarWidget(nullptr);
         delete profileDock->titleBarWidget();
+        profileDock->setTitleBarWidget(nullptr);
     } else {
-        connectDock->setTitleBarWidget(new QWidget());
-        logDock->setTitleBarWidget(new QWidget());
-        tempTimelineDock->setTitleBarWidget(new QWidget());
-        commandDock->setTitleBarWidget(new QWidget());
-        moveDock->setTitleBarWidget(new QWidget());
-        tempControlsDock->setTitleBarWidget(new QWidget());
-        printDock->setTitleBarWidget(new QWidget());
-        sdDock->setTitleBarWidget(new QWidget());
-        profileDock->setTitleBarWidget(new QWidget());
+        if (!connectDock->isFloating()) {
+            connectDock->setTitleBarWidget(new QWidget());
+        }
+        if (!logDock->isFloating()) {
+            logDock->setTitleBarWidget(new QWidget());
+        }
+        if (!tempTimelineDock->isFloating()) {
+            tempTimelineDock->setTitleBarWidget(new QWidget());
+        }
+        if (!commandDock->isFloating()) {
+            commandDock->setTitleBarWidget(new QWidget());
+        }
+        if (!moveDock->isFloating()) {
+            moveDock->setTitleBarWidget(new QWidget());
+        }
+        if (!tempControlsDock->isFloating()) {
+            tempControlsDock->setTitleBarWidget(new QWidget());
+        }
+        if (!printDock->isFloating()) {
+            printDock->setTitleBarWidget(new QWidget());
+        }
+        if (!sdDock->isFloating()) {
+            sdDock->setTitleBarWidget(new QWidget());
+        }
+        if (!profileDock->isFloating()) {
+            profileDock->setTitleBarWidget(new QWidget());
+        }
     }
 }
 
