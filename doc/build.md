@@ -1,10 +1,10 @@
-# Building And Deploying %AtCore
-Building %AtCore is broken up into to main steps Configuration and Building. Deploying %AtCore is also covered here.
+# Building And Deploying AtCore
+Building AtCore is broken up into to main steps Configuration and Building. Deploying AtCore is also covered here.
 
 ## Configuration 
 In order to configure your build you will need [cmake] and [extra-cmake-modules]. 
 
-%AtCore Build Options Are: 
+Build Options Are: 
  - -DBUILD_GUI = ( ON | OFF )  Build the test client (Default is OFF)
  - -DBUILD_DOCS = (ON | OFF ) Build the Documentation (Default is OFF)
  - -DBUILD_TESTS = ( ON | OFF ) Build and Run Unittests (Default is OFF)
@@ -29,7 +29,7 @@ make
 ```
 
 ## Dependencies
-In addition to a working development enviroment for your system you will need the following to build %AtCore
+In addition to a working development enviroment for your system you will need the following to build AtCore
  - qt5-base
  - qt5-serialport
  - qt5-widgets
@@ -62,8 +62,8 @@ ninja install
 ```
 Then Download and install [Qt]
 
-## Deploying %AtCore
-After you build you may wish to deploy atcore on your system for use
+## Deploying AtCore
+After you build you may wish to deploy AtCore on your system for use
 ### Linux
 From the build dir the command below to install atcore with its plugins to the system (assuming cmake used above)
 ```
