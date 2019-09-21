@@ -1,4 +1,5 @@
 add_subdirectory(core)
+add_subdirectory(imports)
 add_subdirectory(plugins)
 add_subdirectory(widgets)
 
