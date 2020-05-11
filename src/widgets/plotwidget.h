@@ -78,7 +78,8 @@ private:
     class plot
     {
     public:
-        explicit plot() : _series(new QLineSeries())
+        explicit plot()
+            : _series(new QLineSeries())
         {
         }
 
@@ -98,7 +99,7 @@ private:
             _name = name;
             _series->setName(_name);
 
-            //Add 3 initial points to plot
+            // Add 3 initial points to plot
             QDateTime now = QDateTime::currentDateTime();
             _series->append(now.toMSecsSinceEpoch() - 2 * 60e3, 0.0);
             _series->append(now.toMSecsSinceEpoch() - 60e3, 0.0);

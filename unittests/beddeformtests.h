@@ -20,12 +20,13 @@
 
 #include "../src/core/beddeform.h"
 
-class BedDeformTests: public QObject
+class BedDeformTests : public QObject
 {
     Q_OBJECT
 private slots:
     void initTestCase();
     void testDecode();
+
 private:
     BedDeform *bedDeform;
 };

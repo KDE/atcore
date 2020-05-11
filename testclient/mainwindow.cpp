@@ -20,26 +20,26 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include <QSerialPortInfo>
-#include <QMessageBox>
 #include <QFileDialog>
+#include <QLoggingCategory>
+#include <QMessageBox>
+#include <QSerialPortInfo>
 #include <QTextStream>
 #include <QTimer>
-#include <QLoggingCategory>
 
-#include "mainwindow.h"
-#include "machineinfo.h"
-#include "seriallayer.h"
-#include "gcodecommands.h"
 #include "about.h"
+#include "gcodecommands.h"
+#include "machineinfo.h"
+#include "mainwindow.h"
+#include "seriallayer.h"
 
 Q_LOGGING_CATEGORY(TESTCLIENT_MAINWINDOW, "org.kde.atelier.core")
 
 int MainWindow::fanCount = 4;
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    core(new AtCore(this))
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , core(new AtCore(this))
 {
     setWindowTitle(tr("AtCore - Test Client"));
     setWindowIcon(QIcon(QStringLiteral(":/icon/windowIcon")));
@@ -107,7 +107,7 @@ void MainWindow::initStatusBar()
 
 void MainWindow::initWidgets()
 {
-    //Make the Docks
+    // Make the Docks
     makeCommandDock();
     makePrintDock();
     makeTempTimelineDock();
@@ -134,31 +134,27 @@ void MainWindow::initWidgets()
     logDock->raise();
     setCentralWidget(nullptr);
 
-    //More Gui stuff
-    //hide the printing progress bar.
+    // More Gui stuff
+    // hide the printing progress bar.
     statusWidget->showPrintArea(false);
 }
 
 void MainWindow::makeCommandDock()
 {
     commandWidget = new CommandWidget;
-    //Connect the commandPressed signal
-    connect(commandWidget, &CommandWidget::commandPressed, [this](const QString & command) {
-        core->pushCommand(command);
-    });
-    //Connect the messagePressed signal
-    connect(commandWidget, &CommandWidget::messagePressed, [this](const QString & message) {
-        core->showMessage(message);
-    });
-    //Create the dock, and set the Widget.
+    // Connect the commandPressed signal
+    connect(commandWidget, &CommandWidget::commandPressed, [this](const QString &command) { core->pushCommand(command); });
+    // Connect the messagePressed signal
+    connect(commandWidget, &CommandWidget::messagePressed, [this](const QString &message) { core->showMessage(message); });
+    // Create the dock, and set the Widget.
     commandDock = new QDockWidget(tr("Commands"), this);
     commandDock->setWidget(commandWidget);
 
-    //Push the toggle view action into our view menu
+    // Push the toggle view action into our view menu
     menuView->insertAction(nullptr, commandDock->toggleViewAction());
 
-    //Place the Dock into a DockWidget Area.
-    //Failure todo this will create some odd side effects at runtime
+    // Place the Dock into a DockWidget Area.
+    // Failure todo this will create some odd side effects at runtime
     addDockWidget(Qt::LeftDockWidgetArea, commandDock);
 }
 
@@ -169,13 +165,9 @@ void MainWindow::makePrintDock()
     connect(printWidget, &PrintWidget::emergencyStopPressed, core, &AtCore::emergencyStop);
     connect(printWidget, &PrintWidget::fanSpeedChanged, core, &AtCore::setFanSpeed);
 
-    connect(printWidget, &PrintWidget::printSpeedChanged, this, [this](const int speed) {
-        core->setPrinterSpeed(uint(std::max(1, speed)));
-    });
+    connect(printWidget, &PrintWidget::printSpeedChanged, this, [this](const int speed) { core->setPrinterSpeed(uint(std::max(1, speed))); });
 
-    connect(printWidget, &PrintWidget::flowRateChanged, [this](const int rate) {
-        core->setFlowRate(uint(std::max(1, rate)));
-    });
+    connect(printWidget, &PrintWidget::flowRateChanged, [this](const int rate) { core->setFlowRate(uint(std::max(1, rate))); });
 
     printDock = new QDockWidget(tr("Print"), this);
     printDock->setWidget(printWidget);
@@ -187,7 +179,7 @@ void MainWindow::makePrintDock()
 void MainWindow::makeTempTimelineDock()
 {
     plotWidget = new PlotWidget;
-    //make and connect our plots in the widget.
+    // make and connect our plots in the widget.
     plotWidget->addPlot(tr("Actual Bed"));
     connect(core->temperature(), &Temperature::bedTemperatureChanged, this, [this] {
         float temp = core->temperature()->bedTemperature();
@@ -220,9 +212,7 @@ void MainWindow::makeTempTimelineDock()
     auto lblTimer = new QLabel(tr("Seconds Between Temperature Checks"), this);
     sbTemperatureTimer = new QSpinBox(this);
     sbTemperatureTimer->setRange(0, 90);
-    connect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
-        core->setTemperatureTimerInterval(value * 1000);
-    });
+    connect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) { core->setTemperatureTimerInterval(value * 1000); });
     connect(core, &AtCore::temperatureTimerIntervalChanged, this, [this](int value) {
         if (value != sbTemperatureTimer->value()) {
             sbTemperatureTimer->blockSignals(true);
@@ -291,14 +281,12 @@ void MainWindow::makeConnectDock()
     if (MachineInfo::instance()->profileNames().isEmpty()) {
         cbReset->setHidden(true);
     } else {
-        cbReset->setHidden(MachineInfo::instance()->readKey(
-                               comboProfile->currentText(), MachineInfo::KEY::FIRMWARE).toString().contains(QStringLiteral("Auto-Detect")));
+        cbReset->setHidden(MachineInfo::instance()->readKey(comboProfile->currentText(), MachineInfo::KEY::FIRMWARE).toString().contains(QStringLiteral("Auto-Detect")));
     }
     mainLayout->addWidget(cbReset);
 
-    connect(comboProfile, &QComboBox::currentTextChanged, this, [this](const QString & currentText) {
-        cbReset->setHidden(MachineInfo::instance()->readKey(
-                               currentText, MachineInfo::KEY::FIRMWARE).toString().contains(QStringLiteral("Auto-Detect")));
+    connect(comboProfile, &QComboBox::currentTextChanged, this, [this](const QString &currentText) {
+        cbReset->setHidden(MachineInfo::instance()->readKey(currentText, MachineInfo::KEY::FIRMWARE).toString().contains(QStringLiteral("Auto-Detect")));
     });
 
     buttonConnect = new QPushButton(tr("Connect"));
@@ -348,16 +336,14 @@ void MainWindow::makeMoveDock()
         core->home(AtCore::Z);
     });
 
-    connect(movementWidget, &MovementWidget::absoluteMove, this, [this](const QLatin1Char & axis, const double & value) {
+    connect(movementWidget, &MovementWidget::absoluteMove, this, [this](const QLatin1Char &axis, const double &value) {
         logWidget->appendLog(GCode::description(GCode::G1));
         core->move(axis, value);
     });
 
-    connect(movementWidget, &MovementWidget::disableMotorsPressed, this, [this] {
-        core->disableMotors(0);
-    });
+    connect(movementWidget, &MovementWidget::disableMotorsPressed, this, [this] { core->disableMotors(0); });
 
-    connect(movementWidget, &MovementWidget::relativeMove, this, [this](const QLatin1Char & axis, const double & value) {
+    connect(movementWidget, &MovementWidget::relativeMove, this, [this](const QLatin1Char &axis, const double &value) {
         core->setRelativePosition();
         core->move(axis, value);
         core->setAbsolutePosition();
@@ -389,22 +375,21 @@ void MainWindow::makeTempControlsDock()
 
 void MainWindow::makeSdDock()
 {
-
     sdWidget = new SdWidget;
     connect(sdWidget, &SdWidget::requestSdList, core, &AtCore::sdFileList);
 
-    connect(sdWidget, &SdWidget::printSdFile, this, [this](const QString & fileName) {
+    connect(sdWidget, &SdWidget::printSdFile, this, [this](const QString &fileName) {
         if (fileName.isEmpty()) {
             QMessageBox::information(this, tr("Print Error"), tr("You must Select a file from the list"));
-        } else  {
+        } else {
             core->print(fileName, true);
         }
     });
 
-    connect(sdWidget, &SdWidget::deleteSdFile, this, [this](const QString & fileName) {
+    connect(sdWidget, &SdWidget::deleteSdFile, this, [this](const QString &fileName) {
         if (fileName.isEmpty()) {
             QMessageBox::information(this, tr("Delete Error"), tr("You must Select a file from the list"));
-        } else  {
+        } else {
             core->sdDelete(fileName);
         }
     });
@@ -477,7 +462,7 @@ void MainWindow::locateSerialPort(const QStringList &ports)
         logWidget->appendLog(tr("Found %1 Ports").arg(QString::number(ports.count())));
     } else {
         QString portError(tr("No available ports! Please connect a serial device to continue!"));
-        if (! logWidget->endsWith(portError)) {
+        if (!logWidget->endsWith(portError)) {
             logWidget->appendLog(portError);
         }
     }
@@ -493,7 +478,7 @@ void MainWindow::connectPBClicked()
             connect(core, &AtCore::pushedCommand, logWidget, &LogWidget::appendSLog);
             logWidget->appendLog(tr("Serial connected"));
             if ((!plugin.contains(QStringLiteral("Auto-Detect"))) && cbReset->isChecked()) {
-                //Wait a few seconds after connect to avoid the normal errors
+                // Wait a few seconds after connect to avoid the normal errors
                 QTimer::singleShot(5000, core, &AtCore::sdCardPrintStatus);
             }
         }
@@ -510,13 +495,15 @@ void MainWindow::printPBClicked()
 {
     QString fileName;
     switch (core->state()) {
-
     case AtCore::DISCONNECTED:
         QMessageBox::information(this, tr("Error"), tr("Not Connected To a Printer"));
         break;
 
     case AtCore::CONNECTING:
-        QMessageBox::information(this, tr("Error"), tr(" A Firmware Plugin was not loaded!\n  Please send the command M115 and let us know what your firmware returns, so we can improve our firmware detection. Edit your profile to use \"marlin\" and try again."));
+        QMessageBox::information(
+            this,
+            tr("Error"),
+            tr(" A Firmware Plugin was not loaded!\n  Please send the command M115 and let us know what your firmware returns, so we can improve our firmware detection. Edit your profile to use \"marlin\" and try again."));
         break;
 
     case AtCore::IDLE:
@@ -691,9 +678,7 @@ void MainWindow::updateAutoTemperatureReport(bool autoReport)
     disconnect(core, &AtCore::autoCheckTemperatureIntervalChanged, this, {});
 
     if (autoReport) {
-        connect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
-            core->setAutoCheckTemperatureInterval(value);
-        });
+        connect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) { core->setAutoCheckTemperatureInterval(value); });
         connect(core, &AtCore::autoCheckTemperatureIntervalChanged, this, [this](int value) {
             if (value != sbTemperatureTimer->value()) {
                 sbTemperatureTimer->blockSignals(true);
@@ -702,9 +687,7 @@ void MainWindow::updateAutoTemperatureReport(bool autoReport)
             }
         });
     } else {
-        connect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
-            core->setTemperatureTimerInterval(value * 1000);
-        });
+        connect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) { core->setTemperatureTimerInterval(value * 1000); });
         connect(core, &AtCore::temperatureTimerIntervalChanged, this, [this](int value) {
             if (value != sbTemperatureTimer->value()) {
                 sbTemperatureTimer->blockSignals(true);

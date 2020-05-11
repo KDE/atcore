@@ -55,5 +55,4 @@ public:
      * @return Sprinter
      */
     QString name() const override;
-
 };

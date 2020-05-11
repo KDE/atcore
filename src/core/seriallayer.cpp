@@ -56,23 +56,22 @@ struct SerialLayer::SerialLayerPrivate {
 const QByteArray SerialLayer::SerialLayerPrivate::_newLine = QByteArray("\n");
 const QByteArray SerialLayer::SerialLayerPrivate::_newLineReturn = QByteArray("\n\r");
 const QByteArray SerialLayer::SerialLayerPrivate::_return = QByteArray("\r");
-const QStringList SerialLayer::SerialLayerPrivate::_validBaudRates = {
-    QStringLiteral("9600"),
-    QStringLiteral("14400"),
-    QStringLiteral("19200"),
-    QStringLiteral("28800"),
-    QStringLiteral("38400"),
-    QStringLiteral("57600"),
-    QStringLiteral("76800"),
-    QStringLiteral("115200"),
-    QStringLiteral("230400"),
-    QStringLiteral("250000"),
-    QStringLiteral("500000"),
-    QStringLiteral("1000000")
-};
+const QStringList SerialLayer::SerialLayerPrivate::_validBaudRates = {QStringLiteral("9600"),
+                                                                      QStringLiteral("14400"),
+                                                                      QStringLiteral("19200"),
+                                                                      QStringLiteral("28800"),
+                                                                      QStringLiteral("38400"),
+                                                                      QStringLiteral("57600"),
+                                                                      QStringLiteral("76800"),
+                                                                      QStringLiteral("115200"),
+                                                                      QStringLiteral("230400"),
+                                                                      QStringLiteral("250000"),
+                                                                      QStringLiteral("500000"),
+                                                                      QStringLiteral("1000000")};
 
-SerialLayer::SerialLayer(const QString &port, int32_t baud, QObject *parent) :
-    QSerialPort(parent), d(new SerialLayerPrivate())
+SerialLayer::SerialLayer(const QString &port, int32_t baud, QObject *parent)
+    : QSerialPort(parent)
+    , d(new SerialLayerPrivate())
 {
     setPortName(port);
     setBaudRate(baud);
@@ -87,8 +86,8 @@ void SerialLayer::readAllData()
 {
     d->_rawData.append(readAll());
 
-    //Remove any \r in the string, then split by \n.
-    //This removes any trailing \r or \n from the commands
+    // Remove any \r in the string, then split by \n.
+    // This removes any trailing \r or \n from the commands
     // Proper line endings are added when the command is pushed.
     d->_rawData = d->_rawData.replace(d->_return, QByteArray());
 
@@ -114,7 +113,6 @@ void SerialLayer::pushCommand(const QByteArray &comm, const QByteArray &term)
     QByteArray tmp = comm + term;
     write(tmp);
     emit pushedCommand(tmp);
-
 }
 
 void SerialLayer::pushCommand(const QByteArray &comm)

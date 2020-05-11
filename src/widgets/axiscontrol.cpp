@@ -23,8 +23,8 @@
 #include <QHBoxLayout>
 #include <QLabel>
 
-AxisControl::AxisControl(QWidget *parent) :
-    QWidget(parent)
+AxisControl::AxisControl(QWidget *parent)
+    : QWidget(parent)
     , sbValue(new QDoubleSpinBox)
 {
     auto mainLayout = new QVBoxLayout;
@@ -62,11 +62,11 @@ AxisControl::AxisControl(QWidget *parent) :
     newLabel->setAlignment(Qt::AlignCenter);
     glayout->addWidget(newLabel, 2, 1);
 
-    //Y-Axis
+    // Y-Axis
     glayout->addWidget(makeButton(QLatin1Char('Y'), 1, iconSize, QStringLiteral("arrow-up"), QStringLiteral("↑")), 1, 1);
     glayout->addWidget(makeButton(QLatin1Char('Y'), -1, iconSize, QStringLiteral("arrow-down"), QStringLiteral("↓")), 3, 1);
 
-    //X-Axis
+    // X-Axis
     glayout->addWidget(makeButton(QLatin1Char('X'), -1, iconSize, QStringLiteral("arrow-left"), QStringLiteral("←")), 2, 0);
     glayout->addWidget(makeButton(QLatin1Char('X'), 1, iconSize, QStringLiteral("arrow-right"), QStringLiteral("→")), 2, 3);
 
@@ -93,9 +93,7 @@ QPushButton *AxisControl::makeButton(const QLatin1Char axis, int multiplier, con
         button->setIconSize(iconSize);
     }
 
-    connect(button, &QPushButton::clicked, this, [this, axis, multiplier] {
-        emit clicked(axis, sbValue->value() *multiplier);
-    });
+    connect(button, &QPushButton::clicked, this, [this, axis, multiplier] { emit clicked(axis, sbValue->value() * multiplier); });
     return button;
 }
 

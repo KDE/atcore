@@ -22,10 +22,10 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include "grblplugin.h"
 #include <QLoggingCategory>
 #include <QRegularExpressionMatch>
 #include <QString>
-#include "grblplugin.h"
 
 Q_LOGGING_CATEGORY(GRBL_PLUGIN, "org.kde.atelier.core.firmware.grbl")
 
@@ -54,10 +54,10 @@ void GrblPlugin::validateCommand(const QString &lastMessage)
 QByteArray GrblPlugin::translate(const QString &command)
 {
     QString temp = command;
-    //Match all G and M commands followed by one or more digits up to and include the space,
-    //if thats followed by a letter capture any non G or M starting text
-    //else just grab the digits that follow.
-    //ex: G28 X Y M1 would capture "G28 X Y" and "M1"
+    // Match all G and M commands followed by one or more digits up to and include the space,
+    // if thats followed by a letter capture any non G or M starting text
+    // else just grab the digits that follow.
+    // ex: G28 X Y M1 would capture "G28 X Y" and "M1"
     static const auto regEx = QRegularExpression(QStringLiteral("[GM]\\d+.(?(?=\\D)[^GM]+|\\d+)?"));
 
     QRegularExpressionMatch secondCommand = regEx.match(temp, 1);

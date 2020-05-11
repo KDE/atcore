@@ -74,7 +74,6 @@ void TemperatureTests::testDecodeSmoothie()
     QVERIFY(temperature->extruderTargetTemperature() == 220);
     QVERIFY(temperature->bedTemperature() == float(24.1));
     QVERIFY(temperature->bedTargetTemperature() == 60);
-
 }
 void TemperatureTests::testDecodeSprinter()
 {

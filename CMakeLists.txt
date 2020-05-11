@@ -23,6 +23,15 @@ option(BUILD_DOCS "Build and Install Documents (Requires Doxygen)")
 option(BUILD_TESTS "Build and Run Unittests")
 option(DEPLOY_PLUGINS_WITH_BINARY "Deploy Plugins to bin/plugins (Use for win/mac)")
 
+include(KDEClangFormat)
+file(GLOB_RECURSE
+    ALL_CLANG_FORMAT_SOURCE_FILES
+    *.cpp
+    *.h
+)
+
+kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
+
 set_package_properties(
     ECM PROPERTIES
     TYPE REQUIRED

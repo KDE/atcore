@@ -61,6 +61,7 @@ public:
     QVariantList bedDeformationGrid();
 signals:
     void dataChanged(const QVariantList &data);
+
 private:
     struct BedDeformPrivate;
     BedDeformPrivate *d;

@@ -17,8 +17,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <QtTest>
 #include "beddeformtests.h"
+#include <QtTest>
 
 void BedDeformTests::initTestCase()
 {
@@ -27,27 +27,25 @@ void BedDeformTests::initTestCase()
 
 void BedDeformTests::testDecode()
 {
-    QStringList temp = {
-        QStringLiteral("echo:busy: processing")
-        , QStringLiteral("echo:busy: processing")
-        , QStringLiteral("echo:busy: processing")
-        , QStringLiteral("echo:busy: processing")
-        , QStringLiteral("echo:busy: processing")
-        , QStringLiteral("echo:busy: processing")
-        , QStringLiteral("echo:busy: processing")
-        , QStringLiteral("echo:busy: processing")
-        , QStringLiteral("echo:busy: processing")
-        , QStringLiteral("echo:busy: processing")
-        , QStringLiteral("echo:busy: processing")
-        , QStringLiteral("Bilinear Leveling Grid:")
-        , QStringLiteral("0      1      2")
-        , QStringLiteral("0 +0.255 +0.225 -0.038")
-        , QStringLiteral("1 +0.060 +0.008 -0.255")
-        , QStringLiteral("2 -0.153 -0.245 -0.528")
-        , QString()
-        , QStringLiteral("X:155.00 Y:185.00 Z:12.23 E:0.00 Count X:12400 Y:14800 Z:4720")
-        , QStringLiteral("ok")
-    };
+    QStringList temp = {QStringLiteral("echo:busy: processing"),
+                        QStringLiteral("echo:busy: processing"),
+                        QStringLiteral("echo:busy: processing"),
+                        QStringLiteral("echo:busy: processing"),
+                        QStringLiteral("echo:busy: processing"),
+                        QStringLiteral("echo:busy: processing"),
+                        QStringLiteral("echo:busy: processing"),
+                        QStringLiteral("echo:busy: processing"),
+                        QStringLiteral("echo:busy: processing"),
+                        QStringLiteral("echo:busy: processing"),
+                        QStringLiteral("echo:busy: processing"),
+                        QStringLiteral("Bilinear Leveling Grid:"),
+                        QStringLiteral("0      1      2"),
+                        QStringLiteral("0 +0.255 +0.225 -0.038"),
+                        QStringLiteral("1 +0.060 +0.008 -0.255"),
+                        QStringLiteral("2 -0.153 -0.245 -0.528"),
+                        QString(),
+                        QStringLiteral("X:155.00 Y:185.00 Z:12.23 E:0.00 Count X:12400 Y:14800 Z:4720"),
+                        QStringLiteral("ok")};
     bedDeform->decodeDeform(temp);
     QVERIFY(bedDeform->bedDeformationGrid().at(0).toList().at(0).toDouble() == 0.255);
     QVERIFY(bedDeform->bedDeformationGrid().at(0).toList().at(1).toDouble() == 0.225);

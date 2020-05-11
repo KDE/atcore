@@ -22,14 +22,13 @@
 #include "plotwidget.h"
 #include <QChart>
 
-PlotWidget::PlotWidget(QWidget *parent) :
-    QWidget(parent)
+PlotWidget::PlotWidget(QWidget *parent)
+    : QWidget(parent)
     , _chart(new QChartView(this))
     , _axisX(new QDateTimeAxis(this))
     , _axisY(new QValueAxis(this))
     , m_maximumPoints(120)
 {
-
     _axisX->setTickCount(3);
     _axisX->setFormat(QStringLiteral("hh:mm:ss"));
     _axisY->setLabelFormat(QStringLiteral("%d"));

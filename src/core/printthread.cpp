@@ -20,11 +20,11 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include <QTime>
-#include <QLoggingCategory>
 #include <QCommandLineOption>
 #include <QCommandLineParser>
+#include <QLoggingCategory>
 #include <QRegularExpression>
+#include <QTime>
 
 #include "printthread.h"
 
@@ -35,27 +35,26 @@ Q_LOGGING_CATEGORY(PRINT_THREAD, "org.kde.atelier.core.printThread")
 class PrintThread::PrintThreadPrivate
 {
 public:
-    AtCore *core = nullptr;             //!<@param core: Pointer to AtCore
-    QTextStream *gcodestream = nullptr; //!<@param gcodestream: Steam the job is read from
-    float printProgress = 0;            //!<@param printProgress: Progress of the print job
-    qint64 totalSize = 0;               //!<@param totalSize: total file size
-    qint64 stillSize = 0;               //!<@param stillSize: remaining file
-    QString cline;                      //!<@param cline: current line
-    AtCore::STATES state = AtCore::IDLE;//!<@param state: printer state
-    QFile *file = nullptr;              //!<@param file: gcode File to stream from
-    QList<QCommandLineOption> options = {
-        {QCommandLineOption(QStringLiteral("pause"))},
-        {QCommandLineOption(QStringLiteral("extruder temperature"))},
-        {QCommandLineOption(QStringLiteral("bed temperature"))},
-        {QCommandLineOption(QStringLiteral("print speed"))},
-        {QCommandLineOption(QStringLiteral("fan speed"))},
-        {QCommandLineOption(QStringLiteral("flow rate"))},
-        {QCommandLineOption(QStringLiteral("message"))},
-        {QCommandLineOption(QStringLiteral("command"))}
-    };  //!<@param options: injectable commands.
+    AtCore *core = nullptr;              //!<@param core: Pointer to AtCore
+    QTextStream *gcodestream = nullptr;  //!<@param gcodestream: Steam the job is read from
+    float printProgress = 0;             //!<@param printProgress: Progress of the print job
+    qint64 totalSize = 0;                //!<@param totalSize: total file size
+    qint64 stillSize = 0;                //!<@param stillSize: remaining file
+    QString cline;                       //!<@param cline: current line
+    AtCore::STATES state = AtCore::IDLE; //!<@param state: printer state
+    QFile *file = nullptr;               //!<@param file: gcode File to stream from
+    QList<QCommandLineOption> options = {{QCommandLineOption(QStringLiteral("pause"))},
+                                         {QCommandLineOption(QStringLiteral("extruder temperature"))},
+                                         {QCommandLineOption(QStringLiteral("bed temperature"))},
+                                         {QCommandLineOption(QStringLiteral("print speed"))},
+                                         {QCommandLineOption(QStringLiteral("fan speed"))},
+                                         {QCommandLineOption(QStringLiteral("flow rate"))},
+                                         {QCommandLineOption(QStringLiteral("message"))},
+                                         {QCommandLineOption(QStringLiteral("command"))}}; //!<@param options: injectable commands.
 };
 
-PrintThread::PrintThread(AtCore *parent, const QString &fileName) : d(new PrintThreadPrivate)
+PrintThread::PrintThread(AtCore *parent, const QString &fileName)
+    : d(new PrintThreadPrivate)
 {
     d->core = parent;
     d->state = d->core->state();
@@ -131,13 +130,12 @@ void PrintThread::endPrint()
     emit stateChanged(AtCore::IDLE);
     disconnect(this, &PrintThread::stateChanged, d->core, &AtCore::setState);
     emit finished();
-
 }
 void PrintThread::nextLine()
 {
     d->cline = d->gcodestream->readLine();
     qCDebug(PRINT_THREAD) << "Nextline:" << d->cline;
-    d->stillSize -= d->cline.size() + 1; //remove read chars
+    d->stillSize -= d->cline.size() + 1; // remove read chars
     d->printProgress = float(d->totalSize - d->stillSize) * 100 / float(d->totalSize);
     qCDebug(PRINT_THREAD) << "progress:" << QString::number(double(d->printProgress));
     emit printProgressChanged(d->printProgress);
@@ -147,16 +145,16 @@ void PrintThread::nextLine()
         d->cline = QStringLiteral("");
         return;
     }
-    //Remove Comments from the gcode.
-    //Type 1: Anything after ; is comment.
-    //Example G28 Z; Home Axis Z
+    // Remove Comments from the gcode.
+    // Type 1: Anything after ; is comment.
+    // Example G28 Z; Home Axis Z
     if (d->cline.contains(QChar::fromLatin1(';'))) {
         d->cline.resize(d->cline.indexOf(QChar::fromLatin1(';')));
     }
-    //Type 2: Block Type anything between ( and ) is a comment
+    // Type 2: Block Type anything between ( and ) is a comment
     // Example G28 (Home)Z
     if (d->cline.contains(QChar::fromLatin1('('))) {
-        //Remove (.....) from the line
+        // Remove (.....) from the line
         d->cline.remove(QRegularExpression(QStringLiteral(".(?<=[(])(.*)(?=[)]).")));
     }
 
@@ -165,19 +163,12 @@ void PrintThread::nextLine()
 
 void PrintThread::setState(const AtCore::STATES &newState)
 {
-    if (d->state == AtCore::STATES::DISCONNECTED &&
-            (
-                newState == AtCore::STATES::PAUSE ||
-                newState == AtCore::STATES::STOP
-            )
-       ) {
+    if (d->state == AtCore::STATES::DISCONNECTED && (newState == AtCore::STATES::PAUSE || newState == AtCore::STATES::STOP)) {
         qCDebug(PRINT_THREAD) << "Serial not connected !";
         return;
     }
     if (newState != d->state) {
-        qCDebug(PRINT_THREAD) << QStringLiteral("State changed from [%1] to [%2]")
-                              .arg(QVariant::fromValue(d->state).toString(),
-                                   QVariant::fromValue(newState).toString());
+        qCDebug(PRINT_THREAD) << QStringLiteral("State changed from [%1] to [%2]").arg(QVariant::fromValue(d->state).toString(), QVariant::fromValue(newState).toString());
         disconnect(d->core, &AtCore::stateChanged, this, &PrintThread::setState);
         d->state = newState;
         emit stateChanged(d->state);
@@ -187,7 +178,7 @@ void PrintThread::setState(const AtCore::STATES &newState)
 
 void PrintThread::injectCommand(QString &command)
 {
-    //remove the ;
+    // remove the ;
     command.remove(0, 1);
     command.prepend(QStringLiteral("0:"));
     QStringList cmd = command.split(QLatin1Char(':'));

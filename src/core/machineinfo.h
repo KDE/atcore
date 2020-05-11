@@ -25,8 +25,8 @@
 #include "atcore_export.h"
 
 #include <QObject>
-#include <QSettings>
 #include <QQmlEngine>
+#include <QSettings>
 #include <QVariant>
 
 class ATCORE_EXPORT MachineInfo : public QObject
@@ -40,15 +40,15 @@ public:
     enum class KEY {
         NAME = 0,       //!< Profile Name
         BAUDRATE,       //!< Machine BAUD Rate
-        FIRMWARE,       //!<Firmware name
-        MAXBEDTEMP,     //!<Maximum Bed Temperature
-        MAXEXTTEMP,     //!<Maximum Extruder Temperature
-        POSTPAUSE,      //!<Post Pause Commands
-        ISCARTESIAN,    //!<Is the machine Cartesian
-        XMAX,           //!<X Size for Cartesian machines, Radius for Deltas.
-        YMAX,           //!<Y Size
-        ZMAX,           //!<Z Size for Cartesian machines, Height for Deltas.
-        AUTOTEMPREPORT,  //!<Supports AutoTemp Reporting.
+        FIRMWARE,       //!< Firmware name
+        MAXBEDTEMP,     //!< Maximum Bed Temperature
+        MAXEXTTEMP,     //!< Maximum Extruder Temperature
+        POSTPAUSE,      //!< Post Pause Commands
+        ISCARTESIAN,    //!< Is the machine Cartesian
+        XMAX,           //!< X Size for Cartesian machines, Radius for Deltas.
+        YMAX,           //!< Y Size
+        ZMAX,           //!< Z Size for Cartesian machines, Height for Deltas.
+        AUTOTEMPREPORT, //!< Supports AutoTemp Reporting.
     };
     Q_ENUM(KEY)
 
@@ -139,7 +139,7 @@ signals:
     void profilesChanged() const;
 
 private:
-    MachineInfo *operator = (MachineInfo &other) = delete;
+    MachineInfo *operator=(MachineInfo &other) = delete;
     MachineInfo(const MachineInfo &other) = delete;
     explicit MachineInfo(QObject *parent = nullptr);
     ~MachineInfo() = default;
@@ -148,7 +148,7 @@ private:
      * @brief used to hold MachineInfo::KEY name and defaultValues.
      */
     struct keyInfo {
-        QString name; //!< Key name used in the settings file
+        QString name;          //!< Key name used in the settings file
         QVariant defaultValue; //!< Defaut Value for the key
     };
     /**

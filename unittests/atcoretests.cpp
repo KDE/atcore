@@ -29,7 +29,6 @@ void AtCoreTests::initTestCase()
 
 void AtCoreTests::cleanupTestCase()
 {
-
 }
 
 void AtCoreTests::testInitState()
@@ -40,15 +39,7 @@ void AtCoreTests::testInitState()
 void AtCoreTests::testPluginDetect()
 {
     QStringList fwPluginsFound = core->availableFirmwarePlugins();
-    QStringList fwPluginsActual = {
-        QStringLiteral("aprinter"),
-        QStringLiteral("grbl"),
-        QStringLiteral("marlin"),
-        QStringLiteral("repetier"),
-        QStringLiteral("smoothie"),
-        QStringLiteral("sprinter"),
-        QStringLiteral("teacup")
-    };
+    QStringList fwPluginsActual = {QStringLiteral("aprinter"), QStringLiteral("grbl"), QStringLiteral("marlin"), QStringLiteral("repetier"), QStringLiteral("smoothie"), QStringLiteral("sprinter"), QStringLiteral("teacup")};
 
     std::sort(fwPluginsFound.begin(), fwPluginsFound.end());
     std::sort(fwPluginsActual.begin(), fwPluginsActual.end());
@@ -130,13 +121,7 @@ void AtCoreTests::testSdFileList()
     core->appendSdCardFileList(QStringLiteral("FILE5"));
 
     QList<QVariant> args = sSpy.takeLast();
-    QStringList fileList = {
-        QStringLiteral("FILE1"),
-        QStringLiteral("FILE2"),
-        QStringLiteral("FILE3"),
-        QStringLiteral("FILE4"),
-        QStringLiteral("FILE5")
-    };
+    QStringList fileList = {QStringLiteral("FILE1"), QStringLiteral("FILE2"), QStringLiteral("FILE3"), QStringLiteral("FILE4"), QStringLiteral("FILE5")};
     QVERIFY(args.at(0).toStringList() == fileList);
 
     core->clearSdCardFileList();

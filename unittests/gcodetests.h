@@ -20,7 +20,7 @@
 
 #include "../src/core/gcodecommands.h"
 
-class GCodeTests: public QObject
+class GCodeTests : public QObject
 {
     Q_OBJECT
 private slots:

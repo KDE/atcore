@@ -25,8 +25,8 @@
 #include <QLoggingCategory>
 #include <QString>
 
-#include "repetierplugin.h"
 #include "atcore.h"
+#include "repetierplugin.h"
 
 Q_LOGGING_CATEGORY(REPETIER_PLUGIN, "org.kde.atelier.core.firmware.repetier")
 
@@ -69,14 +69,14 @@ void RepetierPlugin::validateCommand(const QString &lastMessage)
             core()->clearSdCardFileList();
         } else if (lastMessage.contains(QStringLiteral("SD printing byte"))) {
             if (lastMessage.contains(QStringLiteral("SD printing byte 0/0"))) {
-                //not printing a file
+                // not printing a file
                 return;
             }
             if (core()->state() != AtCore::BUSY) {
-                //This should only happen if Attached to an Sd printing machine.
-                //Just tell the client were starting a job like normal.
-                //For this to work the client should check if sdCardPrintStatus()
-                //Upon the Connection to a known firmware with sdSupport
+                // This should only happen if Attached to an Sd printing machine.
+                // Just tell the client were starting a job like normal.
+                // For this to work the client should check if sdCardPrintStatus()
+                // Upon the Connection to a known firmware with sdSupport
                 core()->setState(AtCore::STARTPRINT);
                 core()->setState(AtCore::BUSY);
             }

@@ -23,23 +23,23 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include <QDir>
-#include <QSerialPortInfo>
-#include <QPluginLoader>
 #include <QCoreApplication>
+#include <QDir>
 #include <QLoggingCategory>
+#include <QMetaEnum>
+#include <QPluginLoader>
+#include <QProcess>
+#include <QSerialPortInfo>
+#include <QThread>
 #include <QTime>
 #include <QTimer>
-#include <QThread>
-#include <QMetaEnum>
-#include <QProcess>
 
 #include "atcore.h"
+#include "atcore_default_folders.h"
 #include "atcore_version.h"
-#include "seriallayer.h"
 #include "gcodecommands.h"
 #include "printthread.h"
-#include "atcore_default_folders.h"
+#include "seriallayer.h"
 
 Q_LOGGING_CATEGORY(ATCORE_PLUGIN, "org.kde.atelier.core.plugin")
 Q_LOGGING_CATEGORY(ATCORE_CORE, "org.kde.atelier.core")
@@ -100,35 +100,33 @@ struct AtCore::AtCorePrivate {
     QStringList tempMultiString;
 };
 
-AtCore::AtCore(QObject *parent) :
-    QObject(parent),
-    d(new AtCorePrivate)
+AtCore::AtCore(QObject *parent)
+    : QObject(parent)
+    , d(new AtCorePrivate)
 {
     d->temperature.reset(new Temperature);
     d->bedDeform.reset(new BedDeform);
-    //Register MetaTypes
+    // Register MetaTypes
     qRegisterMetaType<AtCore::STATES>("AtCore::STATES");
     setState(AtCore::STATES::DISCONNECTED);
-    //Connect our Timers
+    // Connect our Timers
     connect(&d->sdPrintProgressTimer, &QTimer::timeout, this, &AtCore::sdCardPrintStatus);
     connect(&d->serialTimer, &QTimer::timeout, this, &AtCore::locateSerialPort);
     connect(&d->temperatureTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
 
     //<<<<<<TESTING FUNCTION ONLY REMOVE AFTER TESTING IS COMPLETE>>>>>>>>
-    connect(d->bedDeform.get(), &BedDeform::dataChanged, this, [](const QVariantList & bedData) {
-        qDebug() << bedData;
-    });
+    connect(d->bedDeform.get(), &BedDeform::dataChanged, this, [](const QVariantList &bedData) { qDebug() << bedData; });
 
-    //Attempt to find our plugins
+    // Attempt to find our plugins
     qCDebug(ATCORE_PLUGIN) << "Detecting Plugin path";
     QStringList paths = AtCoreDirectories::pluginDir;
-    //add our current runtime path
+    // add our current runtime path
     paths.prepend(qApp->applicationDirPath() + QStringLiteral("/../Plugins/AtCore"));
     paths.prepend(qApp->applicationDirPath() + QStringLiteral("/AtCore"));
     paths.prepend(qApp->applicationDirPath() + QStringLiteral("/plugins"));
     for (const auto &path : paths) {
         qCDebug(ATCORE_PLUGIN) << "Checking: " << path;
-        QMap <QString, QString> tempMap = findFirmwarePlugins(path);
+        QMap<QString, QString> tempMap = findFirmwarePlugins(path);
         if (!tempMap.isEmpty()) {
             d->plugins = tempMap;
             emit availableFirmwarePluginsChanged();
@@ -179,11 +177,11 @@ void AtCore::findFirmware(const QByteArray &message)
     QString fwName = QString::fromLocal8Bit(message);
     fwName = fwName.split(QChar::fromLatin1(':')).at(1);
     if (fwName.indexOf(QChar::fromLatin1(' ')) == 0) {
-        //remove leading space
+        // remove leading space
         fwName.remove(0, 1);
     }
     if (fwName.contains(QChar::fromLatin1(' '))) {
-        //check there is a space or dont' resize
+        // check there is a space or dont' resize
         fwName.resize(fwName.indexOf(QChar::fromLatin1(' ')));
     }
     fwName = fwName.toLower().simplified();
@@ -193,7 +191,7 @@ void AtCore::findFirmware(const QByteArray &message)
     qCDebug(ATCORE_CORE) << "Firmware Name:" << fwName;
 
     if (message.contains("EXTRUDER_COUNT:")) {
-        //this code is broken if more then 9 extruders are detected. since only one char is returned
+        // this code is broken if more then 9 extruders are detected. since only one char is returned
         setExtruderCount(message.at(message.indexOf("EXTRUDER_COUNT:") + 15) - '0');
     }
     loadFirmwarePlugin(fwName);
@@ -205,12 +203,12 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
     if (d->plugins.contains(fwName)) {
         d->pluginLoader.setFileName(d->plugins[fwName]);
         if (!d->pluginLoader.load()) {
-            //Plugin was not loaded, Provide some debug info.
+            // Plugin was not loaded, Provide some debug info.
             qCDebug(ATCORE_CORE) << "Plugin Loading: Failed.";
             qCDebug(ATCORE_CORE) << d->pluginLoader.errorString();
             setState(AtCore::STATES::CONNECTING);
         } else {
-            //Plugin was loaded successfully.
+            // Plugin was loaded successfully.
             d->firmwarePlugin = qobject_cast<IFirmware *>(d->pluginLoader.instance());
             firmwarePlugin()->init(this);
             disconnect(d->serial, &SerialLayer::receivedCommand, this, {});
@@ -249,7 +247,6 @@ void AtCore::waitForPrinterReboot(const QByteArray &message, const QString &fwNa
             loadFirmwarePlugin(fwName);
         }
     }
-
 }
 
 bool AtCore::newConnection(const QString &port, int baud, const QString &fwName, bool disableROC)
@@ -266,9 +263,7 @@ bool AtCore::newConnection(const QString &port, int baud, const QString &fwName,
 
         if (!disableROC) {
             emit atcoreMessage(tr("Waiting for machine restart"));
-            connect(d->serial, &SerialLayer::receivedCommand, this, [this, fwName](const QByteArray & message) {
-                waitForPrinterReboot(message, fwName);
-            });
+            connect(d->serial, &SerialLayer::receivedCommand, this, [this, fwName](const QByteArray &message) { waitForPrinterReboot(message, fwName); });
         } else {
             loadFirmwarePlugin(fwName);
         }
@@ -302,8 +297,8 @@ QStringList AtCore::serialPorts() const
     if (!serialPortInfoList.isEmpty()) {
         for (const QSerialPortInfo &serialPortInfo : serialPortInfoList) {
 #ifdef Q_OS_MAC
-            //Mac OS has callout serial ports starting with cu these devices are read only.
-            //It is necessary to filter them out to help prevent user error.
+            // Mac OS has callout serial ports starting with cu these devices are read only.
+            // It is necessary to filter them out to help prevent user error.
             if (!serialPortInfo.portName().startsWith(QStringLiteral("cu."), Qt::CaseInsensitive)) {
                 ports.append(serialPortInfo.portName());
             }
@@ -379,7 +374,6 @@ void AtCore::setAutoTemperatureReport(bool autoReport)
         setAutoCheckTemperatureInterval(0);
         setTemperatureTimerInterval(5000);
     }
-
 }
 
 void AtCore::setAutoCheckTemperatureInterval(int newTime)
@@ -408,15 +402,14 @@ void AtCore::newMessage(const QByteArray &message)
         }
         d->tempMultiString.append(QString::fromLatin1(d->lastMessage));
     }
-    //Check if the message has current coordinates.
-    if (d->lastCommand.startsWith(GCode::toCommand(GCode::MCommands::M114))
-            && d->lastMessage.startsWith(QString::fromLatin1("X:").toLocal8Bit())) {
+    // Check if the message has current coordinates.
+    if (d->lastCommand.startsWith(GCode::toCommand(GCode::MCommands::M114)) && d->lastMessage.startsWith(QString::fromLatin1("X:").toLocal8Bit())) {
         d->posString = message;
         d->posString.resize(d->posString.indexOf('E'));
         d->posString.replace(':', "");
     }
 
-    //Check if have temperature info and decode it
+    // Check if have temperature info and decode it
     if (d->lastMessage.contains("T:") || d->lastMessage.contains("B:")) {
         temperature()->decodeTemp(d->lastMessage);
     }
@@ -449,12 +442,12 @@ void AtCore::print(const QString &fileName, bool sdPrint)
         qCDebug(ATCORE_CORE) << "Load a firmware plugin to print.";
         return;
     }
-    //Start a print job.
+    // Start a print job.
     setState(AtCore::STATES::STARTPRINT);
-    //Only try to print from Sd if the firmware has support for sd cards
+    // Only try to print from Sd if the firmware has support for sd cards
     if (firmwarePlugin()->isSdSupported()) {
         if (sdPrint) {
-            //Printing from the sd card requires us to send some M commands.
+            // Printing from the sd card requires us to send some M commands.
             pushCommand(GCode::toCommand(GCode::MCommands::M23, fileName));
             d->sdCardFileName = fileName;
             pushCommand(GCode::toCommand(GCode::MCommands::M24));
@@ -464,9 +457,9 @@ void AtCore::print(const QString &fileName, bool sdPrint)
             return;
         }
     }
-    //Process the gcode with a printThread.
-    //The Thread processes the gcode without freezing the libary.
-    //Only sends a command back when the printer is ready, avoiding buffer overflow in the printer.
+    // Process the gcode with a printThread.
+    // The Thread processes the gcode without freezing the libary.
+    // Only sends a command back when the printer is ready, avoiding buffer overflow in the printer.
     auto thread = new QThread(this);
     auto printThread = new PrintThread(this, fileName);
     printThread->moveToThread(thread);
@@ -482,14 +475,14 @@ void AtCore::print(const QString &fileName, bool sdPrint)
 
 void AtCore::pushCommand(const QString &comm)
 {
-//Be sure our M112 is first in the queue.
+    // Be sure our M112 is first in the queue.
     if (comm == GCode::toCommand(GCode::MCommands::M112)) {
         d->commandQueue.prepend(comm);
     } else {
         d->commandQueue.append(comm);
     }
     if (d->ready) {
-        //The printer is ready for a command now so push one.
+        // The printer is ready for a command now so push one.
         processQueue();
     }
 }
@@ -498,8 +491,8 @@ void AtCore::closeConnection()
 {
     if (serialInitialized()) {
         if (AtCore::state() == AtCore::STATES::BUSY && !d->sdCardPrinting) {
-            //We have to clean up the print job if printing from the host.
-            //However disconnecting while printing from sd card should not affect the print job.
+            // We have to clean up the print job if printing from the host.
+            // However disconnecting while printing from sd card should not affect the print job.
             setState(AtCore::STATES::STOP);
         }
         if (firmwarePluginLoaded()) {
@@ -511,17 +504,17 @@ void AtCore::closeConnection()
                 blockSignals(false);
             }
             setTemperatureTimerInterval(0);
-            //Attempt to unload the firmware plugin.
+            // Attempt to unload the firmware plugin.
             QString name = firmwarePlugin()->name();
             QString msg = d->pluginLoader.unload() ? QStringLiteral("closed.") : QStringLiteral("Failed to close.");
             qCDebug(ATCORE_CORE) << QStringLiteral("Firmware plugin %1 %2").arg(name, msg);
             d->firmwarePlugin = nullptr;
         }
-        //Do not reset the connect on disconnect when closing this will cause a reset on connect for the next connection.
+        // Do not reset the connect on disconnect when closing this will cause a reset on connect for the next connection.
         disconnect(d->serial, &SerialLayer::serialError, this, &AtCore::handleSerialError);
         disconnect(d->serial, &SerialLayer::pushedCommand, this, &AtCore::newMessage);
         d->serial->close();
-        //Clear our copy of the sdcard filelist
+        // Clear our copy of the sdcard filelist
         clearSdCardFileList();
         setState(AtCore::STATES::DISCONNECTED);
         d->serialTimer.start();
@@ -536,12 +529,10 @@ AtCore::STATES AtCore::state()
 void AtCore::setState(AtCore::STATES state)
 {
     if (state != d->printerState) {
-        qCDebug(ATCORE_CORE) << QStringLiteral("Atcore state changed from [%1] to [%2]")
-                             .arg(QVariant::fromValue(d->printerState).toString(),
-                                  QVariant::fromValue(state).toString());
+        qCDebug(ATCORE_CORE) << QStringLiteral("Atcore state changed from [%1] to [%2]").arg(QVariant::fromValue(d->printerState).toString(), QVariant::fromValue(state).toString());
         d->printerState = state;
         if (state == AtCore::STATES::FINISHEDPRINT && d->sdCardPrinting) {
-            //Clean up the sd card print
+            // Clean up the sd card print
             d->sdCardPrinting = false;
             if (d->sdPrintProgressTimer.isActive()) {
                 d->sdPrintProgressTimer.stop();
@@ -553,7 +544,7 @@ void AtCore::setState(AtCore::STATES state)
 
 void AtCore::stop()
 {
-    //Stop a print job
+    // Stop a print job
     setState(AtCore::STATES::STOP);
     d->commandQueue.clear();
     if (d->sdCardPrinting) {
@@ -566,14 +557,14 @@ void AtCore::stop()
 
 void AtCore::emergencyStop()
 {
-    //Emergency Stop. Stops the machine
-    //Clear the queue, and any print job
-    //Before sending the command to ensure
-    //Less chance of movement after the restart.
+    // Emergency Stop. Stops the machine
+    // Clear the queue, and any print job
+    // Before sending the command to ensure
+    // Less chance of movement after the restart.
     d->commandQueue.clear();
     if (AtCore::state() == AtCore::STATES::BUSY) {
         if (!d->sdCardPrinting) {
-            //Stop our running print thread
+            // Stop our running print thread
             setState(AtCore::STATES::STOP);
         }
     }
@@ -582,7 +573,7 @@ void AtCore::emergencyStop()
 
 void AtCore::stopSdPrint()
 {
-    //Stop an SdCard Print.
+    // Stop an SdCard Print.
     pushCommand(GCode::toCommand(GCode::MCommands::M25));
     d->sdCardFileName = QString();
     pushCommand(GCode::toCommand(GCode::MCommands::M23, d->sdCardFileName));
@@ -593,7 +584,7 @@ void AtCore::stopSdPrint()
 void AtCore::requestFirmware()
 {
     if (serialInitialized()) {
-        //ensure M115 is sent on cold connect.
+        // ensure M115 is sent on cold connect.
         d->commandQueue.clear();
         d->ready = true;
         qCDebug(ATCORE_CORE) << "Sending " << GCode::description(GCode::MCommands::M115);
@@ -634,8 +625,8 @@ void AtCore::pause(const QString &pauseActions)
     if (d->sdCardPrinting) {
         pushCommand(GCode::toCommand(GCode::MCommands::M25));
     }
-    //Push the command to request current coordinates.
-    //This will be read by AtCore::newMessage and stored for use on resume.
+    // Push the command to request current coordinates.
+    // This will be read by AtCore::newMessage and stored for use on resume.
     pushCommand(GCode::toCommand(GCode::MCommands::M114));
     if (!pauseActions.isEmpty()) {
         QStringList temp = pauseActions.split(QChar::fromLatin1(','));
@@ -651,7 +642,7 @@ void AtCore::resume()
     if (d->sdCardPrinting) {
         pushCommand(GCode::toCommand(GCode::MCommands::M24));
     } else {
-        //Move back to previous coordinates.
+        // Move back to previous coordinates.
         pushCommand(GCode::toCommand(GCode::GCommands::G0, QString::fromLatin1(d->posString)));
     }
     setState(AtCore::BUSY);
@@ -733,9 +724,9 @@ void AtCore::move(AtCore::AXES axis, double arg)
 
 void AtCore::move(QLatin1Char axis, double arg)
 {
-    //Using QString::number(double, format, precision)
-    //f = 'format as [-]9.9'
-    //3 = use 3 decimal precision
+    // Using QString::number(double, format, precision)
+    // f = 'format as [-]9.9'
+    // 3 = use 3 decimal precision
     pushCommand(GCode::toCommand(GCode::GCommands::G1, QStringLiteral("%1 %2").arg(axis).arg(QString::number(arg, 'f', 3))));
 }
 
@@ -777,7 +768,7 @@ void AtCore::processQueue()
 
 void AtCore::checkTemperature()
 {
-    //One request for the temperature in the queue at a time.
+    // One request for the temperature in the queue at a time.
     if (d->commandQueue.contains(GCode::toCommand(GCode::MCommands::M105))) {
         return;
     }
@@ -810,14 +801,14 @@ QStringList AtCore::portSpeeds() const
 
 void AtCore::disableMotors(uint delay)
 {
-    //Disables motors
+    // Disables motors
     if (delay) {
         pushCommand(GCode::toCommand(GCode::MCommands::M84, QString::number(delay)));
     } else {
         pushCommand(GCode::toCommand(GCode::MCommands::M84));
     }
 }
-//Most firmwares will not report if an sdcard is mounted on boot.
+// Most firmwares will not report if an sdcard is mounted on boot.
 bool AtCore::isSdMounted() const
 {
     return d->sdCardMounted;
@@ -888,7 +879,7 @@ void AtCore::setReadingSdCardList(bool readingList)
 
 void AtCore::sdCardPrintStatus()
 {
-    //One request for the Sd Job status in the queue at a time.
+    // One request for the Sd Job status in the queue at a time.
     if (d->commandQueue.contains(GCode::toCommand(GCode::MCommands::M27))) {
         return;
     }
@@ -898,18 +889,16 @@ void AtCore::sdCardPrintStatus()
 void AtCore::disableResetOnConnect(const QString &port)
 {
 #if defined(Q_OS_UNIX)
-//should work on all unix'
+    // should work on all unix'
     QProcess process(this);
     QStringList args({QStringLiteral("-F/dev/%1").arg(port), QStringLiteral("-hupcl")});
     process.start(QStringLiteral("stty"), args);
     process.waitForFinished(500);
 
-    connect(&process, &QProcess::errorOccurred, this, [&process] {
-        qCDebug(ATCORE_CORE) << "Stty Error:" << process.errorString();
-    });
+    connect(&process, &QProcess::errorOccurred, this, [&process] { qCDebug(ATCORE_CORE) << "Stty Error:" << process.errorString(); });
 
 #elif defined(Q_OS_WIN)
-    //TODO: Disable hangup on windows.
+    // TODO: Disable hangup on windows.
 #endif
 }
 
@@ -939,16 +928,16 @@ void AtCore::handleSerialError(QSerialPort::SerialPortError error)
         errorString = tr("Unknown Error");
         break;
     default:
-        //Not Directly processed errors
-        //QSerialPort::NoError, No error has happened
-        //QSerialPort::PermissionError), Already handled.
-        //QSerialPort::OpenError), Already handled.
-        //QSerialPort::NotOpenError, SerialLayer destroyed if not connected.
-        //QSerialPort::ParityError, Obsolete. Qt Docs "We strongly advise against using it in new code."
-        //QSerialPort::FramingError, Obsolete. Qt Docs "We strongly advise against using it in new code."
-        //QSerialPort::BreakConditionError, Obsolete. Qt Docs "We strongly advise against using it in new code."
+        // Not Directly processed errors
+        // QSerialPort::NoError, No error has happened
+        // QSerialPort::PermissionError), Already handled.
+        // QSerialPort::OpenError), Already handled.
+        // QSerialPort::NotOpenError, SerialLayer destroyed if not connected.
+        // QSerialPort::ParityError, Obsolete. Qt Docs "We strongly advise against using it in new code."
+        // QSerialPort::FramingError, Obsolete. Qt Docs "We strongly advise against using it in new code."
+        // QSerialPort::BreakConditionError, Obsolete. Qt Docs "We strongly advise against using it in new code."
         return;
-    };//End of Switch
+    }; // End of Switch
     qCDebug(ATCORE_CORE) << "SerialError:" << errorString;
     emit atcoreMessage(QStringLiteral("SerialError: %1").arg(errorString));
 }

@@ -19,8 +19,8 @@
 #include "logwidget.h"
 #include <QFileDialog>
 #include <QPushButton>
-#include <QStyle>
 #include <QStackedWidget>
+#include <QStyle>
 #include <QTime>
 #include <QToolButton>
 #include <QVBoxLayout>
@@ -31,9 +31,9 @@ static constexpr QChar _newLine = QChar::fromLatin1('\n');
 static constexpr QChar _return = QChar::fromLatin1('\r');
 }
 
-LogWidget::LogWidget(QTemporaryFile *tempFile, QWidget *parent) :
-    QWidget(parent),
-    logFile(tempFile)
+LogWidget::LogWidget(QTemporaryFile *tempFile, QWidget *parent)
+    : QWidget(parent)
+    , logFile(tempFile)
 {
     QSize iconSize = QSize(fontMetrics().height(), fontMetrics().height());
     auto page = new QWidget(this);
@@ -50,7 +50,8 @@ LogWidget::LogWidget(QTemporaryFile *tempFile, QWidget *parent) :
     page = new QWidget(this);
     auto textbox = new QTextEdit(this);
     textbox->setReadOnly(true);
-    textbox->setHtml(tr("\
+    textbox->setHtml(
+        tr("\
                         <h4>Special Log Entries</h4> \
                         <p><strong>Failed to open device in read/write mode.</strong></p> \
                         <p>&nbsp;&nbsp;&nbsp; The Device was not able to be opened.</p> \
@@ -78,9 +79,7 @@ LogWidget::LogWidget(QTemporaryFile *tempFile, QWidget *parent) :
     helpButton->setChecked(false);
     helpButton->setIconSize(iconSize);
     helpButton->setIcon(QIcon::fromTheme(QStringLiteral("help-about"), style()->standardIcon(QStyle::SP_DialogHelpButton)));
-    connect(helpButton, &QToolButton::clicked, this, [mainStack](bool checked) {
-        mainStack->setCurrentIndex(checked);
-    });
+    connect(helpButton, &QToolButton::clicked, this, [mainStack](bool checked) { mainStack->setCurrentIndex(checked); });
 
     auto buttonLayout = new QHBoxLayout;
     buttonLayout->addWidget(saveButton);
@@ -123,7 +122,7 @@ void LogWidget::appendSLog(const QByteArray &bmsg)
 
 void LogWidget::writeTempFile(const QString &text)
 {
-    //Add text to our unsynced string list when that hits 100 sync to the temp file.
+    // Add text to our unsynced string list when that hits 100 sync to the temp file.
     unsyncedStrings.append(text);
     if (unsyncedStrings.count() > 100) {
         flushTemp();
@@ -150,7 +149,7 @@ void LogWidget::flushTemp()
 
 void LogWidget::savePressed()
 {
-    //If saving be sure we have flushed to temp.
+    // If saving be sure we have flushed to temp.
     flushTemp();
     // Note that if a file with the name newName already exists, copy() returns false (i.e. QFile will not overwrite it).
     QString fileName = QDir::homePath() + QChar::fromLatin1('/') + QFileInfo(logFile->fileName()).fileName() + QStringLiteral(".txt");

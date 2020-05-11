@@ -101,6 +101,7 @@ protected:
      * @brief Reset internal temperature data, For Tests-Only
      */
     void resetData();
+
 private:
     struct TemperaturePrivate;
     TemperaturePrivate *d;

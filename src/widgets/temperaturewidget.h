@@ -30,7 +30,6 @@ class ATCOREWIDGETS_EXPORT TemperatureWidget : public QWidget
 {
     Q_OBJECT
 public:
-
     /**
      * @brief TemperatureWidget
      * @param parent

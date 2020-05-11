@@ -28,19 +28,17 @@
 
 Q_LOGGING_CATEGORY(MACHINE_INFO, "org.kde.atelier.core.machineInfo")
 
-const QMap<MachineInfo::KEY, MachineInfo::keyInfo> MachineInfo::decoderMap = {
-    {KEY::NAME, {QStringLiteral("Name"), QStringLiteral("ProfileName")}},
-    {KEY::BAUDRATE, {QStringLiteral("bps"), 115200}},
-    {KEY::FIRMWARE, {QStringLiteral("firmware"), QStringLiteral("Auto-Detect")}},
-    {KEY::MAXBEDTEMP, {QStringLiteral("maximumTemperatureBed"), 0}},
-    {KEY::MAXEXTTEMP, {QStringLiteral("maximumTemperatureExtruder"), 0}},
-    {KEY::POSTPAUSE, {QStringLiteral("postPause"), QString()}},
-    {KEY::ISCARTESIAN, {QStringLiteral("isCartesian"), false}},
-    {KEY::XMAX, {QStringLiteral("dimensionX"), 200}},
-    {KEY::YMAX, {QStringLiteral("dimensionY"), 200}},
-    {KEY::ZMAX, {QStringLiteral("dimensionZ"), 180}},
-    {KEY::AUTOTEMPREPORT, {QStringLiteral("autoReportTemp"), false}}
-};
+const QMap<MachineInfo::KEY, MachineInfo::keyInfo> MachineInfo::decoderMap = {{KEY::NAME, {QStringLiteral("Name"), QStringLiteral("ProfileName")}},
+                                                                              {KEY::BAUDRATE, {QStringLiteral("bps"), 115200}},
+                                                                              {KEY::FIRMWARE, {QStringLiteral("firmware"), QStringLiteral("Auto-Detect")}},
+                                                                              {KEY::MAXBEDTEMP, {QStringLiteral("maximumTemperatureBed"), 0}},
+                                                                              {KEY::MAXEXTTEMP, {QStringLiteral("maximumTemperatureExtruder"), 0}},
+                                                                              {KEY::POSTPAUSE, {QStringLiteral("postPause"), QString()}},
+                                                                              {KEY::ISCARTESIAN, {QStringLiteral("isCartesian"), false}},
+                                                                              {KEY::XMAX, {QStringLiteral("dimensionX"), 200}},
+                                                                              {KEY::YMAX, {QStringLiteral("dimensionY"), 200}},
+                                                                              {KEY::ZMAX, {QStringLiteral("dimensionZ"), 180}},
+                                                                              {KEY::AUTOTEMPREPORT, {QStringLiteral("autoReportTemp"), false}}};
 
 MachineInfo *MachineInfo::instance()
 {
@@ -48,8 +46,8 @@ MachineInfo *MachineInfo::instance()
     return &m;
 }
 
-MachineInfo::MachineInfo(QObject *parent) :
-    QObject(parent)
+MachineInfo::MachineInfo(QObject *parent)
+    : QObject(parent)
     , m_settings(new QSettings(QSettings::IniFormat, QSettings::UserScope, QStringLiteral("atcore"), QStringLiteral("profiles"), this))
 {
 }
@@ -65,7 +63,7 @@ QVariantMap MachineInfo::readProfile(const QString &profileName) const
 {
     m_settings->sync();
     m_settings->beginGroup(profileName);
-    QVariantMap data{{decoderMap[KEY::NAME].name, m_settings->group()}};
+    QVariantMap data {{decoderMap[KEY::NAME].name, m_settings->group()}};
     for (int i = 1; i < decoderMap.size(); i++) {
         data.insert(decoderMap[MachineInfo::KEY(i)].name, m_settings->value(decoderMap[MachineInfo::KEY(i)].name, decoderMap[MachineInfo::KEY(i)].defaultValue));
     }
@@ -90,7 +88,7 @@ QVariant MachineInfo::readKey(const QString &profileName, MachineInfo::KEY key) 
 bool MachineInfo::storeKey(const QString &profileName, const MachineInfo::KEY key, const QVariant &value) const
 {
     if (key == KEY::NAME) {
-        //copyProfile emits profilesChanged
+        // copyProfile emits profilesChanged
         return copyProfile(profileName, value.toString(), true);
     }
 
@@ -136,7 +134,7 @@ bool MachineInfo::copyProfile(const QString &srcProfile, const QString &destProf
     m_settings->sync();
     if (rmSrc) {
         removeProfile(srcProfile);
-        //removeProfile emits profilesChanged
+        // removeProfile emits profilesChanged
     } else {
         emit profilesChanged();
     }
@@ -154,7 +152,7 @@ bool MachineInfo::removeProfile(const QString &profileName) const
     m_settings->endGroup();
     m_settings->sync();
     emit profilesChanged();
-    return  true;
+    return true;
 }
 
 void MachineInfo::storeProfile(const QMap<MachineInfo::KEY, QVariant> &profile) const

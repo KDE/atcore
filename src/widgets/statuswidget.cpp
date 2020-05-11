@@ -23,10 +23,10 @@
 
 #include "statuswidget.h"
 
-StatusWidget::StatusWidget(bool showStop, QWidget *parent) :
-    QWidget(parent)
+StatusWidget::StatusWidget(bool showStop, QWidget *parent)
+    : QWidget(parent)
 {
-    //first create the item for the print Progress.
+    // first create the item for the print Progress.
     auto hBoxLayout = new QHBoxLayout;
 
     printingProgress = new QProgressBar(this);
@@ -35,9 +35,7 @@ StatusWidget::StatusWidget(bool showStop, QWidget *parent) :
 
     if (showStop) {
         auto newButton = new QPushButton(style()->standardIcon(QStyle::SP_BrowserStop), QString(), this);
-        connect(newButton, &QPushButton::clicked, this, [this] {
-            emit stopPressed();
-        });
+        connect(newButton, &QPushButton::clicked, this, [this] { emit stopPressed(); });
         hBoxLayout->addWidget(newButton);
     }
 
@@ -53,7 +51,7 @@ StatusWidget::StatusWidget(bool showStop, QWidget *parent) :
     printProgressWidget = new QWidget(this);
     printProgressWidget->setLayout(hBoxLayout);
 
-    //Then Create the full bar.
+    // Then Create the full bar.
     newLabel = new QLabel(tr("AtCore State:"), this);
     lblState = new QLabel(tr("Not Connected"), this);
     lblSd = new QLabel(this);

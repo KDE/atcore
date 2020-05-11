@@ -17,7 +17,8 @@ There are several ways you can contribute
 ## General Contribution Workflow
 The Following Is the General work flow for most contrubitions
  - Create changes on your local fork in a new branch
- - When your ready to submit your change create a Merge Request on [KDE Invent]
+ - Format your code by building the clang-format target.
+ - Submit your change create a Merge Request on [KDE Invent]
  - Wait for review
  - Update your commits with any changes, and update your Merge Request after.
  - Mark all your "Issues" resolved in your MR. 
@@ -30,22 +31,29 @@ The following guidelines apply to all submited code.
  - Follow the [KDE style guidelines]
  - Use constant referances when possible
  - Includes should be alphabetical.
- - Run the style script before you commit.
+ - Use the target clang-format before you commit to format your code. 
  - Headers should use `#pragma once`.
  - Auto should not be used if the type is not explict.
  - Doxygen comments should be created/updated with code.
  - Objects should have logical varible and function names
- - Code should always be readable, comment your code when it makes sense. 
+ - Code should always be readable, comment your code when it makes sense.
+
+#### Using Clang format
+    You can use the make target clang-format to format your source code correctly.
+    to do so you must first have run cmake to generate build file.
+    In your IDE you can build the target "clang-format" 
+    Or manually from inside your build directory with `make clang-format`
 
 ### Commit Guidelines
 Keeping a clean project history requires that we take care when choosing how we will commit our code. Consider the following when creating commits. ALL COMMITS MUST BE REVIEWED BEFORE PUSHING TO MASTER.
 
  - Follow the [KDE commit guidelines]
+ - Format your code using the clang-format make target (see above)
  - Reviewers: rizzitello, patrickelectric, laysrodrigues, tcanabrava
  - Be sure to make any review issues as resolved.
  - Keep your base upto date. 
  - Amend your local commits to fix review issues.
- - Always Ammend commits to update them 
+ - Always Ammend commits to update them
  - Never fix a commit with another commit.
  - Update your commits with `git commit --amend`
  - Update your MR with `git push --force`

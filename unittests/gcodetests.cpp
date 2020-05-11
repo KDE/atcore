@@ -108,7 +108,6 @@ void GCodeTests::command_M26()
     QVERIFY(testMCodeNeedsArg(GCode::M26));
     QVERIFY(GCode::toCommand(GCode::M26, QStringLiteral("15%")) == QStringLiteral("M26 P0.15"));
     QVERIFY(GCode::toCommand(GCode::M26, QStringLiteral("15")) == QStringLiteral("M26 S15"));
-
 }
 
 void GCodeTests::command_M27()
@@ -221,13 +220,15 @@ void GCodeTests::command_M190()
 
 void GCodeTests::command_M220()
 {
-    QVERIFY(testMCodeNeedsArg(GCode::M220));;
+    QVERIFY(testMCodeNeedsArg(GCode::M220));
+    ;
     QVERIFY(GCode::toCommand(GCode::M220, QStringLiteral("100")) == QStringLiteral("M220 S100"));
 }
 
 void GCodeTests::command_M221()
 {
-    QVERIFY(testMCodeNeedsArg(GCode::M221));;
+    QVERIFY(testMCodeNeedsArg(GCode::M221));
+    ;
     QVERIFY(GCode::toCommand(GCode::M221, QStringLiteral("100")) == QStringLiteral("M221 S100"));
 }
 

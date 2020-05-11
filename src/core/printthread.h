@@ -22,8 +22,8 @@
 */
 #pragma once
 
-#include <QTextStream>
 #include <QFile>
+#include <QTextStream>
 
 #include "atcore.h"
 
@@ -46,8 +46,8 @@ public:
     PrintThread(AtCore *parent, const QString &fileName);
 signals:
     /**
-    * @brief Print job has finished
-    */
+     * @brief Print job has finished
+     */
     void finished();
 
     /**

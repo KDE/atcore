@@ -67,8 +67,8 @@ signals:
      * @param error: the Error
      */
     void serialError(QSerialPort::SerialPortError error);
-public:
 
+public:
     /**
      * @brief SerialLayer Class to realize communication
      *

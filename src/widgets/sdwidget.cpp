@@ -22,22 +22,19 @@
 
 #include "sdwidget.h"
 
-SdWidget::SdWidget(QWidget *parent) :
-    QWidget(parent)
+SdWidget::SdWidget(QWidget *parent)
+    : QWidget(parent)
 {
     auto hBoxLayout = new QHBoxLayout;
 
     auto newButton = new QPushButton(tr("Get List"), this);
     hBoxLayout->addWidget(newButton);
-    connect(newButton, &QPushButton::clicked, this, [this] {
-        emit requestSdList();
-    });
+    connect(newButton, &QPushButton::clicked, this, [this] { emit requestSdList(); });
 
     newButton = new QPushButton(tr("Print Selected"), this);
     hBoxLayout->addWidget(newButton);
     connect(newButton, &QPushButton::clicked, this, [this] {
-        if (listSdFiles->currentRow() != -1)
-        {
+        if (listSdFiles->currentRow() != -1) {
             emit printSdFile(listSdFiles->currentItem()->text());
         }
     });
@@ -45,14 +42,13 @@ SdWidget::SdWidget(QWidget *parent) :
     newButton = new QPushButton(tr("Delete Selected"), this);
     hBoxLayout->addWidget(newButton);
     connect(newButton, &QPushButton::clicked, this, [this] {
-        if (listSdFiles->currentRow() != -1)
-        {
+        if (listSdFiles->currentRow() != -1) {
             emit deleteSdFile(listSdFiles->currentItem()->text());
             listSdFiles->setCurrentRow(-1);
         }
     });
 
-    auto groupFiles =  new QGroupBox(tr("Files On Sd Card"), this);
+    auto groupFiles = new QGroupBox(tr("Files On Sd Card"), this);
     listSdFiles = new QListWidget(this);
     auto groupLayout = new QVBoxLayout;
     groupLayout->addWidget(listSdFiles);

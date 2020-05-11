@@ -24,15 +24,15 @@
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
 #pragma once
-#include <memory>
 #include <QObject>
 #include <QSerialPort>
 #include <QSerialPortInfo>
+#include <memory>
 
-#include "ifirmware.h"
-#include "temperature.h"
 #include "atcore_export.h"
 #include "beddeform.h"
+#include "ifirmware.h"
+#include "temperature.h"
 
 class SerialLayer;
 class IFirmware;
@@ -76,46 +76,46 @@ class ATCORE_EXPORT AtCore : public QObject
     Q_PROPERTY(Temperature *temperature READ temperature CONSTANT)
 
     friend class AtCoreTests;
-    //Add friends as Sd Card support is extended to more plugins.
+    // Add friends as Sd Card support is extended to more plugins.
     friend class RepetierPlugin;
     friend class MarlinPlugin;
-    //friend class SmoothiePlugin;
-    //friend class TeacupPlugin;
-    //friend class AprinterPlugin;
-    //friend class SprinterPlugin;
+    // friend class SmoothiePlugin;
+    // friend class TeacupPlugin;
+    // friend class AprinterPlugin;
+    // friend class SprinterPlugin;
 
 public:
     /**
      * @brief STATES enum Possible states the printer can be in
      */
     enum STATES {
-        DISCONNECTED,   //!< Not Connected to a printer, initial state
-        CONNECTING,     //!<Attempting to connect, Fw not probed
-        IDLE,           //!<Connected to printer and ready for commands
-        BUSY,           //!<Printer is Printing or working
-        PAUSE,          //!<Printer is paused
-        ERRORSTATE,     //!<Printer Returned Error
-        STOP,           //!<Stop Printing and Clean Queue
-        STARTPRINT,     //!<Just Starting a print job
-        FINISHEDPRINT,  //!<Just Finished print job
+        DISCONNECTED,  //!< Not Connected to a printer, initial state
+        CONNECTING,    //!< Attempting to connect, Fw not probed
+        IDLE,          //!< Connected to printer and ready for commands
+        BUSY,          //!< Printer is Printing or working
+        PAUSE,         //!< Printer is paused
+        ERRORSTATE,    //!< Printer Returned Error
+        STOP,          //!< Stop Printing and Clean Queue
+        STARTPRINT,    //!< Just Starting a print job
+        FINISHEDPRINT, //!< Just Finished print job
     };
     Q_ENUM(STATES)
     /**
      * @brief The AXES enum - Printer Axes.
      */
     enum AXES {
-        X = 1 << 0, //!<X Axis: X Motor
-        Y = 1 << 1, //!<Y Axis Y Motor
-        Z = 1 << 2, //!<Z Axis Z Motor
-        E = 1 << 3, //!<E Axis: Extruder Motor 0
+        X = 1 << 0, //!< X Axis: X Motor
+        Y = 1 << 1, //!< Y Axis Y Motor
+        Z = 1 << 2, //!< Z Axis Z Motor
+        E = 1 << 3, //!< E Axis: Extruder Motor 0
     };
     Q_ENUM(AXES)
     /**
      * @brief The UNITS enum - Possible Mesurment Units
      */
     enum UNITS {
-        METRIC,     //!< Metric Units (Meters)
-        IMPERIAL    //!< Imperial Units (Feet)
+        METRIC,  //!< Metric Units (Meters)
+        IMPERIAL //!< Imperial Units (Feet)
     };
     Q_ENUM(UNITS)
     /**
@@ -210,13 +210,13 @@ public:
     Temperature *temperature();
 
     /**
-    * @brief Return the amount of miliseconds the serialTimer is set to. 0 = Disabled
-    */
+     * @brief Return the amount of miliseconds the serialTimer is set to. 0 = Disabled
+     */
     int serialTimerInterval() const;
 
     /**
-    * @brief Return the amount of miliseconds the temperatureTimer is set to. 0 = Disabled
-    */
+     * @brief Return the amount of miliseconds the temperatureTimer is set to. 0 = Disabled
+     */
     int temperatureTimerInterval() const;
 
     /**
@@ -283,15 +283,15 @@ signals:
     void receivedMessage(const QByteArray &message);
 
     /**
-    * @brief New interval for serial timer
-    * @sa setSerialTimerInterval()
-    */
+     * @brief New interval for serial timer
+     * @sa setSerialTimerInterval()
+     */
     void serialTimerIntervalChanged(const int newTime);
 
     /**
-    * @brief New interval for temperature timer
-    * @sa setTemperatureTimerInterval()
-    */
+     * @brief New interval for temperature timer
+     * @sa setTemperatureTimerInterval()
+     */
     void temperatureTimerIntervalChanged(const int newTime);
 
     /**
@@ -301,9 +301,9 @@ signals:
     void autoTemperatureReportChanged(bool autoReport);
 
     /**
-    * @brief New interval for automatic temperature report
-    * @sa setautoTemperatureReport()
-    */
+     * @brief New interval for automatic temperature report
+     * @sa setautoTemperatureReport()
+     */
     void autoCheckTemperatureIntervalChanged(const int newTime);
 
     /**
@@ -579,7 +579,6 @@ private slots:
     void handleSerialError(QSerialPort::SerialPortError error);
 
 private:
-
     /**
      * @brief Load A firmware plugin
      * @param fwName : name of the firmware

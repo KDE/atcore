@@ -25,8 +25,8 @@
 #include <QLoggingCategory>
 #include <QString>
 
-#include "marlinplugin.h"
 #include "atcore.h"
+#include "marlinplugin.h"
 
 Q_LOGGING_CATEGORY(MARLIN_PLUGIN, "org.kde.atelier.core.firmware.marlin")
 
@@ -67,10 +67,10 @@ void MarlinPlugin::validateCommand(const QString &lastMessage)
             core()->setReadingSdCardList(true);
         } else if (lastMessage.contains(QStringLiteral("SD printing byte"))) {
             if (core()->state() != AtCore::BUSY) {
-                //This should only happen if Attached to an Sd printing machine.
-                //Just tell the client were starting a job like normal.
-                //For this to work the client should check if sdCardPrintStatus()
-                //Upon the Connection to a known firmware with sdSupport
+                // This should only happen if Attached to an Sd printing machine.
+                // Just tell the client were starting a job like normal.
+                // For this to work the client should check if sdCardPrintStatus()
+                // Upon the Connection to a known firmware with sdSupport
                 core()->setState(AtCore::STARTPRINT);
                 core()->setState(AtCore::BUSY);
             }

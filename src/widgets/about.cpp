@@ -18,16 +18,16 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include <QCoreApplication>
-#include <QStyle>
+#include <QLabel>
 #include <QLayout>
 #include <QPushButton>
 #include <QString>
-#include <QLabel>
+#include <QStyle>
 
 #include "about.h"
 
-About::About(QWidget *parent) :
-    QDialog(parent)
+About::About(QWidget *parent)
+    : QDialog(parent)
 {
     setWindowTitle(QStringLiteral("About Atcore"));
     setWindowIcon(QIcon::fromTheme(QStringLiteral("help-about"), style()->standardIcon(QStyle::SP_MessageBoxInformation)));
@@ -38,8 +38,8 @@ About::About(QWidget *parent) :
                                      "  Chris Rizzitello <rizzitello@kde.org>\n"
                                      "  Patrick José Pereira <patrickjp@kde.org>\n"
                                      "  Lays Rodrigues <lays.rodrigues@kde.org>\n"
-                                     "  Tomaz Canabrava <tcanabrava@kde.org>"
-                                     ""), this);
+                                     "  Tomaz Canabrava <tcanabrava@kde.org>"),
+                                  this);
 
     auto lbl_icon = new QLabel(this);
     lbl_icon->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);

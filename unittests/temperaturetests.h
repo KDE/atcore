@@ -20,7 +20,7 @@
 
 #include "../src/core/temperature.h"
 
-class TemperatureTests: public QObject
+class TemperatureTests : public QObject
 {
     Q_OBJECT
 private slots:
@@ -33,6 +33,7 @@ private slots:
     void testDecodeSmoothie();
     void testDecodeSprinter();
     void testDecodeTeacup();
+
 private:
     Temperature *temperature;
 };

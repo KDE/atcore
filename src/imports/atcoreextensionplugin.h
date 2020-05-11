@@ -21,7 +21,8 @@
 #pragma once
 #include <QQmlExtensionPlugin>
 
-class AtCoreExtensionPlugin : public QQmlExtensionPlugin {
+class AtCoreExtensionPlugin : public QQmlExtensionPlugin
+{
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.kde.atcore")
 

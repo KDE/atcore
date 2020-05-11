@@ -25,8 +25,8 @@
 #include <QLoggingCategory>
 #include <QString>
 
-#include "smoothieplugin.h"
 #include "atcore.h"
+#include "smoothieplugin.h"
 
 Q_LOGGING_CATEGORY(SMOOTHIE_PLUGIN, "org.kde.atelier.core.firmware.smoothie")
 

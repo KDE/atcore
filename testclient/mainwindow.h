@@ -37,7 +37,7 @@
 
 class SerialLayer;
 
-class  MainWindow: public QMainWindow
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
@@ -56,7 +56,7 @@ public slots:
     void checkTemperature(uint sensorType, uint number, float temp);
 
 private slots:
-    //ButtonEvents
+    // ButtonEvents
 
     /**
      * @brief Connect Button Clicked will connect or disconnect based on printer state
@@ -96,6 +96,7 @@ private slots:
      * @param autoReport: True if using temperature auto reporting
      */
     void updateAutoTemperatureReport(bool autoReport);
+
 private:
     AtCore *core;
     // Define max number of fans
@@ -123,7 +124,7 @@ private:
      */
     void sdChanged(bool mounted);
 
-    //UI Functions
+    // UI Functions
 
     /**
      * @brief Create The Menubar
@@ -140,12 +141,12 @@ private:
      */
     void initWidgets();
 
-//Private GUI Items
-    //menuView is global to allow for docks to be added / removed.
+    // Private GUI Items
+    // menuView is global to allow for docks to be added / removed.
     QMenu *menuView = nullptr;
-    //Status Bar Items
+    // Status Bar Items
     StatusWidget *statusWidget = nullptr;
-    //Docks
+    // Docks
     void makeLogDock();
     QDockWidget *logDock = nullptr;
     LogWidget *logWidget = nullptr;

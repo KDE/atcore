@@ -21,7 +21,7 @@
 #include "../src/core/atcore.h"
 #include "../src/core/seriallayer.h"
 
-class AtCoreTests: public QObject
+class AtCoreTests : public QObject
 {
     Q_OBJECT
 private slots:
@@ -51,6 +51,7 @@ private slots:
     void testPluginTeacup_load();
     void testPluginTeacup_validate();
     void testPluginTeacup_translate();
+
 private:
     AtCore *core = nullptr;
 };

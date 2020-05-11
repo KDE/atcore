@@ -20,8 +20,8 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include <QRegularExpressionMatch>
 #include "beddeform.h"
+#include <QRegularExpressionMatch>
 
 struct BedDeform::BedDeformPrivate {
     /** bedData Beddeform data*/
@@ -34,7 +34,7 @@ struct BedDeform::BedDeformPrivate {
 /**
  * @brief Line with the pattern of  digit(s) a single space then '+' or '-'.
  *  Examples:
-  *   0 -0.155 +5.123 -4.567
+ *   0 -0.155 +5.123 -4.567
  *   10 +8.901 -2.345 +6.789
  */
 const QRegularExpression BedDeform::BedDeformPrivate::lineRegEx = QRegularExpression(QStringLiteral(R"((?:\d+\s(\+|\-)))"));

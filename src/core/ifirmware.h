@@ -36,7 +36,7 @@ class AtCore;
  * @brief The IFirmware class
  * Base Class for Firmware Plugins
  */
-class ATCORE_EXPORT  IFirmware : public QObject
+class ATCORE_EXPORT IFirmware : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString name READ name CONSTANT)
@@ -80,6 +80,7 @@ public:
      * @return
      */
     AtCore *core() const;
+
 private:
     struct IFirmwarePrivate;
     IFirmwarePrivate *d;
