@@ -44,5 +44,5 @@ target_link_libraries(MYAPP AtCore::AtCore AtCore::AtCoreWidgets ... )
 [Web]: https://atelier.kde.org
 [LGPL-2.0]:https://www.gnu.org/licenses/old-licenses/lgpl-2.0.html
 [Building and Deploying]: build.md
-[Contribute]: contrib.md
+[Contribute]: ../CONTRIBUTING.md
 [Donation]:https://kde.org/donate/?app=atcore
