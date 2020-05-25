@@ -18,12 +18,13 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #pragma once
-#include <QDoubleSpinBox>
-#include <QPushButton>
-#include <QString>
 #include <QWidget>
 
 #include "atcorewidgets_export.h"
+
+class QDoubleSpinBox;
+class QPushButton;
+class QString;
 
 /**
  * @brief AxisControl is a Widget to generate axis relative movements.

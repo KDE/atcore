@@ -17,10 +17,11 @@
 */
 #pragma once
 
-#include <QListWidget>
 #include <QWidget>
 
 #include "atcorewidgets_export.h"
+
+class QListWidget;
 /**
  * @brief The SdWidget class
  * Provide basic Sd card actions. Requires Fw Support.

@@ -21,11 +21,17 @@
 #include "machineinfo.h"
 
 #include <QButtonGroup>
+#include <QCheckBox>
+#include <QComboBox>
 #include <QCompleter>
 #include <QCoreApplication>
 #include <QDir>
 #include <QGroupBox>
+#include <QHBoxLayout>
+#include <QLabel>
 #include <QLineEdit>
+#include <QRadioButton>
+#include <QSpinBox>
 #include <QToolButton>
 
 ProfileManager::ProfileManager(QWidget *parent)

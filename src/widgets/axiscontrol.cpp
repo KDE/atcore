@@ -19,9 +19,12 @@
 */
 #include "axiscontrol.h"
 #include <QComboBox>
+#include <QDoubleSpinBox>
 #include <QGridLayout>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QPushButton>
+#include <QString>
 
 AxisControl::AxisControl(QWidget *parent)
     : QWidget(parent)

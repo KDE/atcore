@@ -26,6 +26,7 @@
 #include <QtCharts>
 
 #include "atcorewidgets_export.h"
+
 /**
  * @brief PlotWidget Show a graph of the temperature over time.
  */

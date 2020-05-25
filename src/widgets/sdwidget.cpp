@@ -17,6 +17,7 @@
 */
 #include <QGroupBox>
 #include <QHBoxLayout>
+#include <QListWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
 

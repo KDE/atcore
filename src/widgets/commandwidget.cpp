@@ -17,6 +17,7 @@
 */
 #include "commandwidget.h"
 #include <QHBoxLayout>
+#include <QLineEdit>
 #include <QPushButton>
 #include <QVBoxLayout>
 

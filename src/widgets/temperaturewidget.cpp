@@ -16,9 +16,13 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "temperaturewidget.h"
+
+#include <QCheckBox>
+#include <QComboBox>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QPushButton>
+#include <QSpinBox>
 #include <QVBoxLayout>
 
 TemperatureWidget::TemperatureWidget(QWidget *parent)

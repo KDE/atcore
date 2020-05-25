@@ -17,10 +17,12 @@
 */
 #pragma once
 
-#include <QLineEdit>
 #include <QWidget>
 
 #include "atcorewidgets_export.h"
+
+class QLineEdit;
+
 /**
  * @brief CommandWidget provides a widget to send commands or messages to the printer.
  *

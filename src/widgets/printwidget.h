@@ -16,13 +16,16 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #pragma once
-#include <QComboBox>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QSpinBox>
+
 #include <QWidget>
 
 #include "atcorewidgets_export.h"
+
+class QComboBox;
+class QLineEdit;
+class QPushButton;
+class QSpinBox;
+
 /**
  * @brief PrintWidget
  * provide a basic print widget.

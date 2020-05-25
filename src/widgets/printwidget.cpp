@@ -16,9 +16,13 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "printwidget.h"
+
+#include <QComboBox>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
+#include <QPushButton>
+#include <QSpinBox>
 #include <QVBoxLayout>
 
 PrintWidget::PrintWidget(bool showAllControls, QWidget *parent)

@@ -17,10 +17,13 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "logwidget.h"
+
 #include <QFileDialog>
+#include <QPlainTextEdit>
 #include <QPushButton>
 #include <QStackedWidget>
 #include <QStyle>
+#include <QTemporaryFile>
 #include <QTime>
 #include <QToolButton>
 #include <QVBoxLayout>

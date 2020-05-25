@@ -24,6 +24,7 @@
 #include <QCommandLineParser>
 #include <QLoggingCategory>
 #include <QRegularExpression>
+#include <QTextStream>
 #include <QTime>
 
 #include "printthread.h"

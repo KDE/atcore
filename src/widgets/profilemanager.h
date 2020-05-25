@@ -17,13 +17,16 @@
 */
 #pragma once
 
+#include <QWidget>
+
 #include "atcorewidgets_export.h"
-#include <QCheckBox>
-#include <QComboBox>
-#include <QHBoxLayout>
-#include <QLabel>
-#include <QRadioButton>
-#include <QSpinBox>
+
+class QCheckBox;
+class QComboBox;
+class QLabel;
+class QLineEdit;
+class QRadioButton;
+class QSpinBox;
 
 class ATCOREWIDGETS_EXPORT ProfileManager : public QWidget
 {

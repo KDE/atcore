@@ -25,7 +25,6 @@
 #pragma once
 
 #include <QSerialPort>
-#include <QVector>
 
 #include "atcore_export.h"
 

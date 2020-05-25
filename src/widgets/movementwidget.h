@@ -17,11 +17,13 @@
 */
 #pragma once
 
-#include <QComboBox>
-#include <QDoubleSpinBox>
 #include <QWidget>
 
 #include "atcorewidgets_export.h"
+
+class QComboBox;
+class QDoubleSpinBox;
+
 /**
  * @brief The MovementWidget class
  * This widget will provide Basic Movement Controls. Create it with "showHomeAndDisableWidgets" false if your client provides its own actions for homing and disabling the motors.

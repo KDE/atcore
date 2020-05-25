@@ -26,9 +26,9 @@
 #pragma once
 
 #include <QObject>
-#include <QString>
 
 #include "atcore_export.h"
+
 /**
  * @brief The GCode class
  * Provides Descriptions and Commands strings for G and M Commands

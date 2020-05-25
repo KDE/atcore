@@ -17,11 +17,12 @@
 */
 #pragma once
 
-#include <QPlainTextEdit>
-#include <QTemporaryFile>
 #include <QWidget>
 
 #include "atcorewidgets_export.h"
+
+class QPlainTextEdit;
+class QTemporaryFile;
 
 /**
  * @brief The LogWidget will display the log for the connected atcore. Create with a pointer to a new QTemporaryFile.

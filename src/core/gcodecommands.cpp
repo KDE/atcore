@@ -23,10 +23,8 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include <QMetaEnum>
-#include <QObject>
-
 #include "gcodecommands.h"
+#include <QString>
 
 const QString GCode::commandRequiresArgument = QObject::tr("%1%2: requires an argument");
 const QString GCode::commandNotSupported = QObject::tr("Not implemented or not supported!");

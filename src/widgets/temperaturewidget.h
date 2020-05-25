@@ -17,12 +17,14 @@
 */
 #pragma once
 
-#include <QCheckBox>
-#include <QComboBox>
-#include <QSpinBox>
 #include <QWidget>
 
 #include "atcorewidgets_export.h"
+
+class QCheckBox;
+class QComboBox;
+class QSpinBox;
+
 /**
  * @brief The TemperatureWidget Control the bed and extruder(s) temperatures
  */
