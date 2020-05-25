@@ -95,7 +95,7 @@ atcore-gui.app/Contents/MacOS/AtCore.dylib
 atcore-gui.app/Contents/MacOS/plugins/repetier.dylib
 ```
 [Qt]:https://www.qt.io
-[doxygen]:http://www.stack.nl/~dimitri/doxygen/
+[doxygen]:http://www.doxygen.nl/
 [cmake]:https://cmake.org/
 [extra-cmake-modules]:https://cgit.kde.org/extra-cmake-modules.git/tree
 [homebrew]:https://brew.sh/

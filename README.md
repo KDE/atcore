@@ -2,9 +2,9 @@
 ----
 OS   | Build Status
 :---:|:----:
-**Linux** | [![Build Status](https://build.kde.org/job/Extragear%20atcore%20kf5-qt5%20SUSEQt5.9/badge/icon)](https://build.kde.org/job/Extragear%20atcore%20kf5-qt5%20SUSEQt5.9/)
-**Windows** | [![Build Status](https://binary-factory.kde.org/job/AtCore_Nightly_win32/badge/icon)](https://binary-factory.kde.org/job/AtCore_Nightly_win32/)
-**FreeBSD** | [![Build Status](https://build.kde.org/job/Extragear%20atcore%20kf5-qt5%20FreeBSDQt5.9/badge/icon)](https://build.kde.org/job/Extragear%20atcore%20kf5-qt5%20FreeBSDQt5.9/)
+**Linux** | [![Build Status](https://build.kde.org/job/Extragear/job/atcore/job/kf5-qt5%20SUSEQt5.14/badge/icon)](https://build.kde.org/job/Extragear/job/atcore/job/kf5-qt5%20SUSEQt5.14/)
+**Windows** | [![Build Status](https://binary-factory.kde.org/job/AtCore_Nightly_win64/badge/icon)](https://binary-factory.kde.org/job/AtCore_Nightly_win64/)
+**FreeBSD** | [![Build Status](https://build.kde.org/job/Extragear/job/atcore/job/kf5-qt5%20FreeBSDQt5.14/badge/icon)](https://build.kde.org/job/Extragear/job/atcore/job/kf5-qt5%20FreeBSDQt5.14/)
 **MacOs** | [![Build Status](https://binary-factory.kde.org/job/AtCore_Nightly_macos/badge/icon)](https://binary-factory.kde.org/job/AtCore_Nightly_macos/)
 
 
@@ -52,5 +52,5 @@ target_link_libraries(MYAPP AtCore::AtCore AtCore::AtCoreWidgets ... )
 [Web]: https://atelier.kde.org
 [LGPL-2.0]:https://www.gnu.org/licenses/old-licenses/lgpl-2.0.html
 [Building and Deploying]: doc/build.md
-[Contribute]: doc/contrib.md
+[Contribute]: CONTRIBUTING.md
 [Donation]:https://kde.org/donate/?app=atcore
