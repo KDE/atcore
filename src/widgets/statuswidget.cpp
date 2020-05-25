@@ -1,5 +1,5 @@
 /* AtCore Test Client
-    Copyright (C) <2018>
+    Copyright (C) <2018 - 2020>
     Author: Chris Rizzitello - rizzitello@kde.org
 
     This program is free software: you can redistribute it and/or modify
@@ -16,10 +16,14 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <QElapsedTimer>
 #include <QHBoxLayout>
+#include <QLabel>
+#include <QProgressBar>
 #include <QPushButton>
 #include <QStyle>
 #include <QTime>
+#include <QTimer>
 
 #include "statuswidget.h"
 
@@ -68,7 +72,7 @@ StatusWidget::StatusWidget(bool showStop, QWidget *parent)
 
     setLayout(hBoxLayout);
 
-    printTime = new QTime();
+    printTime = new QElapsedTimer();
     printTimer = new QTimer(this);
     printTimer->setInterval(1000);
     printTimer->setSingleShot(false);
@@ -102,7 +106,7 @@ void StatusWidget::showPrintArea(bool visible)
 
 void StatusWidget::updatePrintTime()
 {
-    QTime temp(0, 0, 0);
+    QTime temp(0, 0, 0, 0);
     lblTime->setText(temp.addMSecs(printTime->elapsed()).toString(QStringLiteral("hh:mm:ss")));
 }
 
@@ -110,8 +114,8 @@ void StatusWidget::updatePrintProgress(const int progress)
 {
     printingProgress->setValue(progress);
     if (progress >= 1) {
-        QTime temp(0, 0, 0);
-        lblTimeLeft->setText(temp.addMSecs((100 - progress) * (printTime->elapsed() / progress)).toString(QStringLiteral("hh:mm:ss")));
+        QTime temp(0, 0, 0, 0);
+        lblTimeLeft->setText(temp.addMSecs( (100 - progress) * (printTime->elapsed() / progress)).toString(QStringLiteral("hh:mm:ss")));
     } else {
         lblTimeLeft->setText(QStringLiteral("??:??:??"));
     }

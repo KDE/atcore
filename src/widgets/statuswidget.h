@@ -1,5 +1,5 @@
 /* AtCore Test Client
-    Copyright (C) <2018>
+    Copyright (C) <2018 - 2020>
     Author: Chris Rizzitello - rizzitello@kde.org
 
     This program is free software: you can redistribute it and/or modify
@@ -16,13 +16,16 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #pragma once
-#include <QLabel>
-#include <QProgressBar>
-#include <QSpacerItem>
-#include <QTimer>
+
 #include <QWidget>
 
 #include "atcorewidgets_export.h"
+
+class QElapsedTimer;
+class QLabel;
+class QProgressBar;
+class QSpacerItem;
+class QTimer;
 /**
  * @brief The StatusWidget class Status Bar information for atcore
  */
@@ -69,7 +72,7 @@ private:
     QLabel *lblSd = nullptr;
     QLabel *lblTime = nullptr;
     QLabel *lblTimeLeft = nullptr;
-    QTime *printTime = nullptr;
+    QElapsedTimer *printTime = nullptr;
     QTimer *printTimer = nullptr;
     QSpacerItem *spacer = nullptr;
     QProgressBar *printingProgress = nullptr;
