@@ -34,9 +34,26 @@ static constexpr QChar _newLine = QChar::fromLatin1('\n');
 static constexpr QChar _return = QChar::fromLatin1('\r');
 }
 
+LogWidget::LogWidget(QWidget *parent)
+: QWidget(parent)
+{
+    logFile = new QTemporaryFile();
+
+    initialize();
+}
+
 LogWidget::LogWidget(QTemporaryFile *tempFile, QWidget *parent)
     : QWidget(parent)
     , logFile(tempFile)
+{
+    if (!logFile) {
+        logFile = new QTemporaryFile();
+    }
+
+    initialize();
+}
+
+void LogWidget::initialize()
 {
     QSize iconSize = QSize(fontMetrics().height(), fontMetrics().height());
     auto page = new QWidget(this);

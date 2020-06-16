@@ -32,6 +32,7 @@ class ATCOREWIDGETS_EXPORT LogWidget : public QWidget
     Q_OBJECT
 public:
     LogWidget(QTemporaryFile *tempFile, QWidget *parent = nullptr);
+    LogWidget(QWidget *parent = nullptr);
 
     /**
      * @brief Add a message to the log. Should always also be connected to AtCore::atcoreMessage;
@@ -59,6 +60,8 @@ public:
     bool endsWith(const QString &string);
 
 private:
+    void initialize();
+
     /**
      * @brief Return string with actual time
      * @return QString
