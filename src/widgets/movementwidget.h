@@ -37,9 +37,17 @@ public:
      * @param showHomeAndDisableWidgets: set False to hide the Home and Disable Motors buttons [default = true]
      * @param parent: Parent of this widget.
      */
+    [[deprecated("Use the constructor with only the parent parameter")]]
     MovementWidget(bool showHomeAndDisableWidgets = true, QWidget *parent = nullptr);
-    ~MovementWidget() = default;
 
+    MovementWidget(QWidget *parent = nullptr);
+    ~MovementWidget();
+
+    void toggleHomeButtons(bool toggle);
+    void toggleDisableMotorsButton(bool toggle);
+
+    //TODO: This widget should have a AtCore *core; member and connect
+    // things internally.
 signals:
     /**
      * @brief The Home All button was clicked.
@@ -98,6 +106,9 @@ signals:
     void unitsChanged(int units);
 
 private:
-    QComboBox *comboMoveAxis = nullptr;
-    QDoubleSpinBox *sbMoveAxis = nullptr;
+    // common code for constructors.
+    void initialize();
+
+    class MovementWidgetPrivate;
+    MovementWidgetPrivate *d;
 };
