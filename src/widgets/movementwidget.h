@@ -51,6 +51,14 @@ public:
      */
     void setDisableMotorsButtonVisible(bool visible);
 
+    /**
+     * @brief Sets the absolute movement value for x,y,z axis.
+     * @param xMax: Max distance the X Axis can travel in mm [default = 200]
+     * @param yMax: Max distance the Y Axis can travel in mm [default = 200]
+     * @param zMax: Max distance the Z Axis can travel in mm [default = 200]
+     */
+    void setAxisMax(int xMax, int yMax, int zMax);
+    
     //TODO: This widget should have a AtCore *core; member and connect
     // things internally.
 signals:

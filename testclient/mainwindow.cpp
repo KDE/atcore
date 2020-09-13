@@ -472,11 +472,15 @@ void MainWindow::connectPBClicked()
 {
     if (core->state() == AtCore::DISCONNECTED) {
         int baud = MachineInfo::instance()->readKey(comboProfile->currentText(), MachineInfo::KEY::BAUDRATE).toInt();
+        int xMax = MachineInfo::instance()->readKey(comboProfile->currentText(), MachineInfo::KEY::XMAX).toInt();
+        int yMax = MachineInfo::instance()->readKey(comboProfile->currentText(), MachineInfo::KEY::YMAX).toInt();
+        int zMax = MachineInfo::instance()->readKey(comboProfile->currentText(), MachineInfo::KEY::ZMAX).toInt();
         QString plugin = MachineInfo::instance()->readKey(comboProfile->currentText(), MachineInfo::KEY::FIRMWARE).toString();
         if (core->newConnection(comboPort->currentText(), baud, plugin, cbReset->isChecked())) {
             connect(core, &AtCore::receivedMessage, logWidget, &LogWidget::appendRLog);
             connect(core, &AtCore::pushedCommand, logWidget, &LogWidget::appendSLog);
             logWidget->appendLog(tr("Serial connected"));
+            movementWidget->setAxisMax(xMax, yMax, zMax);
             if ((!plugin.contains(QStringLiteral("Auto-Detect"))) && cbReset->isChecked()) {
                 // Wait a few seconds after connect to avoid the normal errors
                 QTimer::singleShot(5000, core, &AtCore::sdCardPrintStatus);

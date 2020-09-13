@@ -36,6 +36,8 @@ class MovementWidget::MovementWidgetPrivate {
     QPushButton *homeY = nullptr;
     QPushButton *homeZ = nullptr;
     QPushButton *move = nullptr;
+
+    QList<int> _axisMaxes {200, 200, 200};
 };
 
 MovementWidget::MovementWidget(QWidget *parent)
@@ -82,7 +84,11 @@ void MovementWidget::initialize()
     d->comboMoveAxis->addItem(tr("Move Z Axis to"));
 
     d->sbMoveAxis = new QDoubleSpinBox(this);
-    d->sbMoveAxis->setRange(0, 200);
+    d->sbMoveAxis->setRange(0, d->_axisMaxes.at(d->comboMoveAxis->currentIndex()));
+
+    connect(d->comboMoveAxis, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this] (int index) {
+        d->sbMoveAxis->setMaximum(d->_axisMaxes.at(index));
+    });
 
     d->move = new QPushButton(tr("Go"), this);
     connect(d->move, &QPushButton::clicked, this, [this] {
@@ -122,3 +128,11 @@ void MovementWidget::setDisableMotorsButtonVisible(bool visible)
     d->disableMotors->setVisible(visible);
 }
 
+void MovementWidget::setAxisMax(int xMax, int yMax, int zMax)
+{
+    xMax = std::max(0, xMax);
+    yMax = std::max(0, yMax);
+    zMax = std::max(0, zMax);
+    d->_axisMaxes = QList<int> {xMax, yMax, zMax};
+    d->sbMoveAxis->setMaximum(d->comboMoveAxis->currentIndex());
+}
