@@ -26,7 +26,7 @@ class QDoubleSpinBox;
 
 /**
  * @brief The MovementWidget class
- * This widget will provide Basic Movement Controls. Create it with "showHomeAndDisableWidgets" false if your client provides its own actions for homing and disabling the motors.
+ * This widget will provide Basic Movement Controls.
  */
 class ATCOREWIDGETS_EXPORT MovementWidget : public QWidget
 {
@@ -34,17 +34,22 @@ class ATCOREWIDGETS_EXPORT MovementWidget : public QWidget
 public:
     /**
      * @brief Create a Movement Widget
-     * @param showHomeAndDisableWidgets: set False to hide the Home and Disable Motors buttons [default = true]
      * @param parent: Parent of this widget.
      */
-    [[deprecated("Use the constructor with only the parent parameter")]]
-    MovementWidget(bool showHomeAndDisableWidgets = true, QWidget *parent = nullptr);
-
     MovementWidget(QWidget *parent = nullptr);
     ~MovementWidget();
 
-    void toggleHomeButtons(bool toggle);
-    void toggleDisableMotorsButton(bool toggle);
+    /**
+     * @brief Sets the visibility of Row of home buttons
+     * @param visible: set False to hide the Home buttons [default = true]
+     */
+    void setHomeButtonsVisible(bool visible);
+
+    /**
+     * @brief Sets the visibility of button used to disable the motors
+     * @param visible: set False to hide the Home button [default = true]
+     */
+    void setDisableMotorsButtonVisible(bool visible);
 
     //TODO: This widget should have a AtCore *core; member and connect
     // things internally.

@@ -46,15 +46,6 @@ MovementWidget::MovementWidget(QWidget *parent)
     initialize();
 }
 
-MovementWidget::MovementWidget(bool showHomeAndDisableWidgets, QWidget *parent)
-    : QWidget(parent)
-    , d(new MovementWidgetPrivate())
-{
-    initialize();
-    toggleHomeButtons(showHomeAndDisableWidgets);
-    toggleDisableMotorsButton(showHomeAndDisableWidgets);
-}
-
 MovementWidget::~MovementWidget() {
     delete d;
 }
@@ -119,15 +110,15 @@ void MovementWidget::initialize()
     setLayout(mainLayout);
 }
 
-void MovementWidget::toggleHomeButtons(bool toggle)
+void MovementWidget::setHomeButtonsVisible(bool visible)
 {
-    d->homeAll->setVisible(toggle);
-    d->homeX->setVisible(toggle);
-    d->homeY->setVisible(toggle);
-    d->homeZ->setVisible(toggle);
+    d->homeAll->setVisible(visible);
+    d->homeX->setVisible(visible);
+    d->homeY->setVisible(visible);
+    d->homeZ->setVisible(visible);
 }
 
-void MovementWidget::toggleDisableMotorsButton(bool toggle)
+void MovementWidget::setDisableMotorsButtonVisible(bool visible)
 {
-    d->disableMotors->setVisible(toggle);
+    d->disableMotors->setVisible(visible);
 }
