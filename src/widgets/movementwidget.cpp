@@ -56,25 +56,25 @@ void MovementWidget::initialize()
 
     d->homeAll = new QPushButton(tr("Home All"), this);
     hBoxLayout->addWidget(d->homeAll);
-    connect(d->homeAll, &QPushButton::clicked, this, [this] { emit homeAllPressed(); });
+    connect(d->homeAll, &QPushButton::clicked, this, &MovementWidget::homeAllPressed);
 
     d->homeX = new QPushButton(tr("Home X"), this);
     hBoxLayout->addWidget(d->homeX);
-    connect(d->homeX, &QPushButton::clicked, this, [this] { emit homeXPressed(); });
+    connect(d->homeX, &QPushButton::clicked, this, &MovementWidget::homeXPressed);
 
     d->homeY = new QPushButton(tr("Home Y"), this);
     hBoxLayout->addWidget(d->homeY);
-    connect(d->homeY, &QPushButton::clicked, this, [this] { emit homeYPressed(); });
+    connect(d->homeY, &QPushButton::clicked, this, &MovementWidget::homeYPressed);
 
     d->homeZ = new QPushButton(tr("Home Z"), this);
     hBoxLayout->addWidget(d->homeZ);
-    connect(d->homeZ, &QPushButton::clicked, this, [this] { emit homeZPressed(); });
+    connect(d->homeZ, &QPushButton::clicked, this, &MovementWidget::homeZPressed);
 
     mainLayout->addLayout(hBoxLayout);
 
     d->disableMotors = new QPushButton(tr("Disable Motors"), this);
     mainLayout->addWidget(d->disableMotors);
-    connect(d->disableMotors, &QPushButton::clicked, this, [this] { emit disableMotorsPressed(); });
+    connect(d->disableMotors, &QPushButton::clicked, this, &MovementWidget::disableMotorsPressed);
 
     d->comboMoveAxis = new QComboBox(this);
     d->comboMoveAxis->addItem(tr("Move X Axis to"));
@@ -121,3 +121,4 @@ void MovementWidget::setDisableMotorsButtonVisible(bool visible)
 {
     d->disableMotors->setVisible(visible);
 }
+
