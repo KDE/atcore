@@ -30,13 +30,12 @@ class MovementWidget::MovementWidgetPrivate {
     QDoubleSpinBox *sbMoveAxis = nullptr;
     AxisControl *axisControl = nullptr;
 
-    QPushButton *homeAll;
-    QPushButton *homeX;
-    QPushButton *homeY;
-    QPushButton *homeZ;
-    QPushButton *disableMotors;
-
-    QPushButton *move;
+    QPushButton *disableMotors = nullptr;
+    QPushButton *homeAll = nullptr;
+    QPushButton *homeX = nullptr;
+    QPushButton *homeY = nullptr;
+    QPushButton *homeZ = nullptr;
+    QPushButton *move = nullptr;
 };
 
 MovementWidget::MovementWidget(QWidget *parent)
