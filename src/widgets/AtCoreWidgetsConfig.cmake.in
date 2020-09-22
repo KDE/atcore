@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: AtCore Authors
+# SPDX-License-Identifier: BSD-3-Clause
+
 @PACKAGE_INIT@
 include(CMakeFindDependencyMacro)
 

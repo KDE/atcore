@@ -1,4 +1,8 @@
 <RCC>
+    <!--
+    SPDX-FileCopyrightText: none
+    SPDX-License-Identifier: CC0-1.0
+    -->
     <qresource prefix="/icon">
         <file alias="atcore">../doc/atcore.png</file>
         <file alias="windowIcon">atcore-gui.png</file>

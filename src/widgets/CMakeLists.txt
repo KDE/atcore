@@ -1,4 +1,5 @@
-
+# SPDX-FileCopyrightText: AtCore Authors
+# SPDX-License-Identifier: BSD-3-Clause
 set(widgetsLIB_SRCS
     about.cpp
     axiscontrol.cpp

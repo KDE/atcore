@@ -1,8 +1,12 @@
+<!--
+    SPDX-FileCopyrightText: AtCore Authors
+    SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 # Building And Deploying AtCore
 Building AtCore is broken up into to main steps Configuration and Building. Deploying AtCore is also covered here.
 
 ## Configuration 
-In order to configure your build you will need [cmake] and [extra-cmake-modules]. 
+In order to configure your build you will need [cmake] and [extra-cmake-modules].
 
 Build Options Are: 
  - -DBUILD_GUI = ( ON | OFF )  Build the test client (Default is OFF)

@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# SPDX-FileCopyrightText: AtCore Authors
+# SPDX-License-Identifier: MIT
 uid=`id -u $USERNAME`
 if [ "$USER" = "root" ]
 then

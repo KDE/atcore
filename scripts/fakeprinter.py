@@ -1,5 +1,6 @@
 #!/usr/bin/python
-
+# SPDX-FileCopyrightText: AtCore Authors
+# SPDX-License-Identifier: MIT
 import sys
 import time
 import serial

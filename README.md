@@ -1,3 +1,7 @@
+<!--
+    SPDX-FileCopyrightText: AtCore Authors
+    SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 ![LOGO](https://invent.kde.org/kde/atcore/raw/master/testclient/atcore-gui.png)  AtCore - KDE Print Service for 3DPrinters
 ----
 OS   | Build Status
@@ -9,7 +13,7 @@ OS   | Build Status
 
 
 AtCore is a API to manage the serial connection between the computer and 3D Printers.<br/>
-This project is under [LGPL-2.0]+.
+This project is licensed under [LGPL-2.1] or [LGPL-3.0] or [KDE Accepted LGPL].
 
 ----
 ## Supported Firmwares
@@ -50,7 +54,9 @@ target_link_libraries(MYAPP AtCore::AtCore AtCore::AtCoreWidgets ... )
 [Bug Tracker]: https://bugs.kde.org/enter_bug.cgi?product=Atelier&component=AtCore
 [KDE]: https://www.kde.org
 [Web]: https://atelier.kde.org
-[LGPL-2.0]:https://www.gnu.org/licenses/old-licenses/lgpl-2.0.html
+[LGPL-2.1]:https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+[LGPL-3.0]:https://www.gnu.org/licenses/lgpl-3.0.html
+[KDE Accepted LGPL]:https://community.kde.org/Policies/Licensing_Policy#LicenseRef-KDE-Accepted-LGPL
 [Building and Deploying]: doc/build.md
 [Contribute]: CONTRIBUTING.md
 [Donation]:https://kde.org/donate/?app=atcore

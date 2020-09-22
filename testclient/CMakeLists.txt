@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: AtCore Authors
+# SPDX-License-Identifier: BSD-3-Clause
+
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)

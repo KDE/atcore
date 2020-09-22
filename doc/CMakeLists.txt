@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: AtCore Authors
+# SPDX-License-Identifier: BSD-3-Clause
 find_package(Doxygen REQUIRED)
 
 set(DOXYGEN_PROJECT_NUMBER "${PROJECT_VERSION}")

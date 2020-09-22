@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: AtCore Authors
+# SPDX-License-Identifier: BSD-3-Clause
+
 project(atcore-imports)
 include_directories (
     ${CMAKE_CURRENT_BINARY_DIR}

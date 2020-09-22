@@ -1,4 +1,7 @@
-
+<!--
+    SPDX-FileCopyrightText: AtCore Authors
+    SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 # Contributing To AtCore
 AtCore is an open source project and all open source projects need contrubitors. Thank you for taking the time to read this document and Thank you for your future contributions to this project. 
 

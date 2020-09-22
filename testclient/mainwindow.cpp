@@ -1,25 +1,11 @@
 /* AtCore Test Client
-    Copyright (C) <2016 - 2019>
+ * SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+ * SPDX-FileCopyrightText: 2016-2018 Patrick José Pereira <patrickjp@kde.org>
+ * SPDX-FileCopyrightText: 2016-2017, 2019 Lays Rodrigues <lays.rodrigues@kde.org>
+ * SPDX-FileCopyrightText: 2016-2020 Chris Rizzitello <rizzitello@kde.org>
+ * SPDX-FileCopyrightText: 2016 Tomaz Canabrava <tcanabrava@kde.org>
+ */
 
-    Authors:
-        Patrick José Pereira <patrickjp@kde.org>
-        Lays Rodrigues <lays.rodrigues@kde.org>
-        Chris Rizzitello <rizzitello@kde.org>
-        Tomaz Canabrava <tcanabrava@kde.org>
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
 #include <QFileDialog>
 #include <QLoggingCategory>
 #include <QMessageBox>

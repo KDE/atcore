@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: AtCore Authors
+# SPDX-License-Identifier: BSD-3-Clause
+
 set(RepetierPlugin_SRCS repetierplugin.cpp)
 add_library(repetier SHARED ${RepetierPlugin_SRCS})
 target_link_libraries(repetier Qt5::Core AtCore::AtCore)

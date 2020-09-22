@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: AtCore Authors
+# SPDX-License-Identifier: BSD-3-Clause
 find_package(Qt5 REQUIRED COMPONENTS
     Test
 )

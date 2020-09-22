@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: AtCore Authors
+# SPDX-License-Identifier: BSD-3-Clause
+
 #
 # Create the Library.
 #
@@ -17,8 +20,8 @@ set(AtCoreLib_SRCS
     ifirmware.cpp
     machineinfo.cpp
     printthread.cpp
-    seriallayer.cpp   
-    temperature.cpp    
+    seriallayer.cpp
+    temperature.cpp
 )
 
 add_library(AtCore SHARED ${AtCoreLib_SRCS})
