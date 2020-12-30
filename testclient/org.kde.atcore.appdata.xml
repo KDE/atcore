@@ -17,7 +17,7 @@
   <name xml:lang="et">AtCore testklient</name>
   <name xml:lang="eu">AtCore probatzeko bezeroa</name>
   <name xml:lang="fi">AtCore-koeasiakas</name>
-  <name xml:lang="fr">Client de test AtCore</name>
+  <name xml:lang="fr">Client de test « AtCore »</name>
   <name xml:lang="gl">Cliente de probas de AtCore</name>
   <name xml:lang="hi">AtCore परीक्षण ग्राहक</name>
   <name xml:lang="ia">Cliente de prova de AtCore</name>
@@ -48,7 +48,7 @@
   <summary xml:lang="et">3D-printerite juhtimiseks mõeldud AtCore raamistiku testrakendus</summary>
   <summary xml:lang="eu">3D inprimagailuak kontrolatzeko AtCore azpiegitura probatzeko aplikazio bat</summary>
   <summary xml:lang="fi">Koeasiakas 3D-tulostinten AtCore-hallintakehykseen</summary>
-  <summary xml:lang="fr">Une application de test pour l'environnement AtCore permettant de contrôler les imprimantes 3D</summary>
+  <summary xml:lang="fr">Une application de test pour l'environnement « AtCore » permettant de contrôler les imprimantes 3D.</summary>
   <summary xml:lang="gl">Unha aplicación de probas para a infraestrutura AtCore para controlar impresoras 3D</summary>
   <summary xml:lang="hi">AtCore तंत्र 3D प्रिंटर को नियंत्रित करने के लिए एक परीक्षण अनुप्रयोग है</summary>
   <summary xml:lang="id">Sebuah aplikasi uji untuk kerangka kerja AtCore guna mengendalikan pencetak 3D</summary>
@@ -108,7 +108,7 @@
     <p xml:lang="et">AtCore testrakendus raamistikku esitlemas.</p>
     <p xml:lang="eu">Azpiegituraren erakustaldia egiteko AtCore-ren probako aplikazio bat da hau.</p>
     <p xml:lang="fi">Tämä on kehyksen esittelyyn tarkoitettu AtCore-koeasiakas.</p>
-    <p xml:lang="fr">Ceci est une application de test AtCore permettant de montrer les fonctionnalités de l'environnement.</p>
+    <p xml:lang="fr">Ceci est une application de test « AtCore » permettant de tester les fonctionnalités de l'environnement.</p>
     <p xml:lang="gl">Isto é unha aplicación de probas de AtCore para demostrar a infraestrutura.</p>
     <p xml:lang="hi">यह एक AtCore परीक्षण अनुप्रयोग है, जो तंत्र को दर्शाता है</p>
     <p xml:lang="id">Ini adalah sebuah aplikasi uji AtCore untuk menampilkan kerangka kerja.</p>
