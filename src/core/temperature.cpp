@@ -114,7 +114,7 @@ void Temperature::decodeTemp(const QByteArray &msg)
         emit extruderTargetTemperatureChanged();
     }
 
-    if (msg.indexOf(QStringLiteral("B:")) != -1) {
+    if (msgString.contains(QStringLiteral("B:")), Qt::CaseInsensitive) {
         QRegularExpressionMatch bedCheck = d->bedRegEx.match(msgString);
         QRegularExpressionMatch targetBedCheck = d->targetBedRegEx.match(msgString);
 
