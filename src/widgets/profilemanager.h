@@ -45,20 +45,17 @@ private:
     QSpinBox *sbMaxY = nullptr;
     QSpinBox *sbMaxZ = nullptr;
     QWidget *axisY = nullptr;
+    const QStringList BAUDS = {QStringLiteral("9600"),
+                               QStringLiteral("14400"),
+                               QStringLiteral("19200"),
+                               QStringLiteral("28800"),
+                               QStringLiteral("38400"),
+                               QStringLiteral("57600"),
+                               QStringLiteral("76800"),
+                               QStringLiteral("115200"),
+                               QStringLiteral("230400"),
+                               QStringLiteral("250000"),
+                               QStringLiteral("500000"),
+                               QStringLiteral("1000000")
+                              };
 };
-
-namespace SERIAL
-{
-static const QStringList BAUDS = {QStringLiteral("9600"),
-                                  QStringLiteral("14400"),
-                                  QStringLiteral("19200"),
-                                  QStringLiteral("28800"),
-                                  QStringLiteral("38400"),
-                                  QStringLiteral("57600"),
-                                  QStringLiteral("76800"),
-                                  QStringLiteral("115200"),
-                                  QStringLiteral("230400"),
-                                  QStringLiteral("250000"),
-                                  QStringLiteral("500000"),
-                                  QStringLiteral("1000000")};
-}

@@ -165,7 +165,7 @@ ProfileManager::ProfileManager(QWidget *parent)
 
     boxLayout = new QVBoxLayout();
     cbBaud = new QComboBox();
-    cbBaud->addItems(SERIAL::BAUDS);
+    cbBaud->addItems(BAUDS);
     cbBaud->setCurrentText(QStringLiteral("115200"));
     connect(cbBaud, &QComboBox::currentTextChanged, this, [this](const QString &newText) { MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::BAUDRATE, newText); });
 
@@ -286,7 +286,8 @@ QStringList ProfileManager::detectFWPlugins()
 QStringList ProfileManager::firmwaresInPath(const QString &path)
 {
     QStringList firmwares;
-    for (QString file : QDir(path).entryList({AtCoreDirectories::pluginExtFilter}, QDir::Files)) {
+    const auto pluginList = QDir(path).entryList({AtCoreDirectories::pluginExtFilter}, QDir::Files);
+    for (QString file : pluginList) {
         file = file.split(QStringLiteral(".")).at(0).toLower().simplified();
         if (file.startsWith(QStringLiteral("lib"))) {
             file = file.remove(QStringLiteral("lib"));
