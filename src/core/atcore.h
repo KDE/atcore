@@ -333,6 +333,11 @@ public slots:
     void setState(AtCore::STATES state);
 
     /**
+     * @brief updateFWPlugins Check for new Firmware plugins.
+     */
+    Q_INVOKABLE void updateFWPlugins();
+
+    /**
      * @brief Push a command into the command queue
      *
      * @param comm : Command
@@ -584,13 +589,6 @@ private:
      * @brief send firmware request to the printer
      */
     void requestFirmware();
-
-    /**
-     * @brief Search for atcore firmware plugins
-     * @param path: the path to check
-     * @return QMap of the plugings found
-     */
-    QMap<QString, QString> findFirmwarePlugins(const QString &path);
 
     /**
      * @brief returns AtCorePrivate::sdCardReadingFileList

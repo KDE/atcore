@@ -26,7 +26,6 @@ private:
     void onCbProfileEditingFinished();
     void onRadioCartesianToggled(bool checked);
     QStringList detectFWPlugins();
-    QStringList firmwaresInPath(const QString &path);
     void loadProfile(const QString &profileName);
 
     QCheckBox *checkAutoTempReport = nullptr;

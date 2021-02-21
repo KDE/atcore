@@ -267,32 +267,16 @@ void ProfileManager::loadProfile(const QString &profileName)
 QStringList ProfileManager::detectFWPlugins()
 {
     QStringList firmwares;
-    QStringList paths = AtCoreDirectories::pluginDir;
-    // Add our runtime paths
-    const QString &p(qApp->applicationDirPath());
-    paths.prepend(p + QStringLiteral("/../Plugins/AtCore"));
-    paths.prepend(p + QStringLiteral("/AtCore"));
-    paths.prepend(p + QStringLiteral("/plugins"));
-    for (const QString &path : qAsConst(paths)) {
-        firmwares = firmwaresInPath(path);
-        if (!firmwares.isEmpty()) {
-            // use path where plugins were detected.
-            break;
+    for (const QString &path : AtCoreDirectories::pluginDir) {
+        const auto pluginList = QDir(path).entryList({AtCoreDirectories::pluginExtFilter}, QDir::Files);
+        for (QString file : pluginList) {
+            file = file.split(QStringLiteral(".")).at(0).toLower().simplified();
+            if (file.startsWith(QStringLiteral("lib")))
+                file = file.remove(QStringLiteral("lib"));
+            firmwares.append(file);
         }
-    }
-    return firmwares;
-}
-
-QStringList ProfileManager::firmwaresInPath(const QString &path)
-{
-    QStringList firmwares;
-    const auto pluginList = QDir(path).entryList({AtCoreDirectories::pluginExtFilter}, QDir::Files);
-    for (QString file : pluginList) {
-        file = file.split(QStringLiteral(".")).at(0).toLower().simplified();
-        if (file.startsWith(QStringLiteral("lib"))) {
-            file = file.remove(QStringLiteral("lib"));
-        }
-        firmwares.append(file);
+        if (!firmwares.isEmpty())
+            break; //Use first path with valid files
     }
     return firmwares;
 }

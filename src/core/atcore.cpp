@@ -99,25 +99,7 @@ AtCore::AtCore(QObject *parent)
     connect(&d->serialTimer, &QTimer::timeout, this, &AtCore::locateSerialPort);
     connect(&d->temperatureTimer, &QTimer::timeout, this, &AtCore::checkTemperature);
 
-    //<<<<<<TESTING FUNCTION ONLY REMOVE AFTER TESTING IS COMPLETE>>>>>>>>
-    connect(d->bedDeform.get(), &BedDeform::dataChanged, this, [](const QVariantList &bedData) { qDebug() << bedData; });
-
-    // Attempt to find our plugins
-    qCDebug(ATCORE_PLUGIN) << "Detecting Plugin path";
-    QStringList paths = AtCoreDirectories::pluginDir;
-    // add our current runtime path
-    paths.prepend(qApp->applicationDirPath() + QStringLiteral("/../Plugins/AtCore"));
-    paths.prepend(qApp->applicationDirPath() + QStringLiteral("/AtCore"));
-    paths.prepend(qApp->applicationDirPath() + QStringLiteral("/plugins"));
-    for (const auto &path : paths) {
-        qCDebug(ATCORE_PLUGIN) << "Checking: " << path;
-        QMap<QString, QString> tempMap = findFirmwarePlugins(path);
-        if (!tempMap.isEmpty()) {
-            d->plugins = tempMap;
-            emit availableFirmwarePluginsChanged();
-            return;
-        }
-    }
+    updateFWPlugins();
     setState(AtCore::STATES::DISCONNECTED);
 }
 
@@ -340,7 +322,7 @@ void AtCore::setTemperatureTimerInterval(int newTime)
         d->temperatureTimer.setInterval(newTime);
         emit temperatureTimerIntervalChanged(newTime);
     }
-    if (!newTime && d->temperatureTimer.isActive()) {
+    if (newTime == 0 && d->temperatureTimer.isActive()) {
         d->temperatureTimer.stop();
     } else {
         d->temperatureTimer.start(newTime);
@@ -587,23 +569,6 @@ void AtCore::requestFirmware()
 bool AtCore::firmwarePluginLoaded() const
 {
     return firmwarePlugin();
-}
-
-QMap<QString, QString> AtCore::findFirmwarePlugins(const QString &path)
-{
-    QMap<QString, QString> detectedPlugins;
-    const auto pluginList = QDir(path).entryList({AtCoreDirectories::pluginExtFilter}, QDir::Files);
-    for (const QString &f : pluginList) {
-        QString file = f;
-        file = file.split(QStringLiteral(".")).at(0).toLower().simplified();
-        if (file.startsWith(QStringLiteral("lib"))) {
-            file = file.remove(QStringLiteral("lib"));
-        }
-        QString pluginString = QStringLiteral("%1/%2").arg(path, f);
-        detectedPlugins[file] = pluginString;
-        qCDebug(ATCORE_PLUGIN) << QStringLiteral("Plugin:[%1]=%2").arg(file, pluginString);
-    }
-    return detectedPlugins;
 }
 
 QStringList AtCore::availableFirmwarePlugins() const
@@ -931,6 +896,33 @@ void AtCore::handleSerialError(QSerialPort::SerialPortError error)
     }; // End of Switch
     qCDebug(ATCORE_CORE) << "SerialError:" << errorString;
     emit atcoreMessage(QStringLiteral("SerialError: %1").arg(errorString));
+}
+
+void AtCore::updateFWPlugins()
+{
+    // Attempt to find our plugins
+    qCDebug(ATCORE_PLUGIN) << "Detecting Plugin path";
+    QStringList paths = AtCoreDirectories::pluginDir;
+    qCDebug(ATCORE_PLUGIN) << "Paths" << paths;
+    for (const auto &path : AtCoreDirectories::pluginDir) {
+        qCDebug(ATCORE_PLUGIN) << "Checking: " << path;
+        QMap<QString, QString> detectedPlugins;
+        const auto pluginList = QDir(path).entryList({AtCoreDirectories::pluginExtFilter}, QDir::Files);
+        for (const QString &f : pluginList) {
+            QString file = f;
+            file = file.split(QStringLiteral(".")).at(0).toLower().simplified();
+            if (file.startsWith(QStringLiteral("lib")))
+                file = file.remove(QStringLiteral("lib"));
+            QString pluginString = QStringLiteral("%1/%2").arg(path, f);
+            detectedPlugins.insert(file, pluginString);
+            qCDebug(ATCORE_PLUGIN) << QStringLiteral("Plugin:[%1]=%2").arg(file, pluginString);
+        }
+        if (!detectedPlugins.isEmpty()) {
+            d->plugins = detectedPlugins;
+            emit availableFirmwarePluginsChanged();
+            return;
+        }
+    }
 }
 
 std::shared_ptr<BedDeform> AtCore::bedDeform()

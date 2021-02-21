@@ -8,13 +8,17 @@
 #pragma once
 
 #include <QLibraryInfo>
+#include <QDir>
 
 namespace AtCoreDirectories {
+    const QString appPath = QDir::currentPath();
     const QStringList pluginDir = {
-        QStringLiteral("@CMAKE_INSTALL_PREFIX@/@KDE_INSTALL_PLUGINDIR@/AtCore")
-        , QLibraryInfo::location(QLibraryInfo::PluginsPath) + QStringLiteral("/AtCore")
+        QStringLiteral("%1/plugins").arg(appPath)
+        , QStringLiteral("%1/AtCore").arg(appPath)
+        , QDir(QStringLiteral("%1/../Plugins/AtCore").arg(appPath)).absolutePath()
+        , QStringLiteral("@CMAKE_INSTALL_PREFIX@/@KDE_INSTALL_PLUGINDIR@/AtCore")
+        , QStringLiteral("%1/AtCore").arg(QLibraryInfo::location(QLibraryInfo::PluginsPath))
         , QStringLiteral("@KDE_INSTALL_PLUGINDIR@/AtCore")
-        , QStringLiteral("@CMAKE_CURRENT_BINARY_DIR@/../plugins")
     };
     const QString pluginExtFilter =
         #if defined(Q_OS_WIN)
