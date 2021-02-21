@@ -283,7 +283,7 @@ QString AtCore::connectedPort() const
 QStringList AtCore::serialPorts() const
 {
     QStringList ports;
-    QList<QSerialPortInfo> serialPortInfoList = QSerialPortInfo::availablePorts();
+    const QList<QSerialPortInfo> serialPortInfoList = QSerialPortInfo::availablePorts();
     if (!serialPortInfoList.isEmpty()) {
         for (const QSerialPortInfo &serialPortInfo : serialPortInfoList) {
 #ifdef Q_OS_MAC
@@ -592,7 +592,8 @@ bool AtCore::firmwarePluginLoaded() const
 QMap<QString, QString> AtCore::findFirmwarePlugins(const QString &path)
 {
     QMap<QString, QString> detectedPlugins;
-    for (const QString &f : QDir(path).entryList({AtCoreDirectories::pluginExtFilter}, QDir::Files)) {
+    const auto pluginList = QDir(path).entryList({AtCoreDirectories::pluginExtFilter}, QDir::Files);
+    for (const QString &f : pluginList) {
         QString file = f;
         file = file.split(QStringLiteral(".")).at(0).toLower().simplified();
         if (file.startsWith(QStringLiteral("lib"))) {
