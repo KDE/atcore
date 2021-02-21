@@ -280,7 +280,7 @@ void MainWindow::makeConnectDock()
     connectionTimer->setInterval(20000);
     connectionTimer->setSingleShot(true);
     connect(connectionTimer, &QTimer::timeout, this, [this] {
-        buttonConnect->clicked();
+        emit buttonConnect->clicked();
         QMessageBox::critical(this, tr("Connection Error"), tr("Your machine did not respond after 20 seconds.\n\nBefore connecting again check that your printer is on and your are connecting using the correct BAUD Rate for your device."));
     });
 
