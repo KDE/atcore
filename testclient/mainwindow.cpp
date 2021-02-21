@@ -129,9 +129,9 @@ void MainWindow::makeCommandDock()
 {
     commandWidget = new CommandWidget;
     // Connect the commandPressed signal
-    connect(commandWidget, &CommandWidget::commandPressed, [this](const QString &command) { core->pushCommand(command); });
+    connect(commandWidget, &CommandWidget::commandPressed, core, &AtCore::pushCommand);
     // Connect the messagePressed signal
-    connect(commandWidget, &CommandWidget::messagePressed, [this](const QString &message) { core->showMessage(message); });
+    connect(commandWidget, &CommandWidget::messagePressed, core, &AtCore::showMessage);
     // Create the dock, and set the Widget.
     commandDock = new QDockWidget(tr("Commands"), this);
     commandDock->setWidget(commandWidget);
@@ -150,10 +150,8 @@ void MainWindow::makePrintDock()
     connect(printWidget, &PrintWidget::printPressed, this, &MainWindow::printPBClicked);
     connect(printWidget, &PrintWidget::emergencyStopPressed, core, &AtCore::emergencyStop);
     connect(printWidget, &PrintWidget::fanSpeedChanged, core, &AtCore::setFanSpeed);
-
-    connect(printWidget, &PrintWidget::printSpeedChanged, this, [this](const int speed) { core->setPrinterSpeed(uint(std::max(1, speed))); });
-
-    connect(printWidget, &PrintWidget::flowRateChanged, [this](const int rate) { core->setFlowRate(uint(std::max(1, rate))); });
+    connect(printWidget, &PrintWidget::printSpeedChanged, core, &AtCore::setPrinterSpeed);
+    connect(printWidget, &PrintWidget::flowRateChanged, core, &AtCore::setFlowRate);
 
     printDock = new QDockWidget(tr("Print"), this);
     printDock->setWidget(printWidget);

@@ -688,7 +688,7 @@ void AtCore::setBedTemp(uint temp, bool andWait)
 
 void AtCore::setFanSpeed(uint speed, uint fanNumber)
 {
-    speed = std::min<uint>(speed, 10000);
+    speed = std::max<uint>(1, std::min<uint>(speed, 10000));
     fanNumber = std::min<uint>(fanNumber, 10000);
 
     pushCommand(GCode::toCommand(GCode::MCommands::M106, QString::number(fanNumber), QString::number(speed)));
@@ -696,13 +696,13 @@ void AtCore::setFanSpeed(uint speed, uint fanNumber)
 
 void AtCore::setPrinterSpeed(uint speed)
 {
-    speed = std::min<uint>(speed, 10000);
+    speed = std::max<uint>(1, std::min<uint>(speed, 10000));
     pushCommand(GCode::toCommand(GCode::MCommands::M220, QString::number(speed)));
 }
 
 void AtCore::setFlowRate(uint speed)
 {
-    speed = std::min<uint>(speed, 10000);
+    speed = std::max<uint>(1, std::min<uint>(speed, 10000));
     pushCommand(GCode::toCommand(GCode::MCommands::M221, QString::number(speed)));
 }
 

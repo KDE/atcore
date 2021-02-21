@@ -19,7 +19,7 @@ SdWidget::SdWidget(QWidget *parent)
 
     auto newButton = new QPushButton(tr("Get List"), this);
     hBoxLayout->addWidget(newButton);
-    connect(newButton, &QPushButton::clicked, this, [this] { emit requestSdList(); });
+    connect(newButton, &QPushButton::clicked, this, &SdWidget::requestSdList);
 
     newButton = new QPushButton(tr("Print Selected"), this);
     hBoxLayout->addWidget(newButton);

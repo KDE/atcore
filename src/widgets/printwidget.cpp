@@ -23,10 +23,10 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent)
     QHBoxLayout *hBoxLayout = nullptr;
     if (showAllControls) {
         buttonPrint = new QPushButton(tr("Print File"), this);
-        connect(buttonPrint, &QPushButton::clicked, this, [this] { emit printPressed(); });
+        connect(buttonPrint, &QPushButton::clicked, this, &PrintWidget::printPressed);
 
         newButton = new QPushButton(tr("Emergency Stop"), this);
-        connect(newButton, &QPushButton::clicked, this, [this] { emit emergencyStopPressed(); });
+        connect(newButton, &QPushButton::clicked, this, &PrintWidget::emergencyStopPressed);
 
         hBoxLayout = new QHBoxLayout;
         hBoxLayout->addWidget(buttonPrint);
