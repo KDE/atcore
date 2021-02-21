@@ -535,7 +535,7 @@ QString GCode::toCommand(MCommands gcode, const QString &value1, const QString &
         if (!value1.isEmpty()) {
             if (value1.endsWith(QStringLiteral("%"))) {
                 QString temp = value1;
-                temp.replace(QStringLiteral("%"), QStringLiteral(""));
+                temp.replace(QStringLiteral("%"), QLatin1String(""));
                 return code.append(QStringLiteral(" P%1").arg(temp.toDouble() / 100));
             }
             return code.append(QStringLiteral(" S%1").arg(value1));
