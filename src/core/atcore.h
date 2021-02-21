@@ -107,7 +107,7 @@ public:
      * @param parent: parent of the object
      */
     explicit AtCore(QObject *parent = nullptr);
-    ~AtCore() = default;
+    ~AtCore();
 
     /**
      * @brief version
@@ -615,7 +615,7 @@ private:
      * @brief Hold private data of AtCore.
      */
     struct AtCorePrivate;
-    AtCorePrivate *d;
+    std::unique_ptr<AtCorePrivate> d;
 
 protected:
     /**

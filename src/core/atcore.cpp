@@ -121,6 +121,11 @@ AtCore::AtCore(QObject *parent)
     setState(AtCore::STATES::DISCONNECTED);
 }
 
+AtCore::~AtCore()
+{
+    /*Needed Allow for Unique AtCorePrivate Pointer*/
+}
+
 QString AtCore::version() const
 {
     QString versionString = QString::fromLatin1(ATCORE_VERSION_STRING);
@@ -196,7 +201,7 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
             // Plugin was loaded successfully.
             d->firmwarePlugin = qobject_cast<IFirmware *>(d->pluginLoader.instance());
             firmwarePlugin()->init(this);
-            disconnect(d->serial, &SerialLayer::receivedCommand, this, {});
+            disconnect(d->serial, &SerialLayer::receivedCommand, this, nullptr);
             connect(d->serial, &SerialLayer::receivedCommand, this, &AtCore::newMessage);
             connect(firmwarePlugin(), &IFirmware::readyForCommand, this, &AtCore::processQueue);
             d->ready = true; // ready on new firmware load
