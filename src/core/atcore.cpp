@@ -1,7 +1,7 @@
 /* AtCore KDE Libary for 3D Printers
     SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
     SPDX-FileCopyrightText: 2016, 2018 Tomaz Canabrava <tcanabrava@kde.org>
-    SPDX-FileCopyrightText: 2016-2019 Chris Rizzitello <rizzitello@kde.org>
+    SPDX-FileCopyrightText: 2016-2019, 2021 Chris Rizzitello <rizzitello@kde.org>
     SPDX-FileCopyrightText: 2016-2019 Patrick José Pereira <patrickjp@kde.org>
     SPDX-FileCopyrightText: 2016, 2019 Lays Rodrigues <lays.rodrigues@kde.org>
     SPDX-FileCopyrightText: 2018 Leandro Santiago <leandrosansilva@gmail.com>
@@ -445,16 +445,16 @@ void AtCore::print(const QString &fileName, bool sdPrint)
     // Process the gcode with a printThread.
     // The Thread processes the gcode without freezing the libary.
     // Only sends a command back when the printer is ready, avoiding buffer overflow in the printer.
-    auto thread = new QThread(this);
-    auto printThread = new PrintThread(this, fileName);
-    printThread->moveToThread(thread);
+    auto thread = std::unique_ptr<QThread>(new QThread(this));
+    auto printThread = std::unique_ptr<PrintThread>(new PrintThread(this, fileName));
+    printThread.get()->moveToThread(thread.get());
 
-    connect(printThread, &PrintThread::printProgressChanged, this, &AtCore::printProgressChanged, Qt::QueuedConnection);
-    connect(thread, &QThread::started, printThread, &PrintThread::start);
-    connect(printThread, &PrintThread::finished, thread, &QThread::quit);
-    connect(thread, &QThread::finished, printThread, &PrintThread::deleteLater);
-    if (!thread->isRunning()) {
-        thread->start();
+    connect(printThread.get(), &PrintThread::printProgressChanged, this, &AtCore::printProgressChanged, Qt::QueuedConnection);
+    connect(thread.get(), &QThread::started, printThread.get(), &PrintThread::start);
+    connect(printThread.get(), &PrintThread::finished, thread.get(), &QThread::quit);
+    connect(thread.get(), &QThread::finished, printThread.get(), &PrintThread::deleteLater);
+    if (!thread.get()->isRunning()) {
+        thread.get()->start();
     }
 }
 
