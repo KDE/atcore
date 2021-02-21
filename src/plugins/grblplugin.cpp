@@ -20,7 +20,7 @@ QString GrblPlugin::name() const
 
 GrblPlugin::GrblPlugin()
 {
-    qCDebug(GRBL_PLUGIN) << name() << " plugin loaded!";
+    qCDebug(GRBL_PLUGIN) << GrblPlugin::name() << " plugin loaded!";
 }
 
 bool GrblPlugin::isSdSupported() const

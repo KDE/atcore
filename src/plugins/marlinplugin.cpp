@@ -26,7 +26,7 @@ bool MarlinPlugin::isSdSupported() const
 
 MarlinPlugin::MarlinPlugin()
 {
-    qCDebug(MARLIN_PLUGIN) << name() << " plugin loaded!";
+    qCDebug(MARLIN_PLUGIN) << MarlinPlugin::name() << " plugin loaded!";
 }
 
 void MarlinPlugin::validateCommand(const QString &lastMessage)

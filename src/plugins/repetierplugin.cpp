@@ -26,7 +26,7 @@ bool RepetierPlugin::isSdSupported() const
 
 RepetierPlugin::RepetierPlugin()
 {
-    qCDebug(REPETIER_PLUGIN) << name() << " plugin loaded!";
+    qCDebug(REPETIER_PLUGIN) << RepetierPlugin::name() << " plugin loaded!";
 }
 
 void RepetierPlugin::validateCommand(const QString &lastMessage)

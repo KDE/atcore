@@ -26,7 +26,7 @@ bool TeacupPlugin::isSdSupported() const
 
 TeacupPlugin::TeacupPlugin()
 {
-    qCDebug(TEACUP_PLUGIN) << name() << " plugin loaded!";
+    qCDebug(TEACUP_PLUGIN) << TeacupPlugin::name() << " plugin loaded!";
 }
 
 QByteArray TeacupPlugin::translate(const QString &command)

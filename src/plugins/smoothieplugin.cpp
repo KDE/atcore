@@ -26,5 +26,5 @@ bool SmoothiePlugin::isSdSupported() const
 
 SmoothiePlugin::SmoothiePlugin()
 {
-    qCDebug(SMOOTHIE_PLUGIN) << name() << " plugin loaded!";
+    qCDebug(SMOOTHIE_PLUGIN) << SmoothiePlugin::name() << " plugin loaded!";
 }

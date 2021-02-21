@@ -26,5 +26,5 @@ bool SprinterPlugin::isSdSupported() const
 
 SprinterPlugin::SprinterPlugin()
 {
-    qCDebug(SPRINTER_PLUGIN) << name() << " plugin loaded!";
+    qCDebug(SPRINTER_PLUGIN) << SprinterPlugin::name() << " plugin loaded!";
 }

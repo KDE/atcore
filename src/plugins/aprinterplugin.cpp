@@ -26,5 +26,5 @@ bool AprinterPlugin::isSdSupported() const
 
 AprinterPlugin::AprinterPlugin()
 {
-    qCDebug(APRINTER_PLUGIN) << name() << " plugin loaded!";
+    qCDebug(APRINTER_PLUGIN) << AprinterPlugin::name() << " plugin loaded!";
 }
