@@ -21,8 +21,8 @@ add_library(atcoreextensionplugin SHARED ${atcore_qml_bridge_LIB_SRCS})
 target_link_libraries (
     atcoreextensionplugin
     AtCore
-    Qt5::Core
-    Qt5::Qml
+    Qt::Core
+    Qt::Qml
 )
 
 install(TARGETS atcoreextensionplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/atcore)

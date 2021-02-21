@@ -9,7 +9,7 @@ macro(TEST NAME FILE)
     target_link_libraries(
         ${NAME}
         AtCore
-        Qt5::Core Qt5::Test
+        Qt::Core Qt::Test
         )
 
     if(CMAKE_SYSTEM_NAME STREQUAL "Windows")

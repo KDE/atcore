@@ -17,16 +17,15 @@ ecm_create_qm_loader(AtCoreTestClient_SRCS atcore_qt)
 
 if (NOT APPLE)
     add_executable(atcore-gui ${AtCoreTestClient_SRCS} icons.qrc)
-
-	install(TARGETS atcore-gui RUNTIME DESTINATION bin)
-
-	install(FILES
+    install(TARGETS atcore-gui RUNTIME DESTINATION bin)
+    install(FILES
         "${CMAKE_CURRENT_SOURCE_DIR}/atcore-gui.png"
-        DESTINATION share/pixmaps)
-
-	install(FILES
+        DESTINATION share/pixmaps
+    )
+    install(FILES
         "${CMAKE_CURRENT_SOURCE_DIR}/org.kde.atcore.desktop"
-        DESTINATION share/applications)
+        DESTINATION share/applications
+    )
     install(FILES org.kde.atcore.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++ -std=c++11")
@@ -43,4 +42,4 @@ else()
     install(TARGETS atcore-gui BUNDLE DESTINATION bin)
 endif()
 
-target_link_libraries(atcore-gui AtCore::AtCoreWidgets AtCore::AtCore Qt5::Widgets Qt5::Charts)
+target_link_libraries(atcore-gui AtCore::AtCoreWidgets AtCore::AtCore Qt::Widgets Qt::Charts)

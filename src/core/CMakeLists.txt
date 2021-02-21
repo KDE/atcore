@@ -25,7 +25,7 @@ set(AtCoreLib_SRCS
 )
 
 add_library(AtCore SHARED ${AtCoreLib_SRCS})
-target_link_libraries(AtCore Qt5::Core Qt5::SerialPort Qt5::Quick)
+target_link_libraries(AtCore Qt::Core Qt::SerialPort Qt::Quick)
 
 #
 #
