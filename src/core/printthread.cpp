@@ -129,7 +129,7 @@ void PrintThread::nextLine()
 
     if (d->cline.startsWith(QStringLiteral(";-"))) {
         injectCommand(d->cline);
-        d->cline.clear();
+        d->cline = QLatin1String("");
         return;
     }
     // Remove Comments from the gcode.
