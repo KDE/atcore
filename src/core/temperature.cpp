@@ -78,6 +78,11 @@ Temperature::Temperature(QObject *parent)
 {
 }
 
+Temperature::~Temperature()
+{
+    delete d;
+}
+
 float Temperature::bedTargetTemperature() const
 {
     return d->bedTargetTemp;
@@ -114,7 +119,7 @@ void Temperature::decodeTemp(const QByteArray &msg)
         emit extruderTargetTemperatureChanged();
     }
 
-    if (msgString.contains(QStringLiteral("B:")), Qt::CaseInsensitive) {
+    if (msgString.contains(QStringLiteral("B:"), Qt::CaseInsensitive))  {
         QRegularExpressionMatch bedCheck = d->bedRegEx.match(msgString);
         QRegularExpressionMatch targetBedCheck = d->targetBedRegEx.match(msgString);
 

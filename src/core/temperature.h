@@ -33,6 +33,7 @@ public:
      * @param parent
      */
     explicit Temperature(QObject *parent = nullptr);
+    ~Temperature();
 
     /**
      * @brief Get bed current temperature
