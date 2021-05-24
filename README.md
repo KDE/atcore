@@ -42,14 +42,14 @@ target_link_libraries(MYAPP AtCore::AtCore AtCore::AtCoreWidgets ... )
 ```
 
 ## Getting Involved
- - [IRC] - freenode \#kde-atelier
+ - [IRC] - Libera Chat \#kde-atelier
  - [Telegram] - Atelier group
  - [Web] - Our web page
  - Report Bugs to our [Bug Tracker].
  - Support us by making a [Donation]
  - [Contribute] to AtCore.
 
-[IRC]: https://webchat.freenode.net/
+[IRC]: https://web.libera.chat/
 [Telegram]: https://telegram.me/KDEAtelier
 [Bug Tracker]: https://bugs.kde.org/enter_bug.cgi?product=Atelier&component=AtCore
 [KDE]: https://www.kde.org

@@ -63,7 +63,7 @@ Keeping a clean project history requires that we take care when choosing how we 
  - Revisions require a majority acceptance rate before landing
  - Your Merge Request will be merged when your code when its ready
 
-[IRC]: https://webchat.freenode.net/
+[IRC]: https://web.libera.chat/
 [Telegram]: https://telegram.me/KDEAtelier
 [Bug Tracker]: https://bugs.kde.org/enter_bug.cgi?product=Atelier&component=AtCore
 [KDE Identity]: https://identity.kde.org/
