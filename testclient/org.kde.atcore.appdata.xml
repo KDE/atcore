@@ -72,6 +72,7 @@
     </p>
     <p xml:lang="ca">L'AtCore és l'API que controla la impressora 3D i les seves funcionalitats bàsiques. L'AtCore ve amb client de prova anomenant «atcore-gui» per a gestionar la impressora.</p>
     <p xml:lang="ca-valencia">L'AtCore és l'API que controla la impressora 3D i les seues funcionalitats bàsiques. L'AtCore ve amb client de prova anomenant «atcore-gui» per a gestionar la impressora.</p>
+    <p xml:lang="de">AtCore ist die API, die den 3DDrucker und seine grundlegenden Funktionalitäten steuert. AtCore wird mit einem Test-Programm namens atcore-gui geliefert, um Ihren Drucker zu verwalten.</p>
     <p xml:lang="el">Το AtCore είναι το API που ελέγχει τον 3D εκτυπωτή και τις βασικές λειτουργίες του. Το AtCore συνοδεύεται από έναν πελάτη δοκιμών που ονομάζεται atcore-gui για τη διαχείριση του εκτυπωτή.</p>
     <p xml:lang="en-GB">AtCore is the API that controls the 3DPrinter and its basic functionalities. AtCore comes with a test client called atcore-gui to manage your printer.</p>
     <p xml:lang="es">AtCore es la API que controla la impresión en 3D y sus funcionalidades básicas. AtCore contiene una aplicación cliente de pruebas llamada «atcore-gui» para gestionar la impresora.</p>
