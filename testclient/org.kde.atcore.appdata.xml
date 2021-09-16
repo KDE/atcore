@@ -41,6 +41,7 @@
   <summary>A test application for the AtCore framework to control 3D printers</summary>
   <summary xml:lang="ca">Una aplicació de prova per a l'entorn de treball AtCore per a controlar les impressores 3D</summary>
   <summary xml:lang="ca-valencia">Una aplicació de prova per a l'entorn de treball AtCore per a controlar les impressores 3D</summary>
+  <summary xml:lang="cs">Testovací aplikace pro framework AtCore pro ovládání 3D tiskáren</summary>
   <summary xml:lang="de">Ein Testprogramm für die AtCore-Bibliothek zur Steuerung von 3D-Druckern</summary>
   <summary xml:lang="el">Μια δοκιμαστική εφαρμογή για το AtCore για τον έλεγχο τρισδιάστατων εκτυπωτών</summary>
   <summary xml:lang="en-GB">A test application for the AtCore framework to control 3D printers</summary>
