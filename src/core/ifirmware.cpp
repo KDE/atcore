@@ -48,7 +48,7 @@ void IFirmware::checkCommand(const QByteArray &lastMessage)
 void IFirmware::validateCommand(const QString &lastMessage)
 {
     if (lastMessage.contains(IFirmwarePrivate::_ok)) {
-        emit readyForCommand();
+        Q_EMIT readyForCommand();
     }
 }
 

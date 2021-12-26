@@ -111,12 +111,12 @@ void Temperature::decodeTemp(const QByteArray &msg)
 
     if (tempCheck.hasMatch()) {
         d->extruderTemp = tempCheck.captured(QStringLiteral("extruder")).toFloat();
-        emit extruderTemperatureChanged();
+        Q_EMIT extruderTemperatureChanged();
     }
 
     if (targetTempCheck.hasMatch()) {
         d->extruderTargetTemp = targetTempCheck.captured(QStringLiteral("extruderTarget")).toFloat();
-        emit extruderTargetTemperatureChanged();
+        Q_EMIT extruderTargetTemperatureChanged();
     }
 
     if (msgString.contains(QStringLiteral("B:"), Qt::CaseInsensitive))  {
@@ -125,12 +125,12 @@ void Temperature::decodeTemp(const QByteArray &msg)
 
         if (bedCheck.hasMatch()) {
             d->bedTemp = bedCheck.captured(QStringLiteral("bed")).toFloat();
-            emit bedTemperatureChanged();
+            Q_EMIT bedTemperatureChanged();
         }
 
         if (targetBedCheck.hasMatch()) {
             d->bedTargetTemp = targetBedCheck.captured(QStringLiteral("bedTarget")).toFloat();
-            emit bedTargetTemperatureChanged();
+            Q_EMIT bedTargetTemperatureChanged();
         }
     }
 }

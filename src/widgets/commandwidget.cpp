@@ -33,7 +33,7 @@ CommandWidget::CommandWidget(QWidget *parent)
             } else if (lineCommand->text().startsWith(QStringLiteral("m"))) {
                 lineCommand->setText(lineCommand->text().replace(0, 1, QStringLiteral("M")));
             }
-            emit commandPressed(lineCommand->text());
+            Q_EMIT commandPressed(lineCommand->text());
             lineCommand->clear();
         }
     });
@@ -54,7 +54,7 @@ CommandWidget::CommandWidget(QWidget *parent)
 
     connect(newButton, &QPushButton::clicked, this, [this] {
         if (!lineMessage->text().isEmpty()) {
-            emit messagePressed(lineMessage->text());
+            Q_EMIT messagePressed(lineMessage->text());
             lineMessage->clear();
         }
     });

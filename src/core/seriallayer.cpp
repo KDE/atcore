@@ -79,7 +79,7 @@ void SerialLayer::readAllData()
         // Get finished line to _byteCommands
         if (i < tempList.end() - 1) {
             d->_rByteCommands.append(*i);
-            emit receivedCommand(*i);
+            Q_EMIT receivedCommand(*i);
         } else {
             d->_rawData.clear();
             d->_rawData.append(*i);
@@ -95,7 +95,7 @@ void SerialLayer::pushCommand(const QByteArray &comm, const QByteArray &term)
     }
     QByteArray tmp = comm + term;
     write(tmp);
-    emit pushedCommand(tmp);
+    Q_EMIT pushedCommand(tmp);
 }
 
 void SerialLayer::pushCommand(const QByteArray &comm)
@@ -122,7 +122,7 @@ void SerialLayer::push()
     }
     for (const auto &comm : qAsConst(d->_sByteCommands)) {
         write(comm);
-        emit pushedCommand(comm);
+        Q_EMIT pushedCommand(comm);
     }
     d->_sByteCommands.clear();
 }
@@ -144,5 +144,5 @@ void SerialLayer::handleError(QSerialPort::SerialPortError error)
     }
 
     d->_lastError = error;
-    emit serialError(error);
+    Q_EMIT serialError(error);
 }

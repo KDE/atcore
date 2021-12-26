@@ -71,7 +71,7 @@ QVariant MachineInfo::readKey(const QString &profileName, MachineInfo::KEY key) 
 bool MachineInfo::storeKey(const QString &profileName, const MachineInfo::KEY key, const QVariant &value) const
 {
     if (key == KEY::NAME) {
-        // copyProfile emits profilesChanged
+        // copyProfile Q_EMITs profilesChanged
         return copyProfile(profileName, value.toString(), true);
     }
 
@@ -88,7 +88,7 @@ bool MachineInfo::storeKey(const QString &profileName, const MachineInfo::KEY ke
     m_settings->setValue(decoderMap[key].name, value);
     m_settings->endGroup();
     m_settings->sync();
-    emit profilesChanged();
+    Q_EMIT profilesChanged();
     return true;
 }
 
@@ -117,9 +117,9 @@ bool MachineInfo::copyProfile(const QString &srcProfile, const QString &destProf
     m_settings->sync();
     if (rmSrc) {
         removeProfile(srcProfile);
-        // removeProfile emits profilesChanged
+        // removeProfile Q_EMITs profilesChanged
     } else {
-        emit profilesChanged();
+        Q_EMIT profilesChanged();
     }
     return true;
 }
@@ -134,7 +134,7 @@ bool MachineInfo::removeProfile(const QString &profileName) const
     m_settings->remove(QString());
     m_settings->endGroup();
     m_settings->sync();
-    emit profilesChanged();
+    Q_EMIT profilesChanged();
     return true;
 }
 
@@ -146,7 +146,7 @@ void MachineInfo::storeProfile(const QMap<MachineInfo::KEY, QVariant> &profile) 
     }
     m_settings->endGroup();
     m_settings->sync();
-    emit profilesChanged();
+    Q_EMIT profilesChanged();
 }
 
 void MachineInfo::storeProfile(const QVariantMap &profile) const
@@ -157,7 +157,7 @@ void MachineInfo::storeProfile(const QVariantMap &profile) const
     }
     m_settings->endGroup();
     m_settings->sync();
-    emit profilesChanged();
+    Q_EMIT profilesChanged();
 }
 
 QStringList MachineInfo::profileNames() const

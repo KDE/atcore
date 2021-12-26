@@ -83,11 +83,11 @@ void MovementWidget::initialize()
     d->move = new QPushButton(tr("Go"), this);
     connect(d->move, &QPushButton::clicked, this, [this] {
         if (d->comboMoveAxis->currentIndex() == 0) {
-            emit absoluteMove(QLatin1Char('X'), d->sbMoveAxis->value());
+            Q_EMIT absoluteMove(QLatin1Char('X'), d->sbMoveAxis->value());
         } else if (d->comboMoveAxis->currentIndex() == 1) {
-            emit absoluteMove(QLatin1Char('Y'), d->sbMoveAxis->value());
+            Q_EMIT absoluteMove(QLatin1Char('Y'), d->sbMoveAxis->value());
         } else if (d->comboMoveAxis->currentIndex() == 2) {
-            emit absoluteMove(QLatin1Char('Z'), d->sbMoveAxis->value());
+            Q_EMIT absoluteMove(QLatin1Char('Z'), d->sbMoveAxis->value());
         }
     });
 

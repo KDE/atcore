@@ -41,7 +41,7 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent)
     sbPrintSpeed->setSuffix(QStringLiteral("%"));
 
     newButton = new QPushButton(tr("Set"), this);
-    connect(newButton, &QPushButton::clicked, this, [this] { emit printSpeedChanged(sbPrintSpeed->value()); });
+    connect(newButton, &QPushButton::clicked, this, [this] { Q_EMIT printSpeedChanged(sbPrintSpeed->value()); });
 
     hBoxLayout = new QHBoxLayout;
     hBoxLayout->addWidget(newLabel, 60);
@@ -56,7 +56,7 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent)
     sbFlowRate->setSuffix(QStringLiteral("%"));
 
     newButton = new QPushButton(tr("Set"), this);
-    connect(newButton, &QPushButton::clicked, this, [this] { emit flowRateChanged(sbFlowRate->value()); });
+    connect(newButton, &QPushButton::clicked, this, [this] { Q_EMIT flowRateChanged(sbFlowRate->value()); });
     hBoxLayout = new QHBoxLayout;
     hBoxLayout->addWidget(newLabel, 60);
     hBoxLayout->addWidget(sbFlowRate, 20);
@@ -72,7 +72,7 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent)
     connect(newButton, &QPushButton::clicked, this, [this] {
         // Fan speed has a range of 0-255.
         int speed = sbFanSpeed->value() * 255 / 100;
-        emit fanSpeedChanged(speed, comboFanSelect->currentIndex());
+        Q_EMIT fanSpeedChanged(speed, comboFanSelect->currentIndex());
     });
 
     hBoxLayout = new QHBoxLayout;

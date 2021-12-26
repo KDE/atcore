@@ -81,7 +81,7 @@ void PrintThread::processJob()
         }
         if (!d->cline.isEmpty() && d->core->state() != AtCore::PAUSE) {
             qCDebug(PRINT_THREAD) << "cline:" << d->cline;
-            emit nextCommand(d->cline);
+            Q_EMIT nextCommand(d->cline);
         }
         break;
 
@@ -108,15 +108,15 @@ void PrintThread::processJob()
 
 void PrintThread::endPrint()
 {
-    emit printProgressChanged(100);
+    Q_EMIT printProgressChanged(100);
     qCDebug(PRINT_THREAD) << "atEnd";
     disconnect(d->core->firmwarePlugin(), &IFirmware::readyForCommand, this, &PrintThread::processJob);
     disconnect(this, &PrintThread::nextCommand, d->core, &AtCore::pushCommand);
     disconnect(d->core, &AtCore::stateChanged, this, &PrintThread::setState);
-    emit stateChanged(AtCore::FINISHEDPRINT);
-    emit stateChanged(AtCore::IDLE);
+    Q_EMIT stateChanged(AtCore::FINISHEDPRINT);
+    Q_EMIT stateChanged(AtCore::IDLE);
     disconnect(this, &PrintThread::stateChanged, d->core, &AtCore::setState);
-    emit finished();
+    Q_EMIT finished();
 }
 void PrintThread::nextLine()
 {
@@ -125,7 +125,7 @@ void PrintThread::nextLine()
     d->stillSize -= d->cline.size() + 1; // remove read chars
     d->printProgress = float(d->totalSize - d->stillSize) * 100 / float(d->totalSize);
     qCDebug(PRINT_THREAD) << "progress:" << QString::number(double(d->printProgress));
-    emit printProgressChanged(d->printProgress);
+    Q_EMIT printProgressChanged(d->printProgress);
 
     if (d->cline.startsWith(QStringLiteral(";-"))) {
         injectCommand(d->cline);
@@ -158,7 +158,7 @@ void PrintThread::setState(const AtCore::STATES &newState)
         qCDebug(PRINT_THREAD) << QStringLiteral("State changed from [%1] to [%2]").arg(QVariant::fromValue(d->state).toString(), QVariant::fromValue(newState).toString());
         disconnect(d->core, &AtCore::stateChanged, this, &PrintThread::setState);
         d->state = newState;
-        emit stateChanged(d->state);
+        Q_EMIT stateChanged(d->state);
         connect(d->core, &AtCore::stateChanged, this, &PrintThread::setState, Qt::QueuedConnection);
     }
 }

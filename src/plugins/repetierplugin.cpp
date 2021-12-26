@@ -71,7 +71,7 @@ void RepetierPlugin::validateCommand(const QString &lastMessage)
                 temp.chop(temp.length() - temp.lastIndexOf(QChar::fromLatin1('/')));
                 qlonglong remaining = total - temp.toLongLong();
                 float progress = float(total - remaining) * 100 / float(total);
-                emit core()->printProgressChanged(progress);
+                Q_EMIT core()->printProgressChanged(progress);
                 if (progress >= 100) {
                     core()->setState(AtCore::FINISHEDPRINT);
                     core()->setState(AtCore::IDLE);
@@ -82,7 +82,7 @@ void RepetierPlugin::validateCommand(const QString &lastMessage)
             }
         }
         if (lastMessage.contains(QStringLiteral("ok"))) {
-            emit readyForCommand();
+            Q_EMIT readyForCommand();
         }
     }
 }

@@ -48,7 +48,7 @@ void BedDeform::decodeDeform(const QStringList &rawData)
             coreList.clear();
         }
     }
-    emit dataChanged(d->bedData);
+    Q_EMIT dataChanged(d->bedData);
 }
 
 QVariantList BedDeform::bedDeformationGrid()

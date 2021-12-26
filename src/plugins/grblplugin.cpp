@@ -31,7 +31,7 @@ bool GrblPlugin::isSdSupported() const
 void GrblPlugin::validateCommand(const QString &lastMessage)
 {
     if (lastMessage.contains(QStringLiteral("ok"))) {
-        emit readyForCommand();
+        Q_EMIT readyForCommand();
     }
 }
 

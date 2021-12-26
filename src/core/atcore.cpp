@@ -136,8 +136,8 @@ Temperature *AtCore::temperature()
 
 void AtCore::findFirmware(const QByteArray &message)
 {
-    emit receivedMessage(message);
-    emit atcoreMessage(tr("Waiting for firmware detect."));
+    Q_EMIT receivedMessage(message);
+    Q_EMIT atcoreMessage(tr("Waiting for firmware detect."));
     qCDebug(ATCORE_CORE) << "Find Firmware: " << message;
     if (!message.contains("FIRMWARE_NAME:")) {
         qCDebug(ATCORE_CORE) << "No firmware yet.";
@@ -191,17 +191,17 @@ void AtCore::loadFirmwarePlugin(const QString &fwName)
                 setTemperatureTimerInterval(5000);
             }
             setState(IDLE);
-            emit atcoreMessage(tr("Connected to printer using %1 plugin").arg(d->firmwarePlugin->name()));
+            Q_EMIT atcoreMessage(tr("Connected to printer using %1 plugin").arg(d->firmwarePlugin->name()));
         }
     } else {
         qCDebug(ATCORE_CORE) << "Plugin:" << fwName << ": Not found.";
-        emit atcoreMessage(tr("No plugin found for %1.").arg(fwName));
+        Q_EMIT atcoreMessage(tr("No plugin found for %1.").arg(fwName));
     }
 }
 
 void AtCore::waitForPrinterReboot(const QByteArray &message, const QString &fwName)
 {
-    emit receivedMessage(message);
+    Q_EMIT receivedMessage(message);
     if (message.isEmpty()) {
         return;
     }
@@ -234,7 +234,7 @@ bool AtCore::newConnection(const QString &port, int baud, const QString &fwName,
         connect(d->serial, &SerialLayer::pushedCommand, this, &AtCore::newCommand);
 
         if (!disableROC) {
-            emit atcoreMessage(tr("Waiting for machine restart"));
+            Q_EMIT atcoreMessage(tr("Waiting for machine restart"));
             connect(d->serial, &SerialLayer::receivedCommand, this, [this, fwName](const QByteArray &message) { waitForPrinterReboot(message, fwName); });
         } else {
             loadFirmwarePlugin(fwName);
@@ -245,7 +245,7 @@ bool AtCore::newConnection(const QString &port, int baud, const QString &fwName,
         return true;
     }
     qCDebug(ATCORE_CORE) << "Failed to open device for Read / Write.";
-    emit atcoreMessage(tr("Failed to open device in read/write mode."));
+    Q_EMIT atcoreMessage(tr("Failed to open device in read/write mode."));
     return false;
 }
 
@@ -287,7 +287,7 @@ void AtCore::locateSerialPort()
     QStringList ports = serialPorts();
     if (d->serialPorts != ports) {
         d->serialPorts = ports;
-        emit portsChanged(d->serialPorts);
+        Q_EMIT portsChanged(d->serialPorts);
     }
 }
 
@@ -301,7 +301,7 @@ void AtCore::setSerialTimerInterval(int newTime)
     newTime = std::max(newTime, 0);
     if (newTime != d->serialTimer.interval()) {
         d->serialTimer.setInterval(newTime);
-        emit serialTimerIntervalChanged(newTime);
+        Q_EMIT serialTimerIntervalChanged(newTime);
     }
     if (newTime == 0 && d->serialTimer.isActive()) {
         d->serialTimer.stop();
@@ -320,7 +320,7 @@ void AtCore::setTemperatureTimerInterval(int newTime)
     newTime = std::max(newTime, 0);
     if (newTime != d->temperatureTimer.interval()) {
         d->temperatureTimer.setInterval(newTime);
-        emit temperatureTimerIntervalChanged(newTime);
+        Q_EMIT temperatureTimerIntervalChanged(newTime);
     }
     if (newTime == 0 && d->temperatureTimer.isActive()) {
         d->temperatureTimer.stop();
@@ -336,7 +336,7 @@ void AtCore::setAutoTemperatureReport(bool autoReport)
     }
 
     d->autoTemperatureReport = autoReport;
-    emit autoTemperatureReportChanged(autoReport);
+    Q_EMIT autoTemperatureReportChanged(autoReport);
 
     if (autoReport) {
         setTemperatureTimerInterval(0);
@@ -353,7 +353,7 @@ void AtCore::setAutoCheckTemperatureInterval(int newTime)
     if (state() >= 2 && state() != AtCore::ERRORSTATE) {
         pushCommand(GCode::toCommand(GCode::M155, QString::number(newTime)));
     }
-    emit autoCheckTemperatureIntervalChanged(newTime);
+    Q_EMIT autoCheckTemperatureIntervalChanged(newTime);
 }
 
 bool AtCore::autoTemperatureReport() const
@@ -385,12 +385,12 @@ void AtCore::newMessage(const QByteArray &message)
     if (d->lastMessage.contains("T:") || d->lastMessage.contains("B:")) {
         temperature()->decodeTemp(d->lastMessage);
     }
-    emit receivedMessage(d->lastMessage);
+    Q_EMIT receivedMessage(d->lastMessage);
 }
 
 void AtCore::newCommand(const QByteArray &command)
 {
-    emit pushedCommand(command);
+    Q_EMIT pushedCommand(command);
 }
 
 void AtCore::setRelativePosition()
@@ -510,7 +510,7 @@ void AtCore::setState(AtCore::STATES state)
                 d->sdPrintProgressTimer.stop();
             }
         }
-        emit stateChanged(d->printerState);
+        Q_EMIT stateChanged(d->printerState);
     }
 }
 
@@ -695,7 +695,7 @@ void AtCore::setExtruderCount(int newCount)
 {
     if (d->extruderCount != newCount && newCount >= 1) {
         d->extruderCount = newCount;
-        emit extruderCountChanged(newCount);
+        Q_EMIT extruderCountChanged(newCount);
         qCDebug(ATCORE_CORE) << "Extruder Count:" << QString::number(extruderCount());
     }
 }
@@ -774,7 +774,7 @@ void AtCore::setSdMounted(bool mounted)
 {
     if (mounted != isSdMounted()) {
         d->sdCardMounted = mounted;
-        emit sdMountChanged(d->sdCardMounted);
+        Q_EMIT sdMountChanged(d->sdCardMounted);
     }
 }
 
@@ -794,13 +794,13 @@ QStringList AtCore::sdFileList()
 void AtCore::appendSdCardFileList(const QString &fileName)
 {
     d->sdCardFileList.append(fileName);
-    emit sdCardFileListChanged(d->sdCardFileList);
+    Q_EMIT sdCardFileListChanged(d->sdCardFileList);
 }
 
 void AtCore::clearSdCardFileList()
 {
     d->sdCardFileList.clear();
-    emit sdCardFileListChanged(d->sdCardFileList);
+    Q_EMIT sdCardFileListChanged(d->sdCardFileList);
 }
 
 void AtCore::sdDelete(const QString &fileName)
@@ -895,7 +895,7 @@ void AtCore::handleSerialError(QSerialPort::SerialPortError error)
         return;
     }; // End of Switch
     qCDebug(ATCORE_CORE) << "SerialError:" << errorString;
-    emit atcoreMessage(QStringLiteral("SerialError: %1").arg(errorString));
+    Q_EMIT atcoreMessage(QStringLiteral("SerialError: %1").arg(errorString));
 }
 
 void AtCore::updateFWPlugins()
@@ -919,7 +919,7 @@ void AtCore::updateFWPlugins()
         }
         if (!detectedPlugins.isEmpty()) {
             d->plugins = detectedPlugins;
-            emit availableFirmwarePluginsChanged();
+            Q_EMIT availableFirmwarePluginsChanged();
             return;
         }
     }

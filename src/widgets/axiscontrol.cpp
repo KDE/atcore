@@ -34,7 +34,7 @@ AxisControl::AxisControl(QWidget *parent)
         } else {
             sbValue->setSuffix(QStringLiteral(" in"));
         }
-        emit unitsChanged(selection);
+        Q_EMIT unitsChanged(selection);
     });
 
     auto layout = new QHBoxLayout();
@@ -84,7 +84,7 @@ QPushButton *AxisControl::makeButton(const QLatin1Char axis, int multiplier, con
         button->setIconSize(iconSize);
     }
 
-    connect(button, &QPushButton::clicked, this, [this, axis, multiplier] { emit clicked(axis, sbValue->value() * multiplier); });
+    connect(button, &QPushButton::clicked, this, [this, axis, multiplier] { Q_EMIT clicked(axis, sbValue->value() * multiplier); });
     return button;
 }
 
