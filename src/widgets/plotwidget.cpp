@@ -6,6 +6,7 @@
 
 #include "plotwidget.h"
 #include <QChart>
+#include <QChartView>
 
 PlotWidget::PlotWidget(QWidget *parent)
     : QWidget(parent)
@@ -42,21 +43,22 @@ void PlotWidget::addPlot(const QString &name)
     _chart->chart()->addSeries(_newPlot.serie());
     _newPlot.serie()->attachAxis(_axisY);
     _newPlot.serie()->attachAxis(_axisX);
-    _plots.insert(name, _newPlot);
+    _plots.insert(name, &_newPlot);
 }
 
 void PlotWidget::removePlot(const QString &name)
 {
-    _chart->chart()->removeSeries(_plots[name].serie());
+    QChart *temp = _chart->chart();
+    temp->removeSeries(_plots.value(name)->serie());
     _plots.remove(name);
 }
 
 void PlotWidget::appendPoint(const QString &name, float value)
 {
-    if (_plots[name].serie()->count() > m_maximumPoints) {
-        _plots[name].serie()->remove(0);
+    if (_plots.value(name)->serie()->count() > m_maximumPoints) {
+        _plots.value(name)->serie()->remove(0);
     }
-    _plots[name].pushPoint(value);
+    _plots.value(name)->pushPoint(value);
     update();
 }
 

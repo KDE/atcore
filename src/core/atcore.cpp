@@ -18,6 +18,7 @@
 #include <QThread>
 #include <QTime>
 #include <QTimer>
+#include <QVariant>
 
 #include "atcore.h"
 #include "atcore_default_folders.h"

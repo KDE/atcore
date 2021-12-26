@@ -9,7 +9,7 @@ configure_file(
     ${CMAKE_CURRENT_BINARY_DIR}/atcore_default_folders.h
 )
 
-find_package(Qt5 REQUIRED COMPONENTS
+find_package(Qt${QT_MAJOR_VERSION} REQUIRED COMPONENTS
     Quick
 )
 
@@ -101,13 +101,13 @@ install(
         AtCoreTargets
     ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
 )
-
-ecm_generate_pri_file(
-    BASE_NAME AtCore
-    LIB_NAME AtCore
-    DEPS "Qt5Core Qt5SerialPort"
-    FILENAME_VAR PRI_FILENAME
-    INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/include/AtCore
-)
-
-install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
+if(${QT_MAJOR_VERSION} EQUAL "5")
+  ecm_generate_pri_file(
+      BASE_NAME AtCore
+      LIB_NAME AtCore
+      DEPS "Qt${QT_MAJOR_VERSION}Core Qt${QT_MAJOR_VERSION}SerialPort"
+      FILENAME_VAR PRI_FILENAME
+      INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/include/AtCore
+  )
+  install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
+endif()

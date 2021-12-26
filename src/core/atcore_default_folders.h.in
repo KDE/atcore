@@ -17,7 +17,12 @@ namespace AtCoreDirectories {
         , QStringLiteral("%1/AtCore").arg(appPath)
         , QDir(QStringLiteral("%1/../Plugins/AtCore").arg(appPath)).absolutePath()
         , QStringLiteral("@CMAKE_INSTALL_PREFIX@/@KDE_INSTALL_PLUGINDIR@/AtCore")
-        , QStringLiteral("%1/AtCore").arg(QLibraryInfo::location(QLibraryInfo::PluginsPath))
+            , QStringLiteral("%1/AtCore")
+    #if(QT_VERSION_MAJOR == 6)
+                                        .arg(QLibraryInfo::path(QLibraryInfo::PluginsPath))
+    #else
+                                        .arg(QLibraryInfo::location(QLibraryInfo::PluginsPath))
+    #endif
         , QStringLiteral("@KDE_INSTALL_PLUGINDIR@/AtCore")
     };
     const QString pluginExtFilter =

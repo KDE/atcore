@@ -33,6 +33,12 @@ BedDeform::BedDeform(QObject *parent)
     , d(new BedDeformPrivate)
 {
 }
+
+BedDeform::~BedDeform()
+{
+    delete d;
+    QObject::~QObject();
+}
 void BedDeform::decodeDeform(const QStringList &rawData)
 {
     d->bedData.clear();

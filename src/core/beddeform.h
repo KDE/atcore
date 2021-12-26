@@ -6,6 +6,7 @@
 #pragma once
 
 #include <QObject>
+#include <QVariant>
 
 #include "atcore_export.h"
 
@@ -25,6 +26,8 @@ public:
      * @param parent: Objects parent
      */
     explicit BedDeform(QObject *parent = nullptr);
+
+    ~BedDeform();
     /**
      * @brief decodeDeform Decode the deform list from the provided lines
      * @param rawData: raw returns containing deform data

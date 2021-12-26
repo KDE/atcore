@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: AtCore Authors
 # SPDX-License-Identifier: BSD-3-Clause
-find_package(Qt5 REQUIRED COMPONENTS
+find_package(Qt${QT_DEFAULT_MAJOR_VERSION} REQUIRED COMPONENTS
     Test
 )
 # Helper macro TEST used to created rules to build, link, install and run tests

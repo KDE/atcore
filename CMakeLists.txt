@@ -4,7 +4,7 @@
 project(AtCore)
 
 cmake_minimum_required(VERSION 3.8)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(ECM REQUIRED NO_MODULE)
@@ -42,7 +42,6 @@ set_package_properties(
     URL "git://anongit.kde.org/extra-cmake-modules")
 
 set(PROJECT_VERSION "1.0.72")
-set(REQUIRED_QT_VERSION 5.15.0)
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/AtCore")
 
 # Generate version check file.
@@ -69,9 +68,12 @@ IF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
 ENDIF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
 
 add_definitions(-DQT_NO_CAST_FROM_ASCII
-                -DQT_NO_URL_CAST_FROM_STRING)
+                -DQT_NO_URL_CAST_FROM_STRING
+)
 
-find_package(Qt5 REQUIRED COMPONENTS
+set(QT_MIN_VERSION 5.15.2)
+
+find_package(Qt${QT_MAJOR_VERSION} REQUIRED COMPONENTS
     Core
     SerialPort
     Charts

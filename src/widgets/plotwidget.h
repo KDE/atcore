@@ -77,7 +77,7 @@ private:
 
         ~plot()
         {
-            // Series will be deleted with chart
+            delete _series;// Series will be deleted with chart
         }
 
         void pushPoint(float value)
@@ -120,6 +120,6 @@ private:
     QChartView *_chart;
     QDateTimeAxis *_axisX;
     QValueAxis *_axisY;
-    QMap<QString, plot> _plots;
+    QMap<QString, plot*> _plots;
     int m_maximumPoints;
 };
