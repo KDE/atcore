@@ -7,7 +7,7 @@
   <id>org.kde.atcore.desktop</id>
   <name>AtCore Test Client</name>
   <name xml:lang="ca">Client de prova de l'AtCore</name>
-  <name xml:lang="ca-valencia">Client de prova de l'AtCore</name>
+  <name xml:lang="ca-valencia">Client de prova d'AtCore</name>
   <name xml:lang="cs">Testovací klient AtCore</name>
   <name xml:lang="da">AtCore-testklient</name>
   <name xml:lang="de">AtCore-Testprogramm</name>
@@ -72,7 +72,7 @@
         AtCore is the API that controls the 3DPrinter and its basic functionalities. AtCore comes with a test client called atcore-gui to manage your printer.
     </p>
     <p xml:lang="ca">L'AtCore és l'API que controla la impressora 3D i les seves funcionalitats bàsiques. L'AtCore ve amb client de prova anomenant «atcore-gui» per a gestionar la impressora.</p>
-    <p xml:lang="ca-valencia">L'AtCore és l'API que controla la impressora 3D i les seues funcionalitats bàsiques. L'AtCore ve amb client de prova anomenant «atcore-gui» per a gestionar la impressora.</p>
+    <p xml:lang="ca-valencia">AtCore és l'API que controla la impressora 3D i les seues funcionalitats bàsiques. AtCore ve amb client de prova anomenant «atcore-gui» per a gestionar la impressora.</p>
     <p xml:lang="de">AtCore ist die API, die den 3DDrucker und seine grundlegenden Funktionalitäten steuert. AtCore wird mit einem Test-Programm namens atcore-gui geliefert, um Ihren Drucker zu verwalten.</p>
     <p xml:lang="el">Το AtCore είναι το API που ελέγχει τον 3D εκτυπωτή και τις βασικές λειτουργίες του. Το AtCore συνοδεύεται από έναν πελάτη δοκιμών που ονομάζεται atcore-gui για τη διαχείριση του εκτυπωτή.</p>
     <p xml:lang="en-GB">AtCore is the API that controls the 3DPrinter and its basic functionalities. AtCore comes with a test client called atcore-gui to manage your printer.</p>
@@ -102,7 +102,7 @@
         This is an AtCore test application to showcase the framework.
     </p>
     <p xml:lang="ca">Aquesta és una aplicació de prova de l'AtCore per a exposar l'entorn de treball.</p>
-    <p xml:lang="ca-valencia">Esta és una aplicació de prova de l'AtCore per a exposar l'entorn de treball.</p>
+    <p xml:lang="ca-valencia">Esta és una aplicació de prova d'AtCore per a exposar l'entorn de treball.</p>
     <p xml:lang="de">Dies ist eine AtCore-Testanwendung, um das Framework demonstrieren.</p>
     <p xml:lang="el">Αυτή είναι μια εφαρμογή δοκιμών του AtCore για την παρουσίαση του πλαισίου.</p>
     <p xml:lang="en-GB">This is an AtCore test application to showcase the framework.</p>
