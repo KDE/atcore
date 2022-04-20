@@ -43,7 +43,7 @@ set_package_properties(
 
 set(PROJECT_VERSION "1.0.72")
 set(REQUIRED_QT_VERSION 5.15.0)
-set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/AtCore")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/AtCore")
 
 # Generate version check file.
 ecm_setup_version(${PROJECT_VERSION}
@@ -124,7 +124,7 @@ install(FILES
 
 install(FILES
     "${CMAKE_CURRENT_BINARY_DIR}/atcore_version.h"
-    DESTINATION "${INCLUDE_INSTALL_DIR}/AtCore/"
+    DESTINATION "${KDE_INSTALL_INCLUDEDIR}/AtCore/"
     COMPONENT Devel
 )
 

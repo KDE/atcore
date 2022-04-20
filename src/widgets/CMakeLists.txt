@@ -17,7 +17,7 @@ set(widgetsLIB_SRCS
 add_library(AtCoreWidgets ${widgetsLIB_SRCS})
 target_link_libraries(AtCoreWidgets AtCore::AtCore Qt::Core Qt::Widgets Qt::Charts)
 
-set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/AtCore")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/AtCore")
 configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/AtCoreWidgetsConfig.cmake.in"
                               "${CMAKE_CURRENT_BINARY_DIR}/AtCoreWidgetsConfig.cmake"
                               INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
