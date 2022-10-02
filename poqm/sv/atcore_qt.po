@@ -1,0 +1,1919 @@
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2017, 2018, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2019-05-24 22:11+0100\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
+"Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Qt-Contexts: true\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: src/core/atcore.cpp:140
+msgctxt "AtCore|"
+msgid "Waiting for firmware detect."
+msgstr "Väntar på detektering av fast programvara."
+
+#: src/core/atcore.cpp:194
+#, qt-format
+msgctxt "AtCore|"
+msgid "Connected to printer using %1 plugin"
+msgstr "Ansluten till skrivaren med användning av insticksprogrammet %1"
+
+#: src/core/atcore.cpp:198
+#, qt-format
+msgctxt "AtCore|"
+msgid "No plugin found for %1."
+msgstr "Inget insticksprogram hittades för %1."
+
+#: src/core/atcore.cpp:237
+msgctxt "AtCore|"
+msgid "Waiting for machine restart"
+msgstr "Väntar på omstart av skrivaren"
+
+#: src/core/atcore.cpp:248
+msgctxt "AtCore|"
+msgid "Failed to open device in read/write mode."
+msgstr "Misslyckades öppna enhet för läsning och skrivning."
+
+#: src/core/atcore.cpp:867
+msgctxt "AtCore|"
+msgid "Device not found"
+msgstr "Enhet hittades inte"
+
+#: src/core/atcore.cpp:870
+msgctxt "AtCore|"
+msgid "Unable to write to device"
+msgstr "Kan inte skriva till enhet"
+
+#: src/core/atcore.cpp:873
+msgctxt "AtCore|"
+msgid "Unable to read from device"
+msgstr "Kan inte läsa från enhet"
+
+#: src/core/atcore.cpp:877
+msgctxt "AtCore|"
+msgid "The device no longer available"
+msgstr "Enheten inte längre tillgänglig"
+
+#: src/core/atcore.cpp:881
+msgctxt "AtCore|"
+msgid "Device does not support the operation"
+msgstr "Enheten stöder inte åtgärden"
+
+#: src/core/atcore.cpp:884
+msgctxt "AtCore|"
+msgid "Unknown Error"
+msgstr "Okänt fel"
+
+#: src/core/gcodecommands.cpp:12
+#, qt-format
+msgctxt "QObject|"
+msgid "%1%2: requires an argument"
+msgstr "%1%2: kräver ett argument"
+
+#: src/core/gcodecommands.cpp:13
+msgctxt "QObject|"
+msgid "Not implemented or not supported!"
+msgstr "Inte implementerat eller stöds inte."
+
+#: src/core/gcodecommands.cpp:19
+msgctxt "QObject|"
+msgid "G0: Rapid linear move"
+msgstr "G0: Snabb linjär förflyttning"
+
+#: src/core/gcodecommands.cpp:21
+msgctxt "QObject|"
+msgid "G1: Linear move"
+msgstr "G1: Linjär förflyttning"
+
+#: src/core/gcodecommands.cpp:23
+msgctxt "QObject|"
+msgid "G2: Controlled Arc Move clockwise"
+msgstr "G2: Styrd  medurs förflyttning i båge"
+
+#: src/core/gcodecommands.cpp:25
+msgctxt "QObject|"
+msgid "G3: Controlled Arc Move counterclockwise"
+msgstr "G3: Styrd  moturs förflyttning i båge"
+
+#: src/core/gcodecommands.cpp:27
+msgctxt "QObject|"
+msgid "G4: Dwell"
+msgstr "G4: Håll"
+
+#: src/core/gcodecommands.cpp:29
+msgctxt "QObject|"
+msgid "G10: Retract"
+msgstr "G10: Dra tillbaka"
+
+#: src/core/gcodecommands.cpp:31
+msgctxt "QObject|"
+msgid "G11: Unretract"
+msgstr "G11: Sträck ut"
+
+#: src/core/gcodecommands.cpp:33
+msgctxt "QObject|"
+msgid "G20: Set units to inches"
+msgstr "G20: Ställ in enhet till tum"
+
+#: src/core/gcodecommands.cpp:35
+msgctxt "QObject|"
+msgid "G21: Set units to millimeters"
+msgstr "G21: Ställ in enhet till millimeter"
+
+#: src/core/gcodecommands.cpp:37
+msgctxt "QObject|"
+msgid "G28: Move to Origin Home"
+msgstr "G28: Flytta till origo hem"
+
+#: src/core/gcodecommands.cpp:39
+msgctxt "QObject|"
+msgid "G29: Detailed Z-Probe"
+msgstr "G29: Detaljerad z-sondering"
+
+#: src/core/gcodecommands.cpp:41
+msgctxt "QObject|"
+msgid "G30: Single Z-Probe"
+msgstr "G30: Enkel z-sondering"
+
+#: src/core/gcodecommands.cpp:43
+msgctxt "QObject|"
+msgid "G31: Set or report current probe status / Dock Z Probe sled for Marlin"
+msgstr ""
+"G31: Ställ in eller rapportera aktuell sonderingsstatus / Docka z-"
+"sonderingssläde för Marlin"
+
+#: src/core/gcodecommands.cpp:45
+msgctxt "QObject|"
+msgid ""
+"G32: Probe Z and calculate Z plane(Bed Leveling)/ UnDoc Z Probe sled for "
+"Marlin"
+msgstr ""
+"G32: Sondera z och beräkna z-plan (bäddutjämning)/ Frigör z-sonderingssläde "
+"för Marlin"
+
+#: src/core/gcodecommands.cpp:47
+msgctxt "QObject|"
+msgid "G33: Measure/List/Adjust Distortion Matrix"
+msgstr "G33: Mät, lista, justera distorsionsmatris"
+
+#: src/core/gcodecommands.cpp:49
+msgctxt "QObject|"
+msgid "G90: Set to absolute positioning"
+msgstr "G90: Ställ in till absolut positionering"
+
+#: src/core/gcodecommands.cpp:51
+msgctxt "QObject|"
+msgid "G91: Set to relative positioning"
+msgstr "G91: Ställ in till relativ positionering"
+
+#: src/core/gcodecommands.cpp:53
+msgctxt "QObject|"
+msgid "G92: Set position"
+msgstr "G92: Ställ in position"
+
+#: src/core/gcodecommands.cpp:55
+msgctxt "QObject|"
+msgid "G100: Calibrate floor or rod radius"
+msgstr "G100: Kalibrera golv eller stångradie"
+
+#: src/core/gcodecommands.cpp:57
+msgctxt "QObject|"
+msgid "G130: Set digital potentiometer value"
+msgstr "G130: Ställ in värde för digital potentiometer"
+
+#: src/core/gcodecommands.cpp:59
+msgctxt "QObject|"
+msgid "G131: Recase Move offset"
+msgstr "G131: Återlägg förflyttningsposition"
+
+#: src/core/gcodecommands.cpp:61
+msgctxt "QObject|"
+msgid "G132: Calibrate endstops offsets"
+msgstr "G132: Kalibrera position för slutstopp"
+
+#: src/core/gcodecommands.cpp:63
+msgctxt "QObject|"
+msgid "G133: Measure steps to top"
+msgstr "G133: Mät steg till toppen"
+
+#: src/core/gcodecommands.cpp:65
+msgctxt "QObject|"
+msgid "G161: Home axis to minimum"
+msgstr "G161: Hemaxel till minimum"
+
+#: src/core/gcodecommands.cpp:67
+msgctxt "QObject|"
+msgid "G162: Home axis to maximum"
+msgstr "G162: Hemaxel till maximum"
+
+#: src/core/gcodecommands.cpp:99
+msgctxt "QObject|"
+msgid "M0: Stop or unconditional stop"
+msgstr "M0: Stopp eller ovillkorligt stopp"
+
+#: src/core/gcodecommands.cpp:101
+msgctxt "QObject|"
+msgid "M1: Sleep or unconditional stop"
+msgstr "M1: Viloläge eller ovillkorligt stopp"
+
+#: src/core/gcodecommands.cpp:103
+msgctxt "QObject|"
+msgid "M2: Program End"
+msgstr "M2: Programslut"
+
+#: src/core/gcodecommands.cpp:105
+msgctxt "QObject|"
+msgid "M6: Tool Change"
+msgstr "M6: Verktygsändring"
+
+#: src/core/gcodecommands.cpp:107
+msgctxt "QObject|"
+msgid "M17: Enable/power all steppers motors"
+msgstr "M17: Aktivera, sätt på alla stegmotorer"
+
+#: src/core/gcodecommands.cpp:109
+msgctxt "QObject|"
+msgid "M18: Disable all steppers motors"
+msgstr "M18: Inaktivera alla stegmotorer"
+
+#: src/core/gcodecommands.cpp:111
+msgctxt "QObject|"
+msgid "M20: List SDCard"
+msgstr "M20: Lista SD-kort"
+
+#: src/core/gcodecommands.cpp:113
+msgctxt "QObject|"
+msgid "M21: Initialize SDCard"
+msgstr "M21: Initiera SD-kort"
+
+#: src/core/gcodecommands.cpp:115
+msgctxt "QObject|"
+msgid "M22: Release SDCard"
+msgstr "M22: Koppla bort SD-kort"
+
+#: src/core/gcodecommands.cpp:117
+msgctxt "QObject|"
+msgid "M23: Select SD file"
+msgstr "M23: Välj SD-fil"
+
+#: src/core/gcodecommands.cpp:119
+msgctxt "QObject|"
+msgid "M24: Start/resume SD print"
+msgstr "M24: Starta, återuppta, SD-utskrift"
+
+#: src/core/gcodecommands.cpp:121
+msgctxt "QObject|"
+msgid "M25: Pause SD print"
+msgstr "M25: Paus i SD-utskrift"
+
+#: src/core/gcodecommands.cpp:123
+msgctxt "QObject|"
+msgid "M26: Set SD position"
+msgstr "M26: Ställ in SD-position"
+
+#: src/core/gcodecommands.cpp:125
+msgctxt "QObject|"
+msgid "M27: Report SD print status"
+msgstr "M27: Rapportera SD-utskriftsstatus"
+
+#: src/core/gcodecommands.cpp:127
+msgctxt "QObject|"
+msgid "M28: Begin write to SD card"
+msgstr "M28: Börja skriva till SD-kort"
+
+#: src/core/gcodecommands.cpp:129
+msgctxt "QObject|"
+msgid "M29: Stop writing to SD card"
+msgstr "M29: Sluta skriva till SD-kort"
+
+#: src/core/gcodecommands.cpp:131
+msgctxt "QObject|"
+msgid "M30: Delete a file on the SD card"
+msgstr "M30: Ta bort en fil på SD-kortet"
+
+#: src/core/gcodecommands.cpp:133
+msgctxt "QObject|"
+msgid "M31: Output time since last M109 or SD card start to serial"
+msgstr ""
+"M31: Mata ut tid sedan senaste M109 or eller SD-kort start till seriell"
+
+#: src/core/gcodecommands.cpp:135
+msgctxt "QObject|"
+msgid "M32: Select file and start SD print"
+msgstr "M32: Välj fil och börja SD-utskrift"
+
+#: src/core/gcodecommands.cpp:137
+msgctxt "QObject|"
+msgid "M33: Get the long name for an SD card file or folder"
+msgstr "M33: Hämta det långa namnet på en SD-kort-fil eller -katalog"
+
+#: src/core/gcodecommands.cpp:139
+msgctxt "QObject|"
+msgid "M34: Set SD file sorting options"
+msgstr "M34: Ställ in sorteringsalternativ för SD-filer"
+
+#: src/core/gcodecommands.cpp:141
+msgctxt "QObject|"
+msgid "M36: Return file information"
+msgstr "M36: Returnera filinformation"
+
+#: src/core/gcodecommands.cpp:143
+msgctxt "QObject|"
+msgid "M42: Switch I/O pin"
+msgstr "M42: Byt in- och utmatningsanslutning"
+
+#: src/core/gcodecommands.cpp:145
+msgctxt "QObject|"
+msgid "M48: Measure Z-Probe repeatability"
+msgstr "M48: Mät upprepningsbarhet för z-sondering"
+
+#: src/core/gcodecommands.cpp:147
+msgctxt "QObject|"
+msgid "M70: Display message"
+msgstr "M70: Visa meddelande"
+
+#: src/core/gcodecommands.cpp:149
+msgctxt "QObject|"
+msgid "M72: Play a tone or song"
+msgstr "M72: Spela upp en ton eller sång"
+
+#: src/core/gcodecommands.cpp:151
+msgctxt "QObject|"
+msgid "M73: Set build percentage"
+msgstr "M73: Ställ in byggprocent"
+
+#: src/core/gcodecommands.cpp:153
+msgctxt "QObject|"
+msgid "M80: ATX Power On"
+msgstr "M80: Sätt på ATX"
+
+#: src/core/gcodecommands.cpp:155
+msgctxt "QObject|"
+msgid "M81: ATX Power Off"
+msgstr "M81: Stäng av ATX"
+
+#: src/core/gcodecommands.cpp:157
+msgctxt "QObject|"
+msgid "M82: Set extruder to absolute mode"
+msgstr "M82: Ställ in extruder till absolut läge"
+
+#: src/core/gcodecommands.cpp:159
+msgctxt "QObject|"
+msgid "M83: Set extruder to relative mode"
+msgstr "M83: Ställ in extruder till relativt läge"
+
+#: src/core/gcodecommands.cpp:161
+msgctxt "QObject|"
+msgid "M84: Stop idle hold"
+msgstr "M84: Stoppa viloläge"
+
+#: src/core/gcodecommands.cpp:163
+msgctxt "QObject|"
+msgid "M85: Set Inactivity shutdown timer"
+msgstr "M85: Ställ in timer för inaktivitetsavstängning"
+
+#: src/core/gcodecommands.cpp:165
+msgctxt "QObject|"
+msgid "M92: Set axis steps per unit"
+msgstr "M92: Ställ in axelsteg per enhet"
+
+#: src/core/gcodecommands.cpp:167
+msgctxt "QObject|"
+msgid "M93: Send axis steps per unit"
+msgstr "M93: Skicka axelsteg per enhet"
+
+#: src/core/gcodecommands.cpp:169
+msgctxt "QObject|"
+msgid "M98: Call Macro/Subprogram"
+msgstr "M98: Anropa makro eller delprogram"
+
+#: src/core/gcodecommands.cpp:171
+msgctxt "QObject|"
+msgid "M99: Return from Macro/Subprogram"
+msgstr "M99: Returnera från makro eller delprogram"
+
+#: src/core/gcodecommands.cpp:173
+msgctxt "QObject|"
+msgid "M101: Turn extruder 1 on Forward, Undo Retraction"
+msgstr "M101: Sätt på extruder 1 framåt, ångra tillbakadragning"
+
+#: src/core/gcodecommands.cpp:175
+msgctxt "QObject|"
+msgid "M103: Turn all extruders off - Extruder Retraction"
+msgstr "M03: Stäng av alla extrudrar - tillbakadragning av extrudrar"
+
+#: src/core/gcodecommands.cpp:177
+msgctxt "QObject|"
+msgid "M104: Set Extruder Temperature"
+msgstr "M104: Ställ in extrudertemperatur"
+
+#: src/core/gcodecommands.cpp:179
+msgctxt "QObject|"
+msgid "M105: Get Extruder Temperature"
+msgstr "M105: Hämta extrudertemperatur"
+
+#: src/core/gcodecommands.cpp:181
+msgctxt "QObject|"
+msgid "M106: Fan On"
+msgstr "M106: Fläkt på"
+
+#: src/core/gcodecommands.cpp:183
+msgctxt "QObject|"
+msgid "M107: Fan Off"
+msgstr "M107: Fläkt av"
+
+#: src/core/gcodecommands.cpp:185
+msgctxt "QObject|"
+msgid "M108: Cancel Heating"
+msgstr "M108: Avbryt uppvärmning"
+
+#: src/core/gcodecommands.cpp:187
+msgctxt "QObject|"
+msgid "M109: Set Extruder Temperature and Wait"
+msgstr "M109: Ställ in extrudertemperatur och vänta"
+
+#: src/core/gcodecommands.cpp:189
+msgctxt "QObject|"
+msgid "M110: Set Current Line Number"
+msgstr "M110: Ställ in aktuellt radnummer"
+
+#: src/core/gcodecommands.cpp:191
+msgctxt "QObject|"
+msgid "M111: Set Debug Level"
+msgstr "M111: Ställ in felsökningsnivå"
+
+#: src/core/gcodecommands.cpp:193
+msgctxt "QObject|"
+msgid "M112: Emergency Stop"
+msgstr "M112: Nödstopp"
+
+#: src/core/gcodecommands.cpp:195
+msgctxt "QObject|"
+msgid "M114: Get Current Position"
+msgstr "M114: Hämta aktuell position"
+
+#: src/core/gcodecommands.cpp:197
+msgctxt "QObject|"
+msgid "M115: Get Firmware Version and Capabilities"
+msgstr "M115: Hämta version och egenskaper för inbyggd programvara"
+
+#: src/core/gcodecommands.cpp:199
+msgctxt "QObject|"
+msgid "M116: Wait"
+msgstr "M116: Vänta"
+
+#: src/core/gcodecommands.cpp:201
+msgctxt "QObject|"
+msgid "M117: Display Message"
+msgstr "M117: Visa meddelande"
+
+#: src/core/gcodecommands.cpp:203
+msgctxt "QObject|"
+msgid "M119: Get Endstop Status"
+msgstr "M119: Hämta slutstoppstatus"
+
+#: src/core/gcodecommands.cpp:205
+msgctxt "QObject|"
+msgid ""
+"M120: Push for Smoothie and RepRap Firmware / Enable Endstop detection for "
+"Marlin"
+msgstr ""
+"M120: Lägg överst för Smoothie och RepRap inbyggd programvara / Aktivera "
+"detektering av slutstopp för Marlin"
+
+#: src/core/gcodecommands.cpp:207
+msgctxt "QObject|"
+msgid ""
+"M121: Pop for Smoothie and RepRap Firmware / Disable Endstop detection for "
+"Marlin"
+msgstr ""
+"M121: Ta bort översta för Smoothie och RepRap inbyggd programvara / "
+"Inaktivera detektering av slutstopp för Marlin"
+
+#: src/core/gcodecommands.cpp:209
+msgctxt "QObject|"
+msgid "M122: Diagnose"
+msgstr "M122: Diagnosticera"
+
+#: src/core/gcodecommands.cpp:211
+msgctxt "QObject|"
+msgid "M126: Open valve"
+msgstr "M126: Öppna ventil"
+
+#: src/core/gcodecommands.cpp:213
+msgctxt "QObject|"
+msgid "M127: Close valve"
+msgstr "M127: Stäng ventil"
+
+#: src/core/gcodecommands.cpp:215
+msgctxt "QObject|"
+msgid "M130: Set PID P value"
+msgstr "M130: Ställ in PID P-värde"
+
+#: src/core/gcodecommands.cpp:217
+msgctxt "QObject|"
+msgid "M131: Set PID I value"
+msgstr "M131: Ställ in PID I-värde"
+
+#: src/core/gcodecommands.cpp:219
+msgctxt "QObject|"
+msgid "M132: Set PID D value"
+msgstr "M132: Ställ in PID D-värde"
+
+#: src/core/gcodecommands.cpp:221
+msgctxt "QObject|"
+msgid "M133: Set PID I limit value"
+msgstr "M133: Ställ in PID I-gränsvärde"
+
+#: src/core/gcodecommands.cpp:223
+msgctxt "QObject|"
+msgid "M134: Write PID values to EEPROM"
+msgstr "M134: Skriv PID-värden till EEPROM"
+
+#: src/core/gcodecommands.cpp:225
+msgctxt "QObject|"
+msgid "M135: Set PID sample interval"
+msgstr "M135: Ställ in PID-samplingsintervall"
+
+#: src/core/gcodecommands.cpp:227
+msgctxt "QObject|"
+msgid "M140: Set Bed Temperature - Fast"
+msgstr "M140: Ställ in bäddtemperatur - snabb"
+
+#: src/core/gcodecommands.cpp:229
+msgctxt "QObject|"
+msgid "M141: Set Chamber Temperature - Fast"
+msgstr "M141: Ställ in kammartemperatur - snabb"
+
+#: src/core/gcodecommands.cpp:231
+msgctxt "QObject|"
+msgid "M143: Maximum hot-end temperature"
+msgstr "M143: Maximal varmluftstemperatur"
+
+#: src/core/gcodecommands.cpp:233
+msgctxt "QObject|"
+msgid "M144: Stand by your bed"
+msgstr "M144: Stå vid bädd"
+
+#: src/core/gcodecommands.cpp:235
+msgctxt "QObject|"
+msgid "M150: Set display color"
+msgstr "M150: Ställ in visningsfärg"
+
+#: src/core/gcodecommands.cpp:237
+msgctxt "QObject|"
+msgid "M155: Set Temperature auto report"
+msgstr "M155: Ställ in automatisk temperaturrapport"
+
+#: src/core/gcodecommands.cpp:239
+msgctxt "QObject|"
+msgid "M163: Set weight of mixed material"
+msgstr "M163: Ställ in vikt av blandat material"
+
+#: src/core/gcodecommands.cpp:241
+msgctxt "QObject|"
+msgid "M164: Store weights"
+msgstr "M164: Lagra vikter"
+
+#: src/core/gcodecommands.cpp:243
+msgctxt "QObject|"
+msgid "M190: Wait for bed temperature to reach target temp"
+msgstr "M190: Vänta på att bädden uppnår måltemperatur"
+
+#: src/core/gcodecommands.cpp:245
+msgctxt "QObject|"
+msgid "M200: Set filament diameter"
+msgstr "M200: Ställ in tråddiameter"
+
+#: src/core/gcodecommands.cpp:247
+msgctxt "QObject|"
+msgid "M201: Set max printing acceleration"
+msgstr "M201: Ställ in maximal utskriftsacceleration"
+
+#: src/core/gcodecommands.cpp:249
+msgctxt "QObject|"
+msgid "M202: Set max travel acceleration"
+msgstr "M202: Ställ in maximal rörelseacceleration"
+
+#: src/core/gcodecommands.cpp:251
+msgctxt "QObject|"
+msgid "M203: Set maximum feedrate"
+msgstr "M203: Ställ in maximal matningshastighet"
+
+#: src/core/gcodecommands.cpp:253
+msgctxt "QObject|"
+msgid "M204: Set default acceleration"
+msgstr "M204: Ställ in standardacceleration"
+
+#: src/core/gcodecommands.cpp:255
+msgctxt "QObject|"
+msgid "M205: Advanced settings"
+msgstr "M205: Avancerade inställningar"
+
+#: src/core/gcodecommands.cpp:257
+msgctxt "QObject|"
+msgid ""
+"M206: Offset axes for Sprinter, Marlin, Smoothie, RepRap Firmware / Set "
+"eeprom value for Repetier"
+msgstr ""
+"M206: Positionera axlar för Sprinter, Marlin, Smoothie, RepRap inbyggd "
+"programvara / Ställ in EEPROM-värde för Repetier"
+
+#: src/core/gcodecommands.cpp:259
+msgctxt "QObject|"
+msgid "M207: Set retract length"
+msgstr "M207: Ställ in tillbakadragninslängd"
+
+#: src/core/gcodecommands.cpp:261
+msgctxt "QObject|"
+msgid "M208: Set unretract length"
+msgstr "M207: Ställ in utsträckningslängd"
+
+#: src/core/gcodecommands.cpp:263
+msgctxt "QObject|"
+msgid "M209: Enable automatic retract"
+msgstr "M209: Aktivera automatisk tillbakadragning"
+
+#: src/core/gcodecommands.cpp:265
+msgctxt "QObject|"
+msgid "M212: Set Bed Level Sensor Offset"
+msgstr "M212: Ställ in bäddnivåns sensorposition"
+
+#: src/core/gcodecommands.cpp:267
+msgctxt "QObject|"
+msgid "M218: Set Hotend Offset"
+msgstr "M218: Ställ in position för varmslut"
+
+#: src/core/gcodecommands.cpp:269
+msgctxt "QObject|"
+msgid "M220: Set speed factor override percentage"
+msgstr "M220: Ställ in överskridningsprocent för hastighetsfaktor"
+
+#: src/core/gcodecommands.cpp:271
+msgctxt "QObject|"
+msgid "M221: Set extrude factor override percentage"
+msgstr "M221: Ställ in överskridningsprocent för extruderingsfaktor"
+
+#: src/core/gcodecommands.cpp:273
+msgctxt "QObject|"
+msgid "M226: Wait for pin state"
+msgstr "M226: Vänta på anslutningstillstånd"
+
+#: src/core/gcodecommands.cpp:275
+msgctxt "QObject|"
+msgid "M231: Set OPS parameter"
+msgstr "M231: Ställ in OPS-parameter"
+
+#: src/core/gcodecommands.cpp:277
+msgctxt "QObject|"
+msgid "M232: Read and reset max. advance values"
+msgstr "M232: Läs och nollställ maximala framåtvärden"
+
+#: src/core/gcodecommands.cpp:279
+msgctxt "QObject|"
+msgid "M240: Trigger camera"
+msgstr "M240: Utlös kamera"
+
+#: src/core/gcodecommands.cpp:281
+msgctxt "QObject|"
+msgid "M250: Set LCD contrast"
+msgstr "M250: Ställ in LCD-kontrast"
+
+#: src/core/gcodecommands.cpp:283
+msgctxt "QObject|"
+msgid "M251: Measure Z steps from homing stop (Delta printers)"
+msgstr "M251: Mät z-steg från hemstopp (Delta-skrivare)"
+
+#: src/core/gcodecommands.cpp:285
+msgctxt "QObject|"
+msgid "M280: Set servo position"
+msgstr "M280: Ställ in servoposition"
+
+#: src/core/gcodecommands.cpp:287
+msgctxt "QObject|"
+msgid "M300: Play beep sound"
+msgstr "M300: Avge ljudsignal"
+
+#: src/core/gcodecommands.cpp:289
+msgctxt "QObject|"
+msgid "M301: Set PID parameters"
+msgstr "M301: Ställ in PID-parametrar"
+
+#: src/core/gcodecommands.cpp:291
+msgctxt "QObject|"
+msgid "M302: Allow cold extrudes "
+msgstr "M302: Tillåt kallextrudering"
+
+#: src/core/gcodecommands.cpp:293
+msgctxt "QObject|"
+msgid "M303: Run PID tuning"
+msgstr "M303: Utför PID-avstämning"
+
+#: src/core/gcodecommands.cpp:295
+msgctxt "QObject|"
+msgid "M304: Set PID parameters - Bed"
+msgstr "M304: Ställ in PID-parametrar - bädd"
+
+#: src/core/gcodecommands.cpp:297
+msgctxt "QObject|"
+msgid "M305: Set thermistor and ADC parameters"
+msgstr "M305: Ställ in termistor- och ADC-parametrar"
+
+#: src/core/gcodecommands.cpp:299
+msgctxt "QObject|"
+msgid "M306: set home offset calculated from toolhead position"
+msgstr "M306: Ställ in hemförskjutning beräknad från verktygshuvudets position"
+
+#: src/core/gcodecommands.cpp:301
+msgctxt "QObject|"
+msgid "M320: Activate autolevel (Repetier)"
+msgstr "M320: Aktivera automatisk nivå (Repetier)"
+
+#: src/core/gcodecommands.cpp:303
+msgctxt "QObject|"
+msgid "M321: Deactivate autolevel (Repetier)"
+msgstr "M321: Inaktivera automatisk nivå (Repetier)"
+
+#: src/core/gcodecommands.cpp:305
+msgctxt "QObject|"
+msgid "M322: Reset autolevel matrix (Repetier)"
+msgstr "M322: Nollställ automatisk nivåmatris (Repetier)"
+
+#: src/core/gcodecommands.cpp:307
+msgctxt "QObject|"
+msgid "M323: Distortion correction on/off (Repetier)"
+msgstr "M323: Distortionskorrigering på/av (Repetier)"
+
+#: src/core/gcodecommands.cpp:309
+msgctxt "QObject|"
+msgid "M340: Control the servos"
+msgstr "M340: Kontrollera servon"
+
+#: src/core/gcodecommands.cpp:311
+msgctxt "QObject|"
+msgid "M350: Set microstepping mode"
+msgstr "M350: Ställ in mikrostegläge"
+
+#: src/core/gcodecommands.cpp:313
+msgctxt "QObject|"
+msgid "M351: Toggle MS1 MS2 pins directly"
+msgstr "M351: Ändra MS1 MS2-anslutningar direkt"
+
+#: src/core/gcodecommands.cpp:315
+msgctxt "QObject|"
+msgid "M355: Turn case lights on/off"
+msgstr "M355: Sätt på eller stäng av huvljus"
+
+#: src/core/gcodecommands.cpp:317
+msgctxt "QObject|"
+msgid "M360: Report firmware configuration"
+msgstr "M360: Rapportera konfiguration av inbyggd programvara"
+
+#: src/core/gcodecommands.cpp:319
+msgctxt "QObject|"
+msgid "M361: Move to Theta 90 degree position"
+msgstr "M361: Gå till theta 90 graders position"
+
+#: src/core/gcodecommands.cpp:321
+msgctxt "QObject|"
+msgid "M362: Move to Psi 0 degree position"
+msgstr "M362: Gå till psi 0 graders position"
+
+#: src/core/gcodecommands.cpp:323
+msgctxt "QObject|"
+msgid "M363: Move to Psi 90 degree position"
+msgstr "M363: Gå till psi 90 graders position"
+
+#: src/core/gcodecommands.cpp:325
+msgctxt "QObject|"
+msgid "M364: Move to Psi + Theta 90 degree position"
+msgstr "M364: Gå till psi + theta 90 graders position"
+
+#: src/core/gcodecommands.cpp:327
+msgctxt "QObject|"
+msgid "M365: SCARA scaling factor"
+msgstr "M365: SCARA-skalfaktor"
+
+#: src/core/gcodecommands.cpp:329
+msgctxt "QObject|"
+msgid "M366: SCARA convert trim"
+msgstr "M366: SCARA konvertera intrimning"
+
+#: src/core/gcodecommands.cpp:331
+msgctxt "QObject|"
+msgid "M370: Morgan manual bed level - clear map"
+msgstr "M370: Morgan manuell bäddnivå - rensa avbild"
+
+#: src/core/gcodecommands.cpp:333
+msgctxt "QObject|"
+msgid "M371: Move to next calibration position"
+msgstr "M371: Gå till nästa kalibreringsposition"
+
+#: src/core/gcodecommands.cpp:335
+msgctxt "QObject|"
+msgid "M372: Record calibration value, and move to next position"
+msgstr "M372: Lagra kalibreringsvärde, och gå till nästa position"
+
+#: src/core/gcodecommands.cpp:337
+msgctxt "QObject|"
+msgid "M373: End bed level calibration mode"
+msgstr "M373: Avsluta bäddnivåns kalibreringsläge"
+
+#: src/core/gcodecommands.cpp:339
+msgctxt "QObject|"
+msgid "M374: Save calibration grid"
+msgstr "M374: Spara kalibreringsnät"
+
+#: src/core/gcodecommands.cpp:341
+msgctxt "QObject|"
+msgid "M375: Display matrix / Load Matrix"
+msgstr "M375: Visa matris / Läs in matris"
+
+#: src/core/gcodecommands.cpp:343
+msgctxt "QObject|"
+msgid "M380: Activate solenoid"
+msgstr "M380: Aktivera solenoid"
+
+#: src/core/gcodecommands.cpp:345
+msgctxt "QObject|"
+msgid "M381: Disable all solenoids"
+msgstr "M381: Inaktivera alla solenoider"
+
+#: src/core/gcodecommands.cpp:347
+msgctxt "QObject|"
+msgid "M400: Wait for current moves to finish"
+msgstr "M400: Vänta på att pågående förflyttningar slutförs"
+
+#: src/core/gcodecommands.cpp:349
+msgctxt "QObject|"
+msgid "M401: Lower z-probe"
+msgstr "M401: Sänk z-sond"
+
+#: src/core/gcodecommands.cpp:351
+msgctxt "QObject|"
+msgid "M402: Raise z-probe"
+msgstr "M402: Höj z-sond"
+
+#: src/core/gcodecommands.cpp:353
+msgctxt "QObject|"
+msgid "M404: Filament width and nozzle diameter"
+msgstr "M404: Trådbredd och munstyckesdiameter"
+
+#: src/core/gcodecommands.cpp:355
+msgctxt "QObject|"
+msgid "M405: Filament Sensor on"
+msgstr "M405: Trådsensor på"
+
+#: src/core/gcodecommands.cpp:357
+msgctxt "QObject|"
+msgid "M406: Filament Sensor off"
+msgstr "M40t: Trådsensor av"
+
+#: src/core/gcodecommands.cpp:359
+msgctxt "QObject|"
+msgid "M407: Display filament diameter"
+msgstr "M407: Visa tråddiameter"
+
+#: src/core/gcodecommands.cpp:361
+msgctxt "QObject|"
+msgid "M408: Report JSON-style response"
+msgstr "M408: Rapportera svar med JSON-stil"
+
+#: src/core/gcodecommands.cpp:363
+msgctxt "QObject|"
+msgid "M420: Enable/Disable Mesh Leveling (Marlin)"
+msgstr "M420: Aktivera/Inaktivera nätverksnivåjustering (Marlin)"
+
+#: src/core/gcodecommands.cpp:365
+msgctxt "QObject|"
+msgid "M450: Report Printer Mode"
+msgstr "M450: Rapportera utskriftsläge"
+
+#: src/core/gcodecommands.cpp:367
+msgctxt "QObject|"
+msgid "M451: Select FFF Printer Mode"
+msgstr "M451: Välj FFF-skrivarläge"
+
+#: src/core/gcodecommands.cpp:369
+msgctxt "QObject|"
+msgid "M452: Select Laser Printer Mode"
+msgstr "M452: Välj laserskrivarläge"
+
+#: src/core/gcodecommands.cpp:371
+msgctxt "QObject|"
+msgid "M453: Select CNC Printer Mode"
+msgstr "M453: Välj CNC-skrivarläge"
+
+#: src/core/gcodecommands.cpp:373
+msgctxt "QObject|"
+msgid "M460: Define temperature range for thermistor controlled fan"
+msgstr "M460: Definiera temperaturintervall för termistorstyrd fläkt"
+
+#: src/core/gcodecommands.cpp:375
+msgctxt "QObject|"
+msgid "M500: Store parameters in EEPROM"
+msgstr "M500: Lagra parametrar i EEPROM"
+
+#: src/core/gcodecommands.cpp:377
+msgctxt "QObject|"
+msgid "M501: Read parameters from EEPROM"
+msgstr "M501: Läs parametrar från EEPROM"
+
+#: src/core/gcodecommands.cpp:379
+msgctxt "QObject|"
+msgid "M502: Revert to the default 'factory settings'."
+msgstr "M502: Återgå till 'standardfabriksinställningar'."
+
+#: src/core/gcodecommands.cpp:381
+msgctxt "QObject|"
+msgid "M503: Print settings "
+msgstr "M503: Utskriftsinställningar"
+
+#: src/core/gcodecommands.cpp:383
+msgctxt "QObject|"
+msgid "M540: Enable/Disable 'Stop SD Print on Endstop Hit'"
+msgstr "M540: Aktivera/Inaktivera 'Stoppa SD-utskrift när slutstopp påträffas'"
+
+#: src/core/gcodecommands.cpp:385
+msgctxt "QObject|"
+msgid "M550: Set Name"
+msgstr "M550: Ange namn"
+
+#: src/core/gcodecommands.cpp:387
+msgctxt "QObject|"
+msgid "M551: Set Password"
+msgstr "M551: Ange lösenord"
+
+#: src/core/gcodecommands.cpp:389
+msgctxt "QObject|"
+msgid "M552: Set IP address"
+msgstr "M552: Ställ in IP-adress"
+
+#: src/core/gcodecommands.cpp:391
+msgctxt "QObject|"
+msgid "M553: Set Netmask"
+msgstr "M553: Ställ in nätmask"
+
+#: src/core/gcodecommands.cpp:393
+msgctxt "QObject|"
+msgid "M554: Set Gateway"
+msgstr "M554: Ställ in förmedlingsnod"
+
+#: src/core/gcodecommands.cpp:395
+msgctxt "QObject|"
+msgid "M555: Set compatibility"
+msgstr "M555: Ställ in kompatibilitet"
+
+#: src/core/gcodecommands.cpp:397
+msgctxt "QObject|"
+msgid "M556: Axis compensation"
+msgstr "M556: Axelkompensation"
+
+#: src/core/gcodecommands.cpp:399
+msgctxt "QObject|"
+msgid "M557: Set Z probe point"
+msgstr "M557: Ställ in z-sonderingspunkt"
+
+#: src/core/gcodecommands.cpp:401
+msgctxt "QObject|"
+msgid "M558: Set Z probe type"
+msgstr "M558: Ställ in z-sonderingstyp"
+
+#: src/core/gcodecommands.cpp:403
+msgctxt "QObject|"
+msgid "M559: Upload configuration file"
+msgstr "M559: Ladda upp konfigurationsfil"
+
+#: src/core/gcodecommands.cpp:405
+msgctxt "QObject|"
+msgid "M560: Upload web page file"
+msgstr "M560: Ladda upp webbsidefil"
+
+#: src/core/gcodecommands.cpp:407
+msgctxt "QObject|"
+msgid "M561: Set Identity Transform"
+msgstr "M561: Ställ in identitetstransform"
+
+#: src/core/gcodecommands.cpp:409
+msgctxt "QObject|"
+msgid "M562: Reset temperature fault"
+msgstr "M562: Nollställ temperaturfel"
+
+#: src/core/gcodecommands.cpp:411
+msgctxt "QObject|"
+msgid "M563: Define or remove a tool"
+msgstr "M563: Definiera eller ta bort ett verktyg"
+
+#: src/core/gcodecommands.cpp:413
+msgctxt "QObject|"
+msgid "M564: Limit axes"
+msgstr "M564: Begränsa axlar"
+
+#: src/core/gcodecommands.cpp:415
+msgctxt "QObject|"
+msgid "M565: Set Z probe offset"
+msgstr "M565: Ställ in position för z-sondering"
+
+#: src/core/gcodecommands.cpp:417
+msgctxt "QObject|"
+msgid "M566: Set allowable instantaneous speed change"
+msgstr "M566: Ställ in tillåten ögonblicklig hastighetsändring"
+
+#: src/core/gcodecommands.cpp:419
+msgctxt "QObject|"
+msgid "M567: Set tool mix ratio"
+msgstr "M567: Ställ in verktygsblandningsförhållande"
+
+#: src/core/gcodecommands.cpp:421
+msgctxt "QObject|"
+msgid "M568: Turn off/on tool mix ratio"
+msgstr "M568: Stäng av eller sätt på verktygsblandningsförhållande"
+
+#: src/core/gcodecommands.cpp:423
+msgctxt "QObject|"
+msgid "M569: Set axis direction and enable values"
+msgstr "M569: Ställ in axelriktning och aktivera värden"
+
+#: src/core/gcodecommands.cpp:425
+msgctxt "QObject|"
+msgid "M570: Set heater timeout"
+msgstr "M570: Ställ in tidsgräns för värmeelement"
+
+#: src/core/gcodecommands.cpp:427
+msgctxt "QObject|"
+msgid "M571: Set output on extrude"
+msgstr "M571: Ställ in utmatning vid extrudering"
+
+#: src/core/gcodecommands.cpp:429
+msgctxt "QObject|"
+msgid "M573: Report heater PWM"
+msgstr "M573: Rapportera pulsbreddsmodulering för värmeelement"
+
+#: src/core/gcodecommands.cpp:431
+msgctxt "QObject|"
+msgid "M574: Set endstop configuration"
+msgstr "M574: Ställ in slutstoppskonfiguration"
+
+#: src/core/gcodecommands.cpp:433
+msgctxt "QObject|"
+msgid "M575: Set serial comms parameters"
+msgstr "M575: Ställ in parametrar för seriell kommunikation"
+
+#: src/core/gcodecommands.cpp:435
+msgctxt "QObject|"
+msgid "M577: Wait until endstop is triggered"
+msgstr "M577: Vänta tills slutstopp utlöses"
+
+#: src/core/gcodecommands.cpp:437
+msgctxt "QObject|"
+msgid "M578: Fire inkjet bits"
+msgstr "M578: Avfyra bläckstrålebitar"
+
+#: src/core/gcodecommands.cpp:439
+msgctxt "QObject|"
+msgid "M579: Scale Cartesian axes"
+msgstr "M579: Skala kartesiska axlar"
+
+#: src/core/gcodecommands.cpp:441
+msgctxt "QObject|"
+msgid "M580: Select Roland"
+msgstr "M580: Välj Roland"
+
+#: src/core/gcodecommands.cpp:443
+msgctxt "QObject|"
+msgid "M600: Filament change pause"
+msgstr "M600: Paus för trådbyte"
+
+#: src/core/gcodecommands.cpp:445
+msgctxt "QObject|"
+msgid "M605: Set dual x-carriage movement mode"
+msgstr "M605: Ställ in dubbelt x-vagnförflyttningsläge"
+
+#: src/core/gcodecommands.cpp:447
+msgctxt "QObject|"
+msgid "M665: Set delta configuration"
+msgstr "M665: Ange deltakonfiguration"
+
+#: src/core/gcodecommands.cpp:449
+msgctxt "QObject|"
+msgid "M666: Set delta endstop adjustment"
+msgstr "M666: Ställ in deltajustering av slutstopp"
+
+#: src/core/gcodecommands.cpp:451
+msgctxt "QObject|"
+msgid "M667: Select CoreXY mode"
+msgstr "M667: Välj xy-kärnläge"
+
+#: src/core/gcodecommands.cpp:453
+msgctxt "QObject|"
+msgid "M851: Set Z-Probe Offset"
+msgstr "M851: Ställ in position för z-sondering"
+
+#: src/core/gcodecommands.cpp:455
+msgctxt "QObject|"
+msgid "M906: Set motor currents"
+msgstr "M906: Ställ in motorströmmar"
+
+#: src/core/gcodecommands.cpp:457
+msgctxt "QObject|"
+msgid "M907: Set digital trimpot motor"
+msgstr "M907: Ställ in motor för digital trimpotentiometer"
+
+#: src/core/gcodecommands.cpp:459
+msgctxt "QObject|"
+msgid "M908: Control digital trimpot directly"
+msgstr "M908: Styr digital trimpotentiometer direkt"
+
+#: src/core/gcodecommands.cpp:461
+msgctxt "QObject|"
+msgid "M911: Set power monitor threshold voltages"
+msgstr "M911: Ställ in tröskelspänningar för effektövervakning"
+
+#: src/core/gcodecommands.cpp:463
+msgctxt "QObject|"
+msgid "M912: Set electronics temperature monitor adjustment"
+msgstr "M912: Ställ in justering av elektroniktemperaturövervakning"
+
+#: src/core/gcodecommands.cpp:465
+msgctxt "QObject|"
+msgid "M913: Set motor percentage of normal current"
+msgstr "M913: Ställ in motorprocent vid normal ström"
+
+#: src/core/gcodecommands.cpp:467
+msgctxt "QObject|"
+msgid "M928: Start SD logging"
+msgstr "M928: Börja SD-loggning"
+
+#: src/core/gcodecommands.cpp:469
+msgctxt "QObject|"
+msgid "M997: Perform in-application firmware update"
+msgstr "M997: Utför uppdatering av inbyggd programvara i applikationen"
+
+#: src/core/gcodecommands.cpp:471
+msgctxt "QObject|"
+msgid "M998: Request resend of line"
+msgstr "M998: Begär att raden skickas om"
+
+#: src/core/gcodecommands.cpp:473
+msgctxt "QObject|"
+msgid "M999: Restart after being stopped by error"
+msgstr "M999: Starta om efter att ha stoppats av ett fel"
+
+#: src/widgets/about.cpp:21
+#, qt-format
+msgctxt "About|"
+msgid "Version: %1"
+msgstr "Version: %1"
+
+#: src/widgets/about.cpp:22
+#, qt-format
+msgctxt "About|"
+msgid "Using Qt: %1"
+msgstr "Använder Qt: %1"
+
+#: src/widgets/about.cpp:23
+msgctxt "About|"
+msgid ""
+"Authors:\n"
+"  Chris Rizzitello <rizzitello@kde.org>\n"
+"  Patrick José Pereira <patrickjp@kde.org>\n"
+"  Lays Rodrigues <lays.rodrigues@kde.org>\n"
+"  Tomaz Canabrava <tcanabrava@kde.org>"
+msgstr ""
+"Upphovsmän:\n"
+"  Chris Rizzitello <rizzitello@kde.org>\n"
+"  Patrick José Pereira <patrickjp@kde.org>\n"
+"  Lays Rodrigues <lays.rodrigues@kde.org>\n"
+"  Tomaz Canabrava <tcanabrava@kde.org>"
+
+#: src/widgets/about.cpp:35
+msgctxt "About|"
+msgid "Close"
+msgstr "Stäng"
+
+#: src/widgets/axiscontrol.cpp:22
+msgctxt "AxisControl|"
+msgid "Move Axis"
+msgstr "Flytta axel"
+
+#: src/widgets/commandwidget.cpp:25
+msgctxt "CommandWidget|"
+msgid "Send Command"
+msgstr "Skicka kommando"
+
+#: src/widgets/commandwidget.cpp:28 src/widgets/commandwidget.cpp:53
+msgctxt "CommandWidget|"
+msgid "Send"
+msgstr "Skicka"
+
+#: src/widgets/commandwidget.cpp:50
+msgctxt "CommandWidget|"
+msgid "Show Message"
+msgstr "Visa meddelande"
+
+#: src/widgets/logwidget.cpp:62
+msgctxt "LogWidget|"
+msgid ""
+"                        <h4>Special Log Entries</h4>                         "
+"<p><strong>Failed to open device in read/write mode.</strong></"
+"p>                         <p>&nbsp;&nbsp;&nbsp; The Device was not able to "
+"be opened.</p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; Check "
+"the device is not opened by another program.</p>                         "
+"<p>&nbsp; &nbsp; &nbsp;&nbsp; Check you have the correct permissions to open "
+"the device.</p>                         <p><strong>No plugin found for &lt;"
+"Detected Firmware&gt;</strong></p>                         <p>&nbsp;&nbsp;"
+"&nbsp; Firmware plugins are missing or your firmware is not currently "
+"supported.</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+"Manually select the Marlin or Repetier plugin.</p>                         "
+"<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If your firmware does not have a plugin "
+"please let us know.</p>                         <p><strong>Lots of &ldquo;"
+"Waiting for firmware detect&rdquo;</strong></p>                         "
+"<p>&nbsp;&nbsp;&nbsp; Unable to send the firmware detect waiting for printer "
+"to restart</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+"Push the restart button on your printer or turn it on and off. </"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select a "
+"firmware plugin in place of auto detect.</p>"
+msgstr ""
+"                        <h4>Särskilda loggposter</"
+"h4>                         <p><strong>Misslyckades öppna enhet för läsning "
+"och skrivning.</strong></p>                         <p>&nbsp;&nbsp;&nbsp; "
+"Enheten kunde inte öppnas.</p>                         <p>&nbsp; &nbsp; "
+"&nbsp;&nbsp; Kontrollera att enheten inte är öppnad av ett annat program.</"
+"p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; Kontrollera att du "
+"har riktiga rättigheter för att öppna enheten.</p>                         "
+"<p><strong>Inget insticksprogram hittades för &lt;detekterad fast "
+"programvara&gt;</strong></p>                         <p>&nbsp;&nbsp;&nbsp; "
+"Insticksprogram för fast programvara saknas eller stöds inte den fasta "
+"programvaran för närvarande.</p>                         <p>&nbsp;&nbsp;"
+"&nbsp;&nbsp;&nbsp; Välj insticksprogrammet Marlin eller Repetier manuellt.</"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Om den fasta "
+"programvaran inte har något insticksprogram, låt oss gärna få veta det.</"
+"p>                         <p><strong>Många &ldquo;Väntar på detektering av "
+"fast programvara.&rdquo;</strong></p>                         <p>&nbsp;&nbsp;"
+"&nbsp; Kan inte sända detektering av fast programvara vid väntan på att "
+"skrivaren ska starta om</p>                         <p>&nbsp;&nbsp;&nbsp;"
+"&nbsp;&nbsp; Tryck på skrivarens omstartknapp eller stäng av och sätt på "
+"den. </p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Välj ett "
+"insticksprogram för fast programvara istället för automatisk detektering.</p>"
+
+#: src/widgets/logwidget.cpp:81
+msgctxt "LogWidget|"
+msgid "Save Session Log"
+msgstr "Spara sessionslogg"
+
+#: src/widgets/logwidget.cpp:164
+msgctxt "LogWidget|"
+msgid "Save Log to file"
+msgstr "Spara logg i fil"
+
+#: src/widgets/movementwidget.cpp:49
+msgctxt "MovementWidget|"
+msgid "Home All"
+msgstr "Hem alla"
+
+#: src/widgets/movementwidget.cpp:53
+msgctxt "MovementWidget|"
+msgid "Home X"
+msgstr "Hem x"
+
+#: src/widgets/movementwidget.cpp:57
+msgctxt "MovementWidget|"
+msgid "Home Y"
+msgstr "Hem y"
+
+#: src/widgets/movementwidget.cpp:61
+msgctxt "MovementWidget|"
+msgid "Home Z"
+msgstr "Hem z"
+
+#: src/widgets/movementwidget.cpp:67
+msgctxt "MovementWidget|"
+msgid "Disable Motors"
+msgstr "Inaktivera motorer"
+
+#: src/widgets/movementwidget.cpp:72
+msgctxt "MovementWidget|"
+msgid "Move X Axis to"
+msgstr "Flytta x-axel till"
+
+#: src/widgets/movementwidget.cpp:73
+msgctxt "MovementWidget|"
+msgid "Move Y Axis to"
+msgstr "Flytta y-axel till"
+
+#: src/widgets/movementwidget.cpp:74
+msgctxt "MovementWidget|"
+msgid "Move Z Axis to"
+msgstr "Flytta z-axel till"
+
+#: src/widgets/movementwidget.cpp:83
+msgctxt "MovementWidget|"
+msgid "Go"
+msgstr "Starta"
+
+#: src/widgets/plotwidget.cpp:20
+msgctxt "PlotWidget|"
+msgid "Temp."
+msgstr "Temp."
+
+#: src/widgets/printwidget.cpp:25
+msgctxt "PrintWidget|"
+msgid "Print File"
+msgstr "Skriv ut fil"
+
+#: src/widgets/printwidget.cpp:28
+msgctxt "PrintWidget|"
+msgid "Emergency Stop"
+msgstr "Nödstopp"
+
+#: src/widgets/printwidget.cpp:37
+msgctxt "PrintWidget|"
+msgid "Printer Speed"
+msgstr "Skrivarhastighet"
+
+#: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:58
+#: src/widgets/printwidget.cpp:71
+msgctxt "PrintWidget|"
+msgid "Set"
+msgstr "Ställ in"
+
+#: src/widgets/printwidget.cpp:52
+msgctxt "PrintWidget|"
+msgid "Flow Rate"
+msgstr "Flödeshastighet"
+
+#: src/widgets/printwidget.cpp:96
+#, qt-format
+msgctxt "PrintWidget|"
+msgid "Fan %1 speed"
+msgstr "Hastighet för fläkt %1"
+
+#: src/widgets/profilemanager.cpp:27
+msgctxt "ProfileManager|"
+msgid "Profile:"
+msgstr "Profil:"
+
+#: src/widgets/profilemanager.cpp:55
+msgctxt "ProfileManager|"
+msgid "Delete Current Profile"
+msgstr "Ta bort aktuell profil"
+
+#: src/widgets/profilemanager.cpp:69
+msgctxt "ProfileManager|"
+msgid "Name"
+msgstr "Namn"
+
+#: src/widgets/profilemanager.cpp:82
+msgctxt "ProfileManager|"
+msgid "Printer Type:"
+msgstr "Skrivartyp:"
+
+#: src/widgets/profilemanager.cpp:83
+msgctxt "ProfileManager|"
+msgid "Delta"
+msgstr "Delta"
+
+#: src/widgets/profilemanager.cpp:84
+msgctxt "ProfileManager|"
+msgid "Cartesian"
+msgstr "Kartesisk"
+
+#: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:233
+msgctxt "ProfileManager|"
+msgid "Maximum X"
+msgstr "Maximalt X"
+
+#: src/widgets/profilemanager.cpp:105
+msgctxt "ProfileManager|"
+msgid "Maximum Y"
+msgstr "Maximalt Y"
+
+#: src/widgets/profilemanager.cpp:119 src/widgets/profilemanager.cpp:234
+msgctxt "ProfileManager|"
+msgid "Maximum Z"
+msgstr "Maximalt Z"
+
+#: src/widgets/profilemanager.cpp:130
+msgctxt "ProfileManager|"
+msgid "Mechanics"
+msgstr "Mekanik"
+
+#: src/widgets/profilemanager.cpp:135
+msgctxt "ProfileManager|"
+msgid "Bed Maximum"
+msgstr "Bäddmaximum"
+
+#: src/widgets/profilemanager.cpp:148
+msgctxt "ProfileManager|"
+msgid "Extruder Maximum"
+msgstr "Extrudermaximum"
+
+#: src/widgets/profilemanager.cpp:157
+msgctxt "ProfileManager|"
+msgid "Auto Temperature Report"
+msgstr "Automatisk temperaturrapport"
+
+#: src/widgets/profilemanager.cpp:162
+msgctxt "ProfileManager|"
+msgid "Temperature"
+msgstr "Temperatur"
+
+#: src/widgets/profilemanager.cpp:172
+msgctxt "ProfileManager|"
+msgid "Bit Rate"
+msgstr "Bithastighet"
+
+#: src/widgets/profilemanager.cpp:178
+msgctxt "ProfileManager|"
+msgid "Firmware"
+msgstr "Inbyggd programvara"
+
+#: src/widgets/profilemanager.cpp:192
+msgctxt "ProfileManager|"
+msgid "PostPause"
+msgstr "Postpaus"
+
+#: src/widgets/profilemanager.cpp:198
+msgctxt "ProfileManager|"
+msgid "Advanced"
+msgstr "Avancerat"
+
+#: src/widgets/profilemanager.cpp:201
+msgctxt "ProfileManager|"
+msgid "Profile"
+msgstr "Profil"
+
+#: src/widgets/profilemanager.cpp:236
+msgctxt "ProfileManager|"
+msgid "Radius"
+msgstr "Radie"
+
+#: src/widgets/profilemanager.cpp:237
+msgctxt "ProfileManager|"
+msgid "Height"
+msgstr "Höjd"
+
+#: src/widgets/sdwidget.cpp:20
+msgctxt "SdWidget|"
+msgid "Get List"
+msgstr "Hämta lista"
+
+#: src/widgets/sdwidget.cpp:24
+msgctxt "SdWidget|"
+msgid "Print Selected"
+msgstr "Skriv ut vald"
+
+#: src/widgets/sdwidget.cpp:32
+msgctxt "SdWidget|"
+msgid "Delete Selected"
+msgstr "Ta bort vald"
+
+#: src/widgets/sdwidget.cpp:41
+msgctxt "SdWidget|"
+msgid "Files On Sd Card"
+msgstr "Filer på SD-kort"
+
+#: src/widgets/statuswidget.cpp:47
+msgctxt "StatusWidget|"
+msgid "AtCore State:"
+msgstr "Tillstånd för AtCore:"
+
+#: src/widgets/statuswidget.cpp:48
+msgctxt "StatusWidget|"
+msgid "Not Connected"
+msgstr "Inte ansluten"
+
+#: src/widgets/statuswidget.cpp:72
+msgctxt "StatusWidget|"
+msgid "SD"
+msgstr "SD"
+
+#: src/widgets/temperaturewidget.cpp:21
+msgctxt "TemperatureWidget|"
+msgid "Wait Until Temperature Stabilizes"
+msgstr "Vänta tills temperaturen är stabil"
+
+#: src/widgets/temperaturewidget.cpp:24
+msgctxt "TemperatureWidget|"
+msgid "Bed Temp"
+msgstr "Bäddtemperatur"
+
+#: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:44
+msgctxt "TemperatureWidget|"
+msgid "Set"
+msgstr "Ställ in"
+
+#: src/widgets/temperaturewidget.cpp:60
+#, qt-format
+msgctxt "TemperatureWidget|"
+msgid "Extruder %1"
+msgstr "Extruder %1"
+
+#: testclient/mainwindow.cpp:30
+msgctxt "MainWindow|"
+msgid "AtCore - Test Client"
+msgstr "AtCore - Testklient"
+
+#: testclient/mainwindow.cpp:38
+msgctxt "MainWindow|"
+msgid "Attempting to locate Serial Ports"
+msgstr "Försöker lokalisera serieportar"
+
+#: testclient/mainwindow.cpp:49
+msgctxt "MainWindow|"
+msgid "AtCore First Run"
+msgstr "Första körning av AtCore"
+
+#: testclient/mainwindow.cpp:49
+msgctxt "MainWindow|"
+msgid "No Profiles Detected, use the Profile Manager to create one."
+msgstr "Inga profiler detekterade, använd profilhanteraren för att skapa en."
+
+#: testclient/mainwindow.cpp:59
+msgctxt "MainWindow|"
+msgid "File"
+msgstr "Arkiv"
+
+#: testclient/mainwindow.cpp:60
+msgctxt "MainWindow|"
+msgid "Quit"
+msgstr "Avsluta"
+
+#: testclient/mainwindow.cpp:64
+msgctxt "MainWindow|"
+msgid "View"
+msgstr "Visa"
+
+#: testclient/mainwindow.cpp:65
+msgctxt "MainWindow|"
+msgid "Show Dock Titles"
+msgstr "Visa panelrubriker"
+
+#: testclient/mainwindow.cpp:71
+msgctxt "MainWindow|"
+msgid "Help"
+msgstr "Hjälp"
+
+#: testclient/mainwindow.cpp:72
+msgctxt "MainWindow|"
+msgid "About"
+msgstr "Om"
+
+#: testclient/mainwindow.cpp:136
+msgctxt "MainWindow|"
+msgid "Commands"
+msgstr "Kommandon"
+
+#: testclient/mainwindow.cpp:156
+msgctxt "MainWindow|"
+msgid "Print"
+msgstr "Skriv ut"
+
+#: testclient/mainwindow.cpp:167 testclient/mainwindow.cpp:171
+msgctxt "MainWindow|"
+msgid "Actual Bed"
+msgstr "Verklig bädd"
+
+#: testclient/mainwindow.cpp:174 testclient/mainwindow.cpp:178
+msgctxt "MainWindow|"
+msgid "Target Bed"
+msgstr "Målbädd"
+
+#: testclient/mainwindow.cpp:181 testclient/mainwindow.cpp:185
+msgctxt "MainWindow|"
+msgid "Actual Ext.1"
+msgstr "Verklig ext. 1"
+
+#: testclient/mainwindow.cpp:188 testclient/mainwindow.cpp:192
+msgctxt "MainWindow|"
+msgid "Target Ext.1"
+msgstr "Målext. 1"
+
+#: testclient/mainwindow.cpp:196
+msgctxt "MainWindow|"
+msgid "Seconds Between Temperature Checks"
+msgstr "Sekunder mellan temperaturkontroller"
+
+#: testclient/mainwindow.cpp:218
+msgctxt "MainWindow|"
+msgid "Temperature Timeline"
+msgstr "Temperaturtidslinje"
+
+#: testclient/mainwindow.cpp:227
+msgctxt "MainWindow|"
+msgid "Session Log"
+msgstr "Sessionslogg"
+
+#: testclient/mainwindow.cpp:237
+msgctxt "MainWindow|"
+msgid "Port:"
+msgstr "Port:"
+
+#: testclient/mainwindow.cpp:258
+msgctxt "MainWindow|"
+msgid "Profile:"
+msgstr "Profil:"
+
+#: testclient/mainwindow.cpp:264
+msgctxt "MainWindow|"
+msgid "Attempt to stop Reset on connect"
+msgstr "Försök att stoppa nollställning vid anslutning"
+
+#: testclient/mainwindow.cpp:276 testclient/mainwindow.cpp:292
+#: testclient/mainwindow.cpp:563
+msgctxt "MainWindow|"
+msgid "Connect"
+msgstr "Anslut"
+
+#: testclient/mainwindow.cpp:284
+msgctxt "MainWindow|"
+msgid "Connection Error"
+msgstr "Anslutningsfel"
+
+#: testclient/mainwindow.cpp:284
+msgctxt "MainWindow|"
+msgid ""
+"Your machine did not respond after 20 seconds.\n"
+"\n"
+"Before connecting again check that your printer is on and your are "
+"connecting using the correct BAUD Rate for your device."
+msgstr ""
+"Skrivaren svarade inte efter 20 sekunder.\n"
+"\n"
+"Kontrollera att skrivaren är på och att du använder rätt baudhastighet för "
+"enheten Innan du ansluter igen."
+
+#: testclient/mainwindow.cpp:304
+msgctxt "MainWindow|"
+msgid "Home All"
+msgstr "Hem alla"
+
+#: testclient/mainwindow.cpp:309
+msgctxt "MainWindow|"
+msgid "Home X"
+msgstr "Hem x"
+
+#: testclient/mainwindow.cpp:314
+msgctxt "MainWindow|"
+msgid "Home Y"
+msgstr "Hem y"
+
+#: testclient/mainwindow.cpp:319
+msgctxt "MainWindow|"
+msgid "Home Z"
+msgstr "Hem z"
+
+#: testclient/mainwindow.cpp:341
+msgctxt "MainWindow|"
+msgid "Movement"
+msgstr "Förflyttning"
+
+#: testclient/mainwindow.cpp:354
+msgctxt "MainWindow|"
+msgid "Temperatures"
+msgstr "Temperaturer"
+
+#: testclient/mainwindow.cpp:367
+msgctxt "MainWindow|"
+msgid "Print Error"
+msgstr "Utskriftsfel"
+
+#: testclient/mainwindow.cpp:367 testclient/mainwindow.cpp:375
+msgctxt "MainWindow|"
+msgid "You must Select a file from the list"
+msgstr "Du måste välja en fil i listan"
+
+#: testclient/mainwindow.cpp:375
+msgctxt "MainWindow|"
+msgid "Delete Error"
+msgstr "Fel vid borttagning"
+
+#: testclient/mainwindow.cpp:381
+msgctxt "MainWindow|"
+msgid "Sd Card"
+msgstr "SD-kort"
+
+#: testclient/mainwindow.cpp:390
+msgctxt "MainWindow|"
+msgid "Profile Manager"
+msgstr "Profilhanterare"
+
+#: testclient/mainwindow.cpp:446
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Found %1 Ports"
+msgstr "Hittade %1 portar"
+
+#: testclient/mainwindow.cpp:448
+msgctxt "MainWindow|"
+msgid "No available ports! Please connect a serial device to continue!"
+msgstr "Inga tillgängliga portar. Anslut en seriell enhet för att fortsätta."
+
+#: testclient/mainwindow.cpp:466
+msgctxt "MainWindow|"
+msgid "Serial connected"
+msgstr "Seriell enhet ansluten"
+
+#: testclient/mainwindow.cpp:478
+msgctxt "MainWindow|"
+msgid "Disconnected"
+msgstr "Nerkopplad"
+
+#: testclient/mainwindow.cpp:487 testclient/mainwindow.cpp:493
+msgctxt "MainWindow|"
+msgid "Error"
+msgstr "Fel"
+
+#: testclient/mainwindow.cpp:487
+msgctxt "MainWindow|"
+msgid "Not Connected To a Printer"
+msgstr "Inte ansluten till en skrivare"
+
+#: testclient/mainwindow.cpp:494
+msgctxt "MainWindow|"
+msgid ""
+" A Firmware Plugin was not loaded!\n"
+"  Please send the command M115 and let us know what your firmware returns, "
+"so we can improve our firmware detection. Edit your profile to use \"marlin"
+"\" and try again."
+msgstr ""
+" Något insticksprogram för inbyggd programvara har inte laddats.\n"
+"  Ange kommandot M115 och låt oss få reda på vad din inbyggda programvara "
+"returnerar, så vi kan förbättra vår detektering av inbyggd programvara. "
+"Redigera profilen för att använda \"marlin\" och försök igen."
+
+#: testclient/mainwindow.cpp:498
+msgctxt "MainWindow|"
+msgid "Select a file to print"
+msgstr "Välj en fil att skriva ut"
+
+#: testclient/mainwindow.cpp:498
+msgctxt "MainWindow|"
+msgid "*.gcode"
+msgstr "*.gcode"
+
+#: testclient/mainwindow.cpp:500
+msgctxt "MainWindow|"
+msgid "No File Selected"
+msgstr "Ingen fil markerad"
+
+#: testclient/mainwindow.cpp:502
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Print: %1"
+msgstr "Utskrift: %1"
+
+#: testclient/mainwindow.cpp:529
+msgctxt "MainWindow|"
+msgid "Disconnect"
+msgstr "Koppla ner"
+
+#: testclient/mainwindow.cpp:530 testclient/mainwindow.cpp:543
+#: testclient/mainwindow.cpp:651
+msgctxt "MainWindow|"
+msgid "Print File"
+msgstr "Skriv ut fil"
+
+#: testclient/mainwindow.cpp:531
+msgctxt "MainWindow|"
+msgid "Connected to "
+msgstr "Ansluten till "
+
+#: testclient/mainwindow.cpp:536
+msgctxt "MainWindow|"
+msgid "START PRINT"
+msgstr "STARTA UTSKRIFT"
+
+#: testclient/mainwindow.cpp:537 testclient/mainwindow.cpp:554
+msgctxt "MainWindow|"
+msgid "Pause Print"
+msgstr "Paus i utskrift"
+
+#: testclient/mainwindow.cpp:542
+msgctxt "MainWindow|"
+msgid "Finished Print"
+msgstr "Utskrift klar"
+
+#: testclient/mainwindow.cpp:548
+msgctxt "MainWindow|"
+msgid "Paused"
+msgstr "Paus"
+
+#: testclient/mainwindow.cpp:549
+msgctxt "MainWindow|"
+msgid "Resume Print"
+msgstr "Återuppta utskrift"
+
+#: testclient/mainwindow.cpp:553
+msgctxt "MainWindow|"
+msgid "Printing"
+msgstr "Skriver ut"
+
+#: testclient/mainwindow.cpp:570
+msgctxt "MainWindow|"
+msgid "Abort"
+msgstr "Avbryt"
+
+#: testclient/mainwindow.cpp:577
+msgctxt "MainWindow|"
+msgid "Stopping Print"
+msgstr "Stoppar utskrift"
+
+#: testclient/mainwindow.cpp:581
+msgctxt "MainWindow|"
+msgid "Command ERROR"
+msgstr "KOMMANDOFEL"
+
+#~ msgctxt "PrintWidget|"
+#~ msgid "On Pause:"
+#~ msgstr "Vid paus:"
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Use Plugin:"
+#~ msgstr "Använd insticksmodul:"
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Autodetect"
+#~ msgstr "Identifiera automatiskt"
+
+#~ msgctxt "AtCore|"
+#~ msgid "Cant find firwmware, serial not connected!"
+#~ msgstr "Kan inte hitta fast programvara, seriell ej ansluten."
+
+#~ msgctxt "PieButton|"
+#~ msgid "Move the hotend to the %1 by %2 units"
+#~ msgstr "Flytta varmslut till %1 med %2 enheter"
+
+#~ msgctxt "RectButton|"
+#~ msgid "Move the hotend to the %1 by %2 units"
+#~ msgstr "Flytta varmslut till %1 med %2 enheter"
+
+#~ msgctxt "RectButton|"
+#~ msgid "Extrude %1 Units"
+#~ msgstr "Extrudera %1 enheter"
+
+#~ msgctxt "PlotWidget|"
+#~ msgid "Actual Bed"
+#~ msgstr "Verklig bädd"
+
+#~ msgctxt "PlotWidget|"
+#~ msgid "Target Bed"
+#~ msgstr "Målbädd"
+
+#~ msgctxt "PlotWidget|"
+#~ msgid "Actual Ext.1"
+#~ msgstr "Verklig ext. 1"
+
+#~ msgctxt "PlotWidget|"
+#~ msgid "Target Ext.1"
+#~ msgstr "Målext. 1"
+
+#~ msgctxt "AtCore|"
+#~ msgid "plugins[%1]=%2"
+#~ msgstr "insticksprogram[%1]=%2"
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Requesting Firmware..."
+#~ msgstr "Begär inbyggd programvara..."
+
+#~ msgctxt "QObject|"
+#~ msgid "GCommand not supported!"
+#~ msgstr "GCommand stöds inte."
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M104: It's obligatory to have an argument"
+#~ msgstr "FEL: M104: Det är nödvändigt att ange ett argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M109: It's obligatory to have an argument"
+#~ msgstr "FEL: M109: Det är nödvändigt att ange ett argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M117: It's obligatory to have an argument"
+#~ msgstr "FEL: M117: Det är nödvändigt att ange ett argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M140: It's obligatory to have an argument"
+#~ msgstr "FEL: M140: Det är nödvändigt att ange ett argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M190: It's obligatory to have an argument"
+#~ msgstr "FEL: M190: Det är nödvändigt att ange ett argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M220: It's obligatory to have an argument"
+#~ msgstr "FEL: M220: Det är nödvändigt att ange ett argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M221: It's obligatory to have an argument"
+#~ msgstr "FEL: M221: Det är nödvändigt att ange ett argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "Not supported or implemented!"
+#~ msgstr "Stöds eller är inte implementerad."

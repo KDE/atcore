@@ -1,0 +1,1920 @@
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2017, 2018, 2019, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2022-01-08 09:19+0100\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
+"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Qt-Contexts: true\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 22.03.70\n"
+
+#: src/core/atcore.cpp:140
+msgctxt "AtCore|"
+msgid "Waiting for firmware detect."
+msgstr "Oczekiwanie na wykrycie oprogramowania układowego."
+
+#: src/core/atcore.cpp:194
+#, qt-format
+msgctxt "AtCore|"
+msgid "Connected to printer using %1 plugin"
+msgstr "Podłączony do drukarki przy użyciu wtyczki %1"
+
+#: src/core/atcore.cpp:198
+#, qt-format
+msgctxt "AtCore|"
+msgid "No plugin found for %1."
+msgstr "Nie znaleziono wtyczki dla %1."
+
+#: src/core/atcore.cpp:237
+msgctxt "AtCore|"
+msgid "Waiting for machine restart"
+msgstr "Oczekiwanie ponowne uruchomienie maszyny"
+
+#: src/core/atcore.cpp:248
+msgctxt "AtCore|"
+msgid "Failed to open device in read/write mode."
+msgstr "Nie udało się otwarcie urządzenia w trybie odczytu/zapisu."
+
+#: src/core/atcore.cpp:867
+msgctxt "AtCore|"
+msgid "Device not found"
+msgstr "Nie znaleziono urządzenia"
+
+#: src/core/atcore.cpp:870
+msgctxt "AtCore|"
+msgid "Unable to write to device"
+msgstr "Nie można pisać na urządzenie"
+
+#: src/core/atcore.cpp:873
+msgctxt "AtCore|"
+msgid "Unable to read from device"
+msgstr "Nie można czytać z urządzenia"
+
+#: src/core/atcore.cpp:877
+msgctxt "AtCore|"
+msgid "The device no longer available"
+msgstr "Urządzenie nie jest już dostępne"
+
+#: src/core/atcore.cpp:881
+msgctxt "AtCore|"
+msgid "Device does not support the operation"
+msgstr "Urządzenie nie obsługuje tego działania"
+
+#: src/core/atcore.cpp:884
+msgctxt "AtCore|"
+msgid "Unknown Error"
+msgstr "Nieznany błąd"
+
+#: src/core/gcodecommands.cpp:12
+#, qt-format
+msgctxt "QObject|"
+msgid "%1%2: requires an argument"
+msgstr "%1%2: wymaga argumentu"
+
+#: src/core/gcodecommands.cpp:13
+msgctxt "QObject|"
+msgid "Not implemented or not supported!"
+msgstr "Nieobsługiwane lub niezaimplementowane!"
+
+#: src/core/gcodecommands.cpp:19
+msgctxt "QObject|"
+msgid "G0: Rapid linear move"
+msgstr "G0: Szybki ruch linowy"
+
+#: src/core/gcodecommands.cpp:21
+msgctxt "QObject|"
+msgid "G1: Linear move"
+msgstr "G1: Ruch linowy"
+
+#: src/core/gcodecommands.cpp:23
+msgctxt "QObject|"
+msgid "G2: Controlled Arc Move clockwise"
+msgstr "G2: Sterowany ruch po krzywej w prawo"
+
+#: src/core/gcodecommands.cpp:25
+msgctxt "QObject|"
+msgid "G3: Controlled Arc Move counterclockwise"
+msgstr "G3: Sterowany ruch po krzywej w lewo"
+
+#: src/core/gcodecommands.cpp:27
+msgctxt "QObject|"
+msgid "G4: Dwell"
+msgstr "G4: Odczekaj"
+
+#: src/core/gcodecommands.cpp:29
+msgctxt "QObject|"
+msgid "G10: Retract"
+msgstr "G10: Wycofaj"
+
+#: src/core/gcodecommands.cpp:31
+msgctxt "QObject|"
+msgid "G11: Unretract"
+msgstr "G11: Cofnij wycofanie"
+
+#: src/core/gcodecommands.cpp:33
+msgctxt "QObject|"
+msgid "G20: Set units to inches"
+msgstr "G20: Ustaw jednostki na cale"
+
+#: src/core/gcodecommands.cpp:35
+msgctxt "QObject|"
+msgid "G21: Set units to millimeters"
+msgstr "G21: Ustaw jednostki na milimetry"
+
+#: src/core/gcodecommands.cpp:37
+msgctxt "QObject|"
+msgid "G28: Move to Origin Home"
+msgstr "G28: Przesuń do położenia domowego"
+
+#: src/core/gcodecommands.cpp:39
+msgctxt "QObject|"
+msgid "G29: Detailed Z-Probe"
+msgstr "G29: Szczegółowa sonda Z"
+
+#: src/core/gcodecommands.cpp:41
+msgctxt "QObject|"
+msgid "G30: Single Z-Probe"
+msgstr "G30: Pojedyncza sonda Z"
+
+#: src/core/gcodecommands.cpp:43
+msgctxt "QObject|"
+msgid "G31: Set or report current probe status / Dock Z Probe sled for Marlin"
+msgstr ""
+"G31: Ustaw lub pobierz bieżący stan sondy / Zadokuj sanie sondy Z dla Marlin"
+
+#: src/core/gcodecommands.cpp:45
+msgctxt "QObject|"
+msgid ""
+"G32: Probe Z and calculate Z plane(Bed Leveling)/ UnDoc Z Probe sled for "
+"Marlin"
+msgstr ""
+"G32: Odczytaj Z i oblicz płaszczyznę Z (poziomowanie łoża)/ Wydokuj sanie "
+"sondy Z dla Marlin"
+
+#: src/core/gcodecommands.cpp:47
+msgctxt "QObject|"
+msgid "G33: Measure/List/Adjust Distortion Matrix"
+msgstr "G33: Miary/Lista/Dostosowania macierzy zniekształceń"
+
+#: src/core/gcodecommands.cpp:49
+msgctxt "QObject|"
+msgid "G90: Set to absolute positioning"
+msgstr "G90: Ustaw bezwzględny układ odniesienia"
+
+#: src/core/gcodecommands.cpp:51
+msgctxt "QObject|"
+msgid "G91: Set to relative positioning"
+msgstr "G91: Ustaw względny układ odniesienia"
+
+#: src/core/gcodecommands.cpp:53
+msgctxt "QObject|"
+msgid "G92: Set position"
+msgstr "G92: Ustaw położenie"
+
+#: src/core/gcodecommands.cpp:55
+msgctxt "QObject|"
+msgid "G100: Calibrate floor or rod radius"
+msgstr "G100: Skalibruj podłogę i promień pręta"
+
+#: src/core/gcodecommands.cpp:57
+msgctxt "QObject|"
+msgid "G130: Set digital potentiometer value"
+msgstr "G130: Ustaw wartość cyfrowego potencjometru"
+
+#: src/core/gcodecommands.cpp:59
+msgctxt "QObject|"
+msgid "G131: Recase Move offset"
+msgstr "G131: Nadaj przesunięcie ruchu ponownie"
+
+#: src/core/gcodecommands.cpp:61
+msgctxt "QObject|"
+msgid "G132: Calibrate endstops offsets"
+msgstr "G132: Skalibruj przesunięcia krańcówek"
+
+#: src/core/gcodecommands.cpp:63
+msgctxt "QObject|"
+msgid "G133: Measure steps to top"
+msgstr "G133: Zmierz kroki do szczytu"
+
+#: src/core/gcodecommands.cpp:65
+msgctxt "QObject|"
+msgid "G161: Home axis to minimum"
+msgstr "G161: Oś domu do minimum"
+
+#: src/core/gcodecommands.cpp:67
+msgctxt "QObject|"
+msgid "G162: Home axis to maximum"
+msgstr "G162: Oś domu do maksimum"
+
+#: src/core/gcodecommands.cpp:99
+msgctxt "QObject|"
+msgid "M0: Stop or unconditional stop"
+msgstr "M0: Stop lub bezwarunkowy stop"
+
+#: src/core/gcodecommands.cpp:101
+msgctxt "QObject|"
+msgid "M1: Sleep or unconditional stop"
+msgstr "M1: Uśpienie lub bezwarunkowy stop"
+
+#: src/core/gcodecommands.cpp:103
+msgctxt "QObject|"
+msgid "M2: Program End"
+msgstr "M2: Koniec programu"
+
+#: src/core/gcodecommands.cpp:105
+msgctxt "QObject|"
+msgid "M6: Tool Change"
+msgstr "M6: Zmiana narzędzia"
+
+#: src/core/gcodecommands.cpp:107
+msgctxt "QObject|"
+msgid "M17: Enable/power all steppers motors"
+msgstr "M17: Włącz/zasil wszystkie silniki krokowe"
+
+#: src/core/gcodecommands.cpp:109
+msgctxt "QObject|"
+msgid "M18: Disable all steppers motors"
+msgstr "M18: Wyłącz wszystkie silniki krokowe"
+
+#: src/core/gcodecommands.cpp:111
+msgctxt "QObject|"
+msgid "M20: List SDCard"
+msgstr "M20: Wypisz zawartośc karty SD"
+
+#: src/core/gcodecommands.cpp:113
+msgctxt "QObject|"
+msgid "M21: Initialize SDCard"
+msgstr "M21: Zainicjuj kartę SD"
+
+#: src/core/gcodecommands.cpp:115
+msgctxt "QObject|"
+msgid "M22: Release SDCard"
+msgstr "M22: Zwolnij kartę SD"
+
+#: src/core/gcodecommands.cpp:117
+msgctxt "QObject|"
+msgid "M23: Select SD file"
+msgstr "M23: Wybierz plik SD"
+
+#: src/core/gcodecommands.cpp:119
+msgctxt "QObject|"
+msgid "M24: Start/resume SD print"
+msgstr "M24: Rozpocznij/wznów wydruk SD"
+
+#: src/core/gcodecommands.cpp:121
+msgctxt "QObject|"
+msgid "M25: Pause SD print"
+msgstr "M25: Wstrzymaj wydruk SD"
+
+#: src/core/gcodecommands.cpp:123
+msgctxt "QObject|"
+msgid "M26: Set SD position"
+msgstr "M26: Ustaw położenie SD"
+
+#: src/core/gcodecommands.cpp:125
+msgctxt "QObject|"
+msgid "M27: Report SD print status"
+msgstr "M27: Zgłoś stan wydruku SD"
+
+#: src/core/gcodecommands.cpp:127
+msgctxt "QObject|"
+msgid "M28: Begin write to SD card"
+msgstr "M28: Rozpocznij zapis na kartę SD"
+
+#: src/core/gcodecommands.cpp:129
+msgctxt "QObject|"
+msgid "M29: Stop writing to SD card"
+msgstr "M29: Zatrzymaj zapis na kartę SD"
+
+#: src/core/gcodecommands.cpp:131
+msgctxt "QObject|"
+msgid "M30: Delete a file on the SD card"
+msgstr "M30: Usuń plik na karcie SD"
+
+#: src/core/gcodecommands.cpp:133
+msgctxt "QObject|"
+msgid "M31: Output time since last M109 or SD card start to serial"
+msgstr ""
+"M31: Pokaż czas od ostatniego M109 lub podpięcia karty SD po port szeregowy"
+
+#: src/core/gcodecommands.cpp:135
+msgctxt "QObject|"
+msgid "M32: Select file and start SD print"
+msgstr "M32: Wybierz plik i rozpocznij wydruk SD"
+
+#: src/core/gcodecommands.cpp:137
+msgctxt "QObject|"
+msgid "M33: Get the long name for an SD card file or folder"
+msgstr "M33: Odczytaj długą nazwę dla pliku karty SD lub katalogu"
+
+#: src/core/gcodecommands.cpp:139
+msgctxt "QObject|"
+msgid "M34: Set SD file sorting options"
+msgstr "M34: Ustaw szeregowanie plików SD"
+
+#: src/core/gcodecommands.cpp:141
+msgctxt "QObject|"
+msgid "M36: Return file information"
+msgstr "M36: Zwróć dane o pliku"
+
+#: src/core/gcodecommands.cpp:143
+msgctxt "QObject|"
+msgid "M42: Switch I/O pin"
+msgstr "M42: Przełącz pin WE/WY"
+
+#: src/core/gcodecommands.cpp:145
+msgctxt "QObject|"
+msgid "M48: Measure Z-Probe repeatability"
+msgstr "M48: Zmierz powtarzalność sondy Z"
+
+#: src/core/gcodecommands.cpp:147
+msgctxt "QObject|"
+msgid "M70: Display message"
+msgstr "M70: Wyświetl wiadomość"
+
+#: src/core/gcodecommands.cpp:149
+msgctxt "QObject|"
+msgid "M72: Play a tone or song"
+msgstr "M72: Odegraj ton lub utwór"
+
+#: src/core/gcodecommands.cpp:151
+msgctxt "QObject|"
+msgid "M73: Set build percentage"
+msgstr "M73: Ustaw procent budowy"
+
+#: src/core/gcodecommands.cpp:153
+msgctxt "QObject|"
+msgid "M80: ATX Power On"
+msgstr "M80: Zasil ATX"
+
+#: src/core/gcodecommands.cpp:155
+msgctxt "QObject|"
+msgid "M81: ATX Power Off"
+msgstr "M81: Wyłącz ATX"
+
+#: src/core/gcodecommands.cpp:157
+msgctxt "QObject|"
+msgid "M82: Set extruder to absolute mode"
+msgstr "M82: Ustaw wyciskarkę na tryb bezwzględny"
+
+#: src/core/gcodecommands.cpp:159
+msgctxt "QObject|"
+msgid "M83: Set extruder to relative mode"
+msgstr "M83: Ustaw wyciskarkę na tryb względny"
+
+#: src/core/gcodecommands.cpp:161
+msgctxt "QObject|"
+msgid "M84: Stop idle hold"
+msgstr "M84: Perzwij przystanek w bezczynności"
+
+#: src/core/gcodecommands.cpp:163
+msgctxt "QObject|"
+msgid "M85: Set Inactivity shutdown timer"
+msgstr "M85: Ustaw czasomierz wyłączenia przy bezczynności"
+
+#: src/core/gcodecommands.cpp:165
+msgctxt "QObject|"
+msgid "M92: Set axis steps per unit"
+msgstr "M92: Ustaw kroki osi na jednostkę"
+
+#: src/core/gcodecommands.cpp:167
+msgctxt "QObject|"
+msgid "M93: Send axis steps per unit"
+msgstr "M93: Wyślij kroki osi na jednostkę"
+
+#: src/core/gcodecommands.cpp:169
+msgctxt "QObject|"
+msgid "M98: Call Macro/Subprogram"
+msgstr "M98: Wykonaj makro/podprogram"
+
+#: src/core/gcodecommands.cpp:171
+msgctxt "QObject|"
+msgid "M99: Return from Macro/Subprogram"
+msgstr "M99: Wróć z makra/podprogramu"
+
+#: src/core/gcodecommands.cpp:173
+msgctxt "QObject|"
+msgid "M101: Turn extruder 1 on Forward, Undo Retraction"
+msgstr "M101: Skieruj wyciskarkę 1 na przód, cofnij wycofanie"
+
+#: src/core/gcodecommands.cpp:175
+msgctxt "QObject|"
+msgid "M103: Turn all extruders off - Extruder Retraction"
+msgstr "M103: Wyłącz wszystkie wyciskarki - Wycofanie wyciskarki"
+
+#: src/core/gcodecommands.cpp:177
+msgctxt "QObject|"
+msgid "M104: Set Extruder Temperature"
+msgstr "M104: Ustaw tempearturę wyciskarki"
+
+#: src/core/gcodecommands.cpp:179
+msgctxt "QObject|"
+msgid "M105: Get Extruder Temperature"
+msgstr "M105: Odczytaj temparturę wyciskarki"
+
+#: src/core/gcodecommands.cpp:181
+msgctxt "QObject|"
+msgid "M106: Fan On"
+msgstr "M106: Włącz wentylator"
+
+#: src/core/gcodecommands.cpp:183
+msgctxt "QObject|"
+msgid "M107: Fan Off"
+msgstr "M107: Wyłącz wentylator"
+
+#: src/core/gcodecommands.cpp:185
+msgctxt "QObject|"
+msgid "M108: Cancel Heating"
+msgstr "M108: Zaniechaj nagrzewania"
+
+#: src/core/gcodecommands.cpp:187
+msgctxt "QObject|"
+msgid "M109: Set Extruder Temperature and Wait"
+msgstr "M109: Ustaw temperaturę wyciskarki i czekaj"
+
+#: src/core/gcodecommands.cpp:189
+msgctxt "QObject|"
+msgid "M110: Set Current Line Number"
+msgstr "M110: Ustaw liczbę bierzącej lini"
+
+#: src/core/gcodecommands.cpp:191
+msgctxt "QObject|"
+msgid "M111: Set Debug Level"
+msgstr "M111: Ustaw poziom diagnostyczny"
+
+#: src/core/gcodecommands.cpp:193
+msgctxt "QObject|"
+msgid "M112: Emergency Stop"
+msgstr "M112: Nieprzewidziane zatrzymanie"
+
+#: src/core/gcodecommands.cpp:195
+msgctxt "QObject|"
+msgid "M114: Get Current Position"
+msgstr "M114: Odczytaj bieżące położenie"
+
+#: src/core/gcodecommands.cpp:197
+msgctxt "QObject|"
+msgid "M115: Get Firmware Version and Capabilities"
+msgstr "M115: Odczytaj wersję oprogramowania układowego i możliwości"
+
+#: src/core/gcodecommands.cpp:199
+msgctxt "QObject|"
+msgid "M116: Wait"
+msgstr "M116: Czekaj"
+
+#: src/core/gcodecommands.cpp:201
+msgctxt "QObject|"
+msgid "M117: Display Message"
+msgstr "M117: Wyświetl wiadomość"
+
+#: src/core/gcodecommands.cpp:203
+msgctxt "QObject|"
+msgid "M119: Get Endstop Status"
+msgstr "M119: Odczytaj stan krańcówki"
+
+#: src/core/gcodecommands.cpp:205
+msgctxt "QObject|"
+msgid ""
+"M120: Push for Smoothie and RepRap Firmware / Enable Endstop detection for "
+"Marlin"
+msgstr ""
+"M120: Popchnięcie dla Smoothie oraz oprogramowania układowego RepRap / "
+"Wyłącz wykrywane krańcówki dla Marlin"
+
+#: src/core/gcodecommands.cpp:207
+msgctxt "QObject|"
+msgid ""
+"M121: Pop for Smoothie and RepRap Firmware / Disable Endstop detection for "
+"Marlin"
+msgstr ""
+"M121: Pociągnięcie dla Smoothie oraz oprogramowania układowego RepRap / "
+"Wyłącz wykrywane krańcówki dla Marlin"
+
+#: src/core/gcodecommands.cpp:209
+msgctxt "QObject|"
+msgid "M122: Diagnose"
+msgstr "M122: Diagnozuj"
+
+#: src/core/gcodecommands.cpp:211
+msgctxt "QObject|"
+msgid "M126: Open valve"
+msgstr "M126: Otwórz zawór"
+
+#: src/core/gcodecommands.cpp:213
+msgctxt "QObject|"
+msgid "M127: Close valve"
+msgstr "M127: Zamknij zawór"
+
+#: src/core/gcodecommands.cpp:215
+msgctxt "QObject|"
+msgid "M130: Set PID P value"
+msgstr "M130: Ustaw wartość P PID"
+
+#: src/core/gcodecommands.cpp:217
+msgctxt "QObject|"
+msgid "M131: Set PID I value"
+msgstr "M131: Ustaw wartość I PID"
+
+#: src/core/gcodecommands.cpp:219
+msgctxt "QObject|"
+msgid "M132: Set PID D value"
+msgstr "M132: Ustaw wartość D PID"
+
+#: src/core/gcodecommands.cpp:221
+msgctxt "QObject|"
+msgid "M133: Set PID I limit value"
+msgstr "M133: Ustaw wartość graniczną I PID"
+
+#: src/core/gcodecommands.cpp:223
+msgctxt "QObject|"
+msgid "M134: Write PID values to EEPROM"
+msgstr "M134: Zapisz wartości PID w EEPROM"
+
+#: src/core/gcodecommands.cpp:225
+msgctxt "QObject|"
+msgid "M135: Set PID sample interval"
+msgstr "M135: Ustaw okres próbki PID"
+
+#: src/core/gcodecommands.cpp:227
+msgctxt "QObject|"
+msgid "M140: Set Bed Temperature - Fast"
+msgstr "M140: Ustaw temperaturę łoża - szybko"
+
+#: src/core/gcodecommands.cpp:229
+msgctxt "QObject|"
+msgid "M141: Set Chamber Temperature - Fast"
+msgstr "M141: Ustaw temperaturę komory - szybko"
+
+#: src/core/gcodecommands.cpp:231
+msgctxt "QObject|"
+msgid "M143: Maximum hot-end temperature"
+msgstr "M143: Maksymalna temperatura gorącej końcówki"
+
+#: src/core/gcodecommands.cpp:233
+msgctxt "QObject|"
+msgid "M144: Stand by your bed"
+msgstr "M144: Stań obok swojego łoża"
+
+#: src/core/gcodecommands.cpp:235
+msgctxt "QObject|"
+msgid "M150: Set display color"
+msgstr "M150: Ustaw barwę wyświetlania"
+
+#: src/core/gcodecommands.cpp:237
+msgctxt "QObject|"
+msgid "M155: Set Temperature auto report"
+msgstr "M155: Ustaw samozgłaszanie temperatury"
+
+#: src/core/gcodecommands.cpp:239
+msgctxt "QObject|"
+msgid "M163: Set weight of mixed material"
+msgstr "M163: Ustaw wagę dla mieszanego materiału"
+
+#: src/core/gcodecommands.cpp:241
+msgctxt "QObject|"
+msgid "M164: Store weights"
+msgstr "M164: Zapisz wagi"
+
+#: src/core/gcodecommands.cpp:243
+msgctxt "QObject|"
+msgid "M190: Wait for bed temperature to reach target temp"
+msgstr "M190: Czekaj aż temperatura łoża osiągnie docelową"
+
+#: src/core/gcodecommands.cpp:245
+msgctxt "QObject|"
+msgid "M200: Set filament diameter"
+msgstr "M200: Ustaw średnicę włókna"
+
+#: src/core/gcodecommands.cpp:247
+msgctxt "QObject|"
+msgid "M201: Set max printing acceleration"
+msgstr "M201: Ustaw maksymalne przyspieszenie drukowania"
+
+#: src/core/gcodecommands.cpp:249
+msgctxt "QObject|"
+msgid "M202: Set max travel acceleration"
+msgstr "M202: Ustaw maksymalne przyspieszenie przemieszczenia"
+
+#: src/core/gcodecommands.cpp:251
+msgctxt "QObject|"
+msgid "M203: Set maximum feedrate"
+msgstr "M203: Ustaw maksymalną szybkość podawania"
+
+#: src/core/gcodecommands.cpp:253
+msgctxt "QObject|"
+msgid "M204: Set default acceleration"
+msgstr "M204: Ustaw domyślne przyspieszenie"
+
+#: src/core/gcodecommands.cpp:255
+msgctxt "QObject|"
+msgid "M205: Advanced settings"
+msgstr "M205: Ustawienia rozszerzone"
+
+#: src/core/gcodecommands.cpp:257
+msgctxt "QObject|"
+msgid ""
+"M206: Offset axes for Sprinter, Marlin, Smoothie, RepRap Firmware / Set "
+"eeprom value for Repetier"
+msgstr ""
+"M206: Przesuń oś dla oprogramowań układowych Sprinter, Marlin, Smoothie, "
+"RepRap / Ustaw wartość eeprom dla Repetier"
+
+#: src/core/gcodecommands.cpp:259
+msgctxt "QObject|"
+msgid "M207: Set retract length"
+msgstr "M207: Ustaw długość wycofania"
+
+#: src/core/gcodecommands.cpp:261
+msgctxt "QObject|"
+msgid "M208: Set unretract length"
+msgstr "M208: Ustaw długość cofnięcia wycofania"
+
+#: src/core/gcodecommands.cpp:263
+msgctxt "QObject|"
+msgid "M209: Enable automatic retract"
+msgstr "M209: Włącz samoczynne wycofywanie"
+
+#: src/core/gcodecommands.cpp:265
+msgctxt "QObject|"
+msgid "M212: Set Bed Level Sensor Offset"
+msgstr "M212: Ustaw przesunięcie przetwornika poziomu łoża"
+
+#: src/core/gcodecommands.cpp:267
+msgctxt "QObject|"
+msgid "M218: Set Hotend Offset"
+msgstr "M218: Ustaw przesunięcie gorącej końcówki"
+
+#: src/core/gcodecommands.cpp:269
+msgctxt "QObject|"
+msgid "M220: Set speed factor override percentage"
+msgstr "M220: Ustaw procent zastąpienia współczynnika szybkości"
+
+#: src/core/gcodecommands.cpp:271
+msgctxt "QObject|"
+msgid "M221: Set extrude factor override percentage"
+msgstr "M221: Ustaw procent zastąpienia współczynnika wyciskania"
+
+#: src/core/gcodecommands.cpp:273
+msgctxt "QObject|"
+msgid "M226: Wait for pin state"
+msgstr "M226: Czekaj na stan pin-u"
+
+#: src/core/gcodecommands.cpp:275
+msgctxt "QObject|"
+msgid "M231: Set OPS parameter"
+msgstr "M231: Ustaw parametr OPS"
+
+#: src/core/gcodecommands.cpp:277
+msgctxt "QObject|"
+msgid "M232: Read and reset max. advance values"
+msgstr "M232: Odczytaj i wyzeruj maksymalne wartości posuwu"
+
+#: src/core/gcodecommands.cpp:279
+msgctxt "QObject|"
+msgid "M240: Trigger camera"
+msgstr "M240: Wyzwól aparat"
+
+#: src/core/gcodecommands.cpp:281
+msgctxt "QObject|"
+msgid "M250: Set LCD contrast"
+msgstr "M250: Ustaw kontrast LCD"
+
+#: src/core/gcodecommands.cpp:283
+msgctxt "QObject|"
+msgid "M251: Measure Z steps from homing stop (Delta printers)"
+msgstr "M251: Zmierz kroki Z od zatrzymania w domu (drukarki Delta)"
+
+#: src/core/gcodecommands.cpp:285
+msgctxt "QObject|"
+msgid "M280: Set servo position"
+msgstr "M280: Ustaw położenie serwa"
+
+#: src/core/gcodecommands.cpp:287
+msgctxt "QObject|"
+msgid "M300: Play beep sound"
+msgstr "M300: Piknij"
+
+#: src/core/gcodecommands.cpp:289
+msgctxt "QObject|"
+msgid "M301: Set PID parameters"
+msgstr "M301: Ustaw parametry PID"
+
+#: src/core/gcodecommands.cpp:291
+msgctxt "QObject|"
+msgid "M302: Allow cold extrudes "
+msgstr "M302: Zezwalaj na zimne wyciskanie"
+
+#: src/core/gcodecommands.cpp:293
+msgctxt "QObject|"
+msgid "M303: Run PID tuning"
+msgstr "M303: Przeprowadź dostrajanie PID"
+
+#: src/core/gcodecommands.cpp:295
+msgctxt "QObject|"
+msgid "M304: Set PID parameters - Bed"
+msgstr "M304: Ustaw parametry PID - łoże"
+
+#: src/core/gcodecommands.cpp:297
+msgctxt "QObject|"
+msgid "M305: Set thermistor and ADC parameters"
+msgstr "M305: Ustaw termistor i parametry ADC"
+
+#: src/core/gcodecommands.cpp:299
+msgctxt "QObject|"
+msgid "M306: set home offset calculated from toolhead position"
+msgstr "M306: ustaw przesunięcie domu obliczone z położenia głowicy roboczej"
+
+#: src/core/gcodecommands.cpp:301
+msgctxt "QObject|"
+msgid "M320: Activate autolevel (Repetier)"
+msgstr "M320: Włącz samopoziomowanie (Repetier)"
+
+#: src/core/gcodecommands.cpp:303
+msgctxt "QObject|"
+msgid "M321: Deactivate autolevel (Repetier)"
+msgstr "M321: Wyłącz samopoziomowanie (Repetier)"
+
+#: src/core/gcodecommands.cpp:305
+msgctxt "QObject|"
+msgid "M322: Reset autolevel matrix (Repetier)"
+msgstr "M322: Wyzeruj macierz samopoziomowania (Repetier)"
+
+#: src/core/gcodecommands.cpp:307
+msgctxt "QObject|"
+msgid "M323: Distortion correction on/off (Repetier)"
+msgstr "M323: Poprawka zniekształcenia wł/wył (Repetier)"
+
+#: src/core/gcodecommands.cpp:309
+msgctxt "QObject|"
+msgid "M340: Control the servos"
+msgstr "M340: Steruj serwami"
+
+#: src/core/gcodecommands.cpp:311
+msgctxt "QObject|"
+msgid "M350: Set microstepping mode"
+msgstr "M350: Ustaw tryb mikrokroków"
+
+#: src/core/gcodecommands.cpp:313
+msgctxt "QObject|"
+msgid "M351: Toggle MS1 MS2 pins directly"
+msgstr "M351: Przełącz pin-y MS1 MS2 bezpośrednio"
+
+#: src/core/gcodecommands.cpp:315
+msgctxt "QObject|"
+msgid "M355: Turn case lights on/off"
+msgstr "M355: Wł/Wył światła obudowy"
+
+#: src/core/gcodecommands.cpp:317
+msgctxt "QObject|"
+msgid "M360: Report firmware configuration"
+msgstr "M360: Pokaż ustawienia oprogramowania układowego"
+
+#: src/core/gcodecommands.cpp:319
+msgctxt "QObject|"
+msgid "M361: Move to Theta 90 degree position"
+msgstr "M361: Przesuń w położenie 90 stopni Theta"
+
+#: src/core/gcodecommands.cpp:321
+msgctxt "QObject|"
+msgid "M362: Move to Psi 0 degree position"
+msgstr "M362: Przesuń w położenie 0 stopni Psi"
+
+#: src/core/gcodecommands.cpp:323
+msgctxt "QObject|"
+msgid "M363: Move to Psi 90 degree position"
+msgstr "M363: Przesuń w położenie 90 stopni Psi"
+
+#: src/core/gcodecommands.cpp:325
+msgctxt "QObject|"
+msgid "M364: Move to Psi + Theta 90 degree position"
+msgstr "M364: Przesuń w położenie 90 stopni Psi + Theta"
+
+#: src/core/gcodecommands.cpp:327
+msgctxt "QObject|"
+msgid "M365: SCARA scaling factor"
+msgstr "M365: Współczynnik skalowania SCARA"
+
+#: src/core/gcodecommands.cpp:329
+msgctxt "QObject|"
+msgid "M366: SCARA convert trim"
+msgstr "M366: Przycięcie przekształcenia SCARA"
+
+#: src/core/gcodecommands.cpp:331
+msgctxt "QObject|"
+msgid "M370: Morgan manual bed level - clear map"
+msgstr "M370: Ręczny poziom łoża Morgana - wyczyść mapę"
+
+#: src/core/gcodecommands.cpp:333
+msgctxt "QObject|"
+msgid "M371: Move to next calibration position"
+msgstr "M371: Przejdź do nastepnego położenia kalibracji"
+
+#: src/core/gcodecommands.cpp:335
+msgctxt "QObject|"
+msgid "M372: Record calibration value, and move to next position"
+msgstr "M372: Zapisz wartość kalibracji i przejdź do następnego położenia"
+
+#: src/core/gcodecommands.cpp:337
+msgctxt "QObject|"
+msgid "M373: End bed level calibration mode"
+msgstr "M373: Zakończ tryb kalibracji poziomu łoża"
+
+#: src/core/gcodecommands.cpp:339
+msgctxt "QObject|"
+msgid "M374: Save calibration grid"
+msgstr "M374: Zapisz siatkę kalibracji"
+
+#: src/core/gcodecommands.cpp:341
+msgctxt "QObject|"
+msgid "M375: Display matrix / Load Matrix"
+msgstr "M375: Wyświetl / Wczytaj macierz"
+
+#: src/core/gcodecommands.cpp:343
+msgctxt "QObject|"
+msgid "M380: Activate solenoid"
+msgstr "M380: Włącz solenoid"
+
+#: src/core/gcodecommands.cpp:345
+msgctxt "QObject|"
+msgid "M381: Disable all solenoids"
+msgstr "M381: Wyłącz wszystkie solenoidy"
+
+#: src/core/gcodecommands.cpp:347
+msgctxt "QObject|"
+msgid "M400: Wait for current moves to finish"
+msgstr "M400: Czekaj na zakończenie bieżących ruchów"
+
+#: src/core/gcodecommands.cpp:349
+msgctxt "QObject|"
+msgid "M401: Lower z-probe"
+msgstr "M401: Obniż sondę z"
+
+#: src/core/gcodecommands.cpp:351
+msgctxt "QObject|"
+msgid "M402: Raise z-probe"
+msgstr "M402: Wznieś sondę z"
+
+#: src/core/gcodecommands.cpp:353
+msgctxt "QObject|"
+msgid "M404: Filament width and nozzle diameter"
+msgstr "M404: Szerokość włókna i średnica dyszy"
+
+#: src/core/gcodecommands.cpp:355
+msgctxt "QObject|"
+msgid "M405: Filament Sensor on"
+msgstr "M405: Włącz czujnik włókna"
+
+#: src/core/gcodecommands.cpp:357
+msgctxt "QObject|"
+msgid "M406: Filament Sensor off"
+msgstr "M406: Wyłącz czujnik włókna"
+
+#: src/core/gcodecommands.cpp:359
+msgctxt "QObject|"
+msgid "M407: Display filament diameter"
+msgstr "M407: Wyświetl średnicę włókna"
+
+#: src/core/gcodecommands.cpp:361
+msgctxt "QObject|"
+msgid "M408: Report JSON-style response"
+msgstr "M408: Pokaż odpowiedź według JSON"
+
+#: src/core/gcodecommands.cpp:363
+msgctxt "QObject|"
+msgid "M420: Enable/Disable Mesh Leveling (Marlin)"
+msgstr "M420: Wł/Wył siatkowe poziomowanie (Marlin)"
+
+#: src/core/gcodecommands.cpp:365
+msgctxt "QObject|"
+msgid "M450: Report Printer Mode"
+msgstr "M450: Pokaż tryb drukarki"
+
+#: src/core/gcodecommands.cpp:367
+msgctxt "QObject|"
+msgid "M451: Select FFF Printer Mode"
+msgstr "M451: Wybierz tryb FFF drukarki"
+
+#: src/core/gcodecommands.cpp:369
+msgctxt "QObject|"
+msgid "M452: Select Laser Printer Mode"
+msgstr "M452: Wybierz tryb lasera drukarki"
+
+#: src/core/gcodecommands.cpp:371
+msgctxt "QObject|"
+msgid "M453: Select CNC Printer Mode"
+msgstr "M453: Wybierz tryb CNC drukarki"
+
+#: src/core/gcodecommands.cpp:373
+msgctxt "QObject|"
+msgid "M460: Define temperature range for thermistor controlled fan"
+msgstr ""
+"M460: Określ zakres temperatury dla wentylatora sterowanego termistorem"
+
+#: src/core/gcodecommands.cpp:375
+msgctxt "QObject|"
+msgid "M500: Store parameters in EEPROM"
+msgstr "M500: Zapisz parametery w EEPROM"
+
+#: src/core/gcodecommands.cpp:377
+msgctxt "QObject|"
+msgid "M501: Read parameters from EEPROM"
+msgstr "M501: Odczytaj parametery z EEPROM"
+
+#: src/core/gcodecommands.cpp:379
+msgctxt "QObject|"
+msgid "M502: Revert to the default 'factory settings'."
+msgstr "M502: Przywróć domyślne 'ustawienia fabryczne'."
+
+#: src/core/gcodecommands.cpp:381
+msgctxt "QObject|"
+msgid "M503: Print settings "
+msgstr "M503: Ustawienia wydruku "
+
+#: src/core/gcodecommands.cpp:383
+msgctxt "QObject|"
+msgid "M540: Enable/Disable 'Stop SD Print on Endstop Hit'"
+msgstr "M540: Włącz/Wyłącz 'Zatrzymaj wydruk SD po dotarciu do krańcówki'"
+
+#: src/core/gcodecommands.cpp:385
+msgctxt "QObject|"
+msgid "M550: Set Name"
+msgstr "M550: Ustaw nazwę"
+
+#: src/core/gcodecommands.cpp:387
+msgctxt "QObject|"
+msgid "M551: Set Password"
+msgstr "M551: Ustaw hasło"
+
+#: src/core/gcodecommands.cpp:389
+msgctxt "QObject|"
+msgid "M552: Set IP address"
+msgstr "M552: Ustaw adres IP"
+
+#: src/core/gcodecommands.cpp:391
+msgctxt "QObject|"
+msgid "M553: Set Netmask"
+msgstr "M553: Ustaw maskę sieci"
+
+#: src/core/gcodecommands.cpp:393
+msgctxt "QObject|"
+msgid "M554: Set Gateway"
+msgstr "M554: Ustaw bramę"
+
+#: src/core/gcodecommands.cpp:395
+msgctxt "QObject|"
+msgid "M555: Set compatibility"
+msgstr "M555: Ustaw zgodność"
+
+#: src/core/gcodecommands.cpp:397
+msgctxt "QObject|"
+msgid "M556: Axis compensation"
+msgstr "M556: Kompensacja osi"
+
+#: src/core/gcodecommands.cpp:399
+msgctxt "QObject|"
+msgid "M557: Set Z probe point"
+msgstr "M557: Ustaw punkt sondy Z"
+
+#: src/core/gcodecommands.cpp:401
+msgctxt "QObject|"
+msgid "M558: Set Z probe type"
+msgstr "M558: Ustaw rodzaj sondy Z"
+
+#: src/core/gcodecommands.cpp:403
+msgctxt "QObject|"
+msgid "M559: Upload configuration file"
+msgstr "M559: Wyślij plik ustawień"
+
+#: src/core/gcodecommands.cpp:405
+msgctxt "QObject|"
+msgid "M560: Upload web page file"
+msgstr "M560: Wyślij plik strony sieciowej"
+
+#: src/core/gcodecommands.cpp:407
+msgctxt "QObject|"
+msgid "M561: Set Identity Transform"
+msgstr "M561: Ustaw tożsamość"
+
+#: src/core/gcodecommands.cpp:409
+msgctxt "QObject|"
+msgid "M562: Reset temperature fault"
+msgstr "M562: Wyzeruj błąd temperatury"
+
+#: src/core/gcodecommands.cpp:411
+msgctxt "QObject|"
+msgid "M563: Define or remove a tool"
+msgstr "M563: Określ lub usuń narzędzie"
+
+#: src/core/gcodecommands.cpp:413
+msgctxt "QObject|"
+msgid "M564: Limit axes"
+msgstr "M564: Ogranicz osie"
+
+#: src/core/gcodecommands.cpp:415
+msgctxt "QObject|"
+msgid "M565: Set Z probe offset"
+msgstr "M565: Ustaw przesunięcie sondy Z"
+
+#: src/core/gcodecommands.cpp:417
+msgctxt "QObject|"
+msgid "M566: Set allowable instantaneous speed change"
+msgstr "M566: Ustaw dopuszczalną chwilową zmianę szybkości"
+
+#: src/core/gcodecommands.cpp:419
+msgctxt "QObject|"
+msgid "M567: Set tool mix ratio"
+msgstr "M567: Ustaw stosunek wymieszania narzędzi"
+
+#: src/core/gcodecommands.cpp:421
+msgctxt "QObject|"
+msgid "M568: Turn off/on tool mix ratio"
+msgstr "M568: Wł/Wył stosunek wymieszania narzędzi"
+
+#: src/core/gcodecommands.cpp:423
+msgctxt "QObject|"
+msgid "M569: Set axis direction and enable values"
+msgstr "M569: Ustaw kierunek osi i włącz wartości"
+
+#: src/core/gcodecommands.cpp:425
+msgctxt "QObject|"
+msgid "M570: Set heater timeout"
+msgstr "M570: Ustaw czas oczekiwania na nagrzewnicę"
+
+#: src/core/gcodecommands.cpp:427
+msgctxt "QObject|"
+msgid "M571: Set output on extrude"
+msgstr "M571: Ustaw wyjście przy wyciskaniu"
+
+#: src/core/gcodecommands.cpp:429
+msgctxt "QObject|"
+msgid "M573: Report heater PWM"
+msgstr "M573: Zwróć PWM nagrzewnicy"
+
+#: src/core/gcodecommands.cpp:431
+msgctxt "QObject|"
+msgid "M574: Set endstop configuration"
+msgstr "M574: Ustaw krańcówkę"
+
+#: src/core/gcodecommands.cpp:433
+msgctxt "QObject|"
+msgid "M575: Set serial comms parameters"
+msgstr "M575: Ustaw parametry portu szeregowego"
+
+#: src/core/gcodecommands.cpp:435
+msgctxt "QObject|"
+msgid "M577: Wait until endstop is triggered"
+msgstr "M577: Czekaj do chwili dotarcia do krańcówki"
+
+#: src/core/gcodecommands.cpp:437
+msgctxt "QObject|"
+msgid "M578: Fire inkjet bits"
+msgstr "M578: Odpal bity atramentu"
+
+#: src/core/gcodecommands.cpp:439
+msgctxt "QObject|"
+msgid "M579: Scale Cartesian axes"
+msgstr "M579: Przeskaluj osie kartezjańskie"
+
+#: src/core/gcodecommands.cpp:441
+msgctxt "QObject|"
+msgid "M580: Select Roland"
+msgstr "M580: Wybierz Roland"
+
+#: src/core/gcodecommands.cpp:443
+msgctxt "QObject|"
+msgid "M600: Filament change pause"
+msgstr "M600: Przerwa na zmianę włókna"
+
+#: src/core/gcodecommands.cpp:445
+msgctxt "QObject|"
+msgid "M605: Set dual x-carriage movement mode"
+msgstr "M605: Ustaw tryb podwójnego ruchu wózka x"
+
+#: src/core/gcodecommands.cpp:447
+msgctxt "QObject|"
+msgid "M665: Set delta configuration"
+msgstr "M665: Ustaw deltę"
+
+#: src/core/gcodecommands.cpp:449
+msgctxt "QObject|"
+msgid "M666: Set delta endstop adjustment"
+msgstr "M666: Ustaw deltę krańcówki"
+
+#: src/core/gcodecommands.cpp:451
+msgctxt "QObject|"
+msgid "M667: Select CoreXY mode"
+msgstr "M667: Wybierz tryb CoreXY"
+
+#: src/core/gcodecommands.cpp:453
+msgctxt "QObject|"
+msgid "M851: Set Z-Probe Offset"
+msgstr "M851: Ustaw przesunięcie sondy Z"
+
+#: src/core/gcodecommands.cpp:455
+msgctxt "QObject|"
+msgid "M906: Set motor currents"
+msgstr "M906: Ustaw prądy silnika"
+
+#: src/core/gcodecommands.cpp:457
+msgctxt "QObject|"
+msgid "M907: Set digital trimpot motor"
+msgstr "M907: Ustaw cyfrowy potencjometr odcinający silnika"
+
+#: src/core/gcodecommands.cpp:459
+msgctxt "QObject|"
+msgid "M908: Control digital trimpot directly"
+msgstr "M908: Steruj cyfrowym potencjometrem odcinającym bezpośrednio"
+
+#: src/core/gcodecommands.cpp:461
+msgctxt "QObject|"
+msgid "M911: Set power monitor threshold voltages"
+msgstr "M911: Ustaw napięcia progowe monitora mocy"
+
+#: src/core/gcodecommands.cpp:463
+msgctxt "QObject|"
+msgid "M912: Set electronics temperature monitor adjustment"
+msgstr "M912: Ustaw monitor temperatury elektroniki"
+
+#: src/core/gcodecommands.cpp:465
+msgctxt "QObject|"
+msgid "M913: Set motor percentage of normal current"
+msgstr "M913: Ustaw procent normalnego prądu silnika"
+
+#: src/core/gcodecommands.cpp:467
+msgctxt "QObject|"
+msgid "M928: Start SD logging"
+msgstr "M928: Rozpocznij rejestrację na SD"
+
+#: src/core/gcodecommands.cpp:469
+msgctxt "QObject|"
+msgid "M997: Perform in-application firmware update"
+msgstr "M997: Wykonaj uaktualnienie oprogramowania układowego w aplikacji"
+
+#: src/core/gcodecommands.cpp:471
+msgctxt "QObject|"
+msgid "M998: Request resend of line"
+msgstr "M998: Żądanie ponownego wysłania lini"
+
+#: src/core/gcodecommands.cpp:473
+msgctxt "QObject|"
+msgid "M999: Restart after being stopped by error"
+msgstr "M999: Uruchomiono ponownie po zatrzymaniu spowodowanym błędem"
+
+#: src/widgets/about.cpp:21
+#, qt-format
+msgctxt "About|"
+msgid "Version: %1"
+msgstr "Wersja: %1"
+
+#: src/widgets/about.cpp:22
+#, qt-format
+msgctxt "About|"
+msgid "Using Qt: %1"
+msgstr "Używa Qt: %1"
+
+#: src/widgets/about.cpp:23
+msgctxt "About|"
+msgid ""
+"Authors:\n"
+"  Chris Rizzitello <rizzitello@kde.org>\n"
+"  Patrick José Pereira <patrickjp@kde.org>\n"
+"  Lays Rodrigues <lays.rodrigues@kde.org>\n"
+"  Tomaz Canabrava <tcanabrava@kde.org>"
+msgstr ""
+"Autorzy:\n"
+"  Chris Rizzitello <rizzitello@kde.org>\n"
+"  Patrick José Pereira <patrickjp@kde.org>\n"
+"  Lays Rodrigues <lays.rodrigues@kde.org>\n"
+"  Tomaz Canabrava <tcanabrava@kde.org>"
+
+#: src/widgets/about.cpp:35
+msgctxt "About|"
+msgid "Close"
+msgstr "Zamknij"
+
+#: src/widgets/axiscontrol.cpp:22
+msgctxt "AxisControl|"
+msgid "Move Axis"
+msgstr "Przesuń oś"
+
+#: src/widgets/commandwidget.cpp:25
+msgctxt "CommandWidget|"
+msgid "Send Command"
+msgstr "Wyślij polecenie"
+
+#: src/widgets/commandwidget.cpp:28 src/widgets/commandwidget.cpp:53
+msgctxt "CommandWidget|"
+msgid "Send"
+msgstr "Wyślij"
+
+#: src/widgets/commandwidget.cpp:50
+msgctxt "CommandWidget|"
+msgid "Show Message"
+msgstr "Pokaż wiadomość"
+
+#: src/widgets/logwidget.cpp:62
+msgctxt "LogWidget|"
+msgid ""
+"                        <h4>Special Log Entries</h4>                         "
+"<p><strong>Failed to open device in read/write mode.</strong></"
+"p>                         <p>&nbsp;&nbsp;&nbsp; The Device was not able to "
+"be opened.</p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; Check "
+"the device is not opened by another program.</p>                         "
+"<p>&nbsp; &nbsp; &nbsp;&nbsp; Check you have the correct permissions to open "
+"the device.</p>                         <p><strong>No plugin found for &lt;"
+"Detected Firmware&gt;</strong></p>                         <p>&nbsp;&nbsp;"
+"&nbsp; Firmware plugins are missing or your firmware is not currently "
+"supported.</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+"Manually select the Marlin or Repetier plugin.</p>                         "
+"<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If your firmware does not have a plugin "
+"please let us know.</p>                         <p><strong>Lots of &ldquo;"
+"Waiting for firmware detect&rdquo;</strong></p>                         "
+"<p>&nbsp;&nbsp;&nbsp; Unable to send the firmware detect waiting for printer "
+"to restart</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+"Push the restart button on your printer or turn it on and off. </"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select a "
+"firmware plugin in place of auto detect.</p>"
+msgstr ""
+"                        <h4>Specjalne wpisy w dzienniku</"
+"h4>                         <p><strong>Nie udało się otworzyć urządzenia w "
+"trybie odczyt/zapis.</strong></p>                         <p>&nbsp;&nbsp;"
+"&nbsp; Nie można było otworzyć urządzenia.</p>                         "
+"<p>&nbsp; &nbsp; &nbsp;&nbsp; Sprawdź czy urządzenie nie jest otwarte przez "
+"inny program.</p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; "
+"Sprawdź czy masz wystarczające uprawnienia do otwarcia urządzenia.</"
+"p>                         <p><strong>Nie znaleziono wtyczki dla &lt;"
+"wykrytego oprogramowania układowego&gt;</strong></p>                         "
+"<p>&nbsp;&nbsp;&nbsp; Nie ma wtyczek oprogramowania układowego lub nie ma "
+"jeszcze dla nich wsparcia.</p>                         <p>&nbsp;&nbsp;&nbsp;"
+"&nbsp;&nbsp; Wybierz ręcznie wtyczkę Marlin lub Repetier.</"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jeśli twoje "
+"oprogramowanie układowe nie ma wtyczki, to proszę daj nam o tym znać.</"
+"p>                         <p><strong>Długie &ldquo;czekanie na wykrycie "
+"oprogramowania układowego&rdquo;</strong></p>                         "
+"<p>&nbsp;&nbsp;&nbsp; Nie można wysłać sygnału do wykrycia oprogramowania "
+"układowego, oczekiwanie na ponowne uruchomienie drukarki</"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Naciśnij na "
+"przycisku ponownego uruchamiania drukarki, aby ją włączyć i wyłączyć. </"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wybierz ręcznie "
+"wtyczkę oprogramowania układowego zamiast samoczynnego wykrywania.</p>"
+
+#: src/widgets/logwidget.cpp:81
+msgctxt "LogWidget|"
+msgid "Save Session Log"
+msgstr "Zapisz dziennik sesji"
+
+#: src/widgets/logwidget.cpp:164
+msgctxt "LogWidget|"
+msgid "Save Log to file"
+msgstr "Zapisz dziennik do pliku"
+
+#: src/widgets/movementwidget.cpp:49
+msgctxt "MovementWidget|"
+msgid "Home All"
+msgstr "Dom wszystkie"
+
+#: src/widgets/movementwidget.cpp:53
+msgctxt "MovementWidget|"
+msgid "Home X"
+msgstr "Dom X"
+
+#: src/widgets/movementwidget.cpp:57
+msgctxt "MovementWidget|"
+msgid "Home Y"
+msgstr "Dom Y"
+
+#: src/widgets/movementwidget.cpp:61
+msgctxt "MovementWidget|"
+msgid "Home Z"
+msgstr "Dom Z"
+
+#: src/widgets/movementwidget.cpp:67
+msgctxt "MovementWidget|"
+msgid "Disable Motors"
+msgstr "Wyłącz silniki"
+
+#: src/widgets/movementwidget.cpp:72
+msgctxt "MovementWidget|"
+msgid "Move X Axis to"
+msgstr "Przesuń oś X do"
+
+#: src/widgets/movementwidget.cpp:73
+msgctxt "MovementWidget|"
+msgid "Move Y Axis to"
+msgstr "Przesuń oś Y do"
+
+#: src/widgets/movementwidget.cpp:74
+msgctxt "MovementWidget|"
+msgid "Move Z Axis to"
+msgstr "Przesuń oś Z do"
+
+#: src/widgets/movementwidget.cpp:83
+msgctxt "MovementWidget|"
+msgid "Go"
+msgstr "Idź"
+
+#: src/widgets/plotwidget.cpp:20
+msgctxt "PlotWidget|"
+msgid "Temp."
+msgstr "Temp."
+
+#: src/widgets/printwidget.cpp:25
+msgctxt "PrintWidget|"
+msgid "Print File"
+msgstr "Drukuj plik"
+
+#: src/widgets/printwidget.cpp:28
+msgctxt "PrintWidget|"
+msgid "Emergency Stop"
+msgstr "Nieprzewidziane zatrzymanie"
+
+#: src/widgets/printwidget.cpp:37
+msgctxt "PrintWidget|"
+msgid "Printer Speed"
+msgstr "Szybkość drukarki"
+
+#: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:58
+#: src/widgets/printwidget.cpp:71
+msgctxt "PrintWidget|"
+msgid "Set"
+msgstr "Ustaw"
+
+#: src/widgets/printwidget.cpp:52
+msgctxt "PrintWidget|"
+msgid "Flow Rate"
+msgstr "Szybkość przepływu"
+
+#: src/widgets/printwidget.cpp:96
+#, qt-format
+msgctxt "PrintWidget|"
+msgid "Fan %1 speed"
+msgstr "Szybkość wentylatora %1"
+
+#: src/widgets/profilemanager.cpp:27
+msgctxt "ProfileManager|"
+msgid "Profile:"
+msgstr "Profil:"
+
+#: src/widgets/profilemanager.cpp:55
+msgctxt "ProfileManager|"
+msgid "Delete Current Profile"
+msgstr "Usuń bieżący profil"
+
+#: src/widgets/profilemanager.cpp:69
+msgctxt "ProfileManager|"
+msgid "Name"
+msgstr "Nazwa"
+
+#: src/widgets/profilemanager.cpp:82
+msgctxt "ProfileManager|"
+msgid "Printer Type:"
+msgstr "Rodzaj drukarki:"
+
+#: src/widgets/profilemanager.cpp:83
+msgctxt "ProfileManager|"
+msgid "Delta"
+msgstr "Delta"
+
+#: src/widgets/profilemanager.cpp:84
+msgctxt "ProfileManager|"
+msgid "Cartesian"
+msgstr "Kartezjańskie"
+
+#: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:233
+msgctxt "ProfileManager|"
+msgid "Maximum X"
+msgstr "Maksimum X"
+
+#: src/widgets/profilemanager.cpp:105
+msgctxt "ProfileManager|"
+msgid "Maximum Y"
+msgstr "Maksimum Y"
+
+#: src/widgets/profilemanager.cpp:119 src/widgets/profilemanager.cpp:234
+msgctxt "ProfileManager|"
+msgid "Maximum Z"
+msgstr "Maksimum Z"
+
+#: src/widgets/profilemanager.cpp:130
+msgctxt "ProfileManager|"
+msgid "Mechanics"
+msgstr "Mechanika"
+
+#: src/widgets/profilemanager.cpp:135
+msgctxt "ProfileManager|"
+msgid "Bed Maximum"
+msgstr "Maksimum łoża"
+
+#: src/widgets/profilemanager.cpp:148
+msgctxt "ProfileManager|"
+msgid "Extruder Maximum"
+msgstr "Maksimum wyciskarki"
+
+#: src/widgets/profilemanager.cpp:157
+msgctxt "ProfileManager|"
+msgid "Auto Temperature Report"
+msgstr "Samozgłaszanie temperatury"
+
+#: src/widgets/profilemanager.cpp:162
+msgctxt "ProfileManager|"
+msgid "Temperature"
+msgstr "Temperatura"
+
+#: src/widgets/profilemanager.cpp:172
+msgctxt "ProfileManager|"
+msgid "Bit Rate"
+msgstr "Szybkość bitowa"
+
+#: src/widgets/profilemanager.cpp:178
+msgctxt "ProfileManager|"
+msgid "Firmware"
+msgstr "Oprogramowanie sprzętowe"
+
+#: src/widgets/profilemanager.cpp:192
+msgctxt "ProfileManager|"
+msgid "PostPause"
+msgstr "WstrzymaniePo"
+
+#: src/widgets/profilemanager.cpp:198
+msgctxt "ProfileManager|"
+msgid "Advanced"
+msgstr "Rozszerzone"
+
+#: src/widgets/profilemanager.cpp:201
+msgctxt "ProfileManager|"
+msgid "Profile"
+msgstr "Profil"
+
+#: src/widgets/profilemanager.cpp:236
+msgctxt "ProfileManager|"
+msgid "Radius"
+msgstr "Promień"
+
+#: src/widgets/profilemanager.cpp:237
+msgctxt "ProfileManager|"
+msgid "Height"
+msgstr "Wysokość"
+
+#: src/widgets/sdwidget.cpp:20
+msgctxt "SdWidget|"
+msgid "Get List"
+msgstr "Pobierz listę"
+
+#: src/widgets/sdwidget.cpp:24
+msgctxt "SdWidget|"
+msgid "Print Selected"
+msgstr "Wydrukuj wybrane"
+
+#: src/widgets/sdwidget.cpp:32
+msgctxt "SdWidget|"
+msgid "Delete Selected"
+msgstr "Usuń wybrane"
+
+#: src/widgets/sdwidget.cpp:41
+msgctxt "SdWidget|"
+msgid "Files On Sd Card"
+msgstr "Pliki na karcie SD"
+
+#: src/widgets/statuswidget.cpp:47
+msgctxt "StatusWidget|"
+msgid "AtCore State:"
+msgstr "Stan AtCore:"
+
+#: src/widgets/statuswidget.cpp:48
+msgctxt "StatusWidget|"
+msgid "Not Connected"
+msgstr "Niepołączony"
+
+#: src/widgets/statuswidget.cpp:72
+msgctxt "StatusWidget|"
+msgid "SD"
+msgstr "SD"
+
+#: src/widgets/temperaturewidget.cpp:21
+msgctxt "TemperatureWidget|"
+msgid "Wait Until Temperature Stabilizes"
+msgstr "Poczekaj do ustabilizowania się temperatury"
+
+#: src/widgets/temperaturewidget.cpp:24
+msgctxt "TemperatureWidget|"
+msgid "Bed Temp"
+msgstr "Temperatura łoża"
+
+#: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:44
+msgctxt "TemperatureWidget|"
+msgid "Set"
+msgstr "Ustaw"
+
+#: src/widgets/temperaturewidget.cpp:60
+#, qt-format
+msgctxt "TemperatureWidget|"
+msgid "Extruder %1"
+msgstr "Wyciskarka %1"
+
+#: testclient/mainwindow.cpp:30
+msgctxt "MainWindow|"
+msgid "AtCore - Test Client"
+msgstr "AtCore - Klient próbny"
+
+#: testclient/mainwindow.cpp:38
+msgctxt "MainWindow|"
+msgid "Attempting to locate Serial Ports"
+msgstr "Próba znalezienia portów szeregowych"
+
+#: testclient/mainwindow.cpp:49
+msgctxt "MainWindow|"
+msgid "AtCore First Run"
+msgstr "Pierwsze uruchomienie AtCore"
+
+#: testclient/mainwindow.cpp:49
+msgctxt "MainWindow|"
+msgid "No Profiles Detected, use the Profile Manager to create one."
+msgstr ""
+"Nie wykryto żadnych profili. Otwórz zarządzanie profilami, aby utworzyć "
+"jakiś."
+
+#: testclient/mainwindow.cpp:59
+msgctxt "MainWindow|"
+msgid "File"
+msgstr "Plik"
+
+#: testclient/mainwindow.cpp:60
+msgctxt "MainWindow|"
+msgid "Quit"
+msgstr "Zakończ"
+
+#: testclient/mainwindow.cpp:64
+msgctxt "MainWindow|"
+msgid "View"
+msgstr "Widok"
+
+#: testclient/mainwindow.cpp:65
+msgctxt "MainWindow|"
+msgid "Show Dock Titles"
+msgstr "Pokaż kafelki doku"
+
+#: testclient/mainwindow.cpp:71
+msgctxt "MainWindow|"
+msgid "Help"
+msgstr "Pomoc"
+
+#: testclient/mainwindow.cpp:72
+msgctxt "MainWindow|"
+msgid "About"
+msgstr "O programie"
+
+#: testclient/mainwindow.cpp:136
+msgctxt "MainWindow|"
+msgid "Commands"
+msgstr "Polecenia"
+
+#: testclient/mainwindow.cpp:156
+msgctxt "MainWindow|"
+msgid "Print"
+msgstr "Drukuj"
+
+#: testclient/mainwindow.cpp:167 testclient/mainwindow.cpp:171
+msgctxt "MainWindow|"
+msgid "Actual Bed"
+msgstr "Rzeczywiste łoże"
+
+#: testclient/mainwindow.cpp:174 testclient/mainwindow.cpp:178
+msgctxt "MainWindow|"
+msgid "Target Bed"
+msgstr "Docelowe łoże"
+
+#: testclient/mainwindow.cpp:181 testclient/mainwindow.cpp:185
+msgctxt "MainWindow|"
+msgid "Actual Ext.1"
+msgstr "Rzeczywista Wyc.1"
+
+#: testclient/mainwindow.cpp:188 testclient/mainwindow.cpp:192
+msgctxt "MainWindow|"
+msgid "Target Ext.1"
+msgstr "Docelowa Wyc.1"
+
+#: testclient/mainwindow.cpp:196
+msgctxt "MainWindow|"
+msgid "Seconds Between Temperature Checks"
+msgstr "Liczba sekund pomiędzy odczytem temperatury"
+
+#: testclient/mainwindow.cpp:218
+msgctxt "MainWindow|"
+msgid "Temperature Timeline"
+msgstr "Przebieg temperatury"
+
+#: testclient/mainwindow.cpp:227
+msgctxt "MainWindow|"
+msgid "Session Log"
+msgstr "Dziennik sesji"
+
+#: testclient/mainwindow.cpp:237
+msgctxt "MainWindow|"
+msgid "Port:"
+msgstr "Port:"
+
+#: testclient/mainwindow.cpp:258
+msgctxt "MainWindow|"
+msgid "Profile:"
+msgstr "Profil:"
+
+#: testclient/mainwindow.cpp:264
+msgctxt "MainWindow|"
+msgid "Attempt to stop Reset on connect"
+msgstr "Spróbuj zatrzymać zerowanie przy podłączeniu"
+
+#: testclient/mainwindow.cpp:276 testclient/mainwindow.cpp:292
+#: testclient/mainwindow.cpp:563
+msgctxt "MainWindow|"
+msgid "Connect"
+msgstr "Podłącz"
+
+#: testclient/mainwindow.cpp:284
+msgctxt "MainWindow|"
+msgid "Connection Error"
+msgstr "Błąd połączenia"
+
+#: testclient/mainwindow.cpp:284
+msgctxt "MainWindow|"
+msgid ""
+"Your machine did not respond after 20 seconds.\n"
+"\n"
+"Before connecting again check that your printer is on and your are "
+"connecting using the correct BAUD Rate for your device."
+msgstr ""
+"Twoja maszyna nie odpowiedziała po 20 sekundach.\n"
+"\n"
+"Przed ponowną próbą połączenia, sprawdź czy drukarka jest włączana i czy "
+"łączysz się przy użyciu właściwej szybkości BAUD dla tego urządzenia."
+
+#: testclient/mainwindow.cpp:304
+msgctxt "MainWindow|"
+msgid "Home All"
+msgstr "Dom wszystkie"
+
+#: testclient/mainwindow.cpp:309
+msgctxt "MainWindow|"
+msgid "Home X"
+msgstr "Dom X"
+
+#: testclient/mainwindow.cpp:314
+msgctxt "MainWindow|"
+msgid "Home Y"
+msgstr "Dom Y"
+
+#: testclient/mainwindow.cpp:319
+msgctxt "MainWindow|"
+msgid "Home Z"
+msgstr "Dom Z"
+
+#: testclient/mainwindow.cpp:341
+msgctxt "MainWindow|"
+msgid "Movement"
+msgstr "Ruch"
+
+#: testclient/mainwindow.cpp:354
+msgctxt "MainWindow|"
+msgid "Temperatures"
+msgstr "Temperatury"
+
+#: testclient/mainwindow.cpp:367
+msgctxt "MainWindow|"
+msgid "Print Error"
+msgstr "Błąd drukowania"
+
+#: testclient/mainwindow.cpp:367 testclient/mainwindow.cpp:375
+msgctxt "MainWindow|"
+msgid "You must Select a file from the list"
+msgstr "Wybierz plik z listy"
+
+#: testclient/mainwindow.cpp:375
+msgctxt "MainWindow|"
+msgid "Delete Error"
+msgstr "Błąd usuwania"
+
+#: testclient/mainwindow.cpp:381
+msgctxt "MainWindow|"
+msgid "Sd Card"
+msgstr "Karta SD"
+
+#: testclient/mainwindow.cpp:390
+msgctxt "MainWindow|"
+msgid "Profile Manager"
+msgstr "Zarządzanie profilami"
+
+#: testclient/mainwindow.cpp:446
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Found %1 Ports"
+msgstr "Znaleziono %1 portów"
+
+#: testclient/mainwindow.cpp:448
+msgctxt "MainWindow|"
+msgid "No available ports! Please connect a serial device to continue!"
+msgstr "Brak dostępnych portów! Podłącz urządzenie szeregowe, aby kontynuować!"
+
+#: testclient/mainwindow.cpp:466
+msgctxt "MainWindow|"
+msgid "Serial connected"
+msgstr "Podłączony szeregowo"
+
+#: testclient/mainwindow.cpp:478
+msgctxt "MainWindow|"
+msgid "Disconnected"
+msgstr "Rozłączony"
+
+#: testclient/mainwindow.cpp:487 testclient/mainwindow.cpp:493
+msgctxt "MainWindow|"
+msgid "Error"
+msgstr "Błąd"
+
+#: testclient/mainwindow.cpp:487
+msgctxt "MainWindow|"
+msgid "Not Connected To a Printer"
+msgstr "Niepodłączony do drukarki"
+
+#: testclient/mainwindow.cpp:494
+msgctxt "MainWindow|"
+msgid ""
+" A Firmware Plugin was not loaded!\n"
+"  Please send the command M115 and let us know what your firmware returns, "
+"so we can improve our firmware detection. Edit your profile to use \"marlin"
+"\" and try again."
+msgstr ""
+" Wtyczka oprogramowania układowego nie została wczytana!\n"
+"  Wydaj polecenie M115 i daj nam znać co zwraca twoje oprogramowanie "
+"układowe, tak abyśmy mogli ulepszyć nasze wykrywanie oprogramowania "
+"układowego. Edytuj swój profil, aby użyć \"marlin\" i spróbuj ponownie."
+
+#: testclient/mainwindow.cpp:498
+msgctxt "MainWindow|"
+msgid "Select a file to print"
+msgstr "Wybierz plik do wydrukowania"
+
+#: testclient/mainwindow.cpp:498
+msgctxt "MainWindow|"
+msgid "*.gcode"
+msgstr "*.gcode"
+
+#: testclient/mainwindow.cpp:500
+msgctxt "MainWindow|"
+msgid "No File Selected"
+msgstr "Nie wybrano pliku"
+
+#: testclient/mainwindow.cpp:502
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Print: %1"
+msgstr "Drukuj: %1"
+
+#: testclient/mainwindow.cpp:529
+msgctxt "MainWindow|"
+msgid "Disconnect"
+msgstr "Rozłącz"
+
+#: testclient/mainwindow.cpp:530 testclient/mainwindow.cpp:543
+#: testclient/mainwindow.cpp:651
+msgctxt "MainWindow|"
+msgid "Print File"
+msgstr "Wydrukuj plik"
+
+#: testclient/mainwindow.cpp:531
+msgctxt "MainWindow|"
+msgid "Connected to "
+msgstr "Połączono z "
+
+#: testclient/mainwindow.cpp:536
+msgctxt "MainWindow|"
+msgid "START PRINT"
+msgstr "Rozpocznij wydruk"
+
+#: testclient/mainwindow.cpp:537 testclient/mainwindow.cpp:554
+msgctxt "MainWindow|"
+msgid "Pause Print"
+msgstr "Wstrzymaj druk"
+
+#: testclient/mainwindow.cpp:542
+msgctxt "MainWindow|"
+msgid "Finished Print"
+msgstr "Ukończono wydruk"
+
+#: testclient/mainwindow.cpp:548
+msgctxt "MainWindow|"
+msgid "Paused"
+msgstr "Wstrzymano"
+
+#: testclient/mainwindow.cpp:549
+msgctxt "MainWindow|"
+msgid "Resume Print"
+msgstr "Wznów druk"
+
+#: testclient/mainwindow.cpp:553
+msgctxt "MainWindow|"
+msgid "Printing"
+msgstr "Drukowanie"
+
+#: testclient/mainwindow.cpp:570
+msgctxt "MainWindow|"
+msgid "Abort"
+msgstr "Przerwij"
+
+#: testclient/mainwindow.cpp:577
+msgctxt "MainWindow|"
+msgid "Stopping Print"
+msgstr "Zatrzymaj wydruk"
+
+#: testclient/mainwindow.cpp:581
+msgctxt "MainWindow|"
+msgid "Command ERROR"
+msgstr "Błąd polecenia"
+
+#~ msgctxt "PrintWidget|"
+#~ msgid "On Pause:"
+#~ msgstr "Przy wstrzymaniu\""
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Use Plugin:"
+#~ msgstr "Użyj wtyczki:"
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Autodetect"
+#~ msgstr "Wykryj sam"
+
+#~ msgctxt "AtCore|"
+#~ msgid "Cant find firwmware, serial not connected!"
+#~ msgstr ""
+#~ "Nie można znaleźć oprogramowania układowego, port szeregowy jest "
+#~ "niepodłączony!"
+
+#, fuzzy
+#~| msgctxt "TemperatureWidget|"
+#~| msgid "Extruder %1"
+#~ msgctxt "RectButton|"
+#~ msgid "Extrude %1 Units"
+#~ msgstr "Wyciskarka %1"
+
+#~ msgctxt "PlotWidget|"
+#~ msgid "Actual Bed"
+#~ msgstr "Rzeczywiste łoże"
+
+#~ msgctxt "PlotWidget|"
+#~ msgid "Target Bed"
+#~ msgstr "Docelowe łoże"
+
+#~ msgctxt "PlotWidget|"
+#~ msgid "Actual Ext.1"
+#~ msgstr "Rzeczywista Wyc.1"
+
+#~ msgctxt "PlotWidget|"
+#~ msgid "Target Ext.1"
+#~ msgstr "Docelowa Wyc.1"
+
+#~ msgctxt "AtCore|"
+#~ msgid "plugins[%1]=%2"
+#~ msgstr "wtyczki[%1]=%2"
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Requesting Firmware..."
+#~ msgstr "Żądanie oprogramowania układowego..."
+
+#~ msgctxt "QObject|"
+#~ msgid "GCommand not supported!"
+#~ msgstr "Polecenie GCommand nieobsługiwane!"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M104: It's obligatory to have an argument"
+#~ msgstr "BŁĄD! M104: Wymagany jest argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M109: It's obligatory to have an argument"
+#~ msgstr "ERROR! M109: Wymagany jest argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M117: It's obligatory to have an argument"
+#~ msgstr "BŁĄD! M117: Wymagany jest argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M140: It's obligatory to have an argument"
+#~ msgstr "BŁĄD! M140: Wymagany jest argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M190: It's obligatory to have an argument"
+#~ msgstr "ERROR! M190: Wymagany jest argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M220: It's obligatory to have an argument"
+#~ msgstr "BŁĄD! M220: Wymagany jest argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M221: It's obligatory to have an argument"
+#~ msgstr "BŁĄD! M221: Wymagany jest argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "Not supported or implemented!"
+#~ msgstr "Nieobsługiwane lub niezaimplementowane!"

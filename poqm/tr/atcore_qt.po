@@ -1,0 +1,1835 @@
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2022-08-04 20:15+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Qt-Contexts: true\n"
+"X-Generator: Lokalize 22.04.3\n"
+
+#: src/core/atcore.cpp:140
+msgctxt "AtCore|"
+msgid "Waiting for firmware detect."
+msgstr "Üretici yazılımı algılaması bekleniyor."
+
+#: src/core/atcore.cpp:194
+#, qt-format
+msgctxt "AtCore|"
+msgid "Connected to printer using %1 plugin"
+msgstr "Yazıcıya %1 eklentisi kullanılarak bağlandı"
+
+#: src/core/atcore.cpp:198
+#, qt-format
+msgctxt "AtCore|"
+msgid "No plugin found for %1."
+msgstr "%1 için eklenti bulunamadı."
+
+#: src/core/atcore.cpp:237
+msgctxt "AtCore|"
+msgid "Waiting for machine restart"
+msgstr "Makine yeniden başlatması bekleniyor"
+
+#: src/core/atcore.cpp:248
+msgctxt "AtCore|"
+msgid "Failed to open device in read/write mode."
+msgstr "Aygıt okuma/yazma kipinde açılamadı."
+
+#: src/core/atcore.cpp:867
+msgctxt "AtCore|"
+msgid "Device not found"
+msgstr "Aygıt bulunamadı"
+
+#: src/core/atcore.cpp:870
+msgctxt "AtCore|"
+msgid "Unable to write to device"
+msgstr "Aygıta yazılamıyor"
+
+#: src/core/atcore.cpp:873
+msgctxt "AtCore|"
+msgid "Unable to read from device"
+msgstr "Aygıttan okunamıyor"
+
+#: src/core/atcore.cpp:877
+msgctxt "AtCore|"
+msgid "The device no longer available"
+msgstr "Aygıt, artık kullanılabilir değil"
+
+#: src/core/atcore.cpp:881
+msgctxt "AtCore|"
+msgid "Device does not support the operation"
+msgstr "Aygıt, işlemi desteklemiyor"
+
+#: src/core/atcore.cpp:884
+msgctxt "AtCore|"
+msgid "Unknown Error"
+msgstr "Bilinmeyen Hata"
+
+#: src/core/gcodecommands.cpp:12
+#, qt-format
+msgctxt "QObject|"
+msgid "%1%2: requires an argument"
+msgstr "%1%2: Bir argüman gerektiriyor"
+
+#: src/core/gcodecommands.cpp:13
+msgctxt "QObject|"
+msgid "Not implemented or not supported!"
+msgstr "Eklenmemiş veya desteklenmiyor!"
+
+#: src/core/gcodecommands.cpp:19
+msgctxt "QObject|"
+msgid "G0: Rapid linear move"
+msgstr "G0: Tez doğrusal hareket"
+
+#: src/core/gcodecommands.cpp:21
+msgctxt "QObject|"
+msgid "G1: Linear move"
+msgstr "G1: Doğrusal hareket"
+
+#: src/core/gcodecommands.cpp:23
+msgctxt "QObject|"
+msgid "G2: Controlled Arc Move clockwise"
+msgstr "G2: Saat yönünde denetimli eğri hareketi"
+
+#: src/core/gcodecommands.cpp:25
+msgctxt "QObject|"
+msgid "G3: Controlled Arc Move counterclockwise"
+msgstr "G3: Saat yönünün tersinde denetimli eğri hareketi"
+
+#: src/core/gcodecommands.cpp:27
+msgctxt "QObject|"
+msgid "G4: Dwell"
+msgstr "G4: Olduğu yerde kalma"
+
+#: src/core/gcodecommands.cpp:29
+msgctxt "QObject|"
+msgid "G10: Retract"
+msgstr "G10: Geri çekilme"
+
+#: src/core/gcodecommands.cpp:31
+msgctxt "QObject|"
+msgid "G11: Unretract"
+msgstr "G11: Geri çekilmeme"
+
+#: src/core/gcodecommands.cpp:33
+msgctxt "QObject|"
+msgid "G20: Set units to inches"
+msgstr "G20: Birimleri inç olarak ayarla"
+
+#: src/core/gcodecommands.cpp:35
+msgctxt "QObject|"
+msgid "G21: Set units to millimeters"
+msgstr "G21: Birimleri milimetre olarak ayarla"
+
+#: src/core/gcodecommands.cpp:37
+msgctxt "QObject|"
+msgid "G28: Move to Origin Home"
+msgstr "G28: Başlangıç noktasına geri dön"
+
+#: src/core/gcodecommands.cpp:39
+msgctxt "QObject|"
+msgid "G29: Detailed Z-Probe"
+msgstr "G29: Ayrıntılı Z Araştırması"
+
+#: src/core/gcodecommands.cpp:41
+msgctxt "QObject|"
+msgid "G30: Single Z-Probe"
+msgstr "G30: Tek Z Araştırması"
+
+#: src/core/gcodecommands.cpp:43
+msgctxt "QObject|"
+msgid "G31: Set or report current probe status / Dock Z Probe sled for Marlin"
+msgstr ""
+"G31: Geçerli araştırma durumunu ayarla veya bildir / Marlin için Dock Z "
+"Araştırması kızağa alındı"
+
+#: src/core/gcodecommands.cpp:45
+msgctxt "QObject|"
+msgid ""
+"G32: Probe Z and calculate Z plane(Bed Leveling)/ UnDoc Z Probe sled for "
+"Marlin"
+msgstr ""
+"G32: Z'yi araştır ve Z uzayını hesapla (Yatak Düzleştirme)/ Marlin için "
+"UnDoc Z Araştırması kızağa alındı"
+
+#: src/core/gcodecommands.cpp:47
+msgctxt "QObject|"
+msgid "G33: Measure/List/Adjust Distortion Matrix"
+msgstr "G33: Pürüz Matrisini Ölç/Listele/Ayarla"
+
+#: src/core/gcodecommands.cpp:49
+msgctxt "QObject|"
+msgid "G90: Set to absolute positioning"
+msgstr "G90: Mutlak konuma ayarla"
+
+#: src/core/gcodecommands.cpp:51
+msgctxt "QObject|"
+msgid "G91: Set to relative positioning"
+msgstr "G91: Göreceli konuma ayarla"
+
+#: src/core/gcodecommands.cpp:53
+msgctxt "QObject|"
+msgid "G92: Set position"
+msgstr "G92: Konum ayarla"
+
+#: src/core/gcodecommands.cpp:55
+msgctxt "QObject|"
+msgid "G100: Calibrate floor or rod radius"
+msgstr "G100: Taban veya çubuk yarıçapını kalibre et"
+
+#: src/core/gcodecommands.cpp:57
+msgctxt "QObject|"
+msgid "G130: Set digital potentiometer value"
+msgstr "G130: Sayısal gerilimölçer değerini ayarla"
+
+#: src/core/gcodecommands.cpp:59
+msgctxt "QObject|"
+msgid "G131: Recase Move offset"
+msgstr "G131: Taşıma ofsetini yeniden yerleştir"
+
+#: src/core/gcodecommands.cpp:61
+msgctxt "QObject|"
+msgid "G132: Calibrate endstops offsets"
+msgstr "G132: Bitiş noktaları ofsetlerini kalibre et"
+
+#: src/core/gcodecommands.cpp:63
+msgctxt "QObject|"
+msgid "G133: Measure steps to top"
+msgstr "G133: Tepeye olan adımları ölç"
+
+#: src/core/gcodecommands.cpp:65
+msgctxt "QObject|"
+msgid "G161: Home axis to minimum"
+msgstr "G161: Başlangıç ekseni en düşük değer"
+
+#: src/core/gcodecommands.cpp:67
+msgctxt "QObject|"
+msgid "G162: Home axis to maximum"
+msgstr "G162: Başlangıç ekseni en yüksek değer"
+
+#: src/core/gcodecommands.cpp:99
+msgctxt "QObject|"
+msgid "M0: Stop or unconditional stop"
+msgstr "M0: Dur veya koşulsuz dur"
+
+#: src/core/gcodecommands.cpp:101
+msgctxt "QObject|"
+msgid "M1: Sleep or unconditional stop"
+msgstr "M1: Uyu veya koşulsuz dur"
+
+#: src/core/gcodecommands.cpp:103
+msgctxt "QObject|"
+msgid "M2: Program End"
+msgstr "M2: Program Sonu"
+
+#: src/core/gcodecommands.cpp:105
+msgctxt "QObject|"
+msgid "M6: Tool Change"
+msgstr "M6: Araç Değişikliği"
+
+#: src/core/gcodecommands.cpp:107
+msgctxt "QObject|"
+msgid "M17: Enable/power all steppers motors"
+msgstr "M17: Tüm adımlayıcı işletkelerini etkinleştir/güç ver"
+
+#: src/core/gcodecommands.cpp:109
+msgctxt "QObject|"
+msgid "M18: Disable all steppers motors"
+msgstr "M18: Tüm adımlayıcı işletkelerini devre dışı bırak"
+
+#: src/core/gcodecommands.cpp:111
+msgctxt "QObject|"
+msgid "M20: List SDCard"
+msgstr "M20: SDCard listele"
+
+#: src/core/gcodecommands.cpp:113
+msgctxt "QObject|"
+msgid "M21: Initialize SDCard"
+msgstr "M21: SDCard ilklendir"
+
+#: src/core/gcodecommands.cpp:115
+msgctxt "QObject|"
+msgid "M22: Release SDCard"
+msgstr "M22: SDCard bırak"
+
+#: src/core/gcodecommands.cpp:117
+msgctxt "QObject|"
+msgid "M23: Select SD file"
+msgstr "M23: SD dosyası seç"
+
+#: src/core/gcodecommands.cpp:119
+msgctxt "QObject|"
+msgid "M24: Start/resume SD print"
+msgstr "M24: SD yazdırması başlat/sürdür"
+
+#: src/core/gcodecommands.cpp:121
+msgctxt "QObject|"
+msgid "M25: Pause SD print"
+msgstr "M25: SD yazdırması duraklat"
+
+#: src/core/gcodecommands.cpp:123
+msgctxt "QObject|"
+msgid "M26: Set SD position"
+msgstr "M26: SD konumu ayarla"
+
+#: src/core/gcodecommands.cpp:125
+msgctxt "QObject|"
+msgid "M27: Report SD print status"
+msgstr "M27: SD yazdırma durumu bildir"
+
+#: src/core/gcodecommands.cpp:127
+msgctxt "QObject|"
+msgid "M28: Begin write to SD card"
+msgstr "M28: SD karta yazmayı başlat"
+
+#: src/core/gcodecommands.cpp:129
+msgctxt "QObject|"
+msgid "M29: Stop writing to SD card"
+msgstr "M29: SD karta yazmayı durdur"
+
+#: src/core/gcodecommands.cpp:131
+msgctxt "QObject|"
+msgid "M30: Delete a file on the SD card"
+msgstr "M30: SD karttaki bir dosyayı sil"
+
+#: src/core/gcodecommands.cpp:133
+msgctxt "QObject|"
+msgid "M31: Output time since last M109 or SD card start to serial"
+msgstr "M31: Son M109 veya SD kart seri başlangıcından bu yana geçen zaman"
+
+#: src/core/gcodecommands.cpp:135
+msgctxt "QObject|"
+msgid "M32: Select file and start SD print"
+msgstr "M31: Dosya seç ve SD yazdırmayı başlat"
+
+#: src/core/gcodecommands.cpp:137
+msgctxt "QObject|"
+msgid "M33: Get the long name for an SD card file or folder"
+msgstr "M33: Bir SD kart dosyası veya klasörü için uzun adı al"
+
+#: src/core/gcodecommands.cpp:139
+msgctxt "QObject|"
+msgid "M34: Set SD file sorting options"
+msgstr "M34: SD dosyası sıralama seçeneklerini ayarla"
+
+#: src/core/gcodecommands.cpp:141
+msgctxt "QObject|"
+msgid "M36: Return file information"
+msgstr "M36: Dönüş dosyası bilgisi"
+
+#: src/core/gcodecommands.cpp:143
+msgctxt "QObject|"
+msgid "M42: Switch I/O pin"
+msgstr "M42: Girdi/çıktı pimini değiştir"
+
+#: src/core/gcodecommands.cpp:145
+msgctxt "QObject|"
+msgid "M48: Measure Z-Probe repeatability"
+msgstr "M48: Z-Araştırması yinelenebilirliğini ölç"
+
+#: src/core/gcodecommands.cpp:147
+msgctxt "QObject|"
+msgid "M70: Display message"
+msgstr "M70: İleti görüntüle"
+
+#: src/core/gcodecommands.cpp:149
+msgctxt "QObject|"
+msgid "M72: Play a tone or song"
+msgstr "M72: Bir parça veya şarkı çal"
+
+#: src/core/gcodecommands.cpp:151
+msgctxt "QObject|"
+msgid "M73: Set build percentage"
+msgstr "M73: Yapı yüzdesini ayarla"
+
+#: src/core/gcodecommands.cpp:153
+msgctxt "QObject|"
+msgid "M80: ATX Power On"
+msgstr "M80: ATX Gücü Açık"
+
+#: src/core/gcodecommands.cpp:155
+msgctxt "QObject|"
+msgid "M81: ATX Power Off"
+msgstr "M81: ATX Gücü Kapalı"
+
+#: src/core/gcodecommands.cpp:157
+msgctxt "QObject|"
+msgid "M82: Set extruder to absolute mode"
+msgstr "M82: Ekstrüderi mutlak kipe ayarla"
+
+#: src/core/gcodecommands.cpp:159
+msgctxt "QObject|"
+msgid "M83: Set extruder to relative mode"
+msgstr "M83: Ekstrüderi göreceli kipe ayarla"
+
+#: src/core/gcodecommands.cpp:161
+msgctxt "QObject|"
+msgid "M84: Stop idle hold"
+msgstr "M84: Boşta beklemeyi durdur"
+
+#: src/core/gcodecommands.cpp:163
+msgctxt "QObject|"
+msgid "M85: Set Inactivity shutdown timer"
+msgstr "M85: Etkisizlik kapatma sayacını ayarla"
+
+#: src/core/gcodecommands.cpp:165
+msgctxt "QObject|"
+msgid "M92: Set axis steps per unit"
+msgstr "M92: Birim başı eksen adımları ayarla"
+
+#: src/core/gcodecommands.cpp:167
+msgctxt "QObject|"
+msgid "M93: Send axis steps per unit"
+msgstr "M93: Birim başı eksen adımları gönder"
+
+#: src/core/gcodecommands.cpp:169
+msgctxt "QObject|"
+msgid "M98: Call Macro/Subprogram"
+msgstr "M98: Makro/Alt Program Çağır"
+
+#: src/core/gcodecommands.cpp:171
+msgctxt "QObject|"
+msgid "M99: Return from Macro/Subprogram"
+msgstr "M99: Makro/Alt Program'dan Dön"
+
+#: src/core/gcodecommands.cpp:173
+msgctxt "QObject|"
+msgid "M101: Turn extruder 1 on Forward, Undo Retraction"
+msgstr "M101: Ekstrüder 1'i İleri kipe al, Geri Çekme'yi geri al"
+
+#: src/core/gcodecommands.cpp:175
+msgctxt "QObject|"
+msgid "M103: Turn all extruders off - Extruder Retraction"
+msgstr "M103: Tüm ekstrüderleri kapat - Ekstrüder Geri Çekimi"
+
+#: src/core/gcodecommands.cpp:177
+msgctxt "QObject|"
+msgid "M104: Set Extruder Temperature"
+msgstr "M104: Ekstrüderin Sıcaklığını Ayarla"
+
+#: src/core/gcodecommands.cpp:179
+msgctxt "QObject|"
+msgid "M105: Get Extruder Temperature"
+msgstr "M105: Ekstrüder Sıcaklığını Al"
+
+#: src/core/gcodecommands.cpp:181
+msgctxt "QObject|"
+msgid "M106: Fan On"
+msgstr "M106: Fan Açık"
+
+#: src/core/gcodecommands.cpp:183
+msgctxt "QObject|"
+msgid "M107: Fan Off"
+msgstr "M107: Fan Kapalı"
+
+#: src/core/gcodecommands.cpp:185
+msgctxt "QObject|"
+msgid "M108: Cancel Heating"
+msgstr "M108: Isıtmayı Kapat"
+
+#: src/core/gcodecommands.cpp:187
+msgctxt "QObject|"
+msgid "M109: Set Extruder Temperature and Wait"
+msgstr "M109: Ekstrüderin Sıcaklığını Ayarla ve Bekle"
+
+#: src/core/gcodecommands.cpp:189
+msgctxt "QObject|"
+msgid "M110: Set Current Line Number"
+msgstr "M110: Geçerli Satır Numarasını Ayarla"
+
+#: src/core/gcodecommands.cpp:191
+msgctxt "QObject|"
+msgid "M111: Set Debug Level"
+msgstr "M111: Hata Ayıklama Düzeyini Ayarla"
+
+#: src/core/gcodecommands.cpp:193
+msgctxt "QObject|"
+msgid "M112: Emergency Stop"
+msgstr "M112: Acil Durdur"
+
+#: src/core/gcodecommands.cpp:195
+msgctxt "QObject|"
+msgid "M114: Get Current Position"
+msgstr "M114: Geçerli Konumu Al"
+
+#: src/core/gcodecommands.cpp:197
+msgctxt "QObject|"
+msgid "M115: Get Firmware Version and Capabilities"
+msgstr "M115: Üretici Yazılımı Sürümü ve Yeteneklerini Al"
+
+#: src/core/gcodecommands.cpp:199
+msgctxt "QObject|"
+msgid "M116: Wait"
+msgstr "M116: Bekle"
+
+#: src/core/gcodecommands.cpp:201
+msgctxt "QObject|"
+msgid "M117: Display Message"
+msgstr "M117: İleti Görüntüle"
+
+#: src/core/gcodecommands.cpp:203
+msgctxt "QObject|"
+msgid "M119: Get Endstop Status"
+msgstr "M119: Bitiş Noktası Durumu Al"
+
+#: src/core/gcodecommands.cpp:205
+msgctxt "QObject|"
+msgid ""
+"M120: Push for Smoothie and RepRap Firmware / Enable Endstop detection for "
+"Marlin"
+msgstr ""
+"M120: Smoothie ve RepRap Üretici Yazılımı için İt / Marlin için bitiş "
+"noktası algılamasını etkinleştir"
+
+#: src/core/gcodecommands.cpp:207
+msgctxt "QObject|"
+msgid ""
+"M121: Pop for Smoothie and RepRap Firmware / Disable Endstop detection for "
+"Marlin"
+msgstr ""
+"M121: Smoothie ve RepRap Üretici Yazılımı için Çıkar / Marlin için bitiş "
+"noktası algılamasını etkinleştir"
+
+#: src/core/gcodecommands.cpp:209
+msgctxt "QObject|"
+msgid "M122: Diagnose"
+msgstr "M122: Tanıla"
+
+#: src/core/gcodecommands.cpp:211
+msgctxt "QObject|"
+msgid "M126: Open valve"
+msgstr "M126: Valfi aç"
+
+#: src/core/gcodecommands.cpp:213
+msgctxt "QObject|"
+msgid "M127: Close valve"
+msgstr "M127: Valfi kapat"
+
+#: src/core/gcodecommands.cpp:215
+msgctxt "QObject|"
+msgid "M130: Set PID P value"
+msgstr "M130: PID P değerini ayarla"
+
+#: src/core/gcodecommands.cpp:217
+msgctxt "QObject|"
+msgid "M131: Set PID I value"
+msgstr "M131: PID I değerini ayarla"
+
+#: src/core/gcodecommands.cpp:219
+msgctxt "QObject|"
+msgid "M132: Set PID D value"
+msgstr "M132: PID D değerini ayarla"
+
+#: src/core/gcodecommands.cpp:221
+msgctxt "QObject|"
+msgid "M133: Set PID I limit value"
+msgstr "M133: PID I sınır değerini ayarla"
+
+#: src/core/gcodecommands.cpp:223
+msgctxt "QObject|"
+msgid "M134: Write PID values to EEPROM"
+msgstr "M134: PID değerlerini EEPROM'a yaz"
+
+#: src/core/gcodecommands.cpp:225
+msgctxt "QObject|"
+msgid "M135: Set PID sample interval"
+msgstr "M135: PID örnek aralığını yaz"
+
+#: src/core/gcodecommands.cpp:227
+msgctxt "QObject|"
+msgid "M140: Set Bed Temperature - Fast"
+msgstr "M140: Yatak Sıcaklığını Ayarla - Hızlı"
+
+#: src/core/gcodecommands.cpp:229
+msgctxt "QObject|"
+msgid "M141: Set Chamber Temperature - Fast"
+msgstr "M141: Oda Sıcaklığını Ayarla - Hızlı"
+
+#: src/core/gcodecommands.cpp:231
+msgctxt "QObject|"
+msgid "M143: Maximum hot-end temperature"
+msgstr "M143: En yüksek sıcak uç sıcaklığı"
+
+#: src/core/gcodecommands.cpp:233
+msgctxt "QObject|"
+msgid "M144: Stand by your bed"
+msgstr "M144: Yatağın başında dur"
+
+#: src/core/gcodecommands.cpp:235
+msgctxt "QObject|"
+msgid "M150: Set display color"
+msgstr "M150: Görüntü rengini ayarla"
+
+#: src/core/gcodecommands.cpp:237
+msgctxt "QObject|"
+msgid "M155: Set Temperature auto report"
+msgstr "M155: Sıcaklık otomatik bildirimini ayarla"
+
+#: src/core/gcodecommands.cpp:239
+msgctxt "QObject|"
+msgid "M163: Set weight of mixed material"
+msgstr "M163: Karıştırılmış materyal ağırlığını ayarla"
+
+#: src/core/gcodecommands.cpp:241
+msgctxt "QObject|"
+msgid "M164: Store weights"
+msgstr "M164: Ağırlıkları depola"
+
+#: src/core/gcodecommands.cpp:243
+msgctxt "QObject|"
+msgid "M190: Wait for bed temperature to reach target temp"
+msgstr "M190: Yatak sıcaklığının hedef sıcaklığa ulaşmasını bekle"
+
+#: src/core/gcodecommands.cpp:245
+msgctxt "QObject|"
+msgid "M200: Set filament diameter"
+msgstr "M200: Filament çapını ayarla"
+
+#: src/core/gcodecommands.cpp:247
+msgctxt "QObject|"
+msgid "M201: Set max printing acceleration"
+msgstr "M201: En yüksek yazdırma ivmelendirmesini ayarla"
+
+#: src/core/gcodecommands.cpp:249
+msgctxt "QObject|"
+msgid "M202: Set max travel acceleration"
+msgstr "M202: En yüksek yolculuk ivmelendirmesini ayarla"
+
+#: src/core/gcodecommands.cpp:251
+msgctxt "QObject|"
+msgid "M203: Set maximum feedrate"
+msgstr "M203: En yüksek besleme hızını ayarla"
+
+#: src/core/gcodecommands.cpp:253
+msgctxt "QObject|"
+msgid "M204: Set default acceleration"
+msgstr "M204: Öntanımlı ivmelendirmeyi ayarla"
+
+#: src/core/gcodecommands.cpp:255
+msgctxt "QObject|"
+msgid "M205: Advanced settings"
+msgstr "M205: Gelişmiş ayarlar"
+
+#: src/core/gcodecommands.cpp:257
+msgctxt "QObject|"
+msgid ""
+"M206: Offset axes for Sprinter, Marlin, Smoothie, RepRap Firmware / Set "
+"eeprom value for Repetier"
+msgstr ""
+"M206: Sprinter, Marlin, Smoothie, Reprap Üretici Yazılımları için ofset "
+"eksenleri / Repetier için EEPROM değeri ayarla"
+
+#: src/core/gcodecommands.cpp:259
+msgctxt "QObject|"
+msgid "M207: Set retract length"
+msgstr "M207: Geri çekme uzunluğunu ayarla"
+
+#: src/core/gcodecommands.cpp:261
+msgctxt "QObject|"
+msgid "M208: Set unretract length"
+msgstr "M208: Geri çekmeme uzunluğunu ayarla"
+
+#: src/core/gcodecommands.cpp:263
+msgctxt "QObject|"
+msgid "M209: Enable automatic retract"
+msgstr "M209: Otomatik geri çekmeyi etkinleştir"
+
+#: src/core/gcodecommands.cpp:265
+msgctxt "QObject|"
+msgid "M212: Set Bed Level Sensor Offset"
+msgstr "M212: Yatak Düzeyi Sensör Ofsetini Ayarla"
+
+#: src/core/gcodecommands.cpp:267
+msgctxt "QObject|"
+msgid "M218: Set Hotend Offset"
+msgstr "M218: Sıcak Uç Ofsetini Ayarla"
+
+#: src/core/gcodecommands.cpp:269
+msgctxt "QObject|"
+msgid "M220: Set speed factor override percentage"
+msgstr "M220: Hız etmeni geçersiz kılma yüzdesini ayarla"
+
+#: src/core/gcodecommands.cpp:271
+msgctxt "QObject|"
+msgid "M221: Set extrude factor override percentage"
+msgstr "M221: Ekstrüt etmeni geçersiz kılma yüzdesini ayarla"
+
+#: src/core/gcodecommands.cpp:273
+msgctxt "QObject|"
+msgid "M226: Wait for pin state"
+msgstr "M226: Pim durumunu bekle"
+
+#: src/core/gcodecommands.cpp:275
+msgctxt "QObject|"
+msgid "M231: Set OPS parameter"
+msgstr "M231: OPS parametresini ayarla"
+
+#: src/core/gcodecommands.cpp:277
+msgctxt "QObject|"
+msgid "M232: Read and reset max. advance values"
+msgstr "M232: En yüksek gelişmiş değerleri oku ve sıfırla"
+
+#: src/core/gcodecommands.cpp:279
+msgctxt "QObject|"
+msgid "M240: Trigger camera"
+msgstr "M240: Kamerayı tetikle"
+
+#: src/core/gcodecommands.cpp:281
+msgctxt "QObject|"
+msgid "M250: Set LCD contrast"
+msgstr "M250: LCD karşıtlığını ayarla"
+
+#: src/core/gcodecommands.cpp:283
+msgctxt "QObject|"
+msgid "M251: Measure Z steps from homing stop (Delta printers)"
+msgstr "M251: Başlangıç noktasına dönüşten Z adımlarını ölç (Delta yazıcıları)"
+
+#: src/core/gcodecommands.cpp:285
+msgctxt "QObject|"
+msgid "M280: Set servo position"
+msgstr "M280: Servo konumunu ayarla"
+
+#: src/core/gcodecommands.cpp:287
+msgctxt "QObject|"
+msgid "M300: Play beep sound"
+msgstr "M300: Bip sesi çal"
+
+#: src/core/gcodecommands.cpp:289
+msgctxt "QObject|"
+msgid "M301: Set PID parameters"
+msgstr "M301: PID parametrelerini ayarla"
+
+#: src/core/gcodecommands.cpp:291
+msgctxt "QObject|"
+msgid "M302: Allow cold extrudes "
+msgstr "M302: Soğuk ekstrütlere izin ver"
+
+#: src/core/gcodecommands.cpp:293
+msgctxt "QObject|"
+msgid "M303: Run PID tuning"
+msgstr "M303: PID ince ayarı çalıştır"
+
+#: src/core/gcodecommands.cpp:295
+msgctxt "QObject|"
+msgid "M304: Set PID parameters - Bed"
+msgstr "M304: PID parametrelerini ayarla - Yatak"
+
+#: src/core/gcodecommands.cpp:297
+msgctxt "QObject|"
+msgid "M305: Set thermistor and ADC parameters"
+msgstr "M305: Isıldirenç ve ADC parametrelerini ayarla"
+
+#: src/core/gcodecommands.cpp:299
+msgctxt "QObject|"
+msgid "M306: set home offset calculated from toolhead position"
+msgstr ""
+"M306: Araç başlığı konumundan başlangıç noktası hesaplanmış ofsetini ayarla"
+
+#: src/core/gcodecommands.cpp:301
+msgctxt "QObject|"
+msgid "M320: Activate autolevel (Repetier)"
+msgstr "M320: Otomatik düzlemeyi etkinleştir (Repetier)"
+
+#: src/core/gcodecommands.cpp:303
+msgctxt "QObject|"
+msgid "M321: Deactivate autolevel (Repetier)"
+msgstr "M321: Otomatik düzlemeyi etkinleştir (Repetier)"
+
+#: src/core/gcodecommands.cpp:305
+msgctxt "QObject|"
+msgid "M322: Reset autolevel matrix (Repetier)"
+msgstr "M322: Otomatik düzleme matrisini sıfırla (Repetier)"
+
+#: src/core/gcodecommands.cpp:307
+msgctxt "QObject|"
+msgid "M323: Distortion correction on/off (Repetier)"
+msgstr "M323: Pürüz düzeltme açık/kapalı (Repetier)"
+
+#: src/core/gcodecommands.cpp:309
+msgctxt "QObject|"
+msgid "M340: Control the servos"
+msgstr "M340: Servoları denetle"
+
+#: src/core/gcodecommands.cpp:311
+msgctxt "QObject|"
+msgid "M350: Set microstepping mode"
+msgstr "M350: Mikro adımlama kipini ayarla"
+
+#: src/core/gcodecommands.cpp:313
+msgctxt "QObject|"
+msgid "M351: Toggle MS1 MS2 pins directly"
+msgstr "M351: MS1 MS2 pimlerini doğrudan aç/kapat"
+
+#: src/core/gcodecommands.cpp:315
+msgctxt "QObject|"
+msgid "M355: Turn case lights on/off"
+msgstr "M355: Kutu ışıklarını aç/kapat"
+
+#: src/core/gcodecommands.cpp:317
+msgctxt "QObject|"
+msgid "M360: Report firmware configuration"
+msgstr "M360: Üretici yazılımı yapılandırmasını bildir"
+
+#: src/core/gcodecommands.cpp:319
+msgctxt "QObject|"
+msgid "M361: Move to Theta 90 degree position"
+msgstr "M360: Teta 90 derece konumuna taşı"
+
+#: src/core/gcodecommands.cpp:321
+msgctxt "QObject|"
+msgid "M362: Move to Psi 0 degree position"
+msgstr "M362: Psi 0 derece konumuna taşı"
+
+#: src/core/gcodecommands.cpp:323
+msgctxt "QObject|"
+msgid "M363: Move to Psi 90 degree position"
+msgstr "M363: Psi 90 derece konumuna taşı"
+
+#: src/core/gcodecommands.cpp:325
+msgctxt "QObject|"
+msgid "M364: Move to Psi + Theta 90 degree position"
+msgstr "M364: Psi + Teta 90 derece konumuna taşı"
+
+#: src/core/gcodecommands.cpp:327
+msgctxt "QObject|"
+msgid "M365: SCARA scaling factor"
+msgstr "M365: SCARA ölçeklendirme etmeni"
+
+#: src/core/gcodecommands.cpp:329
+msgctxt "QObject|"
+msgid "M366: SCARA convert trim"
+msgstr "M366: SCARA dönüştürme kırpması"
+
+#: src/core/gcodecommands.cpp:331
+msgctxt "QObject|"
+msgid "M370: Morgan manual bed level - clear map"
+msgstr "M370: Morgan el ile yatak düzeyi - haritayı temizle"
+
+#: src/core/gcodecommands.cpp:333
+msgctxt "QObject|"
+msgid "M371: Move to next calibration position"
+msgstr "M371: Sonraki kalibrasyon konumuna taşı"
+
+#: src/core/gcodecommands.cpp:335
+msgctxt "QObject|"
+msgid "M372: Record calibration value, and move to next position"
+msgstr "M372: Kalibrasyon değerini kaydet ve sonraki konuma taşı"
+
+#: src/core/gcodecommands.cpp:337
+msgctxt "QObject|"
+msgid "M373: End bed level calibration mode"
+msgstr "M373: Yatak düzeyi kalibrasyon kipini sonlandır"
+
+#: src/core/gcodecommands.cpp:339
+msgctxt "QObject|"
+msgid "M374: Save calibration grid"
+msgstr "M374: Kalibrasyon ızgarasını kaydet"
+
+#: src/core/gcodecommands.cpp:341
+msgctxt "QObject|"
+msgid "M375: Display matrix / Load Matrix"
+msgstr "M375: Matris görüntüle / Matris yükle"
+
+#: src/core/gcodecommands.cpp:343
+msgctxt "QObject|"
+msgid "M380: Activate solenoid"
+msgstr "M380: Solenoid'i etkinleştir"
+
+#: src/core/gcodecommands.cpp:345
+msgctxt "QObject|"
+msgid "M381: Disable all solenoids"
+msgstr "M381: Tüm solenoid'leri devre dışı bırak"
+
+#: src/core/gcodecommands.cpp:347
+msgctxt "QObject|"
+msgid "M400: Wait for current moves to finish"
+msgstr "M400: Geçerli hareketlerin bitmesini bekle"
+
+#: src/core/gcodecommands.cpp:349
+msgctxt "QObject|"
+msgid "M401: Lower z-probe"
+msgstr "M401: Z araştırmasını düşür"
+
+#: src/core/gcodecommands.cpp:351
+msgctxt "QObject|"
+msgid "M402: Raise z-probe"
+msgstr "M402: Z araştırmasını kaldır"
+
+#: src/core/gcodecommands.cpp:353
+msgctxt "QObject|"
+msgid "M404: Filament width and nozzle diameter"
+msgstr "M404: Fliament genişliği ve ağız çapı"
+
+#: src/core/gcodecommands.cpp:355
+msgctxt "QObject|"
+msgid "M405: Filament Sensor on"
+msgstr "M405: Filament sensörü açık"
+
+#: src/core/gcodecommands.cpp:357
+msgctxt "QObject|"
+msgid "M406: Filament Sensor off"
+msgstr "M406: Filament sensörü kapalı"
+
+#: src/core/gcodecommands.cpp:359
+msgctxt "QObject|"
+msgid "M407: Display filament diameter"
+msgstr "M407: Filament çapını görüntüle"
+
+#: src/core/gcodecommands.cpp:361
+msgctxt "QObject|"
+msgid "M408: Report JSON-style response"
+msgstr "M408: JSON türü yanıt bildir"
+
+#: src/core/gcodecommands.cpp:363
+msgctxt "QObject|"
+msgid "M420: Enable/Disable Mesh Leveling (Marlin)"
+msgstr "M420: Kafes Düzlemeyi Etkinleştir/Devre Dışı Bırak (Marlin)"
+
+#: src/core/gcodecommands.cpp:365
+msgctxt "QObject|"
+msgid "M450: Report Printer Mode"
+msgstr "M450: Yazıcı Kipi Bildir"
+
+#: src/core/gcodecommands.cpp:367
+msgctxt "QObject|"
+msgid "M451: Select FFF Printer Mode"
+msgstr "M451: FFF Yazıcı Kipi Seç"
+
+#: src/core/gcodecommands.cpp:369
+msgctxt "QObject|"
+msgid "M452: Select Laser Printer Mode"
+msgstr "M452: Laser Yazıcı Kipi Seç"
+
+#: src/core/gcodecommands.cpp:371
+msgctxt "QObject|"
+msgid "M453: Select CNC Printer Mode"
+msgstr "M453: CNC Yazıcı Kipi Seç"
+
+#: src/core/gcodecommands.cpp:373
+msgctxt "QObject|"
+msgid "M460: Define temperature range for thermistor controlled fan"
+msgstr "M460: Isıldirencin denetlediği fan için sıcaklık aralığı tanımla"
+
+#: src/core/gcodecommands.cpp:375
+msgctxt "QObject|"
+msgid "M500: Store parameters in EEPROM"
+msgstr "M500: Parametreleri EEPROM'da depola"
+
+#: src/core/gcodecommands.cpp:377
+msgctxt "QObject|"
+msgid "M501: Read parameters from EEPROM"
+msgstr "M501: Parametreleri EEPROM'dan oku"
+
+#: src/core/gcodecommands.cpp:379
+msgctxt "QObject|"
+msgid "M502: Revert to the default 'factory settings'."
+msgstr "M502: Öntanımlı 'fabrika ayarlarına' geri dön."
+
+#: src/core/gcodecommands.cpp:381
+msgctxt "QObject|"
+msgid "M503: Print settings "
+msgstr "M503: Yazdırma ayarları"
+
+#: src/core/gcodecommands.cpp:383
+msgctxt "QObject|"
+msgid "M540: Enable/Disable 'Stop SD Print on Endstop Hit'"
+msgstr ""
+"M540: 'Bitiş Noktasına Varınca SD Yazdırmayı Durdur'u Etkinleştir/Devre Dışı "
+"Bırak"
+
+#: src/core/gcodecommands.cpp:385
+msgctxt "QObject|"
+msgid "M550: Set Name"
+msgstr "M550: Ad ayarla"
+
+#: src/core/gcodecommands.cpp:387
+msgctxt "QObject|"
+msgid "M551: Set Password"
+msgstr "M551: Parola ayarla"
+
+#: src/core/gcodecommands.cpp:389
+msgctxt "QObject|"
+msgid "M552: Set IP address"
+msgstr "M552: IP adresi ayarla"
+
+#: src/core/gcodecommands.cpp:391
+msgctxt "QObject|"
+msgid "M553: Set Netmask"
+msgstr "M553: Ağ maskesi ayarla"
+
+#: src/core/gcodecommands.cpp:393
+msgctxt "QObject|"
+msgid "M554: Set Gateway"
+msgstr "M554: Ağ geçidi ayarla"
+
+#: src/core/gcodecommands.cpp:395
+msgctxt "QObject|"
+msgid "M555: Set compatibility"
+msgstr "M555: Uyumluluk ayarla"
+
+#: src/core/gcodecommands.cpp:397
+msgctxt "QObject|"
+msgid "M556: Axis compensation"
+msgstr "M556: Eksen tazmini"
+
+#: src/core/gcodecommands.cpp:399
+msgctxt "QObject|"
+msgid "M557: Set Z probe point"
+msgstr "M557: Z araştırma noktası ayarla"
+
+#: src/core/gcodecommands.cpp:401
+msgctxt "QObject|"
+msgid "M558: Set Z probe type"
+msgstr "M558: Z araştırma türü ayarla"
+
+#: src/core/gcodecommands.cpp:403
+msgctxt "QObject|"
+msgid "M559: Upload configuration file"
+msgstr "M559: Yapılandırma dosyası karşıya yükle"
+
+#: src/core/gcodecommands.cpp:405
+msgctxt "QObject|"
+msgid "M560: Upload web page file"
+msgstr "M560: Web sayfası dosyası karşıya yükle"
+
+#: src/core/gcodecommands.cpp:407
+msgctxt "QObject|"
+msgid "M561: Set Identity Transform"
+msgstr "M561: Kimlik Dönüşümü ayarla"
+
+#: src/core/gcodecommands.cpp:409
+msgctxt "QObject|"
+msgid "M562: Reset temperature fault"
+msgstr "M562: Sıcaklık hatası sıfırla"
+
+#: src/core/gcodecommands.cpp:411
+msgctxt "QObject|"
+msgid "M563: Define or remove a tool"
+msgstr "M563: Bir araç tanımla veya kaldır"
+
+#: src/core/gcodecommands.cpp:413
+msgctxt "QObject|"
+msgid "M564: Limit axes"
+msgstr "M564: Eksenleri sınırla"
+
+#: src/core/gcodecommands.cpp:415
+msgctxt "QObject|"
+msgid "M565: Set Z probe offset"
+msgstr "M565: Z araştırma ofseti ayarla"
+
+#: src/core/gcodecommands.cpp:417
+msgctxt "QObject|"
+msgid "M566: Set allowable instantaneous speed change"
+msgstr "M566: İzin verilebilen anlık hız değişimleri ayarla"
+
+#: src/core/gcodecommands.cpp:419
+msgctxt "QObject|"
+msgid "M567: Set tool mix ratio"
+msgstr "M567: Araç karışım oranı ayarla"
+
+#: src/core/gcodecommands.cpp:421
+msgctxt "QObject|"
+msgid "M568: Turn off/on tool mix ratio"
+msgstr "M568: Araç karışım oranı aç/kapat"
+
+#: src/core/gcodecommands.cpp:423
+msgctxt "QObject|"
+msgid "M569: Set axis direction and enable values"
+msgstr "M569: Eksen yönünü ayarla ve değerleri etkinleştir"
+
+#: src/core/gcodecommands.cpp:425
+msgctxt "QObject|"
+msgid "M570: Set heater timeout"
+msgstr "M570: Isıtıcı zaman aşımı ayarla"
+
+#: src/core/gcodecommands.cpp:427
+msgctxt "QObject|"
+msgid "M571: Set output on extrude"
+msgstr "M571: Ekstrüt üzerine çıktıyı ayarla"
+
+#: src/core/gcodecommands.cpp:429
+msgctxt "QObject|"
+msgid "M573: Report heater PWM"
+msgstr "M573: Isıtıcı PWM bildir"
+
+#: src/core/gcodecommands.cpp:431
+msgctxt "QObject|"
+msgid "M574: Set endstop configuration"
+msgstr "M574: Bitiş noktası yapılandırmasını ayarla"
+
+#: src/core/gcodecommands.cpp:433
+msgctxt "QObject|"
+msgid "M575: Set serial comms parameters"
+msgstr "M575: Seri iletişim parametreleri ayarla"
+
+#: src/core/gcodecommands.cpp:435
+msgctxt "QObject|"
+msgid "M577: Wait until endstop is triggered"
+msgstr "M577: Bitiş noktasın tetiklenene kadar bekle"
+
+#: src/core/gcodecommands.cpp:437
+msgctxt "QObject|"
+msgid "M578: Fire inkjet bits"
+msgstr "M578: Mürekkep püskürtme parçalarını ateşle"
+
+#: src/core/gcodecommands.cpp:439
+msgctxt "QObject|"
+msgid "M579: Scale Cartesian axes"
+msgstr "M579: Kartezyen eksenleri ölçekle"
+
+#: src/core/gcodecommands.cpp:441
+msgctxt "QObject|"
+msgid "M580: Select Roland"
+msgstr "M580: Roland seç"
+
+#: src/core/gcodecommands.cpp:443
+msgctxt "QObject|"
+msgid "M600: Filament change pause"
+msgstr "M600: Fliament değişimi duraklat"
+
+#: src/core/gcodecommands.cpp:445
+msgctxt "QObject|"
+msgid "M605: Set dual x-carriage movement mode"
+msgstr "M605: İkili x kızağı hareket kipi ayarla"
+
+#: src/core/gcodecommands.cpp:447
+msgctxt "QObject|"
+msgid "M665: Set delta configuration"
+msgstr "M665: Delta yapılandırması ayarla"
+
+#: src/core/gcodecommands.cpp:449
+msgctxt "QObject|"
+msgid "M666: Set delta endstop adjustment"
+msgstr "M666: Delta bitiş noktası ayarlarını ayarla"
+
+#: src/core/gcodecommands.cpp:451
+msgctxt "QObject|"
+msgid "M667: Select CoreXY mode"
+msgstr "M667: Çekirdek XY kipi ayarla"
+
+#: src/core/gcodecommands.cpp:453
+msgctxt "QObject|"
+msgid "M851: Set Z-Probe Offset"
+msgstr "M851: Z Araştırma Ofseti Ayarla"
+
+#: src/core/gcodecommands.cpp:455
+msgctxt "QObject|"
+msgid "M906: Set motor currents"
+msgstr "M906: İşletke akımlarını ayarla"
+
+#: src/core/gcodecommands.cpp:457
+msgctxt "QObject|"
+msgid "M907: Set digital trimpot motor"
+msgstr "M907: Sayısal trimpot işletkesi ayarla"
+
+#: src/core/gcodecommands.cpp:459
+msgctxt "QObject|"
+msgid "M908: Control digital trimpot directly"
+msgstr "M908: Sayısal trimpot'u doğrudan denetle"
+
+#: src/core/gcodecommands.cpp:461
+msgctxt "QObject|"
+msgid "M911: Set power monitor threshold voltages"
+msgstr "M911: Güç izleme eşik voltajlarını ayarla"
+
+#: src/core/gcodecommands.cpp:463
+msgctxt "QObject|"
+msgid "M912: Set electronics temperature monitor adjustment"
+msgstr "M912: Elektronik sıcaklığı izleme ayarlarını ayarla"
+
+#: src/core/gcodecommands.cpp:465
+msgctxt "QObject|"
+msgid "M913: Set motor percentage of normal current"
+msgstr "M913: Normal akımın işletke yüzdesini ayarla"
+
+#: src/core/gcodecommands.cpp:467
+msgctxt "QObject|"
+msgid "M928: Start SD logging"
+msgstr "M928: SD günlüklemeyi başlat"
+
+#: src/core/gcodecommands.cpp:469
+msgctxt "QObject|"
+msgid "M997: Perform in-application firmware update"
+msgstr "M997: Uygulama içi üretici yazılımı güncellemesi gerçekleştir"
+
+#: src/core/gcodecommands.cpp:471
+msgctxt "QObject|"
+msgid "M998: Request resend of line"
+msgstr "M998: Satırın yeniden gönderilmesini iste"
+
+#: src/core/gcodecommands.cpp:473
+msgctxt "QObject|"
+msgid "M999: Restart after being stopped by error"
+msgstr "M999: Bir hata tarafından durdurulduktan sonra yeniden başlat"
+
+#: src/widgets/about.cpp:21
+#, qt-format
+msgctxt "About|"
+msgid "Version: %1"
+msgstr "Sürüm: %1"
+
+#: src/widgets/about.cpp:22
+#, qt-format
+msgctxt "About|"
+msgid "Using Qt: %1"
+msgstr "Kullanılan Qt: %1"
+
+#: src/widgets/about.cpp:23
+msgctxt "About|"
+msgid ""
+"Authors:\n"
+"  Chris Rizzitello <rizzitello@kde.org>\n"
+"  Patrick José Pereira <patrickjp@kde.org>\n"
+"  Lays Rodrigues <lays.rodrigues@kde.org>\n"
+"  Tomaz Canabrava <tcanabrava@kde.org>"
+msgstr ""
+"Yazarlar:\n"
+"  Chris Rizzitello <rizzitello@kde.org>\n"
+"  Patrick José Pereira <patrickjp@kde.org>\n"
+"  Lays Rodrigues <lays.rodrigues@kde.org>\n"
+"  Tomaz Canabrava <tcanabrava@kde.org>"
+
+#: src/widgets/about.cpp:35
+msgctxt "About|"
+msgid "Close"
+msgstr "Kapat"
+
+#: src/widgets/axiscontrol.cpp:22
+msgctxt "AxisControl|"
+msgid "Move Axis"
+msgstr "Ekseni Taşı"
+
+#: src/widgets/commandwidget.cpp:25
+msgctxt "CommandWidget|"
+msgid "Send Command"
+msgstr "Komut Gönder"
+
+#: src/widgets/commandwidget.cpp:28 src/widgets/commandwidget.cpp:53
+msgctxt "CommandWidget|"
+msgid "Send"
+msgstr "Gönder"
+
+#: src/widgets/commandwidget.cpp:50
+msgctxt "CommandWidget|"
+msgid "Show Message"
+msgstr "İleti Göster"
+
+#: src/widgets/logwidget.cpp:62
+msgctxt "LogWidget|"
+msgid ""
+"                        <h4>Special Log Entries</h4>                         "
+"<p><strong>Failed to open device in read/write mode.</strong></"
+"p>                         <p>&nbsp;&nbsp;&nbsp; The Device was not able to "
+"be opened.</p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; Check "
+"the device is not opened by another program.</p>                         "
+"<p>&nbsp; &nbsp; &nbsp;&nbsp; Check you have the correct permissions to open "
+"the device.</p>                         <p><strong>No plugin found for &lt;"
+"Detected Firmware&gt;</strong></p>                         <p>&nbsp;&nbsp;"
+"&nbsp; Firmware plugins are missing or your firmware is not currently "
+"supported.</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+"Manually select the Marlin or Repetier plugin.</p>                         "
+"<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If your firmware does not have a plugin "
+"please let us know.</p>                         <p><strong>Lots of &ldquo;"
+"Waiting for firmware detect&rdquo;</strong></p>                         "
+"<p>&nbsp;&nbsp;&nbsp; Unable to send the firmware detect waiting for printer "
+"to restart</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+"Push the restart button on your printer or turn it on and off. </"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select a "
+"firmware plugin in place of auto detect.</p>"
+msgstr ""
+"                        <h4>Özel Günlük Girdileri</"
+"h4>                         <p><strong>Aygıt okuma/yazma kipinde açılamadı.</"
+"strong></p>                         <p>&nbsp;&nbsp;&nbsp; Aygıt açılamadı.</"
+"p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; Aygıtın başka bir "
+"program tarafından açılıp açılmadığını denetleyin.</"
+"p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; Aygıtı açmak için "
+"doğru izinlere sahip olup olmadığınızı denetleyin.</"
+"p>                         <p><strong>&lt;Algılanan Üretii Yazılımı&gt; için "
+"eklenti bulunamadı</strong></p>                         <p>&nbsp;&nbsp;"
+"&nbsp; Üretici yazılımı eklentileri eksik veya üretici yazılımınız şu anda "
+"desteklenmiyor.</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;"
+"&nbsp; Marlin veya Repetier eklentisini el ile seçin.</"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Üretici "
+"yazılımınızın eklentisi yoksa bize bildirin.</p>                         "
+"<p><strong>Çok fazla &ldquo;Üretici yazılımı algılaması bekleniyor&rdquo;</"
+"strong></p>                         <p>&nbsp;&nbsp;&nbsp; Üretici yazılımı "
+"algılaması bekleniyor gönderilemiyor; yazıcının yeniden başlatılması "
+"bekleniyor</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+"Yazıcınızdaki yeniden başlat düğmesine basarak onu yeniden başlatın. </"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Otomatik "
+"algılama yerine bir üretici yazılımı eklentisi seçin.</p>"
+
+#: src/widgets/logwidget.cpp:81
+msgctxt "LogWidget|"
+msgid "Save Session Log"
+msgstr "Oturum Günlüğünü Kaydet"
+
+#: src/widgets/logwidget.cpp:164
+msgctxt "LogWidget|"
+msgid "Save Log to file"
+msgstr "Günlüğü Dosyaya Kaydet"
+
+#: src/widgets/movementwidget.cpp:49
+msgctxt "MovementWidget|"
+msgid "Home All"
+msgstr "Tümünü Başlangıç Noktasına Getir"
+
+#: src/widgets/movementwidget.cpp:53
+msgctxt "MovementWidget|"
+msgid "Home X"
+msgstr "X'i Başlangıç Noktasına Getir"
+
+#: src/widgets/movementwidget.cpp:57
+msgctxt "MovementWidget|"
+msgid "Home Y"
+msgstr "Y'yi Başlangıç Noktasına Getir"
+
+#: src/widgets/movementwidget.cpp:61
+msgctxt "MovementWidget|"
+msgid "Home Z"
+msgstr "Z'yi Başlangıç Noktasına Getir"
+
+#: src/widgets/movementwidget.cpp:67
+msgctxt "MovementWidget|"
+msgid "Disable Motors"
+msgstr "İşletkeleri Devre Dışı Bırak"
+
+#: src/widgets/movementwidget.cpp:72
+msgctxt "MovementWidget|"
+msgid "Move X Axis to"
+msgstr "X Eksenini Şuraya Taşı"
+
+#: src/widgets/movementwidget.cpp:73
+msgctxt "MovementWidget|"
+msgid "Move Y Axis to"
+msgstr "Y Eksenini Şuraya Taşı"
+
+#: src/widgets/movementwidget.cpp:74
+msgctxt "MovementWidget|"
+msgid "Move Z Axis to"
+msgstr "Z Ekseninini Şuraya Taşı"
+
+#: src/widgets/movementwidget.cpp:83
+msgctxt "MovementWidget|"
+msgid "Go"
+msgstr "Git"
+
+#: src/widgets/plotwidget.cpp:20
+msgctxt "PlotWidget|"
+msgid "Temp."
+msgstr "Sıcakl."
+
+#: src/widgets/printwidget.cpp:25
+msgctxt "PrintWidget|"
+msgid "Print File"
+msgstr "Dosyayı Yazdır"
+
+#: src/widgets/printwidget.cpp:28
+msgctxt "PrintWidget|"
+msgid "Emergency Stop"
+msgstr "Acil Durdur"
+
+#: src/widgets/printwidget.cpp:37
+msgctxt "PrintWidget|"
+msgid "Printer Speed"
+msgstr "Yazıcı Hızı"
+
+#: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:58
+#: src/widgets/printwidget.cpp:71
+msgctxt "PrintWidget|"
+msgid "Set"
+msgstr "Ayarla"
+
+#: src/widgets/printwidget.cpp:52
+msgctxt "PrintWidget|"
+msgid "Flow Rate"
+msgstr "Akış Hızı"
+
+#: src/widgets/printwidget.cpp:96
+#, qt-format
+msgctxt "PrintWidget|"
+msgid "Fan %1 speed"
+msgstr "%1. Fan Hızı"
+
+#: src/widgets/profilemanager.cpp:27
+msgctxt "ProfileManager|"
+msgid "Profile:"
+msgstr "Profil:"
+
+#: src/widgets/profilemanager.cpp:55
+msgctxt "ProfileManager|"
+msgid "Delete Current Profile"
+msgstr "Geçerli Profili Sil"
+
+#: src/widgets/profilemanager.cpp:69
+msgctxt "ProfileManager|"
+msgid "Name"
+msgstr "Ad"
+
+#: src/widgets/profilemanager.cpp:82
+msgctxt "ProfileManager|"
+msgid "Printer Type:"
+msgstr "Yazıcı Türü:"
+
+#: src/widgets/profilemanager.cpp:83
+msgctxt "ProfileManager|"
+msgid "Delta"
+msgstr "Delta"
+
+#: src/widgets/profilemanager.cpp:84
+msgctxt "ProfileManager|"
+msgid "Cartesian"
+msgstr "Kartezyen"
+
+#: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:233
+msgctxt "ProfileManager|"
+msgid "Maximum X"
+msgstr "En Büyük X"
+
+#: src/widgets/profilemanager.cpp:105
+msgctxt "ProfileManager|"
+msgid "Maximum Y"
+msgstr "En Büyük Y"
+
+#: src/widgets/profilemanager.cpp:119 src/widgets/profilemanager.cpp:234
+msgctxt "ProfileManager|"
+msgid "Maximum Z"
+msgstr "En Büyük Z"
+
+#: src/widgets/profilemanager.cpp:130
+msgctxt "ProfileManager|"
+msgid "Mechanics"
+msgstr "Mekanikler"
+
+#: src/widgets/profilemanager.cpp:135
+msgctxt "ProfileManager|"
+msgid "Bed Maximum"
+msgstr "Yatak En Büyük"
+
+#: src/widgets/profilemanager.cpp:148
+msgctxt "ProfileManager|"
+msgid "Extruder Maximum"
+msgstr "Ekstrüder En Büyük"
+
+#: src/widgets/profilemanager.cpp:157
+msgctxt "ProfileManager|"
+msgid "Auto Temperature Report"
+msgstr "Otomatik Sıcaklık Raporu"
+
+#: src/widgets/profilemanager.cpp:162
+msgctxt "ProfileManager|"
+msgid "Temperature"
+msgstr "Sıcaklık"
+
+#: src/widgets/profilemanager.cpp:172
+msgctxt "ProfileManager|"
+msgid "Bit Rate"
+msgstr "Bit Hızı"
+
+#: src/widgets/profilemanager.cpp:178
+msgctxt "ProfileManager|"
+msgid "Firmware"
+msgstr "Üretici Yazılımı"
+
+#: src/widgets/profilemanager.cpp:192
+msgctxt "ProfileManager|"
+msgid "PostPause"
+msgstr "Duraklama Sonrası"
+
+#: src/widgets/profilemanager.cpp:198
+msgctxt "ProfileManager|"
+msgid "Advanced"
+msgstr "Gelişmiş"
+
+#: src/widgets/profilemanager.cpp:201
+msgctxt "ProfileManager|"
+msgid "Profile"
+msgstr "Profil"
+
+#: src/widgets/profilemanager.cpp:236
+msgctxt "ProfileManager|"
+msgid "Radius"
+msgstr "Yarıçap"
+
+#: src/widgets/profilemanager.cpp:237
+msgctxt "ProfileManager|"
+msgid "Height"
+msgstr "Yükseklik"
+
+#: src/widgets/sdwidget.cpp:20
+msgctxt "SdWidget|"
+msgid "Get List"
+msgstr "Listeyi Al"
+
+#: src/widgets/sdwidget.cpp:24
+msgctxt "SdWidget|"
+msgid "Print Selected"
+msgstr "Seçiliyi Yazdır"
+
+#: src/widgets/sdwidget.cpp:32
+msgctxt "SdWidget|"
+msgid "Delete Selected"
+msgstr "Seçiliyi Sil"
+
+#: src/widgets/sdwidget.cpp:41
+msgctxt "SdWidget|"
+msgid "Files On Sd Card"
+msgstr "SD Karttaki Dosyalar"
+
+#: src/widgets/statuswidget.cpp:47
+msgctxt "StatusWidget|"
+msgid "AtCore State:"
+msgstr "AtCore Durumu:"
+
+#: src/widgets/statuswidget.cpp:48
+msgctxt "StatusWidget|"
+msgid "Not Connected"
+msgstr "Bağlı Değil"
+
+#: src/widgets/statuswidget.cpp:72
+msgctxt "StatusWidget|"
+msgid "SD"
+msgstr "SD"
+
+#: src/widgets/temperaturewidget.cpp:21
+msgctxt "TemperatureWidget|"
+msgid "Wait Until Temperature Stabilizes"
+msgstr "Sıcaklık Olağanlaşana Kadar Bekle"
+
+#: src/widgets/temperaturewidget.cpp:24
+msgctxt "TemperatureWidget|"
+msgid "Bed Temp"
+msgstr "Yatak Sıcaklığı"
+
+#: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:44
+msgctxt "TemperatureWidget|"
+msgid "Set"
+msgstr "Ayarla"
+
+#: src/widgets/temperaturewidget.cpp:60
+#, qt-format
+msgctxt "TemperatureWidget|"
+msgid "Extruder %1"
+msgstr "Ekstrüder %1"
+
+#: testclient/mainwindow.cpp:30
+msgctxt "MainWindow|"
+msgid "AtCore - Test Client"
+msgstr "AtCore - Sınama İstemcisi"
+
+#: testclient/mainwindow.cpp:38
+msgctxt "MainWindow|"
+msgid "Attempting to locate Serial Ports"
+msgstr "Seri kapılar bulunmaya çalışılıyor"
+
+#: testclient/mainwindow.cpp:49
+msgctxt "MainWindow|"
+msgid "AtCore First Run"
+msgstr "AtCore İlk Çalıştırma"
+
+#: testclient/mainwindow.cpp:49
+msgctxt "MainWindow|"
+msgid "No Profiles Detected, use the Profile Manager to create one."
+msgstr ""
+"Bir profil algılanmadı, bir tane oluşturmak için Profil Yöneticisi'ni "
+"kullanın."
+
+#: testclient/mainwindow.cpp:59
+msgctxt "MainWindow|"
+msgid "File"
+msgstr "Dosya"
+
+#: testclient/mainwindow.cpp:60
+msgctxt "MainWindow|"
+msgid "Quit"
+msgstr "Çık"
+
+#: testclient/mainwindow.cpp:64
+msgctxt "MainWindow|"
+msgid "View"
+msgstr "Görünüm"
+
+#: testclient/mainwindow.cpp:65
+msgctxt "MainWindow|"
+msgid "Show Dock Titles"
+msgstr "Rıhtım Başlıklarını Göster"
+
+#: testclient/mainwindow.cpp:71
+msgctxt "MainWindow|"
+msgid "Help"
+msgstr "Yardım"
+
+#: testclient/mainwindow.cpp:72
+msgctxt "MainWindow|"
+msgid "About"
+msgstr "Hakkında"
+
+#: testclient/mainwindow.cpp:136
+msgctxt "MainWindow|"
+msgid "Commands"
+msgstr "Komutlar"
+
+#: testclient/mainwindow.cpp:156
+msgctxt "MainWindow|"
+msgid "Print"
+msgstr "Yazdır"
+
+#: testclient/mainwindow.cpp:167 testclient/mainwindow.cpp:171
+msgctxt "MainWindow|"
+msgid "Actual Bed"
+msgstr "Gerçek Yatak"
+
+#: testclient/mainwindow.cpp:174 testclient/mainwindow.cpp:178
+msgctxt "MainWindow|"
+msgid "Target Bed"
+msgstr "Hedef Yatak"
+
+#: testclient/mainwindow.cpp:181 testclient/mainwindow.cpp:185
+msgctxt "MainWindow|"
+msgid "Actual Ext.1"
+msgstr "Gerçek Uzantı 1"
+
+#: testclient/mainwindow.cpp:188 testclient/mainwindow.cpp:192
+msgctxt "MainWindow|"
+msgid "Target Ext.1"
+msgstr "Hedef Uzantı 1"
+
+#: testclient/mainwindow.cpp:196
+msgctxt "MainWindow|"
+msgid "Seconds Between Temperature Checks"
+msgstr "Sıcaklık Denetimleri Arasındaki Saniyeler"
+
+#: testclient/mainwindow.cpp:218
+msgctxt "MainWindow|"
+msgid "Temperature Timeline"
+msgstr "Sıcaklık Zaman Akışı"
+
+#: testclient/mainwindow.cpp:227
+msgctxt "MainWindow|"
+msgid "Session Log"
+msgstr "Oturum Günlüğü"
+
+#: testclient/mainwindow.cpp:237
+msgctxt "MainWindow|"
+msgid "Port:"
+msgstr "Kapı:"
+
+#: testclient/mainwindow.cpp:258
+msgctxt "MainWindow|"
+msgid "Profile:"
+msgstr "Profil:"
+
+#: testclient/mainwindow.cpp:264
+msgctxt "MainWindow|"
+msgid "Attempt to stop Reset on connect"
+msgstr "Bağlantıda Sıfırla durdurulmaya çalışılıyor"
+
+#: testclient/mainwindow.cpp:276 testclient/mainwindow.cpp:292
+#: testclient/mainwindow.cpp:563
+msgctxt "MainWindow|"
+msgid "Connect"
+msgstr "Bağlan"
+
+#: testclient/mainwindow.cpp:284
+msgctxt "MainWindow|"
+msgid "Connection Error"
+msgstr "Bağlantı Hatası"
+
+#: testclient/mainwindow.cpp:284
+msgctxt "MainWindow|"
+msgid ""
+"Your machine did not respond after 20 seconds.\n"
+"\n"
+"Before connecting again check that your printer is on and your are "
+"connecting using the correct BAUD Rate for your device."
+msgstr ""
+"Makineniz, 20 saniyeden fazladır yanıt vermiyor.\n"
+"\n"
+"Yeniden bağlanmadan önce, yazıcınızın açık olduğundan ve aygıtınız için "
+"doğru BAUD hızı ile bağlandığınızdan emin olun."
+
+#: testclient/mainwindow.cpp:304
+msgctxt "MainWindow|"
+msgid "Home All"
+msgstr "Tümüne Başlangıç Noktasına Getir"
+
+#: testclient/mainwindow.cpp:309
+msgctxt "MainWindow|"
+msgid "Home X"
+msgstr "X'i Başlangıç Noktasına Getir"
+
+#: testclient/mainwindow.cpp:314
+msgctxt "MainWindow|"
+msgid "Home Y"
+msgstr "Y'yi Başlangıç Noktasına Getir"
+
+#: testclient/mainwindow.cpp:319
+msgctxt "MainWindow|"
+msgid "Home Z"
+msgstr "Z'yi Başlangıç Noktasına Getir"
+
+#: testclient/mainwindow.cpp:341
+msgctxt "MainWindow|"
+msgid "Movement"
+msgstr "Hareket"
+
+#: testclient/mainwindow.cpp:354
+msgctxt "MainWindow|"
+msgid "Temperatures"
+msgstr "Sıcaklıklar"
+
+#: testclient/mainwindow.cpp:367
+msgctxt "MainWindow|"
+msgid "Print Error"
+msgstr "Yazdırma Hatası"
+
+#: testclient/mainwindow.cpp:367 testclient/mainwindow.cpp:375
+msgctxt "MainWindow|"
+msgid "You must Select a file from the list"
+msgstr "Listeden bir dosya seçmelisiniz"
+
+#: testclient/mainwindow.cpp:375
+msgctxt "MainWindow|"
+msgid "Delete Error"
+msgstr "Silme Hatası"
+
+#: testclient/mainwindow.cpp:381
+msgctxt "MainWindow|"
+msgid "Sd Card"
+msgstr "SD Kart"
+
+#: testclient/mainwindow.cpp:390
+msgctxt "MainWindow|"
+msgid "Profile Manager"
+msgstr "Profil Yöneticisi"
+
+#: testclient/mainwindow.cpp:446
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Found %1 Ports"
+msgstr "%1 Kapı Bulundu"
+
+#: testclient/mainwindow.cpp:448
+msgctxt "MainWindow|"
+msgid "No available ports! Please connect a serial device to continue!"
+msgstr "Kullanılabilir kapı yok. Sürdürmek için bir seri aygıt bağlayın!"
+
+#: testclient/mainwindow.cpp:466
+msgctxt "MainWindow|"
+msgid "Serial connected"
+msgstr "Seri aygıt bağlandı"
+
+#: testclient/mainwindow.cpp:478
+msgctxt "MainWindow|"
+msgid "Disconnected"
+msgstr "Bağlantı kesildi"
+
+#: testclient/mainwindow.cpp:487 testclient/mainwindow.cpp:493
+msgctxt "MainWindow|"
+msgid "Error"
+msgstr "Hata"
+
+#: testclient/mainwindow.cpp:487
+msgctxt "MainWindow|"
+msgid "Not Connected To a Printer"
+msgstr "Bir Yazıcıya Bağlı Değil"
+
+#: testclient/mainwindow.cpp:494
+msgctxt "MainWindow|"
+msgid ""
+" A Firmware Plugin was not loaded!\n"
+"  Please send the command M115 and let us know what your firmware returns, "
+"so we can improve our firmware detection. Edit your profile to use \"marlin"
+"\" and try again."
+msgstr ""
+" Bir üretici eklentisi yüklenmemiş!\n"
+"  Lütfen M115 komutunu gönderin ve üretici yazılımının ne döndürdüğünü bize "
+"söyleyin ki üretici yazılımı algılamasını iyileştirebilelim. Profilinizi, "
+"\"marlin\" kullanacak biçimde ayarlayın ve yeniden deneyin."
+
+#: testclient/mainwindow.cpp:498
+msgctxt "MainWindow|"
+msgid "Select a file to print"
+msgstr "Yazdırılacak bir dosya seçin"
+
+#: testclient/mainwindow.cpp:498
+msgctxt "MainWindow|"
+msgid "*.gcode"
+msgstr "*.gcode"
+
+#: testclient/mainwindow.cpp:500
+msgctxt "MainWindow|"
+msgid "No File Selected"
+msgstr "Dosya Seçilmedi"
+
+#: testclient/mainwindow.cpp:502
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Print: %1"
+msgstr "Yazdır: %1"
+
+#: testclient/mainwindow.cpp:529
+msgctxt "MainWindow|"
+msgid "Disconnect"
+msgstr "Bağlantıyı Kes"
+
+#: testclient/mainwindow.cpp:530 testclient/mainwindow.cpp:543
+#: testclient/mainwindow.cpp:651
+msgctxt "MainWindow|"
+msgid "Print File"
+msgstr "Dosya Yazdır"
+
+#: testclient/mainwindow.cpp:531
+msgctxt "MainWindow|"
+msgid "Connected to "
+msgstr "Şuraya bağlı:"
+
+#: testclient/mainwindow.cpp:536
+msgctxt "MainWindow|"
+msgid "START PRINT"
+msgstr "YAZDIRMAYI BAŞLAT"
+
+#: testclient/mainwindow.cpp:537 testclient/mainwindow.cpp:554
+msgctxt "MainWindow|"
+msgid "Pause Print"
+msgstr "Yazdırmayı Durdur"
+
+#: testclient/mainwindow.cpp:542
+msgctxt "MainWindow|"
+msgid "Finished Print"
+msgstr "Yazdırma Bitti"
+
+#: testclient/mainwindow.cpp:548
+msgctxt "MainWindow|"
+msgid "Paused"
+msgstr "Duraklatıldı"
+
+#: testclient/mainwindow.cpp:549
+msgctxt "MainWindow|"
+msgid "Resume Print"
+msgstr "Yazdırmayı Sürdür"
+
+#: testclient/mainwindow.cpp:553
+msgctxt "MainWindow|"
+msgid "Printing"
+msgstr "Yazdırılıyor"
+
+#: testclient/mainwindow.cpp:570
+msgctxt "MainWindow|"
+msgid "Abort"
+msgstr "İptal Et"
+
+#: testclient/mainwindow.cpp:577
+msgctxt "MainWindow|"
+msgid "Stopping Print"
+msgstr "Yazdırma Durduruluyor"
+
+#: testclient/mainwindow.cpp:581
+msgctxt "MainWindow|"
+msgid "Command ERROR"
+msgstr "Komut HATASI"

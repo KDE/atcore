@@ -1,0 +1,1841 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the plasma-workspace package.
+#
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2020.
+# Martin Srebotnjak <miles@filmsi.net>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: atcore\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2022-01-14 18:02+0100\n"
+"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Qt-Contexts: true\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: src/core/atcore.cpp:140
+msgctxt "AtCore|"
+msgid "Waiting for firmware detect."
+msgstr "Čakanje na zaznavo strojne programske opreme."
+
+#: src/core/atcore.cpp:194
+#, qt-format
+msgctxt "AtCore|"
+msgid "Connected to printer using %1 plugin"
+msgstr "Povezava s tiskalnikom je vzpostavljena z vstavkom %1"
+
+#: src/core/atcore.cpp:198
+#, qt-format
+msgctxt "AtCore|"
+msgid "No plugin found for %1."
+msgstr "Noben vtičnik za %1 ni naložen."
+
+#: src/core/atcore.cpp:237
+msgctxt "AtCore|"
+msgid "Waiting for machine restart"
+msgstr "Čakanje na ponoven zagon stroja"
+
+#: src/core/atcore.cpp:248
+msgctxt "AtCore|"
+msgid "Failed to open device in read/write mode."
+msgstr "Odpiranje naprave v načinu za branje/pisanje ni uspelo."
+
+#: src/core/atcore.cpp:867
+msgctxt "AtCore|"
+msgid "Device not found"
+msgstr "Naprave ni mogoče najti"
+
+#: src/core/atcore.cpp:870
+msgctxt "AtCore|"
+msgid "Unable to write to device"
+msgstr "Na napravo ni mogoče pisati"
+
+#: src/core/atcore.cpp:873
+msgctxt "AtCore|"
+msgid "Unable to read from device"
+msgstr "Iz naprave ni mogoče brati"
+
+#: src/core/atcore.cpp:877
+msgctxt "AtCore|"
+msgid "The device no longer available"
+msgstr "Naprava ni več na voljo"
+
+#: src/core/atcore.cpp:881
+msgctxt "AtCore|"
+msgid "Device does not support the operation"
+msgstr "Naprava ne podpira operacije"
+
+#: src/core/atcore.cpp:884
+msgctxt "AtCore|"
+msgid "Unknown Error"
+msgstr "Neznana napaka"
+
+#: src/core/gcodecommands.cpp:12
+#, qt-format
+msgctxt "QObject|"
+msgid "%1%2: requires an argument"
+msgstr "%1%2: zahteva argument"
+
+#: src/core/gcodecommands.cpp:13
+msgctxt "QObject|"
+msgid "Not implemented or not supported!"
+msgstr "Ni izdelano ali ni podprto!"
+
+#: src/core/gcodecommands.cpp:19
+msgctxt "QObject|"
+msgid "G0: Rapid linear move"
+msgstr "G0: Hitri linearni pomik"
+
+#: src/core/gcodecommands.cpp:21
+msgctxt "QObject|"
+msgid "G1: Linear move"
+msgstr "G1: Linearni pomik"
+
+#: src/core/gcodecommands.cpp:23
+msgctxt "QObject|"
+msgid "G2: Controlled Arc Move clockwise"
+msgstr "G2: Nadzorovani premik po loku v smeri urnega kazalca"
+
+#: src/core/gcodecommands.cpp:25
+msgctxt "QObject|"
+msgid "G3: Controlled Arc Move counterclockwise"
+msgstr "G3: Nadzorovani premik po loku v obratni smeri urnega kazalca"
+
+#: src/core/gcodecommands.cpp:27
+msgctxt "QObject|"
+msgid "G4: Dwell"
+msgstr "G4: Domuj"
+
+#: src/core/gcodecommands.cpp:29
+msgctxt "QObject|"
+msgid "G10: Retract"
+msgstr "G10: Umakni"
+
+#: src/core/gcodecommands.cpp:31
+msgctxt "QObject|"
+msgid "G11: Unretract"
+msgstr "G11: Prekliči umik"
+
+#: src/core/gcodecommands.cpp:33
+msgctxt "QObject|"
+msgid "G20: Set units to inches"
+msgstr "G20: Nastavi enote na palce"
+
+#: src/core/gcodecommands.cpp:35
+msgctxt "QObject|"
+msgid "G21: Set units to millimeters"
+msgstr "G21: Nastavi enote na milimetre"
+
+#: src/core/gcodecommands.cpp:37
+msgctxt "QObject|"
+msgid "G28: Move to Origin Home"
+msgstr "G28: Premakni se na izvorni dom"
+
+#: src/core/gcodecommands.cpp:39
+msgctxt "QObject|"
+msgid "G29: Detailed Z-Probe"
+msgstr "G29: Podrobna Z-sonda"
+
+#: src/core/gcodecommands.cpp:41
+msgctxt "QObject|"
+msgid "G30: Single Z-Probe"
+msgstr "G30: Enojna Z-sonda"
+
+#: src/core/gcodecommands.cpp:43
+msgctxt "QObject|"
+msgid "G31: Set or report current probe status / Dock Z Probe sled for Marlin"
+msgstr ""
+"G31: Nastavite ali poročajte trenutno stanje sonde / sidrajte sani Z-sonde "
+"za Marlin"
+
+#: src/core/gcodecommands.cpp:45
+msgctxt "QObject|"
+msgid ""
+"G32: Probe Z and calculate Z plane(Bed Leveling)/ UnDoc Z Probe sled for "
+"Marlin"
+msgstr ""
+"G32: Sondirajte Z in izračunajte Z-ravnino (uravnavanje podloge) / UnDoc "
+"sani Z-sonde za Marlin"
+
+#: src/core/gcodecommands.cpp:47
+msgctxt "QObject|"
+msgid "G33: Measure/List/Adjust Distortion Matrix"
+msgstr "G33: Izmeri/pripravi/prilagodi matriko popačenja"
+
+#: src/core/gcodecommands.cpp:49
+msgctxt "QObject|"
+msgid "G90: Set to absolute positioning"
+msgstr "G90: Nastavi na absolutno pozicioniranje"
+
+#: src/core/gcodecommands.cpp:51
+msgctxt "QObject|"
+msgid "G91: Set to relative positioning"
+msgstr "G91: Nastavi na relativno pozicioniranje"
+
+#: src/core/gcodecommands.cpp:53
+msgctxt "QObject|"
+msgid "G92: Set position"
+msgstr "G92: Nastavi položaj"
+
+#: src/core/gcodecommands.cpp:55
+msgctxt "QObject|"
+msgid "G100: Calibrate floor or rod radius"
+msgstr "G100: Umerite tla ali polmer palice"
+
+#: src/core/gcodecommands.cpp:57
+msgctxt "QObject|"
+msgid "G130: Set digital potentiometer value"
+msgstr "G130: Nastavi vrednost digitalnega potenciometra"
+
+#: src/core/gcodecommands.cpp:59
+msgctxt "QObject|"
+msgid "G131: Recase Move offset"
+msgstr "G131: Ponovno zastavi odmik premika"
+
+#: src/core/gcodecommands.cpp:61
+msgctxt "QObject|"
+msgid "G132: Calibrate endstops offsets"
+msgstr "G132: Kalibrirajte odmike končnih odmikov"
+
+#: src/core/gcodecommands.cpp:63
+msgctxt "QObject|"
+msgid "G133: Measure steps to top"
+msgstr "G133: Izmeri korake do vrha"
+
+#: src/core/gcodecommands.cpp:65
+msgctxt "QObject|"
+msgid "G161: Home axis to minimum"
+msgstr "G161: Domača os na minimum"
+
+#: src/core/gcodecommands.cpp:67
+msgctxt "QObject|"
+msgid "G162: Home axis to maximum"
+msgstr "G161: Domača os na maksimum"
+
+#: src/core/gcodecommands.cpp:99
+msgctxt "QObject|"
+msgid "M0: Stop or unconditional stop"
+msgstr "M0: Ustavi se ali se brezpogojno ustavi"
+
+#: src/core/gcodecommands.cpp:101
+msgctxt "QObject|"
+msgid "M1: Sleep or unconditional stop"
+msgstr "M1: Zaspi ali se brezpogojno ustavi"
+
+#: src/core/gcodecommands.cpp:103
+msgctxt "QObject|"
+msgid "M2: Program End"
+msgstr "M2: Konec programa"
+
+#: src/core/gcodecommands.cpp:105
+msgctxt "QObject|"
+msgid "M6: Tool Change"
+msgstr "M6: Menjava orodja"
+
+#: src/core/gcodecommands.cpp:107
+msgctxt "QObject|"
+msgid "M17: Enable/power all steppers motors"
+msgstr "M17: Omogoči/vklopi vse koračne motorje"
+
+#: src/core/gcodecommands.cpp:109
+msgctxt "QObject|"
+msgid "M18: Disable all steppers motors"
+msgstr "M18: Onemogoči vse koračne motorje"
+
+#: src/core/gcodecommands.cpp:111
+msgctxt "QObject|"
+msgid "M20: List SDCard"
+msgstr "M20: Seznam na SD kartici"
+
+#: src/core/gcodecommands.cpp:113
+msgctxt "QObject|"
+msgid "M21: Initialize SDCard"
+msgstr "M21: Inicializiraj SD kartico"
+
+#: src/core/gcodecommands.cpp:115
+msgctxt "QObject|"
+msgid "M22: Release SDCard"
+msgstr "M22: Izdaj SD kartico"
+
+#: src/core/gcodecommands.cpp:117
+msgctxt "QObject|"
+msgid "M23: Select SD file"
+msgstr "M23: Izberite datoteko SD"
+
+#: src/core/gcodecommands.cpp:119
+msgctxt "QObject|"
+msgid "M24: Start/resume SD print"
+msgstr "M24: Začetek/nadaljevanje tiskanja SD"
+
+#: src/core/gcodecommands.cpp:121
+msgctxt "QObject|"
+msgid "M25: Pause SD print"
+msgstr "M25: Začasno ustavi tiskanje SD"
+
+#: src/core/gcodecommands.cpp:123
+msgctxt "QObject|"
+msgid "M26: Set SD position"
+msgstr "M26: Nastavi položaj SD"
+
+#: src/core/gcodecommands.cpp:125
+msgctxt "QObject|"
+msgid "M27: Report SD print status"
+msgstr "M27: Poročaj stanje tiskanja SD"
+
+#: src/core/gcodecommands.cpp:127
+msgctxt "QObject|"
+msgid "M28: Begin write to SD card"
+msgstr "M28: Začni pisati na kartico SD"
+
+#: src/core/gcodecommands.cpp:129
+msgctxt "QObject|"
+msgid "M29: Stop writing to SD card"
+msgstr "M29: Ustavi pisanje na kartico SD"
+
+#: src/core/gcodecommands.cpp:131
+msgctxt "QObject|"
+msgid "M30: Delete a file on the SD card"
+msgstr "M30: Briši datoteko na kartici SD"
+
+#: src/core/gcodecommands.cpp:133
+msgctxt "QObject|"
+msgid "M31: Output time since last M109 or SD card start to serial"
+msgstr "M31: Izhodni čas od zadnjega začetka M109 ali SD kartice (serijsko)"
+
+#: src/core/gcodecommands.cpp:135
+msgctxt "QObject|"
+msgid "M32: Select file and start SD print"
+msgstr "M32: Izberi datoteko in začni tisk na SD"
+
+#: src/core/gcodecommands.cpp:137
+msgctxt "QObject|"
+msgid "M33: Get the long name for an SD card file or folder"
+msgstr "M33: Pridobi dolgo ime za kartico SD ali mapo"
+
+#: src/core/gcodecommands.cpp:139
+msgctxt "QObject|"
+msgid "M34: Set SD file sorting options"
+msgstr "M34: Nastavi možnosti razvrščanja datotek SD"
+
+#: src/core/gcodecommands.cpp:141
+msgctxt "QObject|"
+msgid "M36: Return file information"
+msgstr "M36: Vrni informacije o datoteki"
+
+#: src/core/gcodecommands.cpp:143
+msgctxt "QObject|"
+msgid "M42: Switch I/O pin"
+msgstr "M42: Preklopi I/O pin"
+
+#: src/core/gcodecommands.cpp:145
+msgctxt "QObject|"
+msgid "M48: Measure Z-Probe repeatability"
+msgstr "M48: Izmeri ponovljivost Z-sonde"
+
+#: src/core/gcodecommands.cpp:147
+msgctxt "QObject|"
+msgid "M70: Display message"
+msgstr "M70: Prikaži sporočilo"
+
+#: src/core/gcodecommands.cpp:149
+msgctxt "QObject|"
+msgid "M72: Play a tone or song"
+msgstr "M72: Predvajaj ton ali skladbo"
+
+#: src/core/gcodecommands.cpp:151
+msgctxt "QObject|"
+msgid "M73: Set build percentage"
+msgstr "M73: Nastavi odstotek gradnje"
+
+#: src/core/gcodecommands.cpp:153
+msgctxt "QObject|"
+msgid "M80: ATX Power On"
+msgstr "M80: Vklop ATX"
+
+#: src/core/gcodecommands.cpp:155
+msgctxt "QObject|"
+msgid "M81: ATX Power Off"
+msgstr "M81: Izklop ATX"
+
+#: src/core/gcodecommands.cpp:157
+msgctxt "QObject|"
+msgid "M82: Set extruder to absolute mode"
+msgstr "M82: Nastavi ekstruder v absolutni način"
+
+#: src/core/gcodecommands.cpp:159
+msgctxt "QObject|"
+msgid "M83: Set extruder to relative mode"
+msgstr "M83: Nastavi ekstruder v relativni način"
+
+#: src/core/gcodecommands.cpp:161
+msgctxt "QObject|"
+msgid "M84: Stop idle hold"
+msgstr "M84: Zaustavi nedejavno zadrževanje"
+
+#: src/core/gcodecommands.cpp:163
+msgctxt "QObject|"
+msgid "M85: Set Inactivity shutdown timer"
+msgstr "M85: Nastavi časovnik izklopa za neaktivnost"
+
+#: src/core/gcodecommands.cpp:165
+msgctxt "QObject|"
+msgid "M92: Set axis steps per unit"
+msgstr "M92: Nastavi korake osi na enoto"
+
+#: src/core/gcodecommands.cpp:167
+msgctxt "QObject|"
+msgid "M93: Send axis steps per unit"
+msgstr "M93: Pošlji korake osi na enoto"
+
+#: src/core/gcodecommands.cpp:169
+msgctxt "QObject|"
+msgid "M98: Call Macro/Subprogram"
+msgstr "M98: Pokliči makro/podprogram"
+
+#: src/core/gcodecommands.cpp:171
+msgctxt "QObject|"
+msgid "M99: Return from Macro/Subprogram"
+msgstr "M99: Vrni se iz makra/podprograma"
+
+#: src/core/gcodecommands.cpp:173
+msgctxt "QObject|"
+msgid "M101: Turn extruder 1 on Forward, Undo Retraction"
+msgstr "M101: Postavi ekstruder 1 na naprej, razveljavi umik"
+
+#: src/core/gcodecommands.cpp:175
+msgctxt "QObject|"
+msgid "M103: Turn all extruders off - Extruder Retraction"
+msgstr "M103: Izklopi vse ekstruderje - Umik ekstruderja"
+
+#: src/core/gcodecommands.cpp:177
+msgctxt "QObject|"
+msgid "M104: Set Extruder Temperature"
+msgstr "M104: Nastavi temperaturo ekstruderja"
+
+#: src/core/gcodecommands.cpp:179
+msgctxt "QObject|"
+msgid "M105: Get Extruder Temperature"
+msgstr "M105: Pridobi temperaturo ekstruderja"
+
+#: src/core/gcodecommands.cpp:181
+msgctxt "QObject|"
+msgid "M106: Fan On"
+msgstr "M106: Vklopi ventilator"
+
+#: src/core/gcodecommands.cpp:183
+msgctxt "QObject|"
+msgid "M107: Fan Off"
+msgstr "M107: Izklopi ventilator"
+
+#: src/core/gcodecommands.cpp:185
+msgctxt "QObject|"
+msgid "M108: Cancel Heating"
+msgstr "M108: Prekini ogrevanje"
+
+#: src/core/gcodecommands.cpp:187
+msgctxt "QObject|"
+msgid "M109: Set Extruder Temperature and Wait"
+msgstr "M109: Nastavi temperaturo ekstruderja in čakaj"
+
+#: src/core/gcodecommands.cpp:189
+msgctxt "QObject|"
+msgid "M110: Set Current Line Number"
+msgstr "M110: Nastavi številko trenutne vrstice"
+
+#: src/core/gcodecommands.cpp:191
+msgctxt "QObject|"
+msgid "M111: Set Debug Level"
+msgstr "M111: Nastavi raven odpravljanja napak"
+
+#: src/core/gcodecommands.cpp:193
+msgctxt "QObject|"
+msgid "M112: Emergency Stop"
+msgstr "M112: Zaustavitev v sili"
+
+#: src/core/gcodecommands.cpp:195
+msgctxt "QObject|"
+msgid "M114: Get Current Position"
+msgstr "M114: Pridobi trenutni položaj"
+
+#: src/core/gcodecommands.cpp:197
+msgctxt "QObject|"
+msgid "M115: Get Firmware Version and Capabilities"
+msgstr "M115: Pridobi verzijo in zmogljivosti vdelane programske opreme"
+
+#: src/core/gcodecommands.cpp:199
+msgctxt "QObject|"
+msgid "M116: Wait"
+msgstr "M116: Čakaj"
+
+#: src/core/gcodecommands.cpp:201
+msgctxt "QObject|"
+msgid "M117: Display Message"
+msgstr "M117: Prikaži sporočilo"
+
+#: src/core/gcodecommands.cpp:203
+msgctxt "QObject|"
+msgid "M119: Get Endstop Status"
+msgstr "M119: Pridobi stanje končnega postanka"
+
+#: src/core/gcodecommands.cpp:205
+msgctxt "QObject|"
+msgid ""
+"M120: Push for Smoothie and RepRap Firmware / Enable Endstop detection for "
+"Marlin"
+msgstr ""
+"M120: potisni za Smoothie v strojni programski opremi RepRap / omogoči "
+"zaznavo končne vrednosti za Marlin"
+
+#: src/core/gcodecommands.cpp:207
+msgctxt "QObject|"
+msgid ""
+"M121: Pop for Smoothie and RepRap Firmware / Disable Endstop detection for "
+"Marlin"
+msgstr ""
+"M121: pojavi za Smoothie v strojni programski opremi RepRap / onemogoči "
+"zaznavo končne vrednosti za Marlin"
+
+#: src/core/gcodecommands.cpp:209
+msgctxt "QObject|"
+msgid "M122: Diagnose"
+msgstr "M122: Diagnoza"
+
+#: src/core/gcodecommands.cpp:211
+msgctxt "QObject|"
+msgid "M126: Open valve"
+msgstr "M126: Odpri ventil"
+
+#: src/core/gcodecommands.cpp:213
+msgctxt "QObject|"
+msgid "M127: Close valve"
+msgstr "M127: Zapri ventil"
+
+#: src/core/gcodecommands.cpp:215
+msgctxt "QObject|"
+msgid "M130: Set PID P value"
+msgstr "M130: Določite vrednost PID P"
+
+#: src/core/gcodecommands.cpp:217
+msgctxt "QObject|"
+msgid "M131: Set PID I value"
+msgstr "M131: Določite vrednost PID I"
+
+#: src/core/gcodecommands.cpp:219
+msgctxt "QObject|"
+msgid "M132: Set PID D value"
+msgstr "M132: Določite vrednost PID D"
+
+#: src/core/gcodecommands.cpp:221
+msgctxt "QObject|"
+msgid "M133: Set PID I limit value"
+msgstr "M133: Določite mejno vrednost PID I"
+
+#: src/core/gcodecommands.cpp:223
+msgctxt "QObject|"
+msgid "M134: Write PID values to EEPROM"
+msgstr "M134: Zapiši vrednosti PID v EEPROM"
+
+#: src/core/gcodecommands.cpp:225
+msgctxt "QObject|"
+msgid "M135: Set PID sample interval"
+msgstr "M135: Nastavi interval vzorčenja PID"
+
+#: src/core/gcodecommands.cpp:227
+msgctxt "QObject|"
+msgid "M140: Set Bed Temperature - Fast"
+msgstr "M140: Nastavi temperaturo podloge - hitro"
+
+#: src/core/gcodecommands.cpp:229
+msgctxt "QObject|"
+msgid "M141: Set Chamber Temperature - Fast"
+msgstr "M141: Nastavi temperaturo komore - hitro"
+
+#: src/core/gcodecommands.cpp:231
+msgctxt "QObject|"
+msgid "M143: Maximum hot-end temperature"
+msgstr "M143: Maksimalna temperature vročega konca"
+
+#: src/core/gcodecommands.cpp:233
+msgctxt "QObject|"
+msgid "M144: Stand by your bed"
+msgstr "M144: Stoj ob podlagi"
+
+#: src/core/gcodecommands.cpp:235
+msgctxt "QObject|"
+msgid "M150: Set display color"
+msgstr "M150: Nastavi barvo prikaza"
+
+#: src/core/gcodecommands.cpp:237
+msgctxt "QObject|"
+msgid "M155: Set Temperature auto report"
+msgstr "M155: samodejno poročilo nastavitve temperature"
+
+#: src/core/gcodecommands.cpp:239
+msgctxt "QObject|"
+msgid "M163: Set weight of mixed material"
+msgstr "M163: Nastavi težo mešanice materiala"
+
+#: src/core/gcodecommands.cpp:241
+msgctxt "QObject|"
+msgid "M164: Store weights"
+msgstr "M164: Shrani teže"
+
+#: src/core/gcodecommands.cpp:243
+msgctxt "QObject|"
+msgid "M190: Wait for bed temperature to reach target temp"
+msgstr "M190: Počakaj, da temperatura podloge doseže ciljno temperaturo"
+
+#: src/core/gcodecommands.cpp:245
+msgctxt "QObject|"
+msgid "M200: Set filament diameter"
+msgstr "M200: Nastavi premer filamenta"
+
+#: src/core/gcodecommands.cpp:247
+msgctxt "QObject|"
+msgid "M201: Set max printing acceleration"
+msgstr "M201: Nastavi največji pospešek tiskanja"
+
+#: src/core/gcodecommands.cpp:249
+msgctxt "QObject|"
+msgid "M202: Set max travel acceleration"
+msgstr "M202: Nastavi največji pospešek vožnje"
+
+#: src/core/gcodecommands.cpp:251
+msgctxt "QObject|"
+msgid "M203: Set maximum feedrate"
+msgstr "M203: Nastavi največjo hitrost podajanja"
+
+#: src/core/gcodecommands.cpp:253
+msgctxt "QObject|"
+msgid "M204: Set default acceleration"
+msgstr "M204: Nastavi privzeti pospešek"
+
+#: src/core/gcodecommands.cpp:255
+msgctxt "QObject|"
+msgid "M205: Advanced settings"
+msgstr "M205: Napredne nastavitve"
+
+#: src/core/gcodecommands.cpp:257
+msgctxt "QObject|"
+msgid ""
+"M206: Offset axes for Sprinter, Marlin, Smoothie, RepRap Firmware / Set "
+"eeprom value for Repetier"
+msgstr ""
+"M206: odmakni osi za strojno programsko opremo Sprinter, Marlin, Smoothie, "
+"RepRap / določi vrednost eeprom za Repetier"
+
+#: src/core/gcodecommands.cpp:259
+msgctxt "QObject|"
+msgid "M207: Set retract length"
+msgstr "M207: Nastavite dolžino umika"
+
+#: src/core/gcodecommands.cpp:261
+msgctxt "QObject|"
+msgid "M208: Set unretract length"
+msgstr "M208: Nastavite dolžino preklica umika"
+
+#: src/core/gcodecommands.cpp:263
+msgctxt "QObject|"
+msgid "M209: Enable automatic retract"
+msgstr "M209: Omogočanje samodejnega umika"
+
+#: src/core/gcodecommands.cpp:265
+msgctxt "QObject|"
+msgid "M212: Set Bed Level Sensor Offset"
+msgstr "M212: Nastavite odmik ravni podlage tipala"
+
+#: src/core/gcodecommands.cpp:267
+msgctxt "QObject|"
+msgid "M218: Set Hotend Offset"
+msgstr "M218: Nastavite odmik vročega konca"
+
+#: src/core/gcodecommands.cpp:269
+msgctxt "QObject|"
+msgid "M220: Set speed factor override percentage"
+msgstr "M220: določi odstotek preglasitve faktorja hitrosti"
+
+#: src/core/gcodecommands.cpp:271
+msgctxt "QObject|"
+msgid "M221: Set extrude factor override percentage"
+msgstr "M221: določi odstotek preglasitve faktorja izrivanja"
+
+#: src/core/gcodecommands.cpp:273
+msgctxt "QObject|"
+msgid "M226: Wait for pin state"
+msgstr "M226: Čakaj na stanje nogice"
+
+#: src/core/gcodecommands.cpp:275
+msgctxt "QObject|"
+msgid "M231: Set OPS parameter"
+msgstr "M231: Nastavi parameter OPS"
+
+#: src/core/gcodecommands.cpp:277
+msgctxt "QObject|"
+msgid "M232: Read and reset max. advance values"
+msgstr "M232: Preberi in nastavi največje vrednosti napredovanja"
+
+#: src/core/gcodecommands.cpp:279
+msgctxt "QObject|"
+msgid "M240: Trigger camera"
+msgstr "M240: Sproži kamero"
+
+#: src/core/gcodecommands.cpp:281
+msgctxt "QObject|"
+msgid "M250: Set LCD contrast"
+msgstr "M250: Nastavi kontrast LCD"
+
+#: src/core/gcodecommands.cpp:283
+msgctxt "QObject|"
+msgid "M251: Measure Z steps from homing stop (Delta printers)"
+msgstr "M251: izmeri Z-korake od domače ustavitve (tiskalniki Delta)"
+
+#: src/core/gcodecommands.cpp:285
+msgctxt "QObject|"
+msgid "M280: Set servo position"
+msgstr "M280: Nastavi servo pozicijo"
+
+#: src/core/gcodecommands.cpp:287
+msgctxt "QObject|"
+msgid "M300: Play beep sound"
+msgstr "M300: Predvajaj pisk"
+
+#: src/core/gcodecommands.cpp:289
+msgctxt "QObject|"
+msgid "M301: Set PID parameters"
+msgstr "M301: Nastavi parametre PID"
+
+#: src/core/gcodecommands.cpp:291
+msgctxt "QObject|"
+msgid "M302: Allow cold extrudes "
+msgstr "M302: Dovoli hladno ekstrudiranje "
+
+#: src/core/gcodecommands.cpp:293
+msgctxt "QObject|"
+msgid "M303: Run PID tuning"
+msgstr "M303: Poženi uglaševanje PID"
+
+#: src/core/gcodecommands.cpp:295
+msgctxt "QObject|"
+msgid "M304: Set PID parameters - Bed"
+msgstr "M304: Nastavi parametre PID - podloga"
+
+#: src/core/gcodecommands.cpp:297
+msgctxt "QObject|"
+msgid "M305: Set thermistor and ADC parameters"
+msgstr "M305: Nastavi termistor in parametre ADC"
+
+#: src/core/gcodecommands.cpp:299
+msgctxt "QObject|"
+msgid "M306: set home offset calculated from toolhead position"
+msgstr "M306: nastavi odmik od izhodišča izračunan iz položaja glave orodja"
+
+#: src/core/gcodecommands.cpp:301
+msgctxt "QObject|"
+msgid "M320: Activate autolevel (Repetier)"
+msgstr "M320: Aktiviraj samodejno raven (Repetier)"
+
+#: src/core/gcodecommands.cpp:303
+msgctxt "QObject|"
+msgid "M321: Deactivate autolevel (Repetier)"
+msgstr "M321: Deaktiviraj samodejno raven (Repetier)"
+
+#: src/core/gcodecommands.cpp:305
+msgctxt "QObject|"
+msgid "M322: Reset autolevel matrix (Repetier)"
+msgstr "M322: Ponovno nastavi matriko samodejnih ravni (Repetier)"
+
+#: src/core/gcodecommands.cpp:307
+msgctxt "QObject|"
+msgid "M323: Distortion correction on/off (Repetier)"
+msgstr "M323: Vklop/izklop korekcije popačenja (Repetier)"
+
+#: src/core/gcodecommands.cpp:309
+msgctxt "QObject|"
+msgid "M340: Control the servos"
+msgstr "M340: Nadziraj servo-pogone"
+
+#: src/core/gcodecommands.cpp:311
+msgctxt "QObject|"
+msgid "M350: Set microstepping mode"
+msgstr "M350: Nastavi način mikro korakov"
+
+#: src/core/gcodecommands.cpp:313
+msgctxt "QObject|"
+msgid "M351: Toggle MS1 MS2 pins directly"
+msgstr "M351: Neposredno preklapljaj nogice MS1 MS2"
+
+#: src/core/gcodecommands.cpp:315
+msgctxt "QObject|"
+msgid "M355: Turn case lights on/off"
+msgstr "M355: Vklopi/izklopi luči ohišja"
+
+#: src/core/gcodecommands.cpp:317
+msgctxt "QObject|"
+msgid "M360: Report firmware configuration"
+msgstr "M360: Poročaj o nastavitvi vdelane programske opreme"
+
+#: src/core/gcodecommands.cpp:319
+msgctxt "QObject|"
+msgid "M361: Move to Theta 90 degree position"
+msgstr "M361: Premakni se v položaj theta 90 stopinj"
+
+#: src/core/gcodecommands.cpp:321
+msgctxt "QObject|"
+msgid "M362: Move to Psi 0 degree position"
+msgstr "M362: Premakni se v položaj Psi 0 stopinj"
+
+#: src/core/gcodecommands.cpp:323
+msgctxt "QObject|"
+msgid "M363: Move to Psi 90 degree position"
+msgstr "M363: Premakni se v položaj Psi 90 stopinj"
+
+#: src/core/gcodecommands.cpp:325
+msgctxt "QObject|"
+msgid "M364: Move to Psi + Theta 90 degree position"
+msgstr "M364: Premakni se v položaj Psi + Theta 90 stopinj"
+
+#: src/core/gcodecommands.cpp:327
+msgctxt "QObject|"
+msgid "M365: SCARA scaling factor"
+msgstr "M365: faktor spremembe merila SCARA"
+
+#: src/core/gcodecommands.cpp:329
+msgctxt "QObject|"
+msgid "M366: SCARA convert trim"
+msgstr "M366: pretvori porezavo SCARA"
+
+#: src/core/gcodecommands.cpp:331
+msgctxt "QObject|"
+msgid "M370: Morgan manual bed level - clear map"
+msgstr "M370: Morganova ročna raven podloge - izčiščen zemljevid"
+
+#: src/core/gcodecommands.cpp:333
+msgctxt "QObject|"
+msgid "M371: Move to next calibration position"
+msgstr "M371: Premakni se na naslednji položaj za kalibracijo"
+
+#: src/core/gcodecommands.cpp:335
+msgctxt "QObject|"
+msgid "M372: Record calibration value, and move to next position"
+msgstr ""
+"M372: Zabeleži kalibracijsko vrednost in se pomakni na naslednji položaj"
+
+#: src/core/gcodecommands.cpp:337
+msgctxt "QObject|"
+msgid "M373: End bed level calibration mode"
+msgstr "M373: Način kalibracije nivoja končne podlage"
+
+#: src/core/gcodecommands.cpp:339
+msgctxt "QObject|"
+msgid "M374: Save calibration grid"
+msgstr "M374: Shrani kalibracijsko mrežo"
+
+#: src/core/gcodecommands.cpp:341
+msgctxt "QObject|"
+msgid "M375: Display matrix / Load Matrix"
+msgstr "M375: Prikaži matriko / Naloži matriko"
+
+#: src/core/gcodecommands.cpp:343
+msgctxt "QObject|"
+msgid "M380: Activate solenoid"
+msgstr "M380: Aktiviraj elektromagnet"
+
+#: src/core/gcodecommands.cpp:345
+msgctxt "QObject|"
+msgid "M381: Disable all solenoids"
+msgstr "M381: Onemogoči vse elektromagnete"
+
+#: src/core/gcodecommands.cpp:347
+msgctxt "QObject|"
+msgid "M400: Wait for current moves to finish"
+msgstr "M400: Počakaj, da se trenutni pomiki končajo"
+
+#: src/core/gcodecommands.cpp:349
+msgctxt "QObject|"
+msgid "M401: Lower z-probe"
+msgstr "M401: Spustite z-sondo"
+
+#: src/core/gcodecommands.cpp:351
+msgctxt "QObject|"
+msgid "M402: Raise z-probe"
+msgstr "M402: Dvignite z-sondo"
+
+#: src/core/gcodecommands.cpp:353
+msgctxt "QObject|"
+msgid "M404: Filament width and nozzle diameter"
+msgstr "M404: Širina žarilne nitke in premer šobe"
+
+#: src/core/gcodecommands.cpp:355
+msgctxt "QObject|"
+msgid "M405: Filament Sensor on"
+msgstr "M405: Senzor žarilne nitke vklopljen"
+
+#: src/core/gcodecommands.cpp:357
+msgctxt "QObject|"
+msgid "M406: Filament Sensor off"
+msgstr "M406: Senzor žarilne nitke izklopljen"
+
+#: src/core/gcodecommands.cpp:359
+msgctxt "QObject|"
+msgid "M407: Display filament diameter"
+msgstr "M407: Prikaži premer žarilne nitke"
+
+#: src/core/gcodecommands.cpp:361
+msgctxt "QObject|"
+msgid "M408: Report JSON-style response"
+msgstr "M408: Poročilo o odgovoru v slogu JSON"
+
+#: src/core/gcodecommands.cpp:363
+msgctxt "QObject|"
+msgid "M420: Enable/Disable Mesh Leveling (Marlin)"
+msgstr "M420: omogoči/onemogoči izravnavanje mreževine (Marlin)"
+
+#: src/core/gcodecommands.cpp:365
+msgctxt "QObject|"
+msgid "M450: Report Printer Mode"
+msgstr "M450: Poročaj način tiskanja"
+
+#: src/core/gcodecommands.cpp:367
+msgctxt "QObject|"
+msgid "M451: Select FFF Printer Mode"
+msgstr "M451: Izberi način tiskanja FFF"
+
+#: src/core/gcodecommands.cpp:369
+msgctxt "QObject|"
+msgid "M452: Select Laser Printer Mode"
+msgstr "M452: Izberi način laserskega tiskalnika"
+
+#: src/core/gcodecommands.cpp:371
+msgctxt "QObject|"
+msgid "M453: Select CNC Printer Mode"
+msgstr "M453: Izberite način CNC tiskalnika"
+
+#: src/core/gcodecommands.cpp:373
+msgctxt "QObject|"
+msgid "M460: Define temperature range for thermistor controlled fan"
+msgstr ""
+"M460: Določi temperaturno območje ventilatorja s termistorskim nadzorom"
+
+#: src/core/gcodecommands.cpp:375
+msgctxt "QObject|"
+msgid "M500: Store parameters in EEPROM"
+msgstr "M500: Shrani parametre v EEPROM"
+
+#: src/core/gcodecommands.cpp:377
+msgctxt "QObject|"
+msgid "M501: Read parameters from EEPROM"
+msgstr "M501: Preberi parametre iz EEPROM-a"
+
+#: src/core/gcodecommands.cpp:379
+msgctxt "QObject|"
+msgid "M502: Revert to the default 'factory settings'."
+msgstr "M502: Povrni privzete 'tovarniške nastavitve'."
+
+#: src/core/gcodecommands.cpp:381
+msgctxt "QObject|"
+msgid "M503: Print settings "
+msgstr "M503: Nastavitve tiskanja "
+
+#: src/core/gcodecommands.cpp:383
+msgctxt "QObject|"
+msgid "M540: Enable/Disable 'Stop SD Print on Endstop Hit'"
+msgstr "M540: omogoči/onemogoči »Ustavi tisk SD ob zadetku končne vrednosti«"
+
+#: src/core/gcodecommands.cpp:385
+msgctxt "QObject|"
+msgid "M550: Set Name"
+msgstr "M550: Nastavi ime"
+
+#: src/core/gcodecommands.cpp:387
+msgctxt "QObject|"
+msgid "M551: Set Password"
+msgstr "M551: Nastavi geslo"
+
+#: src/core/gcodecommands.cpp:389
+msgctxt "QObject|"
+msgid "M552: Set IP address"
+msgstr "M552: Nastavi IP naslov"
+
+#: src/core/gcodecommands.cpp:391
+msgctxt "QObject|"
+msgid "M553: Set Netmask"
+msgstr "M553: Nastavi mrežno masko"
+
+#: src/core/gcodecommands.cpp:393
+msgctxt "QObject|"
+msgid "M554: Set Gateway"
+msgstr "M554: Nastavi prehod"
+
+#: src/core/gcodecommands.cpp:395
+msgctxt "QObject|"
+msgid "M555: Set compatibility"
+msgstr "M555: Nastavi združljivost"
+
+#: src/core/gcodecommands.cpp:397
+msgctxt "QObject|"
+msgid "M556: Axis compensation"
+msgstr "M556: Kompenzacija osi"
+
+#: src/core/gcodecommands.cpp:399
+msgctxt "QObject|"
+msgid "M557: Set Z probe point"
+msgstr "M557: določi točko sonde Z"
+
+#: src/core/gcodecommands.cpp:401
+msgctxt "QObject|"
+msgid "M558: Set Z probe type"
+msgstr "M558: Določite vrsto Z-sonde"
+
+#: src/core/gcodecommands.cpp:403
+msgctxt "QObject|"
+msgid "M559: Upload configuration file"
+msgstr "M559: Prenesi datoteko nastavitev"
+
+#: src/core/gcodecommands.cpp:405
+msgctxt "QObject|"
+msgid "M560: Upload web page file"
+msgstr "M560: Prenesi datoteko spletne strani"
+
+#: src/core/gcodecommands.cpp:407
+msgctxt "QObject|"
+msgid "M561: Set Identity Transform"
+msgstr "M561: Nastavi preoblikovanje identitete"
+
+#: src/core/gcodecommands.cpp:409
+msgctxt "QObject|"
+msgid "M562: Reset temperature fault"
+msgstr "M562: Ponastavite napaka temperature"
+
+#: src/core/gcodecommands.cpp:411
+msgctxt "QObject|"
+msgid "M563: Define or remove a tool"
+msgstr "M563: Določi ali odstrani orodje"
+
+#: src/core/gcodecommands.cpp:413
+msgctxt "QObject|"
+msgid "M564: Limit axes"
+msgstr "M564: Omeji osi"
+
+#: src/core/gcodecommands.cpp:415
+msgctxt "QObject|"
+msgid "M565: Set Z probe offset"
+msgstr "M565: Določite odmik Z-sonde"
+
+#: src/core/gcodecommands.cpp:417
+msgctxt "QObject|"
+msgid "M566: Set allowable instantaneous speed change"
+msgstr "M566: Nastavi dovoljeno hipno spremembo hitrosti"
+
+#: src/core/gcodecommands.cpp:419
+msgctxt "QObject|"
+msgid "M567: Set tool mix ratio"
+msgstr "M567: nastavi razmerje mešanice orodja"
+
+#: src/core/gcodecommands.cpp:421
+msgctxt "QObject|"
+msgid "M568: Turn off/on tool mix ratio"
+msgstr "M568: vklopi/izklopi razmerje mešanice orodij"
+
+#: src/core/gcodecommands.cpp:423
+msgctxt "QObject|"
+msgid "M569: Set axis direction and enable values"
+msgstr "M569: Nastavi smer osi in omogoči vrednosti"
+
+#: src/core/gcodecommands.cpp:425
+msgctxt "QObject|"
+msgid "M570: Set heater timeout"
+msgstr "M570: Nastavi časovno omejitev grelca"
+
+#: src/core/gcodecommands.cpp:427
+msgctxt "QObject|"
+msgid "M571: Set output on extrude"
+msgstr "M571: Nastavi izhod ekstrudiranja"
+
+#: src/core/gcodecommands.cpp:429
+msgctxt "QObject|"
+msgid "M573: Report heater PWM"
+msgstr "M573: Poročaj PWM grelca"
+
+#: src/core/gcodecommands.cpp:431
+msgctxt "QObject|"
+msgid "M574: Set endstop configuration"
+msgstr "M574: nastavi prilagoditev končne vrednosti"
+
+#: src/core/gcodecommands.cpp:433
+msgctxt "QObject|"
+msgid "M575: Set serial comms parameters"
+msgstr "M575: nastavite parametre serijskih komunikacij"
+
+#: src/core/gcodecommands.cpp:435
+msgctxt "QObject|"
+msgid "M577: Wait until endstop is triggered"
+msgstr "M577: počakaj, da se sproži končna vrednost"
+
+#: src/core/gcodecommands.cpp:437
+msgctxt "QObject|"
+msgid "M578: Fire inkjet bits"
+msgstr "M578: sproži bite brizgalnika"
+
+#: src/core/gcodecommands.cpp:439
+msgctxt "QObject|"
+msgid "M579: Scale Cartesian axes"
+msgstr "M579: umeri kartezijske osi"
+
+#: src/core/gcodecommands.cpp:441
+msgctxt "QObject|"
+msgid "M580: Select Roland"
+msgstr "M580: Izberi Roland"
+
+#: src/core/gcodecommands.cpp:443
+msgctxt "QObject|"
+msgid "M600: Filament change pause"
+msgstr "M600: zaustavitev spremembe žarilne niti"
+
+#: src/core/gcodecommands.cpp:445
+msgctxt "QObject|"
+msgid "M605: Set dual x-carriage movement mode"
+msgstr "M605: Nastavi dvojni način gibanja x-nosilca"
+
+#: src/core/gcodecommands.cpp:447
+msgctxt "QObject|"
+msgid "M665: Set delta configuration"
+msgstr "M665: Nastavi prilagoditev delte"
+
+#: src/core/gcodecommands.cpp:449
+msgctxt "QObject|"
+msgid "M666: Set delta endstop adjustment"
+msgstr "M666: Nastavi prilagoditev končne postoja delte"
+
+#: src/core/gcodecommands.cpp:451
+msgctxt "QObject|"
+msgid "M667: Select CoreXY mode"
+msgstr "M667: Izberite način CoreXY"
+
+#: src/core/gcodecommands.cpp:453
+msgctxt "QObject|"
+msgid "M851: Set Z-Probe Offset"
+msgstr "M851: Določi odmik Z-sonde"
+
+#: src/core/gcodecommands.cpp:455
+msgctxt "QObject|"
+msgid "M906: Set motor currents"
+msgstr "M906: Določi tokove motorja"
+
+#: src/core/gcodecommands.cpp:457
+msgctxt "QObject|"
+msgid "M907: Set digital trimpot motor"
+msgstr "M907: določi digitalni motor obrezovalnika"
+
+#: src/core/gcodecommands.cpp:459
+msgctxt "QObject|"
+msgid "M908: Control digital trimpot directly"
+msgstr "M908: neposredno nadziraj digitalni porezovalnik"
+
+#: src/core/gcodecommands.cpp:461
+msgctxt "QObject|"
+msgid "M911: Set power monitor threshold voltages"
+msgstr "M911: nastavite prag napetosti za monitor moči"
+
+#: src/core/gcodecommands.cpp:463
+msgctxt "QObject|"
+msgid "M912: Set electronics temperature monitor adjustment"
+msgstr "M912: nastavi prilagoditev monitorja temperature elektronike"
+
+#: src/core/gcodecommands.cpp:465
+msgctxt "QObject|"
+msgid "M913: Set motor percentage of normal current"
+msgstr "M913: Nastavite odstotek motorja od navadnega toka"
+
+#: src/core/gcodecommands.cpp:467
+msgctxt "QObject|"
+msgid "M928: Start SD logging"
+msgstr "M928: Začnite beležiti SD"
+
+#: src/core/gcodecommands.cpp:469
+msgctxt "QObject|"
+msgid "M997: Perform in-application firmware update"
+msgstr "M997: Izvedi posodobitev strojne opreme v programu"
+
+#: src/core/gcodecommands.cpp:471
+msgctxt "QObject|"
+msgid "M998: Request resend of line"
+msgstr "M998: Ponovno pošiljanje zahtevka v vrstici"
+
+#: src/core/gcodecommands.cpp:473
+msgctxt "QObject|"
+msgid "M999: Restart after being stopped by error"
+msgstr "M999: Znova zaženite, potem ko se ustavi zaradi napake"
+
+#: src/widgets/about.cpp:21
+#, qt-format
+msgctxt "About|"
+msgid "Version: %1"
+msgstr "Različica: %1"
+
+#: src/widgets/about.cpp:22
+#, qt-format
+msgctxt "About|"
+msgid "Using Qt: %1"
+msgstr "Uporaba Qt: %1"
+
+#: src/widgets/about.cpp:23
+msgctxt "About|"
+msgid ""
+"Authors:\n"
+"  Chris Rizzitello <rizzitello@kde.org>\n"
+"  Patrick José Pereira <patrickjp@kde.org>\n"
+"  Lays Rodrigues <lays.rodrigues@kde.org>\n"
+"  Tomaz Canabrava <tcanabrava@kde.org>"
+msgstr ""
+"Avtorji:\n"
+"  Chris Rizzitello <rizzitello@kde.org>\n"
+"  Patrick José Pereira <patrickjp@kde.org>\n"
+"  Lays Rodrigues <lays.rodrigues@kde.org>\n"
+"  Tomaz Canabrava <tcanabrava@kde.org>"
+
+#: src/widgets/about.cpp:35
+msgctxt "About|"
+msgid "Close"
+msgstr "Zapri"
+
+#: src/widgets/axiscontrol.cpp:22
+msgctxt "AxisControl|"
+msgid "Move Axis"
+msgstr "Premakni os"
+
+#: src/widgets/commandwidget.cpp:25
+msgctxt "CommandWidget|"
+msgid "Send Command"
+msgstr "Pošlji ukaz"
+
+#: src/widgets/commandwidget.cpp:28 src/widgets/commandwidget.cpp:53
+msgctxt "CommandWidget|"
+msgid "Send"
+msgstr "Pošlji"
+
+#: src/widgets/commandwidget.cpp:50
+msgctxt "CommandWidget|"
+msgid "Show Message"
+msgstr "Pokaži sporočilo"
+
+#: src/widgets/logwidget.cpp:62
+msgctxt "LogWidget|"
+msgid ""
+"                        <h4>Special Log Entries</h4>                         "
+"<p><strong>Failed to open device in read/write mode.</strong></"
+"p>                         <p>&nbsp;&nbsp;&nbsp; The Device was not able to "
+"be opened.</p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; Check "
+"the device is not opened by another program.</p>                         "
+"<p>&nbsp; &nbsp; &nbsp;&nbsp; Check you have the correct permissions to open "
+"the device.</p>                         <p><strong>No plugin found for &lt;"
+"Detected Firmware&gt;</strong></p>                         <p>&nbsp;&nbsp;"
+"&nbsp; Firmware plugins are missing or your firmware is not currently "
+"supported.</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+"Manually select the Marlin or Repetier plugin.</p>                         "
+"<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If your firmware does not have a plugin "
+"please let us know.</p>                         <p><strong>Lots of &ldquo;"
+"Waiting for firmware detect&rdquo;</strong></p>                         "
+"<p>&nbsp;&nbsp;&nbsp; Unable to send the firmware detect waiting for printer "
+"to restart</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+"Push the restart button on your printer or turn it on and off. </"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select a "
+"firmware plugin in place of auto detect.</p>"
+msgstr ""
+"                        <h4>Posebni vnosi zapisnika</"
+"h4>                         <p><strong>Odpiranje naprave v načinu za branje/"
+"pisanje ni uspelo.</strong></p>                         <p>&nbsp; &nbsp; "
+"&nbsp;&nbsp; Naprave ni bilo mogoče odpreti.</p>                         "
+"<p>&nbsp; &nbsp; &nbsp;&nbsp; Preverite, da drug program ne odpre naprave.</"
+"p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; Preverite, ali "
+"imate pravilna dovoljenja za odpiranje naprave.</p>                         "
+"<p><strong>Ni vtičnika za &lt;zaznavanje strojne programske opreme&gt;</"
+"strong></p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; Vtičniki "
+"vdelane programske opreme manjkajo ali pa vdelana programska oprema trenutno "
+"ni podprta.</p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; Ročno "
+"izberite vtičnik Marlin ali Repetier.</p>                         <p>&nbsp; "
+"&nbsp; &nbsp;&nbsp; Če vaša vdelana programska oprema nima vtičnika, nam to "
+"povejte.</p>                         <p><strong>Veliko &ldquo;Čakanje na "
+"zaznavo strojne programske opreme&rdquo;</strong></"
+"p>                         <p>&nbsp;&nbsp;&nbsp; Vdelane programske opreme "
+"ni mogoče poslati zaznanega čakanja na ponoven zagon tiskalnika</"
+"p>                         <p>&nbsp;&nbsp;&nbsp; Pritisnite gumb za ponoven "
+"zagon tiskalnika ali ga vklopite in izklopite. </p>                         "
+"<p>&nbsp;&nbsp;&nbsp; Izberite vtičnik strojne programske opreme namesto "
+"samodejne zaznave.</p>"
+
+#: src/widgets/logwidget.cpp:81
+msgctxt "LogWidget|"
+msgid "Save Session Log"
+msgstr "Shrani zapisnik seje"
+
+#: src/widgets/logwidget.cpp:164
+msgctxt "LogWidget|"
+msgid "Save Log to file"
+msgstr "Shrani zapisnik v datoteko"
+
+#: src/widgets/movementwidget.cpp:49
+msgctxt "MovementWidget|"
+msgid "Home All"
+msgstr "Domov vse"
+
+#: src/widgets/movementwidget.cpp:53
+msgctxt "MovementWidget|"
+msgid "Home X"
+msgstr "Domov X"
+
+#: src/widgets/movementwidget.cpp:57
+msgctxt "MovementWidget|"
+msgid "Home Y"
+msgstr "Domov Y"
+
+#: src/widgets/movementwidget.cpp:61
+msgctxt "MovementWidget|"
+msgid "Home Z"
+msgstr "Domov Z"
+
+#: src/widgets/movementwidget.cpp:67
+msgctxt "MovementWidget|"
+msgid "Disable Motors"
+msgstr "Onemogoci motorje"
+
+#: src/widgets/movementwidget.cpp:72
+msgctxt "MovementWidget|"
+msgid "Move X Axis to"
+msgstr "Premakni os X na"
+
+#: src/widgets/movementwidget.cpp:73
+msgctxt "MovementWidget|"
+msgid "Move Y Axis to"
+msgstr "Premakni os Y na"
+
+#: src/widgets/movementwidget.cpp:74
+msgctxt "MovementWidget|"
+msgid "Move Z Axis to"
+msgstr "Premakni os Z na"
+
+#: src/widgets/movementwidget.cpp:83
+msgctxt "MovementWidget|"
+msgid "Go"
+msgstr "Pojdi"
+
+#: src/widgets/plotwidget.cpp:20
+msgctxt "PlotWidget|"
+msgid "Temp."
+msgstr "Temp."
+
+#: src/widgets/printwidget.cpp:25
+msgctxt "PrintWidget|"
+msgid "Print File"
+msgstr "Natisni datoteko"
+
+#: src/widgets/printwidget.cpp:28
+msgctxt "PrintWidget|"
+msgid "Emergency Stop"
+msgstr "Zaustavitev v sili"
+
+#: src/widgets/printwidget.cpp:37
+msgctxt "PrintWidget|"
+msgid "Printer Speed"
+msgstr "Hitrost tiskalnika"
+
+#: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:58
+#: src/widgets/printwidget.cpp:71
+msgctxt "PrintWidget|"
+msgid "Set"
+msgstr "Nastavi"
+
+#: src/widgets/printwidget.cpp:52
+msgctxt "PrintWidget|"
+msgid "Flow Rate"
+msgstr "Hitrost pretoka"
+
+#: src/widgets/printwidget.cpp:96
+#, qt-format
+msgctxt "PrintWidget|"
+msgid "Fan %1 speed"
+msgstr "Hitrost ventilatorja %1"
+
+#: src/widgets/profilemanager.cpp:27
+msgctxt "ProfileManager|"
+msgid "Profile:"
+msgstr "Profil:"
+
+#: src/widgets/profilemanager.cpp:55
+msgctxt "ProfileManager|"
+msgid "Delete Current Profile"
+msgstr "Izbriši trenutni profil"
+
+#: src/widgets/profilemanager.cpp:69
+msgctxt "ProfileManager|"
+msgid "Name"
+msgstr "Ime"
+
+#: src/widgets/profilemanager.cpp:82
+msgctxt "ProfileManager|"
+msgid "Printer Type:"
+msgstr "Vrsta tiskalnika:"
+
+#: src/widgets/profilemanager.cpp:83
+msgctxt "ProfileManager|"
+msgid "Delta"
+msgstr "Delta"
+
+#: src/widgets/profilemanager.cpp:84
+msgctxt "ProfileManager|"
+msgid "Cartesian"
+msgstr "Kartezične"
+
+#: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:233
+msgctxt "ProfileManager|"
+msgid "Maximum X"
+msgstr "Največja vrednost X"
+
+#: src/widgets/profilemanager.cpp:105
+msgctxt "ProfileManager|"
+msgid "Maximum Y"
+msgstr "Največja vrednost Y"
+
+#: src/widgets/profilemanager.cpp:119 src/widgets/profilemanager.cpp:234
+msgctxt "ProfileManager|"
+msgid "Maximum Z"
+msgstr "Največja vrednost Z"
+
+#: src/widgets/profilemanager.cpp:130
+msgctxt "ProfileManager|"
+msgid "Mechanics"
+msgstr "Mehanika"
+
+#: src/widgets/profilemanager.cpp:135
+msgctxt "ProfileManager|"
+msgid "Bed Maximum"
+msgstr "Največja vrednost podloge"
+
+#: src/widgets/profilemanager.cpp:148
+msgctxt "ProfileManager|"
+msgid "Extruder Maximum"
+msgstr "Najv. vrednost ekstruderja"
+
+#: src/widgets/profilemanager.cpp:157
+msgctxt "ProfileManager|"
+msgid "Auto Temperature Report"
+msgstr "Samodejno poročilo o temperaturi"
+
+#: src/widgets/profilemanager.cpp:162
+msgctxt "ProfileManager|"
+msgid "Temperature"
+msgstr "Temperatura"
+
+#: src/widgets/profilemanager.cpp:172
+msgctxt "ProfileManager|"
+msgid "Bit Rate"
+msgstr "Bitna hitrost"
+
+#: src/widgets/profilemanager.cpp:178
+msgctxt "ProfileManager|"
+msgid "Firmware"
+msgstr "Strojna programska oprema"
+
+#: src/widgets/profilemanager.cpp:192
+msgctxt "ProfileManager|"
+msgid "PostPause"
+msgstr "Popremor"
+
+#: src/widgets/profilemanager.cpp:198
+msgctxt "ProfileManager|"
+msgid "Advanced"
+msgstr "Napredno"
+
+#: src/widgets/profilemanager.cpp:201
+msgctxt "ProfileManager|"
+msgid "Profile"
+msgstr "Profil"
+
+#: src/widgets/profilemanager.cpp:236
+msgctxt "ProfileManager|"
+msgid "Radius"
+msgstr "Polmer"
+
+#: src/widgets/profilemanager.cpp:237
+msgctxt "ProfileManager|"
+msgid "Height"
+msgstr "Višina"
+
+#: src/widgets/sdwidget.cpp:20
+msgctxt "SdWidget|"
+msgid "Get List"
+msgstr "Pridobi seznam"
+
+#: src/widgets/sdwidget.cpp:24
+msgctxt "SdWidget|"
+msgid "Print Selected"
+msgstr "Natisni izbrano"
+
+#: src/widgets/sdwidget.cpp:32
+msgctxt "SdWidget|"
+msgid "Delete Selected"
+msgstr "Izbriši izbrano"
+
+#: src/widgets/sdwidget.cpp:41
+msgctxt "SdWidget|"
+msgid "Files On Sd Card"
+msgstr "Datoteke na kartici SD"
+
+#: src/widgets/statuswidget.cpp:47
+msgctxt "StatusWidget|"
+msgid "AtCore State:"
+msgstr "Stanje atCore:"
+
+#: src/widgets/statuswidget.cpp:48
+msgctxt "StatusWidget|"
+msgid "Not Connected"
+msgstr "Brez povezave"
+
+#: src/widgets/statuswidget.cpp:72
+msgctxt "StatusWidget|"
+msgid "SD"
+msgstr "SD"
+
+#: src/widgets/temperaturewidget.cpp:21
+msgctxt "TemperatureWidget|"
+msgid "Wait Until Temperature Stabilizes"
+msgstr "Počakajte, da se temperatura stabilizira"
+
+#: src/widgets/temperaturewidget.cpp:24
+msgctxt "TemperatureWidget|"
+msgid "Bed Temp"
+msgstr "Temp. podloge"
+
+#: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:44
+msgctxt "TemperatureWidget|"
+msgid "Set"
+msgstr "Nastavi"
+
+#: src/widgets/temperaturewidget.cpp:60
+#, qt-format
+msgctxt "TemperatureWidget|"
+msgid "Extruder %1"
+msgstr "Ekstruder %1"
+
+#: testclient/mainwindow.cpp:30
+msgctxt "MainWindow|"
+msgid "AtCore - Test Client"
+msgstr "AtCore - poskusni odjemalec"
+
+#: testclient/mainwindow.cpp:38
+msgctxt "MainWindow|"
+msgid "Attempting to locate Serial Ports"
+msgstr "Poskušam locirati serijska vrata"
+
+#: testclient/mainwindow.cpp:49
+msgctxt "MainWindow|"
+msgid "AtCore First Run"
+msgstr "Prvi zagon AtCore"
+
+#: testclient/mainwindow.cpp:49
+msgctxt "MainWindow|"
+msgid "No Profiles Detected, use the Profile Manager to create one."
+msgstr "Ni zaznanih profilov, uporabite upravitelja profilov, da ga ustvarite."
+
+#: testclient/mainwindow.cpp:59
+msgctxt "MainWindow|"
+msgid "File"
+msgstr "Datoteka"
+
+#: testclient/mainwindow.cpp:60
+msgctxt "MainWindow|"
+msgid "Quit"
+msgstr "Izhod"
+
+#: testclient/mainwindow.cpp:64
+msgctxt "MainWindow|"
+msgid "View"
+msgstr "Pogled"
+
+#: testclient/mainwindow.cpp:65
+msgctxt "MainWindow|"
+msgid "Show Dock Titles"
+msgstr "Pokaži sidrane naslove"
+
+#: testclient/mainwindow.cpp:71
+msgctxt "MainWindow|"
+msgid "Help"
+msgstr "Pomoč"
+
+#: testclient/mainwindow.cpp:72
+msgctxt "MainWindow|"
+msgid "About"
+msgstr "O programu"
+
+#: testclient/mainwindow.cpp:136
+msgctxt "MainWindow|"
+msgid "Commands"
+msgstr "Ukazi"
+
+#: testclient/mainwindow.cpp:156
+msgctxt "MainWindow|"
+msgid "Print"
+msgstr "Natisni"
+
+#: testclient/mainwindow.cpp:167 testclient/mainwindow.cpp:171
+msgctxt "MainWindow|"
+msgid "Actual Bed"
+msgstr "Trenutna podlaga"
+
+#: testclient/mainwindow.cpp:174 testclient/mainwindow.cpp:178
+msgctxt "MainWindow|"
+msgid "Target Bed"
+msgstr "Ciljna podlaga"
+
+#: testclient/mainwindow.cpp:181 testclient/mainwindow.cpp:185
+msgctxt "MainWindow|"
+msgid "Actual Ext.1"
+msgstr "Trenutni Ext.1"
+
+#: testclient/mainwindow.cpp:188 testclient/mainwindow.cpp:192
+msgctxt "MainWindow|"
+msgid "Target Ext.1"
+msgstr "Ciljni Ext.1"
+
+#: testclient/mainwindow.cpp:196
+msgctxt "MainWindow|"
+msgid "Seconds Between Temperature Checks"
+msgstr "Sekund med preverjanji temperature"
+
+#: testclient/mainwindow.cpp:218
+msgctxt "MainWindow|"
+msgid "Temperature Timeline"
+msgstr "Časovnica temperature"
+
+#: testclient/mainwindow.cpp:227
+msgctxt "MainWindow|"
+msgid "Session Log"
+msgstr "Zapisnik seje"
+
+#: testclient/mainwindow.cpp:237
+msgctxt "MainWindow|"
+msgid "Port:"
+msgstr "Vrata:"
+
+#: testclient/mainwindow.cpp:258
+msgctxt "MainWindow|"
+msgid "Profile:"
+msgstr "Profil:"
+
+#: testclient/mainwindow.cpp:264
+msgctxt "MainWindow|"
+msgid "Attempt to stop Reset on connect"
+msgstr "Poskus zaustavitve ponastavitve pri vzpostavitvi povezave"
+
+#: testclient/mainwindow.cpp:276 testclient/mainwindow.cpp:292
+#: testclient/mainwindow.cpp:563
+msgctxt "MainWindow|"
+msgid "Connect"
+msgstr "Poveži"
+
+#: testclient/mainwindow.cpp:284
+msgctxt "MainWindow|"
+msgid "Connection Error"
+msgstr "Napaka s povezavo"
+
+#: testclient/mainwindow.cpp:284
+msgctxt "MainWindow|"
+msgid ""
+"Your machine did not respond after 20 seconds.\n"
+"\n"
+"Before connecting again check that your printer is on and your are "
+"connecting using the correct BAUD Rate for your device."
+msgstr ""
+"Vaša naprava se ni odzvala po 20 sekundah.\n"
+"\n"
+"Preden se znova povežete, preverite, ali je tiskalnik vklopljen in ali se na "
+"napravo povezujete s pravilno hitrostjo v baudih."
+
+#: testclient/mainwindow.cpp:304
+msgctxt "MainWindow|"
+msgid "Home All"
+msgstr "Domov vse"
+
+#: testclient/mainwindow.cpp:309
+msgctxt "MainWindow|"
+msgid "Home X"
+msgstr "Domov X"
+
+#: testclient/mainwindow.cpp:314
+msgctxt "MainWindow|"
+msgid "Home Y"
+msgstr "Domov Y"
+
+#: testclient/mainwindow.cpp:319
+msgctxt "MainWindow|"
+msgid "Home Z"
+msgstr "Domov Z"
+
+#: testclient/mainwindow.cpp:341
+msgctxt "MainWindow|"
+msgid "Movement"
+msgstr "Gibanje"
+
+#: testclient/mainwindow.cpp:354
+msgctxt "MainWindow|"
+msgid "Temperatures"
+msgstr "Temperature"
+
+#: testclient/mainwindow.cpp:367
+msgctxt "MainWindow|"
+msgid "Print Error"
+msgstr "Napaka pri tiskanju"
+
+#: testclient/mainwindow.cpp:367 testclient/mainwindow.cpp:375
+msgctxt "MainWindow|"
+msgid "You must Select a file from the list"
+msgstr "Izberite datoteko s seznama"
+
+#: testclient/mainwindow.cpp:375
+msgctxt "MainWindow|"
+msgid "Delete Error"
+msgstr "Napaka brisanja"
+
+#: testclient/mainwindow.cpp:381
+msgctxt "MainWindow|"
+msgid "Sd Card"
+msgstr "Kartica SD"
+
+#: testclient/mainwindow.cpp:390
+msgctxt "MainWindow|"
+msgid "Profile Manager"
+msgstr "Upravitelj profilov"
+
+#: testclient/mainwindow.cpp:446
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Found %1 Ports"
+msgstr "Našel %1 vrat"
+
+#: testclient/mainwindow.cpp:448
+msgctxt "MainWindow|"
+msgid "No available ports! Please connect a serial device to continue!"
+msgstr ""
+"Ni razpoložljivih vrat! Za nadaljevanje se povežite s serijsko napravo!"
+
+#: testclient/mainwindow.cpp:466
+msgctxt "MainWindow|"
+msgid "Serial connected"
+msgstr "Serijsko povezano"
+
+#: testclient/mainwindow.cpp:478
+msgctxt "MainWindow|"
+msgid "Disconnected"
+msgstr "Odklopljeno"
+
+#: testclient/mainwindow.cpp:487 testclient/mainwindow.cpp:493
+msgctxt "MainWindow|"
+msgid "Error"
+msgstr "Napaka"
+
+#: testclient/mainwindow.cpp:487
+msgctxt "MainWindow|"
+msgid "Not Connected To a Printer"
+msgstr "Ni povezano na tiskalnik"
+
+#: testclient/mainwindow.cpp:494
+msgctxt "MainWindow|"
+msgid ""
+" A Firmware Plugin was not loaded!\n"
+"  Please send the command M115 and let us know what your firmware returns, "
+"so we can improve our firmware detection. Edit your profile to use \"marlin"
+"\" and try again."
+msgstr ""
+" Vtičnik vdelane programske opreme ni bil naložen!\n"
+"  Pošljite ukaz M115 in nam povejte, kaj vaša vdelana programska oprema "
+"vrne, tako da lahko izboljšamo naše zaznavanje strojne programske opreme. "
+"Uredite svoj profil, da uporabite »marlin« in poskusite znova."
+
+#: testclient/mainwindow.cpp:498
+msgctxt "MainWindow|"
+msgid "Select a file to print"
+msgstr "Izberite datoteko za tisk"
+
+#: testclient/mainwindow.cpp:498
+msgctxt "MainWindow|"
+msgid "*.gcode"
+msgstr "*.gcode"
+
+#: testclient/mainwindow.cpp:500
+msgctxt "MainWindow|"
+msgid "No File Selected"
+msgstr "Ni izbrane datoteke"
+
+#: testclient/mainwindow.cpp:502
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Print: %1"
+msgstr "Tisk: %1"
+
+#: testclient/mainwindow.cpp:529
+msgctxt "MainWindow|"
+msgid "Disconnect"
+msgstr "Odklopi"
+
+#: testclient/mainwindow.cpp:530 testclient/mainwindow.cpp:543
+#: testclient/mainwindow.cpp:651
+msgctxt "MainWindow|"
+msgid "Print File"
+msgstr "Datoteka za tisk"
+
+#: testclient/mainwindow.cpp:531
+msgctxt "MainWindow|"
+msgid "Connected to "
+msgstr "Povezani z "
+
+#: testclient/mainwindow.cpp:536
+msgctxt "MainWindow|"
+msgid "START PRINT"
+msgstr "ZAČNI TISKATI"
+
+#: testclient/mainwindow.cpp:537 testclient/mainwindow.cpp:554
+msgctxt "MainWindow|"
+msgid "Pause Print"
+msgstr "Začasni premor tiskanja"
+
+#: testclient/mainwindow.cpp:542
+msgctxt "MainWindow|"
+msgid "Finished Print"
+msgstr "Tiskanje končano"
+
+#: testclient/mainwindow.cpp:548
+msgctxt "MainWindow|"
+msgid "Paused"
+msgstr "V premoru"
+
+#: testclient/mainwindow.cpp:549
+msgctxt "MainWindow|"
+msgid "Resume Print"
+msgstr "Nadaljuj s tiskom"
+
+#: testclient/mainwindow.cpp:553
+msgctxt "MainWindow|"
+msgid "Printing"
+msgstr "Tiskanje"
+
+#: testclient/mainwindow.cpp:570
+msgctxt "MainWindow|"
+msgid "Abort"
+msgstr "Prekini"
+
+#: testclient/mainwindow.cpp:577
+msgctxt "MainWindow|"
+msgid "Stopping Print"
+msgstr "Ustavljanje tiskanja"
+
+#: testclient/mainwindow.cpp:581
+msgctxt "MainWindow|"
+msgid "Command ERROR"
+msgstr "Ukaz ERROR"

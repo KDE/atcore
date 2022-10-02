@@ -1,0 +1,1954 @@
+# Translation of atcore_qt.po to Catalan
+# Copyright (C) 2017-2021 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2017, 2018, 2020.
+# Josep M. Ferrer <txemaq@gmail.com>, 2017, 2018, 2019, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: atcore\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"PO-Revision-Date: 2021-11-06 17:33+0100\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Qt-Contexts: true\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#: src/core/atcore.cpp:140
+msgctxt "AtCore|"
+msgid "Waiting for firmware detect."
+msgstr "S'està esperant a detectar el microprogramari."
+
+#: src/core/atcore.cpp:194
+#, qt-format
+msgctxt "AtCore|"
+msgid "Connected to printer using %1 plugin"
+msgstr "Està connectat a la impressora usant el connector %1"
+
+#: src/core/atcore.cpp:198
+#, qt-format
+msgctxt "AtCore|"
+msgid "No plugin found for %1."
+msgstr "No s'ha trobat cap connector per al %1."
+
+#: src/core/atcore.cpp:237
+msgctxt "AtCore|"
+msgid "Waiting for machine restart"
+msgstr "S'està esperant el reinici de la màquina"
+
+#: src/core/atcore.cpp:248
+msgctxt "AtCore|"
+msgid "Failed to open device in read/write mode."
+msgstr "Ha fallat en obrir el dispositiu en el mode lectura/escriptura."
+
+#: src/core/atcore.cpp:867
+msgctxt "AtCore|"
+msgid "Device not found"
+msgstr "No s'ha trobat cap dispositiu"
+
+#: src/core/atcore.cpp:870
+msgctxt "AtCore|"
+msgid "Unable to write to device"
+msgstr "No es pot escriure al dispositiu"
+
+#: src/core/atcore.cpp:873
+msgctxt "AtCore|"
+msgid "Unable to read from device"
+msgstr "No es pot llegir des del dispositiu"
+
+#: src/core/atcore.cpp:877
+msgctxt "AtCore|"
+msgid "The device no longer available"
+msgstr "El dispositiu ja no està disponible"
+
+#: src/core/atcore.cpp:881
+msgctxt "AtCore|"
+msgid "Device does not support the operation"
+msgstr "El dispositiu no admet l'operació"
+
+#: src/core/atcore.cpp:884
+msgctxt "AtCore|"
+msgid "Unknown Error"
+msgstr "Error desconegut"
+
+#: src/core/gcodecommands.cpp:12
+#, qt-format
+msgctxt "QObject|"
+msgid "%1%2: requires an argument"
+msgstr "%1%2: requereix un argument"
+
+#: src/core/gcodecommands.cpp:13
+msgctxt "QObject|"
+msgid "Not implemented or not supported!"
+msgstr "No està implementat o no s'admet!"
+
+# Nota important:
+# - http://marlinfw.org/meta/gcode/
+# - https://github.com/MarlinFirmware/Marlin
+#: src/core/gcodecommands.cpp:19
+msgctxt "QObject|"
+msgid "G0: Rapid linear move"
+msgstr "G0: Moviment lineal ràpid"
+
+#: src/core/gcodecommands.cpp:21
+msgctxt "QObject|"
+msgid "G1: Linear move"
+msgstr "G1: Moviment lineal"
+
+#: src/core/gcodecommands.cpp:23
+msgctxt "QObject|"
+msgid "G2: Controlled Arc Move clockwise"
+msgstr "G2: Moviment en arc controlat en sentit horari"
+
+#: src/core/gcodecommands.cpp:25
+msgctxt "QObject|"
+msgid "G3: Controlled Arc Move counterclockwise"
+msgstr "G3: Moviment en arc controlat en sentit antihorari"
+
+#: src/core/gcodecommands.cpp:27
+msgctxt "QObject|"
+msgid "G4: Dwell"
+msgstr "G4: Estanca"
+
+#: src/core/gcodecommands.cpp:29
+msgctxt "QObject|"
+msgid "G10: Retract"
+msgstr "G10: Retrau"
+
+#: src/core/gcodecommands.cpp:31
+msgctxt "QObject|"
+msgid "G11: Unretract"
+msgstr "G11: Desfés la retracció"
+
+#: src/core/gcodecommands.cpp:33
+msgctxt "QObject|"
+msgid "G20: Set units to inches"
+msgstr "G20: Estableix les unitats a polzades"
+
+#: src/core/gcodecommands.cpp:35
+msgctxt "QObject|"
+msgid "G21: Set units to millimeters"
+msgstr "G21: Estableix les unitats a mil·límetres"
+
+#: src/core/gcodecommands.cpp:37
+msgctxt "QObject|"
+msgid "G28: Move to Origin Home"
+msgstr "G28: Mou a l'inici d'origen"
+
+#: src/core/gcodecommands.cpp:39
+msgctxt "QObject|"
+msgid "G29: Detailed Z-Probe"
+msgstr "G29: Prova Z detallada"
+
+#: src/core/gcodecommands.cpp:41
+msgctxt "QObject|"
+msgid "G30: Single Z-Probe"
+msgstr "G30: Prova Z senzilla"
+
+#: src/core/gcodecommands.cpp:43
+msgctxt "QObject|"
+msgid "G31: Set or report current probe status / Dock Z Probe sled for Marlin"
+msgstr ""
+"G31: Estableix o informa de l'estat actual de la prova / prova de moll Z "
+"acoblada per al Marlin"
+
+#: src/core/gcodecommands.cpp:45
+msgctxt "QObject|"
+msgid ""
+"G32: Probe Z and calculate Z plane(Bed Leveling)/ UnDoc Z Probe sled for "
+"Marlin"
+msgstr ""
+"G32: Prova i calcula el pla Z (nivell del llit) / prova Z desacoblada per al "
+"Marlin"
+
+#: src/core/gcodecommands.cpp:47
+msgctxt "QObject|"
+msgid "G33: Measure/List/Adjust Distortion Matrix"
+msgstr "G33: Mesura/llista/ajusta la distorsió de la matriu"
+
+#: src/core/gcodecommands.cpp:49
+msgctxt "QObject|"
+msgid "G90: Set to absolute positioning"
+msgstr "G90: Estableix a un posicionament absolut"
+
+#: src/core/gcodecommands.cpp:51
+msgctxt "QObject|"
+msgid "G91: Set to relative positioning"
+msgstr "G91: Estableix a un posicionament relatiu"
+
+#: src/core/gcodecommands.cpp:53
+msgctxt "QObject|"
+msgid "G92: Set position"
+msgstr "G92: Estableix una posició"
+
+#: src/core/gcodecommands.cpp:55
+msgctxt "QObject|"
+msgid "G100: Calibrate floor or rod radius"
+msgstr "G100: Calibra el radi del terra o de la vara"
+
+# Nota: https://ca.wikipedia.org/wiki/Potenci%C3%B2metre
+#: src/core/gcodecommands.cpp:57
+msgctxt "QObject|"
+msgid "G130: Set digital potentiometer value"
+msgstr "G130: Estableix el valor del potenciòmetre digital"
+
+#: src/core/gcodecommands.cpp:59
+msgctxt "QObject|"
+msgid "G131: Recase Move offset"
+msgstr "G131: Torna a posar el desplaçament del moviment"
+
+#: src/core/gcodecommands.cpp:61
+msgctxt "QObject|"
+msgid "G132: Calibrate endstops offsets"
+msgstr "G132: Calibra els desplaçaments de les aturades finals"
+
+#: src/core/gcodecommands.cpp:63
+msgctxt "QObject|"
+msgid "G133: Measure steps to top"
+msgstr "G133: Mesura els passos fins a dalt"
+
+#: src/core/gcodecommands.cpp:65
+msgctxt "QObject|"
+msgid "G161: Home axis to minimum"
+msgstr "G161: Eix d'inici al mínim"
+
+#: src/core/gcodecommands.cpp:67
+msgctxt "QObject|"
+msgid "G162: Home axis to maximum"
+msgstr "G162: Eix d'inici al màxim"
+
+#: src/core/gcodecommands.cpp:99
+msgctxt "QObject|"
+msgid "M0: Stop or unconditional stop"
+msgstr "M0: Atura o aturada incondicional"
+
+#: src/core/gcodecommands.cpp:101
+msgctxt "QObject|"
+msgid "M1: Sleep or unconditional stop"
+msgstr "M1: Adorm o aturada incondicional"
+
+#: src/core/gcodecommands.cpp:103
+msgctxt "QObject|"
+msgid "M2: Program End"
+msgstr "M2: Final del programa"
+
+#: src/core/gcodecommands.cpp:105
+msgctxt "QObject|"
+msgid "M6: Tool Change"
+msgstr "M6: Canvia l'eina"
+
+# Nota: https://ca.wikipedia.org/wiki/Motor_pas_a_pas
+#: src/core/gcodecommands.cpp:107
+msgctxt "QObject|"
+msgid "M17: Enable/power all steppers motors"
+msgstr "M17: Activa/alimenta tots els motors pas a pas"
+
+#: src/core/gcodecommands.cpp:109
+msgctxt "QObject|"
+msgid "M18: Disable all steppers motors"
+msgstr "M18: Desactiva tots els motors pas a pas"
+
+# Nota: https://en.wikipedia.org/wiki/Secure_Digital
+#: src/core/gcodecommands.cpp:111
+msgctxt "QObject|"
+msgid "M20: List SDCard"
+msgstr "M20: Llista la targeta SD"
+
+#: src/core/gcodecommands.cpp:113
+msgctxt "QObject|"
+msgid "M21: Initialize SDCard"
+msgstr "M21: Inicialitza la targeta SD"
+
+#: src/core/gcodecommands.cpp:115
+msgctxt "QObject|"
+msgid "M22: Release SDCard"
+msgstr "M22: Allibera la targeta SD"
+
+#: src/core/gcodecommands.cpp:117
+msgctxt "QObject|"
+msgid "M23: Select SD file"
+msgstr "M23: Selecciona el fitxer a la SD"
+
+#: src/core/gcodecommands.cpp:119
+msgctxt "QObject|"
+msgid "M24: Start/resume SD print"
+msgstr "M24: Inicia/reprèn la impressió SD"
+
+#: src/core/gcodecommands.cpp:121
+msgctxt "QObject|"
+msgid "M25: Pause SD print"
+msgstr "M25: Fa pausa de la impressió SD"
+
+#: src/core/gcodecommands.cpp:123
+msgctxt "QObject|"
+msgid "M26: Set SD position"
+msgstr "M26: Estableix una posició SD"
+
+#: src/core/gcodecommands.cpp:125
+msgctxt "QObject|"
+msgid "M27: Report SD print status"
+msgstr "M27: Informa de l'estat de la impressió SD"
+
+#: src/core/gcodecommands.cpp:127
+msgctxt "QObject|"
+msgid "M28: Begin write to SD card"
+msgstr "M28: Comença a escriure a la targeta SD"
+
+#: src/core/gcodecommands.cpp:129
+msgctxt "QObject|"
+msgid "M29: Stop writing to SD card"
+msgstr "M29: Atura l'escriptura a la targeta SD"
+
+#: src/core/gcodecommands.cpp:131
+msgctxt "QObject|"
+msgid "M30: Delete a file on the SD card"
+msgstr "M30: Suprimeix un fitxer a la targeta SD"
+
+#: src/core/gcodecommands.cpp:133
+msgctxt "QObject|"
+msgid "M31: Output time since last M109 or SD card start to serial"
+msgstr ""
+"M31: Imprimeix el temps transcorregut des de l'inici de l'última M109 o "
+"targeta SD"
+
+#: src/core/gcodecommands.cpp:135
+msgctxt "QObject|"
+msgid "M32: Select file and start SD print"
+msgstr "M32: Selecciona un fitxer i inicia la impressió SD"
+
+#: src/core/gcodecommands.cpp:137
+msgctxt "QObject|"
+msgid "M33: Get the long name for an SD card file or folder"
+msgstr "M33: Obtén el nom llarg d'un fitxer o carpeta de la targeta SD"
+
+#: src/core/gcodecommands.cpp:139
+msgctxt "QObject|"
+msgid "M34: Set SD file sorting options"
+msgstr "M34: Estableix les opcions d'ordenació des del fitxer SD"
+
+#: src/core/gcodecommands.cpp:141
+msgctxt "QObject|"
+msgid "M36: Return file information"
+msgstr "M36: Retorna la informació del fitxer"
+
+#: src/core/gcodecommands.cpp:143
+msgctxt "QObject|"
+msgid "M42: Switch I/O pin"
+msgstr "M42: Commuta la E/S del pin"
+
+#: src/core/gcodecommands.cpp:145
+msgctxt "QObject|"
+msgid "M48: Measure Z-Probe repeatability"
+msgstr "M48: Mesura la repetibilitat de la prova Z"
+
+#: src/core/gcodecommands.cpp:147
+msgctxt "QObject|"
+msgid "M70: Display message"
+msgstr "M70: Mostra el missatge"
+
+#: src/core/gcodecommands.cpp:149
+msgctxt "QObject|"
+msgid "M72: Play a tone or song"
+msgstr "M72: Reprodueix un to o cançó"
+
+#: src/core/gcodecommands.cpp:151
+msgctxt "QObject|"
+msgid "M73: Set build percentage"
+msgstr "M73: Estableix el percentatge de construït"
+
+#: src/core/gcodecommands.cpp:153
+msgctxt "QObject|"
+msgid "M80: ATX Power On"
+msgstr "M80: Engega l'ATX"
+
+#: src/core/gcodecommands.cpp:155
+msgctxt "QObject|"
+msgid "M81: ATX Power Off"
+msgstr "M81: Apaga l'ATX"
+
+# Nota: https://ca.wikipedia.org/wiki/Extrusi%C3%B3
+#: src/core/gcodecommands.cpp:157
+msgctxt "QObject|"
+msgid "M82: Set extruder to absolute mode"
+msgstr "M82: Estableix l'extrusor al mode absolut"
+
+#: src/core/gcodecommands.cpp:159
+msgctxt "QObject|"
+msgid "M83: Set extruder to relative mode"
+msgstr "M83: Estableix l'extrusor al mode relatiu"
+
+#: src/core/gcodecommands.cpp:161
+msgctxt "QObject|"
+msgid "M84: Stop idle hold"
+msgstr "M84: Atura el manteniment en inactivitat"
+
+#: src/core/gcodecommands.cpp:163
+msgctxt "QObject|"
+msgid "M85: Set Inactivity shutdown timer"
+msgstr "M85: Estableix el temps de l'aturada per inactivitat"
+
+#: src/core/gcodecommands.cpp:165
+msgctxt "QObject|"
+msgid "M92: Set axis steps per unit"
+msgstr "M92: Estableix els passos per unitat per a un o més eixos"
+
+#: src/core/gcodecommands.cpp:167
+msgctxt "QObject|"
+msgid "M93: Send axis steps per unit"
+msgstr "M93: Envia els passos per unitat per a un o més eixos"
+
+#: src/core/gcodecommands.cpp:169
+msgctxt "QObject|"
+msgid "M98: Call Macro/Subprogram"
+msgstr "M98: Crida una macro/subprograma"
+
+#: src/core/gcodecommands.cpp:171
+msgctxt "QObject|"
+msgid "M99: Return from Macro/Subprogram"
+msgstr "M99: Retorna des d'una macro/subprograma"
+
+#: src/core/gcodecommands.cpp:173
+msgctxt "QObject|"
+msgid "M101: Turn extruder 1 on Forward, Undo Retraction"
+msgstr "M101: Gira l'extrusor 1 endavant, desfés la retracció"
+
+#: src/core/gcodecommands.cpp:175
+msgctxt "QObject|"
+msgid "M103: Turn all extruders off - Extruder Retraction"
+msgstr "M103: Apaga tots els extrusors -retracció de l'extrusor-"
+
+#: src/core/gcodecommands.cpp:177
+msgctxt "QObject|"
+msgid "M104: Set Extruder Temperature"
+msgstr "M104: Estableix la temperatura de l'extrusor"
+
+#: src/core/gcodecommands.cpp:179
+msgctxt "QObject|"
+msgid "M105: Get Extruder Temperature"
+msgstr "M105: Obtén la temperatura de l'extrusor"
+
+#: src/core/gcodecommands.cpp:181
+msgctxt "QObject|"
+msgid "M106: Fan On"
+msgstr "M106: Engega el ventilador"
+
+#: src/core/gcodecommands.cpp:183
+msgctxt "QObject|"
+msgid "M107: Fan Off"
+msgstr "M107: Apaga el ventilador"
+
+#: src/core/gcodecommands.cpp:185
+msgctxt "QObject|"
+msgid "M108: Cancel Heating"
+msgstr "M108: Cancel·la l'escalfament"
+
+#: src/core/gcodecommands.cpp:187
+msgctxt "QObject|"
+msgid "M109: Set Extruder Temperature and Wait"
+msgstr "M109: Estableix la temperatura de l'extrusor i espera"
+
+#: src/core/gcodecommands.cpp:189
+msgctxt "QObject|"
+msgid "M110: Set Current Line Number"
+msgstr "M110: Estableix el número de la línia actual"
+
+#: src/core/gcodecommands.cpp:191
+msgctxt "QObject|"
+msgid "M111: Set Debug Level"
+msgstr "M111: Estableix el nivell de depuració"
+
+#: src/core/gcodecommands.cpp:193
+msgctxt "QObject|"
+msgid "M112: Emergency Stop"
+msgstr "M112: Aturada d'emergència"
+
+#: src/core/gcodecommands.cpp:195
+msgctxt "QObject|"
+msgid "M114: Get Current Position"
+msgstr "M114: Obtén la posició actual"
+
+#: src/core/gcodecommands.cpp:197
+msgctxt "QObject|"
+msgid "M115: Get Firmware Version and Capabilities"
+msgstr "M115: Obtén la versió i les capacitats del microprogramari"
+
+#: src/core/gcodecommands.cpp:199
+msgctxt "QObject|"
+msgid "M116: Wait"
+msgstr "M116: Espera"
+
+#: src/core/gcodecommands.cpp:201
+msgctxt "QObject|"
+msgid "M117: Display Message"
+msgstr "M117: Mostra un missatge"
+
+#: src/core/gcodecommands.cpp:203
+msgctxt "QObject|"
+msgid "M119: Get Endstop Status"
+msgstr "M119: Obtén l'estat de l'aturada final"
+
+#: src/core/gcodecommands.cpp:205
+msgctxt "QObject|"
+msgid ""
+"M120: Push for Smoothie and RepRap Firmware / Enable Endstop detection for "
+"Marlin"
+msgstr ""
+"M120: Cobreix pel microprogramari Smoothie i RepRap / Activa la detecció de "
+"l'aturada final per al Marlin"
+
+#: src/core/gcodecommands.cpp:207
+msgctxt "QObject|"
+msgid ""
+"M121: Pop for Smoothie and RepRap Firmware / Disable Endstop detection for "
+"Marlin"
+msgstr ""
+"M121: Descobreix pel microprogramari Smoothie i RepRap / Desactiva la "
+"detecció de l'aturada final per al Marlin"
+
+#: src/core/gcodecommands.cpp:209
+msgctxt "QObject|"
+msgid "M122: Diagnose"
+msgstr "M122: Diagnostica"
+
+#: src/core/gcodecommands.cpp:211
+msgctxt "QObject|"
+msgid "M126: Open valve"
+msgstr "M126: Obre la vàlvula"
+
+#: src/core/gcodecommands.cpp:213
+msgctxt "QObject|"
+msgid "M127: Close valve"
+msgstr "M127: Tanca la vàlvula"
+
+#: src/core/gcodecommands.cpp:215
+msgctxt "QObject|"
+msgid "M130: Set PID P value"
+msgstr "M130: Estableix el valor P del PID"
+
+#: src/core/gcodecommands.cpp:217
+msgctxt "QObject|"
+msgid "M131: Set PID I value"
+msgstr "M131: Estableix el valor I del PID"
+
+#: src/core/gcodecommands.cpp:219
+msgctxt "QObject|"
+msgid "M132: Set PID D value"
+msgstr "M132: Estableix el valor D del PID"
+
+#: src/core/gcodecommands.cpp:221
+msgctxt "QObject|"
+msgid "M133: Set PID I limit value"
+msgstr "M133: Estableix el valor límit I del PID"
+
+#: src/core/gcodecommands.cpp:223
+msgctxt "QObject|"
+msgid "M134: Write PID values to EEPROM"
+msgstr "M134: Escriu els valors PID a l'EEPROM"
+
+#: src/core/gcodecommands.cpp:225
+msgctxt "QObject|"
+msgid "M135: Set PID sample interval"
+msgstr "M135: Estableix l'interval de la mostra PID"
+
+#: src/core/gcodecommands.cpp:227
+msgctxt "QObject|"
+msgid "M140: Set Bed Temperature - Fast"
+msgstr "M140: Estableix la temperatura del llit -ràpid-"
+
+#: src/core/gcodecommands.cpp:229
+msgctxt "QObject|"
+msgid "M141: Set Chamber Temperature - Fast"
+msgstr "M141: Estableix la temperatura de la cambra -ràpid-"
+
+#: src/core/gcodecommands.cpp:231
+msgctxt "QObject|"
+msgid "M143: Maximum hot-end temperature"
+msgstr "M143: Temperatura màxima de l'escalfament final"
+
+#: src/core/gcodecommands.cpp:233
+msgctxt "QObject|"
+msgid "M144: Stand by your bed"
+msgstr "M144: Estabilització del llit"
+
+#: src/core/gcodecommands.cpp:235
+msgctxt "QObject|"
+msgid "M150: Set display color"
+msgstr "M150: Estableix el color de la pantalla"
+
+#: src/core/gcodecommands.cpp:237
+msgctxt "QObject|"
+msgid "M155: Set Temperature auto report"
+msgstr "M155: Estableix un informe automàtic de la temperatura"
+
+#: src/core/gcodecommands.cpp:239
+msgctxt "QObject|"
+msgid "M163: Set weight of mixed material"
+msgstr "M163: Estableix el pes del material barrejat"
+
+#: src/core/gcodecommands.cpp:241
+msgctxt "QObject|"
+msgid "M164: Store weights"
+msgstr "M164: Emmagatzema els pesos"
+
+#: src/core/gcodecommands.cpp:243
+msgctxt "QObject|"
+msgid "M190: Wait for bed temperature to reach target temp"
+msgstr ""
+"M190: Espera que la temperatura del llit arribi a l'objectiu de temperatura"
+
+#: src/core/gcodecommands.cpp:245
+msgctxt "QObject|"
+msgid "M200: Set filament diameter"
+msgstr "M200: Estableix el diàmetre del filament"
+
+#: src/core/gcodecommands.cpp:247
+msgctxt "QObject|"
+msgid "M201: Set max printing acceleration"
+msgstr "M201: Estableix l'acceleració màxima de la impressió"
+
+#: src/core/gcodecommands.cpp:249
+msgctxt "QObject|"
+msgid "M202: Set max travel acceleration"
+msgstr "M202: Estableix l'acceleració màxima del moviment"
+
+#: src/core/gcodecommands.cpp:251
+msgctxt "QObject|"
+msgid "M203: Set maximum feedrate"
+msgstr "M203: Estableix la velocitat d'alimentació màxima"
+
+#: src/core/gcodecommands.cpp:253
+msgctxt "QObject|"
+msgid "M204: Set default acceleration"
+msgstr "M204: Estableix l'acceleració predeterminada"
+
+#: src/core/gcodecommands.cpp:255
+msgctxt "QObject|"
+msgid "M205: Advanced settings"
+msgstr "M205: Arranjament avançat"
+
+#: src/core/gcodecommands.cpp:257
+msgctxt "QObject|"
+msgid ""
+"M206: Offset axes for Sprinter, Marlin, Smoothie, RepRap Firmware / Set "
+"eeprom value for Repetier"
+msgstr ""
+"M206: Desplaçament dels eixos per al microprogramari Sprinter, Marlin, "
+"Smoothie, RepRap / Estableix el valor de l'EEPROM per al «repetier»"
+
+#: src/core/gcodecommands.cpp:259
+msgctxt "QObject|"
+msgid "M207: Set retract length"
+msgstr "M207: Estableix la longitud de la retracció"
+
+#: src/core/gcodecommands.cpp:261
+msgctxt "QObject|"
+msgid "M208: Set unretract length"
+msgstr "M208: Estableix la longitud en desfer la retracció"
+
+#: src/core/gcodecommands.cpp:263
+msgctxt "QObject|"
+msgid "M209: Enable automatic retract"
+msgstr "M209: Activa la retracció automàtica"
+
+#: src/core/gcodecommands.cpp:265
+msgctxt "QObject|"
+msgid "M212: Set Bed Level Sensor Offset"
+msgstr "M212: Estableix el desplaçament del sensor al nivell del llit"
+
+#: src/core/gcodecommands.cpp:267
+msgctxt "QObject|"
+msgid "M218: Set Hotend Offset"
+msgstr "M218: Estableix el desplaçament de l'escalfament final"
+
+#: src/core/gcodecommands.cpp:269
+msgctxt "QObject|"
+msgid "M220: Set speed factor override percentage"
+msgstr "M220: Estableix el percentatge de superposició del factor de velocitat"
+
+#: src/core/gcodecommands.cpp:271
+msgctxt "QObject|"
+msgid "M221: Set extrude factor override percentage"
+msgstr ""
+"M221: Estableix el percentatge de superposició del factor de l'extrusió"
+
+#: src/core/gcodecommands.cpp:273
+msgctxt "QObject|"
+msgid "M226: Wait for pin state"
+msgstr "M226: Espera l'estat del pin"
+
+#: src/core/gcodecommands.cpp:275
+msgctxt "QObject|"
+msgid "M231: Set OPS parameter"
+msgstr "M231: Estableix el paràmetre OPS"
+
+#: src/core/gcodecommands.cpp:277
+msgctxt "QObject|"
+msgid "M232: Read and reset max. advance values"
+msgstr "M232: Llegeix i restableix al màxim els valors avançats"
+
+#: src/core/gcodecommands.cpp:279
+msgctxt "QObject|"
+msgid "M240: Trigger camera"
+msgstr "M240: Dispara la càmera"
+
+#: src/core/gcodecommands.cpp:281
+msgctxt "QObject|"
+msgid "M250: Set LCD contrast"
+msgstr "M250: Estableix el contrast del LCD"
+
+#: src/core/gcodecommands.cpp:283
+msgctxt "QObject|"
+msgid "M251: Measure Z steps from homing stop (Delta printers)"
+msgstr "M251: Mesura els passos Z des de l'aturada d'inici (impressores Delta)"
+
+#: src/core/gcodecommands.cpp:285
+msgctxt "QObject|"
+msgid "M280: Set servo position"
+msgstr "M280: Estableix la posició del servo"
+
+#: src/core/gcodecommands.cpp:287
+msgctxt "QObject|"
+msgid "M300: Play beep sound"
+msgstr "M300: Reprodueix un so d'avís"
+
+#: src/core/gcodecommands.cpp:289
+msgctxt "QObject|"
+msgid "M301: Set PID parameters"
+msgstr "M301: Estableix els paràmetres PID"
+
+#: src/core/gcodecommands.cpp:291
+msgctxt "QObject|"
+msgid "M302: Allow cold extrudes "
+msgstr "M302: Permet les extrusions en fred "
+
+#: src/core/gcodecommands.cpp:293
+msgctxt "QObject|"
+msgid "M303: Run PID tuning"
+msgstr "M303: Executa l'afinació PID"
+
+#: src/core/gcodecommands.cpp:295
+msgctxt "QObject|"
+msgid "M304: Set PID parameters - Bed"
+msgstr "M304: Estableix els paràmetres PID -llit-"
+
+# Nota: https://ca.wikipedia.org/wiki/Termistor
+# Nota (ADC): https://en.wikipedia.org/wiki/CR-39
+#: src/core/gcodecommands.cpp:297
+msgctxt "QObject|"
+msgid "M305: Set thermistor and ADC parameters"
+msgstr "M305: Estableix els paràmetres del termistor i ADC"
+
+#: src/core/gcodecommands.cpp:299
+msgctxt "QObject|"
+msgid "M306: set home offset calculated from toolhead position"
+msgstr ""
+"M306: estableix el desplaçament inicial calculat des de la posició del "
+"capçal de l'eina"
+
+#: src/core/gcodecommands.cpp:301
+msgctxt "QObject|"
+msgid "M320: Activate autolevel (Repetier)"
+msgstr "M320: Activa el nivell automàtic («repetier»)"
+
+#: src/core/gcodecommands.cpp:303
+msgctxt "QObject|"
+msgid "M321: Deactivate autolevel (Repetier)"
+msgstr "M321: Desactiva el nivell automàtic («repetier»)"
+
+#: src/core/gcodecommands.cpp:305
+msgctxt "QObject|"
+msgid "M322: Reset autolevel matrix (Repetier)"
+msgstr "M322: Restableix la matriu del nivell automàtic («repetier»)"
+
+#: src/core/gcodecommands.cpp:307
+msgctxt "QObject|"
+msgid "M323: Distortion correction on/off (Repetier)"
+msgstr "M323: Des/activa la correcció de la distorsió («repetier»)"
+
+#: src/core/gcodecommands.cpp:309
+msgctxt "QObject|"
+msgid "M340: Control the servos"
+msgstr "M340: Controla els servos"
+
+#: src/core/gcodecommands.cpp:311
+msgctxt "QObject|"
+msgid "M350: Set microstepping mode"
+msgstr "M350: Estableix el mode micropassos"
+
+#: src/core/gcodecommands.cpp:313
+msgctxt "QObject|"
+msgid "M351: Toggle MS1 MS2 pins directly"
+msgstr "M351: Commuta directament els pins de MS1 MS2"
+
+#: src/core/gcodecommands.cpp:315
+msgctxt "QObject|"
+msgid "M355: Turn case lights on/off"
+msgstr "M355: Encén/apaga les llums segons el cas"
+
+#: src/core/gcodecommands.cpp:317
+msgctxt "QObject|"
+msgid "M360: Report firmware configuration"
+msgstr "M360: Informa sobre la configuració del microprogramari"
+
+#: src/core/gcodecommands.cpp:319
+msgctxt "QObject|"
+msgid "M361: Move to Theta 90 degree position"
+msgstr "M361: Mou a la posició Theta de 90 graus"
+
+#: src/core/gcodecommands.cpp:321
+msgctxt "QObject|"
+msgid "M362: Move to Psi 0 degree position"
+msgstr "M362: Mou a la posició Psi de 0 graus"
+
+#: src/core/gcodecommands.cpp:323
+msgctxt "QObject|"
+msgid "M363: Move to Psi 90 degree position"
+msgstr "M363: Mou a la posició Psi de 90 graus"
+
+#: src/core/gcodecommands.cpp:325
+msgctxt "QObject|"
+msgid "M364: Move to Psi + Theta 90 degree position"
+msgstr "M364: Mou a la posició Psi + Theta de 90 graus"
+
+#: src/core/gcodecommands.cpp:327
+msgctxt "QObject|"
+msgid "M365: SCARA scaling factor"
+msgstr "M365: Factor d'escala per a SCARA"
+
+#: src/core/gcodecommands.cpp:329
+msgctxt "QObject|"
+msgid "M366: SCARA convert trim"
+msgstr "M366: Redueix la conversió SCARA"
+
+#: src/core/gcodecommands.cpp:331
+msgctxt "QObject|"
+msgid "M370: Morgan manual bed level - clear map"
+msgstr "M370: Nivell del llit manual de Morgan - neteja el mapa"
+
+#: src/core/gcodecommands.cpp:333
+msgctxt "QObject|"
+msgid "M371: Move to next calibration position"
+msgstr "M371: Mou a la següent posició de calibratge"
+
+#: src/core/gcodecommands.cpp:335
+msgctxt "QObject|"
+msgid "M372: Record calibration value, and move to next position"
+msgstr "M372: Enregistra el valor del calibratge i mou a la següent posició"
+
+#: src/core/gcodecommands.cpp:337
+msgctxt "QObject|"
+msgid "M373: End bed level calibration mode"
+msgstr "M373: Finalitza el mode de calibratge pel nivell del llit"
+
+#: src/core/gcodecommands.cpp:339
+msgctxt "QObject|"
+msgid "M374: Save calibration grid"
+msgstr "M374: Desa la graella de calibratge"
+
+#: src/core/gcodecommands.cpp:341
+msgctxt "QObject|"
+msgid "M375: Display matrix / Load Matrix"
+msgstr "M375: Mostra la matriu / Carrega la matriu"
+
+# Nota: https://en.wikipedia.org/wiki/Solenoid
+#: src/core/gcodecommands.cpp:343
+msgctxt "QObject|"
+msgid "M380: Activate solenoid"
+msgstr "M380: Activa el solenoide"
+
+#: src/core/gcodecommands.cpp:345
+msgctxt "QObject|"
+msgid "M381: Disable all solenoids"
+msgstr "M381: Desactiva tots els solenoides"
+
+#: src/core/gcodecommands.cpp:347
+msgctxt "QObject|"
+msgid "M400: Wait for current moves to finish"
+msgstr "M400: Espera fins que acabin els moviments actuals"
+
+#: src/core/gcodecommands.cpp:349
+msgctxt "QObject|"
+msgid "M401: Lower z-probe"
+msgstr "M401: Baixa la prova Z"
+
+#: src/core/gcodecommands.cpp:351
+msgctxt "QObject|"
+msgid "M402: Raise z-probe"
+msgstr "M402: Aixeca la prova Z"
+
+# Nota: https://ca.wikipedia.org/wiki/Broquet
+#: src/core/gcodecommands.cpp:353
+msgctxt "QObject|"
+msgid "M404: Filament width and nozzle diameter"
+msgstr "M404: Amplada del filament i diàmetre del broquet"
+
+#: src/core/gcodecommands.cpp:355
+msgctxt "QObject|"
+msgid "M405: Filament Sensor on"
+msgstr "M405: Activa el sensor del filament"
+
+#: src/core/gcodecommands.cpp:357
+msgctxt "QObject|"
+msgid "M406: Filament Sensor off"
+msgstr "M406: Desactiva el sensor del filament"
+
+#: src/core/gcodecommands.cpp:359
+msgctxt "QObject|"
+msgid "M407: Display filament diameter"
+msgstr "M407: Mostra el diàmetre del filament"
+
+#: src/core/gcodecommands.cpp:361
+msgctxt "QObject|"
+msgid "M408: Report JSON-style response"
+msgstr "M408: Informa sobre la resposta a l'estil JSON"
+
+#: src/core/gcodecommands.cpp:363
+msgctxt "QObject|"
+msgid "M420: Enable/Disable Mesh Leveling (Marlin)"
+msgstr "M420: Des/activa la malla de l'anivellament (Marlin)"
+
+#: src/core/gcodecommands.cpp:365
+msgctxt "QObject|"
+msgid "M450: Report Printer Mode"
+msgstr "M450: Informa del mode d'impressora"
+
+# Nota: https://en.wikipedia.org/wiki/Fused_filament_fabrication
+#: src/core/gcodecommands.cpp:367
+msgctxt "QObject|"
+msgid "M451: Select FFF Printer Mode"
+msgstr "M451: Selecciona el mode d'impressora FFF"
+
+#: src/core/gcodecommands.cpp:369
+msgctxt "QObject|"
+msgid "M452: Select Laser Printer Mode"
+msgstr "M452: Selecciona el mode d'impressora làser"
+
+# Nota: https://ca.wikipedia.org/wiki/Control_num%C3%A8ric_per_ordinador
+#: src/core/gcodecommands.cpp:371
+msgctxt "QObject|"
+msgid "M453: Select CNC Printer Mode"
+msgstr "M453: Selecciona el mode d'impressora CNC"
+
+#: src/core/gcodecommands.cpp:373
+msgctxt "QObject|"
+msgid "M460: Define temperature range for thermistor controlled fan"
+msgstr ""
+"M460: Defineix l'interval de temperatura per a un ventilador controlat amb "
+"un termistor"
+
+#: src/core/gcodecommands.cpp:375
+msgctxt "QObject|"
+msgid "M500: Store parameters in EEPROM"
+msgstr "M500: Emmagatzema els paràmetres a l'EEPROM"
+
+#: src/core/gcodecommands.cpp:377
+msgctxt "QObject|"
+msgid "M501: Read parameters from EEPROM"
+msgstr "M501: Llegeix els paràmetres de l'EEPROM"
+
+#: src/core/gcodecommands.cpp:379
+msgctxt "QObject|"
+msgid "M502: Revert to the default 'factory settings'."
+msgstr "M502: Torna a la configuració predeterminada «de fàbrica»."
+
+#: src/core/gcodecommands.cpp:381
+msgctxt "QObject|"
+msgid "M503: Print settings "
+msgstr "M503: Configuració de la impressió "
+
+#: src/core/gcodecommands.cpp:383
+msgctxt "QObject|"
+msgid "M540: Enable/Disable 'Stop SD Print on Endstop Hit'"
+msgstr "M540: Des/activa «Atura la impressió SD en una aturada final»"
+
+#: src/core/gcodecommands.cpp:385
+msgctxt "QObject|"
+msgid "M550: Set Name"
+msgstr "M550: Estableix el nom"
+
+#: src/core/gcodecommands.cpp:387
+msgctxt "QObject|"
+msgid "M551: Set Password"
+msgstr "M551: Estableix la contrasenya"
+
+#: src/core/gcodecommands.cpp:389
+msgctxt "QObject|"
+msgid "M552: Set IP address"
+msgstr "M552: Estableix l'adreça IP"
+
+#: src/core/gcodecommands.cpp:391
+msgctxt "QObject|"
+msgid "M553: Set Netmask"
+msgstr "M553: Estableix la màscara de xarxa"
+
+#: src/core/gcodecommands.cpp:393
+msgctxt "QObject|"
+msgid "M554: Set Gateway"
+msgstr "M554: Estableix la passarel·la"
+
+#: src/core/gcodecommands.cpp:395
+msgctxt "QObject|"
+msgid "M555: Set compatibility"
+msgstr "M555: Estableix la compatibilitat"
+
+#: src/core/gcodecommands.cpp:397
+msgctxt "QObject|"
+msgid "M556: Axis compensation"
+msgstr "M556: Compensació de l'eix"
+
+#: src/core/gcodecommands.cpp:399
+msgctxt "QObject|"
+msgid "M557: Set Z probe point"
+msgstr "M557: Estableix el punt de la prova Z"
+
+#: src/core/gcodecommands.cpp:401
+msgctxt "QObject|"
+msgid "M558: Set Z probe type"
+msgstr "M558: Estableix el tipus de la prova Z"
+
+#: src/core/gcodecommands.cpp:403
+msgctxt "QObject|"
+msgid "M559: Upload configuration file"
+msgstr "M559: Carrega el fitxer de configuració"
+
+#: src/core/gcodecommands.cpp:405
+msgctxt "QObject|"
+msgid "M560: Upload web page file"
+msgstr "M560: Carrega el fitxer des d'una pàgina web"
+
+#: src/core/gcodecommands.cpp:407
+msgctxt "QObject|"
+msgid "M561: Set Identity Transform"
+msgstr "M561: Estableix la transformació de la identitat"
+
+#: src/core/gcodecommands.cpp:409
+msgctxt "QObject|"
+msgid "M562: Reset temperature fault"
+msgstr "M562: Reinicia la falta en la temperatura"
+
+#: src/core/gcodecommands.cpp:411
+msgctxt "QObject|"
+msgid "M563: Define or remove a tool"
+msgstr "M563: Defineix o elimina una eina"
+
+#: src/core/gcodecommands.cpp:413
+msgctxt "QObject|"
+msgid "M564: Limit axes"
+msgstr "M564: Limita els eixos"
+
+#: src/core/gcodecommands.cpp:415
+msgctxt "QObject|"
+msgid "M565: Set Z probe offset"
+msgstr "M565: Estableix el desplaçament de la prova Z"
+
+#: src/core/gcodecommands.cpp:417
+msgctxt "QObject|"
+msgid "M566: Set allowable instantaneous speed change"
+msgstr "M566: Estableix el canvi de velocitat instantani permès"
+
+#: src/core/gcodecommands.cpp:419
+msgctxt "QObject|"
+msgid "M567: Set tool mix ratio"
+msgstr "M567: Estableix l'eina de relació de la mescla"
+
+#: src/core/gcodecommands.cpp:421
+msgctxt "QObject|"
+msgid "M568: Turn off/on tool mix ratio"
+msgstr "M568: Apaga/encén l'eina de relació de la mescla"
+
+#: src/core/gcodecommands.cpp:423
+msgctxt "QObject|"
+msgid "M569: Set axis direction and enable values"
+msgstr "M569: Estableix la direcció de l'eix i activa els valors"
+
+#: src/core/gcodecommands.cpp:425
+msgctxt "QObject|"
+msgid "M570: Set heater timeout"
+msgstr "M570: Estableix el temps d'espera de l'escalfador"
+
+#: src/core/gcodecommands.cpp:427
+msgctxt "QObject|"
+msgid "M571: Set output on extrude"
+msgstr "M571: Estableix la sortida de l'extrusió"
+
+# Nota: https://ca.wikipedia.org/wiki/Modulaci%C3%B3_per_amplada_de_polsos
+#: src/core/gcodecommands.cpp:429
+msgctxt "QObject|"
+msgid "M573: Report heater PWM"
+msgstr "M573: Informa de la PWM de l'escalfador"
+
+#: src/core/gcodecommands.cpp:431
+msgctxt "QObject|"
+msgid "M574: Set endstop configuration"
+msgstr "M574: Estableix la configuració de l'aturada final"
+
+#: src/core/gcodecommands.cpp:433
+msgctxt "QObject|"
+msgid "M575: Set serial comms parameters"
+msgstr "M575: Estableix els paràmetres de la comunicació sèrie"
+
+#: src/core/gcodecommands.cpp:435
+msgctxt "QObject|"
+msgid "M577: Wait until endstop is triggered"
+msgstr "M577: Espera fins que s'activi l'aturada final"
+
+#: src/core/gcodecommands.cpp:437
+msgctxt "QObject|"
+msgid "M578: Fire inkjet bits"
+msgstr "M578: Dispara una mica d'injecció"
+
+#: src/core/gcodecommands.cpp:439
+msgctxt "QObject|"
+msgid "M579: Scale Cartesian axes"
+msgstr "M579: Escala els eixos cartesians"
+
+#: src/core/gcodecommands.cpp:441
+msgctxt "QObject|"
+msgid "M580: Select Roland"
+msgstr "M580: Selecciona el Roland"
+
+#: src/core/gcodecommands.cpp:443
+msgctxt "QObject|"
+msgid "M600: Filament change pause"
+msgstr "M600: Fa pausa de canvi del filament"
+
+#: src/core/gcodecommands.cpp:445
+msgctxt "QObject|"
+msgid "M605: Set dual x-carriage movement mode"
+msgstr "M605: Estableix el mode dual de moviment del carro X"
+
+#: src/core/gcodecommands.cpp:447
+msgctxt "QObject|"
+msgid "M665: Set delta configuration"
+msgstr "M665: Estableix la configuració delta"
+
+#: src/core/gcodecommands.cpp:449
+msgctxt "QObject|"
+msgid "M666: Set delta endstop adjustment"
+msgstr "M666: Estableix l'ajustament de l'aturada final delta"
+
+#: src/core/gcodecommands.cpp:451
+msgctxt "QObject|"
+msgid "M667: Select CoreXY mode"
+msgstr "M667: Selecciona el mode CoreXY"
+
+#: src/core/gcodecommands.cpp:453
+msgctxt "QObject|"
+msgid "M851: Set Z-Probe Offset"
+msgstr "M851: Estableix el desplaçament de la prova Z"
+
+# skip-rule: ff-current
+#: src/core/gcodecommands.cpp:455
+msgctxt "QObject|"
+msgid "M906: Set motor currents"
+msgstr "M906: Estableix el corrent del motor"
+
+#: src/core/gcodecommands.cpp:457
+msgctxt "QObject|"
+msgid "M907: Set digital trimpot motor"
+msgstr "M907: Estableix un motor amb potenciòmetre digital"
+
+#: src/core/gcodecommands.cpp:459
+msgctxt "QObject|"
+msgid "M908: Control digital trimpot directly"
+msgstr "M908: Controla directament el potenciòmetre digital"
+
+#: src/core/gcodecommands.cpp:461
+msgctxt "QObject|"
+msgid "M911: Set power monitor threshold voltages"
+msgstr "M911: Estableix el límit de tensió del monitor de la potència"
+
+#: src/core/gcodecommands.cpp:463
+msgctxt "QObject|"
+msgid "M912: Set electronics temperature monitor adjustment"
+msgstr "M912: Estableix l'ajustament del monitor electrònic de la temperatura"
+
+# skip-rule: ff-current
+#: src/core/gcodecommands.cpp:465
+msgctxt "QObject|"
+msgid "M913: Set motor percentage of normal current"
+msgstr "M913: Estableix el percentatge del motor al corrent normal"
+
+#: src/core/gcodecommands.cpp:467
+msgctxt "QObject|"
+msgid "M928: Start SD logging"
+msgstr "M928: Comença el registre SD"
+
+#: src/core/gcodecommands.cpp:469
+msgctxt "QObject|"
+msgid "M997: Perform in-application firmware update"
+msgstr "M997: Realitza l'actualització del microprogramari a l'aplicació"
+
+#: src/core/gcodecommands.cpp:471
+msgctxt "QObject|"
+msgid "M998: Request resend of line"
+msgstr "M998: Sol·licita el reenviament de la línia"
+
+#: src/core/gcodecommands.cpp:473
+msgctxt "QObject|"
+msgid "M999: Restart after being stopped by error"
+msgstr "M999: Reinicia després d'aturar-se per un error"
+
+#: src/widgets/about.cpp:21
+#, qt-format
+msgctxt "About|"
+msgid "Version: %1"
+msgstr "Versió: %1"
+
+#: src/widgets/about.cpp:22
+#, qt-format
+msgctxt "About|"
+msgid "Using Qt: %1"
+msgstr "Usant les Qt: %1"
+
+#: src/widgets/about.cpp:23
+msgctxt "About|"
+msgid ""
+"Authors:\n"
+"  Chris Rizzitello <rizzitello@kde.org>\n"
+"  Patrick José Pereira <patrickjp@kde.org>\n"
+"  Lays Rodrigues <lays.rodrigues@kde.org>\n"
+"  Tomaz Canabrava <tcanabrava@kde.org>"
+msgstr ""
+"Autors:\n"
+"  Chris Rizzitello <rizzitello@kde.org>\n"
+"  Patrick José Pereira <patrickjp@kde.org>\n"
+"  Lays Rodrigues <lays.rodrigues@kde.org>\n"
+"  Tomaz Canabrava <tcanabrava@kde.org>"
+
+#: src/widgets/about.cpp:35
+msgctxt "About|"
+msgid "Close"
+msgstr "Tanca"
+
+#: src/widgets/axiscontrol.cpp:22
+msgctxt "AxisControl|"
+msgid "Move Axis"
+msgstr "Mou l'eix"
+
+#: src/widgets/commandwidget.cpp:25
+msgctxt "CommandWidget|"
+msgid "Send Command"
+msgstr "Envia una ordre"
+
+#: src/widgets/commandwidget.cpp:28 src/widgets/commandwidget.cpp:53
+msgctxt "CommandWidget|"
+msgid "Send"
+msgstr "Envia"
+
+#: src/widgets/commandwidget.cpp:50
+msgctxt "CommandWidget|"
+msgid "Show Message"
+msgstr "Mostra el missatge"
+
+#: src/widgets/logwidget.cpp:62
+msgctxt "LogWidget|"
+msgid ""
+"                        <h4>Special Log Entries</h4>                         "
+"<p><strong>Failed to open device in read/write mode.</strong></"
+"p>                         <p>&nbsp;&nbsp;&nbsp; The Device was not able to "
+"be opened.</p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; Check "
+"the device is not opened by another program.</p>                         "
+"<p>&nbsp; &nbsp; &nbsp;&nbsp; Check you have the correct permissions to open "
+"the device.</p>                         <p><strong>No plugin found for &lt;"
+"Detected Firmware&gt;</strong></p>                         <p>&nbsp;&nbsp;"
+"&nbsp; Firmware plugins are missing or your firmware is not currently "
+"supported.</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+"Manually select the Marlin or Repetier plugin.</p>                         "
+"<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If your firmware does not have a plugin "
+"please let us know.</p>                         <p><strong>Lots of &ldquo;"
+"Waiting for firmware detect&rdquo;</strong></p>                         "
+"<p>&nbsp;&nbsp;&nbsp; Unable to send the firmware detect waiting for printer "
+"to restart</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+"Push the restart button on your printer or turn it on and off. </"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select a "
+"firmware plugin in place of auto detect.</p>"
+msgstr ""
+"                        <h4>Entrades especials del registre</"
+"h4>                         <p><strong>Ha fallat en obrir el dispositiu en "
+"el mode lectura/escriptura.</strong></p>                         <p>&nbsp;"
+"&nbsp;&nbsp; No s'ha pogut obrir el dispositiu.</p>                         "
+"<p>&nbsp; &nbsp; &nbsp;&nbsp; Comproveu que el dispositiu no l'està obrint "
+"un altre programa.</p>                        <p>&nbsp; &nbsp; &nbsp;&nbsp; "
+"Comproveu que teniu els permisos correctes per a obrir aquest dispositiu.</"
+"p>                         <p><strong>No s'ha trobat cap connector per al "
+"&lt;microprogramari detectat&gt;</strong></p>                         "
+"<p>&nbsp;&nbsp;&nbsp; Falten els connectors del microprogramari o actualment "
+"no s'admet el vostre microprogramari.</p>                         <p>&nbsp;"
+"&nbsp;&nbsp;&nbsp;&nbsp; Seleccioneu manualment el connector Marlin o "
+"Repetier.</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Si "
+"el vostre microprogramari no disposa de cap connector, feu-nos-ho saber.</"
+"p>                         <p><strong>Molts &ldquo;S'està esperant a "
+"detectar el microprogramari&rdquo;.</strong></p>                         "
+"<p>&nbsp;&nbsp;&nbsp; No es pot enviar el detector del microprogramari "
+"mentre s'espera que es reiniciï la impressora.</p>                         "
+"<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Premeu el botó Reinicia de la impressora o "
+"apagueu-la i engegueu-la.</p>                         <p>&nbsp;&nbsp;&nbsp;"
+"&nbsp;&nbsp; Trieu un connector de microprogramari en lloc de detectar-lo "
+"automàticament.</p>"
+
+#: src/widgets/logwidget.cpp:81
+msgctxt "LogWidget|"
+msgid "Save Session Log"
+msgstr "Desa el registre de la sessió"
+
+#: src/widgets/logwidget.cpp:164
+msgctxt "LogWidget|"
+msgid "Save Log to file"
+msgstr "Desa el registre a un fitxer"
+
+#: src/widgets/movementwidget.cpp:49
+msgctxt "MovementWidget|"
+msgid "Home All"
+msgstr "Inici tots"
+
+#: src/widgets/movementwidget.cpp:53
+msgctxt "MovementWidget|"
+msgid "Home X"
+msgstr "Inici X"
+
+#: src/widgets/movementwidget.cpp:57
+msgctxt "MovementWidget|"
+msgid "Home Y"
+msgstr "Inici Y"
+
+#: src/widgets/movementwidget.cpp:61
+msgctxt "MovementWidget|"
+msgid "Home Z"
+msgstr "Inici Z"
+
+#: src/widgets/movementwidget.cpp:67
+msgctxt "MovementWidget|"
+msgid "Disable Motors"
+msgstr "Desactiva els motors"
+
+#: src/widgets/movementwidget.cpp:72
+msgctxt "MovementWidget|"
+msgid "Move X Axis to"
+msgstr "Mou l'eix X a"
+
+#: src/widgets/movementwidget.cpp:73
+msgctxt "MovementWidget|"
+msgid "Move Y Axis to"
+msgstr "Mou l'eix Y a"
+
+#: src/widgets/movementwidget.cpp:74
+msgctxt "MovementWidget|"
+msgid "Move Z Axis to"
+msgstr "Mou l'eix Z a"
+
+#: src/widgets/movementwidget.cpp:83
+msgctxt "MovementWidget|"
+msgid "Go"
+msgstr "Ves"
+
+#: src/widgets/plotwidget.cpp:20
+msgctxt "PlotWidget|"
+msgid "Temp."
+msgstr "Temp."
+
+#: src/widgets/printwidget.cpp:25
+msgctxt "PrintWidget|"
+msgid "Print File"
+msgstr "Imprimeix el fitxer"
+
+#: src/widgets/printwidget.cpp:28
+msgctxt "PrintWidget|"
+msgid "Emergency Stop"
+msgstr "Aturada d'emergència"
+
+#: src/widgets/printwidget.cpp:37
+msgctxt "PrintWidget|"
+msgid "Printer Speed"
+msgstr "Velocitat de la impressió"
+
+#: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:58
+#: src/widgets/printwidget.cpp:71
+msgctxt "PrintWidget|"
+msgid "Set"
+msgstr "Estableix"
+
+#: src/widgets/printwidget.cpp:52
+msgctxt "PrintWidget|"
+msgid "Flow Rate"
+msgstr "Velocitat del flux"
+
+#: src/widgets/printwidget.cpp:96
+#, qt-format
+msgctxt "PrintWidget|"
+msgid "Fan %1 speed"
+msgstr "Velocitat %1 del ventilador"
+
+#: src/widgets/profilemanager.cpp:27
+msgctxt "ProfileManager|"
+msgid "Profile:"
+msgstr "Perfil:"
+
+#: src/widgets/profilemanager.cpp:55
+msgctxt "ProfileManager|"
+msgid "Delete Current Profile"
+msgstr "Suprimeix el perfil actual"
+
+#: src/widgets/profilemanager.cpp:69
+msgctxt "ProfileManager|"
+msgid "Name"
+msgstr "Nom"
+
+#: src/widgets/profilemanager.cpp:82
+msgctxt "ProfileManager|"
+msgid "Printer Type:"
+msgstr "Tipus d'impressora:"
+
+#: src/widgets/profilemanager.cpp:83
+msgctxt "ProfileManager|"
+msgid "Delta"
+msgstr "Delta"
+
+#: src/widgets/profilemanager.cpp:84
+msgctxt "ProfileManager|"
+msgid "Cartesian"
+msgstr "Cartesiana"
+
+#: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:233
+msgctxt "ProfileManager|"
+msgid "Maximum X"
+msgstr "X màxima"
+
+#: src/widgets/profilemanager.cpp:105
+msgctxt "ProfileManager|"
+msgid "Maximum Y"
+msgstr "Y màxima"
+
+#: src/widgets/profilemanager.cpp:119 src/widgets/profilemanager.cpp:234
+msgctxt "ProfileManager|"
+msgid "Maximum Z"
+msgstr "Z màxima"
+
+#: src/widgets/profilemanager.cpp:130
+msgctxt "ProfileManager|"
+msgid "Mechanics"
+msgstr "Mecànica"
+
+#: src/widgets/profilemanager.cpp:135
+msgctxt "ProfileManager|"
+msgid "Bed Maximum"
+msgstr "Llit màxim"
+
+#: src/widgets/profilemanager.cpp:148
+msgctxt "ProfileManager|"
+msgid "Extruder Maximum"
+msgstr "Extrusor màxim"
+
+#: src/widgets/profilemanager.cpp:157
+msgctxt "ProfileManager|"
+msgid "Auto Temperature Report"
+msgstr "Informa automàticament de la temperatura"
+
+#: src/widgets/profilemanager.cpp:162
+msgctxt "ProfileManager|"
+msgid "Temperature"
+msgstr "Temperatura"
+
+#: src/widgets/profilemanager.cpp:172
+msgctxt "ProfileManager|"
+msgid "Bit Rate"
+msgstr "Taxa de bits"
+
+#: src/widgets/profilemanager.cpp:178
+msgctxt "ProfileManager|"
+msgid "Firmware"
+msgstr "Microprogramari"
+
+#: src/widgets/profilemanager.cpp:192
+msgctxt "ProfileManager|"
+msgid "PostPause"
+msgstr "Postpausa"
+
+#: src/widgets/profilemanager.cpp:198
+msgctxt "ProfileManager|"
+msgid "Advanced"
+msgstr "Avançat"
+
+#: src/widgets/profilemanager.cpp:201
+msgctxt "ProfileManager|"
+msgid "Profile"
+msgstr "Perfil"
+
+#: src/widgets/profilemanager.cpp:236
+msgctxt "ProfileManager|"
+msgid "Radius"
+msgstr "Radi"
+
+#: src/widgets/profilemanager.cpp:237
+msgctxt "ProfileManager|"
+msgid "Height"
+msgstr "Alçada"
+
+#: src/widgets/sdwidget.cpp:20
+msgctxt "SdWidget|"
+msgid "Get List"
+msgstr "Obtén la llista"
+
+#: src/widgets/sdwidget.cpp:24
+msgctxt "SdWidget|"
+msgid "Print Selected"
+msgstr "Imprimeix el seleccionat"
+
+#: src/widgets/sdwidget.cpp:32
+msgctxt "SdWidget|"
+msgid "Delete Selected"
+msgstr "Suprimeix la selecció"
+
+#: src/widgets/sdwidget.cpp:41
+msgctxt "SdWidget|"
+msgid "Files On Sd Card"
+msgstr "Fitxers a la targeta SD"
+
+#: src/widgets/statuswidget.cpp:47
+msgctxt "StatusWidget|"
+msgid "AtCore State:"
+msgstr "Estat de l'AtCore:"
+
+#: src/widgets/statuswidget.cpp:48
+msgctxt "StatusWidget|"
+msgid "Not Connected"
+msgstr "No connectada"
+
+#: src/widgets/statuswidget.cpp:72
+msgctxt "StatusWidget|"
+msgid "SD"
+msgstr "SD"
+
+#: src/widgets/temperaturewidget.cpp:21
+msgctxt "TemperatureWidget|"
+msgid "Wait Until Temperature Stabilizes"
+msgstr "Espera fins que s'estabilitzi la temperatura"
+
+#: src/widgets/temperaturewidget.cpp:24
+msgctxt "TemperatureWidget|"
+msgid "Bed Temp"
+msgstr "Temperatura del llit"
+
+#: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:44
+msgctxt "TemperatureWidget|"
+msgid "Set"
+msgstr "Estableix"
+
+#: src/widgets/temperaturewidget.cpp:60
+#, qt-format
+msgctxt "TemperatureWidget|"
+msgid "Extruder %1"
+msgstr "Extrusor %1"
+
+#: testclient/mainwindow.cpp:30
+msgctxt "MainWindow|"
+msgid "AtCore - Test Client"
+msgstr "AtCore - Client de prova"
+
+#: testclient/mainwindow.cpp:38
+msgctxt "MainWindow|"
+msgid "Attempting to locate Serial Ports"
+msgstr "S'estan intentant ubicar els ports sèrie"
+
+#: testclient/mainwindow.cpp:49
+msgctxt "MainWindow|"
+msgid "AtCore First Run"
+msgstr "Primera execució de l'AtCore"
+
+#: testclient/mainwindow.cpp:49
+msgctxt "MainWindow|"
+msgid "No Profiles Detected, use the Profile Manager to create one."
+msgstr ""
+"No s'ha detectat cap perfil, useu el gestor de perfils per a crear-ne un."
+
+#: testclient/mainwindow.cpp:59
+msgctxt "MainWindow|"
+msgid "File"
+msgstr "Fitxer"
+
+#: testclient/mainwindow.cpp:60
+msgctxt "MainWindow|"
+msgid "Quit"
+msgstr "Surt"
+
+#: testclient/mainwindow.cpp:64
+msgctxt "MainWindow|"
+msgid "View"
+msgstr "Visualitza"
+
+# skip-rule: kct-dock
+#: testclient/mainwindow.cpp:65
+msgctxt "MainWindow|"
+msgid "Show Dock Titles"
+msgstr "Mostra els títols del moll"
+
+#: testclient/mainwindow.cpp:71
+msgctxt "MainWindow|"
+msgid "Help"
+msgstr "Ajuda"
+
+#: testclient/mainwindow.cpp:72
+msgctxt "MainWindow|"
+msgid "About"
+msgstr "Quant al"
+
+#: testclient/mainwindow.cpp:136
+msgctxt "MainWindow|"
+msgid "Commands"
+msgstr "Ordres"
+
+#: testclient/mainwindow.cpp:156
+msgctxt "MainWindow|"
+msgid "Print"
+msgstr "Imprimeix"
+
+#: testclient/mainwindow.cpp:167 testclient/mainwindow.cpp:171
+msgctxt "MainWindow|"
+msgid "Actual Bed"
+msgstr "Llit real"
+
+#: testclient/mainwindow.cpp:174 testclient/mainwindow.cpp:178
+msgctxt "MainWindow|"
+msgid "Target Bed"
+msgstr "Llit objectiu"
+
+#: testclient/mainwindow.cpp:181 testclient/mainwindow.cpp:185
+msgctxt "MainWindow|"
+msgid "Actual Ext.1"
+msgstr "Ext.1 real"
+
+#: testclient/mainwindow.cpp:188 testclient/mainwindow.cpp:192
+msgctxt "MainWindow|"
+msgid "Target Ext.1"
+msgstr "Ext.1 objectiu"
+
+#: testclient/mainwindow.cpp:196
+msgctxt "MainWindow|"
+msgid "Seconds Between Temperature Checks"
+msgstr "Segons entre les comprovacions de temperatura"
+
+#: testclient/mainwindow.cpp:218
+msgctxt "MainWindow|"
+msgid "Temperature Timeline"
+msgstr "Línia de temps de la temperatura"
+
+#: testclient/mainwindow.cpp:227
+msgctxt "MainWindow|"
+msgid "Session Log"
+msgstr "Registre de la sessió"
+
+#: testclient/mainwindow.cpp:237
+msgctxt "MainWindow|"
+msgid "Port:"
+msgstr "Port:"
+
+#: testclient/mainwindow.cpp:258
+msgctxt "MainWindow|"
+msgid "Profile:"
+msgstr "Perfil:"
+
+#: testclient/mainwindow.cpp:264
+msgctxt "MainWindow|"
+msgid "Attempt to stop Reset on connect"
+msgstr "Intenta aturar el reinici en connectar"
+
+#: testclient/mainwindow.cpp:276 testclient/mainwindow.cpp:292
+#: testclient/mainwindow.cpp:563
+msgctxt "MainWindow|"
+msgid "Connect"
+msgstr "Connecta"
+
+#: testclient/mainwindow.cpp:284
+msgctxt "MainWindow|"
+msgid "Connection Error"
+msgstr "Error de connexió"
+
+#: testclient/mainwindow.cpp:284
+msgctxt "MainWindow|"
+msgid ""
+"Your machine did not respond after 20 seconds.\n"
+"\n"
+"Before connecting again check that your printer is on and your are "
+"connecting using the correct BAUD Rate for your device."
+msgstr ""
+"La màquina no ha respost després de 20 segons.\n"
+"\n"
+"Abans de tornar a connectar, verifiqueu que la impressora estigui encesa i "
+"s'usi la velocitat de BAUD correcte per al dispositiu."
+
+#: testclient/mainwindow.cpp:304
+msgctxt "MainWindow|"
+msgid "Home All"
+msgstr "Inici tots"
+
+#: testclient/mainwindow.cpp:309
+msgctxt "MainWindow|"
+msgid "Home X"
+msgstr "Inici X"
+
+#: testclient/mainwindow.cpp:314
+msgctxt "MainWindow|"
+msgid "Home Y"
+msgstr "Inici Y"
+
+#: testclient/mainwindow.cpp:319
+msgctxt "MainWindow|"
+msgid "Home Z"
+msgstr "Inici Z"
+
+#: testclient/mainwindow.cpp:341
+msgctxt "MainWindow|"
+msgid "Movement"
+msgstr "Moviment"
+
+#: testclient/mainwindow.cpp:354
+msgctxt "MainWindow|"
+msgid "Temperatures"
+msgstr "Temperatures"
+
+#: testclient/mainwindow.cpp:367
+msgctxt "MainWindow|"
+msgid "Print Error"
+msgstr "Error en imprimir"
+
+#: testclient/mainwindow.cpp:367 testclient/mainwindow.cpp:375
+msgctxt "MainWindow|"
+msgid "You must Select a file from the list"
+msgstr "Heu de seleccionar un fitxer de la llista"
+
+#: testclient/mainwindow.cpp:375
+msgctxt "MainWindow|"
+msgid "Delete Error"
+msgstr "Suprimeix l'error"
+
+#: testclient/mainwindow.cpp:381
+msgctxt "MainWindow|"
+msgid "Sd Card"
+msgstr "Targeta SD"
+
+#: testclient/mainwindow.cpp:390
+msgctxt "MainWindow|"
+msgid "Profile Manager"
+msgstr "Gestor de perfils"
+
+#: testclient/mainwindow.cpp:446
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Found %1 Ports"
+msgstr "S'han trobat %1 ports"
+
+#: testclient/mainwindow.cpp:448
+msgctxt "MainWindow|"
+msgid "No available ports! Please connect a serial device to continue!"
+msgstr ""
+"No hi ha cap port disponible! Connecteu un dispositiu sèrie per a continuar."
+
+#: testclient/mainwindow.cpp:466
+msgctxt "MainWindow|"
+msgid "Serial connected"
+msgstr "Sèrie connectat"
+
+#: testclient/mainwindow.cpp:478
+msgctxt "MainWindow|"
+msgid "Disconnected"
+msgstr "Desconnectat"
+
+#: testclient/mainwindow.cpp:487 testclient/mainwindow.cpp:493
+msgctxt "MainWindow|"
+msgid "Error"
+msgstr "Error"
+
+#: testclient/mainwindow.cpp:487
+msgctxt "MainWindow|"
+msgid "Not Connected To a Printer"
+msgstr "No està connectat a una impressora"
+
+#: testclient/mainwindow.cpp:494
+msgctxt "MainWindow|"
+msgid ""
+" A Firmware Plugin was not loaded!\n"
+"  Please send the command M115 and let us know what your firmware returns, "
+"so we can improve our firmware detection. Edit your profile to use \"marlin"
+"\" and try again."
+msgstr ""
+" No s'ha carregat cap connector pel microprogramari.\n"
+" Envieu l'ordre M115 i digueu-nos què retorna el vostre microprogramari, de "
+"manera que puguem millorar la nostra detecció del microprogramari. Editeu el "
+"perfil per a usar el «marlin» i torneu-ho a provar."
+
+#: testclient/mainwindow.cpp:498
+msgctxt "MainWindow|"
+msgid "Select a file to print"
+msgstr "Seleccioneu un fitxer per a imprimir"
+
+#: testclient/mainwindow.cpp:498
+msgctxt "MainWindow|"
+msgid "*.gcode"
+msgstr "*.gcode"
+
+#: testclient/mainwindow.cpp:500
+msgctxt "MainWindow|"
+msgid "No File Selected"
+msgstr "No s'ha seleccionat cap fitxer"
+
+#: testclient/mainwindow.cpp:502
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Print: %1"
+msgstr "Imprimeix: %1"
+
+#: testclient/mainwindow.cpp:529
+msgctxt "MainWindow|"
+msgid "Disconnect"
+msgstr "Desconnecta"
+
+#: testclient/mainwindow.cpp:530 testclient/mainwindow.cpp:543
+#: testclient/mainwindow.cpp:651
+msgctxt "MainWindow|"
+msgid "Print File"
+msgstr "Imprimeix el fitxer"
+
+#: testclient/mainwindow.cpp:531
+msgctxt "MainWindow|"
+msgid "Connected to "
+msgstr "Connectat a "
+
+#: testclient/mainwindow.cpp:536
+msgctxt "MainWindow|"
+msgid "START PRINT"
+msgstr "INICIA LA IMPRESSIÓ"
+
+#: testclient/mainwindow.cpp:537 testclient/mainwindow.cpp:554
+msgctxt "MainWindow|"
+msgid "Pause Print"
+msgstr "Fa una pausa a la impressió"
+
+#: testclient/mainwindow.cpp:542
+msgctxt "MainWindow|"
+msgid "Finished Print"
+msgstr "Ha finalitzat la impressió"
+
+#: testclient/mainwindow.cpp:548
+msgctxt "MainWindow|"
+msgid "Paused"
+msgstr "En pausa"
+
+#: testclient/mainwindow.cpp:549
+msgctxt "MainWindow|"
+msgid "Resume Print"
+msgstr "Reprèn la impressió"
+
+#: testclient/mainwindow.cpp:553
+msgctxt "MainWindow|"
+msgid "Printing"
+msgstr "Impressió"
+
+#: testclient/mainwindow.cpp:570
+msgctxt "MainWindow|"
+msgid "Abort"
+msgstr "Interromp"
+
+#: testclient/mainwindow.cpp:577
+msgctxt "MainWindow|"
+msgid "Stopping Print"
+msgstr "S'està aturant la impressió"
+
+#: testclient/mainwindow.cpp:581
+msgctxt "MainWindow|"
+msgid "Command ERROR"
+msgstr "ERROR amb l'ordre"
+
+#~ msgctxt "PrintWidget|"
+#~ msgid "On Pause:"
+#~ msgstr "En pausa:"
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Use Plugin:"
+#~ msgstr "Usa el connector:"
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Autodetect"
+#~ msgstr "Autodetecta"
+
+#~ msgctxt "AtCore|"
+#~ msgid "Cant find firwmware, serial not connected!"
+#~ msgstr ""
+#~ "No s'ha pogut trobar el microprogramari, el sèrie no està connectat!"
+
+#~ msgctxt "PieButton|"
+#~ msgid "Move the hotend to the %1 by %2 units"
+#~ msgstr "Mou l'escalfament final al %1 en %2 unitats"
+
+#~ msgctxt "RectButton|"
+#~ msgid "Move the hotend to the %1 by %2 units"
+#~ msgstr "Mou l'escalfament final al %1 en %2 unitats"
+
+#~ msgctxt "RectButton|"
+#~ msgid "Extrude %1 Units"
+#~ msgstr "Extrusor %1 unitats"
+
+#~ msgctxt "PlotWidget|"
+#~ msgid "Actual Bed"
+#~ msgstr "Llit real"
+
+#~ msgctxt "PlotWidget|"
+#~ msgid "Target Bed"
+#~ msgstr "Llit objectiu"
+
+#~ msgctxt "PlotWidget|"
+#~ msgid "Actual Ext.1"
+#~ msgstr "Ext.1 real"
+
+#~ msgctxt "PlotWidget|"
+#~ msgid "Target Ext.1"
+#~ msgstr "Ext.1 objectiu"
+
+#~ msgctxt "AtCore|"
+#~ msgid "plugins[%1]=%2"
+#~ msgstr "connectors[%1]=%2"
+
+#~ msgctxt "MainWindow|"
+#~ msgid "Requesting Firmware..."
+#~ msgstr "S'està demanant el microprogramari..."
+
+#~ msgctxt "QObject|"
+#~ msgid "GCommand not supported!"
+#~ msgstr "El GCommand no està admès!"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M104: It's obligatory to have an argument"
+#~ msgstr "ERROR! M104: És obligatori que tingui un argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M109: It's obligatory to have an argument"
+#~ msgstr "ERROR! M109: És obligatori que tingui un argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M117: It's obligatory to have an argument"
+#~ msgstr "ERROR! M117: És obligatori que tingui un argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M140: It's obligatory to have an argument"
+#~ msgstr "ERROR! M140: És obligatori que tingui un argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M190: It's obligatory to have an argument"
+#~ msgstr "ERROR! M190: És obligatori que tingui un argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M220: It's obligatory to have an argument"
+#~ msgstr "ERROR! M220: És obligatori que tingui un argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "ERROR! M221: It's obligatory to have an argument"
+#~ msgstr "ERROR! M221: És obligatori que tingui un argument"
+
+#~ msgctxt "QObject|"
+#~ msgid "Not supported or implemented!"
+#~ msgstr "No està admès o no s'ha implementat!"
