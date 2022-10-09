@@ -22,7 +22,7 @@ public:
      * @brief SdWidget
      * @param parent
      */
-    SdWidget(QWidget *parent = nullptr);
+    explicit SdWidget(QWidget *parent = nullptr);
     ~SdWidget() = default;
 
     /**

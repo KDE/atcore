@@ -15,5 +15,5 @@ private slots:
     void testDecode();
 
 private:
-    BedDeform *bedDeform;
+    BedDeform *bedDeform = nullptr;
 };

@@ -69,6 +69,12 @@ private:
         {
         }
 
+        explicit plot(const plot &other)
+           : _series(other.serie())
+        {
+            setName(other.name());
+        }
+
         ~plot()
         {
             // Series will be deleted with chart

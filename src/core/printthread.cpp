@@ -52,6 +52,11 @@ PrintThread::PrintThread(AtCore *parent, const QString &fileName)
     d->gcodestream = new QTextStream(d->file);
 }
 
+PrintThread::~PrintThread()
+{
+    delete d;
+}
+
 void PrintThread::start()
 {
     // we only want to do this when printing

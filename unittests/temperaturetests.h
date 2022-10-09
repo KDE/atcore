@@ -24,5 +24,5 @@ private slots:
     void testDecodeTeacup();
 
 private:
-    Temperature *temperature;
+    Temperature *temperature = nullptr;
 };

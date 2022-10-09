@@ -27,7 +27,7 @@ public:
      * @param showAllControls: if true show Print , Emergency Stop and On Pause Controls
      * @param parent: Parent of this widget.
      */
-    PrintWidget(bool showAllControls = true, QWidget *parent = nullptr);
+    explicit PrintWidget(bool showAllControls = true, QWidget *parent = nullptr);
 
     /**
      * @brief set Post Pause string text.

@@ -24,7 +24,7 @@ public:
      * @brief TemperatureWidget
      * @param parent
      */
-    TemperatureWidget(QWidget *parent = nullptr);
+    explicit TemperatureWidget(QWidget *parent = nullptr);
     ~TemperatureWidget() = default;
 
     /**

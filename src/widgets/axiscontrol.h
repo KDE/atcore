@@ -28,7 +28,7 @@ public:
      * @brief Create a new AxisControl
      * @param parent
      */
-    AxisControl(QWidget *parent = nullptr);
+    explicit AxisControl(QWidget *parent = nullptr);
     ~AxisControl() = default;
 
 signals:

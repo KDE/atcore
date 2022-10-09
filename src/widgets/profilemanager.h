@@ -20,7 +20,7 @@ class ATCOREWIDGETS_EXPORT ProfileManager : public QWidget
 {
     Q_OBJECT
 public:
-    ProfileManager(QWidget *parent = nullptr);
+    explicit ProfileManager(QWidget *parent = nullptr);
 
 private:
     void onCbProfileEditingFinished();

@@ -60,6 +60,7 @@ public:
      * @param parent : Parent
      */
     SerialLayer(const QString &port, int32_t baud, QObject *parent = nullptr);
+    ~SerialLayer();
 
     /**
      * @brief Add command to be pushed

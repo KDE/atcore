@@ -25,7 +25,7 @@ public:
      * @brief Create a Movement Widget
      * @param parent: Parent of this widget.
      */
-    MovementWidget(QWidget *parent = nullptr);
+    explicit MovementWidget(QWidget *parent = nullptr);
     ~MovementWidget();
 
     /**

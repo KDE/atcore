@@ -63,6 +63,11 @@ SerialLayer::SerialLayer(const QString &port, int32_t baud, QObject *parent)
         connect(this, &QSerialPort::readyRead, this, &SerialLayer::readAllData);
         connect(this, &QSerialPort::errorOccurred, this, &SerialLayer::handleError);
     }
+}
+
+SerialLayer::~SerialLayer()
+{
+    delete d;
 };
 
 void SerialLayer::readAllData()

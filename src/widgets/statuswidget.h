@@ -26,7 +26,7 @@ public:
      * @param showStop: Set False if your client has the print job stop in another widget.
      * @param parent: parent of this widget.
      */
-    StatusWidget(bool showStop = true, QWidget *parent = nullptr);
+    explicit StatusWidget(bool showStop = true, QWidget *parent = nullptr);
     ~StatusWidget() = default;
     /**
      * @brief Set if the status area should show SD card inserted.

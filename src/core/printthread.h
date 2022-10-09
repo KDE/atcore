@@ -28,6 +28,7 @@ public:
      * @param fileName: gcode File to print
      */
     PrintThread(AtCore *parent, const QString &fileName);
+    ~PrintThread();
 signals:
     /**
      * @brief Print job has finished

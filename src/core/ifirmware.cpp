@@ -35,6 +35,11 @@ void IFirmware::init(AtCore *parent)
     connect(d->parent, &AtCore::receivedMessage, this, &IFirmware::checkCommand);
 }
 
+IFirmware::~IFirmware()
+{
+    delete d;
+}
+
 AtCore *IFirmware::core() const
 {
     return d->parent;
