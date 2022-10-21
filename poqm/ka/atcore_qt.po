@@ -16,29 +16,29 @@ msgstr ""
 #: src/core/atcore.cpp:140
 msgctxt "AtCore|"
 msgid "Waiting for firmware detect."
-msgstr ""
+msgstr "მიკროკოდის დადგენის მოლოდინი."
 
 #: src/core/atcore.cpp:194
 #, qt-format
 msgctxt "AtCore|"
 msgid "Connected to printer using %1 plugin"
-msgstr ""
+msgstr "მივუერთდი პრინტერს %1 დამატებით"
 
 #: src/core/atcore.cpp:198
 #, qt-format
 msgctxt "AtCore|"
 msgid "No plugin found for %1."
-msgstr ""
+msgstr "%1-სთვის დამატება არ არსებობს."
 
 #: src/core/atcore.cpp:237
 msgctxt "AtCore|"
 msgid "Waiting for machine restart"
-msgstr ""
+msgstr "მანქანის გადატვირთვის მოლოდინი"
 
 #: src/core/atcore.cpp:248
 msgctxt "AtCore|"
 msgid "Failed to open device in read/write mode."
-msgstr ""
+msgstr "მოწყობილობის ჩაწერა/წაკითხვის რეჟიმში გახსნის შეცდომა."
 
 #: src/core/atcore.cpp:867
 msgctxt "AtCore|"
@@ -48,22 +48,22 @@ msgstr "მოწყობილობა ნაპოვნი არაა"
 #: src/core/atcore.cpp:870
 msgctxt "AtCore|"
 msgid "Unable to write to device"
-msgstr ""
+msgstr "მოწყობილობაში ჩაწერის შეცდომა"
 
 #: src/core/atcore.cpp:873
 msgctxt "AtCore|"
 msgid "Unable to read from device"
-msgstr ""
+msgstr "მოწყობილობიდან წაკითხვის შეცდომა"
 
 #: src/core/atcore.cpp:877
 msgctxt "AtCore|"
 msgid "The device no longer available"
-msgstr ""
+msgstr "მოწყობილობა აღარ არის ხელმისაწვდომი"
 
 #: src/core/atcore.cpp:881
 msgctxt "AtCore|"
 msgid "Device does not support the operation"
-msgstr ""
+msgstr "მოწყობილობას ამ ოპერაციის მხარდაჭერა არ გააჩნია"
 
 #: src/core/atcore.cpp:884
 msgctxt "AtCore|"
@@ -74,72 +74,72 @@ msgstr "უცნობი შეცდომა"
 #, qt-format
 msgctxt "QObject|"
 msgid "%1%2: requires an argument"
-msgstr ""
+msgstr "%1%2: არგუმენტი აუცილებელია"
 
 #: src/core/gcodecommands.cpp:13
 msgctxt "QObject|"
 msgid "Not implemented or not supported!"
-msgstr ""
+msgstr "განუხორციელებელი ან მხარდაუჭერელია!"
 
 #: src/core/gcodecommands.cpp:19
 msgctxt "QObject|"
 msgid "G0: Rapid linear move"
-msgstr ""
+msgstr "G0: ინსტრუმენტის სწრაფი ხაზოვანი გადაადგილება"
 
 #: src/core/gcodecommands.cpp:21
 msgctxt "QObject|"
 msgid "G1: Linear move"
-msgstr ""
+msgstr "G1: ხაზოვანი ინტერპოლაცია"
 
 #: src/core/gcodecommands.cpp:23
 msgctxt "QObject|"
 msgid "G2: Controlled Arc Move clockwise"
-msgstr ""
+msgstr "G2: წრიული ინტერპოლაცია საათის მოძრაობის მიმართულებით"
 
 #: src/core/gcodecommands.cpp:25
 msgctxt "QObject|"
 msgid "G3: Controlled Arc Move counterclockwise"
-msgstr ""
+msgstr "G3: წრიული ინტერპოლაცია საათის მოძრაობის საწინააღმდგო მიმართულებით"
 
 #: src/core/gcodecommands.cpp:27
 msgctxt "QObject|"
 msgid "G4: Dwell"
-msgstr ""
+msgstr "G4: შეყოვნება"
 
 #: src/core/gcodecommands.cpp:29
 msgctxt "QObject|"
 msgid "G10: Retract"
-msgstr ""
+msgstr "G10: გაწევა"
 
 #: src/core/gcodecommands.cpp:31
 msgctxt "QObject|"
 msgid "G11: Unretract"
-msgstr ""
+msgstr "G11: გაწევის გაუქმება"
 
 #: src/core/gcodecommands.cpp:33
 msgctxt "QObject|"
 msgid "G20: Set units to inches"
-msgstr ""
+msgstr "G20: ერთეულების დუიმებზე გადართვა"
 
 #: src/core/gcodecommands.cpp:35
 msgctxt "QObject|"
 msgid "G21: Set units to millimeters"
-msgstr ""
+msgstr "G21: ერთეულების სანტიმეტრებზე გადართვა"
 
 #: src/core/gcodecommands.cpp:37
 msgctxt "QObject|"
 msgid "G28: Move to Origin Home"
-msgstr ""
+msgstr "G28: რეფერენტულ წერტილში დაბრუნება"
 
 #: src/core/gcodecommands.cpp:39
 msgctxt "QObject|"
 msgid "G29: Detailed Z-Probe"
-msgstr ""
+msgstr "G29: დეტალური Z-ზონდირება"
 
 #: src/core/gcodecommands.cpp:41
 msgctxt "QObject|"
 msgid "G30: Single Z-Probe"
-msgstr ""
+msgstr "G30: ერთჯერადი Z-ზონდირება"
 
 #: src/core/gcodecommands.cpp:43
 msgctxt "QObject|"
@@ -171,7 +171,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:53
 msgctxt "QObject|"
 msgid "G92: Set position"
-msgstr ""
+msgstr "G92: მდებარეობის დაყენება"
 
 #: src/core/gcodecommands.cpp:55
 msgctxt "QObject|"
@@ -221,12 +221,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:103
 msgctxt "QObject|"
 msgid "M2: Program End"
-msgstr ""
+msgstr "M2: პროგრამის დასასრული"
 
 #: src/core/gcodecommands.cpp:105
 msgctxt "QObject|"
 msgid "M6: Tool Change"
-msgstr ""
+msgstr "M6: ხელსაწყოს შეცვლა"
 
 #: src/core/gcodecommands.cpp:107
 msgctxt "QObject|"
@@ -241,32 +241,32 @@ msgstr ""
 #: src/core/gcodecommands.cpp:111
 msgctxt "QObject|"
 msgid "M20: List SDCard"
-msgstr ""
+msgstr "M20: SDCard-ების სია"
 
 #: src/core/gcodecommands.cpp:113
 msgctxt "QObject|"
 msgid "M21: Initialize SDCard"
-msgstr ""
+msgstr "M21: SDCard-ის ინიციალიზაცია"
 
 #: src/core/gcodecommands.cpp:115
 msgctxt "QObject|"
 msgid "M22: Release SDCard"
-msgstr ""
+msgstr "M22: SDCard-ის გათავისუფლება"
 
 #: src/core/gcodecommands.cpp:117
 msgctxt "QObject|"
 msgid "M23: Select SD file"
-msgstr ""
+msgstr "M23: SD ფაილის არჩევა"
 
 #: src/core/gcodecommands.cpp:119
 msgctxt "QObject|"
 msgid "M24: Start/resume SD print"
-msgstr ""
+msgstr "M24: SD ბედვის დაწყება/გაგრძელება"
 
 #: src/core/gcodecommands.cpp:121
 msgctxt "QObject|"
 msgid "M25: Pause SD print"
-msgstr ""
+msgstr "M25: SD ბეჭდვის შეჩერება"
 
 #: src/core/gcodecommands.cpp:123
 msgctxt "QObject|"
@@ -331,7 +331,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:147
 msgctxt "QObject|"
 msgid "M70: Display message"
-msgstr ""
+msgstr "M70: შეტყობინების გამოტანა"
 
 #: src/core/gcodecommands.cpp:149
 msgctxt "QObject|"
