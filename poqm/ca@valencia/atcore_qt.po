@@ -600,7 +600,8 @@ msgstr "M164: Emmagatzema els pesos"
 msgctxt "QObject|"
 msgid "M190: Wait for bed temperature to reach target temp"
 msgstr ""
-"M190: Espera que la temperatura del llit arribe a l'objectiu de temperatura"
+"M190: Espera que la temperatura del llit arribe fins a l'objectiu de "
+"temperatura"
 
 #: src/core/gcodecommands.cpp:245
 msgctxt "QObject|"
