@@ -1,9 +1,9 @@
-# giovanni <g.sora@tiscali.it>, 2020.
+# giovanni <g.sora@tiscali.it>, 2020, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2020-11-16 21:56+0100\n"
-"Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
+"PO-Revision-Date: 2022-11-29 22:17+0100\n"
+"Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 22.11.80\n"
 
 #: src/core/atcore.cpp:140
 msgctxt "AtCore|"
@@ -1315,7 +1315,7 @@ msgstr ""
 #, qt-format
 msgctxt "PrintWidget|"
 msgid "Fan %1 speed"
-msgstr ""
+msgstr "Velocitate de ventilator %1"
 
 #: src/widgets/profilemanager.cpp:27
 msgctxt "ProfileManager|"
@@ -1551,12 +1551,12 @@ msgstr ""
 #: testclient/mainwindow.cpp:181 testclient/mainwindow.cpp:185
 msgctxt "MainWindow|"
 msgid "Actual Ext.1"
-msgstr ""
+msgstr "Actual Ext.1"
 
 #: testclient/mainwindow.cpp:188 testclient/mainwindow.cpp:192
 msgctxt "MainWindow|"
 msgid "Target Ext.1"
-msgstr ""
+msgstr "Objectivo Ext.1"
 
 #: testclient/mainwindow.cpp:196
 msgctxt "MainWindow|"
@@ -1673,11 +1673,13 @@ msgstr "Trovate %1 Portos"
 msgctxt "MainWindow|"
 msgid "No available ports! Please connect a serial device to continue!"
 msgstr ""
+"Nulle portos disponibile! Pro favor tu connecte un dispositivo serial per "
+"cotinuar!"
 
 #: testclient/mainwindow.cpp:466
 msgctxt "MainWindow|"
 msgid "Serial connected"
-msgstr ""
+msgstr "Serial Connectite"
 
 #: testclient/mainwindow.cpp:478
 msgctxt "MainWindow|"
@@ -1706,7 +1708,7 @@ msgstr ""
 #: testclient/mainwindow.cpp:498
 msgctxt "MainWindow|"
 msgid "Select a file to print"
-msgstr ""
+msgstr "Selige un file de imprimer"
 
 #: testclient/mainwindow.cpp:498
 msgctxt "MainWindow|"
@@ -1748,7 +1750,7 @@ msgstr ""
 #: testclient/mainwindow.cpp:537 testclient/mainwindow.cpp:554
 msgctxt "MainWindow|"
 msgid "Pause Print"
-msgstr ""
+msgstr "Pausa imprimer"
 
 #: testclient/mainwindow.cpp:542
 msgctxt "MainWindow|"
@@ -1763,7 +1765,7 @@ msgstr "In pausa"
 #: testclient/mainwindow.cpp:549
 msgctxt "MainWindow|"
 msgid "Resume Print"
-msgstr ""
+msgstr "Resume imprimes"
 
 #: testclient/mainwindow.cpp:553
 msgctxt "MainWindow|"
