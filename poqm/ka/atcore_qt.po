@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: src/core/atcore.cpp:140
 msgctxt "AtCore|"
@@ -161,12 +161,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:49
 msgctxt "QObject|"
 msgid "G90: Set to absolute positioning"
-msgstr ""
+msgstr "G90: აბსოლუტური მდებარეობის დაყენება"
 
 #: src/core/gcodecommands.cpp:51
 msgctxt "QObject|"
 msgid "G91: Set to relative positioning"
-msgstr ""
+msgstr "G91: ფარდობითი მდებარეობის დაყენება"
 
 #: src/core/gcodecommands.cpp:53
 msgctxt "QObject|"
@@ -181,7 +181,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:57
 msgctxt "QObject|"
 msgid "G130: Set digital potentiometer value"
-msgstr ""
+msgstr "G130: ციფრული პოტენციომეტრის მნიშვნელობის დაყენება"
 
 #: src/core/gcodecommands.cpp:59
 msgctxt "QObject|"
@@ -196,27 +196,27 @@ msgstr ""
 #: src/core/gcodecommands.cpp:63
 msgctxt "QObject|"
 msgid "G133: Measure steps to top"
-msgstr ""
+msgstr "G133: ზედა კიდემდე ნაბიჯების გაზომვა"
 
 #: src/core/gcodecommands.cpp:65
 msgctxt "QObject|"
 msgid "G161: Home axis to minimum"
-msgstr ""
+msgstr "G161: ღერძის საწყისი მინიმუმამდე"
 
 #: src/core/gcodecommands.cpp:67
 msgctxt "QObject|"
 msgid "G162: Home axis to maximum"
-msgstr ""
+msgstr "G162: ღერძის საწყისი მაქსიმუმამდე"
 
 #: src/core/gcodecommands.cpp:99
 msgctxt "QObject|"
 msgid "M0: Stop or unconditional stop"
-msgstr ""
+msgstr "M0: გაჩერება ან უპირობო გაჩერება"
 
 #: src/core/gcodecommands.cpp:101
 msgctxt "QObject|"
 msgid "M1: Sleep or unconditional stop"
-msgstr ""
+msgstr "M1: ძილი ან უპირობო გაჩერება"
 
 #: src/core/gcodecommands.cpp:103
 msgctxt "QObject|"
@@ -316,12 +316,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:141
 msgctxt "QObject|"
 msgid "M36: Return file information"
-msgstr ""
+msgstr "M36: ფაილის ინფორმაციის დაბრუნება"
 
 #: src/core/gcodecommands.cpp:143
 msgctxt "QObject|"
 msgid "M42: Switch I/O pin"
-msgstr ""
+msgstr "M42: შეტანა/გამოტანის კონტაქტის გადართვა"
 
 #: src/core/gcodecommands.cpp:145
 msgctxt "QObject|"
@@ -336,7 +336,7 @@ msgstr "M70: შეტყობინების გამოტანა"
 #: src/core/gcodecommands.cpp:149
 msgctxt "QObject|"
 msgid "M72: Play a tone or song"
-msgstr ""
+msgstr "M72: ტონის ან სიმღერის დაკვრა"
 
 #: src/core/gcodecommands.cpp:151
 msgctxt "QObject|"
@@ -346,12 +346,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:153
 msgctxt "QObject|"
 msgid "M80: ATX Power On"
-msgstr ""
+msgstr "M80: ATX კვების ჩართვა"
 
 #: src/core/gcodecommands.cpp:155
 msgctxt "QObject|"
 msgid "M81: ATX Power Off"
-msgstr ""
+msgstr "M81: ATX კვების გამორთვა"
 
 #: src/core/gcodecommands.cpp:157
 msgctxt "QObject|"
@@ -416,17 +416,17 @@ msgstr ""
 #: src/core/gcodecommands.cpp:181
 msgctxt "QObject|"
 msgid "M106: Fan On"
-msgstr ""
+msgstr "M106: ვენტილატორის ჩართვა"
 
 #: src/core/gcodecommands.cpp:183
 msgctxt "QObject|"
 msgid "M107: Fan Off"
-msgstr ""
+msgstr "M107: ვენტილატორის გამორთვა"
 
 #: src/core/gcodecommands.cpp:185
 msgctxt "QObject|"
 msgid "M108: Cancel Heating"
-msgstr ""
+msgstr "M108: გათბობის გაუქმება"
 
 #: src/core/gcodecommands.cpp:187
 msgctxt "QObject|"
@@ -436,22 +436,22 @@ msgstr ""
 #: src/core/gcodecommands.cpp:189
 msgctxt "QObject|"
 msgid "M110: Set Current Line Number"
-msgstr ""
+msgstr "M110: მიმდინარე ხაზის ნომრის დაყენება"
 
 #: src/core/gcodecommands.cpp:191
 msgctxt "QObject|"
 msgid "M111: Set Debug Level"
-msgstr ""
+msgstr "M111: გამართვის დონის დაყენება"
 
 #: src/core/gcodecommands.cpp:193
 msgctxt "QObject|"
 msgid "M112: Emergency Stop"
-msgstr ""
+msgstr "M112: გადაუდებელი გაჩერება"
 
 #: src/core/gcodecommands.cpp:195
 msgctxt "QObject|"
 msgid "M114: Get Current Position"
-msgstr ""
+msgstr "M114: მიმდინარე მდებარეობის მიღება"
 
 #: src/core/gcodecommands.cpp:197
 msgctxt "QObject|"
@@ -461,12 +461,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:199
 msgctxt "QObject|"
 msgid "M116: Wait"
-msgstr ""
+msgstr "M116: მოცდა"
 
 #: src/core/gcodecommands.cpp:201
 msgctxt "QObject|"
 msgid "M117: Display Message"
-msgstr ""
+msgstr "M117: შეტყობინების ჩვენება"
 
 #: src/core/gcodecommands.cpp:203
 msgctxt "QObject|"
@@ -490,17 +490,17 @@ msgstr ""
 #: src/core/gcodecommands.cpp:209
 msgctxt "QObject|"
 msgid "M122: Diagnose"
-msgstr ""
+msgstr "M122: დიაგნოსტიკა"
 
 #: src/core/gcodecommands.cpp:211
 msgctxt "QObject|"
 msgid "M126: Open valve"
-msgstr ""
+msgstr "M126: ონკანის გახსნა"
 
 #: src/core/gcodecommands.cpp:213
 msgctxt "QObject|"
 msgid "M127: Close valve"
-msgstr ""
+msgstr "M127: ონკანის დახურვა"
 
 #: src/core/gcodecommands.cpp:215
 msgctxt "QObject|"
@@ -550,27 +550,27 @@ msgstr ""
 #: src/core/gcodecommands.cpp:233
 msgctxt "QObject|"
 msgid "M144: Stand by your bed"
-msgstr ""
+msgstr "M144: სტენდის მოცდის რეჟიმში გადაყვანა"
 
 #: src/core/gcodecommands.cpp:235
 msgctxt "QObject|"
 msgid "M150: Set display color"
-msgstr ""
+msgstr "M150: ჩვენების ფერის დაყენება"
 
 #: src/core/gcodecommands.cpp:237
 msgctxt "QObject|"
 msgid "M155: Set Temperature auto report"
-msgstr ""
+msgstr "M155: ტემპერატურის ავტომატური ანგარიშის დაყენება"
 
 #: src/core/gcodecommands.cpp:239
 msgctxt "QObject|"
 msgid "M163: Set weight of mixed material"
-msgstr ""
+msgstr "M163: შერეული მასალის წონის დაყენება"
 
 #: src/core/gcodecommands.cpp:241
 msgctxt "QObject|"
 msgid "M164: Store weights"
-msgstr ""
+msgstr "M164: წონების შენახვა"
 
 #: src/core/gcodecommands.cpp:243
 msgctxt "QObject|"
@@ -600,12 +600,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:253
 msgctxt "QObject|"
 msgid "M204: Set default acceleration"
-msgstr ""
+msgstr "M204: ნაგულისხმები აჩქარების დაყენება"
 
 #: src/core/gcodecommands.cpp:255
 msgctxt "QObject|"
 msgid "M205: Advanced settings"
-msgstr ""
+msgstr "M205: დამატებითი პარამეტრები"
 
 #: src/core/gcodecommands.cpp:257
 msgctxt "QObject|"
@@ -667,12 +667,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:279
 msgctxt "QObject|"
 msgid "M240: Trigger camera"
-msgstr ""
+msgstr "M240: კამერის ტრიგერი"
 
 #: src/core/gcodecommands.cpp:281
 msgctxt "QObject|"
 msgid "M250: Set LCD contrast"
-msgstr ""
+msgstr "M250: LCD -ის კონტრასტის დაყენება"
 
 #: src/core/gcodecommands.cpp:283
 msgctxt "QObject|"
@@ -682,12 +682,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:285
 msgctxt "QObject|"
 msgid "M280: Set servo position"
-msgstr ""
+msgstr "M280: სერვოს მდებარეობის დაყენება"
 
 #: src/core/gcodecommands.cpp:287
 msgctxt "QObject|"
 msgid "M300: Play beep sound"
-msgstr ""
+msgstr "M300: პიპინი"
 
 #: src/core/gcodecommands.cpp:289
 msgctxt "QObject|"
@@ -702,7 +702,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:293
 msgctxt "QObject|"
 msgid "M303: Run PID tuning"
-msgstr ""
+msgstr "M303: PID -ის მორგების გაშვება"
 
 #: src/core/gcodecommands.cpp:295
 msgctxt "QObject|"
@@ -742,12 +742,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:309
 msgctxt "QObject|"
 msgid "M340: Control the servos"
-msgstr ""
+msgstr "M340: სერვოების კონტროლი"
 
 #: src/core/gcodecommands.cpp:311
 msgctxt "QObject|"
 msgid "M350: Set microstepping mode"
-msgstr ""
+msgstr "M350: მიკრობიჯების რეჟიმის დაყენება"
 
 #: src/core/gcodecommands.cpp:313
 msgctxt "QObject|"
@@ -882,7 +882,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:365
 msgctxt "QObject|"
 msgid "M450: Report Printer Mode"
-msgstr ""
+msgstr "M450: პრინტერის რეჟიმის ანგარიში"
 
 #: src/core/gcodecommands.cpp:367
 msgctxt "QObject|"
@@ -922,7 +922,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:381
 msgctxt "QObject|"
 msgid "M503: Print settings "
-msgstr ""
+msgstr "M503: ბეჭდვის მორგება "
 
 #: src/core/gcodecommands.cpp:383
 msgctxt "QObject|"
@@ -932,37 +932,37 @@ msgstr ""
 #: src/core/gcodecommands.cpp:385
 msgctxt "QObject|"
 msgid "M550: Set Name"
-msgstr ""
+msgstr "M550: სახელის დაყენება"
 
 #: src/core/gcodecommands.cpp:387
 msgctxt "QObject|"
 msgid "M551: Set Password"
-msgstr ""
+msgstr "M551: პაროლის დაყენება"
 
 #: src/core/gcodecommands.cpp:389
 msgctxt "QObject|"
 msgid "M552: Set IP address"
-msgstr ""
+msgstr "M552: IP მისამართის დაყენება"
 
 #: src/core/gcodecommands.cpp:391
 msgctxt "QObject|"
 msgid "M553: Set Netmask"
-msgstr ""
+msgstr "M553: ქსელური ნიღბის დაყენება"
 
 #: src/core/gcodecommands.cpp:393
 msgctxt "QObject|"
 msgid "M554: Set Gateway"
-msgstr ""
+msgstr "M554: ნაგულისხმები რაუტერის დაყენება"
 
 #: src/core/gcodecommands.cpp:395
 msgctxt "QObject|"
 msgid "M555: Set compatibility"
-msgstr ""
+msgstr "M555: თავსებადობის დაყენება"
 
 #: src/core/gcodecommands.cpp:397
 msgctxt "QObject|"
 msgid "M556: Axis compensation"
-msgstr ""
+msgstr "M556: ღერძის კომპენსაცია"
 
 #: src/core/gcodecommands.cpp:399
 msgctxt "QObject|"
@@ -1002,7 +1002,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:413
 msgctxt "QObject|"
 msgid "M564: Limit axes"
-msgstr ""
+msgstr "M564: ღერძების შეზღუდვა"
 
 #: src/core/gcodecommands.cpp:415
 msgctxt "QObject|"
@@ -1238,22 +1238,22 @@ msgstr "ჟურნალის ფაილში ჩაწერა"
 #: src/widgets/movementwidget.cpp:49
 msgctxt "MovementWidget|"
 msgid "Home All"
-msgstr ""
+msgstr "ყველა დასაწყისში"
 
 #: src/widgets/movementwidget.cpp:53
 msgctxt "MovementWidget|"
 msgid "Home X"
-msgstr ""
+msgstr "დასაწყისის X"
 
 #: src/widgets/movementwidget.cpp:57
 msgctxt "MovementWidget|"
 msgid "Home Y"
-msgstr ""
+msgstr "დასაწყისის Y"
 
 #: src/widgets/movementwidget.cpp:61
 msgctxt "MovementWidget|"
 msgid "Home Z"
-msgstr ""
+msgstr "დასაწყისის Z"
 
 #: src/widgets/movementwidget.cpp:67
 msgctxt "MovementWidget|"
@@ -1263,17 +1263,17 @@ msgstr "ძრავების გამორთვა"
 #: src/widgets/movementwidget.cpp:72
 msgctxt "MovementWidget|"
 msgid "Move X Axis to"
-msgstr ""
+msgstr "X ღერძის გადატანა"
 
 #: src/widgets/movementwidget.cpp:73
 msgctxt "MovementWidget|"
 msgid "Move Y Axis to"
-msgstr ""
+msgstr "Y ღერძის გადატანა"
 
 #: src/widgets/movementwidget.cpp:74
 msgctxt "MovementWidget|"
 msgid "Move Z Axis to"
-msgstr ""
+msgstr "Z ღერძის გადატანა"
 
 #: src/widgets/movementwidget.cpp:83
 msgctxt "MovementWidget|"
@@ -1465,12 +1465,12 @@ msgstr ""
 #: src/widgets/temperaturewidget.cpp:24
 msgctxt "TemperatureWidget|"
 msgid "Bed Temp"
-msgstr ""
+msgstr "არასწორი ტემპტერატურა"
 
 #: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:44
 msgctxt "TemperatureWidget|"
 msgid "Set"
-msgstr ""
+msgstr "დაყენება"
 
 #: src/widgets/temperaturewidget.cpp:60
 #, qt-format
@@ -1481,7 +1481,7 @@ msgstr ""
 #: testclient/mainwindow.cpp:30
 msgctxt "MainWindow|"
 msgid "AtCore - Test Client"
-msgstr ""
+msgstr "AtCore - სატესტო კლიენტი"
 
 #: testclient/mainwindow.cpp:38
 msgctxt "MainWindow|"
@@ -1491,7 +1491,7 @@ msgstr ""
 #: testclient/mainwindow.cpp:49
 msgctxt "MainWindow|"
 msgid "AtCore First Run"
-msgstr ""
+msgstr "AtCore -ის პირველი გაშვება"
 
 #: testclient/mainwindow.cpp:49
 msgctxt "MainWindow|"
@@ -1541,22 +1541,22 @@ msgstr "დაბეჭდვა"
 #: testclient/mainwindow.cpp:167 testclient/mainwindow.cpp:171
 msgctxt "MainWindow|"
 msgid "Actual Bed"
-msgstr ""
+msgstr "მიმდინარე საფუძველი"
 
 #: testclient/mainwindow.cpp:174 testclient/mainwindow.cpp:178
 msgctxt "MainWindow|"
 msgid "Target Bed"
-msgstr ""
+msgstr "სამიზნე საფუძველი"
 
 #: testclient/mainwindow.cpp:181 testclient/mainwindow.cpp:185
 msgctxt "MainWindow|"
 msgid "Actual Ext.1"
-msgstr ""
+msgstr "მიმდინარე Ext.1"
 
 #: testclient/mainwindow.cpp:188 testclient/mainwindow.cpp:192
 msgctxt "MainWindow|"
 msgid "Target Ext.1"
-msgstr ""
+msgstr "სამიზნე Ext.1"
 
 #: testclient/mainwindow.cpp:196
 msgctxt "MainWindow|"
@@ -1611,22 +1611,22 @@ msgstr ""
 #: testclient/mainwindow.cpp:304
 msgctxt "MainWindow|"
 msgid "Home All"
-msgstr ""
+msgstr "ყველა დასაწყისში"
 
 #: testclient/mainwindow.cpp:309
 msgctxt "MainWindow|"
 msgid "Home X"
-msgstr ""
+msgstr "დასაწყისის X"
 
 #: testclient/mainwindow.cpp:314
 msgctxt "MainWindow|"
 msgid "Home Y"
-msgstr ""
+msgstr "დასაწყისის Y"
 
 #: testclient/mainwindow.cpp:319
 msgctxt "MainWindow|"
 msgid "Home Z"
-msgstr ""
+msgstr "დასაწყისის Z"
 
 #: testclient/mainwindow.cpp:341
 msgctxt "MainWindow|"
