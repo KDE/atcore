@@ -1,5 +1,5 @@
 # Vít Pelčák <vit@pelcak.org>, 2017.
-# Vit Pelcak <vpelcak@suse.cz>, 2017, 2018, 2019.
+# Vit Pelcak <vit@pelcak.org>, 2017, 2018, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
