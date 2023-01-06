@@ -145,6 +145,8 @@ msgstr "G30: ერთჯერადი Z-ზონდირება"
 msgctxt "QObject|"
 msgid "G31: Set or report current probe status / Dock Z Probe sled for Marlin"
 msgstr ""
+"G31: ზონდირების მიმდინარე სტატუსის ანგარიში ან დაყენება / Z-ზონდის სრიალების "
+"დაყენება Marlin-სთვის"
 
 #: src/core/gcodecommands.cpp:45
 msgctxt "QObject|"
@@ -152,11 +154,13 @@ msgid ""
 "G32: Probe Z and calculate Z plane(Bed Leveling)/ UnDoc Z Probe sled for "
 "Marlin"
 msgstr ""
+"G32: Z-ის ზონდირება, Z სიბრტყის გამოთვლა (სტენდის დონე)/ Z ზონდის მოხსნა "
+"Marlin-სთვის"
 
 #: src/core/gcodecommands.cpp:47
 msgctxt "QObject|"
 msgid "G33: Measure/List/Adjust Distortion Matrix"
-msgstr ""
+msgstr "G33: დამახინჯების მატრიცის გაზომვა/ჩამონათვალი/მორგება"
 
 #: src/core/gcodecommands.cpp:49
 msgctxt "QObject|"
@@ -176,7 +180,7 @@ msgstr "G92: მდებარეობის დაყენება"
 #: src/core/gcodecommands.cpp:55
 msgctxt "QObject|"
 msgid "G100: Calibrate floor or rod radius"
-msgstr ""
+msgstr "G100: საძირკვლის ან ღერძის რადიუსის მორგება"
 
 #: src/core/gcodecommands.cpp:57
 msgctxt "QObject|"
@@ -186,12 +190,12 @@ msgstr "G130: ციფრული პოტენციომეტრის �
 #: src/core/gcodecommands.cpp:59
 msgctxt "QObject|"
 msgid "G131: Recase Move offset"
-msgstr ""
+msgstr "G131: წანაცვლების წაშლა"
 
 #: src/core/gcodecommands.cpp:61
 msgctxt "QObject|"
 msgid "G132: Calibrate endstops offsets"
-msgstr ""
+msgstr "G132: საბოლოო გაჩერებების წანაცვლებების მორგება"
 
 #: src/core/gcodecommands.cpp:63
 msgctxt "QObject|"
@@ -231,12 +235,12 @@ msgstr "M6: ხელსაწყოს შეცვლა"
 #: src/core/gcodecommands.cpp:107
 msgctxt "QObject|"
 msgid "M17: Enable/power all steppers motors"
-msgstr ""
+msgstr "M17: ყველა ბიჯური მოტორის ჩართვა/დაშვება"
 
 #: src/core/gcodecommands.cpp:109
 msgctxt "QObject|"
 msgid "M18: Disable all steppers motors"
-msgstr ""
+msgstr "M18: ყველა ბიჯური მოტორის გამორთვა"
 
 #: src/core/gcodecommands.cpp:111
 msgctxt "QObject|"
@@ -271,27 +275,27 @@ msgstr "M25: SD ბეჭდვის შეჩერება"
 #: src/core/gcodecommands.cpp:123
 msgctxt "QObject|"
 msgid "M26: Set SD position"
-msgstr ""
+msgstr "M26: SD მდებარეობის დაყენაბ"
 
 #: src/core/gcodecommands.cpp:125
 msgctxt "QObject|"
 msgid "M27: Report SD print status"
-msgstr ""
+msgstr "M27: SD-ბეჭდვის მდგომარეობის ანგარიში"
 
 #: src/core/gcodecommands.cpp:127
 msgctxt "QObject|"
 msgid "M28: Begin write to SD card"
-msgstr ""
+msgstr "M28: SD-ბარათზე ჩაწერის დაწყება"
 
 #: src/core/gcodecommands.cpp:129
 msgctxt "QObject|"
 msgid "M29: Stop writing to SD card"
-msgstr ""
+msgstr "M29: SD ბარათზე ჩაწერის დასრულება"
 
 #: src/core/gcodecommands.cpp:131
 msgctxt "QObject|"
 msgid "M30: Delete a file on the SD card"
-msgstr ""
+msgstr "M30: SD ბართზე ფაილის წაშლა"
 
 #: src/core/gcodecommands.cpp:133
 msgctxt "QObject|"
@@ -301,17 +305,17 @@ msgstr ""
 #: src/core/gcodecommands.cpp:135
 msgctxt "QObject|"
 msgid "M32: Select file and start SD print"
-msgstr ""
+msgstr "M32: აირჩიეთ ფაილი და დაიწყეთ SD დაბეჭდვა"
 
 #: src/core/gcodecommands.cpp:137
 msgctxt "QObject|"
 msgid "M33: Get the long name for an SD card file or folder"
-msgstr ""
+msgstr "M33: SD ბარათის ფაილის ან საქაღალდის გრძელი სახელის მიღება"
 
 #: src/core/gcodecommands.cpp:139
 msgctxt "QObject|"
 msgid "M34: Set SD file sorting options"
-msgstr ""
+msgstr "M34: SD ფაილების დალაგების პარამეტრების დაყენება"
 
 #: src/core/gcodecommands.cpp:141
 msgctxt "QObject|"
@@ -326,7 +330,7 @@ msgstr "M42: შეტანა/გამოტანის კონტაქ�
 #: src/core/gcodecommands.cpp:145
 msgctxt "QObject|"
 msgid "M48: Measure Z-Probe repeatability"
-msgstr ""
+msgstr "M48: Z-ზონდის განმეორებადობის გაზომვა"
 
 #: src/core/gcodecommands.cpp:147
 msgctxt "QObject|"
@@ -341,7 +345,7 @@ msgstr "M72: ტონის ან სიმღერის დაკვრა"
 #: src/core/gcodecommands.cpp:151
 msgctxt "QObject|"
 msgid "M73: Set build percentage"
-msgstr ""
+msgstr "M73: აგების პროცენტულობის დაყენება"
 
 #: src/core/gcodecommands.cpp:153
 msgctxt "QObject|"
@@ -366,12 +370,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:161
 msgctxt "QObject|"
 msgid "M84: Stop idle hold"
-msgstr ""
+msgstr "M84: უქმეობის მოლოდინის შეწყვეტა"
 
 #: src/core/gcodecommands.cpp:163
 msgctxt "QObject|"
 msgid "M85: Set Inactivity shutdown timer"
-msgstr ""
+msgstr "M85: ინტერაქტიური გამორთვის ტაიმერის დაყენება"
 
 #: src/core/gcodecommands.cpp:165
 msgctxt "QObject|"
@@ -505,22 +509,22 @@ msgstr "M127: ონკანის დახურვა"
 #: src/core/gcodecommands.cpp:215
 msgctxt "QObject|"
 msgid "M130: Set PID P value"
-msgstr ""
+msgstr "M130: PID P მნიშვნელობის დაყენება"
 
 #: src/core/gcodecommands.cpp:217
 msgctxt "QObject|"
 msgid "M131: Set PID I value"
-msgstr ""
+msgstr "M131: PID I მნიშვნელობის დაყენება"
 
 #: src/core/gcodecommands.cpp:219
 msgctxt "QObject|"
 msgid "M132: Set PID D value"
-msgstr ""
+msgstr "M132: PID D მნიშვნელბის დაყენება"
 
 #: src/core/gcodecommands.cpp:221
 msgctxt "QObject|"
 msgid "M133: Set PID I limit value"
-msgstr ""
+msgstr "M133: PID I ლიმიტის მნიშვნელობის დაყენება"
 
 #: src/core/gcodecommands.cpp:223
 msgctxt "QObject|"
@@ -585,17 +589,17 @@ msgstr ""
 #: src/core/gcodecommands.cpp:247
 msgctxt "QObject|"
 msgid "M201: Set max printing acceleration"
-msgstr ""
+msgstr "M201: ბეჭდვის მაქსიმალური აჩქარების დაყენება"
 
 #: src/core/gcodecommands.cpp:249
 msgctxt "QObject|"
 msgid "M202: Set max travel acceleration"
-msgstr ""
+msgstr "M202: მოგზაურობის მაქსიმალური აჩქარების დაყენება"
 
 #: src/core/gcodecommands.cpp:251
 msgctxt "QObject|"
 msgid "M203: Set maximum feedrate"
-msgstr ""
+msgstr "M203: მიწოდების მაქსიმალური სიჩქარის დაყენება"
 
 #: src/core/gcodecommands.cpp:253
 msgctxt "QObject|"
@@ -652,12 +656,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:273
 msgctxt "QObject|"
 msgid "M226: Wait for pin state"
-msgstr ""
+msgstr "M226: ფეხის მდგომარეობის მოლოდინი"
 
 #: src/core/gcodecommands.cpp:275
 msgctxt "QObject|"
 msgid "M231: Set OPS parameter"
-msgstr ""
+msgstr "M231: OPS პარამეტრის დაყენება"
 
 #: src/core/gcodecommands.cpp:277
 msgctxt "QObject|"
@@ -692,12 +696,12 @@ msgstr "M300: პიპინი"
 #: src/core/gcodecommands.cpp:289
 msgctxt "QObject|"
 msgid "M301: Set PID parameters"
-msgstr ""
+msgstr "M301: PID -ის პარამეტრების დაყენება"
 
 #: src/core/gcodecommands.cpp:291
 msgctxt "QObject|"
 msgid "M302: Allow cold extrudes "
-msgstr ""
+msgstr "M302: ცივი გამოწნევის დაშვება "
 
 #: src/core/gcodecommands.cpp:293
 msgctxt "QObject|"
@@ -707,7 +711,7 @@ msgstr "M303: PID -ის მორგების გაშვება"
 #: src/core/gcodecommands.cpp:295
 msgctxt "QObject|"
 msgid "M304: Set PID parameters - Bed"
-msgstr ""
+msgstr "M304: PID -ის პარამეტრების დაყენება - საწოლი"
 
 #: src/core/gcodecommands.cpp:297
 msgctxt "QObject|"
@@ -762,7 +766,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:317
 msgctxt "QObject|"
 msgid "M360: Report firmware configuration"
-msgstr ""
+msgstr "M360: მიკროკოდის კონფიგურაციის ანგარში"
 
 #: src/core/gcodecommands.cpp:319
 msgctxt "QObject|"
@@ -787,7 +791,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:327
 msgctxt "QObject|"
 msgid "M365: SCARA scaling factor"
-msgstr ""
+msgstr "M365: SCARA მასშტაბირების კოეფიციენტი"
 
 #: src/core/gcodecommands.cpp:329
 msgctxt "QObject|"
@@ -827,27 +831,27 @@ msgstr ""
 #: src/core/gcodecommands.cpp:343
 msgctxt "QObject|"
 msgid "M380: Activate solenoid"
-msgstr ""
+msgstr "M380: სოლენოიდის აქტივაცია"
 
 #: src/core/gcodecommands.cpp:345
 msgctxt "QObject|"
 msgid "M381: Disable all solenoids"
-msgstr ""
+msgstr "M381: ყველა სოლენოიდის გამორთვა"
 
 #: src/core/gcodecommands.cpp:347
 msgctxt "QObject|"
 msgid "M400: Wait for current moves to finish"
-msgstr ""
+msgstr "M400: მიმდინარე გადაადგილებების დასრულების ლოდინი"
 
 #: src/core/gcodecommands.cpp:349
 msgctxt "QObject|"
 msgid "M401: Lower z-probe"
-msgstr ""
+msgstr "M401: z-ზონდის დაწევა"
 
 #: src/core/gcodecommands.cpp:351
 msgctxt "QObject|"
 msgid "M402: Raise z-probe"
-msgstr ""
+msgstr "M402: z-ზონდის აწევა"
 
 #: src/core/gcodecommands.cpp:353
 msgctxt "QObject|"
@@ -997,7 +1001,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:411
 msgctxt "QObject|"
 msgid "M563: Define or remove a tool"
-msgstr ""
+msgstr "M563: ინსტრუმენტის აღწერა ან წაშლა"
 
 #: src/core/gcodecommands.cpp:413
 msgctxt "QObject|"
@@ -1067,12 +1071,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:439
 msgctxt "QObject|"
 msgid "M579: Scale Cartesian axes"
-msgstr ""
+msgstr "M579: დეკარტის ღერძების მასშტაბირება"
 
 #: src/core/gcodecommands.cpp:441
 msgctxt "QObject|"
 msgid "M580: Select Roland"
-msgstr ""
+msgstr "M580: Roland-ის არჩევა"
 
 #: src/core/gcodecommands.cpp:443
 msgctxt "QObject|"
@@ -1102,7 +1106,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:453
 msgctxt "QObject|"
 msgid "M851: Set Z-Probe Offset"
-msgstr ""
+msgstr "M851: Z-ზონდის წანაცვლების დაყენება"
 
 #: src/core/gcodecommands.cpp:455
 msgctxt "QObject|"
