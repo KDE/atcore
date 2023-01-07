@@ -360,12 +360,12 @@ msgstr "M81: ATX კვების გამორთვა"
 #: src/core/gcodecommands.cpp:157
 msgctxt "QObject|"
 msgid "M82: Set extruder to absolute mode"
-msgstr ""
+msgstr "M82: ექსტრუდერის აბსოლუტურ რეჟიმში დაყენება"
 
 #: src/core/gcodecommands.cpp:159
 msgctxt "QObject|"
 msgid "M83: Set extruder to relative mode"
-msgstr ""
+msgstr "M83: ექსტრუდერის შეფარდებით რეჟიმში დაყენება"
 
 #: src/core/gcodecommands.cpp:161
 msgctxt "QObject|"
@@ -380,22 +380,22 @@ msgstr "M85: ინტერაქტიური გამორთვის �
 #: src/core/gcodecommands.cpp:165
 msgctxt "QObject|"
 msgid "M92: Set axis steps per unit"
-msgstr ""
+msgstr "M92: ღერძის ნაბიჯების დაყენება თითოეული ერთეულისთვის"
 
 #: src/core/gcodecommands.cpp:167
 msgctxt "QObject|"
 msgid "M93: Send axis steps per unit"
-msgstr ""
+msgstr "M93: ღერძის ნაბიჯების გაგზავნა თითოეული ერთეულისთვის"
 
 #: src/core/gcodecommands.cpp:169
 msgctxt "QObject|"
 msgid "M98: Call Macro/Subprogram"
-msgstr ""
+msgstr "M98: მაკროს/ქვეპროგრამს გამოძახება"
 
 #: src/core/gcodecommands.cpp:171
 msgctxt "QObject|"
 msgid "M99: Return from Macro/Subprogram"
-msgstr ""
+msgstr "M99: მაკროდან/ქვეპროგრამიდან დაბრუნება"
 
 #: src/core/gcodecommands.cpp:173
 msgctxt "QObject|"
@@ -410,12 +410,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:177
 msgctxt "QObject|"
 msgid "M104: Set Extruder Temperature"
-msgstr ""
+msgstr "M104: ექსტრუდერის ტემპერატურის დაყენება"
 
 #: src/core/gcodecommands.cpp:179
 msgctxt "QObject|"
 msgid "M105: Get Extruder Temperature"
-msgstr ""
+msgstr "M105: ექსტრუდერის ტემპერატურის მიღება"
 
 #: src/core/gcodecommands.cpp:181
 msgctxt "QObject|"
@@ -435,7 +435,7 @@ msgstr "M108: გათბობის გაუქმება"
 #: src/core/gcodecommands.cpp:187
 msgctxt "QObject|"
 msgid "M109: Set Extruder Temperature and Wait"
-msgstr ""
+msgstr "M109: ექსტრუდერის ტემპერატურის დაყენება და მოცდა"
 
 #: src/core/gcodecommands.cpp:189
 msgctxt "QObject|"
@@ -460,7 +460,7 @@ msgstr "M114: მიმდინარე მდებარეობის მ�
 #: src/core/gcodecommands.cpp:197
 msgctxt "QObject|"
 msgid "M115: Get Firmware Version and Capabilities"
-msgstr ""
+msgstr "M115: მიკროკოდის ვერსიისა და შესაძლებლობების მიღება"
 
 #: src/core/gcodecommands.cpp:199
 msgctxt "QObject|"
@@ -475,7 +475,7 @@ msgstr "M117: შეტყობინების ჩვენება"
 #: src/core/gcodecommands.cpp:203
 msgctxt "QObject|"
 msgid "M119: Get Endstop Status"
-msgstr ""
+msgstr "M119: შემზღუდავის სტატუსის მიღება"
 
 #: src/core/gcodecommands.cpp:205
 msgctxt "QObject|"
@@ -529,12 +529,12 @@ msgstr "M133: PID I ლიმიტის მნიშვნელობის �
 #: src/core/gcodecommands.cpp:223
 msgctxt "QObject|"
 msgid "M134: Write PID values to EEPROM"
-msgstr ""
+msgstr "M134: PID -ის მნიშვნელობების EEPROM-ში ჩაწერა"
 
 #: src/core/gcodecommands.cpp:225
 msgctxt "QObject|"
 msgid "M135: Set PID sample interval"
-msgstr ""
+msgstr "M135: PID -ის სემპლის ინტერვალის დაყენება"
 
 #: src/core/gcodecommands.cpp:227
 msgctxt "QObject|"
@@ -584,7 +584,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:245
 msgctxt "QObject|"
 msgid "M200: Set filament diameter"
-msgstr ""
+msgstr "M200: ძაფის დიამეტრის დაყენება"
 
 #: src/core/gcodecommands.cpp:247
 msgctxt "QObject|"
@@ -621,17 +621,17 @@ msgstr ""
 #: src/core/gcodecommands.cpp:259
 msgctxt "QObject|"
 msgid "M207: Set retract length"
-msgstr ""
+msgstr "M207: უკან გაწევის სიგრძის დაყენება"
 
 #: src/core/gcodecommands.cpp:261
 msgctxt "QObject|"
 msgid "M208: Set unretract length"
-msgstr ""
+msgstr "M208: უკან გაწევის სიგრძის დაყენება"
 
 #: src/core/gcodecommands.cpp:263
 msgctxt "QObject|"
 msgid "M209: Enable automatic retract"
-msgstr ""
+msgstr "M209: ავტომატური გაწევს დაყენება"
 
 #: src/core/gcodecommands.cpp:265
 msgctxt "QObject|"
@@ -641,7 +641,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:267
 msgctxt "QObject|"
 msgid "M218: Set Hotend Offset"
-msgstr ""
+msgstr "M218: ცხელი ბოლოს წანაცვლების დაყენება"
 
 #: src/core/gcodecommands.cpp:269
 msgctxt "QObject|"
@@ -756,7 +756,7 @@ msgstr "M350: მიკრობიჯების რეჟიმის და�
 #: src/core/gcodecommands.cpp:313
 msgctxt "QObject|"
 msgid "M351: Toggle MS1 MS2 pins directly"
-msgstr ""
+msgstr "M351: MS1 და MS2 ფეხებს პირდაპირ გადართვა"
 
 #: src/core/gcodecommands.cpp:315
 msgctxt "QObject|"
@@ -821,12 +821,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:339
 msgctxt "QObject|"
 msgid "M374: Save calibration grid"
-msgstr ""
+msgstr "M374: კალიბრაციის ბადის შენახვა"
 
 #: src/core/gcodecommands.cpp:341
 msgctxt "QObject|"
 msgid "M375: Display matrix / Load Matrix"
-msgstr ""
+msgstr "M375: მატრიცის შენახვა/ჩვენება"
 
 #: src/core/gcodecommands.cpp:343
 msgctxt "QObject|"
@@ -856,27 +856,27 @@ msgstr "M402: z-ზონდის აწევა"
 #: src/core/gcodecommands.cpp:353
 msgctxt "QObject|"
 msgid "M404: Filament width and nozzle diameter"
-msgstr ""
+msgstr "M404: ძაფის სიგანე და საქშენის დიამეტრი"
 
 #: src/core/gcodecommands.cpp:355
 msgctxt "QObject|"
 msgid "M405: Filament Sensor on"
-msgstr ""
+msgstr "M405: ძაფის სენსორის ჩართვა"
 
 #: src/core/gcodecommands.cpp:357
 msgctxt "QObject|"
 msgid "M406: Filament Sensor off"
-msgstr ""
+msgstr "M406: ძაფის სენსორის გამორთვა"
 
 #: src/core/gcodecommands.cpp:359
 msgctxt "QObject|"
 msgid "M407: Display filament diameter"
-msgstr ""
+msgstr "M407: ძაფის დიამეტრის ჩვენება"
 
 #: src/core/gcodecommands.cpp:361
 msgctxt "QObject|"
 msgid "M408: Report JSON-style response"
-msgstr ""
+msgstr "M408: პასუხი JSON-ის სტილში"
 
 #: src/core/gcodecommands.cpp:363
 msgctxt "QObject|"
@@ -891,17 +891,17 @@ msgstr "M450: პრინტერის რეჟიმის ანგარ�
 #: src/core/gcodecommands.cpp:367
 msgctxt "QObject|"
 msgid "M451: Select FFF Printer Mode"
-msgstr ""
+msgstr "M451: FFF პრინტერის რეჟიმის არჩევა"
 
 #: src/core/gcodecommands.cpp:369
 msgctxt "QObject|"
 msgid "M452: Select Laser Printer Mode"
-msgstr ""
+msgstr "M452: ლაზერული პრინტერის რეჟიმის არჩევა"
 
 #: src/core/gcodecommands.cpp:371
 msgctxt "QObject|"
 msgid "M453: Select CNC Printer Mode"
-msgstr ""
+msgstr "M453: CNC პრინტერის რეჟიმის არჩევა"
 
 #: src/core/gcodecommands.cpp:373
 msgctxt "QObject|"
@@ -911,12 +911,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:375
 msgctxt "QObject|"
 msgid "M500: Store parameters in EEPROM"
-msgstr ""
+msgstr "M500: პარამეტრების შენახვა EEPROM-ში"
 
 #: src/core/gcodecommands.cpp:377
 msgctxt "QObject|"
 msgid "M501: Read parameters from EEPROM"
-msgstr ""
+msgstr "M501: პარამეტრებს წაკითხვა EEPROM-დან"
 
 #: src/core/gcodecommands.cpp:379
 msgctxt "QObject|"
@@ -981,22 +981,22 @@ msgstr ""
 #: src/core/gcodecommands.cpp:403
 msgctxt "QObject|"
 msgid "M559: Upload configuration file"
-msgstr ""
+msgstr "M559: კონფიგურაციის ფაილის ატვირთვა"
 
 #: src/core/gcodecommands.cpp:405
 msgctxt "QObject|"
 msgid "M560: Upload web page file"
-msgstr ""
+msgstr "M560: ვებგვერდის ფაილის ატვირთვა"
 
 #: src/core/gcodecommands.cpp:407
 msgctxt "QObject|"
 msgid "M561: Set Identity Transform"
-msgstr ""
+msgstr "M561: იდენტიფიკაციის გარდაქმნის დაყენება"
 
 #: src/core/gcodecommands.cpp:409
 msgctxt "QObject|"
 msgid "M562: Reset temperature fault"
-msgstr ""
+msgstr "M562: ტემპერატურის შეცდომის განულება"
 
 #: src/core/gcodecommands.cpp:411
 msgctxt "QObject|"
@@ -1011,7 +1011,7 @@ msgstr "M564: ღერძების შეზღუდვა"
 #: src/core/gcodecommands.cpp:415
 msgctxt "QObject|"
 msgid "M565: Set Z probe offset"
-msgstr ""
+msgstr "M565: Z ზონდის წანაცვლების დაყენება"
 
 #: src/core/gcodecommands.cpp:417
 msgctxt "QObject|"
@@ -1041,7 +1041,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:427
 msgctxt "QObject|"
 msgid "M571: Set output on extrude"
-msgstr ""
+msgstr "M571: გამოტანის გამოწნევაზე დაყენება"
 
 #: src/core/gcodecommands.cpp:429
 msgctxt "QObject|"
@@ -1091,7 +1091,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:447
 msgctxt "QObject|"
 msgid "M665: Set delta configuration"
-msgstr ""
+msgstr "M665: დელტას კონფიგურაცის დაყენება"
 
 #: src/core/gcodecommands.cpp:449
 msgctxt "QObject|"
@@ -1111,7 +1111,7 @@ msgstr "M851: Z-ზონდის წანაცვლების დაყ�
 #: src/core/gcodecommands.cpp:455
 msgctxt "QObject|"
 msgid "M906: Set motor currents"
-msgstr ""
+msgstr "M906: ძრავის ძაბვების დაყენება"
 
 #: src/core/gcodecommands.cpp:457
 msgctxt "QObject|"
@@ -1141,7 +1141,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:467
 msgctxt "QObject|"
 msgid "M928: Start SD logging"
-msgstr ""
+msgstr "M928: SD ჟურნალის დაწყება"
 
 #: src/core/gcodecommands.cpp:469
 msgctxt "QObject|"
@@ -1379,12 +1379,12 @@ msgstr ""
 #: src/widgets/profilemanager.cpp:148
 msgctxt "ProfileManager|"
 msgid "Extruder Maximum"
-msgstr ""
+msgstr "ექსტრუდერის მაქსიმუმი"
 
 #: src/widgets/profilemanager.cpp:157
 msgctxt "ProfileManager|"
 msgid "Auto Temperature Report"
-msgstr ""
+msgstr "ტემპერატურის ავტომატური ანგარიში"
 
 #: src/widgets/profilemanager.cpp:162
 msgctxt "ProfileManager|"
@@ -1444,12 +1444,12 @@ msgstr "მონიშნულის წაშლა"
 #: src/widgets/sdwidget.cpp:41
 msgctxt "SdWidget|"
 msgid "Files On Sd Card"
-msgstr ""
+msgstr "ფაილები SD ბარათზე"
 
 #: src/widgets/statuswidget.cpp:47
 msgctxt "StatusWidget|"
 msgid "AtCore State:"
-msgstr ""
+msgstr "AtCore -ის მდებარეობა:"
 
 #: src/widgets/statuswidget.cpp:48
 msgctxt "StatusWidget|"
@@ -1464,7 +1464,7 @@ msgstr "SD"
 #: src/widgets/temperaturewidget.cpp:21
 msgctxt "TemperatureWidget|"
 msgid "Wait Until Temperature Stabilizes"
-msgstr ""
+msgstr "ტემპერატურის სტაბილიზიაციის დალოდება"
 
 #: src/widgets/temperaturewidget.cpp:24
 msgctxt "TemperatureWidget|"
@@ -1480,7 +1480,7 @@ msgstr "დაყენება"
 #, qt-format
 msgctxt "TemperatureWidget|"
 msgid "Extruder %1"
-msgstr ""
+msgstr "ექსტრუდერი %1"
 
 #: testclient/mainwindow.cpp:30
 msgctxt "MainWindow|"
@@ -1490,7 +1490,7 @@ msgstr "AtCore - სატესტო კლიენტი"
 #: testclient/mainwindow.cpp:38
 msgctxt "MainWindow|"
 msgid "Attempting to locate Serial Ports"
-msgstr ""
+msgstr "სერიული პორტების პოვნის მცდელობა"
 
 #: testclient/mainwindow.cpp:49
 msgctxt "MainWindow|"
@@ -1501,6 +1501,7 @@ msgstr "AtCore -ის პირველი გაშვება"
 msgctxt "MainWindow|"
 msgid "No Profiles Detected, use the Profile Manager to create one."
 msgstr ""
+"პროფილები ვერ ვიპოვე. ახლის შესაქმნელად პროფილების მმართველი გამოიყენეთ."
 
 #: testclient/mainwindow.cpp:59
 msgctxt "MainWindow|"
@@ -1565,7 +1566,7 @@ msgstr "სამიზნე Ext.1"
 #: testclient/mainwindow.cpp:196
 msgctxt "MainWindow|"
 msgid "Seconds Between Temperature Checks"
-msgstr ""
+msgstr "წამები ტემპერატურის შემოწმებებს შორის"
 
 #: testclient/mainwindow.cpp:218
 msgctxt "MainWindow|"
