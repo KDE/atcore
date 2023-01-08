@@ -971,12 +971,12 @@ msgstr "M556: ღერძის კომპენსაცია"
 #: src/core/gcodecommands.cpp:399
 msgctxt "QObject|"
 msgid "M557: Set Z probe point"
-msgstr ""
+msgstr "M557: Z ზონდის წერტილის დაყენება"
 
 #: src/core/gcodecommands.cpp:401
 msgctxt "QObject|"
 msgid "M558: Set Z probe type"
-msgstr ""
+msgstr "M558: Z ზონდის ტპის დაყენება"
 
 #: src/core/gcodecommands.cpp:403
 msgctxt "QObject|"
