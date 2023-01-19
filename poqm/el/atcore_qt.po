@@ -1,0 +1,1339 @@
+# Stelios <sstavra@gmail.com>, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2017-10-21 14:33+0200\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Qt-Contexts: true\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: src/atcore.cpp:456
+#, qt-format
+msgctxt "AtCore|"
+msgid "plugins[%1]=%2"
+msgstr "πρόσθετα[%1]=%2"
+
+#: src/gcodecommands.cpp:35
+msgctxt "QObject|"
+msgid "G0: Rapid linear move"
+msgstr "G0: Ταχεία γραμμική κίνηση"
+
+#: src/gcodecommands.cpp:37
+msgctxt "QObject|"
+msgid "G1: Linear move"
+msgstr "G1: Γραμμική κίνηση"
+
+#: src/gcodecommands.cpp:39
+msgctxt "QObject|"
+msgid "G2: Controlled Arc Move clockwise"
+msgstr "G2: Ελεγχόμενη τοξωτή προς τα δεξιά κίνηση"
+
+#: src/gcodecommands.cpp:41
+msgctxt "QObject|"
+msgid "G3: Controlled Arc Move counterclockwise"
+msgstr "G3: Ελεγχόμενη τοξωτή προς τα αριστερά κίνηση"
+
+#: src/gcodecommands.cpp:43
+msgctxt "QObject|"
+msgid "G4: Dwell"
+msgstr "G4: Αναμονή"
+
+#: src/gcodecommands.cpp:45
+msgctxt "QObject|"
+msgid "G10: Retract"
+msgstr "G10: Ανάσυρση"
+
+#: src/gcodecommands.cpp:47
+msgctxt "QObject|"
+msgid "G11: Unretract"
+msgstr "G11: Επαναφορά"
+
+#: src/gcodecommands.cpp:49
+msgctxt "QObject|"
+msgid "G20: Set units to inches"
+msgstr "G20: Ορισμός μονάδων σε ίντσες"
+
+#: src/gcodecommands.cpp:51
+msgctxt "QObject|"
+msgid "G21: Set units to millimeters"
+msgstr "G21: Ορισμός μονάδων σε χιλιοστά"
+
+#: src/gcodecommands.cpp:53
+msgctxt "QObject|"
+msgid "G28: Move to Origin Home"
+msgstr "G28: Μετακίνηση στην αρχική θέση"
+
+#: src/gcodecommands.cpp:55
+msgctxt "QObject|"
+msgid "G29: Detailed Z-Probe"
+msgstr "G29: Λεπτομερής υψομετρική διερεύνηση"
+
+#: src/gcodecommands.cpp:57
+msgctxt "QObject|"
+msgid "G30: Single Z-Probe"
+msgstr "G30: Απλή υψομετρική διερεύνηση"
+
+#: src/gcodecommands.cpp:59
+msgctxt "QObject|"
+msgid "G31: Set or report current probe status / Dock Z Probe sled for Marlin"
+msgstr ""
+"G31: Ορισμός ή αναφορά τρέχουσας κατάστασης διερεύνησης / Σταθεροποίηση "
+"μεταφορέα υψομετρικής διερεύνησης για το Marlin"
+
+#: src/gcodecommands.cpp:61
+msgctxt "QObject|"
+msgid ""
+"G32: Probe Z and calculate Z plane(Bed Leveling)/ UnDoc Z Probe sled for "
+"Marlin"
+msgstr ""
+"G32: Διερεύνηση ύψους και υπολογισμός επιπέδου Ζ (ανύψωση επιφανείας)/ "
+"Ελευθέρωση μεταφορέα υψομετρικής διερεύνησης για το Marlin"
+
+#: src/gcodecommands.cpp:63
+msgctxt "QObject|"
+msgid "G33: Measure/List/Adjust Distortion Matrix"
+msgstr "G33: Μέτρηση/Εμφάνιση/Προσαρμογή μήτρας παραμορφώσεων"
+
+#: src/gcodecommands.cpp:65
+msgctxt "QObject|"
+msgid "G90: Set to absolute positioning"
+msgstr "G90: Ρύθμιση σε απόλυτη θέση"
+
+#: src/gcodecommands.cpp:67
+msgctxt "QObject|"
+msgid "G91: Set to relative positioning"
+msgstr "G91: Ρύθμιση σε σχετική θέση"
+
+#: src/gcodecommands.cpp:69
+msgctxt "QObject|"
+msgid "G92: Set position"
+msgstr "G92: Ρύθμιση θέσης"
+
+#: src/gcodecommands.cpp:71
+msgctxt "QObject|"
+msgid "G100: Calibrate floor or rod radius"
+msgstr "G100: Υπολογισμός δαπέδου ή ακτίνας ράβδου"
+
+#: src/gcodecommands.cpp:73
+msgctxt "QObject|"
+msgid "G130: Set digital potentiometer value"
+msgstr "G130: Ορισμός τιμής ψηφιακού ποτενσιόμετρου"
+
+#: src/gcodecommands.cpp:75
+msgctxt "QObject|"
+msgid "G131: Recase Move offset"
+msgstr "G131: Αφαίρεση μετατόπισης"
+
+#: src/gcodecommands.cpp:77
+msgctxt "QObject|"
+msgid "G132: Calibrate endstops offsets"
+msgstr "G132: Βαθμονόνηση μετατοπίσεων τελικών σημείων"
+
+#: src/gcodecommands.cpp:79
+msgctxt "QObject|"
+msgid "G133: Measure steps to top"
+msgstr "G133: Μέτρηση βημάτων προς κορυφή"
+
+#: src/gcodecommands.cpp:81
+msgctxt "QObject|"
+msgid "G161: Home axis to minimum"
+msgstr "G161: Αρχικός άξονας στο ελάχιστο"
+
+#: src/gcodecommands.cpp:83
+msgctxt "QObject|"
+msgid "G162: Home axis to maximum"
+msgstr "G162: Αρχικός άξονας στο μέγιστο"
+
+#: src/gcodecommands.cpp:85
+msgctxt "QObject|"
+msgid "GCommand not supported!"
+msgstr "Η G-εντολή δεν υποστηρίζεται!"
+
+#: src/gcodecommands.cpp:117 src/gcodecommands.cpp:499
+msgctxt "QObject|"
+msgid "Not implemented or not supported!"
+msgstr "Δεν έχει εφαρμοστεί ή δεν υποστηρίζεται!"
+
+#: src/gcodecommands.cpp:125
+msgctxt "QObject|"
+msgid "M0: Stop or unconditional stop"
+msgstr "M0: Άμεση διακοπή"
+
+#: src/gcodecommands.cpp:127
+msgctxt "QObject|"
+msgid "M1: Sleep or unconditional stop"
+msgstr "M1: Ύπνωση ή υπό συνθήκη διακοπή"
+
+#: src/gcodecommands.cpp:129
+msgctxt "QObject|"
+msgid "M2: Program End"
+msgstr "M2: τέλος προγράμματος"
+
+#: src/gcodecommands.cpp:131
+msgctxt "QObject|"
+msgid "M6: Tool Change"
+msgstr "M6: Αλλαγή εργαλείου"
+
+#: src/gcodecommands.cpp:133
+msgctxt "QObject|"
+msgid "M17: Enable/power all steppers motors"
+msgstr "M17: Ενεργοποίηση όλων των βηματικών κινητήρων"
+
+#: src/gcodecommands.cpp:135
+msgctxt "QObject|"
+msgid "M18: Disable all steppers motors"
+msgstr "M18: Απενεργοποίηση όλων των βηματικών κινητήρων"
+
+#: src/gcodecommands.cpp:137
+msgctxt "QObject|"
+msgid "M20: List SDCard"
+msgstr "M20: Αρχεία SDCard"
+
+#: src/gcodecommands.cpp:139
+msgctxt "QObject|"
+msgid "M21: Initialize SDCard"
+msgstr "M21: Αρχικοποίηση SDCard"
+
+#: src/gcodecommands.cpp:141
+msgctxt "QObject|"
+msgid "M22: Release SDCard"
+msgstr "M22: Απελευθέρωση SDCard"
+
+#: src/gcodecommands.cpp:143
+msgctxt "QObject|"
+msgid "M23: Select SD file"
+msgstr "M23: Επιλογή SD αρχείου"
+
+#: src/gcodecommands.cpp:145
+msgctxt "QObject|"
+msgid "M24: Start/resume SD print"
+msgstr "M24: Έναρξη/συνέχεια SD εκτύπωσης"
+
+#: src/gcodecommands.cpp:147
+msgctxt "QObject|"
+msgid "M25: Pause SD print"
+msgstr "M25: Παύση SD εκτύπωσης"
+
+#: src/gcodecommands.cpp:149
+msgctxt "QObject|"
+msgid "M26: Set SD position"
+msgstr "M26: Ρύθμιση SD θέσης"
+
+#: src/gcodecommands.cpp:151
+msgctxt "QObject|"
+msgid "M27: Report SD print status"
+msgstr "M27: Αναφορά κατάστασης εκτύπωσης SD"
+
+#: src/gcodecommands.cpp:153
+msgctxt "QObject|"
+msgid "M28: Begin write to SD card"
+msgstr "M28: Έναρξη εγγραφής στην SD κάρτα"
+
+#: src/gcodecommands.cpp:155
+msgctxt "QObject|"
+msgid "M29: Stop writing to SD card"
+msgstr "M29: Διακοπή εγγραφής στην SD κάρτα"
+
+#: src/gcodecommands.cpp:157
+msgctxt "QObject|"
+msgid "M30: Delete a file on the SD card"
+msgstr "M30: Διαγραφή αρχείου από την SD κάρτα"
+
+#: src/gcodecommands.cpp:159
+msgctxt "QObject|"
+msgid "M31: Output time since last M109 or SD card start to serial"
+msgstr "M31: Χρόνος από την τελευταία M109 ή την έναρξη SD κάρτας σε σειραϊκό"
+
+#: src/gcodecommands.cpp:161
+msgctxt "QObject|"
+msgid "M32: Select file and start SD print"
+msgstr "M32: Επιλογή αρχείου και έναρξη SD εκτύπωσης"
+
+#: src/gcodecommands.cpp:163
+msgctxt "QObject|"
+msgid "M33: Get the long name for an SD card file or folder"
+msgstr "M33: Ανάκτηση πλήρους ονόματος αρχείου ή φακέλου σε SD κάρτα"
+
+#: src/gcodecommands.cpp:165
+msgctxt "QObject|"
+msgid "M34: Set SD file sorting options"
+msgstr "M34: Ρύθμιση επιλογών ταξινόμησης σε SD αρχεία"
+
+#: src/gcodecommands.cpp:167
+msgctxt "QObject|"
+msgid "M36: Return file information"
+msgstr "M36: Επιστροφή πληροφοριών αρχείου"
+
+#: src/gcodecommands.cpp:169
+msgctxt "QObject|"
+msgid "M42: Switch I/O pin"
+msgstr "M42: Εναλλαγή ακροδέκτη Ι/Ο"
+
+#: src/gcodecommands.cpp:171
+msgctxt "QObject|"
+msgid "M48: Measure Z-Probe repeatability"
+msgstr "M48: Μέτρηση επαναληψιμότητας υψομετρικής διερεύνησης"
+
+#: src/gcodecommands.cpp:173
+msgctxt "QObject|"
+msgid "M70: Display message"
+msgstr "M70: εμφάνιση μηνύματος"
+
+#: src/gcodecommands.cpp:175
+msgctxt "QObject|"
+msgid "M72: Play a tone or song"
+msgstr "M72: Αναπαραγωγή τόνου ή τραγουδιού"
+
+#: src/gcodecommands.cpp:177
+msgctxt "QObject|"
+msgid "M73: Set build percentage"
+msgstr "M73: Ρύθμιση ποσοστού κατασκευής"
+
+#: src/gcodecommands.cpp:179
+msgctxt "QObject|"
+msgid "M80: ATX Power On"
+msgstr "M80: ATX Power On"
+
+#: src/gcodecommands.cpp:181
+msgctxt "QObject|"
+msgid "M81: ATX Power Off"
+msgstr "M81: ATX Power Off"
+
+#: src/gcodecommands.cpp:183
+msgctxt "QObject|"
+msgid "M82: Set extruder to absolute mode"
+msgstr "M82: Ρύθμιση εξωθητήρα σε απόλυτη λειτουργία"
+
+#: src/gcodecommands.cpp:185
+msgctxt "QObject|"
+msgid "M83: Set extruder to relative mode"
+msgstr "M83: Ρύθμιση εξωθητήρα σε σχετική λειτουργία"
+
+#: src/gcodecommands.cpp:187
+msgctxt "QObject|"
+msgid "M84: Stop idle hold"
+msgstr "M84: Διακοπή αδράνεια αναμονή"
+
+#: src/gcodecommands.cpp:189
+msgctxt "QObject|"
+msgid "M85: Set Inactivity shutdown timer"
+msgstr "M85: Ρύθμιση χρονομέτρου τερματισμού από αδράνεια"
+
+#: src/gcodecommands.cpp:191
+msgctxt "QObject|"
+msgid "M92: Set axis steps per unit"
+msgstr "M92: Ρύθμιση βημάτων άξονα ανά μονάδα"
+
+#: src/gcodecommands.cpp:193
+msgctxt "QObject|"
+msgid "M93: Send axis steps per unit"
+msgstr "M93: Αποστολή βημάτων άξονα ανά μονάδα"
+
+#: src/gcodecommands.cpp:195
+msgctxt "QObject|"
+msgid "M98: Call Macro/Subprogram"
+msgstr "M98: Κλήση μακροεντολής/υποπρογράμματος"
+
+#: src/gcodecommands.cpp:197
+msgctxt "QObject|"
+msgid "M99: Return from Macro/Subprogram"
+msgstr "M99: Επιστροφή από μακροεντολή/υποπρόγραμμα"
+
+#: src/gcodecommands.cpp:199
+msgctxt "QObject|"
+msgid "M101: Turn extruder 1 on Forward, Undo Retraction"
+msgstr "M101: Ρύθμιση εξωθητή 1 on Forward, αναίρεση ανάσυρσης"
+
+#: src/gcodecommands.cpp:201
+msgctxt "QObject|"
+msgid "M103: Turn all extruders off - Extruder Retraction"
+msgstr "M103: Ρύθμιση όλων των εξωθητών σε off - Ανάσυρση εξωθητή"
+
+#: src/gcodecommands.cpp:203
+msgctxt "QObject|"
+msgid "M104: Set Extruder Temperature"
+msgstr "M104: Ρύθμιση θερμοκρασίας εξωθητήρα"
+
+#: src/gcodecommands.cpp:205
+msgctxt "QObject|"
+msgid "M105: Get Extruder Temperature"
+msgstr "M105: Ανάκτηση θερμοκρασίας εξωθητήρα"
+
+#: src/gcodecommands.cpp:207
+msgctxt "QObject|"
+msgid "M106: Fan On"
+msgstr "M106: Ανεμιστήρας On"
+
+#: src/gcodecommands.cpp:209
+msgctxt "QObject|"
+msgid "M107: Fan Off"
+msgstr "M107: Ανεμιστήρας Off"
+
+#: src/gcodecommands.cpp:211
+msgctxt "QObject|"
+msgid "M108: Cancel Heating"
+msgstr "M108: Ακύρωση υψηλής θερμοκρασίας"
+
+#: src/gcodecommands.cpp:213
+msgctxt "QObject|"
+msgid "M109: Set Extruder Temperature and Wait"
+msgstr "M109: Ρύθμιση θερμοκρασίας εξωθητήρσ και αναμονή"
+
+#: src/gcodecommands.cpp:215
+msgctxt "QObject|"
+msgid "M110: Set Current Line Number"
+msgstr "M110: Ορισμός αριθμού τρέχουσας γραμμής"
+
+#: src/gcodecommands.cpp:217
+msgctxt "QObject|"
+msgid "M111: Set Debug Level"
+msgstr "M111: Ρύθμιση επιπέδου διόρθωσης σφαλμάτων"
+
+#: src/gcodecommands.cpp:219
+msgctxt "QObject|"
+msgid "M112: Emergency Stop"
+msgstr "M112: Επείγουσα διακοπή"
+
+#: src/gcodecommands.cpp:221
+msgctxt "QObject|"
+msgid "M114: Get Current Position"
+msgstr "M114: Ανάκτηση τρέχουσας θέσης"
+
+#: src/gcodecommands.cpp:223
+msgctxt "QObject|"
+msgid "M115: Get Firmware Version and Capabilities"
+msgstr "M115: Ανάκτηση έκδοσης υλικολογισμικού και δυνατότητες"
+
+#: src/gcodecommands.cpp:225
+msgctxt "QObject|"
+msgid "M116: Wait"
+msgstr "M116: Αναμονή"
+
+#: src/gcodecommands.cpp:227
+msgctxt "QObject|"
+msgid "M117: Display Message"
+msgstr "M117: Εμφάνιση μηνύματος"
+
+#: src/gcodecommands.cpp:229
+msgctxt "QObject|"
+msgid "M119: Get Endstop Status"
+msgstr "M119: Ανάκτηση κατάστασης τελικού σημείου"
+
+#: src/gcodecommands.cpp:231
+msgctxt "QObject|"
+msgid ""
+"M120: Push for Smoothie and RepRap Firmware / Enable Endstop detection for "
+"Marlin"
+msgstr ""
+"M120: Ορισμός κατάστασης υλικολογισμικού για Smoothie και RepRap / "
+"Ενεργοποίηση αναγνώρισης τελικών σημείων για το Marlin"
+
+#: src/gcodecommands.cpp:233
+msgctxt "QObject|"
+msgid ""
+"M121: Pop for Smoothie and RepRap Firmware / Disable Endstop detection for "
+"Marlin"
+msgstr ""
+"M121: Ανάκτηση κατάστασης υλικολογισμικού για Smoothie και RepRap / "
+"Απενεργοποίηση αναγνώρισης τελικών σημείων για το Marlin"
+
+#: src/gcodecommands.cpp:235
+msgctxt "QObject|"
+msgid "M122: Diagnose"
+msgstr "M122: Διάγνωση"
+
+#: src/gcodecommands.cpp:237
+msgctxt "QObject|"
+msgid "M126: Open valve"
+msgstr "M126: Άνοιγμα τιμής"
+
+#: src/gcodecommands.cpp:239
+msgctxt "QObject|"
+msgid "M127: Close valve"
+msgstr "M127: Κλείσιμο τιμής"
+
+#: src/gcodecommands.cpp:241
+msgctxt "QObject|"
+msgid "M130: Set PID P value"
+msgstr "M130: Ρύθμιση PID P τιμής"
+
+#: src/gcodecommands.cpp:243
+msgctxt "QObject|"
+msgid "M131: Set PID I value"
+msgstr "M131: Ρύθμιση PID I τιμής"
+
+#: src/gcodecommands.cpp:245
+msgctxt "QObject|"
+msgid "M132: Set PID D value"
+msgstr "M132: Ρύθμιση PID D τιμής"
+
+#: src/gcodecommands.cpp:247
+msgctxt "QObject|"
+msgid "M133: Set PID I limit value"
+msgstr "M131: Ρύθμιση PID I τιμής ορίου"
+
+#: src/gcodecommands.cpp:249
+msgctxt "QObject|"
+msgid "M134: Write PID values to EEPROM"
+msgstr "M134: Εγγραφή PID τιμών στην EEPROM"
+
+#: src/gcodecommands.cpp:251
+msgctxt "QObject|"
+msgid "M135: Set PID sample interval"
+msgstr "M135: Ρύθμιση διαστήματος PID δείγματος"
+
+#: src/gcodecommands.cpp:253
+msgctxt "QObject|"
+msgid "M140: Set Bed Temperature - Fast"
+msgstr "M140: Ρύθμιση θερμοκρασίας επιφανείας - γρήγορη"
+
+#: src/gcodecommands.cpp:255
+msgctxt "QObject|"
+msgid "M141: Set Chamber Temperature - Fast"
+msgstr "M141: Ρύθμιση θερμοκρασίας θαλάμου - γρήγορη"
+
+#: src/gcodecommands.cpp:257
+msgctxt "QObject|"
+msgid "M143: Maximum hot-end temperature"
+msgstr "M143: Μέγιστη θερμοκρασία"
+
+#: src/gcodecommands.cpp:259
+msgctxt "QObject|"
+msgid "M144: Stand by your bed"
+msgstr "M144: Ρύθμιση θερμοκρασίας επιφανείας σε κατάσταση αναμονής"
+
+#: src/gcodecommands.cpp:261
+msgctxt "QObject|"
+msgid "M150: Set display color"
+msgstr "M150: Ρύθμιση χρώματος οθόνης"
+
+#: src/gcodecommands.cpp:263
+msgctxt "QObject|"
+msgid "M163: Set weight of mixed material"
+msgstr "M163: Ρύθμιση βάρους εξωθητήρα"
+
+#: src/gcodecommands.cpp:265
+msgctxt "QObject|"
+msgid "M164: Store weights"
+msgstr "M164: Αποθήκευση βαρών"
+
+#: src/gcodecommands.cpp:267
+msgctxt "QObject|"
+msgid "M190: Wait for bed temperature to reach target temp"
+msgstr "M190: Αναμονή για να φθάσει η θερμοκρασία επιφανείας την επιθυμητή"
+
+#: src/gcodecommands.cpp:269
+msgctxt "QObject|"
+msgid "M200: Set filament diameter"
+msgstr "M200: Ρύθμιση διαμέτρου νήματος"
+
+#: src/gcodecommands.cpp:271
+msgctxt "QObject|"
+msgid "M201: Set max printing acceleration"
+msgstr "M201: Ρύθμιση μέγιστης επιτάχυνσης εκτύπωσης"
+
+#: src/gcodecommands.cpp:273
+msgctxt "QObject|"
+msgid "M202: Set max travel acceleration"
+msgstr "M202: Ρύθμιση μέγιστης επιτάχυνσης διαδρομής"
+
+#: src/gcodecommands.cpp:275
+msgctxt "QObject|"
+msgid "M203: Set maximum feedrate"
+msgstr "M203: ρύθμιση μέγιστου ρυθμού τροφοδοσίας"
+
+#: src/gcodecommands.cpp:277
+msgctxt "QObject|"
+msgid "M204: Set default acceleration"
+msgstr "M204: Ρύθμιση προκαθορισμένης επιτάχυνσης"
+
+#: src/gcodecommands.cpp:279
+msgctxt "QObject|"
+msgid "M205: Advanced settings"
+msgstr "M205: Προηγμένες ρυθμίσεις"
+
+#: src/gcodecommands.cpp:281
+msgctxt "QObject|"
+msgid ""
+"M206: Offset axes for Sprinter, Marlin, Smoothie, RepRap Firmware / Set "
+"eeprom value for Repetier"
+msgstr ""
+"M206: Άξονες μετατόπισης για υλικολογισμικό Sprinter, Marlin, Smoothie, "
+"RepRap / Ρύθμιση τιμής eeprom για Repetier"
+
+#: src/gcodecommands.cpp:283
+msgctxt "QObject|"
+msgid "M207: Set retract length"
+msgstr "M207: Ρύθμιση μήκους ανάσυρσης"
+
+#: src/gcodecommands.cpp:285
+msgctxt "QObject|"
+msgid "M208: Set unretract length"
+msgstr "M208: Ρύθμιση μήκους επαναφοράς"
+
+#: src/gcodecommands.cpp:287
+msgctxt "QObject|"
+msgid "M209: Enable automatic retract"
+msgstr "M209: Ενεργοποίηση αυτόματης ανάσυρσης"
+
+#: src/gcodecommands.cpp:289
+msgctxt "QObject|"
+msgid "M212: Set Bed Level Sensor Offset"
+msgstr "M212: Ρύθμιση μετατόπισης αισθητήρα επιπέδου επιφανείας"
+
+#: src/gcodecommands.cpp:291
+msgctxt "QObject|"
+msgid "M218: Set Hotend Offset"
+msgstr "M218: Ρύθμιση μετατόπισης θερμού τελικού σημείου"
+
+#: src/gcodecommands.cpp:293
+msgctxt "QObject|"
+msgid "M220: Set speed factor override percentage"
+msgstr "M220: Ρύθμιση παράγοντα ταχύτητας αντί του ποσοστού"
+
+#: src/gcodecommands.cpp:295
+msgctxt "QObject|"
+msgid "M221: Set extrude factor override percentage"
+msgstr "M221: Ρύθμιση παράγοντα εξώθησης αντί του ποσοστού"
+
+#: src/gcodecommands.cpp:297
+msgctxt "QObject|"
+msgid "M226: Wait for pin state"
+msgstr "M226: Αναμονή για κατάσταση ακροδέκτη"
+
+#: src/gcodecommands.cpp:299
+msgctxt "QObject|"
+msgid "M231: Set OPS parameter"
+msgstr "M231: Ρύθμιση OPS παραμέτρου"
+
+#: src/gcodecommands.cpp:301
+msgctxt "QObject|"
+msgid "M232: Read and reset max. advance values"
+msgstr "M232: Ανάγνωση και επαναφορά μέγιστων τιμών"
+
+#: src/gcodecommands.cpp:303
+msgctxt "QObject|"
+msgid "M240: Trigger camera"
+msgstr "M240: Ενεργοποίηση φωτογραφικής μηχανής"
+
+#: src/gcodecommands.cpp:305
+msgctxt "QObject|"
+msgid "M250: Set LCD contrast"
+msgstr "M250: Ρύθμιση LCD αντίθεσης"
+
+#: src/gcodecommands.cpp:307
+msgctxt "QObject|"
+msgid "M251: Measure Z steps from homing stop (Delta printers)"
+msgstr "M251: Μέτρηση Z βημάτων από αρχική θέση για διακοπή (Delta εκτυπωτές)"
+
+#: src/gcodecommands.cpp:309
+msgctxt "QObject|"
+msgid "M280: Set servo position"
+msgstr "M280: Ρύθμιση θεσης σερβοκινητήρα"
+
+#: src/gcodecommands.cpp:311
+msgctxt "QObject|"
+msgid "M300: Play beep sound"
+msgstr "M300: Αναπαραγωγή σύντομου ήχου"
+
+#: src/gcodecommands.cpp:313
+msgctxt "QObject|"
+msgid "M301: Set PID parameters"
+msgstr "M301: Ρύθμιση PID παραμέτρων"
+
+#: src/gcodecommands.cpp:315
+msgctxt "QObject|"
+msgid "M302: Allow cold extrudes "
+msgstr "M302: Να επιτρέπονται κρύες εξωθήσεις "
+
+#: src/gcodecommands.cpp:317
+msgctxt "QObject|"
+msgid "M303: Run PID tuning"
+msgstr "M303: Εκτέλεση συντονισμού PID"
+
+#: src/gcodecommands.cpp:319
+msgctxt "QObject|"
+msgid "M304: Set PID parameters - Bed"
+msgstr "M304: Ρύθμιση PID παραμέτρων - επιφάνεια"
+
+#: src/gcodecommands.cpp:321
+msgctxt "QObject|"
+msgid "M305: Set thermistor and ADC parameters"
+msgstr "M305: Ρύθμιση θερμίστορ και ADC παραμέτρων"
+
+#: src/gcodecommands.cpp:323
+msgctxt "QObject|"
+msgid "M306: set home offset calculated from toolhead position"
+msgstr ""
+"M306: ρύθμιση μετατόπισης αρχικής θέσης υπολογισμένης από τη θέση της κεφαλής"
+
+#: src/gcodecommands.cpp:325
+msgctxt "QObject|"
+msgid "M320: Activate autolevel (Repetier)"
+msgstr "M320: Ενεργοποίηση αυτοματισμού επιπέδου (Repetier)"
+
+#: src/gcodecommands.cpp:327
+msgctxt "QObject|"
+msgid "M321: Deactivate autolevel (Repetier)"
+msgstr "M321: Απενεργοποίηση αυτοματισμού επιπέδου (Repetier)"
+
+#: src/gcodecommands.cpp:329
+msgctxt "QObject|"
+msgid "M322: Reset autolevel matrix (Repetier)"
+msgstr "M322: Επαναφορά μήτρας αυτοματισμού επιπέδου (Repetier)"
+
+#: src/gcodecommands.cpp:331
+msgctxt "QObject|"
+msgid "M323: Distortion correction on/off (Repetier)"
+msgstr "M323: Διόρθωση παραμόρφωσης on/off (Repetier)"
+
+#: src/gcodecommands.cpp:333
+msgctxt "QObject|"
+msgid "M340: Control the servos"
+msgstr "M340: Έλεγχος σερβοκινητήρων"
+
+#: src/gcodecommands.cpp:335
+msgctxt "QObject|"
+msgid "M350: Set microstepping mode"
+msgstr "M350: Ορισμός λειτουργίας μικροβηματισμού"
+
+#: src/gcodecommands.cpp:337
+msgctxt "QObject|"
+msgid "M351: Toggle MS1 MS2 pins directly"
+msgstr "M351: Άμεση εναλλαγή MS1 MS2 ακροδεκτών"
+
+#: src/gcodecommands.cpp:339
+msgctxt "QObject|"
+msgid "M355: Turn case lights on/off"
+msgstr "M355: Ρύθμιση φωτισμού on/off"
+
+#: src/gcodecommands.cpp:341
+msgctxt "QObject|"
+msgid "M360: Report firmware configuration"
+msgstr "M360: Αναφορά διαμόρφωσης υλικολογισμικού"
+
+#: src/gcodecommands.cpp:343
+msgctxt "QObject|"
+msgid "M361: Move to Theta 90 degree position"
+msgstr "M361: Μετακίνηση σε θέση Theta 90 μοίρες"
+
+#: src/gcodecommands.cpp:345
+msgctxt "QObject|"
+msgid "M362: Move to Psi 0 degree position"
+msgstr "M362: Μετακίνηση σε θέση Psi 0 μοίρες"
+
+#: src/gcodecommands.cpp:347
+msgctxt "QObject|"
+msgid "M363: Move to Psi 90 degree position"
+msgstr "M363: Μετακίνηση σε θέση Psi 90 μοίρες"
+
+#: src/gcodecommands.cpp:349
+msgctxt "QObject|"
+msgid "M364: Move to Psi + Theta 90 degree position"
+msgstr "M363: Μετακίνηση σε θέση Psi + Theta 90 μοίρες"
+
+#: src/gcodecommands.cpp:351
+msgctxt "QObject|"
+msgid "M365: SCARA scaling factor"
+msgstr "M365: SCARA παράγοντας διαβάθμισης"
+
+#: src/gcodecommands.cpp:353
+msgctxt "QObject|"
+msgid "M366: SCARA convert trim"
+msgstr "M366: SCARA μετατροπή θρυμμάτισμα"
+
+#: src/gcodecommands.cpp:355
+msgctxt "QObject|"
+msgid "M370: Morgan manual bed level - clear map"
+msgstr "M370: Morgan χειροκίνητο επίπεδο επιφανείας - καθαρισμος χάρτη"
+
+#: src/gcodecommands.cpp:357
+msgctxt "QObject|"
+msgid "M371: Move to next calibration position"
+msgstr "M371: Μετακίνηση σε επόμενη θέση βαθμονόμησης"
+
+#: src/gcodecommands.cpp:359
+msgctxt "QObject|"
+msgid "M372: Record calibration value, and move to next position"
+msgstr "M372: Εγγραφή τιμής βαθμονόμησης και μετακίνηση σε επόμενη θέση"
+
+#: src/gcodecommands.cpp:361
+msgctxt "QObject|"
+msgid "M373: End bed level calibration mode"
+msgstr "M373: Τέλος λειτουργίας βαθμονόμησης επιπέδου επιφανείας"
+
+#: src/gcodecommands.cpp:363
+msgctxt "QObject|"
+msgid "M374: Save calibration grid"
+msgstr "M374: Αποθήκευση πλέγματος βαθμονόμησης"
+
+#: src/gcodecommands.cpp:365
+msgctxt "QObject|"
+msgid "M375: Display matrix / Load Matrix"
+msgstr "M375: Εμφάνιση μήτρας / Φόρτωση μήτρας"
+
+#: src/gcodecommands.cpp:367
+msgctxt "QObject|"
+msgid "M380: Activate solenoid"
+msgstr "M380: Ενεργοποίηση ηλεκτρομαγνητικής βαλβίδας"
+
+#: src/gcodecommands.cpp:369
+msgctxt "QObject|"
+msgid "M381: Disable all solenoids"
+msgstr "M381: Απενεργοποίηση όλων των ηλεκτρομαγνητικών βαλβίδων"
+
+#: src/gcodecommands.cpp:371
+msgctxt "QObject|"
+msgid "M400: Wait for current moves to finish"
+msgstr "M400: Αναμονή ολοκλήρωσης όλων των τρεχοθσών κινήσεων"
+
+#: src/gcodecommands.cpp:373
+msgctxt "QObject|"
+msgid "M401: Lower z-probe"
+msgstr "M401: Βύθιση υψομετρικού z-probe"
+
+#: src/gcodecommands.cpp:375
+msgctxt "QObject|"
+msgid "M402: Raise z-probe"
+msgstr "M402: Ανύψωση υψομετρικού z-probe"
+
+#: src/gcodecommands.cpp:377
+msgctxt "QObject|"
+msgid "M404: Filament width and nozzle diameter"
+msgstr "M404: πλάτος νήματος και διάμετρος στομίου"
+
+#: src/gcodecommands.cpp:379
+msgctxt "QObject|"
+msgid "M405: Filament Sensor on"
+msgstr "M405: αισθητήρας νήματος on"
+
+#: src/gcodecommands.cpp:381
+msgctxt "QObject|"
+msgid "M406: Filament Sensor off"
+msgstr "M405: αισθητήρας νήματος off"
+
+#: src/gcodecommands.cpp:383
+msgctxt "QObject|"
+msgid "M407: Display filament diameter"
+msgstr "M407: Εμφάνιση διαμέτρου νήματος"
+
+#: src/gcodecommands.cpp:385
+msgctxt "QObject|"
+msgid "M408: Report JSON-style response"
+msgstr "M408: Αναφορά σε JSON"
+
+#: src/gcodecommands.cpp:387
+msgctxt "QObject|"
+msgid "M420: Enable/Disable Mesh Leveling (Marlin)"
+msgstr "M420: (Απ)ενεργοποίηση ρύθμισης επιπέδου με πλέγμα (Marlin)"
+
+#: src/gcodecommands.cpp:389
+msgctxt "QObject|"
+msgid "M450: Report Printer Mode"
+msgstr "M450: Αναφορά λειτουργίας εκτυπωτή"
+
+#: src/gcodecommands.cpp:391
+msgctxt "QObject|"
+msgid "M451: Select FFF Printer Mode"
+msgstr "M451: Επιλογή FFF λειτουργίας εκτυπωτή"
+
+#: src/gcodecommands.cpp:393
+msgctxt "QObject|"
+msgid "M452: Select Laser Printer Mode"
+msgstr "M452: Επιλογή laser λειτουργίας εκτυπωτή"
+
+#: src/gcodecommands.cpp:395
+msgctxt "QObject|"
+msgid "M453: Select CNC Printer Mode"
+msgstr "M453: Επιλογή CMC λειτουργίας εκτυπωτή"
+
+#: src/gcodecommands.cpp:397
+msgctxt "QObject|"
+msgid "M460: Define temperature range for thermistor controlled fan"
+msgstr "M460: Ρύθμιση εύρους θερμοκρασίας για τον ανεμιστήρα του θερμίστορ"
+
+#: src/gcodecommands.cpp:399
+msgctxt "QObject|"
+msgid "M500: Store parameters in EEPROM"
+msgstr "M500: Αποθήκευση παραμέτρων στην EEPROM"
+
+#: src/gcodecommands.cpp:401
+msgctxt "QObject|"
+msgid "M501: Read parameters from EEPROM"
+msgstr "M501: Ανάγνωση παραμέτρων από EEPROM"
+
+#: src/gcodecommands.cpp:403
+msgctxt "QObject|"
+msgid "M502: Revert to the default 'factory settings'."
+msgstr "M502: Επαναφορά στις προκαθορισμένες 'εργοστασιακές ρυθμίσεις'."
+
+#: src/gcodecommands.cpp:405
+msgctxt "QObject|"
+msgid "M503: Print settings "
+msgstr "M503: Ρυθμίσεις εκτύπωσης "
+
+#: src/gcodecommands.cpp:407
+msgctxt "QObject|"
+msgid "M540: Enable/Disable 'Stop SD Print on Endstop Hit'"
+msgstr ""
+"M540: (Απ)ενεργοποίηση 'Διακοπή SD εκτύπωσης σε χτύπημα τελικού σημείου'"
+
+#: src/gcodecommands.cpp:409
+msgctxt "QObject|"
+msgid "M550: Set Name"
+msgstr "M550: Ορισμός ονόματος"
+
+#: src/gcodecommands.cpp:411
+msgctxt "QObject|"
+msgid "M551: Set Password"
+msgstr "M551: Ορισμός κωδικού πρόσβασης"
+
+#: src/gcodecommands.cpp:413
+msgctxt "QObject|"
+msgid "M552: Set IP address"
+msgstr "M552: Ορισμός IP διεύθυνσης"
+
+#: src/gcodecommands.cpp:415
+msgctxt "QObject|"
+msgid "M553: Set Netmask"
+msgstr "M553: Ορισμός μάσκας δικτύου"
+
+#: src/gcodecommands.cpp:417
+msgctxt "QObject|"
+msgid "M554: Set Gateway"
+msgstr "M554: Ορισμός δικτυακής πύλης"
+
+#: src/gcodecommands.cpp:419
+msgctxt "QObject|"
+msgid "M555: Set compatibility"
+msgstr "M555: Ορισμός συμβατότητας"
+
+#: src/gcodecommands.cpp:421
+msgctxt "QObject|"
+msgid "M556: Axis compensation"
+msgstr "M556: Επανόρθωση άξονα"
+
+#: src/gcodecommands.cpp:423
+msgctxt "QObject|"
+msgid "M557: Set Z probe point"
+msgstr "M557: Ορισμός σημείου Z probe"
+
+#: src/gcodecommands.cpp:425
+msgctxt "QObject|"
+msgid "M558: Set Z probe type"
+msgstr "M557: Ορισμός τύπου Z probe"
+
+#: src/gcodecommands.cpp:427
+msgctxt "QObject|"
+msgid "M559: Upload configuration file"
+msgstr "M559: Αποστολή αρχείου διαμόρφωσης"
+
+#: src/gcodecommands.cpp:429
+msgctxt "QObject|"
+msgid "M560: Upload web page file"
+msgstr "M560: Αποστολή αρχείου ιστοσελίδας"
+
+#: src/gcodecommands.cpp:431
+msgctxt "QObject|"
+msgid "M561: Set Identity Transform"
+msgstr "M561: Ρύθμιση μετασχηματισμού ταυτότητας"
+
+#: src/gcodecommands.cpp:433
+msgctxt "QObject|"
+msgid "M562: Reset temperature fault"
+msgstr "M562: Επανόρθωση σφάλματος θερμοκρασίας"
+
+#: src/gcodecommands.cpp:435
+msgctxt "QObject|"
+msgid "M563: Define or remove a tool"
+msgstr "M563: Ρύθμιση ή αφαίρεση εργαλείου"
+
+#: src/gcodecommands.cpp:437
+msgctxt "QObject|"
+msgid "M564: Limit axes"
+msgstr "M564: Περιορισμός αξόνων"
+
+#: src/gcodecommands.cpp:439
+msgctxt "QObject|"
+msgid "M565: Set Z probe offset"
+msgstr "M565: Ορισμός μετατόπισης Z probe"
+
+#: src/gcodecommands.cpp:441
+msgctxt "QObject|"
+msgid "M566: Set allowable instantaneous speed change"
+msgstr "M566: Ρύθμιση επιτρεπτής στιγμιαίας αλλαγής ταχύτητας"
+
+#: src/gcodecommands.cpp:443
+msgctxt "QObject|"
+msgid "M567: Set tool mix ratio"
+msgstr "M567: Ρύθμιση αναλογίας μίγματος εργαλείου"
+
+#: src/gcodecommands.cpp:445
+msgctxt "QObject|"
+msgid "M568: Turn off/on tool mix ratio"
+msgstr "M568: Ρύθμιση off/on αναλογίας μίγματος εργαλείου"
+
+#: src/gcodecommands.cpp:447
+msgctxt "QObject|"
+msgid "M569: Set axis direction and enable values"
+msgstr "M569: Ορισμός κατεύθυνσης αξόνων και ενεργοποίηση τιμών"
+
+#: src/gcodecommands.cpp:449
+msgctxt "QObject|"
+msgid "M570: Set heater timeout"
+msgstr "M570: Ρύθμιση χρονικού ορίου θερμάστρας"
+
+#: src/gcodecommands.cpp:451
+msgctxt "QObject|"
+msgid "M571: Set output on extrude"
+msgstr "M571: Ρύθμιση εξόδου κατά την εξώθηση"
+
+#: src/gcodecommands.cpp:453
+msgctxt "QObject|"
+msgid "M573: Report heater PWM"
+msgstr "M573: Αναφορά PWM θερμάστρας"
+
+#: src/gcodecommands.cpp:455
+msgctxt "QObject|"
+msgid "M574: Set endstop configuration"
+msgstr "M574: Ρύθμιση διαμόρφωσης τελικού σημείου"
+
+#: src/gcodecommands.cpp:457
+msgctxt "QObject|"
+msgid "M575: Set serial comms parameters"
+msgstr "M575: Ρύθμιση παραμέτρων σειραϊκής επικοινωνίας"
+
+#: src/gcodecommands.cpp:459
+msgctxt "QObject|"
+msgid "M577: Wait until endstop is triggered"
+msgstr "M577: Αναμονή μέχρι την ενεργοποίηση τελικού σημείου"
+
+#: src/gcodecommands.cpp:461
+msgctxt "QObject|"
+msgid "M578: Fire inkjet bits"
+msgstr "M578: Ρίψη ψεκασμού μελάνης"
+
+#: src/gcodecommands.cpp:463
+msgctxt "QObject|"
+msgid "M579: Scale Cartesian axes"
+msgstr "M579: Διαβάθμιση καρτεσιανών αξόνων"
+
+#: src/gcodecommands.cpp:465
+msgctxt "QObject|"
+msgid "M580: Select Roland"
+msgstr "M580: Επιλογή Roland"
+
+#: src/gcodecommands.cpp:467
+msgctxt "QObject|"
+msgid "M600: Filament change pause"
+msgstr "M600: Παύση αλλαγής νήματος"
+
+#: src/gcodecommands.cpp:469
+msgctxt "QObject|"
+msgid "M605: Set dual x-carriage movement mode"
+msgstr "M605: Ρύθμιση λειτουργίας κίνησης διπλού εξωθητήρα"
+
+#: src/gcodecommands.cpp:471
+msgctxt "QObject|"
+msgid "M665: Set delta configuration"
+msgstr "M665: Ρύθμιση delta διαμόρφωσης"
+
+#: src/gcodecommands.cpp:473
+msgctxt "QObject|"
+msgid "M666: Set delta endstop adjustment"
+msgstr "M666: Ρύθμιση προσαρμογής delta τελικού σημείου"
+
+#: src/gcodecommands.cpp:475
+msgctxt "QObject|"
+msgid "M667: Select CoreXY mode"
+msgstr "M667: Επιλογή λειτουργίας CoreXY"
+
+#: src/gcodecommands.cpp:477
+msgctxt "QObject|"
+msgid "M851: Set Z-Probe Offset"
+msgstr "M851: Ρύθμιση μετατόπισης Z-Probe"
+
+#: src/gcodecommands.cpp:479
+msgctxt "QObject|"
+msgid "M906: Set motor currents"
+msgstr "M906: Ρύθμιση ρευμάτων κινητήρα"
+
+#: src/gcodecommands.cpp:481
+msgctxt "QObject|"
+msgid "M907: Set digital trimpot motor"
+msgstr "M907: Ρυθμιση κινητήρα με ψηφιακό ποτενσιόμετρο"
+
+#: src/gcodecommands.cpp:483
+msgctxt "QObject|"
+msgid "M908: Control digital trimpot directly"
+msgstr "M908: Άμεσος έλεγχος ψηφιακού ποτενσιόμετρου"
+
+#: src/gcodecommands.cpp:485
+msgctxt "QObject|"
+msgid "M911: Set power monitor threshold voltages"
+msgstr "M911: Ρύθμιση τάσεων κατωφλίου ελεγκτή ισχύος"
+
+#: src/gcodecommands.cpp:487
+msgctxt "QObject|"
+msgid "M912: Set electronics temperature monitor adjustment"
+msgstr "M912: Ρύθμιση προσαρμογής ελεγκτή θερμοκρασίας ηλεκτρονικών"
+
+#: src/gcodecommands.cpp:489
+msgctxt "QObject|"
+msgid "M913: Set motor percentage of normal current"
+msgstr "M913: Ρύθμιση ποσοστού κινητήρα κανονικού ρεύματος"
+
+#: src/gcodecommands.cpp:491
+msgctxt "QObject|"
+msgid "M928: Start SD logging"
+msgstr "M928: Έναρξη καταγραφής SD"
+
+#: src/gcodecommands.cpp:493
+msgctxt "QObject|"
+msgid "M997: Perform in-application firmware update"
+msgstr "M997: Εκτέλεση ενημέρωσης υλικολογισμικού"
+
+#: src/gcodecommands.cpp:495
+msgctxt "QObject|"
+msgid "M998: Request resend of line"
+msgstr "M998: Αίτημα επανάληψης αποστολής γραμμής"
+
+#: src/gcodecommands.cpp:497
+msgctxt "QObject|"
+msgid "M999: Restart after being stopped by error"
+msgstr "M999: Επανεκκίνηση μετά από διακοπή λόγω σφάλματος"
+
+#: src/gcodecommands.cpp:520
+msgctxt "QObject|"
+msgid "ERROR! M104: It's obligatory to have an argument"
+msgstr "ΣΦΑΛΜΑ! M104: Το όρισμα είναι υποχρεωτικό"
+
+#: src/gcodecommands.cpp:539
+msgctxt "QObject|"
+msgid "ERROR! M109: It's obligatory to have an argument"
+msgstr "ΣΦΑΛΜΑ! M109: Το όρισμα είναι υποχρεωτικό"
+
+#: src/gcodecommands.cpp:553
+msgctxt "QObject|"
+msgid "ERROR! M117: It's obligatory to have an argument"
+msgstr "ΣΦΑΛΜΑ! M117: Το όρισμα είναι υποχρεωτικό"
+
+#: src/gcodecommands.cpp:561
+msgctxt "QObject|"
+msgid "ERROR! M140: It's obligatory to have an argument"
+msgstr "ΣΦΑΛΜΑ! M140: Το όρισμα είναι υποχρεωτικό"
+
+#: src/gcodecommands.cpp:567
+msgctxt "QObject|"
+msgid "ERROR! M190: It's obligatory to have an argument"
+msgstr "ΣΦΑΛΜΑ! M190: Το όρισμα είναι υποχρεωτικό"
+
+#: src/gcodecommands.cpp:573
+msgctxt "QObject|"
+msgid "ERROR! M220: It's obligatory to have an argument"
+msgstr "ΣΦΑΛΜΑ! M220: Το όρισμα είναι υποχρεωτικό"
+
+#: src/gcodecommands.cpp:579
+msgctxt "QObject|"
+msgid "ERROR! M221: It's obligatory to have an argument"
+msgstr "ΣΦΑΛΜΑ! M221: Το όρισμα είναι υποχρεωτικό"
+
+#: src/gcodecommands.cpp:582
+msgctxt "QObject|"
+msgid "Not supported or implemented!"
+msgstr "Δεν υποστηρίζεται ή δεν έχει εφαρμοστεί!"
+
+#: testclient/mainwindow.cpp:55 testclient/mainwindow.cpp:297
+#: testclient/mainwindow.cpp:430
+msgctxt "MainWindow|"
+msgid "Autodetect"
+msgstr "Αυτόματη αναγνώριση"
+
+#: testclient/mainwindow.cpp:61
+msgctxt "MainWindow|"
+msgid "Attempting to locate Serial Ports"
+msgstr "Σε προσπάθεια ανεύρεσης σειραϊκών θυρών"
+
+#: testclient/mainwindow.cpp:108
+msgctxt "MainWindow|"
+msgid "Actual Bed"
+msgstr "Πραγματική επιφάνεια"
+
+#: testclient/mainwindow.cpp:113
+msgctxt "MainWindow|"
+msgid "Target Bed"
+msgstr "επιθυμητή επιφάνεια"
+
+#: testclient/mainwindow.cpp:118
+msgctxt "MainWindow|"
+msgid "Actual Ext.1"
+msgstr "Πραγματικό Ext.1"
+
+#: testclient/mainwindow.cpp:123
+msgctxt "MainWindow|"
+msgid "Target Ext.1"
+msgstr "Επιθυμητό Ext.1"
+
+#: testclient/mainwindow.cpp:279
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Found %1 Ports"
+msgstr "Βρέθηκαν %1 μέρη"
+
+#: testclient/mainwindow.cpp:281
+msgctxt "MainWindow|"
+msgid "No available ports! Please connect a serial device to continue!"
+msgstr "Χωρίς διαθέσιμα μέρη! Συνδέστε μια σειραϊκή συσκευή για να συνεχίσετε!"
+
+#: testclient/mainwindow.cpp:294
+msgctxt "MainWindow|"
+msgid "Serial connected"
+msgstr "Σειραϊκή συνδέθηκε"
+
+#: testclient/mainwindow.cpp:295
+msgctxt "MainWindow|"
+msgid "Disconnect"
+msgstr "Αποσύνδεση"
+
+#: testclient/mainwindow.cpp:298
+msgctxt "MainWindow|"
+msgid "No plugin loaded !"
+msgstr "Δεν φορτώθηκε πρόσθετο !"
+
+#: testclient/mainwindow.cpp:299
+msgctxt "MainWindow|"
+msgid "Requesting Firmware..."
+msgstr "Αίτημα για υλικολογισμικό..."
+
+#: testclient/mainwindow.cpp:308
+msgctxt "MainWindow|"
+msgid "Disconnected"
+msgstr "Αποσυνδεδεμένο"
+
+#: testclient/mainwindow.cpp:309
+msgctxt "MainWindow|"
+msgid "Connect"
+msgstr "Σύνδεση"
+
+#: testclient/mainwindow.cpp:322
+msgctxt "MainWindow|"
+msgid "Home All"
+msgstr "Αρχική όλα"
+
+#: testclient/mainwindow.cpp:328
+msgctxt "MainWindow|"
+msgid "Home X"
+msgstr "Αρχική X"
+
+#: testclient/mainwindow.cpp:334
+msgctxt "MainWindow|"
+msgid "Home Y"
+msgstr "Αρχική Y"
+
+#: testclient/mainwindow.cpp:340
+msgctxt "MainWindow|"
+msgid "Home Z"
+msgstr "Αρχική Z"
+
+#: testclient/mainwindow.cpp:388 testclient/mainwindow.cpp:392
+msgctxt "MainWindow|"
+msgid "Error"
+msgstr "Σφάλμα"
+
+#: testclient/mainwindow.cpp:388
+msgctxt "MainWindow|"
+msgid "Not Connected To a Printer"
+msgstr "Μη συνδεδεμένο σε εκτυπωτή"
+
+#: testclient/mainwindow.cpp:392
+msgctxt "MainWindow|"
+msgid ""
+" A Firmware Plugin was not loaded!\n"
+"  Please send the command M115 and let us know what your firmware returns, "
+"so we can improve our firmware detection. We have loaded the most common "
+"plugin \"repetier\" for you. You may try to print again after this message"
+msgstr ""
+" Ένα πρόσθετο υλικολογισμικού δεν φορτώθηκε!\n"
+"  Στείλτε την εντολή M115 και ενημερώστε μας για το τι επιστρέφει το "
+"υλικολογισμικό, ώστε να βελτιώσουμε την αναγνώριση. Έχουμε φορτώσει τα πιο "
+"συνήθη πρόσθετα \"repetier\". Προσπαθήστε να εκτυπώσετε ξανά μετά από αυτό "
+"το μήνυμα"
+
+#: testclient/mainwindow.cpp:397
+msgctxt "MainWindow|"
+msgid "Select a file to print"
+msgstr "Επιλογή αρχείου για ετύπωση"
+
+#: testclient/mainwindow.cpp:399
+msgctxt "MainWindow|"
+msgid "No File Selected"
+msgstr "Δεν επιλέχθηκε αρχείο"
+
+#: testclient/mainwindow.cpp:401
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Print: %1"
+msgstr "Εκτύπωση: %1"
+
+#: testclient/mainwindow.cpp:423
+msgctxt "MainWindow|"
+msgid "Save Log to file"
+msgstr "Αποθήκευση καταγραφής σε αρχείο"
+
+#: testclient/mainwindow.cpp:453 testclient/mainwindow.cpp:467
+msgctxt "MainWindow|"
+msgid "Print File"
+msgstr "Εκτύπωση αρχείου"
+
+#: testclient/mainwindow.cpp:459 testclient/mainwindow.cpp:479
+msgctxt "MainWindow|"
+msgid "Pause Print"
+msgstr "Παύση εκτύπωσης"
+
+#: testclient/mainwindow.cpp:474
+msgctxt "MainWindow|"
+msgid "Resume Print"
+msgstr "Συνέχιση εκτύπωσης"
+
+#: testclient/mainwindow.cpp:513
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Extruder %1"
+msgstr "Εξωθητής %1"
+
+#: testclient/mainwindow.cpp:518
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Fan %1 speed"
+msgstr "Ανεμιστήρας %1 ταχύτητα"
+
+#: testclient/widgets/plotwidget.cpp:34
+msgctxt "PlotWidget|"
+msgid "Actual Bed"
+msgstr "Πραγματική επιφάνεια"
+
+#: testclient/widgets/plotwidget.cpp:35
+msgctxt "PlotWidget|"
+msgid "Target Bed"
+msgstr "ΕΠιθυμητή επιφάνεια"
+
+#: testclient/widgets/plotwidget.cpp:37
+msgctxt "PlotWidget|"
+msgid "Actual Ext.1"
+msgstr "Πραγματικό Ext.1"
+
+#: testclient/widgets/plotwidget.cpp:38
+msgctxt "PlotWidget|"
+msgid "Target Ext.1"
+msgstr "Επιθυμητό Ext.1"
+
+#: testclient/widgets/plotwidget.cpp:80
+msgctxt "PlotWidget|"
+msgid "Temp."
+msgstr "Θερμ."

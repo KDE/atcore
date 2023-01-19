@@ -1,0 +1,1347 @@
+# Eloy Cuadra <ecuadra@eloihr.net>, 2017, 2018, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: atcore_qt\n"
+"PO-Revision-Date: 2020-02-02 09:52+0100\n"
+"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Qt-Contexts: true\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 19.12.1\n"
+
+#: src/atcore.cpp:456
+#, qt-format
+msgctxt "AtCore|"
+msgid "plugins[%1]=%2"
+msgstr "complementos[%1]=%2"
+
+#: src/gcodecommands.cpp:35
+msgctxt "QObject|"
+msgid "G0: Rapid linear move"
+msgstr "G0: Movimiento rápido lineal"
+
+#: src/gcodecommands.cpp:37
+msgctxt "QObject|"
+msgid "G1: Linear move"
+msgstr "G1: Movimiento lineal"
+
+#: src/gcodecommands.cpp:39
+msgctxt "QObject|"
+msgid "G2: Controlled Arc Move clockwise"
+msgstr "G2: Movimiento de arco controlado en sentido horario"
+
+#: src/gcodecommands.cpp:41
+msgctxt "QObject|"
+msgid "G3: Controlled Arc Move counterclockwise"
+msgstr "G3: Movimiento de arco controlado en sentido antihorario"
+
+#: src/gcodecommands.cpp:43
+msgctxt "QObject|"
+msgid "G4: Dwell"
+msgstr "G4: Retardo"
+
+#: src/gcodecommands.cpp:45
+msgctxt "QObject|"
+msgid "G10: Retract"
+msgstr "G10: Retraer"
+
+#: src/gcodecommands.cpp:47
+msgctxt "QObject|"
+msgid "G11: Unretract"
+msgstr "G11: Desplegar"
+
+#: src/gcodecommands.cpp:49
+msgctxt "QObject|"
+msgid "G20: Set units to inches"
+msgstr "G20: Fijar unidades en pulgadas"
+
+#: src/gcodecommands.cpp:51
+msgctxt "QObject|"
+msgid "G21: Set units to millimeters"
+msgstr "G21: Fijar unidades en milímetros"
+
+#: src/gcodecommands.cpp:53
+msgctxt "QObject|"
+msgid "G28: Move to Origin Home"
+msgstr "G28: Mover a la posición inicial"
+
+#: src/gcodecommands.cpp:55
+msgctxt "QObject|"
+msgid "G29: Detailed Z-Probe"
+msgstr "G29: Prueba Z detallada"
+
+#: src/gcodecommands.cpp:57
+msgctxt "QObject|"
+msgid "G30: Single Z-Probe"
+msgstr "G30: Prueba Z sencilla"
+
+#: src/gcodecommands.cpp:59
+msgctxt "QObject|"
+msgid "G31: Set or report current probe status / Dock Z Probe sled for Marlin"
+msgstr ""
+"G31: Definir o informar del estado de la prueba actual / Acoplar el carro de "
+"la prueba Z para Marlin"
+
+#: src/gcodecommands.cpp:61
+msgctxt "QObject|"
+msgid ""
+"G32: Probe Z and calculate Z plane(Bed Leveling)/ UnDoc Z Probe sled for "
+"Marlin"
+msgstr ""
+"G32: Prueba Z y calcular el plano Z (cama a nivel) / Aparcar el carro de la "
+"prueba Z para Marlin"
+
+#: src/gcodecommands.cpp:63
+msgctxt "QObject|"
+msgid "G33: Measure/List/Adjust Distortion Matrix"
+msgstr "G33: Medir/listar/ajustar la matriz de distorsión"
+
+#: src/gcodecommands.cpp:65
+msgctxt "QObject|"
+msgid "G90: Set to absolute positioning"
+msgstr "G90: Fijar en posicionamiento absoluto"
+
+#: src/gcodecommands.cpp:67
+msgctxt "QObject|"
+msgid "G91: Set to relative positioning"
+msgstr "G91: Fijar en posicionamiento relativo"
+
+#: src/gcodecommands.cpp:69
+msgctxt "QObject|"
+msgid "G92: Set position"
+msgstr "G92: Definir posición"
+
+#: src/gcodecommands.cpp:71
+msgctxt "QObject|"
+msgid "G100: Calibrate floor or rod radius"
+msgstr "G100: Calibrar el radio del suelo o de la varilla"
+
+#: src/gcodecommands.cpp:73
+msgctxt "QObject|"
+msgid "G130: Set digital potentiometer value"
+msgstr "G130: Definir valor del potenciómetro digital"
+
+#: src/gcodecommands.cpp:75
+msgctxt "QObject|"
+msgid "G131: Recase Move offset"
+msgstr "G131: Revisar el desplazamiento del movimiento"
+
+#: src/gcodecommands.cpp:77
+msgctxt "QObject|"
+msgid "G132: Calibrate endstops offsets"
+msgstr "G132: Calibrar los desplazamientos de los endstop"
+
+#: src/gcodecommands.cpp:79
+msgctxt "QObject|"
+msgid "G133: Measure steps to top"
+msgstr "G133: Medir los pasos hasta arriba"
+
+#: src/gcodecommands.cpp:81
+msgctxt "QObject|"
+msgid "G161: Home axis to minimum"
+msgstr "G161: Eje de inicio al mínimo"
+
+#: src/gcodecommands.cpp:83
+msgctxt "QObject|"
+msgid "G162: Home axis to maximum"
+msgstr "G162: Eje de inicio al máximo"
+
+#: src/gcodecommands.cpp:85
+msgctxt "QObject|"
+msgid "GCommand not supported!"
+msgstr "GCommand no permitido."
+
+#: src/gcodecommands.cpp:117 src/gcodecommands.cpp:499
+msgctxt "QObject|"
+msgid "Not implemented or not supported!"
+msgstr "No implementado o no permitido."
+
+#: src/gcodecommands.cpp:125
+msgctxt "QObject|"
+msgid "M0: Stop or unconditional stop"
+msgstr "M0: Parada o parada incondicional"
+
+#: src/gcodecommands.cpp:127
+msgctxt "QObject|"
+msgid "M1: Sleep or unconditional stop"
+msgstr "M1: Dormir o parada incondicional"
+
+#: src/gcodecommands.cpp:129
+msgctxt "QObject|"
+msgid "M2: Program End"
+msgstr "M2: Fin del programa"
+
+#: src/gcodecommands.cpp:131
+msgctxt "QObject|"
+msgid "M6: Tool Change"
+msgstr "M6: Cambio de herramienta"
+
+#: src/gcodecommands.cpp:133
+msgctxt "QObject|"
+msgid "M17: Enable/power all steppers motors"
+msgstr "M17: Activar/alimentar todos los motores paso a paso"
+
+#: src/gcodecommands.cpp:135
+msgctxt "QObject|"
+msgid "M18: Disable all steppers motors"
+msgstr "M18: Desactivar todos los motores paso a paso"
+
+#: src/gcodecommands.cpp:137
+msgctxt "QObject|"
+msgid "M20: List SDCard"
+msgstr "M20: Listar la tarjeta SD"
+
+#: src/gcodecommands.cpp:139
+msgctxt "QObject|"
+msgid "M21: Initialize SDCard"
+msgstr "M21: Inicializar la tarjeta SD"
+
+#: src/gcodecommands.cpp:141
+msgctxt "QObject|"
+msgid "M22: Release SDCard"
+msgstr "M22: Liberar la tarjeta SD"
+
+#: src/gcodecommands.cpp:143
+msgctxt "QObject|"
+msgid "M23: Select SD file"
+msgstr "M23: Seleccionar archivo en SD"
+
+#: src/gcodecommands.cpp:145
+msgctxt "QObject|"
+msgid "M24: Start/resume SD print"
+msgstr "M24: Iniciar/continuar impresión desde tarjeta SD"
+
+#: src/gcodecommands.cpp:147
+msgctxt "QObject|"
+msgid "M25: Pause SD print"
+msgstr "M25: Pausar impresión desde tarjeta SD"
+
+#: src/gcodecommands.cpp:149
+msgctxt "QObject|"
+msgid "M26: Set SD position"
+msgstr "M26 Definir posición en tarjeta SD"
+
+#: src/gcodecommands.cpp:151
+msgctxt "QObject|"
+msgid "M27: Report SD print status"
+msgstr "M27: Informar del estado de la impresión desde SD"
+
+#: src/gcodecommands.cpp:153
+msgctxt "QObject|"
+msgid "M28: Begin write to SD card"
+msgstr "M28: Comenzar escritura en tarjeta SD"
+
+#: src/gcodecommands.cpp:155
+msgctxt "QObject|"
+msgid "M29: Stop writing to SD card"
+msgstr "M29: Detener escritura en tarjeta SD"
+
+#: src/gcodecommands.cpp:157
+msgctxt "QObject|"
+msgid "M30: Delete a file on the SD card"
+msgstr "M30: Borrar un archivo de la tarjeta SD"
+
+#: src/gcodecommands.cpp:159
+msgctxt "QObject|"
+msgid "M31: Output time since last M109 or SD card start to serial"
+msgstr ""
+"M31: Enviar al puerto serie el tiempo transcurrido desde el último inicio "
+"con M109 o desde tarjeta SD"
+
+#: src/gcodecommands.cpp:161
+msgctxt "QObject|"
+msgid "M32: Select file and start SD print"
+msgstr "M32: Seleccionar archivo e iniciar impresión desde SD"
+
+#: src/gcodecommands.cpp:163
+msgctxt "QObject|"
+msgid "M33: Get the long name for an SD card file or folder"
+msgstr "M33: Obtener el nombre largo de un archivo o carpeta de la tarjeta SD"
+
+#: src/gcodecommands.cpp:165
+msgctxt "QObject|"
+msgid "M34: Set SD file sorting options"
+msgstr "M34: Definir las opciones de ordenación de archivos en tarjeta SD"
+
+#: src/gcodecommands.cpp:167
+msgctxt "QObject|"
+msgid "M36: Return file information"
+msgstr "M36: Devolver información del archivo"
+
+#: src/gcodecommands.cpp:169
+msgctxt "QObject|"
+msgid "M42: Switch I/O pin"
+msgstr "M42: Conmutar pin de E/S"
+
+#: src/gcodecommands.cpp:171
+msgctxt "QObject|"
+msgid "M48: Measure Z-Probe repeatability"
+msgstr "M48: Medir la repetitividad de la prueba Z"
+
+#: src/gcodecommands.cpp:173
+msgctxt "QObject|"
+msgid "M70: Display message"
+msgstr "M70: Mostrar mensaje"
+
+#: src/gcodecommands.cpp:175
+msgctxt "QObject|"
+msgid "M72: Play a tone or song"
+msgstr "M72: Reproducir un tono o una canción"
+
+#: src/gcodecommands.cpp:177
+msgctxt "QObject|"
+msgid "M73: Set build percentage"
+msgstr "M73: Definir el porcentaje de construcción"
+
+#: src/gcodecommands.cpp:179
+msgctxt "QObject|"
+msgid "M80: ATX Power On"
+msgstr "M80: Encender ATX"
+
+#: src/gcodecommands.cpp:181
+msgctxt "QObject|"
+msgid "M81: ATX Power Off"
+msgstr "M81: Apagar ATX"
+
+#: src/gcodecommands.cpp:183
+msgctxt "QObject|"
+msgid "M82: Set extruder to absolute mode"
+msgstr "M82: Ajustar el extrusor al modo absoluto"
+
+#: src/gcodecommands.cpp:185
+msgctxt "QObject|"
+msgid "M83: Set extruder to relative mode"
+msgstr "M83: Ajustar el extrusor al modo relativo"
+
+#: src/gcodecommands.cpp:187
+msgctxt "QObject|"
+msgid "M84: Stop idle hold"
+msgstr "M84: Detener espera de inactividad"
+
+#: src/gcodecommands.cpp:189
+msgctxt "QObject|"
+msgid "M85: Set Inactivity shutdown timer"
+msgstr "M85: Definir el temporizador de apagado por inactividad"
+
+#: src/gcodecommands.cpp:191
+msgctxt "QObject|"
+msgid "M92: Set axis steps per unit"
+msgstr "M92: Fijar los pasos por unidad de los ejes"
+
+#: src/gcodecommands.cpp:193
+msgctxt "QObject|"
+msgid "M93: Send axis steps per unit"
+msgstr "M93: Enviar los pasos por unidad de los ejes"
+
+#: src/gcodecommands.cpp:195
+msgctxt "QObject|"
+msgid "M98: Call Macro/Subprogram"
+msgstr "M98: Llamar a macro/subprograma"
+
+#: src/gcodecommands.cpp:197
+msgctxt "QObject|"
+msgid "M99: Return from Macro/Subprogram"
+msgstr "M99: Volver desde macro/subprograma"
+
+#: src/gcodecommands.cpp:199
+msgctxt "QObject|"
+msgid "M101: Turn extruder 1 on Forward, Undo Retraction"
+msgstr "M101: Poner el extrusor 1 en avance, deshacer retracción"
+
+#: src/gcodecommands.cpp:201
+msgctxt "QObject|"
+msgid "M103: Turn all extruders off - Extruder Retraction"
+msgstr "M103: Apagar todos los extrusores - Retracción del extrusor"
+
+#: src/gcodecommands.cpp:203
+msgctxt "QObject|"
+msgid "M104: Set Extruder Temperature"
+msgstr "M104: Definir la temperatura del extrusor"
+
+#: src/gcodecommands.cpp:205
+msgctxt "QObject|"
+msgid "M105: Get Extruder Temperature"
+msgstr "M105: Obtener la temperatura del extrusor"
+
+#: src/gcodecommands.cpp:207
+msgctxt "QObject|"
+msgid "M106: Fan On"
+msgstr "M106: Ventilador encendido"
+
+#: src/gcodecommands.cpp:209
+msgctxt "QObject|"
+msgid "M107: Fan Off"
+msgstr "M107: Ventilador apagado"
+
+#: src/gcodecommands.cpp:211
+msgctxt "QObject|"
+msgid "M108: Cancel Heating"
+msgstr "M108: Cancelar calentamiento"
+
+#: src/gcodecommands.cpp:213
+msgctxt "QObject|"
+msgid "M109: Set Extruder Temperature and Wait"
+msgstr "M109: Definir la temperatura del extrusor y esperar"
+
+#: src/gcodecommands.cpp:215
+msgctxt "QObject|"
+msgid "M110: Set Current Line Number"
+msgstr "M110: Definir número de línea actual"
+
+#: src/gcodecommands.cpp:217
+msgctxt "QObject|"
+msgid "M111: Set Debug Level"
+msgstr "M111: Definir nivel de depuración"
+
+#: src/gcodecommands.cpp:219
+msgctxt "QObject|"
+msgid "M112: Emergency Stop"
+msgstr "M112: Parada de emergencia"
+
+#: src/gcodecommands.cpp:221
+msgctxt "QObject|"
+msgid "M114: Get Current Position"
+msgstr "M114: Obtener posición actual"
+
+#: src/gcodecommands.cpp:223
+msgctxt "QObject|"
+msgid "M115: Get Firmware Version and Capabilities"
+msgstr "M115: Obtener versión y funcionalidades del firmware"
+
+#: src/gcodecommands.cpp:225
+msgctxt "QObject|"
+msgid "M116: Wait"
+msgstr "M116: Esperar"
+
+#: src/gcodecommands.cpp:227
+msgctxt "QObject|"
+msgid "M117: Display Message"
+msgstr "M117: Mostrar mensaje"
+
+#: src/gcodecommands.cpp:229
+msgctxt "QObject|"
+msgid "M119: Get Endstop Status"
+msgstr "M119: Obtener estado de los endstop"
+
+#: src/gcodecommands.cpp:231
+msgctxt "QObject|"
+msgid ""
+"M120: Push for Smoothie and RepRap Firmware / Enable Endstop detection for "
+"Marlin"
+msgstr ""
+"M120: Push para los firmwares Smoothie y RepRap / Activar la detección de "
+"los endstop para Marlin"
+
+#: src/gcodecommands.cpp:233
+msgctxt "QObject|"
+msgid ""
+"M121: Pop for Smoothie and RepRap Firmware / Disable Endstop detection for "
+"Marlin"
+msgstr ""
+"M121: Pop para los firmwares Smoothie y RepRap / Desactivar la detección de "
+"los endstop para Marlin"
+
+#: src/gcodecommands.cpp:235
+msgctxt "QObject|"
+msgid "M122: Diagnose"
+msgstr "M122: Diagnosticar"
+
+#: src/gcodecommands.cpp:237
+msgctxt "QObject|"
+msgid "M126: Open valve"
+msgstr "M126: Abrir válvula"
+
+#: src/gcodecommands.cpp:239
+msgctxt "QObject|"
+msgid "M127: Close valve"
+msgstr "M127: Cerrar válvula"
+
+#: src/gcodecommands.cpp:241
+msgctxt "QObject|"
+msgid "M130: Set PID P value"
+msgstr "M130: Definir el valor P de PID"
+
+#: src/gcodecommands.cpp:243
+msgctxt "QObject|"
+msgid "M131: Set PID I value"
+msgstr "M131: Definir el valor I de PID"
+
+#: src/gcodecommands.cpp:245
+msgctxt "QObject|"
+msgid "M132: Set PID D value"
+msgstr "M132: Definir el valor D de PID"
+
+#: src/gcodecommands.cpp:247
+msgctxt "QObject|"
+msgid "M133: Set PID I limit value"
+msgstr "M133: Definir el valor límite I de PID"
+
+#: src/gcodecommands.cpp:249
+msgctxt "QObject|"
+msgid "M134: Write PID values to EEPROM"
+msgstr "M134: Escribir valores PID en la EEPROM"
+
+#: src/gcodecommands.cpp:251
+msgctxt "QObject|"
+msgid "M135: Set PID sample interval"
+msgstr "M135: Definir el intervalo de muestreo de PID"
+
+#: src/gcodecommands.cpp:253
+msgctxt "QObject|"
+msgid "M140: Set Bed Temperature - Fast"
+msgstr "M140: Definir la temperatura de la cama - Rápido"
+
+#: src/gcodecommands.cpp:255
+msgctxt "QObject|"
+msgid "M141: Set Chamber Temperature - Fast"
+msgstr "M141: Definir la temperatura de la cámara - Rápido"
+
+#: src/gcodecommands.cpp:257
+msgctxt "QObject|"
+msgid "M143: Maximum hot-end temperature"
+msgstr "M143: Temperatura máxima del hotend"
+
+#: src/gcodecommands.cpp:259
+msgctxt "QObject|"
+msgid "M144: Stand by your bed"
+msgstr "M144: Esperar a la cama"
+
+#: src/gcodecommands.cpp:261
+msgctxt "QObject|"
+msgid "M150: Set display color"
+msgstr "M150: Definir el color de la pantalla"
+
+#: src/gcodecommands.cpp:263
+msgctxt "QObject|"
+msgid "M163: Set weight of mixed material"
+msgstr "M163: Definir el peso del material mezclado"
+
+#: src/gcodecommands.cpp:265
+msgctxt "QObject|"
+msgid "M164: Store weights"
+msgstr "M164: Guardar pesos"
+
+#: src/gcodecommands.cpp:267
+msgctxt "QObject|"
+msgid "M190: Wait for bed temperature to reach target temp"
+msgstr ""
+"M190: Esperar que la temperatura de la cama alcance la temperatura objetivo"
+
+#: src/gcodecommands.cpp:269
+msgctxt "QObject|"
+msgid "M200: Set filament diameter"
+msgstr "M200: Definir el diámetro del filamento"
+
+#: src/gcodecommands.cpp:271
+msgctxt "QObject|"
+msgid "M201: Set max printing acceleration"
+msgstr "M201: Definir la aceleración máxima de impresión"
+
+#: src/gcodecommands.cpp:273
+msgctxt "QObject|"
+msgid "M202: Set max travel acceleration"
+msgstr "M202: Definir la aceleración máxima del recorrido"
+
+#: src/gcodecommands.cpp:275
+msgctxt "QObject|"
+msgid "M203: Set maximum feedrate"
+msgstr "M203: Definir la velocidad máxima de alimentación"
+
+#: src/gcodecommands.cpp:277
+msgctxt "QObject|"
+msgid "M204: Set default acceleration"
+msgstr "M204: Definir la aceleración por omisión"
+
+#: src/gcodecommands.cpp:279
+msgctxt "QObject|"
+msgid "M205: Advanced settings"
+msgstr "M205: Ajustes avanzados"
+
+#: src/gcodecommands.cpp:281
+msgctxt "QObject|"
+msgid ""
+"M206: Offset axes for Sprinter, Marlin, Smoothie, RepRap Firmware / Set "
+"eeprom value for Repetier"
+msgstr ""
+"M206: Ejes de desplazamiento para los firmwares de Sprinter, Marlin, "
+"Smoothie, RepRap / Definir valor de eeprom para Repetier"
+
+#: src/gcodecommands.cpp:283
+msgctxt "QObject|"
+msgid "M207: Set retract length"
+msgstr "M207: Definir la longitud de la retracción"
+
+#: src/gcodecommands.cpp:285
+msgctxt "QObject|"
+msgid "M208: Set unretract length"
+msgstr "M208: Definir la longitud para deshacer la retracción"
+
+#: src/gcodecommands.cpp:287
+msgctxt "QObject|"
+msgid "M209: Enable automatic retract"
+msgstr "M209: Activar retracción automática"
+
+#: src/gcodecommands.cpp:289
+msgctxt "QObject|"
+msgid "M212: Set Bed Level Sensor Offset"
+msgstr "M212: Definir el desplazamiento del sensor a nivel de la cama"
+
+#: src/gcodecommands.cpp:291
+msgctxt "QObject|"
+msgid "M218: Set Hotend Offset"
+msgstr "M218: Fijar desplazamiento del hotend"
+
+#: src/gcodecommands.cpp:293
+msgctxt "QObject|"
+msgid "M220: Set speed factor override percentage"
+msgstr "M220: Definir el porcentaje de ajuste del factor de velocidad"
+
+#: src/gcodecommands.cpp:295
+msgctxt "QObject|"
+msgid "M221: Set extrude factor override percentage"
+msgstr "M221: Definir el porcentaje de ajuste del factor de extrusión"
+
+#: src/gcodecommands.cpp:297
+msgctxt "QObject|"
+msgid "M226: Wait for pin state"
+msgstr "M226: Esperar estado del pin"
+
+#: src/gcodecommands.cpp:299
+msgctxt "QObject|"
+msgid "M231: Set OPS parameter"
+msgstr "M231: Definir el parámetro OPS"
+
+#: src/gcodecommands.cpp:301
+msgctxt "QObject|"
+msgid "M232: Read and reset max. advance values"
+msgstr "M232: Leer y reiniciar loa valores de avance máximo"
+
+#: src/gcodecommands.cpp:303
+msgctxt "QObject|"
+msgid "M240: Trigger camera"
+msgstr "M240: Disparar la cámara"
+
+#: src/gcodecommands.cpp:305
+msgctxt "QObject|"
+msgid "M250: Set LCD contrast"
+msgstr "M250: Definir el contraste del LCD"
+
+#: src/gcodecommands.cpp:307
+msgctxt "QObject|"
+msgid "M251: Measure Z steps from homing stop (Delta printers)"
+msgstr "M251: Medir pasos Z desde la parada de inicio (impresoras Delta)"
+
+#: src/gcodecommands.cpp:309
+msgctxt "QObject|"
+msgid "M280: Set servo position"
+msgstr "M280: Definir posición del servomotor"
+
+#: src/gcodecommands.cpp:311
+msgctxt "QObject|"
+msgid "M300: Play beep sound"
+msgstr "M300: Reproducir un pitido"
+
+#: src/gcodecommands.cpp:313
+msgctxt "QObject|"
+msgid "M301: Set PID parameters"
+msgstr "M301: Definir parámetros PID"
+
+#: src/gcodecommands.cpp:315
+msgctxt "QObject|"
+msgid "M302: Allow cold extrudes "
+msgstr "M302: Permitir extrusiones en frío"
+
+#: src/gcodecommands.cpp:317
+msgctxt "QObject|"
+msgid "M303: Run PID tuning"
+msgstr "M303: Ejecutar ajuste de PID"
+
+#: src/gcodecommands.cpp:319
+msgctxt "QObject|"
+msgid "M304: Set PID parameters - Bed"
+msgstr "M304: Definir los parámetros PID de la cama"
+
+#: src/gcodecommands.cpp:321
+msgctxt "QObject|"
+msgid "M305: Set thermistor and ADC parameters"
+msgstr "M305: Definir los parámetros del termistor y de ADC"
+
+#: src/gcodecommands.cpp:323
+msgctxt "QObject|"
+msgid "M306: set home offset calculated from toolhead position"
+msgstr ""
+"M306: Definir el desplazamiento inicial calculado desde la posición del "
+"cabezal"
+
+#: src/gcodecommands.cpp:325
+msgctxt "QObject|"
+msgid "M320: Activate autolevel (Repetier)"
+msgstr "M320: Activar nivel automático (Repetier)"
+
+#: src/gcodecommands.cpp:327
+msgctxt "QObject|"
+msgid "M321: Deactivate autolevel (Repetier)"
+msgstr "M321: Desactivar nivel automático (Repetier)"
+
+#: src/gcodecommands.cpp:329
+msgctxt "QObject|"
+msgid "M322: Reset autolevel matrix (Repetier)"
+msgstr "M322: Reiniciar la matriz de nivel automático (Repetier)"
+
+#: src/gcodecommands.cpp:331
+msgctxt "QObject|"
+msgid "M323: Distortion correction on/off (Repetier)"
+msgstr "M323: Activar/desactivar la corrección de la distorsión (Repetier)"
+
+#: src/gcodecommands.cpp:333
+msgctxt "QObject|"
+msgid "M340: Control the servos"
+msgstr "M340: Controlar los servomotores"
+
+#: src/gcodecommands.cpp:335
+msgctxt "QObject|"
+msgid "M350: Set microstepping mode"
+msgstr "M350: Definir el modo de micropasos"
+
+#: src/gcodecommands.cpp:337
+msgctxt "QObject|"
+msgid "M351: Toggle MS1 MS2 pins directly"
+msgstr "M351: Cambiar los pines MS1 y MS2 directamente"
+
+#: src/gcodecommands.cpp:339
+msgctxt "QObject|"
+msgid "M355: Turn case lights on/off"
+msgstr "M355: Encender/apagar las luces de la caja"
+
+#: src/gcodecommands.cpp:341
+msgctxt "QObject|"
+msgid "M360: Report firmware configuration"
+msgstr "M360: Informar de la configuración del firmware"
+
+#: src/gcodecommands.cpp:343
+msgctxt "QObject|"
+msgid "M361: Move to Theta 90 degree position"
+msgstr "M361: Mover a la posición Theta de 90 grados"
+
+#: src/gcodecommands.cpp:345
+msgctxt "QObject|"
+msgid "M362: Move to Psi 0 degree position"
+msgstr "M362: Mover a la posición Psi de 0 grados"
+
+#: src/gcodecommands.cpp:347
+msgctxt "QObject|"
+msgid "M363: Move to Psi 90 degree position"
+msgstr "M363: Mover a la posición Psi de 90 grados"
+
+#: src/gcodecommands.cpp:349
+msgctxt "QObject|"
+msgid "M364: Move to Psi + Theta 90 degree position"
+msgstr "M364: Mover a la posición Psi + Theta de 90 grados"
+
+#: src/gcodecommands.cpp:351
+msgctxt "QObject|"
+msgid "M365: SCARA scaling factor"
+msgstr "M365: Factor de escalado para SCARA"
+
+#: src/gcodecommands.cpp:353
+msgctxt "QObject|"
+msgid "M366: SCARA convert trim"
+msgstr "M366: Reducción de conversión SCARA"
+
+#: src/gcodecommands.cpp:355
+msgctxt "QObject|"
+msgid "M370: Morgan manual bed level - clear map"
+msgstr "M370: Nivel manual de la cama Morgan - Borrar el mapa"
+
+#: src/gcodecommands.cpp:357
+msgctxt "QObject|"
+msgid "M371: Move to next calibration position"
+msgstr "M371: Mover a la siguiente posición de calibración"
+
+#: src/gcodecommands.cpp:359
+msgctxt "QObject|"
+msgid "M372: Record calibration value, and move to next position"
+msgstr "M372: Grabar el valor de calibración y mover a la siguiente posición"
+
+#: src/gcodecommands.cpp:361
+msgctxt "QObject|"
+msgid "M373: End bed level calibration mode"
+msgstr "M373: Finalizar modo de calibración del nivel de la cama"
+
+#: src/gcodecommands.cpp:363
+msgctxt "QObject|"
+msgid "M374: Save calibration grid"
+msgstr "M374: Guardar la rejilla de calibración"
+
+#: src/gcodecommands.cpp:365
+msgctxt "QObject|"
+msgid "M375: Display matrix / Load Matrix"
+msgstr "M375: Mostrar matriz / Cargar matriz"
+
+#: src/gcodecommands.cpp:367
+msgctxt "QObject|"
+msgid "M380: Activate solenoid"
+msgstr "M380: Activar solenoide"
+
+#: src/gcodecommands.cpp:369
+msgctxt "QObject|"
+msgid "M381: Disable all solenoids"
+msgstr "M381: Desactivar todos los solenoides"
+
+#: src/gcodecommands.cpp:371
+msgctxt "QObject|"
+msgid "M400: Wait for current moves to finish"
+msgstr "M400: Esperar la terminación de todos los movimientos actuales"
+
+#: src/gcodecommands.cpp:373
+msgctxt "QObject|"
+msgid "M401: Lower z-probe"
+msgstr "M401: Bajar la prueba Z"
+
+#: src/gcodecommands.cpp:375
+msgctxt "QObject|"
+msgid "M402: Raise z-probe"
+msgstr "M402: Elevar la prueba Z"
+
+#: src/gcodecommands.cpp:377
+msgctxt "QObject|"
+msgid "M404: Filament width and nozzle diameter"
+msgstr "M404: Anchura del filamento y diámetro de la boquilla"
+
+#: src/gcodecommands.cpp:379
+msgctxt "QObject|"
+msgid "M405: Filament Sensor on"
+msgstr "M405: Activar el sensor del filamento"
+
+#: src/gcodecommands.cpp:381
+msgctxt "QObject|"
+msgid "M406: Filament Sensor off"
+msgstr "M406: Desactivar el sensor del filamento"
+
+#: src/gcodecommands.cpp:383
+msgctxt "QObject|"
+msgid "M407: Display filament diameter"
+msgstr "M407: Mostrar el diámetro del filamento"
+
+#: src/gcodecommands.cpp:385
+msgctxt "QObject|"
+msgid "M408: Report JSON-style response"
+msgstr "M408: Informar sobre la respuesta en estilo JSON"
+
+#: src/gcodecommands.cpp:387
+msgctxt "QObject|"
+msgid "M420: Enable/Disable Mesh Leveling (Marlin)"
+msgstr "M420: Activar/desactivar nivelación por malla (Marlin)"
+
+#: src/gcodecommands.cpp:389
+msgctxt "QObject|"
+msgid "M450: Report Printer Mode"
+msgstr "M450: Informar del modo de la impresora"
+
+#: src/gcodecommands.cpp:391
+msgctxt "QObject|"
+msgid "M451: Select FFF Printer Mode"
+msgstr "M451: Seleccionar el modo de impresora FFF"
+
+#: src/gcodecommands.cpp:393
+msgctxt "QObject|"
+msgid "M452: Select Laser Printer Mode"
+msgstr "M452: Seleccionar el modo de impresora láser"
+
+#: src/gcodecommands.cpp:395
+msgctxt "QObject|"
+msgid "M453: Select CNC Printer Mode"
+msgstr "M453: Seleccionar el modo de impresora CNC"
+
+#: src/gcodecommands.cpp:397
+msgctxt "QObject|"
+msgid "M460: Define temperature range for thermistor controlled fan"
+msgstr ""
+"M460: Definir el intervalo de temperatura para el ventilador controlado por "
+"el termistor"
+
+#: src/gcodecommands.cpp:399
+msgctxt "QObject|"
+msgid "M500: Store parameters in EEPROM"
+msgstr "M500: Guardar parámetros en la EEPROM"
+
+#: src/gcodecommands.cpp:401
+msgctxt "QObject|"
+msgid "M501: Read parameters from EEPROM"
+msgstr "M501: Leer parámetros desde la EEPROM"
+
+#: src/gcodecommands.cpp:403
+msgctxt "QObject|"
+msgid "M502: Revert to the default 'factory settings'."
+msgstr "M502: Revertir a los «valores de fábrica» por omisión."
+
+#: src/gcodecommands.cpp:405
+msgctxt "QObject|"
+msgid "M503: Print settings "
+msgstr "M503: Ajustes de la impresión"
+
+#: src/gcodecommands.cpp:407
+msgctxt "QObject|"
+msgid "M540: Enable/Disable 'Stop SD Print on Endstop Hit'"
+msgstr ""
+"M540: Activar/desactivar «Detener impresión desde SD al alcanzar un endstop»"
+
+#: src/gcodecommands.cpp:409
+msgctxt "QObject|"
+msgid "M550: Set Name"
+msgstr "M550: Definir nombre"
+
+#: src/gcodecommands.cpp:411
+msgctxt "QObject|"
+msgid "M551: Set Password"
+msgstr "M551: Definir contraseña"
+
+#: src/gcodecommands.cpp:413
+msgctxt "QObject|"
+msgid "M552: Set IP address"
+msgstr "M552: Definir dirección IP"
+
+#: src/gcodecommands.cpp:415
+msgctxt "QObject|"
+msgid "M553: Set Netmask"
+msgstr "M553: Definir máscara de red"
+
+#: src/gcodecommands.cpp:417
+msgctxt "QObject|"
+msgid "M554: Set Gateway"
+msgstr "M554: Definir puerta de enlace"
+
+#: src/gcodecommands.cpp:419
+msgctxt "QObject|"
+msgid "M555: Set compatibility"
+msgstr "M555: Definir compatibilidad"
+
+#: src/gcodecommands.cpp:421
+msgctxt "QObject|"
+msgid "M556: Axis compensation"
+msgstr "M556: Compensación del eje"
+
+#: src/gcodecommands.cpp:423
+msgctxt "QObject|"
+msgid "M557: Set Z probe point"
+msgstr "M557: Fijar el punto de la prueba Z"
+
+#: src/gcodecommands.cpp:425
+msgctxt "QObject|"
+msgid "M558: Set Z probe type"
+msgstr "M558: Fijar el tipo de la prueba Z"
+
+#: src/gcodecommands.cpp:427
+msgctxt "QObject|"
+msgid "M559: Upload configuration file"
+msgstr "M559: Subir archivo de configuración"
+
+#: src/gcodecommands.cpp:429
+msgctxt "QObject|"
+msgid "M560: Upload web page file"
+msgstr "M560: Subir archivo de página web"
+
+#: src/gcodecommands.cpp:431
+msgctxt "QObject|"
+msgid "M561: Set Identity Transform"
+msgstr "M561: Definir la transformación de identidad"
+
+#: src/gcodecommands.cpp:433
+msgctxt "QObject|"
+msgid "M562: Reset temperature fault"
+msgstr "M562: Reiniciar los fallos de temperatura"
+
+#: src/gcodecommands.cpp:435
+msgctxt "QObject|"
+msgid "M563: Define or remove a tool"
+msgstr "M563: Definir o eliminar una herramienta"
+
+#: src/gcodecommands.cpp:437
+msgctxt "QObject|"
+msgid "M564: Limit axes"
+msgstr "M564: Limitar los ejes"
+
+#: src/gcodecommands.cpp:439
+msgctxt "QObject|"
+msgid "M565: Set Z probe offset"
+msgstr "M565: Fijar el desplazamiento de la prueba Z"
+
+#: src/gcodecommands.cpp:441
+msgctxt "QObject|"
+msgid "M566: Set allowable instantaneous speed change"
+msgstr "M566: Definir el cambio de velocidad instantáneo permisible"
+
+#: src/gcodecommands.cpp:443
+msgctxt "QObject|"
+msgid "M567: Set tool mix ratio"
+msgstr "M567: Definir la proporción de mezcla de la herramienta"
+
+#: src/gcodecommands.cpp:445
+msgctxt "QObject|"
+msgid "M568: Turn off/on tool mix ratio"
+msgstr "M568: Activar/desactivar la proporción de mezcla de la herramienta"
+
+#: src/gcodecommands.cpp:447
+msgctxt "QObject|"
+msgid "M569: Set axis direction and enable values"
+msgstr "M569: Definir la dirección del eje y activar valores"
+
+#: src/gcodecommands.cpp:449
+msgctxt "QObject|"
+msgid "M570: Set heater timeout"
+msgstr "M570: Fijar tiempo de espera del calentador"
+
+#: src/gcodecommands.cpp:451
+msgctxt "QObject|"
+msgid "M571: Set output on extrude"
+msgstr "M571: Definir la salida durante una extrusión"
+
+#: src/gcodecommands.cpp:453
+msgctxt "QObject|"
+msgid "M573: Report heater PWM"
+msgstr "M573: Informar de la PWM del calentador"
+
+#: src/gcodecommands.cpp:455
+msgctxt "QObject|"
+msgid "M574: Set endstop configuration"
+msgstr "M574: Definir la configuración de la parada final"
+
+#: src/gcodecommands.cpp:457
+msgctxt "QObject|"
+msgid "M575: Set serial comms parameters"
+msgstr "M575: Definir los parámetros de las comunicaciones serie"
+
+#: src/gcodecommands.cpp:459
+msgctxt "QObject|"
+msgid "M577: Wait until endstop is triggered"
+msgstr "M577: Esperar hasta que se active la parada final"
+
+#: src/gcodecommands.cpp:461
+msgctxt "QObject|"
+msgid "M578: Fire inkjet bits"
+msgstr "M578: Disparar bits de inyección de tinta"
+
+#: src/gcodecommands.cpp:463
+msgctxt "QObject|"
+msgid "M579: Scale Cartesian axes"
+msgstr "M579: Escalar los ejes cartesianos"
+
+#: src/gcodecommands.cpp:465
+msgctxt "QObject|"
+msgid "M580: Select Roland"
+msgstr "M580: Seleccionar Roland"
+
+#: src/gcodecommands.cpp:467
+msgctxt "QObject|"
+msgid "M600: Filament change pause"
+msgstr "M600: Pausa para cambiar de filamento"
+
+#: src/gcodecommands.cpp:469
+msgctxt "QObject|"
+msgid "M605: Set dual x-carriage movement mode"
+msgstr "M605: Definir el modo de movimiento en carros X duales"
+
+#: src/gcodecommands.cpp:471
+msgctxt "QObject|"
+msgid "M665: Set delta configuration"
+msgstr "M665: Ajustar la configuración para Delta"
+
+#: src/gcodecommands.cpp:473
+msgctxt "QObject|"
+msgid "M666: Set delta endstop adjustment"
+msgstr "M666: Definir el ajuste de los endstop para Delta"
+
+#: src/gcodecommands.cpp:475
+msgctxt "QObject|"
+msgid "M667: Select CoreXY mode"
+msgstr "M667: Seleccionar el modo CoreXY"
+
+#: src/gcodecommands.cpp:477
+msgctxt "QObject|"
+msgid "M851: Set Z-Probe Offset"
+msgstr "M851: Fijar el desplazamiento de la prueba Z"
+
+#: src/gcodecommands.cpp:479
+msgctxt "QObject|"
+msgid "M906: Set motor currents"
+msgstr "M906: Definir las corrientes del motor"
+
+#: src/gcodecommands.cpp:481
+msgctxt "QObject|"
+msgid "M907: Set digital trimpot motor"
+msgstr "M907: Ajustar motor con potenciómetro digital"
+
+#: src/gcodecommands.cpp:483
+msgctxt "QObject|"
+msgid "M908: Control digital trimpot directly"
+msgstr "M908: Controlar el potenciómetro digital directamente"
+
+#: src/gcodecommands.cpp:485
+msgctxt "QObject|"
+msgid "M911: Set power monitor threshold voltages"
+msgstr "M911: Definir los voltajes límites del monitor de corriente"
+
+#: src/gcodecommands.cpp:487
+msgctxt "QObject|"
+msgid "M912: Set electronics temperature monitor adjustment"
+msgstr "M912: Definir el ajuste del monitor de temperatura electrónico"
+
+#: src/gcodecommands.cpp:489
+msgctxt "QObject|"
+msgid "M913: Set motor percentage of normal current"
+msgstr "M913: Definir el porcentaje de corriente normal del motor"
+
+#: src/gcodecommands.cpp:491
+msgctxt "QObject|"
+msgid "M928: Start SD logging"
+msgstr "M928: Iniciar registro en tarjeta SD"
+
+#: src/gcodecommands.cpp:493
+msgctxt "QObject|"
+msgid "M997: Perform in-application firmware update"
+msgstr "M997: Realizar actualización de firmware en la aplicación"
+
+#: src/gcodecommands.cpp:495
+msgctxt "QObject|"
+msgid "M998: Request resend of line"
+msgstr "M998: Solicitar el reenvío de la línea"
+
+#: src/gcodecommands.cpp:497
+msgctxt "QObject|"
+msgid "M999: Restart after being stopped by error"
+msgstr "M999: Reiniciar tras una detección producida por un error"
+
+#: src/gcodecommands.cpp:520
+msgctxt "QObject|"
+msgid "ERROR! M104: It's obligatory to have an argument"
+msgstr "ERROR. M104: es obligatorio tener un argumento"
+
+#: src/gcodecommands.cpp:539
+msgctxt "QObject|"
+msgid "ERROR! M109: It's obligatory to have an argument"
+msgstr "ERROR. M109: es obligatorio tener un argumento"
+
+#: src/gcodecommands.cpp:553
+msgctxt "QObject|"
+msgid "ERROR! M117: It's obligatory to have an argument"
+msgstr "ERROR. M117: es obligatorio tener un argumento"
+
+#: src/gcodecommands.cpp:561
+msgctxt "QObject|"
+msgid "ERROR! M140: It's obligatory to have an argument"
+msgstr "ERROR. M140: es obligatorio tener un argumento"
+
+#: src/gcodecommands.cpp:567
+msgctxt "QObject|"
+msgid "ERROR! M190: It's obligatory to have an argument"
+msgstr "ERROR. M190: es obligatorio tener un argumento"
+
+#: src/gcodecommands.cpp:573
+msgctxt "QObject|"
+msgid "ERROR! M220: It's obligatory to have an argument"
+msgstr "ERROR. M220: es obligatorio tener un argumento"
+
+#: src/gcodecommands.cpp:579
+msgctxt "QObject|"
+msgid "ERROR! M221: It's obligatory to have an argument"
+msgstr "ERROR. M221: es obligatorio tener un argumento"
+
+#: src/gcodecommands.cpp:582
+msgctxt "QObject|"
+msgid "Not supported or implemented!"
+msgstr "No permitido o no implementado"
+
+#: testclient/mainwindow.cpp:55 testclient/mainwindow.cpp:297
+#: testclient/mainwindow.cpp:430
+msgctxt "MainWindow|"
+msgid "Autodetect"
+msgstr "Detectar automáticamente"
+
+#: testclient/mainwindow.cpp:61
+msgctxt "MainWindow|"
+msgid "Attempting to locate Serial Ports"
+msgstr "Intentando localizar puertos serie"
+
+#: testclient/mainwindow.cpp:108
+msgctxt "MainWindow|"
+msgid "Actual Bed"
+msgstr "Cama real"
+
+#: testclient/mainwindow.cpp:113
+msgctxt "MainWindow|"
+msgid "Target Bed"
+msgstr "Cama objetivo"
+
+#: testclient/mainwindow.cpp:118
+msgctxt "MainWindow|"
+msgid "Actual Ext.1"
+msgstr "Ext.1 real"
+
+#: testclient/mainwindow.cpp:123
+msgctxt "MainWindow|"
+msgid "Target Ext.1"
+msgstr "Ext. 1 objetivo"
+
+#: testclient/mainwindow.cpp:279
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Found %1 Ports"
+msgstr "Se han encontrado %1 puertos"
+
+#: testclient/mainwindow.cpp:281
+msgctxt "MainWindow|"
+msgid "No available ports! Please connect a serial device to continue!"
+msgstr ""
+"No ha y puertos disponibles. Por favor, conecte un dispositivo serie para "
+"continuar."
+
+#: testclient/mainwindow.cpp:294
+msgctxt "MainWindow|"
+msgid "Serial connected"
+msgstr "Conectado por serie"
+
+#: testclient/mainwindow.cpp:295
+msgctxt "MainWindow|"
+msgid "Disconnect"
+msgstr "Desconectar"
+
+#: testclient/mainwindow.cpp:298
+msgctxt "MainWindow|"
+msgid "No plugin loaded !"
+msgstr "Ningún complemento cargado"
+
+#: testclient/mainwindow.cpp:299
+msgctxt "MainWindow|"
+msgid "Requesting Firmware..."
+msgstr "Solicitando firmware..."
+
+#: testclient/mainwindow.cpp:308
+msgctxt "MainWindow|"
+msgid "Disconnected"
+msgstr "Desconectado"
+
+#: testclient/mainwindow.cpp:309
+msgctxt "MainWindow|"
+msgid "Connect"
+msgstr "Conectar"
+
+#: testclient/mainwindow.cpp:322
+msgctxt "MainWindow|"
+msgid "Home All"
+msgstr "Todo en posición inicial"
+
+#: testclient/mainwindow.cpp:328
+msgctxt "MainWindow|"
+msgid "Home X"
+msgstr "X inicial"
+
+#: testclient/mainwindow.cpp:334
+msgctxt "MainWindow|"
+msgid "Home Y"
+msgstr "Y inicial"
+
+#: testclient/mainwindow.cpp:340
+msgctxt "MainWindow|"
+msgid "Home Z"
+msgstr "Z inicial"
+
+#: testclient/mainwindow.cpp:388 testclient/mainwindow.cpp:392
+msgctxt "MainWindow|"
+msgid "Error"
+msgstr "Error"
+
+#: testclient/mainwindow.cpp:388
+msgctxt "MainWindow|"
+msgid "Not Connected To a Printer"
+msgstr "No conectado a una impresora"
+
+#: testclient/mainwindow.cpp:392
+msgctxt "MainWindow|"
+msgid ""
+" A Firmware Plugin was not loaded!\n"
+"  Please send the command M115 and let us know what your firmware returns, "
+"so we can improve our firmware detection. We have loaded the most common "
+"plugin \"repetier\" for you. You may try to print again after this message"
+msgstr ""
+"No se ha cargado un complemento del firmware.\n"
+"Por favor, envíe la orden M115 y háganos saber la respuesta del firmware "
+"para que podamos mejorar nuestra detección del firmware. Hemos cargados por "
+"usted el complemento más común para «Repetier». Puede volver a intentar "
+"imprimir tras este mensaje."
+
+#: testclient/mainwindow.cpp:397
+msgctxt "MainWindow|"
+msgid "Select a file to print"
+msgstr "Seleccione el archivo a imprimir"
+
+#: testclient/mainwindow.cpp:399
+msgctxt "MainWindow|"
+msgid "No File Selected"
+msgstr "Ningún archivo seleccionado"
+
+#: testclient/mainwindow.cpp:401
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Print: %1"
+msgstr "Imprimir: %1"
+
+#: testclient/mainwindow.cpp:423
+msgctxt "MainWindow|"
+msgid "Save Log to file"
+msgstr "Guardar registro en archivo"
+
+#: testclient/mainwindow.cpp:453 testclient/mainwindow.cpp:467
+msgctxt "MainWindow|"
+msgid "Print File"
+msgstr "Imprimir archivo"
+
+#: testclient/mainwindow.cpp:459 testclient/mainwindow.cpp:479
+msgctxt "MainWindow|"
+msgid "Pause Print"
+msgstr "Pausar la impresión"
+
+#: testclient/mainwindow.cpp:474
+msgctxt "MainWindow|"
+msgid "Resume Print"
+msgstr "Continuar la impresión"
+
+#: testclient/mainwindow.cpp:513
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Extruder %1"
+msgstr "Extrusor %1"
+
+#: testclient/mainwindow.cpp:518
+#, qt-format
+msgctxt "MainWindow|"
+msgid "Fan %1 speed"
+msgstr "Velocidad del ventilador %1"
+
+#: testclient/widgets/plotwidget.cpp:34
+msgctxt "PlotWidget|"
+msgid "Actual Bed"
+msgstr "Cama real"
+
+#: testclient/widgets/plotwidget.cpp:35
+msgctxt "PlotWidget|"
+msgid "Target Bed"
+msgstr "Cama objetivo"
+
+#: testclient/widgets/plotwidget.cpp:37
+msgctxt "PlotWidget|"
+msgid "Actual Ext.1"
+msgstr "Ext.1 real"
+
+#: testclient/widgets/plotwidget.cpp:38
+msgctxt "PlotWidget|"
+msgid "Target Ext.1"
+msgstr "Ext. 1 objetivo"
+
+#: testclient/widgets/plotwidget.cpp:80
+msgctxt "PlotWidget|"
+msgid "Temp."
+msgstr "Temp."
