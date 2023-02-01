@@ -249,6 +249,8 @@ msgstr "M30: SD ბართზე ფაილის წაშლა"
 msgctxt "QObject|"
 msgid "M31: Output time since last M109 or SD card start to serial"
 msgstr ""
+"M31: დროის გამოტანა, რომელიც ბოლო M109-ის შემდეგ ან SD ბარათის სერიულით "
+"გაშვების შემდეგ გავიდა"
 
 #: src/gcodecommands.cpp:161
 msgctxt "QObject|"
@@ -349,11 +351,12 @@ msgstr "M99: მაკროდან/ქვეპროგრამიდან
 msgctxt "QObject|"
 msgid "M101: Turn extruder 1 on Forward, Undo Retraction"
 msgstr ""
+"M101: ექსტრუდერი 1-ის \"წინ, უკან გამოწევის გამორთვა\" რეჟიმში გადართვა"
 
 #: src/gcodecommands.cpp:201
 msgctxt "QObject|"
 msgid "M103: Turn all extruders off - Extruder Retraction"
-msgstr ""
+msgstr "M103: ყველა გამომწნეხის გამორთვა - გამომწნეხის გაწევა"
 
 #: src/gcodecommands.cpp:203
 msgctxt "QObject|"
@@ -431,6 +434,8 @@ msgid ""
 "M120: Push for Smoothie and RepRap Firmware / Enable Endstop detection for "
 "Marlin"
 msgstr ""
+"M120: Smoothie და RepRap მიკროკოდის გაგზავნა / Marlin-ის საზღვრების "
+"ამოცნობის ჩართვა"
 
 #: src/gcodecommands.cpp:233
 msgctxt "QObject|"
@@ -438,6 +443,8 @@ msgid ""
 "M121: Pop for Smoothie and RepRap Firmware / Disable Endstop detection for "
 "Marlin"
 msgstr ""
+"M121: Smoothie და RepRap-ის მიკროკოდის აღება / Marlin-ის საზღვრის ამოცნობის "
+"გამორთვა"
 
 #: src/gcodecommands.cpp:235
 msgctxt "QObject|"
@@ -487,17 +494,17 @@ msgstr "M135: PID -ის სემპლის ინტერვალის �
 #: src/gcodecommands.cpp:253
 msgctxt "QObject|"
 msgid "M140: Set Bed Temperature - Fast"
-msgstr ""
+msgstr "M140: სტენდის ტემპერატურის დაყენება - სწრაფად"
 
 #: src/gcodecommands.cpp:255
 msgctxt "QObject|"
 msgid "M141: Set Chamber Temperature - Fast"
-msgstr ""
+msgstr "M141: კამერის ტემპერატურის დაყენება - სწრაფად"
 
 #: src/gcodecommands.cpp:257
 msgctxt "QObject|"
 msgid "M143: Maximum hot-end temperature"
-msgstr ""
+msgstr "M143: ცხელი ბოლოს მაქსიმალური ტემპერატურა"
 
 #: src/gcodecommands.cpp:259
 msgctxt "QObject|"
@@ -522,7 +529,7 @@ msgstr "M164: წონების შენახვა"
 #: src/gcodecommands.cpp:267
 msgctxt "QObject|"
 msgid "M190: Wait for bed temperature to reach target temp"
-msgstr ""
+msgstr "M190: სტენდის ტემპერატურის დაყენებულ მნიშვნელობაზე მიღწევის მოლოდინი"
 
 #: src/gcodecommands.cpp:269
 msgctxt "QObject|"
@@ -560,6 +567,8 @@ msgid ""
 "M206: Offset axes for Sprinter, Marlin, Smoothie, RepRap Firmware / Set "
 "eeprom value for Repetier"
 msgstr ""
+"M206: Sprinter, Marlin, Smoothie, RepRap მიკროოდის წანაცვლების ღერძები / "
+"Repetier-ის EEPROM-ის მნიშვნელობის დაყენება"
 
 #: src/gcodecommands.cpp:283
 msgctxt "QObject|"
@@ -579,7 +588,7 @@ msgstr "M209: ავტომატური გაწევს დაყენ�
 #: src/gcodecommands.cpp:289
 msgctxt "QObject|"
 msgid "M212: Set Bed Level Sensor Offset"
-msgstr ""
+msgstr "M212: სტენდის დონის სენსორის წანაცვლების დაყენება"
 
 #: src/gcodecommands.cpp:291
 msgctxt "QObject|"
@@ -589,12 +598,12 @@ msgstr "M218: ცხელი ბოლოს წანაცვლების 
 #: src/gcodecommands.cpp:293
 msgctxt "QObject|"
 msgid "M220: Set speed factor override percentage"
-msgstr ""
+msgstr "M220: სიჩქარის ფაქტორის გადაფარვის პროცენტულობის დაყენება"
 
 #: src/gcodecommands.cpp:295
 msgctxt "QObject|"
 msgid "M221: Set extrude factor override percentage"
-msgstr ""
+msgstr "M220: გამოწნევის ფაქტორის გადაფარვის პროცენტულობის დაყენება"
 
 #: src/gcodecommands.cpp:297
 msgctxt "QObject|"
@@ -610,6 +619,7 @@ msgstr "M231: OPS პარამეტრის დაყენება"
 msgctxt "QObject|"
 msgid "M232: Read and reset max. advance values"
 msgstr ""
+"M232: წინ გაწევის მნიშვნელობების წაკითხვა და საწყის მნიშვნელობაზე დაყენება"
 
 #: src/gcodecommands.cpp:303
 msgctxt "QObject|"
@@ -624,7 +634,7 @@ msgstr "M250: LCD -ის კონტრასტის დაყენებ�
 #: src/gcodecommands.cpp:307
 msgctxt "QObject|"
 msgid "M251: Measure Z steps from homing stop (Delta printers)"
-msgstr ""
+msgstr "M251: გაჩერებს წერტილიდან Z ნაბიჯების გამოთვლა (დელტა პრინტერები)"
 
 #: src/gcodecommands.cpp:309
 msgctxt "QObject|"
@@ -659,32 +669,34 @@ msgstr "M304: PID -ის პარამეტრების დაყენ�
 #: src/gcodecommands.cpp:321
 msgctxt "QObject|"
 msgid "M305: Set thermistor and ADC parameters"
-msgstr ""
+msgstr "M305: თერმისტორისა და ADC-ის პარამეტრების დაყენება"
 
 #: src/gcodecommands.cpp:323
 msgctxt "QObject|"
 msgid "M306: set home offset calculated from toolhead position"
 msgstr ""
+"M306: ხელსაწყოს ბუნიკის მდებარეობიდან გამოთვლილი საწყისი წანაცვლების დაყენება"
 
 #: src/gcodecommands.cpp:325
 msgctxt "QObject|"
 msgid "M320: Activate autolevel (Repetier)"
-msgstr ""
+msgstr "M320: ავტომატური დონის ჩართვა (Repetier)"
 
 #: src/gcodecommands.cpp:327
 msgctxt "QObject|"
 msgid "M321: Deactivate autolevel (Repetier)"
-msgstr ""
+msgstr "M321: ავტომატური დონის გამორთვა (Repetier)"
 
 #: src/gcodecommands.cpp:329
 msgctxt "QObject|"
 msgid "M322: Reset autolevel matrix (Repetier)"
 msgstr ""
+"M322: ავტომატური დონის მატრიცის საწყის მნიშვნელობაზე დაბრუნება (Repetier)"
 
 #: src/gcodecommands.cpp:331
 msgctxt "QObject|"
 msgid "M323: Distortion correction on/off (Repetier)"
-msgstr ""
+msgstr "M323: დამახინჯების შესწორების ჩართ/გამორთ (Repetier)"
 
 #: src/gcodecommands.cpp:333
 msgctxt "QObject|"
@@ -704,7 +716,7 @@ msgstr "M351: MS1 და MS2 ფეხებს პირდაპირ გა�
 #: src/gcodecommands.cpp:339
 msgctxt "QObject|"
 msgid "M355: Turn case lights on/off"
-msgstr ""
+msgstr "M355: კორპუსის განათების ჩართ/გამორთ"
 
 #: src/gcodecommands.cpp:341
 msgctxt "QObject|"
@@ -714,22 +726,22 @@ msgstr "M360: მიკროკოდის კონფიგურაცი�
 #: src/gcodecommands.cpp:343
 msgctxt "QObject|"
 msgid "M361: Move to Theta 90 degree position"
-msgstr ""
+msgstr "M361: თეტა 90 გრადუსის მდებარეობაში გადატანა"
 
 #: src/gcodecommands.cpp:345
 msgctxt "QObject|"
 msgid "M362: Move to Psi 0 degree position"
-msgstr ""
+msgstr "M362: ფსი 0 გრადუსის მდებარეობაში გადატანა"
 
 #: src/gcodecommands.cpp:347
 msgctxt "QObject|"
 msgid "M363: Move to Psi 90 degree position"
-msgstr ""
+msgstr "M363: ფსი 90 გრადუსის მდებარეობაშ გადატანა"
 
 #: src/gcodecommands.cpp:349
 msgctxt "QObject|"
 msgid "M364: Move to Psi + Theta 90 degree position"
-msgstr ""
+msgstr "M364: ფსი + თეტა 90 გრადუსის მდებარეობაშ გადატანა"
 
 #: src/gcodecommands.cpp:351
 msgctxt "QObject|"
@@ -739,27 +751,27 @@ msgstr "M365: SCARA მასშტაბირების კოეფიც�
 #: src/gcodecommands.cpp:353
 msgctxt "QObject|"
 msgid "M366: SCARA convert trim"
-msgstr ""
+msgstr "M366: SCARA წაკვეთის გადაყვანა"
 
 #: src/gcodecommands.cpp:355
 msgctxt "QObject|"
 msgid "M370: Morgan manual bed level - clear map"
-msgstr ""
+msgstr "M370: Morgan-ის სტენდის დონის ხელით მითითება - რუკის გასუფთავება"
 
 #: src/gcodecommands.cpp:357
 msgctxt "QObject|"
 msgid "M371: Move to next calibration position"
-msgstr ""
+msgstr "M371: კალიბრაციის შემდეგ მდებარეობაზე გადასვლა"
 
 #: src/gcodecommands.cpp:359
 msgctxt "QObject|"
 msgid "M372: Record calibration value, and move to next position"
-msgstr ""
+msgstr "M372: კალიბრაციის მნიშვნელობის ჩაწერა და შემდეგ მდებარეობაზე გადასვლა"
 
 #: src/gcodecommands.cpp:361
 msgctxt "QObject|"
 msgid "M373: End bed level calibration mode"
-msgstr ""
+msgstr "M373: სტენდის კალიბრაციის დონის რეჟიმის დასრულება"
 
 #: src/gcodecommands.cpp:363
 msgctxt "QObject|"
@@ -824,7 +836,7 @@ msgstr "M408: პასუხი JSON-ის სტილში"
 #: src/gcodecommands.cpp:387
 msgctxt "QObject|"
 msgid "M420: Enable/Disable Mesh Leveling (Marlin)"
-msgstr ""
+msgstr "M420: ბადის გასწორების ჩართ/გამორთ (Marlin)"
 
 #: src/gcodecommands.cpp:389
 msgctxt "QObject|"
@@ -850,6 +862,7 @@ msgstr "M453: CNC პრინტერის რეჟიმის არჩე
 msgctxt "QObject|"
 msgid "M460: Define temperature range for thermistor controlled fan"
 msgstr ""
+"M460: თერმისტორით მართვადი ვენტილატორის ტემპერატურის დიაპაზონის განსაზღვრა"
 
 #: src/gcodecommands.cpp:399
 msgctxt "QObject|"
@@ -864,7 +877,7 @@ msgstr "M501: პარამეტრებს წაკითხვა EEPROM-
 #: src/gcodecommands.cpp:403
 msgctxt "QObject|"
 msgid "M502: Revert to the default 'factory settings'."
-msgstr ""
+msgstr "M502: ქარხნულ პარამეტრებზე დაბრუნება."
 
 #: src/gcodecommands.cpp:405
 msgctxt "QObject|"
@@ -874,7 +887,7 @@ msgstr "M503: ბეჭდვის მორგება "
 #: src/gcodecommands.cpp:407
 msgctxt "QObject|"
 msgid "M540: Enable/Disable 'Stop SD Print on Endstop Hit'"
-msgstr ""
+msgstr "M540: 'SD-ბეჭდვის მსაზღვრავთან მისვლისას გაჩერების' ჩართვა/გამორთვა"
 
 #: src/gcodecommands.cpp:409
 msgctxt "QObject|"
@@ -959,27 +972,27 @@ msgstr "M565: Z ზონდის წანაცვლების დაყ�
 #: src/gcodecommands.cpp:441
 msgctxt "QObject|"
 msgid "M566: Set allowable instantaneous speed change"
-msgstr ""
+msgstr "M566: სიჩქარის დაშვებულ უეცარი ცვლილების დაყენება"
 
 #: src/gcodecommands.cpp:443
 msgctxt "QObject|"
 msgid "M567: Set tool mix ratio"
-msgstr ""
+msgstr "M567: ინსტრუმენტის შერევის თანაფარდობის დაყენება"
 
 #: src/gcodecommands.cpp:445
 msgctxt "QObject|"
 msgid "M568: Turn off/on tool mix ratio"
-msgstr ""
+msgstr "M568: ხელსაწყოს შერევის ფარდობის ჩართ/გამორთ"
 
 #: src/gcodecommands.cpp:447
 msgctxt "QObject|"
 msgid "M569: Set axis direction and enable values"
-msgstr ""
+msgstr "M569: ღერძის მიმართულების დაყენება და მნიშვნელობების ჩართვა"
 
 #: src/gcodecommands.cpp:449
 msgctxt "QObject|"
 msgid "M570: Set heater timeout"
-msgstr ""
+msgstr "M570: გამათბობლის მოლოდინის ვადის დაყენება"
 
 #: src/gcodecommands.cpp:451
 msgctxt "QObject|"
@@ -989,27 +1002,27 @@ msgstr "M571: გამოტანის გამოწნევაზე დ�
 #: src/gcodecommands.cpp:453
 msgctxt "QObject|"
 msgid "M573: Report heater PWM"
-msgstr ""
+msgstr "M573: გამათბობლის PWM ანგარიში"
 
 #: src/gcodecommands.cpp:455
 msgctxt "QObject|"
 msgid "M574: Set endstop configuration"
-msgstr ""
+msgstr "M574: შემზღუდავის კონფიგურაციის დაყენება"
 
 #: src/gcodecommands.cpp:457
 msgctxt "QObject|"
 msgid "M575: Set serial comms parameters"
-msgstr ""
+msgstr "M575: სერიული კომუნიკაციის პარამეტრების დაყენება"
 
 #: src/gcodecommands.cpp:459
 msgctxt "QObject|"
 msgid "M577: Wait until endstop is triggered"
-msgstr ""
+msgstr "M577: მსაზღვრელის ტრიგერის მოლოდინი"
 
 #: src/gcodecommands.cpp:461
 msgctxt "QObject|"
 msgid "M578: Fire inkjet bits"
-msgstr ""
+msgstr "M578: inkjet-ის ბიტების ჩართვა"
 
 #: src/gcodecommands.cpp:463
 msgctxt "QObject|"
@@ -1024,12 +1037,12 @@ msgstr "M580: Roland-ის არჩევა"
 #: src/gcodecommands.cpp:467
 msgctxt "QObject|"
 msgid "M600: Filament change pause"
-msgstr ""
+msgstr "M600: ნემსის შეცვლის შეყოვნება"
 
 #: src/gcodecommands.cpp:469
 msgctxt "QObject|"
 msgid "M605: Set dual x-carriage movement mode"
-msgstr ""
+msgstr "M605: X-კარეტის ორმაგი მოძრაობის რეჟიმის დაყენება"
 
 #: src/gcodecommands.cpp:471
 msgctxt "QObject|"
@@ -1039,12 +1052,12 @@ msgstr "M665: დელტას კონფიგურაცის დაყ�
 #: src/gcodecommands.cpp:473
 msgctxt "QObject|"
 msgid "M666: Set delta endstop adjustment"
-msgstr ""
+msgstr "M666: შემზღუდავის დელტა-მნიშვნელობის დაყენება"
 
 #: src/gcodecommands.cpp:475
 msgctxt "QObject|"
 msgid "M667: Select CoreXY mode"
-msgstr ""
+msgstr "M667: CoreXY რეჟიმის არჩევა"
 
 #: src/gcodecommands.cpp:477
 msgctxt "QObject|"
@@ -1059,27 +1072,27 @@ msgstr "M906: ძრავის ძაბვების დაყენებ�
 #: src/gcodecommands.cpp:481
 msgctxt "QObject|"
 msgid "M907: Set digital trimpot motor"
-msgstr ""
+msgstr "M907: ციფრული პოტენციომეტრის ძრავას დაყენება"
 
 #: src/gcodecommands.cpp:483
 msgctxt "QObject|"
 msgid "M908: Control digital trimpot directly"
-msgstr ""
+msgstr "M908: ციფრული პოტენციომეტრის პირდაპირი კონტროლი"
 
 #: src/gcodecommands.cpp:485
 msgctxt "QObject|"
 msgid "M911: Set power monitor threshold voltages"
-msgstr ""
+msgstr "M911: სიმძლავრის დონის მონიტორის ძაბვის ბიჯების დაყენება"
 
 #: src/gcodecommands.cpp:487
 msgctxt "QObject|"
 msgid "M912: Set electronics temperature monitor adjustment"
-msgstr ""
+msgstr "M912: ელექტრონიკის ტემპერატურის რეგისტრატორის კორექტირების დაყენება"
 
 #: src/gcodecommands.cpp:489
 msgctxt "QObject|"
 msgid "M913: Set motor percentage of normal current"
-msgstr ""
+msgstr "M913: ძრავისთვის ჩვეულებრივი ძაბვის პროცენტულობის დაყენება"
 
 #: src/gcodecommands.cpp:491
 msgctxt "QObject|"
@@ -1089,57 +1102,57 @@ msgstr "M928: SD ჟურნალის დაწყება"
 #: src/gcodecommands.cpp:493
 msgctxt "QObject|"
 msgid "M997: Perform in-application firmware update"
-msgstr ""
+msgstr "M997: პროგრამაში მიკროკოდის განახლება"
 
 #: src/gcodecommands.cpp:495
 msgctxt "QObject|"
 msgid "M998: Request resend of line"
-msgstr ""
+msgstr "M998: ხაზის ხელახალი გაგზავნის მოთხოვნა"
 
 #: src/gcodecommands.cpp:497
 msgctxt "QObject|"
 msgid "M999: Restart after being stopped by error"
-msgstr ""
+msgstr "M999: თავიდან დაწყება შეცდომის მიერ გაჩერების შემდეგ"
 
 #: src/gcodecommands.cpp:520
 msgctxt "QObject|"
 msgid "ERROR! M104: It's obligatory to have an argument"
-msgstr ""
+msgstr "შეცდომა! M104: არგუმენტის მითითება აუცილებელია"
 
 #: src/gcodecommands.cpp:539
 msgctxt "QObject|"
 msgid "ERROR! M109: It's obligatory to have an argument"
-msgstr ""
+msgstr "შეცდომა! M109: არგუმენტის მითითება აუცილებელია"
 
 #: src/gcodecommands.cpp:553
 msgctxt "QObject|"
 msgid "ERROR! M117: It's obligatory to have an argument"
-msgstr ""
+msgstr "შეცდომა! M117: არგუმენტის მითითება აუცილებელია"
 
 #: src/gcodecommands.cpp:561
 msgctxt "QObject|"
 msgid "ERROR! M140: It's obligatory to have an argument"
-msgstr ""
+msgstr "შეცდომა! M140: არგუმენტის მითითება აუცილებელია"
 
 #: src/gcodecommands.cpp:567
 msgctxt "QObject|"
 msgid "ERROR! M190: It's obligatory to have an argument"
-msgstr ""
+msgstr "შეცდომა! M190: არგუმენტის მითითება აუცილებელია"
 
 #: src/gcodecommands.cpp:573
 msgctxt "QObject|"
 msgid "ERROR! M220: It's obligatory to have an argument"
-msgstr ""
+msgstr "შეცდომა! M220: არგუმენტის მითითება აუცილებელია"
 
 #: src/gcodecommands.cpp:579
 msgctxt "QObject|"
 msgid "ERROR! M221: It's obligatory to have an argument"
-msgstr ""
+msgstr "შეცდომა! M221: არგუმენტის მითითება აუცილებელია"
 
 #: src/gcodecommands.cpp:582
 msgctxt "QObject|"
 msgid "Not supported or implemented!"
-msgstr ""
+msgstr "მხარდაჭერილი ან განხორციელებული არაა!"
 
 #: testclient/mainwindow.cpp:55 testclient/mainwindow.cpp:297
 #: testclient/mainwindow.cpp:430
@@ -1251,6 +1264,11 @@ msgid ""
 "so we can improve our firmware detection. We have loaded the most common "
 "plugin \"repetier\" for you. You may try to print again after this message"
 msgstr ""
+" მიკროკოდის დამატება ჩატვირთული არაა!\n"
+"   გააგზავნეთ ბრძანება M115 და შეგვატყობინეთ, რას დაგიბრუნებთ თქვენი "
+"მიკროკოდი, რათა ჩვენ უკეთ შევძლოთ მიკროკოდის ამოცნობა. ჩაგიტვირთეთ ყველაზე "
+"ზოგადი დამატება \"გამმეორებელი\". ამ შეტყობინების შემდეგ დაბეჭდვა შეგიძლიათ "
+"თავიდან სცადოთ"
 
 #: testclient/mainwindow.cpp:397
 msgctxt "MainWindow|"
