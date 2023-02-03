@@ -1392,7 +1392,7 @@ msgstr "მექანიკა"
 #: src/widgets/profilemanager.cpp:135
 msgctxt "ProfileManager|"
 msgid "Bed Maximum"
-msgstr ""
+msgstr "საფუძველის მაქსიმუმი"
 
 #: src/widgets/profilemanager.cpp:148
 msgctxt "ProfileManager|"
@@ -1422,7 +1422,7 @@ msgstr "მიკროკოდი"
 #: src/widgets/profilemanager.cpp:192
 msgctxt "ProfileManager|"
 msgid "PostPause"
-msgstr ""
+msgstr "შემდეგი პაუზა"
 
 #: src/widgets/profilemanager.cpp:198
 msgctxt "ProfileManager|"
@@ -1609,7 +1609,7 @@ msgstr "პროფილი:"
 #: testclient/mainwindow.cpp:264
 msgctxt "MainWindow|"
 msgid "Attempt to stop Reset on connect"
-msgstr ""
+msgstr "მიერთებისას შეწყვეტის გაუქმების მცდელობა"
 
 #: testclient/mainwindow.cpp:276 testclient/mainwindow.cpp:292
 #: testclient/mainwindow.cpp:563
@@ -1630,6 +1630,10 @@ msgid ""
 "Before connecting again check that your printer is on and your are "
 "connecting using the correct BAUD Rate for your device."
 msgstr ""
+"თქვენი მანქანა არ პასუხობს 20 წამის შემდეგაც.\n"
+"\n"
+"თავიდან მიერთებამდე შეამოწმეთ, ჩართულია თუ არა პრინტერი და მოწყობილობას "
+"სწორი ბოდური სიჩქარით თუ უკავშირდებით."
 
 #: testclient/mainwindow.cpp:304
 msgctxt "MainWindow|"
@@ -1725,6 +1729,10 @@ msgid ""
 "so we can improve our firmware detection. Edit your profile to use \"marlin"
 "\" and try again."
 msgstr ""
+"  მიკროკოდის მოდული ჩატვირთული არაა!\n"
+"   გააგზავნეთ ბრძანება M115 და შეგვატყობინეთ, რას დაგიბრუნებთ თქვენი "
+"მიკროკოდი. ამით ჩვენ მიკროკოდის ამოცნობას გავაუმჯობესებთ. ჩაასწორეთ პროფილი, "
+"რათა \"marlin\"-ი გამოიყენოთ და თავიდან სცადეთ."
 
 #: testclient/mainwindow.cpp:498
 msgctxt "MainWindow|"
