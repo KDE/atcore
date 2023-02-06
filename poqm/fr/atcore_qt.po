@@ -1,17 +1,18 @@
 # Christophe Moulin <mevouillon.corp@gmail.com>, 2020.
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2020.
+# Xavier BESNARD <xavier.besnard]neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: atcore_qt\n"
-"PO-Revision-Date: 2020-12-28 18:25+0100\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2023-02-05 17:50+0100\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -330,7 +331,7 @@ msgstr "M84 : arrêt du maintien inactif"
 #: src/gcodecommands.cpp:189
 msgctxt "QObject|"
 msgid "M85: Set Inactivity shutdown timer"
-msgstr "M85 : définition du timer pour le temps maximal avant extinction "
+msgstr "M85 : définition du compteur pour le temps maximal avant extinction "
 
 #: src/gcodecommands.cpp:191
 msgctxt "QObject|"
@@ -759,7 +760,7 @@ msgstr "M364 : déplacement vers la position en degrés à Psi + Thêta 90"
 #: src/gcodecommands.cpp:351
 msgctxt "QObject|"
 msgid "M365: SCARA scaling factor"
-msgstr "M365 : facteur d'échelle SCARA"
+msgstr "M365 : facteur d'échelle « SCARA »"
 
 #: src/gcodecommands.cpp:353
 msgctxt "QObject|"
@@ -878,7 +879,7 @@ msgstr "M453 : sélection du mode d'impression « CNC »"
 msgctxt "QObject|"
 msgid "M460: Define temperature range for thermistor controlled fan"
 msgstr ""
-"M460 : définition de la plage de temperature à partir du ventilateur "
+"M460 : définition de la plage de température à partir du ventilateur "
 "contrôlé par thermistor"
 
 #: src/gcodecommands.cpp:399
@@ -1291,10 +1292,10 @@ msgid ""
 "plugin \"repetier\" for you. You may try to print again after this message"
 msgstr ""
 "Un module externe de micrologiciel n'a pas été chargé !\n"
-"Veuillez envoyer la commande M115 et nous faire connaître ce que votre "
+"Veuillez envoyer la commande « M115 » et nous faire connaître ce que votre "
 "micrologiciel réponds, de manière à ce que nous puissions améliorer notre "
 "détection de micrologiciel. Nous avons chargé le module externe le plus "
-"courant « repetier » pour vous. Vous devriez essayer encore après ce message"
+"courant « Repetier » pour vous. Vous devriez essayer encore après ce message"
 
 #: testclient/mainwindow.cpp:397
 msgctxt "MainWindow|"
