@@ -80,8 +80,8 @@ find_package(Qt5 REQUIRED COMPONENTS
 
 include(ECMPoQmTools)
 
-if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
-    ecm_install_po_files_as_qm(po)
+if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/poqm")
+    ecm_install_po_files_as_qm(poqm)
 endif()
 
 # Set default build type to be release
