@@ -1,8 +1,8 @@
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2019-10-27 08:00+0100\n"
+"PO-Revision-Date: 2023-04-23 05:27+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.11.70\n"
+"X-Generator: Lokalize 22.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/atcore.cpp:456
@@ -49,6 +49,7 @@ msgctxt "QObject|"
 msgid "G10: Retract"
 msgstr "G10: Retraer"
 
+# well-spelled: Desretraer
 #: src/gcodecommands.cpp:47
 msgctxt "QObject|"
 msgid "G11: Unretract"
@@ -190,16 +191,19 @@ msgctxt "QObject|"
 msgid "M18: Disable all steppers motors"
 msgstr "M18: Desactivar os motores de pasos"
 
+# well-spelled: SD
 #: src/gcodecommands.cpp:137
 msgctxt "QObject|"
 msgid "M20: List SDCard"
 msgstr "M20: Listar a tarxeta SD"
 
+# well-spelled: SD
 #: src/gcodecommands.cpp:139
 msgctxt "QObject|"
 msgid "M21: Initialize SDCard"
 msgstr "M21: Inicializar a tarxeta SD"
 
+# well-spelled: SD
 #: src/gcodecommands.cpp:141
 msgctxt "QObject|"
 msgid "M22: Release SDCard"
@@ -290,7 +294,7 @@ msgstr "M70: Mostrar a mensaxe"
 #: src/gcodecommands.cpp:175
 msgctxt "QObject|"
 msgid "M72: Play a tone or song"
-msgstr "M72: Reproducir un tono ou unha canción"
+msgstr "M72: Reproducir un ton ou unha canción"
 
 #: src/gcodecommands.cpp:177
 msgctxt "QObject|"
@@ -337,11 +341,13 @@ msgctxt "QObject|"
 msgid "M93: Send axis steps per unit"
 msgstr "M93: Enviar os pasos por unidade dos eixos"
 
+# well-spelled: subprograma
 #: src/gcodecommands.cpp:195
 msgctxt "QObject|"
 msgid "M98: Call Macro/Subprogram"
 msgstr "M98: Executar unha macro ou un subprograma"
 
+# well-spelled: subprograma
 #: src/gcodecommands.cpp:197
 msgctxt "QObject|"
 msgid "M99: Return from Macro/Subprogram"
@@ -575,6 +581,7 @@ msgctxt "QObject|"
 msgid "M207: Set retract length"
 msgstr "M207: Estabelecer a lonxitude de retracción"
 
+# well-spelled: desretracción
 #: src/gcodecommands.cpp:285
 msgctxt "QObject|"
 msgid "M208: Set unretract length"
@@ -595,12 +602,14 @@ msgctxt "QObject|"
 msgid "M218: Set Hotend Offset"
 msgstr "M218: Estabelecer o desprazamento do extremo quente"
 
+# well-spelled: sobreescritura
 #: src/gcodecommands.cpp:293
 msgctxt "QObject|"
 msgid "M220: Set speed factor override percentage"
 msgstr ""
 "M220: Estabelecer a porcentaxe de sobreescritura do factor de velocidade"
 
+# well-spelled: sobreescritura
 #: src/gcodecommands.cpp:295
 msgctxt "QObject|"
 msgid "M221: Set extrude factor override percentage"
@@ -615,7 +624,7 @@ msgstr "M226: Agardar polo estado do prendedor"
 #: src/gcodecommands.cpp:299
 msgctxt "QObject|"
 msgid "M231: Set OPS parameter"
-msgstr "M231: Estabelecer o parámtro OPS"
+msgstr "M231: Estabelecer o parámetro OPS"
 
 #: src/gcodecommands.cpp:301
 msgctxt "QObject|"
@@ -635,7 +644,7 @@ msgstr "M250: Estabelecer a contraste de LCD"
 #: src/gcodecommands.cpp:307
 msgctxt "QObject|"
 msgid "M251: Measure Z steps from homing stop (Delta printers)"
-msgstr "M251: Medir os pasos de Z desde a parata de inicio (impresoras Delta)"
+msgstr "M251: Medir os pasos de Z desde a parada de inicio (impresoras Delta)"
 
 #: src/gcodecommands.cpp:309
 msgctxt "QObject|"
@@ -687,7 +696,7 @@ msgstr "M320: Activar a nivelación automática (Repetier)"
 #: src/gcodecommands.cpp:327
 msgctxt "QObject|"
 msgid "M321: Deactivate autolevel (Repetier)"
-msgstr "M321: Desctivar a nivelación automática (Repetier)"
+msgstr "M321: Desactivar a nivelación automática (Repetier)"
 
 #: src/gcodecommands.cpp:329
 msgctxt "QObject|"
@@ -704,6 +713,7 @@ msgctxt "QObject|"
 msgid "M340: Control the servos"
 msgstr "M340: Controlar os servos"
 
+# well-spelled: micropasos
 #: src/gcodecommands.cpp:335
 msgctxt "QObject|"
 msgid "M350: Set microstepping mode"
@@ -822,7 +832,7 @@ msgstr "M405: Activar o sensor do filamento"
 #: src/gcodecommands.cpp:381
 msgctxt "QObject|"
 msgid "M406: Filament Sensor off"
-msgstr "M406: Desctivar o sensor do filamento"
+msgstr "M406: Desactivar o sensor do filamento"
 
 #: src/gcodecommands.cpp:383
 msgctxt "QObject|"
@@ -863,7 +873,7 @@ msgstr "M453: Seleccionar o modo CNC da impresora"
 msgctxt "QObject|"
 msgid "M460: Define temperature range for thermistor controlled fan"
 msgstr ""
-"M460: Definir o intervalo de termeratura para o ventilador controlado do "
+"M460: Definir o intervalo de temperatura para o ventilador controlado do "
 "termistor"
 
 #: src/gcodecommands.cpp:399
@@ -1271,7 +1281,7 @@ msgid ""
 "so we can improve our firmware detection. We have loaded the most common "
 "plugin \"repetier\" for you. You may try to print again after this message"
 msgstr ""
-" Non se acrgou ningún complemento de firmware!\n"
+" Non se cargou ningún complemento de firmware!\n"
 "  Envíe a orde M115 e indíquenos o que devolve o seu firmware, para que "
 "poidamos mellorar a nosa detección de firmware. Cargouse o complemento máis "
 "común: «repetier». Pode intentar imprimir de novo despois desta mensaxe."
@@ -1295,7 +1305,7 @@ msgstr "Imprimir: %1"
 #: testclient/mainwindow.cpp:423
 msgctxt "MainWindow|"
 msgid "Save Log to file"
-msgstr "Gardar o rexisto no ficheiro"
+msgstr "Gardar o rexistro no ficheiro"
 
 #: testclient/mainwindow.cpp:453 testclient/mainwindow.cpp:467
 msgctxt "MainWindow|"

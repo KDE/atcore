@@ -1,4 +1,4 @@
-# Paolo Zamponi <zapaolo@email.it>, 2019.
+# Paolo Zamponi <feus73@gmail.com>, 2019.
 # Vincenzo Reale <smart2128vr@gmail.com>, 2020.
 msgid ""
 msgstr ""
