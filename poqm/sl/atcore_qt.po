@@ -21,59 +21,59 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: src/core/atcore.cpp:140
+#: src/core/atcore.cpp:141
 msgctxt "AtCore|"
 msgid "Waiting for firmware detect."
 msgstr "Čakanje na zaznavo strojne programske opreme."
 
-#: src/core/atcore.cpp:194
+#: src/core/atcore.cpp:195
 #, qt-format
 msgctxt "AtCore|"
 msgid "Connected to printer using %1 plugin"
 msgstr "Povezava s tiskalnikom je vzpostavljena z vstavkom %1"
 
-#: src/core/atcore.cpp:198
+#: src/core/atcore.cpp:199
 #, qt-format
 msgctxt "AtCore|"
 msgid "No plugin found for %1."
 msgstr "Noben vtičnik za %1 ni naložen."
 
-#: src/core/atcore.cpp:237
+#: src/core/atcore.cpp:238
 msgctxt "AtCore|"
 msgid "Waiting for machine restart"
 msgstr "Čakanje na ponoven zagon stroja"
 
-#: src/core/atcore.cpp:248
+#: src/core/atcore.cpp:249
 msgctxt "AtCore|"
 msgid "Failed to open device in read/write mode."
 msgstr "Odpiranje naprave v načinu za branje/pisanje ni uspelo."
 
-#: src/core/atcore.cpp:867
+#: src/core/atcore.cpp:868
 msgctxt "AtCore|"
 msgid "Device not found"
 msgstr "Naprave ni mogoče najti"
 
-#: src/core/atcore.cpp:870
+#: src/core/atcore.cpp:871
 msgctxt "AtCore|"
 msgid "Unable to write to device"
 msgstr "Na napravo ni mogoče pisati"
 
-#: src/core/atcore.cpp:873
+#: src/core/atcore.cpp:874
 msgctxt "AtCore|"
 msgid "Unable to read from device"
 msgstr "Iz naprave ni mogoče brati"
 
-#: src/core/atcore.cpp:877
+#: src/core/atcore.cpp:878
 msgctxt "AtCore|"
 msgid "The device no longer available"
 msgstr "Naprava ni več na voljo"
 
-#: src/core/atcore.cpp:881
+#: src/core/atcore.cpp:882
 msgctxt "AtCore|"
 msgid "Device does not support the operation"
 msgstr "Naprava ne podpira operacije"
 
-#: src/core/atcore.cpp:884
+#: src/core/atcore.cpp:885
 msgctxt "AtCore|"
 msgid "Unknown Error"
 msgstr "Neznana napaka"
@@ -1326,7 +1326,7 @@ msgctxt "MovementWidget|"
 msgid "Go"
 msgstr "Pojdi"
 
-#: src/widgets/plotwidget.cpp:20
+#: src/widgets/plotwidget.cpp:21
 msgctxt "PlotWidget|"
 msgid "Temp."
 msgstr "Temp."

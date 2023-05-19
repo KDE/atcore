@@ -13,59 +13,59 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 19.07.70\n"
 
-#: src/core/atcore.cpp:140
+#: src/core/atcore.cpp:141
 msgctxt "AtCore|"
 msgid "Waiting for firmware detect."
 msgstr "Waiting for firmware detect."
 
-#: src/core/atcore.cpp:194
+#: src/core/atcore.cpp:195
 #, qt-format
 msgctxt "AtCore|"
 msgid "Connected to printer using %1 plugin"
 msgstr "Connected to printer using %1 plugin"
 
-#: src/core/atcore.cpp:198
+#: src/core/atcore.cpp:199
 #, qt-format
 msgctxt "AtCore|"
 msgid "No plugin found for %1."
 msgstr "No plugin found for %1."
 
-#: src/core/atcore.cpp:237
+#: src/core/atcore.cpp:238
 msgctxt "AtCore|"
 msgid "Waiting for machine restart"
 msgstr "Waiting for machine restart"
 
-#: src/core/atcore.cpp:248
+#: src/core/atcore.cpp:249
 msgctxt "AtCore|"
 msgid "Failed to open device in read/write mode."
 msgstr "Failed to open device in read/write mode."
 
-#: src/core/atcore.cpp:867
+#: src/core/atcore.cpp:868
 msgctxt "AtCore|"
 msgid "Device not found"
 msgstr "Device not found"
 
-#: src/core/atcore.cpp:870
+#: src/core/atcore.cpp:871
 msgctxt "AtCore|"
 msgid "Unable to write to device"
 msgstr "Unable to write to device"
 
-#: src/core/atcore.cpp:873
+#: src/core/atcore.cpp:874
 msgctxt "AtCore|"
 msgid "Unable to read from device"
 msgstr "Unable to read from device"
 
-#: src/core/atcore.cpp:877
+#: src/core/atcore.cpp:878
 msgctxt "AtCore|"
 msgid "The device no longer available"
 msgstr "The device no longer available"
 
-#: src/core/atcore.cpp:881
+#: src/core/atcore.cpp:882
 msgctxt "AtCore|"
 msgid "Device does not support the operation"
 msgstr "Device does not support the operation"
 
-#: src/core/atcore.cpp:884
+#: src/core/atcore.cpp:885
 msgctxt "AtCore|"
 msgid "Unknown Error"
 msgstr "Unknown Error"
@@ -1312,7 +1312,7 @@ msgctxt "MovementWidget|"
 msgid "Go"
 msgstr "Go"
 
-#: src/widgets/plotwidget.cpp:20
+#: src/widgets/plotwidget.cpp:21
 msgctxt "PlotWidget|"
 msgid "Temp."
 msgstr "Temp."

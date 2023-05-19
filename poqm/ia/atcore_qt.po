@@ -13,59 +13,59 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.11.80\n"
 
-#: src/core/atcore.cpp:140
+#: src/core/atcore.cpp:141
 msgctxt "AtCore|"
 msgid "Waiting for firmware detect."
 msgstr "On expecta discoperir firmware."
 
-#: src/core/atcore.cpp:194
+#: src/core/atcore.cpp:195
 #, qt-format
 msgctxt "AtCore|"
 msgid "Connected to printer using %1 plugin"
 msgstr "Connectite a imprimitor usante plugin %1 "
 
-#: src/core/atcore.cpp:198
+#: src/core/atcore.cpp:199
 #, qt-format
 msgctxt "AtCore|"
 msgid "No plugin found for %1."
 msgstr "Necun plugin trovate per %1."
 
-#: src/core/atcore.cpp:237
+#: src/core/atcore.cpp:238
 msgctxt "AtCore|"
 msgid "Waiting for machine restart"
 msgstr ""
 
-#: src/core/atcore.cpp:248
+#: src/core/atcore.cpp:249
 msgctxt "AtCore|"
 msgid "Failed to open device in read/write mode."
 msgstr "Falleva a aperir dispositivo in modo le lectura/scriptura."
 
-#: src/core/atcore.cpp:867
+#: src/core/atcore.cpp:868
 msgctxt "AtCore|"
 msgid "Device not found"
 msgstr "Dispositivo non trovate"
 
-#: src/core/atcore.cpp:870
+#: src/core/atcore.cpp:871
 msgctxt "AtCore|"
 msgid "Unable to write to device"
 msgstr "Incapace a scriber a dispositivo"
 
-#: src/core/atcore.cpp:873
+#: src/core/atcore.cpp:874
 msgctxt "AtCore|"
 msgid "Unable to read from device"
 msgstr "Incapace a leger ab dispositivo"
 
-#: src/core/atcore.cpp:877
+#: src/core/atcore.cpp:878
 msgctxt "AtCore|"
 msgid "The device no longer available"
 msgstr "Le dispositivo non es plus disponibile"
 
-#: src/core/atcore.cpp:881
+#: src/core/atcore.cpp:882
 msgctxt "AtCore|"
 msgid "Device does not support the operation"
 msgstr "Dispositivo non supporta le operation"
 
-#: src/core/atcore.cpp:884
+#: src/core/atcore.cpp:885
 msgctxt "AtCore|"
 msgid "Unknown Error"
 msgstr "Error Incognite"
@@ -1280,7 +1280,7 @@ msgctxt "MovementWidget|"
 msgid "Go"
 msgstr "Vade"
 
-#: src/widgets/plotwidget.cpp:20
+#: src/widgets/plotwidget.cpp:21
 msgctxt "PlotWidget|"
 msgid "Temp."
 msgstr "Temp."

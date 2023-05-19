@@ -13,59 +13,59 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 2.0\n"
 
-#: src/core/atcore.cpp:140
+#: src/core/atcore.cpp:141
 msgctxt "AtCore|"
 msgid "Waiting for firmware detect."
 msgstr "Väntar på detektering av fast programvara."
 
-#: src/core/atcore.cpp:194
+#: src/core/atcore.cpp:195
 #, qt-format
 msgctxt "AtCore|"
 msgid "Connected to printer using %1 plugin"
 msgstr "Ansluten till skrivaren med användning av insticksprogrammet %1"
 
-#: src/core/atcore.cpp:198
+#: src/core/atcore.cpp:199
 #, qt-format
 msgctxt "AtCore|"
 msgid "No plugin found for %1."
 msgstr "Inget insticksprogram hittades för %1."
 
-#: src/core/atcore.cpp:237
+#: src/core/atcore.cpp:238
 msgctxt "AtCore|"
 msgid "Waiting for machine restart"
 msgstr "Väntar på omstart av skrivaren"
 
-#: src/core/atcore.cpp:248
+#: src/core/atcore.cpp:249
 msgctxt "AtCore|"
 msgid "Failed to open device in read/write mode."
 msgstr "Misslyckades öppna enhet för läsning och skrivning."
 
-#: src/core/atcore.cpp:867
+#: src/core/atcore.cpp:868
 msgctxt "AtCore|"
 msgid "Device not found"
 msgstr "Enhet hittades inte"
 
-#: src/core/atcore.cpp:870
+#: src/core/atcore.cpp:871
 msgctxt "AtCore|"
 msgid "Unable to write to device"
 msgstr "Kan inte skriva till enhet"
 
-#: src/core/atcore.cpp:873
+#: src/core/atcore.cpp:874
 msgctxt "AtCore|"
 msgid "Unable to read from device"
 msgstr "Kan inte läsa från enhet"
 
-#: src/core/atcore.cpp:877
+#: src/core/atcore.cpp:878
 msgctxt "AtCore|"
 msgid "The device no longer available"
 msgstr "Enheten inte längre tillgänglig"
 
-#: src/core/atcore.cpp:881
+#: src/core/atcore.cpp:882
 msgctxt "AtCore|"
 msgid "Device does not support the operation"
 msgstr "Enheten stöder inte åtgärden"
 
-#: src/core/atcore.cpp:884
+#: src/core/atcore.cpp:885
 msgctxt "AtCore|"
 msgid "Unknown Error"
 msgstr "Okänt fel"
@@ -1317,7 +1317,7 @@ msgctxt "MovementWidget|"
 msgid "Go"
 msgstr "Starta"
 
-#: src/widgets/plotwidget.cpp:20
+#: src/widgets/plotwidget.cpp:21
 msgctxt "PlotWidget|"
 msgid "Temp."
 msgstr "Temp."

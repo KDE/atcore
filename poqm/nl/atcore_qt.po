@@ -13,59 +13,59 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 19.04.0\n"
 
-#: src/core/atcore.cpp:140
+#: src/core/atcore.cpp:141
 msgctxt "AtCore|"
 msgid "Waiting for firmware detect."
 msgstr "Wacht op detectie van firmware."
 
-#: src/core/atcore.cpp:194
+#: src/core/atcore.cpp:195
 #, qt-format
 msgctxt "AtCore|"
 msgid "Connected to printer using %1 plugin"
 msgstr "Verbonden met printer met gebruik van plug-in %1"
 
-#: src/core/atcore.cpp:198
+#: src/core/atcore.cpp:199
 #, qt-format
 msgctxt "AtCore|"
 msgid "No plugin found for %1."
 msgstr "Geen plug-in voor %1 gevonden."
 
-#: src/core/atcore.cpp:237
+#: src/core/atcore.cpp:238
 msgctxt "AtCore|"
 msgid "Waiting for machine restart"
 msgstr "Wacht op herstart van de machine"
 
-#: src/core/atcore.cpp:248
+#: src/core/atcore.cpp:249
 msgctxt "AtCore|"
 msgid "Failed to open device in read/write mode."
 msgstr "Apparaat openen in modus lezen/schrijven is mislukt."
 
-#: src/core/atcore.cpp:867
+#: src/core/atcore.cpp:868
 msgctxt "AtCore|"
 msgid "Device not found"
 msgstr "Apparaat niet gevonden"
 
-#: src/core/atcore.cpp:870
+#: src/core/atcore.cpp:871
 msgctxt "AtCore|"
 msgid "Unable to write to device"
 msgstr "Kan niet naar apparaat schrijven"
 
-#: src/core/atcore.cpp:873
+#: src/core/atcore.cpp:874
 msgctxt "AtCore|"
 msgid "Unable to read from device"
 msgstr "Kan niet van apparaat lezen"
 
-#: src/core/atcore.cpp:877
+#: src/core/atcore.cpp:878
 msgctxt "AtCore|"
 msgid "The device no longer available"
 msgstr "Het apparaat is niet langer beschikbaar"
 
-#: src/core/atcore.cpp:881
+#: src/core/atcore.cpp:882
 msgctxt "AtCore|"
 msgid "Device does not support the operation"
 msgstr "Apparaat ondersteunt de bewerking niet"
 
-#: src/core/atcore.cpp:884
+#: src/core/atcore.cpp:885
 msgctxt "AtCore|"
 msgid "Unknown Error"
 msgstr "Onbekende fout"
@@ -1316,7 +1316,7 @@ msgctxt "MovementWidget|"
 msgid "Go"
 msgstr "Ga naar"
 
-#: src/widgets/plotwidget.cpp:20
+#: src/widgets/plotwidget.cpp:21
 msgctxt "PlotWidget|"
 msgid "Temp."
 msgstr "Temp."
