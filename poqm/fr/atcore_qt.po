@@ -1,6 +1,6 @@
 # Christophe Moulin <mevouillon.corp@gmail.com>, 2020.
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2020.
-# Xavier BESNARD <xavier.besnard]neuf.fr>, 2023.
+# Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: atcore_qt\n"
