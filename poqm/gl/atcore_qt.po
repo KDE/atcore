@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-04-23 05:27+0200\n"
+"PO-Revision-Date: 2023-06-05 12:53+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.2\n"
 "X-Qt-Contexts: true\n"
 
 #: src/atcore.cpp:456
@@ -289,7 +289,7 @@ msgstr "M48: Medir a capacidade de repetición da sonda de Z"
 #: src/gcodecommands.cpp:173
 msgctxt "QObject|"
 msgid "M70: Display message"
-msgstr "M70: Mostrar a mensaxe"
+msgstr "M70: Amosar a mensaxe"
 
 #: src/gcodecommands.cpp:175
 msgctxt "QObject|"
@@ -426,7 +426,7 @@ msgstr "M116: Agardar"
 #: src/gcodecommands.cpp:227
 msgctxt "QObject|"
 msgid "M117: Display Message"
-msgstr "M117: Mostrar a mensaxe"
+msgstr "M117: Amosar a mensaxe"
 
 #: src/gcodecommands.cpp:229
 msgctxt "QObject|"
@@ -469,22 +469,22 @@ msgstr "M127: Pechar a válvula"
 #: src/gcodecommands.cpp:241
 msgctxt "QObject|"
 msgid "M130: Set PID P value"
-msgstr "M130: Estabelecer o valor de P de PID"
+msgstr "M130: Definir o valor de P de PID"
 
 #: src/gcodecommands.cpp:243
 msgctxt "QObject|"
 msgid "M131: Set PID I value"
-msgstr "M131: Estabelecer o valor de I de PID"
+msgstr "M131: Definir o valor de I de PID"
 
 #: src/gcodecommands.cpp:245
 msgctxt "QObject|"
 msgid "M132: Set PID D value"
-msgstr "M132: Estabelecer o valor de D de PID"
+msgstr "M132: Definir o valor de D de PID"
 
 #: src/gcodecommands.cpp:247
 msgctxt "QObject|"
 msgid "M133: Set PID I limit value"
-msgstr "M131: Estabelecer o valor límite de I de PID"
+msgstr "M131: Definir o valor límite de I de PID"
 
 #: src/gcodecommands.cpp:249
 msgctxt "QObject|"
@@ -494,17 +494,17 @@ msgstr "M134: Escribir os valores de PID na EEPROM"
 #: src/gcodecommands.cpp:251
 msgctxt "QObject|"
 msgid "M135: Set PID sample interval"
-msgstr "M135: Estabelecer o intervalo de mostraxe de PID"
+msgstr "M135: Definir o intervalo de mostraxe de PID"
 
 #: src/gcodecommands.cpp:253
 msgctxt "QObject|"
 msgid "M140: Set Bed Temperature - Fast"
-msgstr "M140: Estabelecer a temperatura da cama - Rápido"
+msgstr "M140: Definir a temperatura da cama - Rápido"
 
 #: src/gcodecommands.cpp:255
 msgctxt "QObject|"
 msgid "M141: Set Chamber Temperature - Fast"
-msgstr "M141: Estabelecer a temperatura da cámara - Rápido"
+msgstr "M141: Definir a temperatura da cámara - Rápido"
 
 #: src/gcodecommands.cpp:257
 msgctxt "QObject|"
@@ -519,12 +519,12 @@ msgstr "M144: En pé canda a cama"
 #: src/gcodecommands.cpp:261
 msgctxt "QObject|"
 msgid "M150: Set display color"
-msgstr "M150: Estabelecer a cor da pantalla"
+msgstr "M150: Definir a cor da pantalla"
 
 #: src/gcodecommands.cpp:263
 msgctxt "QObject|"
 msgid "M163: Set weight of mixed material"
-msgstr "M163: Estabelecer o peso de material mixto"
+msgstr "M163: Definir o peso de material mixto"
 
 #: src/gcodecommands.cpp:265
 msgctxt "QObject|"
@@ -540,27 +540,27 @@ msgstr ""
 #: src/gcodecommands.cpp:269
 msgctxt "QObject|"
 msgid "M200: Set filament diameter"
-msgstr "M200: Estabelecer o diámetro do filamento"
+msgstr "M200: Definir o diámetro do filamento"
 
 #: src/gcodecommands.cpp:271
 msgctxt "QObject|"
 msgid "M201: Set max printing acceleration"
-msgstr "M201: Estabelecer a aceleración máxima de impresión"
+msgstr "M201: Definir a aceleración máxima de impresión"
 
 #: src/gcodecommands.cpp:273
 msgctxt "QObject|"
 msgid "M202: Set max travel acceleration"
-msgstr "M202: Estabelecer a aceleración máxima de viaxe"
+msgstr "M202: Definir a aceleración máxima de viaxe"
 
 #: src/gcodecommands.cpp:275
 msgctxt "QObject|"
 msgid "M203: Set maximum feedrate"
-msgstr "M203: Estabelecer a taxa de alimentación máxima"
+msgstr "M203: Definir a taxa de alimentación máxima"
 
 #: src/gcodecommands.cpp:277
 msgctxt "QObject|"
 msgid "M204: Set default acceleration"
-msgstr "M204: Estabelecer a aceleración predeterminada"
+msgstr "M204: Definir a aceleración predeterminada"
 
 #: src/gcodecommands.cpp:279
 msgctxt "QObject|"
@@ -574,18 +574,18 @@ msgid ""
 "eeprom value for Repetier"
 msgstr ""
 "M206: Eixos de desprazamento para Sprinter, Marlin, Smoothie e RepRap "
-"Firmware; estabelecer o valor de EEPROM para Repetier"
+"Firmware; definir o valor de EEPROM para Repetier"
 
 #: src/gcodecommands.cpp:283
 msgctxt "QObject|"
 msgid "M207: Set retract length"
-msgstr "M207: Estabelecer a lonxitude de retracción"
+msgstr "M207: Definir a lonxitude de retracción"
 
 # well-spelled: desretracción
 #: src/gcodecommands.cpp:285
 msgctxt "QObject|"
 msgid "M208: Set unretract length"
-msgstr "M208: Estabelecer a lonxitude de desretracción"
+msgstr "M208: Definir a lonxitude de desretracción"
 
 #: src/gcodecommands.cpp:287
 msgctxt "QObject|"
@@ -595,26 +595,24 @@ msgstr "M209: Activar a retracción automática"
 #: src/gcodecommands.cpp:289
 msgctxt "QObject|"
 msgid "M212: Set Bed Level Sensor Offset"
-msgstr "M212: Estabelecer o desprazamento do sensor de nivel da cama"
+msgstr "M212: Definir o desprazamento do sensor de nivel da cama"
 
 #: src/gcodecommands.cpp:291
 msgctxt "QObject|"
 msgid "M218: Set Hotend Offset"
-msgstr "M218: Estabelecer o desprazamento do extremo quente"
+msgstr "M218: Definir o desprazamento do extremo quente"
 
 # well-spelled: sobreescritura
 #: src/gcodecommands.cpp:293
 msgctxt "QObject|"
 msgid "M220: Set speed factor override percentage"
-msgstr ""
-"M220: Estabelecer a porcentaxe de sobreescritura do factor de velocidade"
+msgstr "M220: Definir a porcentaxe de sobreescritura do factor de velocidade"
 
 # well-spelled: sobreescritura
 #: src/gcodecommands.cpp:295
 msgctxt "QObject|"
 msgid "M221: Set extrude factor override percentage"
-msgstr ""
-"M221: Estabelecer a porcentaxe de sobreescritura do factor de expulsión"
+msgstr "M221: Definir a porcentaxe de sobreescritura do factor de expulsión"
 
 #: src/gcodecommands.cpp:297
 msgctxt "QObject|"
@@ -624,7 +622,7 @@ msgstr "M226: Agardar polo estado do prendedor"
 #: src/gcodecommands.cpp:299
 msgctxt "QObject|"
 msgid "M231: Set OPS parameter"
-msgstr "M231: Estabelecer o parámetro OPS"
+msgstr "M231: Definir o parámetro OPS"
 
 #: src/gcodecommands.cpp:301
 msgctxt "QObject|"
@@ -639,7 +637,7 @@ msgstr "M240: Disparar a cámara"
 #: src/gcodecommands.cpp:305
 msgctxt "QObject|"
 msgid "M250: Set LCD contrast"
-msgstr "M250: Estabelecer a contraste de LCD"
+msgstr "M250: Definir a contraste de LCD"
 
 #: src/gcodecommands.cpp:307
 msgctxt "QObject|"
@@ -649,7 +647,7 @@ msgstr "M251: Medir os pasos de Z desde a parada de inicio (impresoras Delta)"
 #: src/gcodecommands.cpp:309
 msgctxt "QObject|"
 msgid "M280: Set servo position"
-msgstr "M280: Estabelecer a posición do servo"
+msgstr "M280: Definir a posición do servo"
 
 #: src/gcodecommands.cpp:311
 msgctxt "QObject|"
@@ -659,7 +657,7 @@ msgstr "M300: Reproducir un son de pito"
 #: src/gcodecommands.cpp:313
 msgctxt "QObject|"
 msgid "M301: Set PID parameters"
-msgstr "M301: Estabelecer os parámetros de PID"
+msgstr "M301: Definir os parámetros de PID"
 
 #: src/gcodecommands.cpp:315
 msgctxt "QObject|"
@@ -674,19 +672,19 @@ msgstr "M303: Executar o axuste de PID"
 #: src/gcodecommands.cpp:319
 msgctxt "QObject|"
 msgid "M304: Set PID parameters - Bed"
-msgstr "M304: Estabelecer os parámetros de PID - Cama"
+msgstr "M304: Definir os parámetros de PID - Cama"
 
 #: src/gcodecommands.cpp:321
 msgctxt "QObject|"
 msgid "M305: Set thermistor and ADC parameters"
-msgstr "M305: Estabelecer os parámetros do termistor e do ADC"
+msgstr "M305: Definir os parámetros do termistor e do ADC"
 
 #: src/gcodecommands.cpp:323
 msgctxt "QObject|"
 msgid "M306: set home offset calculated from toolhead position"
 msgstr ""
-"M306: Estabelecer o desprazamento do inicio calculado a partir da posición "
-"do punto de colocación da ferramenta"
+"M306: Definir o desprazamento do inicio calculado a partir da posición do "
+"punto de colocación da ferramenta"
 
 #: src/gcodecommands.cpp:325
 msgctxt "QObject|"
@@ -717,7 +715,7 @@ msgstr "M340: Controlar os servos"
 #: src/gcodecommands.cpp:335
 msgctxt "QObject|"
 msgid "M350: Set microstepping mode"
-msgstr "M350: Estabelecer o modo de micropasos"
+msgstr "M350: Definir o modo de micropasos"
 
 #: src/gcodecommands.cpp:337
 msgctxt "QObject|"
@@ -792,7 +790,7 @@ msgstr "M374: Gardar a grade de calibración"
 #: src/gcodecommands.cpp:365
 msgctxt "QObject|"
 msgid "M375: Display matrix / Load Matrix"
-msgstr "M375: Mostrar ou cargar a matriz"
+msgstr "M375: Amosar ou cargar a matriz"
 
 #: src/gcodecommands.cpp:367
 msgctxt "QObject|"
@@ -837,7 +835,7 @@ msgstr "M406: Desactivar o sensor do filamento"
 #: src/gcodecommands.cpp:383
 msgctxt "QObject|"
 msgid "M407: Display filament diameter"
-msgstr "M407: Mostrar o diámetro do filamento"
+msgstr "M407: Amosar o diámetro do filamento"
 
 #: src/gcodecommands.cpp:385
 msgctxt "QObject|"
@@ -906,32 +904,32 @@ msgstr ""
 #: src/gcodecommands.cpp:409
 msgctxt "QObject|"
 msgid "M550: Set Name"
-msgstr "M550: Estabelecer o nome"
+msgstr "M550: Definir o nome"
 
 #: src/gcodecommands.cpp:411
 msgctxt "QObject|"
 msgid "M551: Set Password"
-msgstr "M551: Estabelecer o contrasinal"
+msgstr "M551: Definir o contrasinal"
 
 #: src/gcodecommands.cpp:413
 msgctxt "QObject|"
 msgid "M552: Set IP address"
-msgstr "M552: Estabelecer o enderezo IP"
+msgstr "M552: Definir o enderezo IP"
 
 #: src/gcodecommands.cpp:415
 msgctxt "QObject|"
 msgid "M553: Set Netmask"
-msgstr "M553: Estabelecer a máscara de rede"
+msgstr "M553: Definir a máscara de rede"
 
 #: src/gcodecommands.cpp:417
 msgctxt "QObject|"
 msgid "M554: Set Gateway"
-msgstr "M554: Estabelecer a pasarela"
+msgstr "M554: Definir a pasarela"
 
 #: src/gcodecommands.cpp:419
 msgctxt "QObject|"
 msgid "M555: Set compatibility"
-msgstr "M555: Estabelecer a compatibilidade"
+msgstr "M555: Definir a compatibilidade"
 
 #: src/gcodecommands.cpp:421
 msgctxt "QObject|"
@@ -941,12 +939,12 @@ msgstr "M556: Compensación dos eixos"
 #: src/gcodecommands.cpp:423
 msgctxt "QObject|"
 msgid "M557: Set Z probe point"
-msgstr "M557: Estabelecer o punto da sonda de Z"
+msgstr "M557: Definir o punto da sonda de Z"
 
 #: src/gcodecommands.cpp:425
 msgctxt "QObject|"
 msgid "M558: Set Z probe type"
-msgstr "M558: Estabelecer o tipo da sonda de Z"
+msgstr "M558: Definir o tipo da sonda de Z"
 
 #: src/gcodecommands.cpp:427
 msgctxt "QObject|"
@@ -961,7 +959,7 @@ msgstr "M560: Enviar un ficheiro de páxina web"
 #: src/gcodecommands.cpp:431
 msgctxt "QObject|"
 msgid "M561: Set Identity Transform"
-msgstr "M561: Estabelecer a transformación da identidade"
+msgstr "M561: Definir a transformación da identidade"
 
 #: src/gcodecommands.cpp:433
 msgctxt "QObject|"
@@ -981,17 +979,17 @@ msgstr "M564: Limitar os eixos"
 #: src/gcodecommands.cpp:439
 msgctxt "QObject|"
 msgid "M565: Set Z probe offset"
-msgstr "M565: Estabelecer o desprazamento da sonda de Z"
+msgstr "M565: Definir o desprazamento da sonda de Z"
 
 #: src/gcodecommands.cpp:441
 msgctxt "QObject|"
 msgid "M566: Set allowable instantaneous speed change"
-msgstr "M566: Estabelecer o cambio de velocidade instantáneo permisíbel"
+msgstr "M566: Definir o cambio de velocidade instantáneo permisíbel"
 
 #: src/gcodecommands.cpp:443
 msgctxt "QObject|"
 msgid "M567: Set tool mix ratio"
-msgstr "M567: Estabelecer a taxa de mestura da ferramenta"
+msgstr "M567: Definir a taxa de mestura da ferramenta"
 
 #: src/gcodecommands.cpp:445
 msgctxt "QObject|"
@@ -1001,17 +999,17 @@ msgstr "M568: Conmutar a taxa de mestura da ferramenta"
 #: src/gcodecommands.cpp:447
 msgctxt "QObject|"
 msgid "M569: Set axis direction and enable values"
-msgstr "M569: Estabelecer a dirección do eixo e activar os valores"
+msgstr "M569: Definir a dirección do eixo e activar os valores"
 
 #: src/gcodecommands.cpp:449
 msgctxt "QObject|"
 msgid "M570: Set heater timeout"
-msgstr "M570: Estabelecer o tempo límite do quentador"
+msgstr "M570: Definir o tempo límite do quentador"
 
 #: src/gcodecommands.cpp:451
 msgctxt "QObject|"
 msgid "M571: Set output on extrude"
-msgstr "M571: Estabelecer a saída no expulsor"
+msgstr "M571: Definir a saída no expulsor"
 
 #: src/gcodecommands.cpp:453
 msgctxt "QObject|"
@@ -1021,12 +1019,12 @@ msgstr "M573: Informar do PWM do quentador"
 #: src/gcodecommands.cpp:455
 msgctxt "QObject|"
 msgid "M574: Set endstop configuration"
-msgstr "M574: Estabelecer a configuración do punto final"
+msgstr "M574: Definir a configuración do punto final"
 
 #: src/gcodecommands.cpp:457
 msgctxt "QObject|"
 msgid "M575: Set serial comms parameters"
-msgstr "M575: Estabelecer os parámetros das comunicacións serie"
+msgstr "M575: Definir os parámetros das comunicacións serie"
 
 #: src/gcodecommands.cpp:459
 msgctxt "QObject|"
@@ -1056,17 +1054,17 @@ msgstr "M600: Pausa de cambio de filamento"
 #: src/gcodecommands.cpp:469
 msgctxt "QObject|"
 msgid "M605: Set dual x-carriage movement mode"
-msgstr "M605: Estabelecer o modo de movemento de postura en X dual"
+msgstr "M605: Definir o modo de movemento de postura en X dual"
 
 #: src/gcodecommands.cpp:471
 msgctxt "QObject|"
 msgid "M665: Set delta configuration"
-msgstr "M665: Estabelecer a configuración de delta"
+msgstr "M665: Definir a configuración de delta"
 
 #: src/gcodecommands.cpp:473
 msgctxt "QObject|"
 msgid "M666: Set delta endstop adjustment"
-msgstr "M666: Estabelecer o axuste de punto final de delta"
+msgstr "M666: Definir o axuste de punto final de delta"
 
 #: src/gcodecommands.cpp:475
 msgctxt "QObject|"
@@ -1076,17 +1074,17 @@ msgstr "M667: Seleccionar o modo CoreXY"
 #: src/gcodecommands.cpp:477
 msgctxt "QObject|"
 msgid "M851: Set Z-Probe Offset"
-msgstr "M851: Estabelecer o desprazamento da sonda de Z"
+msgstr "M851: Definir o desprazamento da sonda de Z"
 
 #: src/gcodecommands.cpp:479
 msgctxt "QObject|"
 msgid "M906: Set motor currents"
-msgstr "M906: Estabelecer as correntes do motor"
+msgstr "M906: Definir as correntes do motor"
 
 #: src/gcodecommands.cpp:481
 msgctxt "QObject|"
 msgid "M907: Set digital trimpot motor"
-msgstr "M907: Estabelecer o motor de potenciómetro de recorte dixital"
+msgstr "M907: Definir o motor de potenciómetro de recorte dixital"
 
 #: src/gcodecommands.cpp:483
 msgctxt "QObject|"
@@ -1096,19 +1094,18 @@ msgstr "M908: Controlar o potenciómetro de recorte directamente"
 #: src/gcodecommands.cpp:485
 msgctxt "QObject|"
 msgid "M911: Set power monitor threshold voltages"
-msgstr "M911: Estabelecer as voltaxes límite do monitor da enerxía"
+msgstr "M911: Definir as voltaxes límite do monitor da enerxía"
 
 #: src/gcodecommands.cpp:487
 msgctxt "QObject|"
 msgid "M912: Set electronics temperature monitor adjustment"
 msgstr ""
-"M912: Estabelecer o axuste do monitor da temperatura dos compoñentes "
-"electrónicos"
+"M912: Definir o axuste do monitor da temperatura dos compoñentes electrónicos"
 
 #: src/gcodecommands.cpp:489
 msgctxt "QObject|"
 msgid "M913: Set motor percentage of normal current"
-msgstr "M913: Estabelecer a porcentaxe de corrente normal do motor"
+msgstr "M913: Definir a porcentaxe de corrente normal do motor"
 
 #: src/gcodecommands.cpp:491
 msgctxt "QObject|"
