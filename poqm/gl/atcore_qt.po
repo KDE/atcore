@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-05 12:53+0200\n"
+"PO-Revision-Date: 2023-06-24 11:12+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -606,13 +606,13 @@ msgstr "M218: Definir o desprazamento do extremo quente"
 #: src/gcodecommands.cpp:293
 msgctxt "QObject|"
 msgid "M220: Set speed factor override percentage"
-msgstr "M220: Definir a porcentaxe de sobreescritura do factor de velocidade"
+msgstr "M220: Definir a porcentaxe de sobredefinición do factor de velocidade"
 
 # well-spelled: sobreescritura
 #: src/gcodecommands.cpp:295
 msgctxt "QObject|"
 msgid "M221: Set extrude factor override percentage"
-msgstr "M221: Definir a porcentaxe de sobreescritura do factor de expulsión"
+msgstr "M221: Definir a porcentaxe de sobredefinición do factor de expulsión"
 
 #: src/gcodecommands.cpp:297
 msgctxt "QObject|"
@@ -720,7 +720,7 @@ msgstr "M350: Definir o modo de micropasos"
 #: src/gcodecommands.cpp:337
 msgctxt "QObject|"
 msgid "M351: Toggle MS1 MS2 pins directly"
-msgstr "M351: Alternar os prendedores MS1 e MS2 directamente"
+msgstr "M351: Conmutar os prendedores MS1 e MS2 directamente"
 
 #: src/gcodecommands.cpp:339
 msgctxt "QObject|"
