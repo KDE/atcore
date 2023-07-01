@@ -13,6 +13,7 @@
   <name xml:lang="de">AtCore-Testprogramm</name>
   <name xml:lang="el">Πελάτης δοκιμών AtCore</name>
   <name xml:lang="en-GB">AtCore Test Client</name>
+  <name xml:lang="eo">AtCore-Testkliento</name>
   <name xml:lang="es">Cliente de prueba de AtCore</name>
   <name xml:lang="et">AtCore testklient</name>
   <name xml:lang="eu">AtCore probatzeko bezeroa</name>
@@ -47,6 +48,7 @@
   <summary xml:lang="de">Ein Testprogramm für die AtCore-Bibliothek zur Steuerung von 3D-Druckern</summary>
   <summary xml:lang="el">Μια δοκιμαστική εφαρμογή για το AtCore για τον έλεγχο τρισδιάστατων εκτυπωτών</summary>
   <summary xml:lang="en-GB">A test application for the AtCore framework to control 3D printers</summary>
+  <summary xml:lang="eo">Testapliko por la AtCore-framo por mastrumi 3D-printilojn</summary>
   <summary xml:lang="es">Una aplicación de pruebas para la infraestructura AtCore de control de impresoras en 3D</summary>
   <summary xml:lang="et">3D-printerite juhtimiseks mõeldud AtCore raamistiku testrakendus</summary>
   <summary xml:lang="eu">3D inprimagailuak kontrolatzeko AtCore azpiegitura probatzeko aplikazio bat</summary>
@@ -112,6 +114,7 @@
     <p xml:lang="de">Dies ist eine AtCore-Testanwendung, um das Framework demonstrieren.</p>
     <p xml:lang="el">Αυτή είναι μια εφαρμογή δοκιμών του AtCore για την παρουσίαση του πλαισίου.</p>
     <p xml:lang="en-GB">This is an AtCore test application to showcase the framework.</p>
+    <p xml:lang="eo">Ĉi tio estas AtCore-testapliko por elmontri la framon.</p>
     <p xml:lang="es">Esto es una aplicación de pruebas de AtCore mara mostrar la infraestructura.</p>
     <p xml:lang="et">AtCore testrakendus raamistikku esitlemas.</p>
     <p xml:lang="eu">Azpiegituraren erakustaldia egiteko AtCore-ren probako aplikazio bat da hau.</p>
