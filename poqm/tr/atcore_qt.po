@@ -1,8 +1,8 @@
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-08-04 20:15+0300\n"
+"PO-Revision-Date: 2023-07-06 22:33+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,12 +11,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #: src/core/atcore.cpp:141
 msgctxt "AtCore|"
 msgid "Waiting for firmware detect."
-msgstr "Üretici yazılımı algılaması bekleniyor."
+msgstr "Donanım yazılımı algılaması bekleniyor."
 
 #: src/core/atcore.cpp:195
 #, qt-format
@@ -460,7 +460,7 @@ msgstr "M114: Geçerli Konumu Al"
 #: src/core/gcodecommands.cpp:197
 msgctxt "QObject|"
 msgid "M115: Get Firmware Version and Capabilities"
-msgstr "M115: Üretici Yazılımı Sürümü ve Yeteneklerini Al"
+msgstr "M115: Donanım Yazılımı Sürümü ve Yeteneklerini Al"
 
 #: src/core/gcodecommands.cpp:199
 msgctxt "QObject|"
@@ -483,7 +483,7 @@ msgid ""
 "M120: Push for Smoothie and RepRap Firmware / Enable Endstop detection for "
 "Marlin"
 msgstr ""
-"M120: Smoothie ve RepRap Üretici Yazılımı için İt / Marlin için bitiş "
+"M120: Smoothie ve RepRap Donanım Yazılımı için İt / Marlin için bitiş "
 "noktası algılamasını etkinleştir"
 
 #: src/core/gcodecommands.cpp:207
@@ -492,7 +492,7 @@ msgid ""
 "M121: Pop for Smoothie and RepRap Firmware / Disable Endstop detection for "
 "Marlin"
 msgstr ""
-"M121: Smoothie ve RepRap Üretici Yazılımı için Çıkar / Marlin için bitiş "
+"M121: Smoothie ve RepRap Donanım Yazılımı için Çıkar / Marlin için bitiş "
 "noktası algılamasını etkinleştir"
 
 #: src/core/gcodecommands.cpp:209
@@ -621,7 +621,7 @@ msgid ""
 "M206: Offset axes for Sprinter, Marlin, Smoothie, RepRap Firmware / Set "
 "eeprom value for Repetier"
 msgstr ""
-"M206: Sprinter, Marlin, Smoothie, Reprap Üretici Yazılımları için ofset "
+"M206: Sprinter, Marlin, Smoothie, Reprap Donanım Yazılımları için ofset "
 "eksenleri / Repetier için EEPROM değeri ayarla"
 
 #: src/core/gcodecommands.cpp:259
@@ -773,7 +773,7 @@ msgstr "M355: Kutu ışıklarını aç/kapat"
 #: src/core/gcodecommands.cpp:317
 msgctxt "QObject|"
 msgid "M360: Report firmware configuration"
-msgstr "M360: Üretici yazılımı yapılandırmasını bildir"
+msgstr "M360: Donanım yazılımı yapılandırmasını bildir"
 
 #: src/core/gcodecommands.cpp:319
 msgctxt "QObject|"
@@ -1155,7 +1155,7 @@ msgstr "M928: SD günlüklemeyi başlat"
 #: src/core/gcodecommands.cpp:469
 msgctxt "QObject|"
 msgid "M997: Perform in-application firmware update"
-msgstr "M997: Uygulama içi üretici yazılımı güncellemesi gerçekleştir"
+msgstr "M997: Uygulama içi donanım yazılımı güncellemesi gerçekleştir"
 
 #: src/core/gcodecommands.cpp:471
 msgctxt "QObject|"
@@ -1249,20 +1249,20 @@ msgstr ""
 "program tarafından açılıp açılmadığını denetleyin.</"
 "p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; Aygıtı açmak için "
 "doğru izinlere sahip olup olmadığınızı denetleyin.</"
-"p>                         <p><strong>&lt;Algılanan Üretii Yazılımı&gt; için "
-"eklenti bulunamadı</strong></p>                         <p>&nbsp;&nbsp;"
-"&nbsp; Üretici yazılımı eklentileri eksik veya üretici yazılımınız şu anda "
+"p>                         <p><strong>&lt;Algılanan Donanım Yazılımı&gt; "
+"için eklenti bulunamadı</strong></p>                         <p>&nbsp;&nbsp;"
+"&nbsp; Donanım yazılımı eklentileri eksik veya donanım yazılımınız şu anda "
 "desteklenmiyor.</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;"
 "&nbsp; Marlin veya Repetier eklentisini el ile seçin.</"
 "p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Üretici "
 "yazılımınızın eklentisi yoksa bize bildirin.</p>                         "
-"<p><strong>Çok fazla &ldquo;Üretici yazılımı algılaması bekleniyor&rdquo;</"
-"strong></p>                         <p>&nbsp;&nbsp;&nbsp; Üretici yazılımı "
+"<p><strong>Çok fazla &ldquo;Donanım yazılımı algılaması bekleniyor&rdquo;</"
+"strong></p>                         <p>&nbsp;&nbsp;&nbsp; Donanım yazılımı "
 "algılaması bekleniyor gönderilemiyor; yazıcının yeniden başlatılması "
 "bekleniyor</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
 "Yazıcınızdaki yeniden başlat düğmesine basarak onu yeniden başlatın. </"
 "p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Otomatik "
-"algılama yerine bir üretici yazılımı eklentisi seçin.</p>"
+"algılama yerine bir donanım yazılımı eklentisi seçin.</p>"
 
 #: src/widgets/logwidget.cpp:81
 msgctxt "LogWidget|"
@@ -1434,7 +1434,7 @@ msgstr "Bit Hızı"
 #: src/widgets/profilemanager.cpp:178
 msgctxt "ProfileManager|"
 msgid "Firmware"
-msgstr "Üretici Yazılımı"
+msgstr "Donanım Yazılımı"
 
 #: src/widgets/profilemanager.cpp:192
 msgctxt "ProfileManager|"
@@ -1747,9 +1747,9 @@ msgid ""
 "so we can improve our firmware detection. Edit your profile to use \"marlin"
 "\" and try again."
 msgstr ""
-" Bir üretici eklentisi yüklenmemiş!\n"
+" Bir donanım eklentisi yüklenmemiş!\n"
 "  Lütfen M115 komutunu gönderin ve üretici yazılımının ne döndürdüğünü bize "
-"söyleyin ki üretici yazılımı algılamasını iyileştirebilelim. Profilinizi, "
+"söyleyin ki donanım yazılımı algılamasını iyileştirebilelim. Profilinizi, "
 "\"marlin\" kullanacak biçimde ayarlayın ve yeniden deneyin."
 
 #: testclient/mainwindow.cpp:498
