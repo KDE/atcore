@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-07-06 22:33+0300\n"
+"PO-Revision-Date: 2023-07-13 13:15+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -642,7 +642,7 @@ msgstr "M209: Otomatik geri çekmeyi etkinleştir"
 #: src/core/gcodecommands.cpp:265
 msgctxt "QObject|"
 msgid "M212: Set Bed Level Sensor Offset"
-msgstr "M212: Yatak Düzeyi Sensör Ofsetini Ayarla"
+msgstr "M212: Yatak Düzeyi Algılayıcı Ofsetini Ayarla"
 
 #: src/core/gcodecommands.cpp:267
 msgctxt "QObject|"
@@ -868,12 +868,12 @@ msgstr "M404: Fliament genişliği ve ağız çapı"
 #: src/core/gcodecommands.cpp:355
 msgctxt "QObject|"
 msgid "M405: Filament Sensor on"
-msgstr "M405: Filament sensörü açık"
+msgstr "M405: Filament algılayıcısı açık"
 
 #: src/core/gcodecommands.cpp:357
 msgctxt "QObject|"
 msgid "M406: Filament Sensor off"
-msgstr "M406: Filament sensörü kapalı"
+msgstr "M406: Filament algılayıcısı kapalı"
 
 #: src/core/gcodecommands.cpp:359
 msgctxt "QObject|"
