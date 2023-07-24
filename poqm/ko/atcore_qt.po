@@ -1,11 +1,11 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the atcore_qt package.
 # Jung Hee Lee <daemul72@gmail.com>, 2019.
-# Shinjo Park <kde@peremen.name>, 2019, 2020.
+# Shinjo Park <kde@peremen.name>, 2019, 2020, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2020-04-24 18:13+0200\n"
+"PO-Revision-Date: 2023-07-23 22:21+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/atcore.cpp:456
@@ -1097,7 +1097,7 @@ msgstr "M928: SD 로깅 시작"
 #: src/gcodecommands.cpp:493
 msgctxt "QObject|"
 msgid "M997: Perform in-application firmware update"
-msgstr "M997: 응용 프로그램 펌웨어 업데이트 수행"
+msgstr "M997: 앱 내부 펌웨어 업데이트 수행"
 
 #: src/gcodecommands.cpp:495
 msgctxt "QObject|"
