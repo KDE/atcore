@@ -59,7 +59,7 @@
   <summary xml:lang="id">Sebuah aplikasi uji untuk kerangka kerja AtCore guna mengendalikan printer 3D</summary>
   <summary xml:lang="it">Un'applicazione di prova per il framework AtCore, che controlla le stampanti 3D</summary>
   <summary xml:lang="ka">სატესტო აპლიკაცია AtCor Framework-ისთვის, 3D პრინტერების გასაკონტროლებლად</summary>
-  <summary xml:lang="ko">3D 프린터를 제어하는 AtCore 프레임워크 테스트 프로그램</summary>
+  <summary xml:lang="ko">3D 프린터를 제어하는 AtCore 프레임워크 테스트 앱</summary>
   <summary xml:lang="nl">Een testtoepassing voor het AtCore-framework om 3D-printers te besturen</summary>
   <summary xml:lang="nn">Eit testprogram for AtCore-rammeverket for kontrollering av 3D-skrivarar</summary>
   <summary xml:lang="pl">Aplikacja próbna dla szkieletu AtCore do sterowania drukarkami 3D</summary>
@@ -126,7 +126,7 @@
     <p xml:lang="id">Ini adalah sebuah aplikasi uji AtCore untuk menampilkan kerangka kerja.</p>
     <p xml:lang="it">Questa è un'applicazione di prova per mettere in mostra il framework.</p>
     <p xml:lang="ka">ეს AtcCore-ის სატესტო კლიენტია, Framework-ის თვისებების საჩვენებლად.</p>
-    <p xml:lang="ko">AtCore 프레임워크의 기능을 보여 주는 테스트 프로그램입니다.</p>
+    <p xml:lang="ko">AtCore 프레임워크의 기능을 보여 주는 테스트 앱입니다.</p>
     <p xml:lang="nl">Dit is een AtCore testtoepassing om het framework te tonen.</p>
     <p xml:lang="nn">Dette er eit testprogram for AtCore, for å visa fram rammeverket.</p>
     <p xml:lang="pl">Oto aplikacja próbna AtCore do przedstawienia szkieletu.</p>
