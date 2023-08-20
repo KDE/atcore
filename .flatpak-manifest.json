@@ -1,0 +1,26 @@
+{
+    "id": "org.kde.atcore",
+    "branch": "master",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "5.15-22.08",
+    "sdk": "org.kde.Sdk",
+    "command": "atcore-gui",
+    "tags": ["nightly"],
+    "desktop-file-name-suffix": " (Nightly)",
+    "finish-args": ["--share=ipc", "--socket=x11", "--socket=wayland", "--device=all" ],
+    "modules": [
+        {
+            "name": "atcore",
+            "config-opts": ["-DBUILD_GUI=ON"],
+            "buildsystem": "cmake-ninja",
+            "cleanup": [
+                "/mkspecs",
+                "/include",
+                "/*/cmake"
+            ],
+            "sources": [ 
+                { "type": "dir", "path": "." }
+            ]
+        }
+    ]
+}
