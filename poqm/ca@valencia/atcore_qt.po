@@ -139,7 +139,7 @@ msgstr "G21: Establix les unitats a mil·límetres"
 #: src/core/gcodecommands.cpp:37
 msgctxt "QObject|"
 msgid "G28: Move to Origin Home"
-msgstr "G28: Mou a l'inici d'origen"
+msgstr "G28: Mou cap a l'inici d'origen"
 
 #: src/core/gcodecommands.cpp:39
 msgctxt "QObject|"
