@@ -33,6 +33,7 @@ Name[sl]=Preizkusni odjemalec AtCore
 Name[sv]=AtCore testklient
 Name[tr]=AtCore Sınama İstemcisi
 Name[uk]=Тестовий клієнт AtCore
+Name[x-test]=xxAtCore Test Clientxx
 Name[zh_CN]=AtCore 测试客户端
 Name[zh_TW]=AtCore 測試用戶端
 Exec=atcore-gui
