@@ -1,10 +1,17 @@
+# SPDX-FileCopyrightText: 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2024-01-15 18:34+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 24.01.90\n"
 
 #: src/atcore.cpp:456
 #, qt-format
@@ -15,47 +22,47 @@ msgstr ""
 #: src/gcodecommands.cpp:35
 msgctxt "QObject|"
 msgid "G0: Rapid linear move"
-msgstr ""
+msgstr "G0：快速線性移動"
 
 #: src/gcodecommands.cpp:37
 msgctxt "QObject|"
 msgid "G1: Linear move"
-msgstr ""
+msgstr "G1：線性移動"
 
 #: src/gcodecommands.cpp:39
 msgctxt "QObject|"
 msgid "G2: Controlled Arc Move clockwise"
-msgstr ""
+msgstr "G2：受控的弧線移動，順時針"
 
 #: src/gcodecommands.cpp:41
 msgctxt "QObject|"
 msgid "G3: Controlled Arc Move counterclockwise"
-msgstr ""
+msgstr "G3：受控的弧線移動，逆時針"
 
 #: src/gcodecommands.cpp:43
 msgctxt "QObject|"
 msgid "G4: Dwell"
-msgstr ""
+msgstr "G4：停留"
 
 #: src/gcodecommands.cpp:45
 msgctxt "QObject|"
 msgid "G10: Retract"
-msgstr ""
+msgstr "G10：收回"
 
 #: src/gcodecommands.cpp:47
 msgctxt "QObject|"
 msgid "G11: Unretract"
-msgstr ""
+msgstr "G11：取消收回"
 
 #: src/gcodecommands.cpp:49
 msgctxt "QObject|"
 msgid "G20: Set units to inches"
-msgstr ""
+msgstr "G20：設定單位為英寸"
 
 #: src/gcodecommands.cpp:51
 msgctxt "QObject|"
 msgid "G21: Set units to millimeters"
-msgstr ""
+msgstr "G20：設定單位為毫米"
 
 #: src/gcodecommands.cpp:53
 msgctxt "QObject|"
@@ -92,17 +99,17 @@ msgstr ""
 #: src/gcodecommands.cpp:65
 msgctxt "QObject|"
 msgid "G90: Set to absolute positioning"
-msgstr ""
+msgstr "G90：設為使用絕對座標定位方式"
 
 #: src/gcodecommands.cpp:67
 msgctxt "QObject|"
 msgid "G91: Set to relative positioning"
-msgstr ""
+msgstr "G91：設為使用相對座標定位方式"
 
 #: src/gcodecommands.cpp:69
 msgctxt "QObject|"
 msgid "G92: Set position"
-msgstr ""
+msgstr "G92：設定位置"
 
 #: src/gcodecommands.cpp:71
 msgctxt "QObject|"
@@ -147,17 +154,17 @@ msgstr ""
 #: src/gcodecommands.cpp:117 src/gcodecommands.cpp:499
 msgctxt "QObject|"
 msgid "Not implemented or not supported!"
-msgstr ""
+msgstr "未實作或不支援！"
 
 #: src/gcodecommands.cpp:125
 msgctxt "QObject|"
 msgid "M0: Stop or unconditional stop"
-msgstr ""
+msgstr "M0：停止或是無條件停止"
 
 #: src/gcodecommands.cpp:127
 msgctxt "QObject|"
 msgid "M1: Sleep or unconditional stop"
-msgstr ""
+msgstr "M1：睡眠或是無條件停止"
 
 #: src/gcodecommands.cpp:129
 msgctxt "QObject|"
@@ -167,7 +174,7 @@ msgstr ""
 #: src/gcodecommands.cpp:131
 msgctxt "QObject|"
 msgid "M6: Tool Change"
-msgstr ""
+msgstr "M6：工具變更"
 
 #: src/gcodecommands.cpp:133
 msgctxt "QObject|"
@@ -182,87 +189,87 @@ msgstr ""
 #: src/gcodecommands.cpp:137
 msgctxt "QObject|"
 msgid "M20: List SDCard"
-msgstr ""
+msgstr "M20：列出 SD 卡"
 
 #: src/gcodecommands.cpp:139
 msgctxt "QObject|"
 msgid "M21: Initialize SDCard"
-msgstr ""
+msgstr "M21：初始化 SD 卡"
 
 #: src/gcodecommands.cpp:141
 msgctxt "QObject|"
 msgid "M22: Release SDCard"
-msgstr ""
+msgstr "M22：釋出 SD 卡"
 
 #: src/gcodecommands.cpp:143
 msgctxt "QObject|"
 msgid "M23: Select SD file"
-msgstr ""
+msgstr "M23：選擇 SD 卡檔案"
 
 #: src/gcodecommands.cpp:145
 msgctxt "QObject|"
 msgid "M24: Start/resume SD print"
-msgstr ""
+msgstr "M24：開始/繼續 SD 卡列印"
 
 #: src/gcodecommands.cpp:147
 msgctxt "QObject|"
 msgid "M25: Pause SD print"
-msgstr ""
+msgstr "M25：暫停 SD 卡列印"
 
 #: src/gcodecommands.cpp:149
 msgctxt "QObject|"
 msgid "M26: Set SD position"
-msgstr ""
+msgstr "M26：設定 SD 卡位置"
 
 #: src/gcodecommands.cpp:151
 msgctxt "QObject|"
 msgid "M27: Report SD print status"
-msgstr ""
+msgstr "M27：回報 SD 卡列印狀態"
 
 #: src/gcodecommands.cpp:153
 msgctxt "QObject|"
 msgid "M28: Begin write to SD card"
-msgstr ""
+msgstr "M28：開始寫入 SD 卡"
 
 #: src/gcodecommands.cpp:155
 msgctxt "QObject|"
 msgid "M29: Stop writing to SD card"
-msgstr ""
+msgstr "M29：停止寫入 SD 卡"
 
 #: src/gcodecommands.cpp:157
 msgctxt "QObject|"
 msgid "M30: Delete a file on the SD card"
-msgstr ""
+msgstr "M30：刪除 SD 卡上的一個檔案"
 
 #: src/gcodecommands.cpp:159
 msgctxt "QObject|"
 msgid "M31: Output time since last M109 or SD card start to serial"
-msgstr ""
+msgstr "M31：將上次進行 M109 或 SD 卡啟動以來的時間輸出到序列埠"
 
 #: src/gcodecommands.cpp:161
 msgctxt "QObject|"
 msgid "M32: Select file and start SD print"
-msgstr ""
+msgstr "M32：選擇檔案並開始 SD 卡列印"
 
 #: src/gcodecommands.cpp:163
 msgctxt "QObject|"
 msgid "M33: Get the long name for an SD card file or folder"
-msgstr ""
+msgstr "M33：取得某 SD 卡檔案或資料夾的長名"
 
 #: src/gcodecommands.cpp:165
 msgctxt "QObject|"
 msgid "M34: Set SD file sorting options"
-msgstr ""
+msgstr "M34：設定 SD 卡排序選項"
 
 #: src/gcodecommands.cpp:167
 msgctxt "QObject|"
 msgid "M36: Return file information"
-msgstr ""
+msgstr "M36：回傳檔案資訊"
 
 #: src/gcodecommands.cpp:169
 msgctxt "QObject|"
 msgid "M42: Switch I/O pin"
-msgstr ""
+msgstr "M42：切換 I/O 端子"
 
 #: src/gcodecommands.cpp:171
 msgctxt "QObject|"
@@ -272,12 +279,12 @@ msgstr ""
 #: src/gcodecommands.cpp:173
 msgctxt "QObject|"
 msgid "M70: Display message"
-msgstr ""
+msgstr "M70：顯示訊息"
 
 #: src/gcodecommands.cpp:175
 msgctxt "QObject|"
 msgid "M72: Play a tone or song"
-msgstr ""
+msgstr "M72：播放音效或歌曲"
 
 #: src/gcodecommands.cpp:177
 msgctxt "QObject|"
@@ -287,12 +294,12 @@ msgstr ""
 #: src/gcodecommands.cpp:179
 msgctxt "QObject|"
 msgid "M80: ATX Power On"
-msgstr ""
+msgstr "M80：ATX 開機"
 
 #: src/gcodecommands.cpp:181
 msgctxt "QObject|"
 msgid "M81: ATX Power Off"
-msgstr ""
+msgstr "M81：ATX 關機"
 
 #: src/gcodecommands.cpp:183
 msgctxt "QObject|"
@@ -357,17 +364,17 @@ msgstr ""
 #: src/gcodecommands.cpp:207
 msgctxt "QObject|"
 msgid "M106: Fan On"
-msgstr ""
+msgstr "M106：開啟風扇"
 
 #: src/gcodecommands.cpp:209
 msgctxt "QObject|"
 msgid "M107: Fan Off"
-msgstr ""
+msgstr "M107：關閉風扇"
 
 #: src/gcodecommands.cpp:211
 msgctxt "QObject|"
 msgid "M108: Cancel Heating"
-msgstr ""
+msgstr "M108：取消加熱"
 
 #: src/gcodecommands.cpp:213
 msgctxt "QObject|"
@@ -377,22 +384,22 @@ msgstr ""
 #: src/gcodecommands.cpp:215
 msgctxt "QObject|"
 msgid "M110: Set Current Line Number"
-msgstr ""
+msgstr "M110：設定目前行號"
 
 #: src/gcodecommands.cpp:217
 msgctxt "QObject|"
 msgid "M111: Set Debug Level"
-msgstr ""
+msgstr "M111：設定除錯等級"
 
 #: src/gcodecommands.cpp:219
 msgctxt "QObject|"
 msgid "M112: Emergency Stop"
-msgstr ""
+msgstr "M112：緊急停止"
 
 #: src/gcodecommands.cpp:221
 msgctxt "QObject|"
 msgid "M114: Get Current Position"
-msgstr ""
+msgstr "M114：取得目前位置"
 
 #: src/gcodecommands.cpp:223
 msgctxt "QObject|"
@@ -402,12 +409,12 @@ msgstr ""
 #: src/gcodecommands.cpp:225
 msgctxt "QObject|"
 msgid "M116: Wait"
-msgstr ""
+msgstr "M116：等待"
 
 #: src/gcodecommands.cpp:227
 msgctxt "QObject|"
 msgid "M117: Display Message"
-msgstr ""
+msgstr "M117：顯示訊息"
 
 #: src/gcodecommands.cpp:229
 msgctxt "QObject|"
@@ -431,7 +438,7 @@ msgstr ""
 #: src/gcodecommands.cpp:235
 msgctxt "QObject|"
 msgid "M122: Diagnose"
-msgstr ""
+msgstr "M122：診斷"
 
 #: src/gcodecommands.cpp:237
 msgctxt "QObject|"
@@ -496,12 +503,12 @@ msgstr ""
 #: src/gcodecommands.cpp:261
 msgctxt "QObject|"
 msgid "M150: Set display color"
-msgstr ""
+msgstr "M150：設定顯示顏色"
 
 #: src/gcodecommands.cpp:263
 msgctxt "QObject|"
 msgid "M163: Set weight of mixed material"
-msgstr ""
+msgstr "M163：設定混合材料的重量"
 
 #: src/gcodecommands.cpp:265
 msgctxt "QObject|"
@@ -541,7 +548,7 @@ msgstr ""
 #: src/gcodecommands.cpp:279
 msgctxt "QObject|"
 msgid "M205: Advanced settings"
-msgstr ""
+msgstr "M205：進階設定"
 
 #: src/gcodecommands.cpp:281
 msgctxt "QObject|"
@@ -553,17 +560,17 @@ msgstr ""
 #: src/gcodecommands.cpp:283
 msgctxt "QObject|"
 msgid "M207: Set retract length"
-msgstr ""
+msgstr "M207：設定收回長度"
 
 #: src/gcodecommands.cpp:285
 msgctxt "QObject|"
 msgid "M208: Set unretract length"
-msgstr ""
+msgstr "M208：設定取消收回長度"
 
 #: src/gcodecommands.cpp:287
 msgctxt "QObject|"
 msgid "M209: Enable automatic retract"
-msgstr ""
+msgstr "M209：啟用自動收回"
 
 #: src/gcodecommands.cpp:289
 msgctxt "QObject|"
@@ -623,7 +630,7 @@ msgstr ""
 #: src/gcodecommands.cpp:311
 msgctxt "QObject|"
 msgid "M300: Play beep sound"
-msgstr ""
+msgstr "M300：播放嗶聲"
 
 #: src/gcodecommands.cpp:313
 msgctxt "QObject|"
@@ -808,7 +815,7 @@ msgstr ""
 #: src/gcodecommands.cpp:385
 msgctxt "QObject|"
 msgid "M408: Report JSON-style response"
-msgstr ""
+msgstr "M408：回報 JSON 風格回應"
 
 #: src/gcodecommands.cpp:387
 msgctxt "QObject|"
@@ -818,7 +825,7 @@ msgstr ""
 #: src/gcodecommands.cpp:389
 msgctxt "QObject|"
 msgid "M450: Report Printer Mode"
-msgstr ""
+msgstr "M450：回報列印機模式"
 
 #: src/gcodecommands.cpp:391
 msgctxt "QObject|"
@@ -843,22 +850,22 @@ msgstr ""
 #: src/gcodecommands.cpp:399
 msgctxt "QObject|"
 msgid "M500: Store parameters in EEPROM"
-msgstr ""
+msgstr "M500：將參數儲存於 EEPROM"
 
 #: src/gcodecommands.cpp:401
 msgctxt "QObject|"
 msgid "M501: Read parameters from EEPROM"
-msgstr ""
+msgstr "M501：從 EEPROM 讀取參數"
 
 #: src/gcodecommands.cpp:403
 msgctxt "QObject|"
 msgid "M502: Revert to the default 'factory settings'."
-msgstr ""
+msgstr "M502：重設至預設「出廠設定」。"
 
 #: src/gcodecommands.cpp:405
 msgctxt "QObject|"
 msgid "M503: Print settings "
-msgstr ""
+msgstr "M503：列印設定"
 
 #: src/gcodecommands.cpp:407
 msgctxt "QObject|"
@@ -868,32 +875,32 @@ msgstr ""
 #: src/gcodecommands.cpp:409
 msgctxt "QObject|"
 msgid "M550: Set Name"
-msgstr ""
+msgstr "M550：設定名稱"
 
 #: src/gcodecommands.cpp:411
 msgctxt "QObject|"
 msgid "M551: Set Password"
-msgstr ""
+msgstr "M551：設定密碼"
 
 #: src/gcodecommands.cpp:413
 msgctxt "QObject|"
 msgid "M552: Set IP address"
-msgstr ""
+msgstr "M552：設定 IP 位址"
 
 #: src/gcodecommands.cpp:415
 msgctxt "QObject|"
 msgid "M553: Set Netmask"
-msgstr ""
+msgstr "M553：設定網路遮罩"
 
 #: src/gcodecommands.cpp:417
 msgctxt "QObject|"
 msgid "M554: Set Gateway"
-msgstr ""
+msgstr "M554：設定閘道"
 
 #: src/gcodecommands.cpp:419
 msgctxt "QObject|"
 msgid "M555: Set compatibility"
-msgstr ""
+msgstr "M555：設定相容性模式"
 
 #: src/gcodecommands.cpp:421
 msgctxt "QObject|"
@@ -1043,7 +1050,7 @@ msgstr ""
 #: src/gcodecommands.cpp:479
 msgctxt "QObject|"
 msgid "M906: Set motor currents"
-msgstr ""
+msgstr "M906：設定馬達電流"
 
 #: src/gcodecommands.cpp:481
 msgctxt "QObject|"
@@ -1073,22 +1080,22 @@ msgstr ""
 #: src/gcodecommands.cpp:491
 msgctxt "QObject|"
 msgid "M928: Start SD logging"
-msgstr ""
+msgstr "M928：開始進行 SD 卡記錄"
 
 #: src/gcodecommands.cpp:493
 msgctxt "QObject|"
 msgid "M997: Perform in-application firmware update"
-msgstr ""
+msgstr "M997：進行應用程式內韌體更新"
 
 #: src/gcodecommands.cpp:495
 msgctxt "QObject|"
 msgid "M998: Request resend of line"
-msgstr ""
+msgstr "M998：請求重新傳送行"
 
 #: src/gcodecommands.cpp:497
 msgctxt "QObject|"
 msgid "M999: Restart after being stopped by error"
-msgstr ""
+msgstr "M999：在被錯誤停止之後重新開始"
 
 #: src/gcodecommands.cpp:520
 msgctxt "QObject|"
@@ -1165,12 +1172,12 @@ msgstr ""
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Found %1 Ports"
-msgstr ""
+msgstr "找到 %1 個連接埠"
 
 #: testclient/mainwindow.cpp:281
 msgctxt "MainWindow|"
 msgid "No available ports! Please connect a serial device to continue!"
-msgstr ""
+msgstr "沒有可供使用的連接埠！請連線一個序列埠裝置後繼續！"
 
 #: testclient/mainwindow.cpp:294
 msgctxt "MainWindow|"
@@ -1180,7 +1187,7 @@ msgstr ""
 #: testclient/mainwindow.cpp:295
 msgctxt "MainWindow|"
 msgid "Disconnect"
-msgstr ""
+msgstr "斷線"
 
 #: testclient/mainwindow.cpp:298
 msgctxt "MainWindow|"
@@ -1195,12 +1202,12 @@ msgstr ""
 #: testclient/mainwindow.cpp:308
 msgctxt "MainWindow|"
 msgid "Disconnected"
-msgstr ""
+msgstr "已中斷連線"
 
 #: testclient/mainwindow.cpp:309
 msgctxt "MainWindow|"
 msgid "Connect"
-msgstr ""
+msgstr "連線"
 
 #: testclient/mainwindow.cpp:322
 msgctxt "MainWindow|"
@@ -1225,12 +1232,12 @@ msgstr ""
 #: testclient/mainwindow.cpp:388 testclient/mainwindow.cpp:392
 msgctxt "MainWindow|"
 msgid "Error"
-msgstr ""
+msgstr "錯誤"
 
 #: testclient/mainwindow.cpp:388
 msgctxt "MainWindow|"
 msgid "Not Connected To a Printer"
-msgstr ""
+msgstr "未連線至列印機"
 
 #: testclient/mainwindow.cpp:392
 msgctxt "MainWindow|"
@@ -1244,38 +1251,38 @@ msgstr ""
 #: testclient/mainwindow.cpp:397
 msgctxt "MainWindow|"
 msgid "Select a file to print"
-msgstr ""
+msgstr "選擇要列印的檔案"
 
 #: testclient/mainwindow.cpp:399
 msgctxt "MainWindow|"
 msgid "No File Selected"
-msgstr ""
+msgstr "沒有選取檔案"
 
 #: testclient/mainwindow.cpp:401
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Print: %1"
-msgstr ""
+msgstr "列印：%1"
 
 #: testclient/mainwindow.cpp:423
 msgctxt "MainWindow|"
 msgid "Save Log to file"
-msgstr ""
+msgstr "將紀錄儲存到檔案"
 
 #: testclient/mainwindow.cpp:453 testclient/mainwindow.cpp:467
 msgctxt "MainWindow|"
 msgid "Print File"
-msgstr ""
+msgstr "列印檔案"
 
 #: testclient/mainwindow.cpp:459 testclient/mainwindow.cpp:479
 msgctxt "MainWindow|"
 msgid "Pause Print"
-msgstr ""
+msgstr "暫停列印"
 
 #: testclient/mainwindow.cpp:474
 msgctxt "MainWindow|"
 msgid "Resume Print"
-msgstr ""
+msgstr "繼續列印"
 
 #: testclient/mainwindow.cpp:513
 #, qt-format
@@ -1312,4 +1319,4 @@ msgstr ""
 #: testclient/widgets/plotwidget.cpp:80
 msgctxt "PlotWidget|"
 msgid "Temp."
-msgstr ""
+msgstr "暫存。"
