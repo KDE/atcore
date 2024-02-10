@@ -1,8 +1,8 @@
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-07-13 13:15+0300\n"
+"PO-Revision-Date: 2024-02-09 18:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #: src/core/atcore.cpp:141
 msgctxt "AtCore|"
@@ -154,7 +154,7 @@ msgid ""
 "G32: Probe Z and calculate Z plane(Bed Leveling)/ UnDoc Z Probe sled for "
 "Marlin"
 msgstr ""
-"G32: Z'yi araştır ve Z uzayını hesapla (Yatak Düzleştirme)/ Marlin için "
+"G32: Z’yi araştır ve Z uzayını hesapla (Yatak Düzleştirme)/ Marlin için "
 "UnDoc Z Araştırması kızağa alındı"
 
 #: src/core/gcodecommands.cpp:47
@@ -395,12 +395,12 @@ msgstr "M98: Makro/Alt Program Çağır"
 #: src/core/gcodecommands.cpp:171
 msgctxt "QObject|"
 msgid "M99: Return from Macro/Subprogram"
-msgstr "M99: Makro/Alt Program'dan Dön"
+msgstr "M99: Makro/Alt Program’dan Dön"
 
 #: src/core/gcodecommands.cpp:173
 msgctxt "QObject|"
 msgid "M101: Turn extruder 1 on Forward, Undo Retraction"
-msgstr "M101: Ekstrüder 1'i İleri kipe al, Geri Çekme'yi geri al"
+msgstr "M101: Ekstrüder 1’i İleri kipe al, Geri Çekme’yi geri al"
 
 #: src/core/gcodecommands.cpp:175
 msgctxt "QObject|"
@@ -533,7 +533,7 @@ msgstr "M133: PID I sınır değerini ayarla"
 #: src/core/gcodecommands.cpp:223
 msgctxt "QObject|"
 msgid "M134: Write PID values to EEPROM"
-msgstr "M134: PID değerlerini EEPROM'a yaz"
+msgstr "M134: PID değerlerini EEPROM’a yaz"
 
 #: src/core/gcodecommands.cpp:225
 msgctxt "QObject|"
@@ -838,12 +838,12 @@ msgstr "M375: Matris görüntüle / Matris yükle"
 #: src/core/gcodecommands.cpp:343
 msgctxt "QObject|"
 msgid "M380: Activate solenoid"
-msgstr "M380: Solenoid'i etkinleştir"
+msgstr "M380: Solenoid’i etkinleştir"
 
 #: src/core/gcodecommands.cpp:345
 msgctxt "QObject|"
 msgid "M381: Disable all solenoids"
-msgstr "M381: Tüm solenoid'leri devre dışı bırak"
+msgstr "M381: Tüm solenoid’leri devre dışı bırak"
 
 #: src/core/gcodecommands.cpp:347
 msgctxt "QObject|"
@@ -918,12 +918,12 @@ msgstr "M460: Isıldirencin denetlediği fan için sıcaklık aralığı tanıml
 #: src/core/gcodecommands.cpp:375
 msgctxt "QObject|"
 msgid "M500: Store parameters in EEPROM"
-msgstr "M500: Parametreleri EEPROM'da depola"
+msgstr "M500: Parametreleri EEPROM’da depola"
 
 #: src/core/gcodecommands.cpp:377
 msgctxt "QObject|"
 msgid "M501: Read parameters from EEPROM"
-msgstr "M501: Parametreleri EEPROM'dan oku"
+msgstr "M501: Parametreleri EEPROM’dan oku"
 
 #: src/core/gcodecommands.cpp:379
 msgctxt "QObject|"
@@ -939,7 +939,7 @@ msgstr "M503: Yazdırma ayarları"
 msgctxt "QObject|"
 msgid "M540: Enable/Disable 'Stop SD Print on Endstop Hit'"
 msgstr ""
-"M540: 'Bitiş Noktasına Varınca SD Yazdırmayı Durdur'u Etkinleştir/Devre Dışı "
+"M540: ’Bitiş Noktasına Varınca SD Yazdırmayı Durdur’u Etkinleştir/Devre Dışı "
 "Bırak"
 
 #: src/core/gcodecommands.cpp:385
@@ -1130,7 +1130,7 @@ msgstr "M907: Sayısal trimpot işletkesi ayarla"
 #: src/core/gcodecommands.cpp:459
 msgctxt "QObject|"
 msgid "M908: Control digital trimpot directly"
-msgstr "M908: Sayısal trimpot'u doğrudan denetle"
+msgstr "M908: Sayısal trimpot’u doğrudan denetle"
 
 #: src/core/gcodecommands.cpp:461
 msgctxt "QObject|"
@@ -1282,17 +1282,17 @@ msgstr "Tümünü Başlangıç Noktasına Getir"
 #: src/widgets/movementwidget.cpp:53
 msgctxt "MovementWidget|"
 msgid "Home X"
-msgstr "X'i Başlangıç Noktasına Getir"
+msgstr "X’i Başlangıç Noktasına Getir"
 
 #: src/widgets/movementwidget.cpp:57
 msgctxt "MovementWidget|"
 msgid "Home Y"
-msgstr "Y'yi Başlangıç Noktasına Getir"
+msgstr "Y’yi Başlangıç Noktasına Getir"
 
 #: src/widgets/movementwidget.cpp:61
 msgctxt "MovementWidget|"
 msgid "Home Z"
-msgstr "Z'yi Başlangıç Noktasına Getir"
+msgstr "Z’yi Başlangıç Noktasına Getir"
 
 #: src/widgets/movementwidget.cpp:67
 msgctxt "MovementWidget|"
@@ -1536,7 +1536,7 @@ msgstr "AtCore İlk Çalıştırma"
 msgctxt "MainWindow|"
 msgid "No Profiles Detected, use the Profile Manager to create one."
 msgstr ""
-"Bir profil algılanmadı, bir tane oluşturmak için Profil Yöneticisi'ni "
+"Bir profil algılanmadı, bir tane oluşturmak için Profil Yöneticisi’ni "
 "kullanın."
 
 #: testclient/mainwindow.cpp:59
@@ -1661,17 +1661,17 @@ msgstr "Tümüne Başlangıç Noktasına Getir"
 #: testclient/mainwindow.cpp:309
 msgctxt "MainWindow|"
 msgid "Home X"
-msgstr "X'i Başlangıç Noktasına Getir"
+msgstr "X’i Başlangıç Noktasına Getir"
 
 #: testclient/mainwindow.cpp:314
 msgctxt "MainWindow|"
 msgid "Home Y"
-msgstr "Y'yi Başlangıç Noktasına Getir"
+msgstr "Y’yi Başlangıç Noktasına Getir"
 
 #: testclient/mainwindow.cpp:319
 msgctxt "MainWindow|"
 msgid "Home Z"
-msgstr "Z'yi Başlangıç Noktasına Getir"
+msgstr "Z’yi Başlangıç Noktasına Getir"
 
 #: testclient/mainwindow.cpp:341
 msgctxt "MainWindow|"
