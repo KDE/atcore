@@ -1,16 +1,16 @@
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
+# SPDX-FileCopyrightText: 2024 Adrián Chaves (Gallaecio)
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-24 11:12+0200\n"
+"PO-Revision-Date: 2024-02-25 11:23+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <proxecto@trasno.gal>\n"
+"Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Qt-Contexts: true\n"
 
 #: src/atcore.cpp:456
@@ -334,12 +334,12 @@ msgstr "M85: Definir o temporizador de apagado por inactividade"
 #: src/gcodecommands.cpp:191
 msgctxt "QObject|"
 msgid "M92: Set axis steps per unit"
-msgstr "M92: Definir os pasos por unidade dos eixos"
+msgstr "M92: Definir os pasos por unidade dos eixes"
 
 #: src/gcodecommands.cpp:193
 msgctxt "QObject|"
 msgid "M93: Send axis steps per unit"
-msgstr "M93: Enviar os pasos por unidade dos eixos"
+msgstr "M93: Enviar os pasos por unidade dos eixes"
 
 # well-spelled: subprograma
 #: src/gcodecommands.cpp:195
@@ -573,7 +573,7 @@ msgid ""
 "M206: Offset axes for Sprinter, Marlin, Smoothie, RepRap Firmware / Set "
 "eeprom value for Repetier"
 msgstr ""
-"M206: Eixos de desprazamento para Sprinter, Marlin, Smoothie e RepRap "
+"M206: Eixes de desprazamento para Sprinter, Marlin, Smoothie e RepRap "
 "Firmware; definir o valor de EEPROM para Repetier"
 
 #: src/gcodecommands.cpp:283
@@ -934,7 +934,7 @@ msgstr "M555: Definir a compatibilidade"
 #: src/gcodecommands.cpp:421
 msgctxt "QObject|"
 msgid "M556: Axis compensation"
-msgstr "M556: Compensación dos eixos"
+msgstr "M556: Compensación dos eixes"
 
 #: src/gcodecommands.cpp:423
 msgctxt "QObject|"
@@ -974,7 +974,7 @@ msgstr "M563: Definir ou retirar unha ferramenta"
 #: src/gcodecommands.cpp:437
 msgctxt "QObject|"
 msgid "M564: Limit axes"
-msgstr "M564: Limitar os eixos"
+msgstr "M564: Limitar os eixes"
 
 #: src/gcodecommands.cpp:439
 msgctxt "QObject|"
@@ -1039,7 +1039,7 @@ msgstr "M578: Disparar bits de inxección de tinta"
 #: src/gcodecommands.cpp:463
 msgctxt "QObject|"
 msgid "M579: Scale Cartesian axes"
-msgstr "M579: Cambiar os eixos cartesianos de escala"
+msgstr "M579: Cambiar os eixes cartesianos de escala"
 
 #: src/gcodecommands.cpp:465
 msgctxt "QObject|"
