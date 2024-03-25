@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: atcore\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 13:43+0100\n"
-"PO-Revision-Date: 2024-02-26 21:30+0100\n"
+"PO-Revision-Date: 2024-03-24 10:34+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -22,29 +22,29 @@ msgstr ""
 #: src/core/atcore.cpp:141
 msgctxt "AtCore|"
 msgid "Waiting for firmware detect."
-msgstr ""
+msgstr "Atendante la detekton de firmware."
 
 #: src/core/atcore.cpp:195
 #, qt-format
 msgctxt "AtCore|"
 msgid "Connected to printer using %1 plugin"
-msgstr ""
+msgstr "Konektita al presilo per %1 kromaĵo"
 
 #: src/core/atcore.cpp:199
 #, qt-format
 msgctxt "AtCore|"
 msgid "No plugin found for %1."
-msgstr ""
+msgstr "Neniu kromaĵo trovita por %1."
 
 #: src/core/atcore.cpp:238
 msgctxt "AtCore|"
 msgid "Waiting for machine restart"
-msgstr ""
+msgstr "Atendante rekomencon de la maŝino"
 
 #: src/core/atcore.cpp:249
 msgctxt "AtCore|"
 msgid "Failed to open device in read/write mode."
-msgstr ""
+msgstr "Malsukcesis malfermi aparaton en legado/skriba reĝimo."
 
 #: src/core/atcore.cpp:868
 msgctxt "AtCore|"
@@ -54,22 +54,22 @@ msgstr "Aparato ne trovita"
 #: src/core/atcore.cpp:871
 msgctxt "AtCore|"
 msgid "Unable to write to device"
-msgstr ""
+msgstr "Ne eblas skribi al aparato"
 
 #: src/core/atcore.cpp:874
 msgctxt "AtCore|"
 msgid "Unable to read from device"
-msgstr ""
+msgstr "Ne eblas legi de aparato"
 
 #: src/core/atcore.cpp:878
 msgctxt "AtCore|"
 msgid "The device no longer available"
-msgstr ""
+msgstr "La aparato ne plu havebla"
 
 #: src/core/atcore.cpp:882
 msgctxt "AtCore|"
 msgid "Device does not support the operation"
-msgstr ""
+msgstr "La aparato ne subtenas la operacion"
 
 #: src/core/atcore.cpp:885
 msgctxt "AtCore|"
@@ -80,77 +80,78 @@ msgstr "Nekonata eraro"
 #, qt-format
 msgctxt "QObject|"
 msgid "%1%2: requires an argument"
-msgstr ""
+msgstr "%1%2: postulas argumenton"
 
 #: src/core/gcodecommands.cpp:13
 msgctxt "QObject|"
 msgid "Not implemented or not supported!"
-msgstr ""
+msgstr "Ne efektivigita aŭ ne subtenata!"
 
 #: src/core/gcodecommands.cpp:19
 msgctxt "QObject|"
 msgid "G0: Rapid linear move"
-msgstr ""
+msgstr "G0: Rapida lineara movo"
 
 #: src/core/gcodecommands.cpp:21
 msgctxt "QObject|"
 msgid "G1: Linear move"
-msgstr ""
+msgstr "G1: Lineara movo"
 
 #: src/core/gcodecommands.cpp:23
 msgctxt "QObject|"
 msgid "G2: Controlled Arc Move clockwise"
-msgstr ""
+msgstr "G2: Kontrolita Arkomovo dekstrume"
 
 #: src/core/gcodecommands.cpp:25
 msgctxt "QObject|"
 msgid "G3: Controlled Arc Move counterclockwise"
-msgstr ""
+msgstr "G3: Kontrolita Arkomovo maldekstrume"
 
 #: src/core/gcodecommands.cpp:27
 msgctxt "QObject|"
 msgid "G4: Dwell"
-msgstr ""
+msgstr "G4: Resti"
 
 #: src/core/gcodecommands.cpp:29
 msgctxt "QObject|"
 msgid "G10: Retract"
-msgstr ""
+msgstr "G10: Retiri"
 
 #: src/core/gcodecommands.cpp:31
 msgctxt "QObject|"
 msgid "G11: Unretract"
-msgstr ""
+msgstr "G11: Malretiri"
 
 #: src/core/gcodecommands.cpp:33
 msgctxt "QObject|"
 msgid "G20: Set units to inches"
-msgstr ""
+msgstr "G20: Agordi unuojn al coloj"
 
 #: src/core/gcodecommands.cpp:35
 msgctxt "QObject|"
 msgid "G21: Set units to millimeters"
-msgstr ""
+msgstr "G21: Agordi unuojn al milimetroj"
 
 #: src/core/gcodecommands.cpp:37
 msgctxt "QObject|"
 msgid "G28: Move to Origin Home"
-msgstr ""
+msgstr "G28: Movi al Origina Hejmo"
 
 #: src/core/gcodecommands.cpp:39
 msgctxt "QObject|"
 msgid "G29: Detailed Z-Probe"
-msgstr ""
+msgstr "G29: Detala Z-sondilo"
 
 #: src/core/gcodecommands.cpp:41
 msgctxt "QObject|"
 msgid "G30: Single Z-Probe"
-msgstr ""
+msgstr "G30: Ununura Z-sondilo"
 
 #: src/core/gcodecommands.cpp:43
 msgctxt "QObject|"
 msgid "G31: Set or report current probe status / Dock Z Probe sled for Marlin"
 msgstr ""
+"G31: Agordi aŭ raporti nunan sondstaton / Dock Z Probe-sledon por Marlin"
 
 #: src/core/gcodecommands.cpp:45
 msgctxt "QObject|"
@@ -162,322 +163,322 @@ msgstr ""
 #: src/core/gcodecommands.cpp:47
 msgctxt "QObject|"
 msgid "G33: Measure/List/Adjust Distortion Matrix"
-msgstr ""
+msgstr "G33: Mezuri/Listo/Alĝustigi Distordan Matricon"
 
 #: src/core/gcodecommands.cpp:49
 msgctxt "QObject|"
 msgid "G90: Set to absolute positioning"
-msgstr ""
+msgstr "G90: Agordi al absoluta poziciigado"
 
 #: src/core/gcodecommands.cpp:51
 msgctxt "QObject|"
 msgid "G91: Set to relative positioning"
-msgstr ""
+msgstr "G91: Agordi al relativa poziciigado"
 
 #: src/core/gcodecommands.cpp:53
 msgctxt "QObject|"
 msgid "G92: Set position"
-msgstr ""
+msgstr "G92: Agordi pozicion"
 
 #: src/core/gcodecommands.cpp:55
 msgctxt "QObject|"
 msgid "G100: Calibrate floor or rod radius"
-msgstr ""
+msgstr "G100: Kalibri plankan aŭ bastonan radiuson"
 
 #: src/core/gcodecommands.cpp:57
 msgctxt "QObject|"
 msgid "G130: Set digital potentiometer value"
-msgstr ""
+msgstr "G130: Agordi ciferecan potenciometran valoron"
 
 #: src/core/gcodecommands.cpp:59
 msgctxt "QObject|"
 msgid "G131: Recase Move offset"
-msgstr ""
+msgstr "G131: Recase Movan deŝovon"
 
 #: src/core/gcodecommands.cpp:61
 msgctxt "QObject|"
 msgid "G132: Calibrate endstops offsets"
-msgstr ""
+msgstr "G132: Kalibrigi finhaltaĵajn kompensojn"
 
 #: src/core/gcodecommands.cpp:63
 msgctxt "QObject|"
 msgid "G133: Measure steps to top"
-msgstr ""
+msgstr "G133: Mezuri paŝojn al supro"
 
 #: src/core/gcodecommands.cpp:65
 msgctxt "QObject|"
 msgid "G161: Home axis to minimum"
-msgstr ""
+msgstr "G161: Hejma akso al minimumo"
 
 #: src/core/gcodecommands.cpp:67
 msgctxt "QObject|"
 msgid "G162: Home axis to maximum"
-msgstr ""
+msgstr "G162: Hejma akso al maksimumo"
 
 #: src/core/gcodecommands.cpp:99
 msgctxt "QObject|"
 msgid "M0: Stop or unconditional stop"
-msgstr ""
+msgstr "M0: Halto aŭ senkondiĉa halto"
 
 #: src/core/gcodecommands.cpp:101
 msgctxt "QObject|"
 msgid "M1: Sleep or unconditional stop"
-msgstr ""
+msgstr "M1: Dormo aŭ senkondiĉa halto"
 
 #: src/core/gcodecommands.cpp:103
 msgctxt "QObject|"
 msgid "M2: Program End"
-msgstr ""
+msgstr "M2: Programo Fino"
 
 #: src/core/gcodecommands.cpp:105
 msgctxt "QObject|"
 msgid "M6: Tool Change"
-msgstr ""
+msgstr "M6: Ilo Ŝanĝo"
 
 #: src/core/gcodecommands.cpp:107
 msgctxt "QObject|"
 msgid "M17: Enable/power all steppers motors"
-msgstr ""
+msgstr "M17: Ebligi/funkciigi ĉiujn paŝajn motorojn"
 
 #: src/core/gcodecommands.cpp:109
 msgctxt "QObject|"
 msgid "M18: Disable all steppers motors"
-msgstr ""
+msgstr "M18: Malebligi ĉiujn paŝajn motorojn"
 
 #: src/core/gcodecommands.cpp:111
 msgctxt "QObject|"
 msgid "M20: List SDCard"
-msgstr ""
+msgstr "M20: Listo SDCard"
 
 #: src/core/gcodecommands.cpp:113
 msgctxt "QObject|"
 msgid "M21: Initialize SDCard"
-msgstr ""
+msgstr "M21: Komenci SDCard"
 
 #: src/core/gcodecommands.cpp:115
 msgctxt "QObject|"
 msgid "M22: Release SDCard"
-msgstr ""
+msgstr "M22: Liberigi SDKarton"
 
 #: src/core/gcodecommands.cpp:117
 msgctxt "QObject|"
 msgid "M23: Select SD file"
-msgstr ""
+msgstr "M23: Elekti SD-dosieron"
 
 #: src/core/gcodecommands.cpp:119
 msgctxt "QObject|"
 msgid "M24: Start/resume SD print"
-msgstr ""
+msgstr "M24: Komenci/repreni SD-presadon"
 
 #: src/core/gcodecommands.cpp:121
 msgctxt "QObject|"
 msgid "M25: Pause SD print"
-msgstr ""
+msgstr "M25: Paŭzi SD-presaĵon"
 
 #: src/core/gcodecommands.cpp:123
 msgctxt "QObject|"
 msgid "M26: Set SD position"
-msgstr ""
+msgstr "M26: Agordi SD-pozicion"
 
 #: src/core/gcodecommands.cpp:125
 msgctxt "QObject|"
 msgid "M27: Report SD print status"
-msgstr ""
+msgstr "M27: Raporti SD-presaĵstatuson"
 
 #: src/core/gcodecommands.cpp:127
 msgctxt "QObject|"
 msgid "M28: Begin write to SD card"
-msgstr ""
+msgstr "M28: Komenci skribi al SD-karto"
 
 #: src/core/gcodecommands.cpp:129
 msgctxt "QObject|"
 msgid "M29: Stop writing to SD card"
-msgstr ""
+msgstr "M29: Ĉesi skribi al SD-karto"
 
 #: src/core/gcodecommands.cpp:131
 msgctxt "QObject|"
 msgid "M30: Delete a file on the SD card"
-msgstr ""
+msgstr "M30: Forigi dosieron sur la SD-karto"
 
 #: src/core/gcodecommands.cpp:133
 msgctxt "QObject|"
 msgid "M31: Output time since last M109 or SD card start to serial"
-msgstr ""
+msgstr "M31: Eliga tempo ekde lasta M109 aŭ SD-karto komenciĝas al seria"
 
 #: src/core/gcodecommands.cpp:135
 msgctxt "QObject|"
 msgid "M32: Select file and start SD print"
-msgstr ""
+msgstr "M32: Elekti dosieron kaj komenci SD-presaĵon"
 
 #: src/core/gcodecommands.cpp:137
 msgctxt "QObject|"
 msgid "M33: Get the long name for an SD card file or folder"
-msgstr ""
+msgstr "M33: Akiri la longan nomon por dosiero aŭ dosierujo de SD-karto"
 
 #: src/core/gcodecommands.cpp:139
 msgctxt "QObject|"
 msgid "M34: Set SD file sorting options"
-msgstr ""
+msgstr "M34: Agordi SD-dosier-ordigaj opcioj"
 
 #: src/core/gcodecommands.cpp:141
 msgctxt "QObject|"
 msgid "M36: Return file information"
-msgstr ""
+msgstr "M36: Resendi dosieron-informojn"
 
 #: src/core/gcodecommands.cpp:143
 msgctxt "QObject|"
 msgid "M42: Switch I/O pin"
-msgstr ""
+msgstr "M42: Ŝalti I/O-pinglon"
 
 #: src/core/gcodecommands.cpp:145
 msgctxt "QObject|"
 msgid "M48: Measure Z-Probe repeatability"
-msgstr ""
+msgstr "M48: Mezuri Z-Probe-ripeteblon"
 
 #: src/core/gcodecommands.cpp:147
 msgctxt "QObject|"
 msgid "M70: Display message"
-msgstr ""
+msgstr "M70: Montri mesaĝon"
 
 #: src/core/gcodecommands.cpp:149
 msgctxt "QObject|"
 msgid "M72: Play a tone or song"
-msgstr ""
+msgstr "M72: Ludi tonon aŭ kanton"
 
 #: src/core/gcodecommands.cpp:151
 msgctxt "QObject|"
 msgid "M73: Set build percentage"
-msgstr ""
+msgstr "M73: Agordi konstruprocenton"
 
 #: src/core/gcodecommands.cpp:153
 msgctxt "QObject|"
 msgid "M80: ATX Power On"
-msgstr ""
+msgstr "M80: ATX-Potenco"
 
 #: src/core/gcodecommands.cpp:155
 msgctxt "QObject|"
 msgid "M81: ATX Power Off"
-msgstr ""
+msgstr "M81: ATX-Malŝalto"
 
 #: src/core/gcodecommands.cpp:157
 msgctxt "QObject|"
 msgid "M82: Set extruder to absolute mode"
-msgstr ""
+msgstr "M82: Agordi extruder al absoluta reĝimo"
 
 #: src/core/gcodecommands.cpp:159
 msgctxt "QObject|"
 msgid "M83: Set extruder to relative mode"
-msgstr ""
+msgstr "M83: Agordi extruder al relativa reĝimo"
 
 #: src/core/gcodecommands.cpp:161
 msgctxt "QObject|"
 msgid "M84: Stop idle hold"
-msgstr ""
+msgstr "M84: Ĉesi senokupan tenadon"
 
 #: src/core/gcodecommands.cpp:163
 msgctxt "QObject|"
 msgid "M85: Set Inactivity shutdown timer"
-msgstr ""
+msgstr "M85: Agordi Senaktivec-haltigilon"
 
 #: src/core/gcodecommands.cpp:165
 msgctxt "QObject|"
 msgid "M92: Set axis steps per unit"
-msgstr ""
+msgstr "M92: Agordi aksajn paŝojn po unuo"
 
 #: src/core/gcodecommands.cpp:167
 msgctxt "QObject|"
 msgid "M93: Send axis steps per unit"
-msgstr ""
+msgstr "M93: Sendi aksajn paŝojn po unuo"
 
 #: src/core/gcodecommands.cpp:169
 msgctxt "QObject|"
 msgid "M98: Call Macro/Subprogram"
-msgstr ""
+msgstr "M98: Voki Makroon/Subprogramon"
 
 #: src/core/gcodecommands.cpp:171
 msgctxt "QObject|"
 msgid "M99: Return from Macro/Subprogram"
-msgstr ""
+msgstr "M99: Reveno de Makroo/Subprogramo"
 
 #: src/core/gcodecommands.cpp:173
 msgctxt "QObject|"
 msgid "M101: Turn extruder 1 on Forward, Undo Retraction"
-msgstr ""
+msgstr "M101: Turni extruder 1 sur Antaŭen, Malfari Retiron"
 
 #: src/core/gcodecommands.cpp:175
 msgctxt "QObject|"
 msgid "M103: Turn all extruders off - Extruder Retraction"
-msgstr ""
+msgstr "M103: Malŝalti ĉiujn ekstrudilojn - Ekstrudilo Retiriĝo"
 
 #: src/core/gcodecommands.cpp:177
 msgctxt "QObject|"
 msgid "M104: Set Extruder Temperature"
-msgstr ""
+msgstr "M104: Agordi Extruder Temperature"
 
 #: src/core/gcodecommands.cpp:179
 msgctxt "QObject|"
 msgid "M105: Get Extruder Temperature"
-msgstr ""
+msgstr "M105: Akiri Extruder Temperaturon"
 
 #: src/core/gcodecommands.cpp:181
 msgctxt "QObject|"
 msgid "M106: Fan On"
-msgstr ""
+msgstr "M106: Ventilo Enŝaltita"
 
 #: src/core/gcodecommands.cpp:183
 msgctxt "QObject|"
 msgid "M107: Fan Off"
-msgstr ""
+msgstr "M107: Ventilo Malŝaltita"
 
 #: src/core/gcodecommands.cpp:185
 msgctxt "QObject|"
 msgid "M108: Cancel Heating"
-msgstr ""
+msgstr "M108: Nuligi Hejtadon"
 
 #: src/core/gcodecommands.cpp:187
 msgctxt "QObject|"
 msgid "M109: Set Extruder Temperature and Wait"
-msgstr ""
+msgstr "M109: Agordi Extruder Temperaturon kaj Atendi"
 
 #: src/core/gcodecommands.cpp:189
 msgctxt "QObject|"
 msgid "M110: Set Current Line Number"
-msgstr ""
+msgstr "M110: Agordi Aktualan Linionumeron"
 
 #: src/core/gcodecommands.cpp:191
 msgctxt "QObject|"
 msgid "M111: Set Debug Level"
-msgstr ""
+msgstr "M111: Agordi Sencimigan Nivelon"
 
 #: src/core/gcodecommands.cpp:193
 msgctxt "QObject|"
 msgid "M112: Emergency Stop"
-msgstr ""
+msgstr "M112: Krizhalto"
 
 #: src/core/gcodecommands.cpp:195
 msgctxt "QObject|"
 msgid "M114: Get Current Position"
-msgstr ""
+msgstr "M114: Akiri Nunan Pozicion"
 
 #: src/core/gcodecommands.cpp:197
 msgctxt "QObject|"
 msgid "M115: Get Firmware Version and Capabilities"
-msgstr ""
+msgstr "M115: Akiri Firmware-Version kaj Kapablojn"
 
 #: src/core/gcodecommands.cpp:199
 msgctxt "QObject|"
 msgid "M116: Wait"
-msgstr ""
+msgstr "M116: Atendi"
 
 #: src/core/gcodecommands.cpp:201
 msgctxt "QObject|"
 msgid "M117: Display Message"
-msgstr ""
+msgstr "M117: Montri Mesaĝon"
 
 #: src/core/gcodecommands.cpp:203
 msgctxt "QObject|"
 msgid "M119: Get Endstop Status"
-msgstr ""
+msgstr "M119: Akiri Finhalto-Statuson"
 
 #: src/core/gcodecommands.cpp:205
 msgctxt "QObject|"
@@ -496,122 +497,122 @@ msgstr ""
 #: src/core/gcodecommands.cpp:209
 msgctxt "QObject|"
 msgid "M122: Diagnose"
-msgstr ""
+msgstr "M122: Diagnozi"
 
 #: src/core/gcodecommands.cpp:211
 msgctxt "QObject|"
 msgid "M126: Open valve"
-msgstr ""
+msgstr "M126: Malfermita valvo"
 
 #: src/core/gcodecommands.cpp:213
 msgctxt "QObject|"
 msgid "M127: Close valve"
-msgstr ""
+msgstr "M127: Fermi valvon"
 
 #: src/core/gcodecommands.cpp:215
 msgctxt "QObject|"
 msgid "M130: Set PID P value"
-msgstr ""
+msgstr "M130: Agordi PID P-valoron"
 
 #: src/core/gcodecommands.cpp:217
 msgctxt "QObject|"
 msgid "M131: Set PID I value"
-msgstr ""
+msgstr "M131: Agordi PID I-valoron"
 
 #: src/core/gcodecommands.cpp:219
 msgctxt "QObject|"
 msgid "M132: Set PID D value"
-msgstr ""
+msgstr "M132: Agordi PID D-valoron"
 
 #: src/core/gcodecommands.cpp:221
 msgctxt "QObject|"
 msgid "M133: Set PID I limit value"
-msgstr ""
+msgstr "M133: Agordi PID I-limvaloron"
 
 #: src/core/gcodecommands.cpp:223
 msgctxt "QObject|"
 msgid "M134: Write PID values to EEPROM"
-msgstr ""
+msgstr "M134: Skribi PID-valorojn al EEPROM"
 
 #: src/core/gcodecommands.cpp:225
 msgctxt "QObject|"
 msgid "M135: Set PID sample interval"
-msgstr ""
+msgstr "M135: Agordi PID-specimplan intervalon"
 
 #: src/core/gcodecommands.cpp:227
 msgctxt "QObject|"
 msgid "M140: Set Bed Temperature - Fast"
-msgstr ""
+msgstr "M140: Agordi Temperaron de Lito - Rapida"
 
 #: src/core/gcodecommands.cpp:229
 msgctxt "QObject|"
 msgid "M141: Set Chamber Temperature - Fast"
-msgstr ""
+msgstr "M141: Fiksita Ĉambra Temperaturo - Rapida"
 
 #: src/core/gcodecommands.cpp:231
 msgctxt "QObject|"
 msgid "M143: Maximum hot-end temperature"
-msgstr ""
+msgstr "M143: Maksimuma varma-fina temperaturo"
 
 #: src/core/gcodecommands.cpp:233
 msgctxt "QObject|"
 msgid "M144: Stand by your bed"
-msgstr ""
+msgstr "M144: Stari apud via lito"
 
 #: src/core/gcodecommands.cpp:235
 msgctxt "QObject|"
 msgid "M150: Set display color"
-msgstr ""
+msgstr "M150: Agordi ekranan koloron"
 
 #: src/core/gcodecommands.cpp:237
 msgctxt "QObject|"
 msgid "M155: Set Temperature auto report"
-msgstr ""
+msgstr "M155: Fiksita Temperaturo aŭtomata raporto"
 
 #: src/core/gcodecommands.cpp:239
 msgctxt "QObject|"
 msgid "M163: Set weight of mixed material"
-msgstr ""
+msgstr "M163: Agordi pezon de miksita materialo"
 
 #: src/core/gcodecommands.cpp:241
 msgctxt "QObject|"
 msgid "M164: Store weights"
-msgstr ""
+msgstr "M164: Konservi pezojn"
 
 #: src/core/gcodecommands.cpp:243
 msgctxt "QObject|"
 msgid "M190: Wait for bed temperature to reach target temp"
-msgstr ""
+msgstr "M190: Atendi, ke lita temperaturo atingu celan temperaturon"
 
 #: src/core/gcodecommands.cpp:245
 msgctxt "QObject|"
 msgid "M200: Set filament diameter"
-msgstr ""
+msgstr "M200: Agordi filamentan diametron"
 
 #: src/core/gcodecommands.cpp:247
 msgctxt "QObject|"
 msgid "M201: Set max printing acceleration"
-msgstr ""
+msgstr "M201: Agordi maksimuman presan akcelon"
 
 #: src/core/gcodecommands.cpp:249
 msgctxt "QObject|"
 msgid "M202: Set max travel acceleration"
-msgstr ""
+msgstr "M202: Agordi maksimuman vojaĝakcelon"
 
 #: src/core/gcodecommands.cpp:251
 msgctxt "QObject|"
 msgid "M203: Set maximum feedrate"
-msgstr ""
+msgstr "M203: Agordi maksimuman antaŭenrapidecon"
 
 #: src/core/gcodecommands.cpp:253
 msgctxt "QObject|"
 msgid "M204: Set default acceleration"
-msgstr ""
+msgstr "M204: Agordi defaŭltan akcelon"
 
 #: src/core/gcodecommands.cpp:255
 msgctxt "QObject|"
 msgid "M205: Advanced settings"
-msgstr ""
+msgstr "M205: Altnivelaj agordoj"
 
 #: src/core/gcodecommands.cpp:257
 msgctxt "QObject|"
@@ -623,542 +624,542 @@ msgstr ""
 #: src/core/gcodecommands.cpp:259
 msgctxt "QObject|"
 msgid "M207: Set retract length"
-msgstr ""
+msgstr "M207: Agordi retiran longon"
 
 #: src/core/gcodecommands.cpp:261
 msgctxt "QObject|"
 msgid "M208: Set unretract length"
-msgstr ""
+msgstr "M208: Agordi malretiran longon"
 
 #: src/core/gcodecommands.cpp:263
 msgctxt "QObject|"
 msgid "M209: Enable automatic retract"
-msgstr ""
+msgstr "M209: Ebligi aŭtomatan retiron"
 
 #: src/core/gcodecommands.cpp:265
 msgctxt "QObject|"
 msgid "M212: Set Bed Level Sensor Offset"
-msgstr ""
+msgstr "M212: Agordi Bed-nivelan Sensil-Deŝovon"
 
 #: src/core/gcodecommands.cpp:267
 msgctxt "QObject|"
 msgid "M218: Set Hotend Offset"
-msgstr ""
+msgstr "M218: Agordi Hotend-Offset"
 
 #: src/core/gcodecommands.cpp:269
 msgctxt "QObject|"
 msgid "M220: Set speed factor override percentage"
-msgstr ""
+msgstr "M220: Agordi rapidfaktoran superregan procenton"
 
 #: src/core/gcodecommands.cpp:271
 msgctxt "QObject|"
 msgid "M221: Set extrude factor override percentage"
-msgstr ""
+msgstr "M221: Agordi elprocenton de superrega faktoro"
 
 #: src/core/gcodecommands.cpp:273
 msgctxt "QObject|"
 msgid "M226: Wait for pin state"
-msgstr ""
+msgstr "M226: Atendi la staton de pinglo"
 
 #: src/core/gcodecommands.cpp:275
 msgctxt "QObject|"
 msgid "M231: Set OPS parameter"
-msgstr ""
+msgstr "M231: Agordi OPS-parametron"
 
 #: src/core/gcodecommands.cpp:277
 msgctxt "QObject|"
 msgid "M232: Read and reset max. advance values"
-msgstr ""
+msgstr "M232: Legi kaj restarigi max. antaŭvaloroj"
 
 #: src/core/gcodecommands.cpp:279
 msgctxt "QObject|"
 msgid "M240: Trigger camera"
-msgstr ""
+msgstr "M240: Eligi fotilon"
 
 #: src/core/gcodecommands.cpp:281
 msgctxt "QObject|"
 msgid "M250: Set LCD contrast"
-msgstr ""
+msgstr "M250: Agordi LCD-kontraston"
 
 #: src/core/gcodecommands.cpp:283
 msgctxt "QObject|"
 msgid "M251: Measure Z steps from homing stop (Delta printers)"
-msgstr ""
+msgstr "M251: Mezuri Z-paŝojn de veturhalto (Delta printiloj)"
 
 #: src/core/gcodecommands.cpp:285
 msgctxt "QObject|"
 msgid "M280: Set servo position"
-msgstr ""
+msgstr "M280: Agordi servopozicion"
 
 #: src/core/gcodecommands.cpp:287
 msgctxt "QObject|"
 msgid "M300: Play beep sound"
-msgstr ""
+msgstr "M300: Ludi pep-sonon"
 
 #: src/core/gcodecommands.cpp:289
 msgctxt "QObject|"
 msgid "M301: Set PID parameters"
-msgstr ""
+msgstr "M301: Agordi PID-parametrojn"
 
 #: src/core/gcodecommands.cpp:291
 msgctxt "QObject|"
 msgid "M302: Allow cold extrudes "
-msgstr ""
+msgstr "M302: Permesi malvarmajn eltrudojn"
 
 #: src/core/gcodecommands.cpp:293
 msgctxt "QObject|"
 msgid "M303: Run PID tuning"
-msgstr ""
+msgstr "M303: Ruli PID-agordon"
 
 #: src/core/gcodecommands.cpp:295
 msgctxt "QObject|"
 msgid "M304: Set PID parameters - Bed"
-msgstr ""
+msgstr "M304: Agordi PID-parametrojn - Lito"
 
 #: src/core/gcodecommands.cpp:297
 msgctxt "QObject|"
 msgid "M305: Set thermistor and ADC parameters"
-msgstr ""
+msgstr "M305: Agordi termistoron kaj ADC-parametrojn"
 
 #: src/core/gcodecommands.cpp:299
 msgctxt "QObject|"
 msgid "M306: set home offset calculated from toolhead position"
-msgstr ""
+msgstr "M306: meti hejman deŝovon kalkulitan de ilkapa pozicio"
 
 #: src/core/gcodecommands.cpp:301
 msgctxt "QObject|"
 msgid "M320: Activate autolevel (Repetier)"
-msgstr ""
+msgstr "M320: Aktivigi aŭtomatan nivelon (Ripetilo)"
 
 #: src/core/gcodecommands.cpp:303
 msgctxt "QObject|"
 msgid "M321: Deactivate autolevel (Repetier)"
-msgstr ""
+msgstr "M321: Malaktivigi aŭtomatan nivelon (Ripetilo)"
 
 #: src/core/gcodecommands.cpp:305
 msgctxt "QObject|"
 msgid "M322: Reset autolevel matrix (Repetier)"
-msgstr ""
+msgstr "M322: Restarigi aŭtomatan matricon (Ripetilo)"
 
 #: src/core/gcodecommands.cpp:307
 msgctxt "QObject|"
 msgid "M323: Distortion correction on/off (Repetier)"
-msgstr ""
+msgstr "M323: Distorda korekto ŝaltita/malŝaltita (Ripetilo)"
 
 #: src/core/gcodecommands.cpp:309
 msgctxt "QObject|"
 msgid "M340: Control the servos"
-msgstr ""
+msgstr "M340: Regi la servomotorojn"
 
 #: src/core/gcodecommands.cpp:311
 msgctxt "QObject|"
 msgid "M350: Set microstepping mode"
-msgstr ""
+msgstr "M350: Agordi mikropaŝan reĝimon"
 
 #: src/core/gcodecommands.cpp:313
 msgctxt "QObject|"
 msgid "M351: Toggle MS1 MS2 pins directly"
-msgstr ""
+msgstr "M351: Baskuligi MS1 MS2-pinglojn rekte"
 
 #: src/core/gcodecommands.cpp:315
 msgctxt "QObject|"
 msgid "M355: Turn case lights on/off"
-msgstr ""
+msgstr "M355: Enŝalti/malŝalti kazajn lumojn"
 
 #: src/core/gcodecommands.cpp:317
 msgctxt "QObject|"
 msgid "M360: Report firmware configuration"
-msgstr ""
+msgstr "M360: Raporti firmware-agordon"
 
 #: src/core/gcodecommands.cpp:319
 msgctxt "QObject|"
 msgid "M361: Move to Theta 90 degree position"
-msgstr ""
+msgstr "M361: Movi al Theta 90-grada pozicio"
 
 #: src/core/gcodecommands.cpp:321
 msgctxt "QObject|"
 msgid "M362: Move to Psi 0 degree position"
-msgstr ""
+msgstr "M362: Movi al Psi 0-grada pozicio"
 
 #: src/core/gcodecommands.cpp:323
 msgctxt "QObject|"
 msgid "M363: Move to Psi 90 degree position"
-msgstr ""
+msgstr "M363: Movi al Psi 90-grada pozicio"
 
 #: src/core/gcodecommands.cpp:325
 msgctxt "QObject|"
 msgid "M364: Move to Psi + Theta 90 degree position"
-msgstr ""
+msgstr "M364: Movi al Psi + Theta 90-grada pozicio"
 
 #: src/core/gcodecommands.cpp:327
 msgctxt "QObject|"
 msgid "M365: SCARA scaling factor"
-msgstr ""
+msgstr "M365: SCARA skalfaktoro"
 
 #: src/core/gcodecommands.cpp:329
 msgctxt "QObject|"
 msgid "M366: SCARA convert trim"
-msgstr ""
+msgstr "M366: SCARA konverti tajlado"
 
 #: src/core/gcodecommands.cpp:331
 msgctxt "QObject|"
 msgid "M370: Morgan manual bed level - clear map"
-msgstr ""
+msgstr "M370: Morgan mana lita nivelo - klara mapo"
 
 #: src/core/gcodecommands.cpp:333
 msgctxt "QObject|"
 msgid "M371: Move to next calibration position"
-msgstr ""
+msgstr "M371: Movi al la sekva kalibra pozicio"
 
 #: src/core/gcodecommands.cpp:335
 msgctxt "QObject|"
 msgid "M372: Record calibration value, and move to next position"
-msgstr ""
+msgstr "M372: Registri kalibran valoron, kaj movi al la sekva pozicio"
 
 #: src/core/gcodecommands.cpp:337
 msgctxt "QObject|"
 msgid "M373: End bed level calibration mode"
-msgstr ""
+msgstr "M373: Fini litanivela calibrareĝimo"
 
 #: src/core/gcodecommands.cpp:339
 msgctxt "QObject|"
 msgid "M374: Save calibration grid"
-msgstr ""
+msgstr "M374: Konservi kalibran kradon"
 
 #: src/core/gcodecommands.cpp:341
 msgctxt "QObject|"
 msgid "M375: Display matrix / Load Matrix"
-msgstr ""
+msgstr "M375: Montri matricon / Ŝargi Matricon"
 
 #: src/core/gcodecommands.cpp:343
 msgctxt "QObject|"
 msgid "M380: Activate solenoid"
-msgstr ""
+msgstr "M380: Aktivigi solenoidon"
 
 #: src/core/gcodecommands.cpp:345
 msgctxt "QObject|"
 msgid "M381: Disable all solenoids"
-msgstr ""
+msgstr "M381: Malebligi ĉiujn solenoidojn"
 
 #: src/core/gcodecommands.cpp:347
 msgctxt "QObject|"
 msgid "M400: Wait for current moves to finish"
-msgstr ""
+msgstr "M400: Atendi ke nunaj movoj finiĝos"
 
 #: src/core/gcodecommands.cpp:349
 msgctxt "QObject|"
 msgid "M401: Lower z-probe"
-msgstr ""
+msgstr "M401: Malsupra z-sondilo"
 
 #: src/core/gcodecommands.cpp:351
 msgctxt "QObject|"
 msgid "M402: Raise z-probe"
-msgstr ""
+msgstr "M402: Levi z-sondon"
 
 #: src/core/gcodecommands.cpp:353
 msgctxt "QObject|"
 msgid "M404: Filament width and nozzle diameter"
-msgstr ""
+msgstr "M404: larĝo de filamento kaj diametro de ajuto"
 
 #: src/core/gcodecommands.cpp:355
 msgctxt "QObject|"
 msgid "M405: Filament Sensor on"
-msgstr ""
+msgstr "M405: Filamenta Sensilo ŝaltita"
 
 #: src/core/gcodecommands.cpp:357
 msgctxt "QObject|"
 msgid "M406: Filament Sensor off"
-msgstr ""
+msgstr "M406: Filamenta Sensilo malŝaltita"
 
 #: src/core/gcodecommands.cpp:359
 msgctxt "QObject|"
 msgid "M407: Display filament diameter"
-msgstr ""
+msgstr "M407: Montri filamentan diametron"
 
 #: src/core/gcodecommands.cpp:361
 msgctxt "QObject|"
 msgid "M408: Report JSON-style response"
-msgstr ""
+msgstr "M408: Raporti respondon al JSON-stila"
 
 #: src/core/gcodecommands.cpp:363
 msgctxt "QObject|"
 msgid "M420: Enable/Disable Mesh Leveling (Marlin)"
-msgstr ""
+msgstr "M420: Ebligi/Malŝalti Maŝ-Niveligadon (Marlin)"
 
 #: src/core/gcodecommands.cpp:365
 msgctxt "QObject|"
 msgid "M450: Report Printer Mode"
-msgstr ""
+msgstr "M450: Raporta Presilo-Reĝimo"
 
 #: src/core/gcodecommands.cpp:367
 msgctxt "QObject|"
 msgid "M451: Select FFF Printer Mode"
-msgstr ""
+msgstr "M451: Elekti FFF Printer Mode"
 
 #: src/core/gcodecommands.cpp:369
 msgctxt "QObject|"
 msgid "M452: Select Laser Printer Mode"
-msgstr ""
+msgstr "M452: Elekti Laseran Presilon-Reĝimon"
 
 #: src/core/gcodecommands.cpp:371
 msgctxt "QObject|"
 msgid "M453: Select CNC Printer Mode"
-msgstr ""
+msgstr "M453: Elekti CNC-Presilan Reĝimon"
 
 #: src/core/gcodecommands.cpp:373
 msgctxt "QObject|"
 msgid "M460: Define temperature range for thermistor controlled fan"
-msgstr ""
+msgstr "M460: Difini temperaturintervalon por termistor-regita ventolilo"
 
 #: src/core/gcodecommands.cpp:375
 msgctxt "QObject|"
 msgid "M500: Store parameters in EEPROM"
-msgstr ""
+msgstr "M500: Konservi parametrojn en EEPROM"
 
 #: src/core/gcodecommands.cpp:377
 msgctxt "QObject|"
 msgid "M501: Read parameters from EEPROM"
-msgstr ""
+msgstr "M501: Legi parametrojn de EEPROM"
 
 #: src/core/gcodecommands.cpp:379
 msgctxt "QObject|"
 msgid "M502: Revert to the default 'factory settings'."
-msgstr ""
+msgstr "M502: Reiri al la defaŭltaj 'fabrikaj agordoj'."
 
 #: src/core/gcodecommands.cpp:381
 msgctxt "QObject|"
 msgid "M503: Print settings "
-msgstr ""
+msgstr "M503: Presaj agordoj"
 
 #: src/core/gcodecommands.cpp:383
 msgctxt "QObject|"
 msgid "M540: Enable/Disable 'Stop SD Print on Endstop Hit'"
-msgstr ""
+msgstr "M540: Ebligi/Malŝalti 'Ĉesigi SD-Presadon ĉe Finhalto-Trafo'"
 
 #: src/core/gcodecommands.cpp:385
 msgctxt "QObject|"
 msgid "M550: Set Name"
-msgstr ""
+msgstr "M550: Agordi Nomon"
 
 #: src/core/gcodecommands.cpp:387
 msgctxt "QObject|"
 msgid "M551: Set Password"
-msgstr ""
+msgstr "M551: Agordi Pasvorton"
 
 #: src/core/gcodecommands.cpp:389
 msgctxt "QObject|"
 msgid "M552: Set IP address"
-msgstr ""
+msgstr "M552: Agordi IP-adreson"
 
 #: src/core/gcodecommands.cpp:391
 msgctxt "QObject|"
 msgid "M553: Set Netmask"
-msgstr ""
+msgstr "M553: Agordi Retmaskon"
 
 #: src/core/gcodecommands.cpp:393
 msgctxt "QObject|"
 msgid "M554: Set Gateway"
-msgstr ""
+msgstr "M554: Agordi Enirejon"
 
 #: src/core/gcodecommands.cpp:395
 msgctxt "QObject|"
 msgid "M555: Set compatibility"
-msgstr ""
+msgstr "M555: Agordi kongruon"
 
 #: src/core/gcodecommands.cpp:397
 msgctxt "QObject|"
 msgid "M556: Axis compensation"
-msgstr ""
+msgstr "M556: Aksokompenso"
 
 #: src/core/gcodecommands.cpp:399
 msgctxt "QObject|"
 msgid "M557: Set Z probe point"
-msgstr ""
+msgstr "M557: Agordi Z-sondpunkton"
 
 #: src/core/gcodecommands.cpp:401
 msgctxt "QObject|"
 msgid "M558: Set Z probe type"
-msgstr ""
+msgstr "M558: Agordi Z-sonditipon"
 
 #: src/core/gcodecommands.cpp:403
 msgctxt "QObject|"
 msgid "M559: Upload configuration file"
-msgstr ""
+msgstr "M559: Alŝuti agordan dosieron"
 
 #: src/core/gcodecommands.cpp:405
 msgctxt "QObject|"
 msgid "M560: Upload web page file"
-msgstr ""
+msgstr "M560: Alŝuti retpaĝan dosieron"
 
 #: src/core/gcodecommands.cpp:407
 msgctxt "QObject|"
 msgid "M561: Set Identity Transform"
-msgstr ""
+msgstr "M561: Agordi Identecan Transformon"
 
 #: src/core/gcodecommands.cpp:409
 msgctxt "QObject|"
 msgid "M562: Reset temperature fault"
-msgstr ""
+msgstr "M562: Restarigi temperaturan misfunkciadon"
 
 #: src/core/gcodecommands.cpp:411
 msgctxt "QObject|"
 msgid "M563: Define or remove a tool"
-msgstr ""
+msgstr "M563: Difini aŭ forigi ilon"
 
 #: src/core/gcodecommands.cpp:413
 msgctxt "QObject|"
 msgid "M564: Limit axes"
-msgstr ""
+msgstr "M564: Limigi aksojn"
 
 #: src/core/gcodecommands.cpp:415
 msgctxt "QObject|"
 msgid "M565: Set Z probe offset"
-msgstr ""
+msgstr "M565: Agordi Z-sondan deŝovon"
 
 #: src/core/gcodecommands.cpp:417
 msgctxt "QObject|"
 msgid "M566: Set allowable instantaneous speed change"
-msgstr ""
+msgstr "M566: Agordi permeseblan tujan rapidecŝanĝon"
 
 #: src/core/gcodecommands.cpp:419
 msgctxt "QObject|"
 msgid "M567: Set tool mix ratio"
-msgstr ""
+msgstr "M567: Agordi ilan miksaĵproporcion"
 
 #: src/core/gcodecommands.cpp:421
 msgctxt "QObject|"
 msgid "M568: Turn off/on tool mix ratio"
-msgstr ""
+msgstr "M568: Malŝalti/ŝalti ilan miksaĵproporcion"
 
 #: src/core/gcodecommands.cpp:423
 msgctxt "QObject|"
 msgid "M569: Set axis direction and enable values"
-msgstr ""
+msgstr "M569: Agordi aksan direkton kaj ebligi valorojn"
 
 #: src/core/gcodecommands.cpp:425
 msgctxt "QObject|"
 msgid "M570: Set heater timeout"
-msgstr ""
+msgstr "M570: Agordi hejtigtempon"
 
 #: src/core/gcodecommands.cpp:427
 msgctxt "QObject|"
 msgid "M571: Set output on extrude"
-msgstr ""
+msgstr "M571: Agordi eligon sur eltrudo"
 
 #: src/core/gcodecommands.cpp:429
 msgctxt "QObject|"
 msgid "M573: Report heater PWM"
-msgstr ""
+msgstr "M573: Raporti hejtilon PWM"
 
 #: src/core/gcodecommands.cpp:431
 msgctxt "QObject|"
 msgid "M574: Set endstop configuration"
-msgstr ""
+msgstr "M574: Agordi finhaltkonfiguracion"
 
 #: src/core/gcodecommands.cpp:433
 msgctxt "QObject|"
 msgid "M575: Set serial comms parameters"
-msgstr ""
+msgstr "M575: Agordi seriajn komunikparametrojn"
 
 #: src/core/gcodecommands.cpp:435
 msgctxt "QObject|"
 msgid "M577: Wait until endstop is triggered"
-msgstr ""
+msgstr "M577: Atendi ĝis finhalto estas ekigita"
 
 #: src/core/gcodecommands.cpp:437
 msgctxt "QObject|"
 msgid "M578: Fire inkjet bits"
-msgstr ""
+msgstr "M578: Fajraj inkŝprucpecoj"
 
 #: src/core/gcodecommands.cpp:439
 msgctxt "QObject|"
 msgid "M579: Scale Cartesian axes"
-msgstr ""
+msgstr "M579: Skalaj karteziaj aksoj"
 
 #: src/core/gcodecommands.cpp:441
 msgctxt "QObject|"
 msgid "M580: Select Roland"
-msgstr ""
+msgstr "M580: Elekti Roland"
 
 #: src/core/gcodecommands.cpp:443
 msgctxt "QObject|"
 msgid "M600: Filament change pause"
-msgstr ""
+msgstr "M600: paŭzo de ŝanĝo de filamento"
 
 #: src/core/gcodecommands.cpp:445
 msgctxt "QObject|"
 msgid "M605: Set dual x-carriage movement mode"
-msgstr ""
+msgstr "M605: Agordi duoblan x-ĉarajn movadan reĝimon"
 
 #: src/core/gcodecommands.cpp:447
 msgctxt "QObject|"
 msgid "M665: Set delta configuration"
-msgstr ""
+msgstr "M665: Agordi delta agordon"
 
 #: src/core/gcodecommands.cpp:449
 msgctxt "QObject|"
 msgid "M666: Set delta endstop adjustment"
-msgstr ""
+msgstr "M666: Agordi delta finhaltĝustigon"
 
 #: src/core/gcodecommands.cpp:451
 msgctxt "QObject|"
 msgid "M667: Select CoreXY mode"
-msgstr ""
+msgstr "M667: Elekti CoreXY-reĝimon"
 
 #: src/core/gcodecommands.cpp:453
 msgctxt "QObject|"
 msgid "M851: Set Z-Probe Offset"
-msgstr ""
+msgstr "M851: Agordi Z-Probe Deŝovon"
 
 #: src/core/gcodecommands.cpp:455
 msgctxt "QObject|"
 msgid "M906: Set motor currents"
-msgstr ""
+msgstr "M906: Agordi motorfluojn"
 
 #: src/core/gcodecommands.cpp:457
 msgctxt "QObject|"
 msgid "M907: Set digital trimpot motor"
-msgstr ""
+msgstr "M907: Agordi ciferecan trimpotmotoron"
 
 #: src/core/gcodecommands.cpp:459
 msgctxt "QObject|"
 msgid "M908: Control digital trimpot directly"
-msgstr ""
+msgstr "M908: Regi ciferecan trimpoton rekte"
 
 #: src/core/gcodecommands.cpp:461
 msgctxt "QObject|"
 msgid "M911: Set power monitor threshold voltages"
-msgstr ""
+msgstr "M911: Agordi la sojlaj tensioj de potenco-monitoro"
 
 #: src/core/gcodecommands.cpp:463
 msgctxt "QObject|"
 msgid "M912: Set electronics temperature monitor adjustment"
-msgstr ""
+msgstr "M912: Agordi elektronikan temperaturmonitoran ĝustigon"
 
 #: src/core/gcodecommands.cpp:465
 msgctxt "QObject|"
 msgid "M913: Set motor percentage of normal current"
-msgstr ""
+msgstr "M913: Agordi motorprocenton de normala kurento"
 
 #: src/core/gcodecommands.cpp:467
 msgctxt "QObject|"
 msgid "M928: Start SD logging"
-msgstr ""
+msgstr "M928: Komenci SD-registradon"
 
 #: src/core/gcodecommands.cpp:469
 msgctxt "QObject|"
 msgid "M997: Perform in-application firmware update"
-msgstr ""
+msgstr "M997: Fari en-aplikan firmware-ĝisdatigon"
 
 #: src/core/gcodecommands.cpp:471
 msgctxt "QObject|"
 msgid "M998: Request resend of line"
-msgstr ""
+msgstr "M998: Peto resendo de linio"
 
 #: src/core/gcodecommands.cpp:473
 msgctxt "QObject|"
 msgid "M999: Restart after being stopped by error"
-msgstr ""
+msgstr "M999: Rekomenci post kiam estis haltigita de eraro"
 
 #: src/widgets/about.cpp:21
 #, qt-format
@@ -1170,7 +1171,7 @@ msgstr "Versio: %1"
 #, qt-format
 msgctxt "About|"
 msgid "Using Qt: %1"
-msgstr ""
+msgstr "Uzante Qt: %1"
 
 #: src/widgets/about.cpp:23
 msgctxt "About|"
@@ -1190,12 +1191,12 @@ msgstr "Fermi"
 #: src/widgets/axiscontrol.cpp:22
 msgctxt "AxisControl|"
 msgid "Move Axis"
-msgstr ""
+msgstr "Movi Akson"
 
 #: src/widgets/commandwidget.cpp:25
 msgctxt "CommandWidget|"
 msgid "Send Command"
-msgstr ""
+msgstr "Sendu Komandon"
 
 #: src/widgets/commandwidget.cpp:28 src/widgets/commandwidget.cpp:53
 msgctxt "CommandWidget|"
@@ -1234,52 +1235,52 @@ msgstr ""
 #: src/widgets/logwidget.cpp:81
 msgctxt "LogWidget|"
 msgid "Save Session Log"
-msgstr ""
+msgstr "Konservi Seancan Protokolon"
 
 #: src/widgets/logwidget.cpp:164
 msgctxt "LogWidget|"
 msgid "Save Log to file"
-msgstr ""
+msgstr "Konservi Protokolo al dosiero"
 
 #: src/widgets/movementwidget.cpp:49
 msgctxt "MovementWidget|"
 msgid "Home All"
-msgstr ""
+msgstr "Hejmo Ĉiuj"
 
 #: src/widgets/movementwidget.cpp:53
 msgctxt "MovementWidget|"
 msgid "Home X"
-msgstr ""
+msgstr "Hejmo X"
 
 #: src/widgets/movementwidget.cpp:57
 msgctxt "MovementWidget|"
 msgid "Home Y"
-msgstr ""
+msgstr "Hejmo Y"
 
 #: src/widgets/movementwidget.cpp:61
 msgctxt "MovementWidget|"
 msgid "Home Z"
-msgstr ""
+msgstr "Hejmo Z"
 
 #: src/widgets/movementwidget.cpp:67
 msgctxt "MovementWidget|"
 msgid "Disable Motors"
-msgstr ""
+msgstr "Malebligi Motorojn"
 
 #: src/widgets/movementwidget.cpp:72
 msgctxt "MovementWidget|"
 msgid "Move X Axis to"
-msgstr ""
+msgstr "Movi X-akson al"
 
 #: src/widgets/movementwidget.cpp:73
 msgctxt "MovementWidget|"
 msgid "Move Y Axis to"
-msgstr ""
+msgstr "Movi Y-akson al"
 
 #: src/widgets/movementwidget.cpp:74
 msgctxt "MovementWidget|"
 msgid "Move Z Axis to"
-msgstr ""
+msgstr "Movi Z-akson al"
 
 #: src/widgets/movementwidget.cpp:83
 msgctxt "MovementWidget|"
@@ -1294,17 +1295,17 @@ msgstr "Temp."
 #: src/widgets/printwidget.cpp:25
 msgctxt "PrintWidget|"
 msgid "Print File"
-msgstr ""
+msgstr "Presi Dosiero"
 
 #: src/widgets/printwidget.cpp:28
 msgctxt "PrintWidget|"
 msgid "Emergency Stop"
-msgstr ""
+msgstr "Urĝa Halto"
 
 #: src/widgets/printwidget.cpp:37
 msgctxt "PrintWidget|"
 msgid "Printer Speed"
-msgstr ""
+msgstr "Presilo Rapido"
 
 #: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:58
 #: src/widgets/printwidget.cpp:71
@@ -1315,13 +1316,13 @@ msgstr "Difini"
 #: src/widgets/printwidget.cpp:52
 msgctxt "PrintWidget|"
 msgid "Flow Rate"
-msgstr ""
+msgstr "Fluo-Indico"
 
 #: src/widgets/printwidget.cpp:96
 #, qt-format
 msgctxt "PrintWidget|"
 msgid "Fan %1 speed"
-msgstr ""
+msgstr "Ventilo %1 rapideco"
 
 #: src/widgets/profilemanager.cpp:27
 msgctxt "ProfileManager|"
@@ -1331,7 +1332,7 @@ msgstr "Profilo:"
 #: src/widgets/profilemanager.cpp:55
 msgctxt "ProfileManager|"
 msgid "Delete Current Profile"
-msgstr ""
+msgstr "Forigi Nunan Profilon"
 
 #: src/widgets/profilemanager.cpp:69
 msgctxt "ProfileManager|"
@@ -1341,7 +1342,7 @@ msgstr "Nomo"
 #: src/widgets/profilemanager.cpp:82
 msgctxt "ProfileManager|"
 msgid "Printer Type:"
-msgstr ""
+msgstr "Presilo Tipo:"
 
 #: src/widgets/profilemanager.cpp:83
 msgctxt "ProfileManager|"
@@ -1356,17 +1357,17 @@ msgstr "Kartezia"
 #: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:233
 msgctxt "ProfileManager|"
 msgid "Maximum X"
-msgstr ""
+msgstr "Maksimumo X"
 
 #: src/widgets/profilemanager.cpp:105
 msgctxt "ProfileManager|"
 msgid "Maximum Y"
-msgstr ""
+msgstr "Maksimuma Y"
 
 #: src/widgets/profilemanager.cpp:119 src/widgets/profilemanager.cpp:234
 msgctxt "ProfileManager|"
 msgid "Maximum Z"
-msgstr ""
+msgstr "Maksimuma Z"
 
 #: src/widgets/profilemanager.cpp:130
 msgctxt "ProfileManager|"
@@ -1376,17 +1377,17 @@ msgstr "Mekaniko"
 #: src/widgets/profilemanager.cpp:135
 msgctxt "ProfileManager|"
 msgid "Bed Maximum"
-msgstr ""
+msgstr "Lito Maksimumo"
 
 #: src/widgets/profilemanager.cpp:148
 msgctxt "ProfileManager|"
 msgid "Extruder Maximum"
-msgstr ""
+msgstr "Ekstrudilo Maksimuma"
 
 #: src/widgets/profilemanager.cpp:157
 msgctxt "ProfileManager|"
 msgid "Auto Temperature Report"
-msgstr ""
+msgstr "Aŭtomata Temperaturo Raporto"
 
 #: src/widgets/profilemanager.cpp:162
 msgctxt "ProfileManager|"
@@ -1406,7 +1407,7 @@ msgstr "Firmvaro"
 #: src/widgets/profilemanager.cpp:192
 msgctxt "ProfileManager|"
 msgid "PostPause"
-msgstr ""
+msgstr "PostPaŭzo"
 
 #: src/widgets/profilemanager.cpp:198
 msgctxt "ProfileManager|"
@@ -1431,12 +1432,12 @@ msgstr "Alto"
 #: src/widgets/sdwidget.cpp:20
 msgctxt "SdWidget|"
 msgid "Get List"
-msgstr ""
+msgstr "Akiri Liston"
 
 #: src/widgets/sdwidget.cpp:24
 msgctxt "SdWidget|"
 msgid "Print Selected"
-msgstr ""
+msgstr "Presi Elektitan"
 
 #: src/widgets/sdwidget.cpp:32
 msgctxt "SdWidget|"
@@ -1446,12 +1447,12 @@ msgstr "Forigi Elektitajn"
 #: src/widgets/sdwidget.cpp:41
 msgctxt "SdWidget|"
 msgid "Files On Sd Card"
-msgstr ""
+msgstr "Dosieroj Sur Sd-Karto"
 
 #: src/widgets/statuswidget.cpp:47
 msgctxt "StatusWidget|"
 msgid "AtCore State:"
-msgstr ""
+msgstr "AtCore-Stato:"
 
 #: src/widgets/statuswidget.cpp:48
 msgctxt "StatusWidget|"
@@ -1466,12 +1467,12 @@ msgstr "SD"
 #: src/widgets/temperaturewidget.cpp:21
 msgctxt "TemperatureWidget|"
 msgid "Wait Until Temperature Stabilizes"
-msgstr ""
+msgstr "Atendi Ĝis Temperaturo Stabiliĝos"
 
 #: src/widgets/temperaturewidget.cpp:24
 msgctxt "TemperatureWidget|"
 msgid "Bed Temp"
-msgstr ""
+msgstr "Lito Temp"
 
 #: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:44
 msgctxt "TemperatureWidget|"
@@ -1482,27 +1483,27 @@ msgstr "Difini"
 #, qt-format
 msgctxt "TemperatureWidget|"
 msgid "Extruder %1"
-msgstr ""
+msgstr "Ekstrudilo %1"
 
 #: testclient/mainwindow.cpp:30
 msgctxt "MainWindow|"
 msgid "AtCore - Test Client"
-msgstr ""
+msgstr "AtCore - Testa Kliento"
 
 #: testclient/mainwindow.cpp:38
 msgctxt "MainWindow|"
 msgid "Attempting to locate Serial Ports"
-msgstr ""
+msgstr "Provante lokalizi Seriajn Pordojn"
 
 #: testclient/mainwindow.cpp:49
 msgctxt "MainWindow|"
 msgid "AtCore First Run"
-msgstr ""
+msgstr "AtCore Unua Kuro"
 
 #: testclient/mainwindow.cpp:49
 msgctxt "MainWindow|"
 msgid "No Profiles Detected, use the Profile Manager to create one."
-msgstr ""
+msgstr "Neniuj Profiloj Detektitaj, uzu la Profil-Administranton por krei unu."
 
 #: testclient/mainwindow.cpp:59
 msgctxt "MainWindow|"
@@ -1522,7 +1523,7 @@ msgstr "Vido"
 #: testclient/mainwindow.cpp:65
 msgctxt "MainWindow|"
 msgid "Show Dock Titles"
-msgstr ""
+msgstr "Montri Doktitolojn"
 
 #: testclient/mainwindow.cpp:71
 msgctxt "MainWindow|"
@@ -1547,37 +1548,37 @@ msgstr "Presi"
 #: testclient/mainwindow.cpp:167 testclient/mainwindow.cpp:171
 msgctxt "MainWindow|"
 msgid "Actual Bed"
-msgstr ""
+msgstr "Fakta Lito"
 
 #: testclient/mainwindow.cpp:174 testclient/mainwindow.cpp:178
 msgctxt "MainWindow|"
 msgid "Target Bed"
-msgstr ""
+msgstr "Celo Lito"
 
 #: testclient/mainwindow.cpp:181 testclient/mainwindow.cpp:185
 msgctxt "MainWindow|"
 msgid "Actual Ext.1"
-msgstr ""
+msgstr "Fakta Ext.1"
 
 #: testclient/mainwindow.cpp:188 testclient/mainwindow.cpp:192
 msgctxt "MainWindow|"
 msgid "Target Ext.1"
-msgstr ""
+msgstr "Celo Ext.1"
 
 #: testclient/mainwindow.cpp:196
 msgctxt "MainWindow|"
 msgid "Seconds Between Temperature Checks"
-msgstr ""
+msgstr "Sekundoj Inter Temperatura Kontroloj"
 
 #: testclient/mainwindow.cpp:218
 msgctxt "MainWindow|"
 msgid "Temperature Timeline"
-msgstr ""
+msgstr "Temperaturo Templinio"
 
 #: testclient/mainwindow.cpp:227
 msgctxt "MainWindow|"
 msgid "Session Log"
-msgstr ""
+msgstr "Seanca Protokolo"
 
 #: testclient/mainwindow.cpp:237
 msgctxt "MainWindow|"
@@ -1592,7 +1593,7 @@ msgstr "Profilo:"
 #: testclient/mainwindow.cpp:264
 msgctxt "MainWindow|"
 msgid "Attempt to stop Reset on connect"
-msgstr ""
+msgstr "Provi ĉesi Restarigi je konekto"
 
 #: testclient/mainwindow.cpp:276 testclient/mainwindow.cpp:292
 #: testclient/mainwindow.cpp:563
@@ -1603,7 +1604,7 @@ msgstr "Konekti"
 #: testclient/mainwindow.cpp:284
 msgctxt "MainWindow|"
 msgid "Connection Error"
-msgstr ""
+msgstr "Konekta Eraro"
 
 #: testclient/mainwindow.cpp:284
 msgctxt "MainWindow|"
@@ -1617,32 +1618,32 @@ msgstr ""
 #: testclient/mainwindow.cpp:304
 msgctxt "MainWindow|"
 msgid "Home All"
-msgstr ""
+msgstr "Hejmo Ĉiuj"
 
 #: testclient/mainwindow.cpp:309
 msgctxt "MainWindow|"
 msgid "Home X"
-msgstr ""
+msgstr "Hejmo X"
 
 #: testclient/mainwindow.cpp:314
 msgctxt "MainWindow|"
 msgid "Home Y"
-msgstr ""
+msgstr "Hejmo Y"
 
 #: testclient/mainwindow.cpp:319
 msgctxt "MainWindow|"
 msgid "Home Z"
-msgstr ""
+msgstr "Hejmo Z"
 
 #: testclient/mainwindow.cpp:341
 msgctxt "MainWindow|"
 msgid "Movement"
-msgstr ""
+msgstr "Movado"
 
 #: testclient/mainwindow.cpp:354
 msgctxt "MainWindow|"
 msgid "Temperatures"
-msgstr ""
+msgstr "Temperaturoj"
 
 #: testclient/mainwindow.cpp:367
 msgctxt "MainWindow|"
@@ -1652,38 +1653,39 @@ msgstr "Presa Eraro"
 #: testclient/mainwindow.cpp:367 testclient/mainwindow.cpp:375
 msgctxt "MainWindow|"
 msgid "You must Select a file from the list"
-msgstr ""
+msgstr "Vi devas Elekti dosieron el la listo"
 
 #: testclient/mainwindow.cpp:375
 msgctxt "MainWindow|"
 msgid "Delete Error"
-msgstr ""
+msgstr "Forigi Eraron"
 
 #: testclient/mainwindow.cpp:381
 msgctxt "MainWindow|"
 msgid "Sd Card"
-msgstr ""
+msgstr "Sd-karto"
 
 #: testclient/mainwindow.cpp:390
 msgctxt "MainWindow|"
 msgid "Profile Manager"
-msgstr ""
+msgstr "Profila Administranto"
 
 #: testclient/mainwindow.cpp:446
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Found %1 Ports"
-msgstr ""
+msgstr "Trovis %1 Pordojn"
 
 #: testclient/mainwindow.cpp:448
 msgctxt "MainWindow|"
 msgid "No available ports! Please connect a serial device to continue!"
 msgstr ""
+"Neniuj disponeblaj pordoj! Bonvolu konekti serian aparaton por daŭrigi!"
 
 #: testclient/mainwindow.cpp:466
 msgctxt "MainWindow|"
 msgid "Serial connected"
-msgstr ""
+msgstr "Seria konektita"
 
 #: testclient/mainwindow.cpp:478
 msgctxt "MainWindow|"
@@ -1698,7 +1700,7 @@ msgstr "Eraro"
 #: testclient/mainwindow.cpp:487
 msgctxt "MainWindow|"
 msgid "Not Connected To a Printer"
-msgstr ""
+msgstr "Ne Konektita Al Presilo"
 
 #: testclient/mainwindow.cpp:494
 msgctxt "MainWindow|"
@@ -1712,23 +1714,23 @@ msgstr ""
 #: testclient/mainwindow.cpp:498
 msgctxt "MainWindow|"
 msgid "Select a file to print"
-msgstr ""
+msgstr "Elekti dosieron por presi"
 
 #: testclient/mainwindow.cpp:498
 msgctxt "MainWindow|"
 msgid "*.gcode"
-msgstr ""
+msgstr "*.gcode"
 
 #: testclient/mainwindow.cpp:500
 msgctxt "MainWindow|"
 msgid "No File Selected"
-msgstr ""
+msgstr "Neniu Dosiero Elektita"
 
 #: testclient/mainwindow.cpp:502
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Print: %1"
-msgstr ""
+msgstr "Presi: %1"
 
 #: testclient/mainwindow.cpp:529
 msgctxt "MainWindow|"
@@ -1739,27 +1741,27 @@ msgstr "Malkonekti"
 #: testclient/mainwindow.cpp:651
 msgctxt "MainWindow|"
 msgid "Print File"
-msgstr ""
+msgstr "Presi Dosiero"
 
 #: testclient/mainwindow.cpp:531
 msgctxt "MainWindow|"
 msgid "Connected to "
-msgstr ""
+msgstr "Konektita al"
 
 #: testclient/mainwindow.cpp:536
 msgctxt "MainWindow|"
 msgid "START PRINT"
-msgstr ""
+msgstr "KOMENCI PRINT"
 
 #: testclient/mainwindow.cpp:537 testclient/mainwindow.cpp:554
 msgctxt "MainWindow|"
 msgid "Pause Print"
-msgstr ""
+msgstr "Paŭzi Preson"
 
 #: testclient/mainwindow.cpp:542
 msgctxt "MainWindow|"
 msgid "Finished Print"
-msgstr ""
+msgstr "Finita Preso"
 
 #: testclient/mainwindow.cpp:548
 msgctxt "MainWindow|"
@@ -1769,7 +1771,7 @@ msgstr "Paŭzita"
 #: testclient/mainwindow.cpp:549
 msgctxt "MainWindow|"
 msgid "Resume Print"
-msgstr ""
+msgstr "Rekomenci Presi"
 
 #: testclient/mainwindow.cpp:553
 msgctxt "MainWindow|"
@@ -1784,9 +1786,9 @@ msgstr "Ĉesigi"
 #: testclient/mainwindow.cpp:577
 msgctxt "MainWindow|"
 msgid "Stopping Print"
-msgstr ""
+msgstr "Ĉesigante Preson"
 
 #: testclient/mainwindow.cpp:581
 msgctxt "MainWindow|"
 msgid "Command ERROR"
-msgstr ""
+msgstr "Komando ERARO"
