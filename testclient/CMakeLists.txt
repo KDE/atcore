@@ -20,7 +20,8 @@ if (NOT APPLE)
     install(TARGETS atcore-gui RUNTIME DESTINATION bin)
     install(FILES
         "${CMAKE_CURRENT_SOURCE_DIR}/atcore-gui.png"
-        DESTINATION share/pixmaps
+        DESTINATION share/icons/hicolor/64x64/apps/
+        RENAME org.kde.atcore.png
     )
     install(FILES
         "${CMAKE_CURRENT_SOURCE_DIR}/org.kde.atcore.desktop"
