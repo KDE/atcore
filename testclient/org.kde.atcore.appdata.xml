@@ -87,7 +87,7 @@
     <p xml:lang="et">AtCore kujutab endast API-t, mis võimaldab juhtida 3D-printereid ja nende põhifunktsioone. AtCore pakub testklienti atcore-gui 3D-printeri haldamiseks.</p>
     <p xml:lang="eu">AtCore da 3D inprimagailua eta bere oinarrizko funtzionaltasunak kontrolatzen dituen API-a. AtCore zure inprimagailua kudeatzeko atcore-gui izeneko probako aplikazio batekin dator.</p>
     <p xml:lang="fi">AtCore on API, joka hallitsee 3D-tulostimen perustoimintoja. AtCoren mukana tulee koeasiakas nimeltä atcore-gui, jolla voit hallita tulostintasi.</p>
-    <p xml:lang="fr">AtCore est l'API qui contrôle l'imprimante 3D et ses fonctionnalités de base. AtCore est accompagné d'un client de test appelé atcore-gui pour gérer votre imprimante.</p>
+    <p xml:lang="fr">AtCore est l'API contrôlant l'imprimante 3D et ses fonctionnalités de base. AtCore est accompagné d'un client de test appelé atcore-gui pour gérer votre imprimante.</p>
     <p xml:lang="gl">AtCore é a API que controla a impresora 3D e as súas funcionalidades básicas. AtCore inclúe un cliente de probas chamado atcore-gui para xestionar a súa impresora.</p>
     <p xml:lang="hi">AtCore एक एपीआई है जो 3D प्रिंटर की नियंत्रित करता व मुल क्रियाएँ को देखता है. AtCore के साथ atcore-gui परीक्षण अनुप्रयोग आता है जो आपके प्रिंटर को चलाता है</p>
     <p xml:lang="id">AtCore adalah API yang mengendalikan 3DPrinter dan yang berbasiskan fungsionalitas. AtCore hadir dengan sebuah klien uji yang disebut atcore-gui untuk mengelola printer-mu.</p>
