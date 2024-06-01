@@ -1,15 +1,15 @@
 # translation of atcore_qt.pot to Esperanto
 # Copyright (C) 2024 Free Software Foundation, Inc.
 # This file is distributed under the same license as the atcore package.
-# Oliver Kellogg <okellogg@users.sourceforge.net>, 2024.
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: atcore\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 13:43+0100\n"
-"PO-Revision-Date: 2024-03-24 10:34+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"PO-Revision-Date: 2024-05-31 19:37+0200\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -100,12 +100,12 @@ msgstr "G1: Lineara movo"
 #: src/core/gcodecommands.cpp:23
 msgctxt "QObject|"
 msgid "G2: Controlled Arc Move clockwise"
-msgstr "G2: Kontrolita Arkomovo dekstrume"
+msgstr "G2: Mastrumita Arkomovo dekstrume"
 
 #: src/core/gcodecommands.cpp:25
 msgctxt "QObject|"
 msgid "G3: Controlled Arc Move counterclockwise"
-msgstr "G3: Kontrolita Arkomovo maldekstrume"
+msgstr "G3: Mastrumita Arkomovo maldekstrume"
 
 #: src/core/gcodecommands.cpp:27
 msgctxt "QObject|"
@@ -159,6 +159,8 @@ msgid ""
 "G32: Probe Z and calculate Z plane(Bed Leveling)/ UnDoc Z Probe sled for "
 "Marlin"
 msgstr ""
+"G32: Sondi Z kaj kalkuli Z-ebenon(Fund-Ebenigado)/ UnDoc Z-Sondan sledon por "
+"Marlin"
 
 #: src/core/gcodecommands.cpp:47
 msgctxt "QObject|"
@@ -1182,6 +1184,11 @@ msgid ""
 "  Lays Rodrigues <lays.rodrigues@kde.org>\n"
 "  Tomaz Canabrava <tcanabrava@kde.org>"
 msgstr ""
+"Aŭtoroj:\n"
+"  Chris Rizzitello <rizzitello@kde.org>\n"
+"  Patrick José Pereira <patrickjp@kde.org>\n"
+"  Lays Rodrigues <lays.rodrigues@kde.org>\n"
+"  Tomaz Canabrava <tcanabrava@kde.org>"
 
 #: src/widgets/about.cpp:35
 msgctxt "About|"
@@ -1568,7 +1575,7 @@ msgstr "Celo Ext.1"
 #: testclient/mainwindow.cpp:196
 msgctxt "MainWindow|"
 msgid "Seconds Between Temperature Checks"
-msgstr "Sekundoj Inter Temperatura Kontroloj"
+msgstr "Sekundoj Inter Temperatur-Kontroloj"
 
 #: testclient/mainwindow.cpp:218
 msgctxt "MainWindow|"
@@ -1614,6 +1621,10 @@ msgid ""
 "Before connecting again check that your printer is on and your are "
 "connecting using the correct BAUD Rate for your device."
 msgstr ""
+"Via maŝino ne respondis post 20 sekundoj.\n"
+"\n"
+"Antaŭ ol konekti denove kontrolu, ke via presilo estas ŝaltita kaj vi "
+"estaskonektanta uzante la ĝustan Baud-oftecon por via aparato."
 
 #: testclient/mainwindow.cpp:304
 msgctxt "MainWindow|"
