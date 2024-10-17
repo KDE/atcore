@@ -1,15 +1,15 @@
 # Translation of atcore_qt.po to Catalan
-# Copyright (C) 2017-2021 This_file_is_part_of_KDE
+# Copyright (C) 2017-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2017, 2018, 2020.
-# Josep M. Ferrer <txemaq@gmail.com>, 2017, 2020, 2021.
+# SPDX-FileCopyrightText: 2017, 2020, 2021, 2024 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: atcore\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2021-11-06 17:33+0100\n"
+"PO-Revision-Date: 2024-10-16 19:17+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #: src/atcore.cpp:456
 #, qt-format
@@ -1187,7 +1187,7 @@ msgstr "Autodetecta"
 #: testclient/mainwindow.cpp:61
 msgctxt "MainWindow|"
 msgid "Attempting to locate Serial Ports"
-msgstr "S'estan intentant ubicar els ports sèrie"
+msgstr "S'estan intentant ubicar els ports en sèrie"
 
 #: testclient/mainwindow.cpp:108
 msgctxt "MainWindow|"
