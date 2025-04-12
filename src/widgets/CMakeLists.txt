@@ -76,14 +76,3 @@ install(
         AtCoreTargets
     ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
 )
-
-if(${QT_MAJOR_VERSION} EQUAL "5")
-  ecm_generate_pri_file(
-      BASE_NAME AtCoreWidgets
-      LIB_NAME AtCoreWidgets
-      DEPS "${QT_MAJOR_VERSION}Core Qt${QT_MAJOR_VERSION}Widgets Qt${QT_MAJOR_VERSION}Charts"
-      FILENAME_VAR PRI_FILENAME
-      INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/include/AtCore
-  )
-  install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
-endif()

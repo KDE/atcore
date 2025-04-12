@@ -14,3 +14,4 @@ CMakeLists.txt.user
 .clang-format
 compile_commands.json
 .cache/
+.flatpak-builder/

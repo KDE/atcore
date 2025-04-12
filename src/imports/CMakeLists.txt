@@ -12,7 +12,7 @@ set (
     atcoreextensionplugin.cpp
 )
 
-find_package(Qt${QT_MAJOR_VERSION} REQUIRED COMPONENTS
+find_package(Qt6 REQUIRED COMPONENTS
     Qml
 )
 

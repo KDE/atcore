@@ -1,13 +1,13 @@
 # SPDX-FileCopyrightText: AtCore Authors
 # SPDX-License-Identifier: BSD-3-Clause
+cmake_minimum_required(VERSION 3.16)
 
 project(AtCore)
 
-cmake_minimum_required(VERSION 3.8)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(ECM REQUIRED NO_MODULE)
+find_package(ECM 5.82 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
 include(CMakePackageConfigHelpers)
@@ -71,9 +71,9 @@ add_definitions(-DQT_NO_CAST_FROM_ASCII
                 -DQT_NO_URL_CAST_FROM_STRING
 )
 
-set(QT_MIN_VERSION 5.15.2)
+set(QT_MIN_VERSION 6.7)
 
-find_package(Qt${QT_MAJOR_VERSION} REQUIRED COMPONENTS
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS
     Core
     SerialPort
     Charts
