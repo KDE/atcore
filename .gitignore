@@ -2,6 +2,8 @@
 # SPDX-License-Identifier: CC0-1.0
 *kdev4*
 build/*
+doc/Doxyfile
+doc/doc*
 doc/html*
 doc/latex*
 *.diff
@@ -10,3 +12,5 @@ install/*
 .vscode
 CMakeLists.txt.user
 .clang-format
+compile_commands.json
+.cache/
