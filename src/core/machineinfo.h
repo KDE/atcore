@@ -115,7 +115,7 @@ public:
      */
     Q_INVOKABLE QString keyName(const MachineInfo::KEY key) const;
 
-signals:
+Q_SIGNALS:
     /**
      * @brief A profile has changed
      */

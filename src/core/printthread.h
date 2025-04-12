@@ -29,7 +29,7 @@ public:
      */
     PrintThread(AtCore *parent, const QString &fileName);
     ~PrintThread();
-signals:
+Q_SIGNALS:
     /**
      * @brief Print job has finished
      */
@@ -58,12 +58,12 @@ signals:
      */
     void stateChanged(const AtCore::STATES &state);
 
-public slots:
+public Q_SLOTS:
     /**
      * @brief start the print thread
      */
     void start();
-private slots:
+private Q_SLOTS:
     /**
      * @brief process the current job
      */

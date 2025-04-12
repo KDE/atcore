@@ -233,7 +233,7 @@ public:
      */
     bool autoTemperatureReport() const;
 
-signals:
+Q_SIGNALS:
 
     /**
      * @brief Message emit from atcore these should be displayed to the user for debug.
@@ -323,7 +323,7 @@ signals:
      */
     void availableFirmwarePluginsChanged();
 
-public slots:
+public Q_SLOTS:
 
     /**
      * @brief Set the printers state
@@ -516,7 +516,7 @@ public slots:
      */
     void sdCardPrintStatus();
 
-private slots:
+private Q_SLOTS:
     /**
      * @brief processQueue send commands from the queue.
      */

@@ -50,7 +50,7 @@ public:
     
     //TODO: This widget should have a AtCore *core; member and connect
     // things internally.
-signals:
+Q_SIGNALS:
     /**
      * @brief The Home All button was clicked.
      * This should be connected to AtCore::home()

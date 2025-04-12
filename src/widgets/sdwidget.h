@@ -30,7 +30,7 @@ public:
      * @param fileList
      */
     void updateFilelist(const QStringList &fileList);
-signals:
+Q_SIGNALS:
     /**
      * @brief request a list of files on the card.
      */

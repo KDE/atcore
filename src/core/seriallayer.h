@@ -29,7 +29,7 @@ private:
      *
      */
     void readAllData();
-signals:
+Q_SIGNALS:
 
     /**
      * @brief Emit signal when command is pushed

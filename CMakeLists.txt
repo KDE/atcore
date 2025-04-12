@@ -18,9 +18,6 @@ include(ECMSetupVersion)
 include(FeatureSummary)
 include(GenerateExportHeader)
 include(KDECompilerSettings NO_POLICY_SCOPE)
-remove_definitions(
-    -DQT_NO_KEYWORDS
-)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 

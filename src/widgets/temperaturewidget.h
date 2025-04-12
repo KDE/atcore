@@ -33,7 +33,7 @@ public:
      */
     void updateExtruderCount(const int count);
 
-signals:
+Q_SIGNALS:
     /**
      * @brief User has changed the bed temperature.
      * @param temperature: new temperature

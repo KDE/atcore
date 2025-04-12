@@ -49,10 +49,10 @@ public:
      */
     void updatePrintProgress(const float progress);
 
-signals:
+Q_SIGNALS:
     void stopPressed();
 
-private slots:
+private Q_SLOTS:
     void updatePrintTime();
 
 private:

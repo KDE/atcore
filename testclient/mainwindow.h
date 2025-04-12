@@ -31,7 +31,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override = default;
 
-public slots:
+public Q_SLOTS:
     /**
      * @brief Check temperature
      *
@@ -41,7 +41,7 @@ public slots:
      */
     void checkTemperature(uint sensorType, uint number, float temp);
 
-private slots:
+private Q_SLOTS:
     // ButtonEvents
 
     /**

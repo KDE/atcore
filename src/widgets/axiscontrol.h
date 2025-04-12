@@ -31,7 +31,7 @@ public:
     explicit AxisControl(QWidget *parent = nullptr);
     ~AxisControl() = default;
 
-signals:
+Q_SIGNALS:
     /**
      * @brief User has clicked to move an axis.
      * @param axis: Axis to move

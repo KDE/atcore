@@ -69,13 +69,13 @@ public:
 private:
     struct IFirmwarePrivate;
     IFirmwarePrivate *d;
-public slots:
+public Q_SLOTS:
     /**
      * @brief call Validate Command
      * @param lastMessage: last message from printer
      */
     void checkCommand(const QByteArray &lastMessage);
-signals:
+Q_SIGNALS:
     /**
      * @brief emit when firmware is ready for a command
      */

@@ -41,7 +41,7 @@ public:
      */
     void updateFanCount(const int count);
 
-signals:
+Q_SIGNALS:
     /**
      * @brief emergencyStopPressed
      * Connect to AtCore::emergencyStop

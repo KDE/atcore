@@ -24,7 +24,7 @@ public:
     explicit CommandWidget(QWidget *parent = nullptr);
     ~CommandWidget() = default;
 
-signals:
+Q_SIGNALS:
     /**
      * @brief User has requested to send a command.
      * @param command: The command to send.

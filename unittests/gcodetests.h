@@ -11,7 +11,7 @@
 class GCodeTests : public QObject
 {
     Q_OBJECT
-private slots:
+private Q_SLOTS:
     bool testGCodeNeedsArg(GCode::GCommands code);
     void command_G0();
     void command_G1();

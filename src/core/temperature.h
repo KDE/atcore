@@ -61,7 +61,7 @@ public:
      */
     float extruderTargetTemperature() const;
 
-signals:
+Q_SIGNALS:
     /**
      * @brief bed temperature has changed
      */

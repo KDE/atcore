@@ -45,7 +45,7 @@ public:
      *          , QVariant(QVariantList, (QVariant(double, -0.168), QVariant(double, -0.24)))
      */
     QVariantList bedDeformationGrid();
-signals:
+Q_SIGNALS:
     void dataChanged(const QVariantList &data);
 
 private:
