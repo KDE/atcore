@@ -98,7 +98,7 @@ void StatusWidget::updatePrintTime()
     lblTime->setText(temp.addMSecs(printTime->elapsed()).toString(QStringLiteral("hh:mm:ss")));
 }
 
-void StatusWidget::updatePrintProgress(const int progress)
+void StatusWidget::updatePrintProgress(const float progress)
 {
     printingProgress->setValue(progress);
     if (progress >= 1) {

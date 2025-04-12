@@ -19,7 +19,6 @@ include(FeatureSummary)
 include(GenerateExportHeader)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 remove_definitions(
-    -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT
     -DQT_NO_KEYWORDS
 )
 include(KDEInstallDirs)

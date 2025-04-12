@@ -399,7 +399,7 @@ public slots:
      * @param extruder : extruder number
      * @param andWait: True for heat and ignore commands until temperature is reached
      */
-    Q_INVOKABLE void setExtruderTemp(uint temp = 0, uint extruder = 0, bool andWait = false);
+    Q_INVOKABLE void setExtruderTemp(int temp = 0, int extruder = 0, bool andWait = false);
 
     /**
      * @brief move an axis of the printer
@@ -423,14 +423,14 @@ public slots:
      * @param andWait: True for heat and ignore commands until temperature is reached
      * @sa setExtruderTemp()
      */
-    Q_INVOKABLE void setBedTemp(uint temp = 0, bool andWait = false);
+    Q_INVOKABLE void setBedTemp(int temp = 0, bool andWait = false);
 
     /**
      * @brief setFanSpeed set the fan speed
      * @param fanNumber: fan number
      * @param speed: new speed of the fan 0-100
      */
-    Q_INVOKABLE void setFanSpeed(uint speed = 0, uint fanNumber = 0);
+    Q_INVOKABLE void setFanSpeed(int speed = 0, int fanNumber = 0);
 
     /**
      * @brief Set printer to absolute position mode
@@ -454,13 +454,13 @@ public slots:
      * @brief set the Printers speed
      * @param speed: speed in % (default is 100);
      */
-    Q_INVOKABLE void setPrinterSpeed(uint speed = 100);
+    Q_INVOKABLE void setPrinterSpeed(int speed = 100);
 
     /**
      * @brief set extruder Flow rate
      * @param rate: flow rate in % (default is 100)
      */
-    Q_INVOKABLE void setFlowRate(uint rate = 100);
+    Q_INVOKABLE void setFlowRate(int rate = 100);
 
     /**
      * @brief close any open items.

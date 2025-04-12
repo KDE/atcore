@@ -47,7 +47,7 @@ public:
      * @brief Update the progres to the new progress
      * @param progress: new progress.
      */
-    void updatePrintProgress(const int progress);
+    void updatePrintProgress(const float progress);
 
 signals:
     void stopPressed();
