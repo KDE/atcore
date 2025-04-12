@@ -37,7 +37,6 @@ BedDeform::BedDeform(QObject *parent)
 BedDeform::~BedDeform()
 {
     delete d;
-    QObject::~QObject();
 }
 void BedDeform::decodeDeform(const QStringList &rawData)
 {
