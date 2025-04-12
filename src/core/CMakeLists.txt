@@ -37,7 +37,7 @@ add_library(AtCore::AtCore ALIAS AtCore)
 
 target_include_directories(AtCore INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}/AtCore>")
 
-set_target_properties(AtCore PROPERTIES VERSION ${ATCORE_VERSION_STRING}
+set_target_properties(AtCore PROPERTIES VERSION ${ATCORE_VERSION}
     SOVERSION ${ATCORE_SOVERSION}
     EXPORT_NAME AtCore
 )

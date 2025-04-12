@@ -7,7 +7,7 @@ project(AtCore)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(ECM 5.82 REQUIRED NO_MODULE)
+find_package(ECM 6.10 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
 include(CMakePackageConfigHelpers)
@@ -18,6 +18,10 @@ include(ECMSetupVersion)
 include(FeatureSummary)
 include(GenerateExportHeader)
 include(KDECompilerSettings NO_POLICY_SCOPE)
+remove_definitions(
+    -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT
+    -DQT_NO_KEYWORDS
+)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 
@@ -66,10 +70,6 @@ IF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
     add_definitions( -DGIT_REVISION="${GIT_VERSION}")
   ENDIF(GIT_FOUND)
 ENDIF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
-
-add_definitions(-DQT_NO_CAST_FROM_ASCII
-                -DQT_NO_URL_CAST_FROM_STRING
-)
 
 set(QT_MIN_VERSION 6.7)
 

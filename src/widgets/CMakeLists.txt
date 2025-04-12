@@ -35,7 +35,7 @@ add_library(AtCore::AtCoreWidgets ALIAS AtCoreWidgets)
 
 target_include_directories(AtCoreWidgets INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}/AtCore>")
 
-set_target_properties(AtCoreWidgets PROPERTIES VERSION ${ATCORE_VERSION_STRING}
+set_target_properties(AtCoreWidgets PROPERTIES VERSION ${ATCORE_VERSION}
     SOVERSION ${ATCORE_SOVERSION}
     EXPORT_NAME AtCoreWidgets
 )
