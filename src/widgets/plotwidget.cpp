@@ -38,12 +38,12 @@ PlotWidget::PlotWidget(QWidget *parent)
 
 void PlotWidget::addPlot(const QString &name)
 {
-    plot _newPlot;
-    _newPlot.setName(name);
-    _chart->chart()->addSeries(_newPlot.serie());
-    _newPlot.serie()->attachAxis(_axisY);
-    _newPlot.serie()->attachAxis(_axisX);
-    _plots.insert(name, &_newPlot);
+    auto _newPlot = std::make_shared<plot>();
+    _newPlot->setName(name);
+    _chart->chart()->addSeries(_newPlot->serie());
+    _newPlot->serie()->attachAxis(_axisY);
+    _newPlot->serie()->attachAxis(_axisX);
+    _plots.insert(name, _newPlot);
 }
 
 void PlotWidget::removePlot(const QString &name)

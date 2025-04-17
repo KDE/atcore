@@ -12,6 +12,8 @@
 
 #include "atcorewidgets_export.h"
 
+#include <memory>
+
 /**
  * @brief PlotWidget Show a graph of the temperature over time.
  */
@@ -120,6 +122,6 @@ private:
     QChartView *_chart;
     QDateTimeAxis *_axisX;
     QValueAxis *_axisY;
-    QMap<QString, plot*> _plots;
+    QMap<QString, std::shared_ptr<plot>> _plots;
     int m_maximumPoints;
 };
