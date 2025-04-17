@@ -147,7 +147,7 @@ void LogWidget::flushTemp()
     */
     logFile->open();
     logFile->seek(logFile->size());
-    for (const auto &string : qAsConst(unsyncedStrings)) {
+    for (const auto &string : std::as_const(unsyncedStrings)) {
         logFile->write(string.toLatin1());
         logFile->putChar('\n');
     }

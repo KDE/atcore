@@ -125,7 +125,7 @@ void SerialLayer::push()
         qCDebug(SERIAL_LAYER) << "Serial not connected !";
         return;
     }
-    for (const auto &comm : qAsConst(d->_sByteCommands)) {
+    for (const auto &comm : std::as_const(d->_sByteCommands)) {
         write(comm);
         Q_EMIT pushedCommand(comm);
     }
