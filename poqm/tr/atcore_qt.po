@@ -58,12 +58,12 @@ msgstr "Aygıttan okunamıyor"
 #: src/core/atcore.cpp:878
 msgctxt "AtCore|"
 msgid "The device no longer available"
-msgstr "Aygıt, artık kullanılabilir değil"
+msgstr "Aygıt artık kullanılabilir değil"
 
 #: src/core/atcore.cpp:882
 msgctxt "AtCore|"
 msgid "Device does not support the operation"
-msgstr "Aygıt, işlemi desteklemiyor"
+msgstr "Aygıt işlemi desteklemiyor"
 
 #: src/core/atcore.cpp:885
 msgctxt "AtCore|"
@@ -134,19 +134,19 @@ msgstr "G28: Başlangıç noktasına geri dön"
 #: src/core/gcodecommands.cpp:39
 msgctxt "QObject|"
 msgid "G29: Detailed Z-Probe"
-msgstr "G29: Ayrıntılı Z Araştırması"
+msgstr "G29: Ayrıntılı Z araştırması"
 
 #: src/core/gcodecommands.cpp:41
 msgctxt "QObject|"
 msgid "G30: Single Z-Probe"
-msgstr "G30: Tek Z Araştırması"
+msgstr "G30: Tek Z araştırması"
 
 #: src/core/gcodecommands.cpp:43
 msgctxt "QObject|"
 msgid "G31: Set or report current probe status / Dock Z Probe sled for Marlin"
 msgstr ""
 "G31: Geçerli araştırma durumunu ayarla veya bildir / Marlin için Dock Z "
-"Araştırması kızağa alındı"
+"araştırması kızağa alındı"
 
 #: src/core/gcodecommands.cpp:45
 msgctxt "QObject|"
@@ -155,12 +155,12 @@ msgid ""
 "Marlin"
 msgstr ""
 "G32: Z’yi araştır ve Z uzayını hesapla (Yatak Düzleştirme)/ Marlin için "
-"UnDoc Z Araştırması kızağa alındı"
+"UnDoc Z araştırması kızağa alındı"
 
 #: src/core/gcodecommands.cpp:47
 msgctxt "QObject|"
 msgid "G33: Measure/List/Adjust Distortion Matrix"
-msgstr "G33: Pürüz Matrisini Ölç/Listele/Ayarla"
+msgstr "G33: Pürüz matrisini ölç/listele/ayarla"
 
 #: src/core/gcodecommands.cpp:49
 msgctxt "QObject|"
@@ -225,12 +225,12 @@ msgstr "M1: Uyu veya koşulsuz dur"
 #: src/core/gcodecommands.cpp:103
 msgctxt "QObject|"
 msgid "M2: Program End"
-msgstr "M2: Program Sonu"
+msgstr "M2: Program sonu"
 
 #: src/core/gcodecommands.cpp:105
 msgctxt "QObject|"
 msgid "M6: Tool Change"
-msgstr "M6: Araç Değişikliği"
+msgstr "M6: Araç değişikliği"
 
 #: src/core/gcodecommands.cpp:107
 msgctxt "QObject|"
@@ -330,7 +330,7 @@ msgstr "M42: Girdi/çıktı pimini değiştir"
 #: src/core/gcodecommands.cpp:145
 msgctxt "QObject|"
 msgid "M48: Measure Z-Probe repeatability"
-msgstr "M48: Z-Araştırması yinelenebilirliğini ölç"
+msgstr "M48: Z araştırması yinelenebilirliğini ölç"
 
 #: src/core/gcodecommands.cpp:147
 msgctxt "QObject|"
@@ -350,12 +350,12 @@ msgstr "M73: Yapı yüzdesini ayarla"
 #: src/core/gcodecommands.cpp:153
 msgctxt "QObject|"
 msgid "M80: ATX Power On"
-msgstr "M80: ATX Gücü Açık"
+msgstr "M80: ATX gücü açık"
 
 #: src/core/gcodecommands.cpp:155
 msgctxt "QObject|"
 msgid "M81: ATX Power Off"
-msgstr "M81: ATX Gücü Kapalı"
+msgstr "M81: ATX gücü kapalı"
 
 #: src/core/gcodecommands.cpp:157
 msgctxt "QObject|"
@@ -390,77 +390,77 @@ msgstr "M93: Birim başı eksen adımları gönder"
 #: src/core/gcodecommands.cpp:169
 msgctxt "QObject|"
 msgid "M98: Call Macro/Subprogram"
-msgstr "M98: Makro/Alt Program Çağır"
+msgstr "M98: Makro/alt program çağır"
 
 #: src/core/gcodecommands.cpp:171
 msgctxt "QObject|"
 msgid "M99: Return from Macro/Subprogram"
-msgstr "M99: Makro/Alt Program’dan Dön"
+msgstr "M99: Makro/alt program’dan dön"
 
 #: src/core/gcodecommands.cpp:173
 msgctxt "QObject|"
 msgid "M101: Turn extruder 1 on Forward, Undo Retraction"
-msgstr "M101: Ekstrüder 1’i İleri kipe al, Geri Çekme’yi geri al"
+msgstr "M101: Ekstrüder 1’i ileri kipe al, geri çekme’yi geri al"
 
 #: src/core/gcodecommands.cpp:175
 msgctxt "QObject|"
 msgid "M103: Turn all extruders off - Extruder Retraction"
-msgstr "M103: Tüm ekstrüderleri kapat - Ekstrüder Geri Çekimi"
+msgstr "M103: Tüm ekstrüderleri kapat — Ekstrüder Geri Çekimi"
 
 #: src/core/gcodecommands.cpp:177
 msgctxt "QObject|"
 msgid "M104: Set Extruder Temperature"
-msgstr "M104: Ekstrüderin Sıcaklığını Ayarla"
+msgstr "M104: Ekstrüderin sıcaklığını ayarla"
 
 #: src/core/gcodecommands.cpp:179
 msgctxt "QObject|"
 msgid "M105: Get Extruder Temperature"
-msgstr "M105: Ekstrüder Sıcaklığını Al"
+msgstr "M105: Ekstrüder sıcaklığını al"
 
 #: src/core/gcodecommands.cpp:181
 msgctxt "QObject|"
 msgid "M106: Fan On"
-msgstr "M106: Fan Açık"
+msgstr "M106: Fan açık"
 
 #: src/core/gcodecommands.cpp:183
 msgctxt "QObject|"
 msgid "M107: Fan Off"
-msgstr "M107: Fan Kapalı"
+msgstr "M107: Fan kapalı"
 
 #: src/core/gcodecommands.cpp:185
 msgctxt "QObject|"
 msgid "M108: Cancel Heating"
-msgstr "M108: Isıtmayı Kapat"
+msgstr "M108: Isıtmayı kapat"
 
 #: src/core/gcodecommands.cpp:187
 msgctxt "QObject|"
 msgid "M109: Set Extruder Temperature and Wait"
-msgstr "M109: Ekstrüderin Sıcaklığını Ayarla ve Bekle"
+msgstr "M109: Ekstrüderin sıcaklığını ayarla ve bekle"
 
 #: src/core/gcodecommands.cpp:189
 msgctxt "QObject|"
 msgid "M110: Set Current Line Number"
-msgstr "M110: Geçerli Satır Numarasını Ayarla"
+msgstr "M110: Geçerli satır numarasını ayarla"
 
 #: src/core/gcodecommands.cpp:191
 msgctxt "QObject|"
 msgid "M111: Set Debug Level"
-msgstr "M111: Hata Ayıklama Düzeyini Ayarla"
+msgstr "M111: Hata ayıklama düzeyini ayarla"
 
 #: src/core/gcodecommands.cpp:193
 msgctxt "QObject|"
 msgid "M112: Emergency Stop"
-msgstr "M112: Acil Durdur"
+msgstr "M112: Acil durdur"
 
 #: src/core/gcodecommands.cpp:195
 msgctxt "QObject|"
 msgid "M114: Get Current Position"
-msgstr "M114: Geçerli Konumu Al"
+msgstr "M114: Geçerli konumu al"
 
 #: src/core/gcodecommands.cpp:197
 msgctxt "QObject|"
 msgid "M115: Get Firmware Version and Capabilities"
-msgstr "M115: Donanım Yazılımı Sürümü ve Yeteneklerini Al"
+msgstr "M115: Donanım yazılımı sürümü ve yeteneklerini al"
 
 #: src/core/gcodecommands.cpp:199
 msgctxt "QObject|"
@@ -470,12 +470,12 @@ msgstr "M116: Bekle"
 #: src/core/gcodecommands.cpp:201
 msgctxt "QObject|"
 msgid "M117: Display Message"
-msgstr "M117: İleti Görüntüle"
+msgstr "M117: İleti sörüntüle"
 
 #: src/core/gcodecommands.cpp:203
 msgctxt "QObject|"
 msgid "M119: Get Endstop Status"
-msgstr "M119: Bitiş Noktası Durumu Al"
+msgstr "M119: Bitiş noktası durumunu al"
 
 #: src/core/gcodecommands.cpp:205
 msgctxt "QObject|"
@@ -543,12 +543,12 @@ msgstr "M135: PID örnek aralığını yaz"
 #: src/core/gcodecommands.cpp:227
 msgctxt "QObject|"
 msgid "M140: Set Bed Temperature - Fast"
-msgstr "M140: Yatak Sıcaklığını Ayarla - Hızlı"
+msgstr "M140: Yatak sıcaklığını ayarla - Hızlı"
 
 #: src/core/gcodecommands.cpp:229
 msgctxt "QObject|"
 msgid "M141: Set Chamber Temperature - Fast"
-msgstr "M141: Oda Sıcaklığını Ayarla - Hızlı"
+msgstr "M141: Oda sıcaklığını ayarla - Hızlı"
 
 #: src/core/gcodecommands.cpp:231
 msgctxt "QObject|"
@@ -568,7 +568,7 @@ msgstr "M150: Görüntü rengini ayarla"
 #: src/core/gcodecommands.cpp:237
 msgctxt "QObject|"
 msgid "M155: Set Temperature auto report"
-msgstr "M155: Sıcaklık otomatik bildirimini ayarla"
+msgstr "M155: Sıcaklık kendiliğinden bildirimini ayarla"
 
 #: src/core/gcodecommands.cpp:239
 msgctxt "QObject|"
@@ -637,17 +637,17 @@ msgstr "M208: Geri çekmeme uzunluğunu ayarla"
 #: src/core/gcodecommands.cpp:263
 msgctxt "QObject|"
 msgid "M209: Enable automatic retract"
-msgstr "M209: Otomatik geri çekmeyi etkinleştir"
+msgstr "M209: Kendiliğinden geri çekmeyi etkinleştir"
 
 #: src/core/gcodecommands.cpp:265
 msgctxt "QObject|"
 msgid "M212: Set Bed Level Sensor Offset"
-msgstr "M212: Yatak Düzeyi Algılayıcı Ofsetini Ayarla"
+msgstr "M212: Yatak düzeyi algılayıcı ofsetini ayarla"
 
 #: src/core/gcodecommands.cpp:267
 msgctxt "QObject|"
 msgid "M218: Set Hotend Offset"
-msgstr "M218: Sıcak Uç Ofsetini Ayarla"
+msgstr "M218: Sıcak uç ofsetini ayarla"
 
 #: src/core/gcodecommands.cpp:269
 msgctxt "QObject|"
@@ -717,7 +717,7 @@ msgstr "M303: PID ince ayarı çalıştır"
 #: src/core/gcodecommands.cpp:295
 msgctxt "QObject|"
 msgid "M304: Set PID parameters - Bed"
-msgstr "M304: PID parametrelerini ayarla - Yatak"
+msgstr "M304: PID parametrelerini ayarla — Yatak"
 
 #: src/core/gcodecommands.cpp:297
 msgctxt "QObject|"
@@ -733,17 +733,17 @@ msgstr ""
 #: src/core/gcodecommands.cpp:301
 msgctxt "QObject|"
 msgid "M320: Activate autolevel (Repetier)"
-msgstr "M320: Otomatik düzlemeyi etkinleştir (Repetier)"
+msgstr "M320: Kendiliğinden düzlemeyi etkinleştir (Repetier)"
 
 #: src/core/gcodecommands.cpp:303
 msgctxt "QObject|"
 msgid "M321: Deactivate autolevel (Repetier)"
-msgstr "M321: Otomatik düzlemeyi etkinleştir (Repetier)"
+msgstr "M321: Kendiliğinden düzlemeyi etkinleştir (Repetier)"
 
 #: src/core/gcodecommands.cpp:305
 msgctxt "QObject|"
 msgid "M322: Reset autolevel matrix (Repetier)"
-msgstr "M322: Otomatik düzleme matrisini sıfırla (Repetier)"
+msgstr "M322: Kendiliğinden düzleme matrisini sıfırla (Repetier)"
 
 #: src/core/gcodecommands.cpp:307
 msgctxt "QObject|"
@@ -808,7 +808,7 @@ msgstr "M366: SCARA dönüştürme kırpması"
 #: src/core/gcodecommands.cpp:331
 msgctxt "QObject|"
 msgid "M370: Morgan manual bed level - clear map"
-msgstr "M370: Morgan el ile yatak düzeyi - haritayı temizle"
+msgstr "M370: Morgan el ile yatak düzeyi — haritayı temizle"
 
 #: src/core/gcodecommands.cpp:333
 msgctxt "QObject|"
@@ -888,27 +888,27 @@ msgstr "M408: JSON türü yanıt bildir"
 #: src/core/gcodecommands.cpp:363
 msgctxt "QObject|"
 msgid "M420: Enable/Disable Mesh Leveling (Marlin)"
-msgstr "M420: Kafes Düzlemeyi Etkinleştir/Devre Dışı Bırak (Marlin)"
+msgstr "M420: Kafes düzlemeyi etkinleştir/devre dışı bırak (Marlin)"
 
 #: src/core/gcodecommands.cpp:365
 msgctxt "QObject|"
 msgid "M450: Report Printer Mode"
-msgstr "M450: Yazıcı Kipi Bildir"
+msgstr "M450: Yazıcı kipini bildir"
 
 #: src/core/gcodecommands.cpp:367
 msgctxt "QObject|"
 msgid "M451: Select FFF Printer Mode"
-msgstr "M451: FFF Yazıcı Kipi Seç"
+msgstr "M451: FFF yazıcı kipi seç"
 
 #: src/core/gcodecommands.cpp:369
 msgctxt "QObject|"
 msgid "M452: Select Laser Printer Mode"
-msgstr "M452: Laser Yazıcı Kipi Seç"
+msgstr "M452: Laser yazıcı kipi seç"
 
 #: src/core/gcodecommands.cpp:371
 msgctxt "QObject|"
 msgid "M453: Select CNC Printer Mode"
-msgstr "M453: CNC Yazıcı Kipi Seç"
+msgstr "M453: CNC yazıcı kipi seç"
 
 #: src/core/gcodecommands.cpp:373
 msgctxt "QObject|"
@@ -928,7 +928,7 @@ msgstr "M501: Parametreleri EEPROM’dan oku"
 #: src/core/gcodecommands.cpp:379
 msgctxt "QObject|"
 msgid "M502: Revert to the default 'factory settings'."
-msgstr "M502: Öntanımlı 'fabrika ayarlarına' geri dön."
+msgstr "M502: Öntanımlı “fabrika ayarlarına” geri dön."
 
 #: src/core/gcodecommands.cpp:381
 msgctxt "QObject|"
@@ -939,8 +939,8 @@ msgstr "M503: Yazdırma ayarları"
 msgctxt "QObject|"
 msgid "M540: Enable/Disable 'Stop SD Print on Endstop Hit'"
 msgstr ""
-"M540: ’Bitiş Noktasına Varınca SD Yazdırmayı Durdur’u Etkinleştir/Devre Dışı "
-"Bırak"
+"M540: ’Bitiş noktasına varınca SD yazdırmayı durdur’u etkinleştir/devre dışı "
+"bırak"
 
 #: src/core/gcodecommands.cpp:385
 msgctxt "QObject|"
@@ -1090,12 +1090,12 @@ msgstr "M580: Roland seç"
 #: src/core/gcodecommands.cpp:443
 msgctxt "QObject|"
 msgid "M600: Filament change pause"
-msgstr "M600: Fliament değişimi duraklat"
+msgstr "M600: Fliament değişimini duraklat"
 
 #: src/core/gcodecommands.cpp:445
 msgctxt "QObject|"
 msgid "M605: Set dual x-carriage movement mode"
-msgstr "M605: İkili x kızağı hareket kipi ayarla"
+msgstr "M605: İkili X kızağı hareket kipini ayarla"
 
 #: src/core/gcodecommands.cpp:447
 msgctxt "QObject|"
@@ -1115,7 +1115,7 @@ msgstr "M667: Çekirdek XY kipi ayarla"
 #: src/core/gcodecommands.cpp:453
 msgctxt "QObject|"
 msgid "M851: Set Z-Probe Offset"
-msgstr "M851: Z Araştırma Ofseti Ayarla"
+msgstr "M851: Z araştırma ofseti ayarla"
 
 #: src/core/gcodecommands.cpp:455
 msgctxt "QObject|"
@@ -1261,7 +1261,7 @@ msgstr ""
 "algılaması bekleniyor gönderilemiyor; yazıcının yeniden başlatılması "
 "bekleniyor</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
 "Yazıcınızdaki yeniden başlat düğmesine basarak onu yeniden başlatın. </"
-"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Otomatik "
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kendiliğinden "
 "algılama yerine bir donanım yazılımı eklentisi seçin.</p>"
 
 #: src/widgets/logwidget.cpp:81
@@ -1374,7 +1374,7 @@ msgstr "Ad"
 #: src/widgets/profilemanager.cpp:82
 msgctxt "ProfileManager|"
 msgid "Printer Type:"
-msgstr "Yazıcı Türü:"
+msgstr "Yazıcı türü:"
 
 #: src/widgets/profilemanager.cpp:83
 msgctxt "ProfileManager|"
@@ -1419,7 +1419,7 @@ msgstr "Ekstrüder En Büyük"
 #: src/widgets/profilemanager.cpp:157
 msgctxt "ProfileManager|"
 msgid "Auto Temperature Report"
-msgstr "Otomatik Sıcaklık Raporu"
+msgstr "Kendiliğinden Sıcaklık Raporu"
 
 #: src/widgets/profilemanager.cpp:162
 msgctxt "ProfileManager|"
@@ -1484,7 +1484,7 @@ msgstr "SD Karttaki Dosyalar"
 #: src/widgets/statuswidget.cpp:47
 msgctxt "StatusWidget|"
 msgid "AtCore State:"
-msgstr "AtCore Durumu:"
+msgstr "AtCore durumu:"
 
 #: src/widgets/statuswidget.cpp:48
 msgctxt "StatusWidget|"
@@ -1520,7 +1520,7 @@ msgstr "Ekstrüder %1"
 #: testclient/mainwindow.cpp:30
 msgctxt "MainWindow|"
 msgid "AtCore - Test Client"
-msgstr "AtCore - Sınama İstemcisi"
+msgstr "AtCore — Sınama İstemcisi"
 
 #: testclient/mainwindow.cpp:38
 msgctxt "MainWindow|"
@@ -1750,7 +1750,7 @@ msgstr ""
 " Bir donanım eklentisi yüklenmemiş!\n"
 "  Lütfen M115 komutunu gönderin ve üretici yazılımının ne döndürdüğünü bize "
 "söyleyin ki donanım yazılımı algılamasını iyileştirebilelim. Profilinizi, "
-"\"marlin\" kullanacak biçimde ayarlayın ve yeniden deneyin."
+"“marlin” kullanacak biçimde ayarlayın ve yeniden deneyin."
 
 #: testclient/mainwindow.cpp:498
 msgctxt "MainWindow|"
@@ -1765,7 +1765,7 @@ msgstr "*.gcode"
 #: testclient/mainwindow.cpp:500
 msgctxt "MainWindow|"
 msgid "No File Selected"
-msgstr "Dosya Seçilmedi"
+msgstr "Seçili dosya yok"
 
 #: testclient/mainwindow.cpp:502
 #, qt-format
