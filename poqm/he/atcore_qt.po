@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-30 11:27+0300\n"
+"PO-Revision-Date: 2025-05-03 15:02+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/core/atcore.cpp:141
 msgctxt "AtCore|"
@@ -933,37 +933,37 @@ msgstr ""
 #: src/core/gcodecommands.cpp:385
 msgctxt "QObject|"
 msgid "M550: Set Name"
-msgstr ""
+msgstr "M550: הגדרת שם"
 
 #: src/core/gcodecommands.cpp:387
 msgctxt "QObject|"
 msgid "M551: Set Password"
-msgstr ""
+msgstr "M551: הגדרת סיסמה"
 
 #: src/core/gcodecommands.cpp:389
 msgctxt "QObject|"
 msgid "M552: Set IP address"
-msgstr ""
+msgstr "M552: הגדרת כתובת IP"
 
 #: src/core/gcodecommands.cpp:391
 msgctxt "QObject|"
 msgid "M553: Set Netmask"
-msgstr ""
+msgstr "M553: הגדרת מסכת רשת"
 
 #: src/core/gcodecommands.cpp:393
 msgctxt "QObject|"
 msgid "M554: Set Gateway"
-msgstr ""
+msgstr "M554: הגדרת שער גישה"
 
 #: src/core/gcodecommands.cpp:395
 msgctxt "QObject|"
 msgid "M555: Set compatibility"
-msgstr ""
+msgstr "M555: הגדרת תאימות"
 
 #: src/core/gcodecommands.cpp:397
 msgctxt "QObject|"
 msgid "M556: Axis compensation"
-msgstr ""
+msgstr "M556: פיצוי צירים"
 
 #: src/core/gcodecommands.cpp:399
 msgctxt "QObject|"
@@ -978,32 +978,32 @@ msgstr ""
 #: src/core/gcodecommands.cpp:403
 msgctxt "QObject|"
 msgid "M559: Upload configuration file"
-msgstr ""
+msgstr "M559: העלאת קובץ הגדרות"
 
 #: src/core/gcodecommands.cpp:405
 msgctxt "QObject|"
 msgid "M560: Upload web page file"
-msgstr ""
+msgstr "M560: העלאת קובץ עמוד דפדפן"
 
 #: src/core/gcodecommands.cpp:407
 msgctxt "QObject|"
 msgid "M561: Set Identity Transform"
-msgstr ""
+msgstr "M561: הגדרת התמרת זהות"
 
 #: src/core/gcodecommands.cpp:409
 msgctxt "QObject|"
 msgid "M562: Reset temperature fault"
-msgstr ""
+msgstr "M562: איפוס תקלת טמפרטורה"
 
 #: src/core/gcodecommands.cpp:411
 msgctxt "QObject|"
 msgid "M563: Define or remove a tool"
-msgstr ""
+msgstr "M563: הגדרת או הסרת כלי"
 
 #: src/core/gcodecommands.cpp:413
 msgctxt "QObject|"
 msgid "M564: Limit axes"
-msgstr ""
+msgstr "M564: הגבלת צירים"
 
 #: src/core/gcodecommands.cpp:415
 msgctxt "QObject|"
@@ -1038,7 +1038,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:427
 msgctxt "QObject|"
 msgid "M571: Set output on extrude"
-msgstr ""
+msgstr "M571: הגדרת פלט בהשחלה"
 
 #: src/core/gcodecommands.cpp:429
 msgctxt "QObject|"
@@ -1073,12 +1073,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:441
 msgctxt "QObject|"
 msgid "M580: Select Roland"
-msgstr ""
+msgstr "M580: בחירת Roland"
 
 #: src/core/gcodecommands.cpp:443
 msgctxt "QObject|"
 msgid "M600: Filament change pause"
-msgstr ""
+msgstr "M600: השהיית החלפת פילמנט (קור)"
 
 #: src/core/gcodecommands.cpp:445
 msgctxt "QObject|"
@@ -1098,7 +1098,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:451
 msgctxt "QObject|"
 msgid "M667: Select CoreXY mode"
-msgstr ""
+msgstr "M667: בחירת מצב CoreXY"
 
 #: src/core/gcodecommands.cpp:453
 msgctxt "QObject|"
@@ -1108,7 +1108,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:455
 msgctxt "QObject|"
 msgid "M906: Set motor currents"
-msgstr ""
+msgstr "M906: הגדרת מתחי מנועים"
 
 #: src/core/gcodecommands.cpp:457
 msgctxt "QObject|"
@@ -1133,27 +1133,27 @@ msgstr ""
 #: src/core/gcodecommands.cpp:465
 msgctxt "QObject|"
 msgid "M913: Set motor percentage of normal current"
-msgstr ""
+msgstr "M913: הגדרת אחוזי מנוע ביחס למתח הרגיל"
 
 #: src/core/gcodecommands.cpp:467
 msgctxt "QObject|"
 msgid "M928: Start SD logging"
-msgstr ""
+msgstr "M928: התחלת תיעוד SD"
 
 #: src/core/gcodecommands.cpp:469
 msgctxt "QObject|"
 msgid "M997: Perform in-application firmware update"
-msgstr ""
+msgstr "M997: ביצוע עדכון קושחה פנים תוכנתי"
 
 #: src/core/gcodecommands.cpp:471
 msgctxt "QObject|"
 msgid "M998: Request resend of line"
-msgstr ""
+msgstr "M998: בקשת שליחת שורה מחדש"
 
 #: src/core/gcodecommands.cpp:473
 msgctxt "QObject|"
 msgid "M999: Restart after being stopped by error"
-msgstr ""
+msgstr "M999: התחלה מחדש אחרי עצירה עקב שגיאה"
 
 #: src/widgets/about.cpp:21
 #, qt-format
@@ -1234,32 +1234,32 @@ msgstr ""
 #: src/widgets/logwidget.cpp:81
 msgctxt "LogWidget|"
 msgid "Save Session Log"
-msgstr ""
+msgstr "שמירת יומן הפעלה"
 
 #: src/widgets/logwidget.cpp:164
 msgctxt "LogWidget|"
 msgid "Save Log to file"
-msgstr ""
+msgstr "שמירת יומן לקובץ"
 
 #: src/widgets/movementwidget.cpp:49
 msgctxt "MovementWidget|"
 msgid "Home All"
-msgstr ""
+msgstr "חזרה הביתה בכל הצירים"
 
 #: src/widgets/movementwidget.cpp:53
 msgctxt "MovementWidget|"
 msgid "Home X"
-msgstr ""
+msgstr "חזרה הביתה ב־X"
 
 #: src/widgets/movementwidget.cpp:57
 msgctxt "MovementWidget|"
 msgid "Home Y"
-msgstr ""
+msgstr "חזרה הביתה ב־Y"
 
 #: src/widgets/movementwidget.cpp:61
 msgctxt "MovementWidget|"
 msgid "Home Z"
-msgstr ""
+msgstr "חזרה הביתה ב־Z"
 
 #: src/widgets/movementwidget.cpp:67
 msgctxt "MovementWidget|"
@@ -1289,7 +1289,7 @@ msgstr "מעבר"
 #: src/widgets/plotwidget.cpp:21
 msgctxt "PlotWidget|"
 msgid "Temp."
-msgstr ""
+msgstr "טמפרטורה"
 
 #: src/widgets/printwidget.cpp:25
 msgctxt "PrintWidget|"
@@ -1376,17 +1376,17 @@ msgstr "מכניקה"
 #: src/widgets/profilemanager.cpp:135
 msgctxt "ProfileManager|"
 msgid "Bed Maximum"
-msgstr ""
+msgstr "הערך המרבי של המצע"
 
 #: src/widgets/profilemanager.cpp:148
 msgctxt "ProfileManager|"
 msgid "Extruder Maximum"
-msgstr ""
+msgstr "הערך המרבי של המשחיל"
 
 #: src/widgets/profilemanager.cpp:157
 msgctxt "ProfileManager|"
 msgid "Auto Temperature Report"
-msgstr ""
+msgstr "דוח טמפרטורה אוטומטי"
 
 #: src/widgets/profilemanager.cpp:162
 msgctxt "ProfileManager|"
@@ -1406,7 +1406,7 @@ msgstr "קושחה"
 #: src/widgets/profilemanager.cpp:192
 msgctxt "ProfileManager|"
 msgid "PostPause"
-msgstr ""
+msgstr "לאחר השהיה"
 
 #: src/widgets/profilemanager.cpp:198
 msgctxt "ProfileManager|"
@@ -1522,7 +1522,7 @@ msgstr "תצוגה"
 #: testclient/mainwindow.cpp:65
 msgctxt "MainWindow|"
 msgid "Show Dock Titles"
-msgstr ""
+msgstr "הצגת כותרות מעגן"
 
 #: testclient/mainwindow.cpp:71
 msgctxt "MainWindow|"
@@ -1567,7 +1567,7 @@ msgstr "משחיל יעד 1"
 #: testclient/mainwindow.cpp:196
 msgctxt "MainWindow|"
 msgid "Seconds Between Temperature Checks"
-msgstr ""
+msgstr "שניות בין בדיקות טמפרטורה"
 
 #: testclient/mainwindow.cpp:218
 msgctxt "MainWindow|"
@@ -1577,7 +1577,7 @@ msgstr "ציר זמן טמפרטורה"
 #: testclient/mainwindow.cpp:227
 msgctxt "MainWindow|"
 msgid "Session Log"
-msgstr ""
+msgstr "יומן הפעלה"
 
 #: testclient/mainwindow.cpp:237
 msgctxt "MainWindow|"
@@ -1592,7 +1592,7 @@ msgstr "פרופיל:"
 #: testclient/mainwindow.cpp:264
 msgctxt "MainWindow|"
 msgid "Attempt to stop Reset on connect"
-msgstr ""
+msgstr "ניסיון לעצור איפוס בעת החיבור"
 
 #: testclient/mainwindow.cpp:276 testclient/mainwindow.cpp:292
 #: testclient/mainwindow.cpp:563
@@ -1613,26 +1613,30 @@ msgid ""
 "Before connecting again check that your printer is on and your are "
 "connecting using the correct BAUD Rate for your device."
 msgstr ""
+"המכונה שלך לא הגיעה לאחר 20 שניות.\n"
+"\n"
+"בטרם התחברות מחדש נא לבדוק שהמדפסת שלך דולקת ושבחרת להתחבר בקצב ה־BAUD () "
+"המתאים למכשיר שלך."
 
 #: testclient/mainwindow.cpp:304
 msgctxt "MainWindow|"
 msgid "Home All"
-msgstr ""
+msgstr "חזרה הביתה בכל הצירים"
 
 #: testclient/mainwindow.cpp:309
 msgctxt "MainWindow|"
 msgid "Home X"
-msgstr ""
+msgstr "חזרה הביתה ב־X"
 
 #: testclient/mainwindow.cpp:314
 msgctxt "MainWindow|"
 msgid "Home Y"
-msgstr ""
+msgstr "חזרה הביתה ב־Y"
 
 #: testclient/mainwindow.cpp:319
 msgctxt "MainWindow|"
 msgid "Home Z"
-msgstr ""
+msgstr "חזרה הביתה ב־Z"
 
 #: testclient/mainwindow.cpp:341
 msgctxt "MainWindow|"
@@ -1683,12 +1687,12 @@ msgstr "אין פתחות זמינות! נא לחבר התקן טורי כדי �
 #: testclient/mainwindow.cpp:466
 msgctxt "MainWindow|"
 msgid "Serial connected"
-msgstr ""
+msgstr "החיבור הטורי מחובר"
 
 #: testclient/mainwindow.cpp:478
 msgctxt "MainWindow|"
 msgid "Disconnected"
-msgstr ""
+msgstr "מנותק"
 
 #: testclient/mainwindow.cpp:487 testclient/mainwindow.cpp:493
 msgctxt "MainWindow|"
