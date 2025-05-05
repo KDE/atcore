@@ -1,8 +1,13 @@
-# Eloy Cuadra <ecuadra@eloihr.net>, 2017, 2018, 2019, 2020.
+# Spanish translations for atcore_qt.po package.
+# Copyright (C) 2017-2025 This file is copyright:
+# This file is distributed under the same license as the atcore package.
+#
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: atcore_qt\n"
-"PO-Revision-Date: 2020-02-02 09:52+0100\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"PO-Revision-Date: 2025-05-04 01:35+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1840,55 +1845,3 @@ msgstr "Deteniendo la impresión"
 msgctxt "MainWindow|"
 msgid "Command ERROR"
 msgstr "Error de orden"
-
-#~ msgctxt "PrintWidget|"
-#~ msgid "On Pause:"
-#~ msgstr "Al pausar:"
-
-#~ msgctxt "MainWindow|"
-#~ msgid "Use Plugin:"
-#~ msgstr "Usar complemento:"
-
-#~ msgctxt "MainWindow|"
-#~ msgid "Autodetect"
-#~ msgstr "Detectar automáticamente"
-
-#~ msgctxt "AtCore|"
-#~ msgid "Cant find firwmware, serial not connected!"
-#~ msgstr "No se puede encontrar el firmware. Puerto serie no conectado."
-
-#~ msgctxt "PieButton|"
-#~ msgid "Move the hotend to the %1 by %2 units"
-#~ msgstr "Mover el hotend al %1 %2 unidades"
-
-#~ msgctxt "RectButton|"
-#~ msgid "Move the hotend to the %1 by %2 units"
-#~ msgstr "Mover el hotend al %1 %2 unidades"
-
-#~ msgctxt "RectButton|"
-#~ msgid "Extrude %1 Units"
-#~ msgstr "Extrudir %1 unidades"
-
-#~ msgctxt "PlotWidget|"
-#~ msgid "Actual Bed"
-#~ msgstr "Cama real"
-
-#~ msgctxt "PlotWidget|"
-#~ msgid "Target Bed"
-#~ msgstr "Cama objetivo"
-
-#~ msgctxt "PlotWidget|"
-#~ msgid "Actual Ext.1"
-#~ msgstr "Ext.1 real"
-
-#~ msgctxt "PlotWidget|"
-#~ msgid "Target Ext.1"
-#~ msgstr "Ext. 1 objetivo"
-
-#~ msgctxt "AtCore|"
-#~ msgid "plugins[%1]=%2"
-#~ msgstr "complementos[%1]=%2"
-
-#~ msgctxt "MainWindow|"
-#~ msgid "Requesting Firmware..."
-#~ msgstr "Solicitando firmware..."
