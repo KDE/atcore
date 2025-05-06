@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-05-03 15:02+0300\n"
+"PO-Revision-Date: 2025-05-05 15:31+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -653,7 +653,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:273
 msgctxt "QObject|"
 msgid "M226: Wait for pin state"
-msgstr ""
+msgstr "M226: להמתין למצב הפין"
 
 #: src/core/gcodecommands.cpp:275
 msgctxt "QObject|"
@@ -668,12 +668,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:279
 msgctxt "QObject|"
 msgid "M240: Trigger camera"
-msgstr ""
+msgstr "M240: הזנקת מצלמה"
 
 #: src/core/gcodecommands.cpp:281
 msgctxt "QObject|"
 msgid "M250: Set LCD contrast"
-msgstr ""
+msgstr "M250: הגדרת ניגודיות מסך LCD"
 
 #: src/core/gcodecommands.cpp:283
 msgctxt "QObject|"
@@ -688,7 +688,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:287
 msgctxt "QObject|"
 msgid "M300: Play beep sound"
-msgstr ""
+msgstr "M300: השמעת צפצוף"
 
 #: src/core/gcodecommands.cpp:289
 msgctxt "QObject|"
@@ -698,7 +698,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:291
 msgctxt "QObject|"
 msgid "M302: Allow cold extrudes "
-msgstr ""
+msgstr "M302: לאפשר השחלות קרות "
 
 #: src/core/gcodecommands.cpp:293
 msgctxt "QObject|"
