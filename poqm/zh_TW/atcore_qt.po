@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-01-15 18:34+0900\n"
+"PO-Revision-Date: 2025-05-07 09:25+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.01.90\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #: src/core/atcore.cpp:141
 msgctxt "AtCore|"
@@ -456,7 +456,7 @@ msgstr "M114：取得目前位置"
 #: src/core/gcodecommands.cpp:197
 msgctxt "QObject|"
 msgid "M115: Get Firmware Version and Capabilities"
-msgstr ""
+msgstr "M115：取得韌體版本與功能"
 
 #: src/core/gcodecommands.cpp:199
 msgctxt "QObject|"
@@ -1189,7 +1189,7 @@ msgstr "關閉"
 #: src/widgets/axiscontrol.cpp:22
 msgctxt "AxisControl|"
 msgid "Move Axis"
-msgstr ""
+msgstr "移動軸線"
 
 #: src/widgets/commandwidget.cpp:25
 msgctxt "CommandWidget|"
@@ -1268,22 +1268,22 @@ msgstr "停用馬達"
 #: src/widgets/movementwidget.cpp:72
 msgctxt "MovementWidget|"
 msgid "Move X Axis to"
-msgstr ""
+msgstr "移動 X 軸到"
 
 #: src/widgets/movementwidget.cpp:73
 msgctxt "MovementWidget|"
 msgid "Move Y Axis to"
-msgstr ""
+msgstr "移動 Y 軸到"
 
 #: src/widgets/movementwidget.cpp:74
 msgctxt "MovementWidget|"
 msgid "Move Z Axis to"
-msgstr ""
+msgstr "移動 Z 軸到"
 
 #: src/widgets/movementwidget.cpp:83
 msgctxt "MovementWidget|"
 msgid "Go"
-msgstr ""
+msgstr "前往"
 
 #: src/widgets/plotwidget.cpp:21
 msgctxt "PlotWidget|"
@@ -1314,13 +1314,13 @@ msgstr "設定"
 #: src/widgets/printwidget.cpp:52
 msgctxt "PrintWidget|"
 msgid "Flow Rate"
-msgstr ""
+msgstr "流量"
 
 #: src/widgets/printwidget.cpp:96
 #, qt-format
 msgctxt "PrintWidget|"
 msgid "Fan %1 speed"
-msgstr ""
+msgstr "風扇 %1 速度"
 
 #: src/widgets/profilemanager.cpp:27
 msgctxt "ProfileManager|"
@@ -1521,7 +1521,7 @@ msgstr "檢視"
 #: testclient/mainwindow.cpp:65
 msgctxt "MainWindow|"
 msgid "Show Dock Titles"
-msgstr ""
+msgstr "顯示面板標題"
 
 #: testclient/mainwindow.cpp:71
 msgctxt "MainWindow|"
@@ -1566,12 +1566,12 @@ msgstr ""
 #: testclient/mainwindow.cpp:196
 msgctxt "MainWindow|"
 msgid "Seconds Between Temperature Checks"
-msgstr ""
+msgstr "溫度檢查之間的秒數"
 
 #: testclient/mainwindow.cpp:218
 msgctxt "MainWindow|"
 msgid "Temperature Timeline"
-msgstr ""
+msgstr "溫度時間軸"
 
 #: testclient/mainwindow.cpp:227
 msgctxt "MainWindow|"
@@ -1591,7 +1591,7 @@ msgstr "設定檔："
 #: testclient/mainwindow.cpp:264
 msgctxt "MainWindow|"
 msgid "Attempt to stop Reset on connect"
-msgstr ""
+msgstr "嘗試停止連線時的重設"
 
 #: testclient/mainwindow.cpp:276 testclient/mainwindow.cpp:292
 #: testclient/mainwindow.cpp:563
@@ -1612,6 +1612,10 @@ msgid ""
 "Before connecting again check that your printer is on and your are "
 "connecting using the correct BAUD Rate for your device."
 msgstr ""
+"您的機器過了 20 秒都沒有回應。\n"
+"\n"
+"在嘗試連線之前請先檢查您的印表機已開啟，且您已使用正確的傳輸速率與您的裝置連"
+"線。"
 
 #: testclient/mainwindow.cpp:304
 msgctxt "MainWindow|"
@@ -1682,7 +1686,7 @@ msgstr "沒有可供使用的連接埠！請連線一個序列埠裝置後繼續
 #: testclient/mainwindow.cpp:466
 msgctxt "MainWindow|"
 msgid "Serial connected"
-msgstr ""
+msgstr "序列埠已連線"
 
 #: testclient/mainwindow.cpp:478
 msgctxt "MainWindow|"
@@ -1707,6 +1711,9 @@ msgid ""
 "so we can improve our firmware detection. Edit your profile to use \"marlin"
 "\" and try again."
 msgstr ""
+" 有韌體外掛程式未載入！\n"
+"  請傳送 M115 命令並讓我們知道您的韌體回傳什麼，讓我們能夠改善韌體偵測。請編"
+"輯您的設定檔改用 \"marlin\" 然後再試一次。"
 
 #: testclient/mainwindow.cpp:498
 msgctxt "MainWindow|"
