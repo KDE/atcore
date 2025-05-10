@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-05-05 15:31+0300\n"
+"PO-Revision-Date: 2025-05-09 17:04+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -818,12 +818,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:339
 msgctxt "QObject|"
 msgid "M374: Save calibration grid"
-msgstr ""
+msgstr "M374: שמירת רשת כיול"
 
 #: src/core/gcodecommands.cpp:341
 msgctxt "QObject|"
 msgid "M375: Display matrix / Load Matrix"
-msgstr ""
+msgstr "M375: הצגת רשת / טעינת רשת"
 
 #: src/core/gcodecommands.cpp:343
 msgctxt "QObject|"
@@ -858,22 +858,22 @@ msgstr ""
 #: src/core/gcodecommands.cpp:355
 msgctxt "QObject|"
 msgid "M405: Filament Sensor on"
-msgstr ""
+msgstr "M405: חיישן פילמנט פעיל"
 
 #: src/core/gcodecommands.cpp:357
 msgctxt "QObject|"
 msgid "M406: Filament Sensor off"
-msgstr ""
+msgstr "M406: חיישן פילמנט כבוי"
 
 #: src/core/gcodecommands.cpp:359
 msgctxt "QObject|"
 msgid "M407: Display filament diameter"
-msgstr ""
+msgstr "M407: הצגת קוטר פילמנט"
 
 #: src/core/gcodecommands.cpp:361
 msgctxt "QObject|"
 msgid "M408: Report JSON-style response"
-msgstr ""
+msgstr "M408: דיווח תגובה בסגנון JSON"
 
 #: src/core/gcodecommands.cpp:363
 msgctxt "QObject|"
@@ -883,7 +883,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:365
 msgctxt "QObject|"
 msgid "M450: Report Printer Mode"
-msgstr ""
+msgstr "M450: דיווח מצב מדפסת"
 
 #: src/core/gcodecommands.cpp:367
 msgctxt "QObject|"
@@ -893,12 +893,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:369
 msgctxt "QObject|"
 msgid "M452: Select Laser Printer Mode"
-msgstr ""
+msgstr "M452: בחירת מצב מדפסת לייזר"
 
 #: src/core/gcodecommands.cpp:371
 msgctxt "QObject|"
 msgid "M453: Select CNC Printer Mode"
-msgstr ""
+msgstr "M453: בחירת מצב מדפסת CNC (כרסומת)"
 
 #: src/core/gcodecommands.cpp:373
 msgctxt "QObject|"
@@ -908,12 +908,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:375
 msgctxt "QObject|"
 msgid "M500: Store parameters in EEPROM"
-msgstr ""
+msgstr "M500: אחסון משתנים ב־EEPROM (זיכרון מתוכנת)"
 
 #: src/core/gcodecommands.cpp:377
 msgctxt "QObject|"
 msgid "M501: Read parameters from EEPROM"
-msgstr ""
+msgstr "M501: קריאת משתנים מה־EEPROM (זיכרון מתוכנת)"
 
 #: src/core/gcodecommands.cpp:379
 msgctxt "QObject|"
@@ -923,7 +923,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:381
 msgctxt "QObject|"
 msgid "M503: Print settings "
-msgstr ""
+msgstr "M503: הגדרות הדפסה "
 
 #: src/core/gcodecommands.cpp:383
 msgctxt "QObject|"
@@ -1123,12 +1123,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:461
 msgctxt "QObject|"
 msgid "M911: Set power monitor threshold voltages"
-msgstr ""
+msgstr "M911: הגדרת מתחי סף של מעקב חשמל"
 
 #: src/core/gcodecommands.cpp:463
 msgctxt "QObject|"
 msgid "M912: Set electronics temperature monitor adjustment"
-msgstr ""
+msgstr "M912: הגדרת כוונוני מעקב טמפרטורה של אלקטרוניקה"
 
 #: src/core/gcodecommands.cpp:465
 msgctxt "QObject|"
@@ -1712,6 +1712,10 @@ msgid ""
 "so we can improve our firmware detection. Edit your profile to use \"marlin"
 "\" and try again."
 msgstr ""
+" תוסף קושחה לא נטען!\n"
+"  נא לשלוח את הפקודה M115 ולהודיע לנו מה החזירה הקושחה שלך, כדי שנוכל לשפר "
+"את זיהוי הקושחות שלנו. אפשר לערוך את הפרופיל שלך כדי להשתמש ב־„marlin” "
+"ולנסות שוב."
 
 #: testclient/mainwindow.cpp:498
 msgctxt "MainWindow|"
@@ -1763,7 +1767,7 @@ msgstr "השהיית הדפסה"
 #: testclient/mainwindow.cpp:542
 msgctxt "MainWindow|"
 msgid "Finished Print"
-msgstr ""
+msgstr "הדפסה הסתיימה"
 
 #: testclient/mainwindow.cpp:548
 msgctxt "MainWindow|"
@@ -1773,22 +1777,22 @@ msgstr "מושהה"
 #: testclient/mainwindow.cpp:549
 msgctxt "MainWindow|"
 msgid "Resume Print"
-msgstr ""
+msgstr "להמשיך להדפיס"
 
 #: testclient/mainwindow.cpp:553
 msgctxt "MainWindow|"
 msgid "Printing"
-msgstr ""
+msgstr "מתבצעת הדפסה"
 
 #: testclient/mainwindow.cpp:570
 msgctxt "MainWindow|"
 msgid "Abort"
-msgstr ""
+msgstr "ביטול גורף"
 
 #: testclient/mainwindow.cpp:577
 msgctxt "MainWindow|"
 msgid "Stopping Print"
-msgstr ""
+msgstr "ההדפסה נעצרת"
 
 #: testclient/mainwindow.cpp:581
 msgctxt "MainWindow|"
