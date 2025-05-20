@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-05-09 17:04+0300\n"
+"PO-Revision-Date: 2025-05-19 09:39+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: src/core/atcore.cpp:141
 msgctxt "AtCore|"
@@ -120,12 +120,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:33
 msgctxt "QObject|"
 msgid "G20: Set units to inches"
-msgstr ""
+msgstr "G20: הגדרת היחידות לאינצ׳ים"
 
 #: src/core/gcodecommands.cpp:35
 msgctxt "QObject|"
 msgid "G21: Set units to millimeters"
-msgstr ""
+msgstr "G21: הגדרת היחידות למילימטרים"
 
 #: src/core/gcodecommands.cpp:37
 msgctxt "QObject|"
@@ -222,12 +222,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:103
 msgctxt "QObject|"
 msgid "M2: Program End"
-msgstr ""
+msgstr "M2: סוף תוכנית"
 
 #: src/core/gcodecommands.cpp:105
 msgctxt "QObject|"
 msgid "M6: Tool Change"
-msgstr ""
+msgstr "M6: החלפת כלי"
 
 #: src/core/gcodecommands.cpp:107
 msgctxt "QObject|"
@@ -242,57 +242,57 @@ msgstr ""
 #: src/core/gcodecommands.cpp:111
 msgctxt "QObject|"
 msgid "M20: List SDCard"
-msgstr ""
+msgstr "M20: הצגת כרטיסי SD"
 
 #: src/core/gcodecommands.cpp:113
 msgctxt "QObject|"
 msgid "M21: Initialize SDCard"
-msgstr ""
+msgstr "M21: אתחול כרטיס SD"
 
 #: src/core/gcodecommands.cpp:115
 msgctxt "QObject|"
 msgid "M22: Release SDCard"
-msgstr ""
+msgstr "M22: שחרור כרטיס SD"
 
 #: src/core/gcodecommands.cpp:117
 msgctxt "QObject|"
 msgid "M23: Select SD file"
-msgstr ""
+msgstr "M23: בחירת קובץ מה־SD"
 
 #: src/core/gcodecommands.cpp:119
 msgctxt "QObject|"
 msgid "M24: Start/resume SD print"
-msgstr ""
+msgstr "M24: התחלת/המשך הדפסה מ־SD"
 
 #: src/core/gcodecommands.cpp:121
 msgctxt "QObject|"
 msgid "M25: Pause SD print"
-msgstr ""
+msgstr "M25: השהיית הדפסה מ־SD"
 
 #: src/core/gcodecommands.cpp:123
 msgctxt "QObject|"
 msgid "M26: Set SD position"
-msgstr ""
+msgstr "M26: הגדרת נקודת SD"
 
 #: src/core/gcodecommands.cpp:125
 msgctxt "QObject|"
 msgid "M27: Report SD print status"
-msgstr ""
+msgstr "M27: דיווח מצב הדפסה מ־SD"
 
 #: src/core/gcodecommands.cpp:127
 msgctxt "QObject|"
 msgid "M28: Begin write to SD card"
-msgstr ""
+msgstr "M28: התחלת כתיבה לכרטיס SD"
 
 #: src/core/gcodecommands.cpp:129
 msgctxt "QObject|"
 msgid "M29: Stop writing to SD card"
-msgstr ""
+msgstr "M29: עצירת כתיבה לכרטיס SD"
 
 #: src/core/gcodecommands.cpp:131
 msgctxt "QObject|"
 msgid "M30: Delete a file on the SD card"
-msgstr ""
+msgstr "M30: מחיקת קובץ מכרטיס ה־SD"
 
 #: src/core/gcodecommands.cpp:133
 msgctxt "QObject|"
@@ -302,22 +302,22 @@ msgstr ""
 #: src/core/gcodecommands.cpp:135
 msgctxt "QObject|"
 msgid "M32: Select file and start SD print"
-msgstr ""
+msgstr "M32: בחירת קובץ והתחיל הדפסה מ־SD"
 
 #: src/core/gcodecommands.cpp:137
 msgctxt "QObject|"
 msgid "M33: Get the long name for an SD card file or folder"
-msgstr ""
+msgstr "M33: משיכת השם הארוך לקובץ או תיקייה בכרטיס ה־SD"
 
 #: src/core/gcodecommands.cpp:139
 msgctxt "QObject|"
 msgid "M34: Set SD file sorting options"
-msgstr ""
+msgstr "M34: הגדרת אפשרויות סידור קבצים ב־SD"
 
 #: src/core/gcodecommands.cpp:141
 msgctxt "QObject|"
 msgid "M36: Return file information"
-msgstr ""
+msgstr "M36: החזרת פרטי קובץ"
 
 #: src/core/gcodecommands.cpp:143
 msgctxt "QObject|"
@@ -332,17 +332,17 @@ msgstr ""
 #: src/core/gcodecommands.cpp:147
 msgctxt "QObject|"
 msgid "M70: Display message"
-msgstr ""
+msgstr "M70: הצגת הודעה"
 
 #: src/core/gcodecommands.cpp:149
 msgctxt "QObject|"
 msgid "M72: Play a tone or song"
-msgstr ""
+msgstr "M72: השמעת צליל או שיר"
 
 #: src/core/gcodecommands.cpp:151
 msgctxt "QObject|"
 msgid "M73: Set build percentage"
-msgstr ""
+msgstr "M73: הגדרת אחוז בנייה"
 
 #: src/core/gcodecommands.cpp:153
 msgctxt "QObject|"
@@ -357,12 +357,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:157
 msgctxt "QObject|"
 msgid "M82: Set extruder to absolute mode"
-msgstr ""
+msgstr "M82: הגדרת משחיל למצב מוחלט"
 
 #: src/core/gcodecommands.cpp:159
 msgctxt "QObject|"
 msgid "M83: Set extruder to relative mode"
-msgstr ""
+msgstr "M83: הגדרת משחיל למצב יחסי"
 
 #: src/core/gcodecommands.cpp:161
 msgctxt "QObject|"
@@ -407,67 +407,67 @@ msgstr ""
 #: src/core/gcodecommands.cpp:177
 msgctxt "QObject|"
 msgid "M104: Set Extruder Temperature"
-msgstr ""
+msgstr "M104: הגדרת טמפרטורת משחיל"
 
 #: src/core/gcodecommands.cpp:179
 msgctxt "QObject|"
 msgid "M105: Get Extruder Temperature"
-msgstr ""
+msgstr "M105: משיכת טמפרטורת משחיל"
 
 #: src/core/gcodecommands.cpp:181
 msgctxt "QObject|"
 msgid "M106: Fan On"
-msgstr ""
+msgstr "M106: הפעלת מאוורר"
 
 #: src/core/gcodecommands.cpp:183
 msgctxt "QObject|"
 msgid "M107: Fan Off"
-msgstr ""
+msgstr "M107: כיבוי מאוורר"
 
 #: src/core/gcodecommands.cpp:185
 msgctxt "QObject|"
 msgid "M108: Cancel Heating"
-msgstr ""
+msgstr "M108: ביטול חימום"
 
 #: src/core/gcodecommands.cpp:187
 msgctxt "QObject|"
 msgid "M109: Set Extruder Temperature and Wait"
-msgstr ""
+msgstr "M109: הגדרת טמפרטורת משחיל ולהמתין"
 
 #: src/core/gcodecommands.cpp:189
 msgctxt "QObject|"
 msgid "M110: Set Current Line Number"
-msgstr ""
+msgstr "M110: הגדרת מספר השורה הנוכחי"
 
 #: src/core/gcodecommands.cpp:191
 msgctxt "QObject|"
 msgid "M111: Set Debug Level"
-msgstr ""
+msgstr "M111: הגדרת מצב ניפוי שגיאות"
 
 #: src/core/gcodecommands.cpp:193
 msgctxt "QObject|"
 msgid "M112: Emergency Stop"
-msgstr ""
+msgstr "M112: עצירת חירום"
 
 #: src/core/gcodecommands.cpp:195
 msgctxt "QObject|"
 msgid "M114: Get Current Position"
-msgstr ""
+msgstr "M114: שליפת המקום הנוכחי"
 
 #: src/core/gcodecommands.cpp:197
 msgctxt "QObject|"
 msgid "M115: Get Firmware Version and Capabilities"
-msgstr ""
+msgstr "M115: משיכת גרסת ויכולות הקושחה"
 
 #: src/core/gcodecommands.cpp:199
 msgctxt "QObject|"
 msgid "M116: Wait"
-msgstr ""
+msgstr "M116: המתנה"
 
 #: src/core/gcodecommands.cpp:201
 msgctxt "QObject|"
 msgid "M117: Display Message"
-msgstr ""
+msgstr "M117: הצגת הודעה"
 
 #: src/core/gcodecommands.cpp:203
 msgctxt "QObject|"
@@ -491,17 +491,17 @@ msgstr ""
 #: src/core/gcodecommands.cpp:209
 msgctxt "QObject|"
 msgid "M122: Diagnose"
-msgstr ""
+msgstr "M122: אבחון"
 
 #: src/core/gcodecommands.cpp:211
 msgctxt "QObject|"
 msgid "M126: Open valve"
-msgstr ""
+msgstr "M126: פתיחת שסתום"
 
 #: src/core/gcodecommands.cpp:213
 msgctxt "QObject|"
 msgid "M127: Close valve"
-msgstr ""
+msgstr "M127: סגירת שסתום"
 
 #: src/core/gcodecommands.cpp:215
 msgctxt "QObject|"
@@ -556,7 +556,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:235
 msgctxt "QObject|"
 msgid "M150: Set display color"
-msgstr ""
+msgstr "M150: הגדרת צבע תצוגה"
 
 #: src/core/gcodecommands.cpp:237
 msgctxt "QObject|"
@@ -758,12 +758,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:315
 msgctxt "QObject|"
 msgid "M355: Turn case lights on/off"
-msgstr ""
+msgstr "M355: כיבוי/הדלקה של נוריות המארז"
 
 #: src/core/gcodecommands.cpp:317
 msgctxt "QObject|"
 msgid "M360: Report firmware configuration"
-msgstr ""
+msgstr "M360: דיווח הגדרות קושחה"
 
 #: src/core/gcodecommands.cpp:319
 msgctxt "QObject|"
@@ -813,7 +813,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:337
 msgctxt "QObject|"
 msgid "M373: End bed level calibration mode"
-msgstr ""
+msgstr "M373: סיום מצב כיול ברמת מצע"
 
 #: src/core/gcodecommands.cpp:339
 msgctxt "QObject|"
@@ -828,17 +828,17 @@ msgstr "M375: הצגת רשת / טעינת רשת"
 #: src/core/gcodecommands.cpp:343
 msgctxt "QObject|"
 msgid "M380: Activate solenoid"
-msgstr ""
+msgstr "M380: הפעלת הסולנואיד"
 
 #: src/core/gcodecommands.cpp:345
 msgctxt "QObject|"
 msgid "M381: Disable all solenoids"
-msgstr ""
+msgstr "M381: השבתת כל הסולנואידים"
 
 #: src/core/gcodecommands.cpp:347
 msgctxt "QObject|"
 msgid "M400: Wait for current moves to finish"
-msgstr ""
+msgstr "M400: להמתין לסיום התנועות הנוכחיות"
 
 #: src/core/gcodecommands.cpp:349
 msgctxt "QObject|"
