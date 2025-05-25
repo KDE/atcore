@@ -416,7 +416,7 @@ msgstr "M99: Retorna des d'una macro/subprograma"
 #: src/core/gcodecommands.cpp:173
 msgctxt "QObject|"
 msgid "M101: Turn extruder 1 on Forward, Undo Retraction"
-msgstr "M101: Gira l'extrusor 1 avant, desfera la retracció"
+msgstr "M101: Gira l'extrusor 1 avant, desfés la retracció"
 
 #: src/core/gcodecommands.cpp:175
 msgctxt "QObject|"
