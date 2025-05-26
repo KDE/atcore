@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-05-19 09:39+0300\n"
+"PO-Revision-Date: 2025-05-25 21:02+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -162,17 +162,17 @@ msgstr ""
 #: src/core/gcodecommands.cpp:49
 msgctxt "QObject|"
 msgid "G90: Set to absolute positioning"
-msgstr ""
+msgstr "G90: הגדרה למיקום מוחלט"
 
 #: src/core/gcodecommands.cpp:51
 msgctxt "QObject|"
 msgid "G91: Set to relative positioning"
-msgstr ""
+msgstr "G91: הגדרה למיקום יחסי"
 
 #: src/core/gcodecommands.cpp:53
 msgctxt "QObject|"
 msgid "G92: Set position"
-msgstr ""
+msgstr "G92: הגדרת מקום"
 
 #: src/core/gcodecommands.cpp:55
 msgctxt "QObject|"
@@ -192,32 +192,32 @@ msgstr ""
 #: src/core/gcodecommands.cpp:61
 msgctxt "QObject|"
 msgid "G132: Calibrate endstops offsets"
-msgstr ""
+msgstr "G132: כיול היסטי גובלי תחום"
 
 #: src/core/gcodecommands.cpp:63
 msgctxt "QObject|"
 msgid "G133: Measure steps to top"
-msgstr ""
+msgstr "G133: מדידת הצעדים עד לראש"
 
 #: src/core/gcodecommands.cpp:65
 msgctxt "QObject|"
 msgid "G161: Home axis to minimum"
-msgstr ""
+msgstr "G161: ציר בית למזערי"
 
 #: src/core/gcodecommands.cpp:67
 msgctxt "QObject|"
 msgid "G162: Home axis to maximum"
-msgstr ""
+msgstr "G162: ציר בית למרבי"
 
 #: src/core/gcodecommands.cpp:99
 msgctxt "QObject|"
 msgid "M0: Stop or unconditional stop"
-msgstr ""
+msgstr "M0: עצירה או עצירה ללא תנאי"
 
 #: src/core/gcodecommands.cpp:101
 msgctxt "QObject|"
 msgid "M1: Sleep or unconditional stop"
-msgstr ""
+msgstr "M1: שינה או עצירה ללא תנאי"
 
 #: src/core/gcodecommands.cpp:103
 msgctxt "QObject|"
@@ -232,12 +232,12 @@ msgstr "M6: החלפת כלי"
 #: src/core/gcodecommands.cpp:107
 msgctxt "QObject|"
 msgid "M17: Enable/power all steppers motors"
-msgstr ""
+msgstr "M17: הפעלת/הדלקת כל מנועי הצעד"
 
 #: src/core/gcodecommands.cpp:109
 msgctxt "QObject|"
 msgid "M18: Disable all steppers motors"
-msgstr ""
+msgstr "M18: השבתת כל מנועי הצעד"
 
 #: src/core/gcodecommands.cpp:111
 msgctxt "QObject|"
@@ -372,7 +372,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:163
 msgctxt "QObject|"
 msgid "M85: Set Inactivity shutdown timer"
-msgstr ""
+msgstr "M85: הגדרת מתזמן כיבוי בחוסר פעילות"
 
 #: src/core/gcodecommands.cpp:165
 msgctxt "QObject|"
@@ -387,12 +387,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:169
 msgctxt "QObject|"
 msgid "M98: Call Macro/Subprogram"
-msgstr ""
+msgstr "M98: לקרוא למאקרו/תת־תוכנית"
 
 #: src/core/gcodecommands.cpp:171
 msgctxt "QObject|"
 msgid "M99: Return from Macro/Subprogram"
-msgstr ""
+msgstr "M99: חזרה ממאקרו/תת־תוכנית"
 
 #: src/core/gcodecommands.cpp:173
 msgctxt "QObject|"
@@ -472,7 +472,7 @@ msgstr "M117: הצגת הודעה"
 #: src/core/gcodecommands.cpp:203
 msgctxt "QObject|"
 msgid "M119: Get Endstop Status"
-msgstr ""
+msgstr "M119: קבלת מצב גובלי תחום"
 
 #: src/core/gcodecommands.cpp:205
 msgctxt "QObject|"
@@ -596,17 +596,17 @@ msgstr ""
 #: src/core/gcodecommands.cpp:251
 msgctxt "QObject|"
 msgid "M203: Set maximum feedrate"
-msgstr ""
+msgstr "M203: הגדרת קצב מילוי מרבי"
 
 #: src/core/gcodecommands.cpp:253
 msgctxt "QObject|"
 msgid "M204: Set default acceleration"
-msgstr ""
+msgstr "M204: הגדרת האצת ברירת מחדל"
 
 #: src/core/gcodecommands.cpp:255
 msgctxt "QObject|"
 msgid "M205: Advanced settings"
-msgstr ""
+msgstr "M205: הגדרות מתקדמות"
 
 #: src/core/gcodecommands.cpp:257
 msgctxt "QObject|"
@@ -743,17 +743,17 @@ msgstr ""
 #: src/core/gcodecommands.cpp:309
 msgctxt "QObject|"
 msgid "M340: Control the servos"
-msgstr ""
+msgstr "M340: שליטה במנועים"
 
 #: src/core/gcodecommands.cpp:311
 msgctxt "QObject|"
 msgid "M350: Set microstepping mode"
-msgstr ""
+msgstr "M350: הגדרת מצב צעדים מזעריים"
 
 #: src/core/gcodecommands.cpp:313
 msgctxt "QObject|"
 msgid "M351: Toggle MS1 MS2 pins directly"
-msgstr ""
+msgstr "M351: החלפת המצב של פינים MS1 MS2 ישירות"
 
 #: src/core/gcodecommands.cpp:315
 msgctxt "QObject|"
@@ -808,7 +808,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:335
 msgctxt "QObject|"
 msgid "M372: Record calibration value, and move to next position"
-msgstr ""
+msgstr "M372: תיעוד ערך כיול ומעבר למקום הבא"
 
 #: src/core/gcodecommands.cpp:337
 msgctxt "QObject|"
@@ -1048,22 +1048,22 @@ msgstr ""
 #: src/core/gcodecommands.cpp:431
 msgctxt "QObject|"
 msgid "M574: Set endstop configuration"
-msgstr ""
+msgstr "M574: הגדרת תצורת גובלי תחום"
 
 #: src/core/gcodecommands.cpp:433
 msgctxt "QObject|"
 msgid "M575: Set serial comms parameters"
-msgstr ""
+msgstr "M575: הגדרת משתני חיבורים טוריים"
 
 #: src/core/gcodecommands.cpp:435
 msgctxt "QObject|"
 msgid "M577: Wait until endstop is triggered"
-msgstr ""
+msgstr "M577: להמתין להזנקת גובל תחום"
 
 #: src/core/gcodecommands.cpp:437
 msgctxt "QObject|"
 msgid "M578: Fire inkjet bits"
-msgstr ""
+msgstr "M578: הזרקת טיפות דיו"
 
 #: src/core/gcodecommands.cpp:439
 msgctxt "QObject|"
@@ -1088,12 +1088,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:447
 msgctxt "QObject|"
 msgid "M665: Set delta configuration"
-msgstr ""
+msgstr "M665: הגדרת תצורת הבדלים"
 
 #: src/core/gcodecommands.cpp:449
 msgctxt "QObject|"
 msgid "M666: Set delta endstop adjustment"
-msgstr ""
+msgstr "M666: הגדרת כוונון הבדל גובל תחום"
 
 #: src/core/gcodecommands.cpp:451
 msgctxt "QObject|"
