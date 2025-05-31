@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-05-27 07:47+0300\n"
+"PO-Revision-Date: 2025-05-30 11:52+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -130,7 +130,7 @@ msgstr "G21: הגדרת היחידות למילימטרים"
 #: src/core/gcodecommands.cpp:37
 msgctxt "QObject|"
 msgid "G28: Move to Origin Home"
-msgstr ""
+msgstr "G28: הזזה לבית המקורי"
 
 #: src/core/gcodecommands.cpp:39
 msgctxt "QObject|"
