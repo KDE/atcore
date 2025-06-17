@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-05-30 11:52+0300\n"
+"PO-Revision-Date: 2025-06-16 16:38+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -561,27 +561,27 @@ msgstr "M150: הגדרת צבע תצוגה"
 #: src/core/gcodecommands.cpp:237
 msgctxt "QObject|"
 msgid "M155: Set Temperature auto report"
-msgstr ""
+msgstr "M155: הגדרת דוח טמפרטורה אוטומטי"
 
 #: src/core/gcodecommands.cpp:239
 msgctxt "QObject|"
 msgid "M163: Set weight of mixed material"
-msgstr ""
+msgstr "M163: הגדרת משקל של חומר מעורבב"
 
 #: src/core/gcodecommands.cpp:241
 msgctxt "QObject|"
 msgid "M164: Store weights"
-msgstr ""
+msgstr "M164: אחסון משקלים"
 
 #: src/core/gcodecommands.cpp:243
 msgctxt "QObject|"
 msgid "M190: Wait for bed temperature to reach target temp"
-msgstr ""
+msgstr "M190: להמתין שטמפרטורת המצע תגיד לטמפרטורת היעד"
 
 #: src/core/gcodecommands.cpp:245
 msgctxt "QObject|"
 msgid "M200: Set filament diameter"
-msgstr ""
+msgstr "M200: הגדרת קוטר פילמנט"
 
 #: src/core/gcodecommands.cpp:247
 msgctxt "QObject|"
@@ -643,12 +643,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:269
 msgctxt "QObject|"
 msgid "M220: Set speed factor override percentage"
-msgstr ""
+msgstr "M220: הגדרת אחוז דריסת מקדם מהירות"
 
 #: src/core/gcodecommands.cpp:271
 msgctxt "QObject|"
 msgid "M221: Set extrude factor override percentage"
-msgstr ""
+msgstr "M221: הגדרת אחוז דריסת מקדם משחיל"
 
 #: src/core/gcodecommands.cpp:273
 msgctxt "QObject|"
@@ -658,7 +658,7 @@ msgstr "M226: להמתין למצב הפין"
 #: src/core/gcodecommands.cpp:275
 msgctxt "QObject|"
 msgid "M231: Set OPS parameter"
-msgstr ""
+msgstr "M231: הגדרת משתנה OPS"
 
 #: src/core/gcodecommands.cpp:277
 msgctxt "QObject|"
@@ -803,7 +803,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:333
 msgctxt "QObject|"
 msgid "M371: Move to next calibration position"
-msgstr ""
+msgstr "M371: מעבר לנקודת הכיול הבאה"
 
 #: src/core/gcodecommands.cpp:335
 msgctxt "QObject|"
@@ -1033,7 +1033,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:425
 msgctxt "QObject|"
 msgid "M570: Set heater timeout"
-msgstr ""
+msgstr "M570: הגדרת תום זמן מחמם"
 
 #: src/core/gcodecommands.cpp:427
 msgctxt "QObject|"
