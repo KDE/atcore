@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-06-16 16:38+0300\n"
+"PO-Revision-Date: 2025-06-18 16:21+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -536,12 +536,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:227
 msgctxt "QObject|"
 msgid "M140: Set Bed Temperature - Fast"
-msgstr ""
+msgstr "M140: הגדרת טמפרטורת מצע - מהיר"
 
 #: src/core/gcodecommands.cpp:229
 msgctxt "QObject|"
 msgid "M141: Set Chamber Temperature - Fast"
-msgstr ""
+msgstr "M141: הגדרת טמפרטורת תא - מהיר"
 
 #: src/core/gcodecommands.cpp:231
 msgctxt "QObject|"
@@ -663,7 +663,7 @@ msgstr "M231: הגדרת משתנה OPS"
 #: src/core/gcodecommands.cpp:277
 msgctxt "QObject|"
 msgid "M232: Read and reset max. advance values"
-msgstr ""
+msgstr "M232: קריאה ואיפוס של ערכי קידום מרביים"
 
 #: src/core/gcodecommands.cpp:279
 msgctxt "QObject|"
@@ -1013,17 +1013,17 @@ msgstr ""
 #: src/core/gcodecommands.cpp:417
 msgctxt "QObject|"
 msgid "M566: Set allowable instantaneous speed change"
-msgstr ""
+msgstr "M566: הגדרת החלפת מהירות פתאומית מותרת"
 
 #: src/core/gcodecommands.cpp:419
 msgctxt "QObject|"
 msgid "M567: Set tool mix ratio"
-msgstr ""
+msgstr "M567: הגדרת יחס ערבוב כלי"
 
 #: src/core/gcodecommands.cpp:421
 msgctxt "QObject|"
 msgid "M568: Turn off/on tool mix ratio"
-msgstr ""
+msgstr "M568: כיבוי/הפעלת יחס ערבוב כלי"
 
 #: src/core/gcodecommands.cpp:423
 msgctxt "QObject|"
