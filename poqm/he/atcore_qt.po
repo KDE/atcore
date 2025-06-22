@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-06-18 16:21+0300\n"
+"PO-Revision-Date: 2025-06-21 08:35+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -110,12 +110,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:29
 msgctxt "QObject|"
 msgid "G10: Retract"
-msgstr ""
+msgstr "G10: נסיגה"
 
 #: src/core/gcodecommands.cpp:31
 msgctxt "QObject|"
 msgid "G11: Unretract"
-msgstr ""
+msgstr "G11: ביטול נסיגה"
 
 #: src/core/gcodecommands.cpp:33
 msgctxt "QObject|"
@@ -442,7 +442,7 @@ msgstr "M110: הגדרת מספר השורה הנוכחי"
 #: src/core/gcodecommands.cpp:191
 msgctxt "QObject|"
 msgid "M111: Set Debug Level"
-msgstr "M111: הגדרת מצב ניפוי שגיאות"
+msgstr "M111: הגדרת רמת ניפוי שגיאות"
 
 #: src/core/gcodecommands.cpp:193
 msgctxt "QObject|"
@@ -618,22 +618,22 @@ msgstr ""
 #: src/core/gcodecommands.cpp:259
 msgctxt "QObject|"
 msgid "M207: Set retract length"
-msgstr ""
+msgstr "M207: הגדרת אורך נסיגה"
 
 #: src/core/gcodecommands.cpp:261
 msgctxt "QObject|"
 msgid "M208: Set unretract length"
-msgstr ""
+msgstr "M208: הגדרת אורך ביטול נסיגה"
 
 #: src/core/gcodecommands.cpp:263
 msgctxt "QObject|"
 msgid "M209: Enable automatic retract"
-msgstr ""
+msgstr "M209: הפעלת נסיגה אוטומטית"
 
 #: src/core/gcodecommands.cpp:265
 msgctxt "QObject|"
 msgid "M212: Set Bed Level Sensor Offset"
-msgstr ""
+msgstr "M212: הגדרת היסט חיישן איזון מצע"
 
 #: src/core/gcodecommands.cpp:267
 msgctxt "QObject|"
@@ -723,17 +723,17 @@ msgstr ""
 #: src/core/gcodecommands.cpp:301
 msgctxt "QObject|"
 msgid "M320: Activate autolevel (Repetier)"
-msgstr "M320: הפעלת רמות אוטומטיות (Repetier)"
+msgstr "M320: הפעלת איזון אוטומטי (Repetier)"
 
 #: src/core/gcodecommands.cpp:303
 msgctxt "QObject|"
 msgid "M321: Deactivate autolevel (Repetier)"
-msgstr "M321: כיבוי רמות אוטומטיות (Repetier)"
+msgstr "M321: כיבוי איזון אוטומטי (Repetier)"
 
 #: src/core/gcodecommands.cpp:305
 msgctxt "QObject|"
 msgid "M322: Reset autolevel matrix (Repetier)"
-msgstr "M322: איפוס רשת רמות אוטומטיות (Repetier)"
+msgstr "M322: איפוס רשת איזון אוטומטי (Repetier)"
 
 #: src/core/gcodecommands.cpp:307
 msgctxt "QObject|"
@@ -798,7 +798,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:331
 msgctxt "QObject|"
 msgid "M370: Morgan manual bed level - clear map"
-msgstr ""
+msgstr "M370: איזון מצע אוטומטי של Morgan - פינוי מפה"
 
 #: src/core/gcodecommands.cpp:333
 msgctxt "QObject|"
@@ -813,7 +813,7 @@ msgstr "M372: תיעוד ערך כיול ומעבר למקום הבא"
 #: src/core/gcodecommands.cpp:337
 msgctxt "QObject|"
 msgid "M373: End bed level calibration mode"
-msgstr "M373: סיום מצב כיול ברמת מצע"
+msgstr "M373: סיום מצב כיול איזון מצע"
 
 #: src/core/gcodecommands.cpp:339
 msgctxt "QObject|"
@@ -888,7 +888,7 @@ msgstr "M450: דיווח מצב מדפסת"
 #: src/core/gcodecommands.cpp:367
 msgctxt "QObject|"
 msgid "M451: Select FFF Printer Mode"
-msgstr ""
+msgstr "M451: בחירת מצב מדפסת FFF (ייצור מיזוג פילמנט)"
 
 #: src/core/gcodecommands.cpp:369
 msgctxt "QObject|"
@@ -903,7 +903,7 @@ msgstr "M453: בחירת מצב מדפסת CNC (כרסומת)"
 #: src/core/gcodecommands.cpp:373
 msgctxt "QObject|"
 msgid "M460: Define temperature range for thermistor controlled fan"
-msgstr ""
+msgstr "M460: הגדרת טווח טמפרטורות ברירת מחדל למאוור שנשלט על ידי תרמיסטור"
 
 #: src/core/gcodecommands.cpp:375
 msgctxt "QObject|"
@@ -918,7 +918,7 @@ msgstr "M501: קריאת משתנים מה־EEPROM (זיכרון מתוכנת)"
 #: src/core/gcodecommands.cpp:379
 msgctxt "QObject|"
 msgid "M502: Revert to the default 'factory settings'."
-msgstr ""
+msgstr "M502: החזרה ל‚הגדרות מהמפעל’ כברירת מחדל."
 
 #: src/core/gcodecommands.cpp:381
 msgctxt "QObject|"
@@ -1028,7 +1028,7 @@ msgstr "M568: כיבוי/הפעלת יחס ערבוב כלי"
 #: src/core/gcodecommands.cpp:423
 msgctxt "QObject|"
 msgid "M569: Set axis direction and enable values"
-msgstr ""
+msgstr "M569: הגדרת כיוון ציר והפעלת ערכים"
 
 #: src/core/gcodecommands.cpp:425
 msgctxt "QObject|"
@@ -1083,7 +1083,7 @@ msgstr "M600: השהיית החלפת פילמנט (קור)"
 #: src/core/gcodecommands.cpp:445
 msgctxt "QObject|"
 msgid "M605: Set dual x-carriage movement mode"
-msgstr ""
+msgstr "M605: הגדרת מצב תנועת כרכרת x כפולה"
 
 #: src/core/gcodecommands.cpp:447
 msgctxt "QObject|"
