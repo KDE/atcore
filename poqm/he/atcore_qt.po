@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-06-21 08:35+0300\n"
+"PO-Revision-Date: 2025-06-22 21:18+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -177,12 +177,12 @@ msgstr "G92: הגדרת מקום"
 #: src/core/gcodecommands.cpp:55
 msgctxt "QObject|"
 msgid "G100: Calibrate floor or rod radius"
-msgstr ""
+msgstr "G100: כיול רדיוס רצפה או מוט"
 
 #: src/core/gcodecommands.cpp:57
 msgctxt "QObject|"
 msgid "G130: Set digital potentiometer value"
-msgstr ""
+msgstr "G130: הגדרת ערך פוטנציומטר דיגיטלי"
 
 #: src/core/gcodecommands.cpp:59
 msgctxt "QObject|"
@@ -322,7 +322,7 @@ msgstr "M36: החזרת פרטי קובץ"
 #: src/core/gcodecommands.cpp:143
 msgctxt "QObject|"
 msgid "M42: Switch I/O pin"
-msgstr ""
+msgstr "M42: החלפת פין קלט/פלט"
 
 #: src/core/gcodecommands.cpp:145
 msgctxt "QObject|"
@@ -377,12 +377,12 @@ msgstr "M85: הגדרת מתזמן כיבוי בחוסר פעילות"
 #: src/core/gcodecommands.cpp:165
 msgctxt "QObject|"
 msgid "M92: Set axis steps per unit"
-msgstr ""
+msgstr "M92: הגדרת צעדי ציר לפי יחידה"
 
 #: src/core/gcodecommands.cpp:167
 msgctxt "QObject|"
 msgid "M93: Send axis steps per unit"
-msgstr ""
+msgstr "M93: שליחת צעדי ציר לפי יחידה"
 
 #: src/core/gcodecommands.cpp:169
 msgctxt "QObject|"
@@ -397,12 +397,12 @@ msgstr "M99: חזרה ממאקרו/תת־תוכנית"
 #: src/core/gcodecommands.cpp:173
 msgctxt "QObject|"
 msgid "M101: Turn extruder 1 on Forward, Undo Retraction"
-msgstr ""
+msgstr "M101: לכוון את משחיל 1 להתקדמות קדימה, ביטול נסיגה"
 
 #: src/core/gcodecommands.cpp:175
 msgctxt "QObject|"
 msgid "M103: Turn all extruders off - Extruder Retraction"
-msgstr ""
+msgstr "M103: לכבות את כל המשחילים - נסיגת משחילים"
 
 #: src/core/gcodecommands.cpp:177
 msgctxt "QObject|"
