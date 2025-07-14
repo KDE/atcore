@@ -611,7 +611,7 @@ msgstr "M203: მიწოდების მაქსიმალური ს�
 #: src/core/gcodecommands.cpp:253
 msgctxt "QObject|"
 msgid "M204: Set default acceleration"
-msgstr "M204: ნაგულისხმები აჩქარების დაყენება"
+msgstr "M204: ნაგულისხმევი აჩქარების დაყენება"
 
 #: src/core/gcodecommands.cpp:255
 msgctxt "QObject|"
@@ -969,7 +969,7 @@ msgstr "M553: ქსელური ნიღბის დაყენება"
 #: src/core/gcodecommands.cpp:393
 msgctxt "QObject|"
 msgid "M554: Set Gateway"
-msgstr "M554: ნაგულისხმები რაუტერის დაყენება"
+msgstr "M554: ნაგულისხმევი რაუტერის დაყენება"
 
 #: src/core/gcodecommands.cpp:395
 msgctxt "QObject|"
