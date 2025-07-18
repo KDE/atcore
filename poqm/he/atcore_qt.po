@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-06-26 09:48+0300\n"
+"PO-Revision-Date: 2025-07-16 15:16+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: src/core/atcore.cpp:141
 msgctxt "AtCore|"
@@ -506,32 +506,32 @@ msgstr "M127: סגירת שסתום"
 #: src/core/gcodecommands.cpp:215
 msgctxt "QObject|"
 msgid "M130: Set PID P value"
-msgstr ""
+msgstr "M130: הגדרת ערך P בכיול טמפרטורה/PID"
 
 #: src/core/gcodecommands.cpp:217
 msgctxt "QObject|"
 msgid "M131: Set PID I value"
-msgstr ""
+msgstr "M131: הגדרת ערך I בכיול טמפרטורה/PID"
 
 #: src/core/gcodecommands.cpp:219
 msgctxt "QObject|"
 msgid "M132: Set PID D value"
-msgstr ""
+msgstr "M132: הגדרת ערך D בכיול טמפרטורה/PID"
 
 #: src/core/gcodecommands.cpp:221
 msgctxt "QObject|"
 msgid "M133: Set PID I limit value"
-msgstr ""
+msgstr "M133: הגדרת ערך סף ל־ בכיול טמפרטורה/PID"
 
 #: src/core/gcodecommands.cpp:223
 msgctxt "QObject|"
 msgid "M134: Write PID values to EEPROM"
-msgstr ""
+msgstr "M134: כתיבת ערכי כיול טמפרטורה/PID ל־EEPROM"
 
 #: src/core/gcodecommands.cpp:225
 msgctxt "QObject|"
 msgid "M135: Set PID sample interval"
-msgstr ""
+msgstr "M135: הגדרת הפרשי דגימת כיול טמפרטורה/PID"
 
 #: src/core/gcodecommands.cpp:227
 msgctxt "QObject|"
@@ -551,7 +551,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:233
 msgctxt "QObject|"
 msgid "M144: Stand by your bed"
-msgstr ""
+msgstr "M144: עמידה לצד המצע"
 
 #: src/core/gcodecommands.cpp:235
 msgctxt "QObject|"
@@ -586,12 +586,12 @@ msgstr "M200: הגדרת קוטר פילמנט"
 #: src/core/gcodecommands.cpp:247
 msgctxt "QObject|"
 msgid "M201: Set max printing acceleration"
-msgstr ""
+msgstr "M201: הגדרת האצת הדפסה מרבית"
 
 #: src/core/gcodecommands.cpp:249
 msgctxt "QObject|"
 msgid "M202: Set max travel acceleration"
-msgstr ""
+msgstr "M202: הגדרת האצת טיול מרבית"
 
 #: src/core/gcodecommands.cpp:251
 msgctxt "QObject|"
@@ -853,7 +853,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:353
 msgctxt "QObject|"
 msgid "M404: Filament width and nozzle diameter"
-msgstr ""
+msgstr "M404: עובי הפילמנט וקוטר הדיזה"
 
 #: src/core/gcodecommands.cpp:355
 msgctxt "QObject|"
@@ -878,7 +878,7 @@ msgstr "M408: דיווח תגובה בסגנון JSON"
 #: src/core/gcodecommands.cpp:363
 msgctxt "QObject|"
 msgid "M420: Enable/Disable Mesh Leveling (Marlin)"
-msgstr ""
+msgstr "M420: הפעלת/השבתת כיוון איזון (Marlin)"
 
 #: src/core/gcodecommands.cpp:365
 msgctxt "QObject|"
