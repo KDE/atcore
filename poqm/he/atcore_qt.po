@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-07-16 15:16+0300\n"
+"PO-Revision-Date: 2025-07-24 10:20+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -788,12 +788,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:327
 msgctxt "QObject|"
 msgid "M365: SCARA scaling factor"
-msgstr ""
+msgstr "M365: מקדם קנה מידה SCARA"
 
 #: src/core/gcodecommands.cpp:329
 msgctxt "QObject|"
 msgid "M366: SCARA convert trim"
-msgstr ""
+msgstr "M366: המרת חיתוך SCARA"
 
 #: src/core/gcodecommands.cpp:331
 msgctxt "QObject|"
