@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-07-24 10:20+0300\n"
+"PO-Revision-Date: 2025-07-27 08:41+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -95,17 +95,17 @@ msgstr "G1: תנועה קווית"
 #: src/core/gcodecommands.cpp:23
 msgctxt "QObject|"
 msgid "G2: Controlled Arc Move clockwise"
-msgstr ""
+msgstr "G2: תנועה בקשת עם כיוון השעון"
 
 #: src/core/gcodecommands.cpp:25
 msgctxt "QObject|"
 msgid "G3: Controlled Arc Move counterclockwise"
-msgstr ""
+msgstr "G3: תנועה בקשת נגד כיוון השעון"
 
 #: src/core/gcodecommands.cpp:27
 msgctxt "QObject|"
 msgid "G4: Dwell"
-msgstr ""
+msgstr "G4: השהיה"
 
 #: src/core/gcodecommands.cpp:29
 msgctxt "QObject|"
@@ -135,29 +135,29 @@ msgstr "G28: הזזה לבית המקורי"
 #: src/core/gcodecommands.cpp:39
 msgctxt "QObject|"
 msgid "G29: Detailed Z-Probe"
-msgstr ""
+msgstr "G29: איתור מישוריות מצע ההדפסה"
 
 #: src/core/gcodecommands.cpp:41
 msgctxt "QObject|"
 msgid "G30: Single Z-Probe"
-msgstr ""
+msgstr "G30: בדיקת גובה נקודתית"
 
 #: src/core/gcodecommands.cpp:43
 msgctxt "QObject|"
 msgid "G31: Set or report current probe status / Dock Z Probe sled for Marlin"
-msgstr ""
+msgstr "G31: הגדרת/דיווח מצב חיישן / עגינת חיישן Z (מישוריות)"
 
 #: src/core/gcodecommands.cpp:45
 msgctxt "QObject|"
 msgid ""
 "G32: Probe Z and calculate Z plane(Bed Leveling)/ UnDoc Z Probe sled for "
 "Marlin"
-msgstr ""
+msgstr "G32: מדידת Z וחישוב מישור (איזון מצע) / שחרור חיישן Z"
 
 #: src/core/gcodecommands.cpp:47
 msgctxt "QObject|"
 msgid "G33: Measure/List/Adjust Distortion Matrix"
-msgstr ""
+msgstr "G33: מדידת/הצגת/התאמת מטריצת עיוות מצע"
 
 #: src/core/gcodecommands.cpp:49
 msgctxt "QObject|"
@@ -187,7 +187,7 @@ msgstr "G130: הגדרת ערך פוטנציומטר דיגיטלי"
 #: src/core/gcodecommands.cpp:59
 msgctxt "QObject|"
 msgid "G131: Recase Move offset"
-msgstr ""
+msgstr "G131: איפוס קיזוז"
 
 #: src/core/gcodecommands.cpp:61
 msgctxt "QObject|"
@@ -347,12 +347,12 @@ msgstr "M73: הגדרת אחוז בנייה"
 #: src/core/gcodecommands.cpp:153
 msgctxt "QObject|"
 msgid "M80: ATX Power On"
-msgstr ""
+msgstr "M80: הפעלת המדפסת/ספק כוח"
 
 #: src/core/gcodecommands.cpp:155
 msgctxt "QObject|"
 msgid "M81: ATX Power Off"
-msgstr ""
+msgstr "M81: כיבוי המדפסת/ספק כוח"
 
 #: src/core/gcodecommands.cpp:157
 msgctxt "QObject|"
@@ -843,12 +843,12 @@ msgstr "M400: להמתין לסיום התנועות הנוכחיות"
 #: src/core/gcodecommands.cpp:349
 msgctxt "QObject|"
 msgid "M401: Lower z-probe"
-msgstr ""
+msgstr "M401: הנמכת חיישן z (מישוריות)"
 
 #: src/core/gcodecommands.cpp:351
 msgctxt "QObject|"
 msgid "M402: Raise z-probe"
-msgstr ""
+msgstr "M402: הגבהת חיישן z (מישוריות)"
 
 #: src/core/gcodecommands.cpp:353
 msgctxt "QObject|"
@@ -968,12 +968,12 @@ msgstr "M556: פיצוי צירים"
 #: src/core/gcodecommands.cpp:399
 msgctxt "QObject|"
 msgid "M557: Set Z probe point"
-msgstr ""
+msgstr "M557: הגדרת נקודת חיישן Z (מישוריות)"
 
 #: src/core/gcodecommands.cpp:401
 msgctxt "QObject|"
 msgid "M558: Set Z probe type"
-msgstr ""
+msgstr "M558: הגדרת סוג חיישן Z (מישוריות)"
 
 #: src/core/gcodecommands.cpp:403
 msgctxt "QObject|"
@@ -1008,7 +1008,7 @@ msgstr "M564: הגבלת צירים"
 #: src/core/gcodecommands.cpp:415
 msgctxt "QObject|"
 msgid "M565: Set Z probe offset"
-msgstr ""
+msgstr "M565: הגדרת היסט חיישן Z"
 
 #: src/core/gcodecommands.cpp:417
 msgctxt "QObject|"
@@ -1103,7 +1103,7 @@ msgstr "M667: בחירת מצב CoreXY"
 #: src/core/gcodecommands.cpp:453
 msgctxt "QObject|"
 msgid "M851: Set Z-Probe Offset"
-msgstr ""
+msgstr "M851: הגדרת היסט חיישן Z (מישוריות)"
 
 #: src/core/gcodecommands.cpp:455
 msgctxt "QObject|"
