@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-07-27 08:41+0300\n"
+"PO-Revision-Date: 2025-07-29 10:14+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -327,7 +327,7 @@ msgstr "M42: החלפת פין קלט/פלט"
 #: src/core/gcodecommands.cpp:145
 msgctxt "QObject|"
 msgid "M48: Measure Z-Probe repeatability"
-msgstr ""
+msgstr "M48: מדידת עקביות חיישן Z (מישוריות)"
 
 #: src/core/gcodecommands.cpp:147
 msgctxt "QObject|"
@@ -367,7 +367,7 @@ msgstr "M83: הגדרת משחיל למצב יחסי"
 #: src/core/gcodecommands.cpp:161
 msgctxt "QObject|"
 msgid "M84: Stop idle hold"
-msgstr ""
+msgstr "M84: עצירת החזקה בחוסר פעילות"
 
 #: src/core/gcodecommands.cpp:163
 msgctxt "QObject|"
@@ -480,6 +480,8 @@ msgid ""
 "M120: Push for Smoothie and RepRap Firmware / Enable Endstop detection for "
 "Marlin"
 msgstr ""
+"M120: דחיפה לקושחות מסוג Smoothie ו־RepRap Firmware / הפעלת זיהוי נקודת "
+"עצירה ל־Marlin"
 
 #: src/core/gcodecommands.cpp:207
 msgctxt "QObject|"
@@ -487,6 +489,8 @@ msgid ""
 "M121: Pop for Smoothie and RepRap Firmware / Disable Endstop detection for "
 "Marlin"
 msgstr ""
+"M121: שליפה לקושחות מסוג Smoothie ו־RepRap Firmware / השבתת זיהוי נקודת "
+"עצירה ל־Marlin"
 
 #: src/core/gcodecommands.cpp:209
 msgctxt "QObject|"
@@ -521,7 +525,7 @@ msgstr "M132: הגדרת ערך D בכיול טמפרטורה/PID"
 #: src/core/gcodecommands.cpp:221
 msgctxt "QObject|"
 msgid "M133: Set PID I limit value"
-msgstr "M133: הגדרת ערך סף ל־ בכיול טמפרטורה/PID"
+msgstr "M133: הגדרת ערך סף ל־I בכיול טמפרטורה/PID"
 
 #: src/core/gcodecommands.cpp:223
 msgctxt "QObject|"
@@ -546,7 +550,7 @@ msgstr "M141: הגדרת טמפרטורת תא - מהיר"
 #: src/core/gcodecommands.cpp:231
 msgctxt "QObject|"
 msgid "M143: Maximum hot-end temperature"
-msgstr ""
+msgstr "M143: טמפרטורה מרבית של הראש החם"
 
 #: src/core/gcodecommands.cpp:233
 msgctxt "QObject|"
@@ -614,6 +618,8 @@ msgid ""
 "M206: Offset axes for Sprinter, Marlin, Smoothie, RepRap Firmware / Set "
 "eeprom value for Repetier"
 msgstr ""
+"M206: צירי היסט לקושחות Sprinter, Marlin, Smoothie, RepRap Firmware / הגדרת "
+"ערך eeprom ל־Repetier"
 
 #: src/core/gcodecommands.cpp:259
 msgctxt "QObject|"
@@ -638,7 +644,7 @@ msgstr "M212: הגדרת היסט חיישן איזון מצע"
 #: src/core/gcodecommands.cpp:267
 msgctxt "QObject|"
 msgid "M218: Set Hotend Offset"
-msgstr ""
+msgstr "M128: הגדרת היסט ראש חם"
 
 #: src/core/gcodecommands.cpp:269
 msgctxt "QObject|"
@@ -678,7 +684,7 @@ msgstr "M250: הגדרת ניגודיות מסך LCD"
 #: src/core/gcodecommands.cpp:283
 msgctxt "QObject|"
 msgid "M251: Measure Z steps from homing stop (Delta printers)"
-msgstr ""
+msgstr "M251: מדידת צעדי עומק/גובה מנקודת הבית (מדפסות Delta)"
 
 #: src/core/gcodecommands.cpp:285
 msgctxt "QObject|"
@@ -693,7 +699,7 @@ msgstr "M300: השמעת צפצוף"
 #: src/core/gcodecommands.cpp:289
 msgctxt "QObject|"
 msgid "M301: Set PID parameters"
-msgstr ""
+msgstr "M301: הגדרת משתני PID/כיול טמפרטורה"
 
 #: src/core/gcodecommands.cpp:291
 msgctxt "QObject|"
@@ -703,22 +709,22 @@ msgstr "M302: לאפשר השחלות קרות "
 #: src/core/gcodecommands.cpp:293
 msgctxt "QObject|"
 msgid "M303: Run PID tuning"
-msgstr ""
+msgstr "M303: הרצת כוונון PID/כיול טמפרטורה"
 
 #: src/core/gcodecommands.cpp:295
 msgctxt "QObject|"
 msgid "M304: Set PID parameters - Bed"
-msgstr "M304: הגדרת משתני PID - מצע"
+msgstr "M304: הגדרת משתני PID/כיול טמפרטורה - מצע"
 
 #: src/core/gcodecommands.cpp:297
 msgctxt "QObject|"
 msgid "M305: Set thermistor and ADC parameters"
-msgstr ""
+msgstr "M305: הגדרת משתני תרמיסטור ו־ADC (חיישן טמפרטורה וממיר אנלוגי-דיגיטלי)"
 
 #: src/core/gcodecommands.cpp:299
 msgctxt "QObject|"
 msgid "M306: set home offset calculated from toolhead position"
-msgstr ""
+msgstr "M306: הגדרת היסט בית מחושב ממקום ראש הכלי"
 
 #: src/core/gcodecommands.cpp:301
 msgctxt "QObject|"
@@ -768,22 +774,22 @@ msgstr "M360: דיווח הגדרות קושחה"
 #: src/core/gcodecommands.cpp:319
 msgctxt "QObject|"
 msgid "M361: Move to Theta 90 degree position"
-msgstr ""
+msgstr "M361: מעבר למקום תטא 90 מעלות"
 
 #: src/core/gcodecommands.cpp:321
 msgctxt "QObject|"
 msgid "M362: Move to Psi 0 degree position"
-msgstr ""
+msgstr "M362: מעבר למקום פסי 0 מעלות"
 
 #: src/core/gcodecommands.cpp:323
 msgctxt "QObject|"
 msgid "M363: Move to Psi 90 degree position"
-msgstr ""
+msgstr "M363: מעבר למקום פסי 90 מעלות"
 
 #: src/core/gcodecommands.cpp:325
 msgctxt "QObject|"
 msgid "M364: Move to Psi + Theta 90 degree position"
-msgstr ""
+msgstr "M364: מעבר למקום פסי + תטא 90 מעלות"
 
 #: src/core/gcodecommands.cpp:327
 msgctxt "QObject|"
@@ -928,7 +934,7 @@ msgstr "M503: הגדרות הדפסה "
 #: src/core/gcodecommands.cpp:383
 msgctxt "QObject|"
 msgid "M540: Enable/Disable 'Stop SD Print on Endstop Hit'"
-msgstr ""
+msgstr "M540: הפעלת/השבתת ‚עצירת הדפסה מ־SD בנגיעה בגובל קצה’"
 
 #: src/core/gcodecommands.cpp:385
 msgctxt "QObject|"
@@ -1043,7 +1049,7 @@ msgstr "M571: הגדרת פלט בהשחלה"
 #: src/core/gcodecommands.cpp:429
 msgctxt "QObject|"
 msgid "M573: Report heater PWM"
-msgstr ""
+msgstr "M573: דיווח בקרת כוח (PWM) המחמם"
 
 #: src/core/gcodecommands.cpp:431
 msgctxt "QObject|"
@@ -1068,7 +1074,7 @@ msgstr "M578: הזרקת טיפות דיו"
 #: src/core/gcodecommands.cpp:439
 msgctxt "QObject|"
 msgid "M579: Scale Cartesian axes"
-msgstr ""
+msgstr "M579: שינוי קנה מידה של צירים קרטזיים"
 
 #: src/core/gcodecommands.cpp:441
 msgctxt "QObject|"
@@ -1113,12 +1119,12 @@ msgstr "M906: הגדרת מתחי מנועים"
 #: src/core/gcodecommands.cpp:457
 msgctxt "QObject|"
 msgid "M907: Set digital trimpot motor"
-msgstr ""
+msgstr "M907: הגדרת מנוע נגד משתנה דיגיטלי"
 
 #: src/core/gcodecommands.cpp:459
 msgctxt "QObject|"
 msgid "M908: Control digital trimpot directly"
-msgstr ""
+msgstr "M908: שליטה ישירה בנגד משתנה דיגיטלי"
 
 #: src/core/gcodecommands.cpp:461
 msgctxt "QObject|"
@@ -1230,6 +1236,24 @@ msgid ""
 "p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select a "
 "firmware plugin in place of auto detect.</p>"
 msgstr ""
+"                        <h4>רשומות יומן מיוחדות</h4>                         "
+"<p><strong>פתיחת ההתקן במצב קריאה/כתיבה נכשלה.</strong></"
+"p>                         <p>&nbsp;&nbsp;&nbsp; פתיחת ההתקן נכשלה.</"
+"p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; נא לבדוק שההתקן לא "
+"פתוח בתוכנית אחרת.</p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; "
+"נא לבדוק שיש לך את ההרשאות המתאימות לפתוח את ההתקן.</"
+"p>                         <p><strong>לא נמצא תוסף עבור &lt;הקושחה שזוהתה&gt;"
+"</strong></p>                         <p>&nbsp;&nbsp;&nbsp; תוספי הקושחה "
+"חסרים או שהקושחה שלך לא נתמכת כרגע.</p>                         <p>&nbsp;"
+"&nbsp;&nbsp;&nbsp;&nbsp; לבחור ידנית את התוסף ל־Marlin או ל־Repetier.</"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; אם לקושחה שלך "
+"אין תוסף נא ליידע אותנו.</p>                         <p><strong>הרבה פעמים "
+"&ldquo;בהמתנה לזיהוי קושחה&rdquo;</strong></p>                         "
+"<p>&nbsp;&nbsp;&nbsp; לא ניתן לשלוח את אות זיהוי הקושחה או שזאת המתנה להפעלת "
+"המדפסת מחדש</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; יש "
+"ללחוץ על כפתור ההפעלה מחדש במדפסת שלך כדי להדליק או לכבות אותה. </"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; לבחור תוסף "
+"קושחה במקום זיהוי אוטומטי.</p>"
 
 #: src/widgets/logwidget.cpp:81
 msgctxt "LogWidget|"
