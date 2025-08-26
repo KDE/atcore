@@ -1,14 +1,14 @@
 # Translation for atcore_qt.po to Euskara/Basque (eu).
-# Copyright (C) 2020-2022, This file is copyright:
+# Copyright (C) 2020-2025 This file is copyright:
 # This file is distributed under the same license as the original file.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2022.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2022, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-07-15 23:57+0200\n"
+"PO-Revision-Date: 2025-08-25 23:51+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: src/core/atcore.cpp:141
 msgctxt "AtCore|"
@@ -166,17 +166,17 @@ msgstr ""
 #: src/core/gcodecommands.cpp:47
 msgctxt "QObject|"
 msgid "G33: Measure/List/Adjust Distortion Matrix"
-msgstr ""
+msgstr "G33: Neurtu/zerrendatu/doitu distortsio-matrizea"
 
 #: src/core/gcodecommands.cpp:49
 msgctxt "QObject|"
 msgid "G90: Set to absolute positioning"
-msgstr ""
+msgstr "G90: Ezarri posizio absolutua"
 
 #: src/core/gcodecommands.cpp:51
 msgctxt "QObject|"
 msgid "G91: Set to relative positioning"
-msgstr ""
+msgstr "G91: Ezarri posizio erlatiboa"
 
 #: src/core/gcodecommands.cpp:53
 msgctxt "QObject|"
@@ -191,22 +191,23 @@ msgstr "G100: Kalibratu zoru edo hagatxo -erradioa"
 #: src/core/gcodecommands.cpp:57
 msgctxt "QObject|"
 msgid "G130: Set digital potentiometer value"
-msgstr ""
+msgstr "G130: Ezarri potentziometro digitalaren balioa"
 
 #: src/core/gcodecommands.cpp:59
+#, fuzzy
 msgctxt "QObject|"
 msgid "G131: Recase Move offset"
-msgstr ""
+msgstr "G131: Mugimendu-desfasea berriro ezarri"
 
 #: src/core/gcodecommands.cpp:61
 msgctxt "QObject|"
 msgid "G132: Calibrate endstops offsets"
-msgstr ""
+msgstr "G132: Kalibratu ibilbide-bukaeren desfaseak"
 
 #: src/core/gcodecommands.cpp:63
 msgctxt "QObject|"
 msgid "G133: Measure steps to top"
-msgstr ""
+msgstr "G133: Neurtu goialderako urratsak"
 
 #: src/core/gcodecommands.cpp:65
 msgctxt "QObject|"
@@ -221,12 +222,12 @@ msgstr "G162: Makina-zero ardatza maximora"
 #: src/core/gcodecommands.cpp:99
 msgctxt "QObject|"
 msgid "M0: Stop or unconditional stop"
-msgstr ""
+msgstr "M0: Gelditu edo baldintzarik gabe gelditu"
 
 #: src/core/gcodecommands.cpp:101
 msgctxt "QObject|"
 msgid "M1: Sleep or unconditional stop"
-msgstr ""
+msgstr "M1: Lokartu edo baldintzarik gabe gelditu"
 
 #: src/core/gcodecommands.cpp:103
 msgctxt "QObject|"
@@ -481,7 +482,7 @@ msgstr "M117: Azaldu mezua"
 #: src/core/gcodecommands.cpp:203
 msgctxt "QObject|"
 msgid "M119: Get Endstop Status"
-msgstr "M119: Lortu amaierako geldialdiaren egoera"
+msgstr "M119: Lortu ibilbide-bukaeren egoera"
 
 #: src/core/gcodecommands.cpp:205
 msgctxt "QObject|"
@@ -489,6 +490,8 @@ msgid ""
 "M120: Push for Smoothie and RepRap Firmware / Enable Endstop detection for "
 "Marlin"
 msgstr ""
+"M120: Push (Smoothie eta RepRap firmwareetarako) / Gaitu ibilbide-bukaera "
+"hautematea (Marlin-erako)"
 
 #: src/core/gcodecommands.cpp:207
 msgctxt "QObject|"
@@ -496,6 +499,8 @@ msgid ""
 "M121: Pop for Smoothie and RepRap Firmware / Disable Endstop detection for "
 "Marlin"
 msgstr ""
+"M121: Pop (Smoothie eta RepRap firmwareetarako) / Ezgaitu ibilbide-bukaera "
+"hautematea (Marlin-erako)"
 
 #: src/core/gcodecommands.cpp:209
 msgctxt "QObject|"
@@ -941,7 +946,7 @@ msgstr "M503: Inprimatze ezarpenak "
 #: src/core/gcodecommands.cpp:383
 msgctxt "QObject|"
 msgid "M540: Enable/Disable 'Stop SD Print on Endstop Hit'"
-msgstr ""
+msgstr "M540: Gaitu/ezgaitu 'Gelditu SD inprimaketa ibilbide-bukaera jotzean'"
 
 #: src/core/gcodecommands.cpp:385
 msgctxt "QObject|"
@@ -1061,7 +1066,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:431
 msgctxt "QObject|"
 msgid "M574: Set endstop configuration"
-msgstr "M574: Ezarri amaierako geldialdiaren konfigurazioa"
+msgstr "M574: Ezarri ibilbide-bukaeren konfigurazioa"
 
 #: src/core/gcodecommands.cpp:433
 msgctxt "QObject|"
@@ -1071,7 +1076,7 @@ msgstr "M575: Ezarri serieko komunikazio-parametroak"
 #: src/core/gcodecommands.cpp:435
 msgctxt "QObject|"
 msgid "M577: Wait until endstop is triggered"
-msgstr "M577: Itxoin amaierako geldialdia eragin arte"
+msgstr "M577: Itxoin ibilbide-bukaera eragin arte"
 
 #: src/core/gcodecommands.cpp:437
 msgctxt "QObject|"
@@ -1106,7 +1111,7 @@ msgstr "M665: Ezarri delta konfigurazioa"
 #: src/core/gcodecommands.cpp:449
 msgctxt "QObject|"
 msgid "M666: Set delta endstop adjustment"
-msgstr "M666: Ezarri delta amaierako geldialdiaren doikuntza"
+msgstr "M666: Ezarri delta ibilbide-bukaeraren doikuntza"
 
 #: src/core/gcodecommands.cpp:451
 msgctxt "QObject|"
