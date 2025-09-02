@@ -273,7 +273,7 @@ msgstr "M22: Allibera la targeta SD"
 #: src/core/gcodecommands.cpp:117
 msgctxt "QObject|"
 msgid "M23: Select SD file"
-msgstr "M23: Selecciona el fitxer a la SD"
+msgstr "M23: Tria el fitxer a la SD"
 
 #: src/core/gcodecommands.cpp:119
 msgctxt "QObject|"
@@ -320,7 +320,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:135
 msgctxt "QObject|"
 msgid "M32: Select file and start SD print"
-msgstr "M32: Selecciona un fitxer i inicia la impressió SD"
+msgstr "M32: Tria un fitxer i inicia la impressió SD"
 
 #: src/core/gcodecommands.cpp:137
 msgctxt "QObject|"
@@ -922,18 +922,18 @@ msgstr "M450: Informa del mode d'impressora"
 #: src/core/gcodecommands.cpp:367
 msgctxt "QObject|"
 msgid "M451: Select FFF Printer Mode"
-msgstr "M451: Selecciona el mode d'impressora FFF"
+msgstr "M451: Tria el mode d'impressora FFF"
 
 #: src/core/gcodecommands.cpp:369
 msgctxt "QObject|"
 msgid "M452: Select Laser Printer Mode"
-msgstr "M452: Selecciona el mode d'impressora làser"
+msgstr "M452: Tria el mode d'impressora làser"
 
 # Nota: https://ca.wikipedia.org/wiki/Control_num%C3%A8ric_per_ordinador
 #: src/core/gcodecommands.cpp:371
 msgctxt "QObject|"
 msgid "M453: Select CNC Printer Mode"
-msgstr "M453: Selecciona el mode d'impressora CNC"
+msgstr "M453: Tria el mode d'impressora CNC"
 
 #: src/core/gcodecommands.cpp:373
 msgctxt "QObject|"
@@ -1111,7 +1111,7 @@ msgstr "M579: Escala els eixos cartesians"
 #: src/core/gcodecommands.cpp:441
 msgctxt "QObject|"
 msgid "M580: Select Roland"
-msgstr "M580: Selecciona el Roland"
+msgstr "M580: Tria el Roland"
 
 #: src/core/gcodecommands.cpp:443
 msgctxt "QObject|"
@@ -1136,7 +1136,7 @@ msgstr "M666: Establix l'ajustament de la parada final delta"
 #: src/core/gcodecommands.cpp:451
 msgctxt "QObject|"
 msgid "M667: Select CoreXY mode"
-msgstr "M667: Selecciona el mode CoreXY"
+msgstr "M667: Tria el mode CoreXY"
 
 #: src/core/gcodecommands.cpp:453
 msgctxt "QObject|"
@@ -1281,17 +1281,17 @@ msgstr ""
 "&lt;microprogramari detectat&gt;</strong></p>                         "
 "<p>&nbsp;&nbsp;&nbsp; Falten els connectors del microprogramari o actualment "
 "no s'admet el vostre microprogramari.</p>                         <p>&nbsp;"
-"&nbsp;&nbsp;&nbsp;&nbsp; Seleccioneu manualment el connector Marlin o "
-"Repetier.</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Si "
-"el vostre microprogramari no disposa de cap connector, feu-nos-ho saber.</"
+"&nbsp;&nbsp;&nbsp;&nbsp; Trieu manualment el connector Marlin o Repetier.</"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Si el vostre "
+"microprogramari no disposa de cap connector, feu-nos-ho saber.</"
 "p>                         <p><strong>Molts &ldquo;S'està esperant a "
 "detectar el microprogramari&rdquo;.</strong></p>                         "
 "<p>&nbsp;&nbsp;&nbsp; No es pot enviar el detector del microprogramari "
 "mentre s'espera que es reinicie la impressora.</p>                         "
 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Premeu el botó Reinicia de la impressora o "
 "apagueu-la i inicieu-la.</p>                         <p>&nbsp;&nbsp;&nbsp;"
-"&nbsp;&nbsp; Seleccioneu un connector de microprogramari en lloc de detectar-"
-"lo automàticament.</p>"
+"&nbsp;&nbsp; Trieu un connector de microprogramari en lloc de detectar-lo "
+"automàticament.</p>"
 
 #: src/widgets/logwidget.cpp:81
 msgctxt "LogWidget|"
@@ -1786,7 +1786,7 @@ msgstr ""
 #: testclient/mainwindow.cpp:498
 msgctxt "MainWindow|"
 msgid "Select a file to print"
-msgstr "Seleccioneu un fitxer per a imprimir"
+msgstr "Trieu un fitxer per a imprimir"
 
 #: testclient/mainwindow.cpp:498
 msgctxt "MainWindow|"
