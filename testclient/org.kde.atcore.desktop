@@ -2,6 +2,7 @@
 #SPDX-License-Identifier: CC0-1.0
 [Desktop Entry]
 Name=AtCore Test Client
+Name[ar]=عميل اختبار AtCore
 Name[ca]=Client de prova de l'AtCore
 Name[ca@valencia]=Client de prova d'AtCore
 Name[cs]=Testovací klient AtCore
