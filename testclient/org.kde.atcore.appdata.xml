@@ -6,6 +6,7 @@
 <component type="desktop">
   <id>org.kde.atcore.desktop</id>
   <name>AtCore Test Client</name>
+  <name xml:lang="ar">عميل اختبار AtCore</name>
   <name xml:lang="ca">Client de prova de l'AtCore</name>
   <name xml:lang="ca-valencia">Client de prova d'AtCore</name>
   <name xml:lang="cs">Testovací klient AtCore</name>
@@ -42,6 +43,7 @@
   <name xml:lang="zh-CN">AtCore 测试客户端</name>
   <name xml:lang="zh-TW">AtCore 測試用戶端</name>
   <summary>A test application for the AtCore framework to control 3D printers</summary>
+  <summary xml:lang="ar">تطبيق اختباري لإطار عمل AtCore للتحكم في الطابعات ثلاثية الأبعاد</summary>
   <summary xml:lang="ca">Una aplicació de prova per a l'entorn de treball AtCore per a controlar les impressores 3D</summary>
   <summary xml:lang="ca-valencia">Una aplicació de prova per a l'entorn de treball AtCore per a controlar les impressores 3D</summary>
   <summary xml:lang="cs">Testovací aplikace pro framework AtCore pro ovládání 3D tiskáren</summary>
@@ -77,6 +79,7 @@
     <p>
         AtCore is the API that controls the 3DPrinter and its basic functionalities. AtCore comes with a test client called atcore-gui to manage your printer.
     </p>
+    <p xml:lang="ar">AtCore هو واجهة برمجة التطبيقات (API) التي تتحكم في الطابعة ثلاثية الأبعاد ووظائفها الأساسية. يأتي AtCore مزودًا بعميل اختبار يسمى atcore-gui لإدارة الطابعة.</p>
     <p xml:lang="ca">L'AtCore és l'API que controla la impressora 3D i les seves funcionalitats bàsiques. L'AtCore ve amb client de prova anomenant «atcore-gui» per a gestionar la impressora.</p>
     <p xml:lang="ca-valencia">AtCore és l'API que controla la impressora 3D i les seues característiques bàsiques. AtCore ve amb client de prova anomenant «atcore-gui» per a gestionar la impressora.</p>
     <p xml:lang="de">AtCore ist die API, die den 3DDrucker und seine grundlegenden Funktionalitäten steuert. AtCore wird mit einem Test-Programm namens atcore-gui geliefert, um Ihren Drucker zu verwalten.</p>
@@ -110,6 +113,7 @@
     <p>
         This is an AtCore test application to showcase the framework.
     </p>
+    <p xml:lang="ar">هذا تطبيق اختباري من AtCore لعرض إطار العمل.</p>
     <p xml:lang="ca">Aquesta és una aplicació de prova de l'AtCore per a presentar l'entorn de treball.</p>
     <p xml:lang="ca-valencia">Esta és una aplicació de prova d'AtCore per a presentar l'entorn de treball.</p>
     <p xml:lang="de">Dies ist eine AtCore-Testanwendung, um das Framework demonstrieren.</p>
