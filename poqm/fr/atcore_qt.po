@@ -787,7 +787,7 @@ msgstr "M351 : échange direct des broches « MS1 » et « MS2 »"
 #: src/core/gcodecommands.cpp:315
 msgctxt "QObject|"
 msgid "M355: Turn case lights on/off"
-msgstr "M355 : allumage ou extinction des lumières de la boîte"
+msgstr "M355 : allumage ou extinction des lumières de la boite"
 
 #: src/core/gcodecommands.cpp:317
 msgctxt "QObject|"
