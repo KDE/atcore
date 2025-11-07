@@ -1,15 +1,15 @@
 # Translation of atcore_qt.po to Catalan
-# Copyright (C) 2017-2024 This_file_is_part_of_KDE
+# Copyright (C) 2017-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2017, 2018, 2020 Antoni Bella Pérez <antonibella5@yahoo.com>
-# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: atcore\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2024-10-16 19:17+0200\n"
+"PO-Revision-Date: 2025-11-06 16:33+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/core/atcore.cpp:141
 msgctxt "AtCore|"
@@ -50,7 +50,7 @@ msgstr "Ha fallat en obrir el dispositiu en el mode lectura/escriptura."
 #: src/core/atcore.cpp:868
 msgctxt "AtCore|"
 msgid "Device not found"
-msgstr "No s'ha trobat cap dispositiu"
+msgstr "No s'ha trobat el dispositiu"
 
 #: src/core/atcore.cpp:871
 msgctxt "AtCore|"
@@ -1863,92 +1863,3 @@ msgstr "S'està aturant la impressió"
 msgctxt "MainWindow|"
 msgid "Command ERROR"
 msgstr "ERROR amb l'ordre"
-
-#~ msgctxt "PrintWidget|"
-#~ msgid "On Pause:"
-#~ msgstr "En pausa:"
-
-#~ msgctxt "MainWindow|"
-#~ msgid "Use Plugin:"
-#~ msgstr "Usa el connector:"
-
-#~ msgctxt "MainWindow|"
-#~ msgid "Autodetect"
-#~ msgstr "Autodetecta"
-
-#~ msgctxt "AtCore|"
-#~ msgid "Cant find firwmware, serial not connected!"
-#~ msgstr ""
-#~ "No s'ha pogut trobar el microprogramari, el sèrie no està connectat!"
-
-#~ msgctxt "PieButton|"
-#~ msgid "Move the hotend to the %1 by %2 units"
-#~ msgstr "Mou l'escalfament final al %1 en %2 unitats"
-
-#~ msgctxt "RectButton|"
-#~ msgid "Move the hotend to the %1 by %2 units"
-#~ msgstr "Mou l'escalfament final al %1 en %2 unitats"
-
-#~ msgctxt "RectButton|"
-#~ msgid "Extrude %1 Units"
-#~ msgstr "Extrusor %1 unitats"
-
-#~ msgctxt "PlotWidget|"
-#~ msgid "Actual Bed"
-#~ msgstr "Llit real"
-
-#~ msgctxt "PlotWidget|"
-#~ msgid "Target Bed"
-#~ msgstr "Llit objectiu"
-
-#~ msgctxt "PlotWidget|"
-#~ msgid "Actual Ext.1"
-#~ msgstr "Ext.1 real"
-
-#~ msgctxt "PlotWidget|"
-#~ msgid "Target Ext.1"
-#~ msgstr "Ext.1 objectiu"
-
-#~ msgctxt "AtCore|"
-#~ msgid "plugins[%1]=%2"
-#~ msgstr "connectors[%1]=%2"
-
-#~ msgctxt "MainWindow|"
-#~ msgid "Requesting Firmware..."
-#~ msgstr "S'està demanant el microprogramari..."
-
-#~ msgctxt "QObject|"
-#~ msgid "GCommand not supported!"
-#~ msgstr "El GCommand no està admès!"
-
-#~ msgctxt "QObject|"
-#~ msgid "ERROR! M104: It's obligatory to have an argument"
-#~ msgstr "ERROR! M104: És obligatori que tingui un argument"
-
-#~ msgctxt "QObject|"
-#~ msgid "ERROR! M109: It's obligatory to have an argument"
-#~ msgstr "ERROR! M109: És obligatori que tingui un argument"
-
-#~ msgctxt "QObject|"
-#~ msgid "ERROR! M117: It's obligatory to have an argument"
-#~ msgstr "ERROR! M117: És obligatori que tingui un argument"
-
-#~ msgctxt "QObject|"
-#~ msgid "ERROR! M140: It's obligatory to have an argument"
-#~ msgstr "ERROR! M140: És obligatori que tingui un argument"
-
-#~ msgctxt "QObject|"
-#~ msgid "ERROR! M190: It's obligatory to have an argument"
-#~ msgstr "ERROR! M190: És obligatori que tingui un argument"
-
-#~ msgctxt "QObject|"
-#~ msgid "ERROR! M220: It's obligatory to have an argument"
-#~ msgstr "ERROR! M220: És obligatori que tingui un argument"
-
-#~ msgctxt "QObject|"
-#~ msgid "ERROR! M221: It's obligatory to have an argument"
-#~ msgstr "ERROR! M221: És obligatori que tingui un argument"
-
-#~ msgctxt "QObject|"
-#~ msgid "Not supported or implemented!"
-#~ msgstr "No està admès o no s'ha implementat!"
