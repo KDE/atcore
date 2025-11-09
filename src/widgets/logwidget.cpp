@@ -145,7 +145,10 @@ void LogWidget::flushTemp()
     return true upon success and will set the fileName() to the unique
     filename used.
     */
-    logFile->open();
+    if (!logFile->open()) {
+        qWarning("failed to open temporary log file");
+        return;
+    }
     logFile->seek(logFile->size());
     for (const auto &string : std::as_const(unsyncedStrings)) {
         logFile->write(string.toLatin1());
