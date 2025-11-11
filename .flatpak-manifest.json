@@ -11,7 +11,8 @@
         "--share=ipc",
         "--socket=fallback-x11",
         "--socket=wayland",
-        "--device=all"
+        "--device=all",
+        "--system-talk-name=org.freedesktop.UDisks2"
     ],
     "modules": [
         {
