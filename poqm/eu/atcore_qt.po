@@ -1255,7 +1255,7 @@ msgctxt "LogWidget|"
 msgid "Save Session Log"
 msgstr "Gorde saioko egunkaria"
 
-#: src/widgets/logwidget.cpp:164
+#: src/widgets/logwidget.cpp:167
 msgctxt "LogWidget|"
 msgid "Save Log to file"
 msgstr "Gorde egunkaria fitxategian"

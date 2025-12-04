@@ -1228,7 +1228,7 @@ msgctxt "LogWidget|"
 msgid "Save Session Log"
 msgstr ""
 
-#: src/widgets/logwidget.cpp:164
+#: src/widgets/logwidget.cpp:167
 msgctxt "LogWidget|"
 msgid "Save Log to file"
 msgstr ""

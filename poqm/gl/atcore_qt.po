@@ -1286,7 +1286,7 @@ msgctxt "LogWidget|"
 msgid "Save Session Log"
 msgstr "Gardar o rexistro da sesión"
 
-#: src/widgets/logwidget.cpp:164
+#: src/widgets/logwidget.cpp:167
 msgctxt "LogWidget|"
 msgid "Save Log to file"
 msgstr "Gardar o rexistro no ficheiro"

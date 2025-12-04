@@ -1298,7 +1298,7 @@ msgctxt "LogWidget|"
 msgid "Save Session Log"
 msgstr "Desa el registre de la sessió"
 
-#: src/widgets/logwidget.cpp:164
+#: src/widgets/logwidget.cpp:167
 msgctxt "LogWidget|"
 msgid "Save Log to file"
 msgstr "Desa el registre a un fitxer"

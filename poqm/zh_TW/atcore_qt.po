@@ -1235,7 +1235,7 @@ msgctxt "LogWidget|"
 msgid "Save Session Log"
 msgstr "儲存工作階段紀錄"
 
-#: src/widgets/logwidget.cpp:164
+#: src/widgets/logwidget.cpp:167
 msgctxt "LogWidget|"
 msgid "Save Log to file"
 msgstr "將紀錄儲存到檔案"

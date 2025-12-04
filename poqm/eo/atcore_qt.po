@@ -1244,7 +1244,7 @@ msgctxt "LogWidget|"
 msgid "Save Session Log"
 msgstr "Konservi Seancan Protokolon"
 
-#: src/widgets/logwidget.cpp:164
+#: src/widgets/logwidget.cpp:167
 msgctxt "LogWidget|"
 msgid "Save Log to file"
 msgstr "Konservi Protokolo al dosiero"

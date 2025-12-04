@@ -1235,7 +1235,7 @@ msgctxt "LogWidget|"
 msgid "Save Session Log"
 msgstr "Tallenna istuntoloki"
 
-#: src/widgets/logwidget.cpp:164
+#: src/widgets/logwidget.cpp:167
 msgctxt "LogWidget|"
 msgid "Save Log to file"
 msgstr "Tallenna loki tiedostoon"

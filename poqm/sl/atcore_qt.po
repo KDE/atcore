@@ -1276,7 +1276,7 @@ msgctxt "LogWidget|"
 msgid "Save Session Log"
 msgstr "Shrani zapisnik seje"
 
-#: src/widgets/logwidget.cpp:164
+#: src/widgets/logwidget.cpp:167
 msgctxt "LogWidget|"
 msgid "Save Log to file"
 msgstr "Shrani zapisnik v datoteko"

@@ -1260,7 +1260,7 @@ msgctxt "LogWidget|"
 msgid "Save Session Log"
 msgstr "שמירת יומן הפעלה"
 
-#: src/widgets/logwidget.cpp:164
+#: src/widgets/logwidget.cpp:167
 msgctxt "LogWidget|"
 msgid "Save Log to file"
 msgstr "שמירת יומן לקובץ"
