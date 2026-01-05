@@ -20,6 +20,8 @@ include(GenerateExportHeader)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
+include(ECMDeprecationSettings)
+ecm_set_disabled_deprecation_versions(QT 6.10.0)
 
 option(BUILD_GUI "Build the Test Gui")
 option(BUILD_DOCS "Build and Install Documents (Requires Doxygen)")
