@@ -1682,7 +1682,7 @@ msgstr ""
 "La màquina no ha respost després de 20 segons.\n"
 "\n"
 "Abans de tornar a connectar, verifiqueu que la impressora estiga encesa i "
-"s'utilitze la velocitat de BAUD correcte per al dispositiu."
+"que s'utilitze la velocitat de BAUD correcta per al dispositiu."
 
 #: testclient/mainwindow.cpp:304
 msgctxt "MainWindow|"
