@@ -1,12 +1,12 @@
 # Alexander Potashev <aspotashev@gmail.com>, 2017.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2021.
+# SPDX-FileCopyrightText: 2021, 2026 Alexander Yavorsky <kekcuha@gmail.com>
 # Olesya Gerasimenko <translation-team@basealt.ru>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-09-29 17:14+0300\n"
-"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
-"Language-Team: Basealt Translation Team\n"
+"PO-Revision-Date: 2026-02-18 22:29+0200\n"
+"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,35 +14,34 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: src/core/atcore.cpp:141
 msgctxt "AtCore|"
 msgid "Waiting for firmware detect."
-msgstr ""
+msgstr "Ожидание обнаружения прошивки."
 
 #: src/core/atcore.cpp:195
 #, qt-format
 msgctxt "AtCore|"
 msgid "Connected to printer using %1 plugin"
-msgstr ""
+msgstr "Подключение к принтеру с использованием модуля «%1» установлено."
 
 #: src/core/atcore.cpp:199
 #, fuzzy, qt-format
 msgctxt "AtCore|"
 msgid "No plugin found for %1."
-msgstr "Загруженных модулей нет!"
+msgstr "Не найдено расширения для «%1»."
 
 #: src/core/atcore.cpp:238
-#, fuzzy
 msgctxt "AtCore|"
 msgid "Waiting for machine restart"
-msgstr "M226: Дождаться состояния контакта"
+msgstr "Ожидание перезагрузки оборудования"
 
 #: src/core/atcore.cpp:249
 msgctxt "AtCore|"
 msgid "Failed to open device in read/write mode."
-msgstr ""
+msgstr "Не удалось открыть устройство в режиме чтения и записи."
 
 #: src/core/atcore.cpp:868
 msgctxt "AtCore|"
@@ -52,25 +51,24 @@ msgstr "Устройство не найдено."
 #: src/core/atcore.cpp:871
 msgctxt "AtCore|"
 msgid "Unable to write to device"
-msgstr ""
+msgstr "Не удалось записать на устройство"
 
 #: src/core/atcore.cpp:874
 msgctxt "AtCore|"
 msgid "Unable to read from device"
-msgstr ""
+msgstr "Не удалось прочитать данные с устройства"
 
 #: src/core/atcore.cpp:878
 msgctxt "AtCore|"
 msgid "The device no longer available"
-msgstr ""
+msgstr "Устройство больше недоступно"
 
 #: src/core/atcore.cpp:882
 msgctxt "AtCore|"
 msgid "Device does not support the operation"
-msgstr ""
+msgstr "Устройство не поддерживает эту операцию."
 
 #: src/core/atcore.cpp:885
-#, fuzzy
 msgctxt "AtCore|"
 msgid "Unknown Error"
 msgstr "Неизвестная ошибка"
@@ -79,7 +77,7 @@ msgstr "Неизвестная ошибка"
 #, qt-format
 msgctxt "QObject|"
 msgid "%1%2: requires an argument"
-msgstr ""
+msgstr "%1%2: требуется аргумент"
 
 #: src/core/gcodecommands.cpp:13
 msgctxt "QObject|"
@@ -580,10 +578,9 @@ msgid "M150: Set display color"
 msgstr "M150: Установить отображаемый цвет"
 
 #: src/core/gcodecommands.cpp:237
-#, fuzzy
 msgctxt "QObject|"
 msgid "M155: Set Temperature auto report"
-msgstr "M562: Сбросить ошибку температуры"
+msgstr "M155: Установка автоматического отчета о температуре"
 
 #: src/core/gcodecommands.cpp:239
 msgctxt "QObject|"
@@ -1186,16 +1183,16 @@ msgid "M999: Restart after being stopped by error"
 msgstr "M999: Перезапустить после остановки из-за ошибки"
 
 #: src/widgets/about.cpp:21
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "About|"
 msgid "Version: %1"
-msgstr "Печать: %1"
+msgstr "Версия: %1"
 
 #: src/widgets/about.cpp:22
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "About|"
 msgid "Using Qt: %1"
-msgstr "Печать: %1"
+msgstr "Используется Qt: %1"
 
 #: src/widgets/about.cpp:23
 msgctxt "About|"
@@ -1206,9 +1203,13 @@ msgid ""
 "  Lays Rodrigues <lays.rodrigues@kde.org>\n"
 "  Tomaz Canabrava <tcanabrava@kde.org>"
 msgstr ""
+"Авторы:\n"
+"  Chris Rizzitello <rizzitello@kde.org>\n"
+"  Patrick José Pereira <patrickjp@kde.org>\n"
+"  Lays Rodrigues <lays.rodrigues@kde.org>\n"
+"  Tomaz Canabrava <tcanabrava@kde.org>"
 
 #: src/widgets/about.cpp:35
-#, fuzzy
 msgctxt "About|"
 msgid "Close"
 msgstr "Закрыть"
@@ -1216,24 +1217,22 @@ msgstr "Закрыть"
 #: src/widgets/axiscontrol.cpp:22
 msgctxt "AxisControl|"
 msgid "Move Axis"
-msgstr ""
+msgstr "Переместить ось"
 
 #: src/widgets/commandwidget.cpp:25
 msgctxt "CommandWidget|"
 msgid "Send Command"
-msgstr ""
+msgstr "Отправить команду"
 
 #: src/widgets/commandwidget.cpp:28 src/widgets/commandwidget.cpp:53
-#, fuzzy
 msgctxt "CommandWidget|"
 msgid "Send"
 msgstr "Отправить"
 
 #: src/widgets/commandwidget.cpp:50
-#, fuzzy
 msgctxt "CommandWidget|"
 msgid "Show Message"
-msgstr "Показать письмо"
+msgstr "Показать сообщение"
 
 #: src/widgets/logwidget.cpp:62
 msgctxt "LogWidget|"
@@ -1258,38 +1257,49 @@ msgid ""
 "p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select a "
 "firmware plugin in place of auto detect.</p>"
 msgstr ""
+"<h4>Особые записи журнала</h4><p><strong>Не удалось открыть устройство в "
+"режиме чтения/записи.</strong></p> <p>&nbsp;&nbsp;&nbsp; Устройство не может "
+"быть открыто.</p> <p>&nbsp; &nbsp; &nbsp;&nbsp; Убедитесь, что устройство не "
+"открыто другой программой.</p>                          <p>&nbsp; &nbsp; "
+"&nbsp;&nbsp; Убедитесь, что у вас есть необходимые права для открытия "
+"устройства.</p> <p><strong>Не найден модуль для &lt;обнаруженной прошивки&gt;"
+"</strong></p>                         <p>&nbsp;&nbsp; &nbsp; Отсутствуют "
+"модули поддержки прошивок или ваша прошивка пока не поддерживается.</p> "
+"<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Выберите модуль Marlin или Repetier "
+"вручную.</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Если для вашей прошивки нет "
+"модуля — сообщите нам.</p> <p><strong>Много записей «Ожидание определения "
+"прошивки»</strong></p> <p>&nbsp;&nbsp;&nbsp; Не удаётся отправить команду "
+"определения прошивки, ожидается перезапуск принтера.</p> <p>&nbsp;&nbsp;"
+"&nbsp;&nbsp;&nbsp;  Нажмите кнопку перезагрузки на принтере или выключите и "
+"включите его питание.</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Выберите модуль "
+"прошивки вручную вместо автоматического определения.</p>"
 
 #: src/widgets/logwidget.cpp:81
 msgctxt "LogWidget|"
 msgid "Save Session Log"
-msgstr ""
+msgstr "Сохранить журнал сеанса"
 
 #: src/widgets/logwidget.cpp:167
-#, fuzzy
 msgctxt "LogWidget|"
 msgid "Save Log to file"
 msgstr "Сохранить журнал в файл"
 
 #: src/widgets/movementwidget.cpp:49
-#, fuzzy
 msgctxt "MovementWidget|"
 msgid "Home All"
 msgstr "В начало все"
 
 #: src/widgets/movementwidget.cpp:53
-#, fuzzy
 msgctxt "MovementWidget|"
 msgid "Home X"
 msgstr "В начало X"
 
 #: src/widgets/movementwidget.cpp:57
-#, fuzzy
 msgctxt "MovementWidget|"
 msgid "Home Y"
 msgstr "В начало Y"
 
 #: src/widgets/movementwidget.cpp:61
-#, fuzzy
 msgctxt "MovementWidget|"
 msgid "Home Z"
 msgstr "В начало Z"
@@ -1297,25 +1307,24 @@ msgstr "В начало Z"
 #: src/widgets/movementwidget.cpp:67
 msgctxt "MovementWidget|"
 msgid "Disable Motors"
-msgstr ""
+msgstr "Отключить двигатели"
 
 #: src/widgets/movementwidget.cpp:72
 msgctxt "MovementWidget|"
 msgid "Move X Axis to"
-msgstr ""
+msgstr "Переместить ось X на"
 
 #: src/widgets/movementwidget.cpp:73
 msgctxt "MovementWidget|"
 msgid "Move Y Axis to"
-msgstr ""
+msgstr "Переместить ось Y на"
 
 #: src/widgets/movementwidget.cpp:74
 msgctxt "MovementWidget|"
 msgid "Move Z Axis to"
-msgstr ""
+msgstr "Переместить ось Z на"
 
 #: src/widgets/movementwidget.cpp:83
-#, fuzzy
 msgctxt "MovementWidget|"
 msgid "Go"
 msgstr "Перейти"
@@ -1326,26 +1335,22 @@ msgid "Temp."
 msgstr "Темп."
 
 #: src/widgets/printwidget.cpp:25
-#, fuzzy
 msgctxt "PrintWidget|"
 msgid "Print File"
 msgstr "Печать файла"
 
 #: src/widgets/printwidget.cpp:28
-#, fuzzy
 msgctxt "PrintWidget|"
 msgid "Emergency Stop"
-msgstr "M112: Аварийная остановка"
+msgstr "Аварийная остановка"
 
 #: src/widgets/printwidget.cpp:37
-#, fuzzy
 msgctxt "PrintWidget|"
 msgid "Printer Speed"
-msgstr "Печать файла"
+msgstr "Скорость печати"
 
 #: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:58
 #: src/widgets/printwidget.cpp:71
-#, fuzzy
 msgctxt "PrintWidget|"
 msgid "Set"
 msgstr "Установить"
@@ -1353,10 +1358,10 @@ msgstr "Установить"
 #: src/widgets/printwidget.cpp:52
 msgctxt "PrintWidget|"
 msgid "Flow Rate"
-msgstr ""
+msgstr "Скорость потока"
 
 #: src/widgets/printwidget.cpp:96
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "PrintWidget|"
 msgid "Fan %1 speed"
 msgstr "Скорость вентилятора %1"
@@ -1369,7 +1374,7 @@ msgstr "Профиль:"
 #: src/widgets/profilemanager.cpp:55
 msgctxt "ProfileManager|"
 msgid "Delete Current Profile"
-msgstr ""
+msgstr "Удаление текущего профиля"
 
 #: src/widgets/profilemanager.cpp:69
 msgctxt "ProfileManager|"
