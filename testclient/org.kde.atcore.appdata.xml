@@ -69,6 +69,7 @@
   <summary xml:lang="pt">Uma aplicação de testes da plataforma AtCore para controlar as impressoras 3D</summary>
   <summary xml:lang="pt-BR">Um aplicativo de teste para o framework do AtCore para controlar impressoras 3D</summary>
   <summary xml:lang="ro">Aplicație de probă pentru platforma AtCore pentru a controla imprimante 3D</summary>
+  <summary xml:lang="ru">Тестовое приложение для фреймворка AtCore, предназначенное для управления 3D‑принтерами</summary>
   <summary xml:lang="sl">Preskusna aplikacija za ogrodje AtCore za nadzor 3D-tiskalnikov</summary>
   <summary xml:lang="sv">Ett testprogram av ramverket AtCore för att styra 3D-skrivare</summary>
   <summary xml:lang="tr">3B yazıcıları denetlemek için AtCore kod kitaplığı için bir sınama uygulaması</summary>
@@ -104,6 +105,7 @@
     <p xml:lang="pt">O AtCore é a API que controla as impressoras 3D e a suas funcionalidades básicas. O AtCore vem com um cliente de testes chamado 'atcore-gui' para gerir a sua impressora.</p>
     <p xml:lang="pt-BR">AtCore é a API que controla o 3DPrinter e suas funcionalidades básicas. Vem com um cliente de teste chamado atcore-gui para gerenciar sua impressora.</p>
     <p xml:lang="ro">AtCore este un API ce controlează imprimanta 3D și funcționalitățile sale de bază. AtCore vine cu un client de probă denumit atcore-gui pentru a vă gestiona imprimanta.</p>
+    <p xml:lang="ru">AtCore — это API для управления 3D-принтером и его основными функциями. Вместе с AtCore поставляется тестовое приложение atcore-gui для управления вашим принтером.</p>
     <p xml:lang="sl">AtCore je API, ki nadzoruje 3Dtiskalnik in njegove osnovne funkcije.AtCore vključuje tudi s testnega odjemalca atcore-gui za upravljanje tiskalnika.</p>
     <p xml:lang="sv">AtCore är programmeringsgränssnittet som styr 3D-skrivaren och dess grundfunktioner. AtCore levereras med en testklient som kallas atcore-gui för att hantera skrivaren.</p>
     <p xml:lang="tr">AtCore, 3B yazıcıyı ve işlevselliğini denetleyen uygulama programlama arabirimidir. AtCore, yazıcınızı yönetmek için atcore-gui adında bir sınama istemcisi ile birlikte gelir.</p>
@@ -138,6 +140,7 @@
     <p xml:lang="pt">Esta é uma aplicação de testes do AtCore para demonstrar a plataforma.</p>
     <p xml:lang="pt-BR">Este é um aplicativo de teste AtCore para demonstrar o framework.</p>
     <p xml:lang="ro">Aceasta e o aplicație de probă AtCore pentru a demonstra platforma.</p>
+    <p xml:lang="ru">Это тестовое приложение AtCore для демонстрации работы фреймворка.</p>
     <p xml:lang="sl">To je preizkusna aplikacija AtCore, ki prikazuje programsko ogrodje.</p>
     <p xml:lang="sv">Det här är ett testprogram för AtCore för att visa upp ramverket</p>
     <p xml:lang="tr">Bu, kod kitaplığını göstermek için kullanılan bir AtCore sınama uygulamasıdır.</p>
