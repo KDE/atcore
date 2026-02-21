@@ -7,5 +7,5 @@ Dependencies:
     'frameworks/extra-cmake-modules': '@latest-kf6'
 
 Options:
- cmake-options: '-DBUILD_GUI=ON -DBUILD_TESTS=ON'
+ cmake-options: '-DBUILD_GUI=ON'
  require-passing-tests-on: ['Linux', 'FreeBSD', 'Windows']

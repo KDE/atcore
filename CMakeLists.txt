@@ -25,7 +25,6 @@ ecm_set_disabled_deprecation_versions(QT 6.10.0)
 
 option(BUILD_GUI "Build the Test Gui")
 option(BUILD_DOCS "Build and Install Documents (Requires Doxygen)")
-option(BUILD_TESTS "Build and Run Unittests")
 option(DEPLOY_PLUGINS_WITH_BINARY "Deploy Plugins to bin/plugins (Use for win/mac)")
 
 include(KDEClangFormat)
@@ -108,7 +107,7 @@ if(BUILD_GUI)
     add_subdirectory(testclient)
 endif()
 
-if (BUILD_TESTS)
+if (BUILD_TESTING)
     add_subdirectory(unittests)
 endif()
 

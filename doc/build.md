@@ -11,7 +11,7 @@ In order to configure your build you will need [cmake] and [extra-cmake-modules]
 Build Options Are: 
  - -DBUILD_GUI = ( ON | OFF )  Build the test client (Default is OFF)
  - -DBUILD_DOCS = (ON | OFF ) Build the Documentation (Default is OFF)
- - -DBUILD_TESTS = ( ON | OFF ) Build and Run Unittests (Default is OFF)
+ - -DBUILD_TESTING = ( ON | OFF ) Build Unittests (Default is ON)
  - -DDEPLOY_PLUGINS_WITH_BINARY ( ON | OFF ) Deploy the plugins to bin/plugins (Default is OFF, Turn on for win/mac)
  
 Recommended CMake Command
