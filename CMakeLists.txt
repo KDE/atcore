@@ -4,9 +4,6 @@ cmake_minimum_required(VERSION 3.16)
 
 project(AtCore)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 find_package(ECM 6.10 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
@@ -83,22 +80,7 @@ if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/poqm")
     ecm_install_po_files_as_qm(poqm)
 endif()
 
-# Set default build type to be release
-if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Release)
-endif()
-
-if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUXX OR CMAKE_COMPILER_IS_CLANG)
-    # Turn warnings on by default
-    set(CMAKE_CXX_FLAGS "-Wall -Wextra")
-    # Set debug mode to use -g
-    set(CMAKE_CXX_FLAGS_DEBUG "-g")
-    # Use optimization
-    set(CMAKE_CXX_FLAGS_RELEASE "-O3")
-endif()
-
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-set(CMAKE_AUTOMOC ON)
 
 add_subdirectory(src)
 
