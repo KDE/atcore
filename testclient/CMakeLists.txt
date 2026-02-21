@@ -1,10 +1,6 @@
 # SPDX-FileCopyrightText: AtCore Authors
 # SPDX-License-Identifier: BSD-3-Clause
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
-
 include_directories(../src)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
@@ -17,7 +13,7 @@ ecm_create_qm_loader(AtCoreTestClient_SRCS atcore_qt)
 
 if (NOT APPLE)
     add_executable(atcore-gui ${AtCoreTestClient_SRCS} icons.qrc)
-    install(TARGETS atcore-gui RUNTIME DESTINATION bin)
+    install(TARGETS atcore-gui RUNTIME DESTINATION ${KDE_INSTALL_BINDIR})
     install(FILES
         "${CMAKE_CURRENT_SOURCE_DIR}/atcore-gui.png"
         DESTINATION share/icons/hicolor/64x64/apps/
@@ -25,7 +21,7 @@ if (NOT APPLE)
     )
     install(FILES
         "${CMAKE_CURRENT_SOURCE_DIR}/org.kde.atcore.desktop"
-        DESTINATION share/applications
+        DESTINATION ${KDE_INSTALL_APPDIR}
     )
     install(FILES org.kde.atcore.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 else()
