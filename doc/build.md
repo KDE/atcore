@@ -3,7 +3,7 @@
     SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 # Building And Deploying AtCore
-Building AtCore is broken up into to main steps Configuration and Building. Deploying AtCore is also covered here.
+Building AtCore is broken up into two main steps, configuration and building. Deploying AtCore is also covered here.
 
 ## Configuration 
 In order to configure your build you will need [cmake] and [extra-cmake-modules].
@@ -18,7 +18,8 @@ Recommended CMake Command
 
 Linux
 ```
-cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib CMakeLists.txt
+mkdir build
+cmake -S . -B build
 ```
 
 Mac OS/ Windows
@@ -26,26 +27,27 @@ Mac OS/ Windows
 cmake -DDEPLOY_PLUGINS_WITH_BINARY=ON CMakeLists.txt
 ```
 ## Building
-After Configuring you Should be able to run make to build all targets.
+After configuring you should be able to run make in the build directory to build all targets.
 
 ```
 make
 ```
 
 ## Dependencies
-In addition to a working development enviroment for your system you will need the following to build AtCore
- - qt5-base
- - qt5-serialport
- - qt5-widgets
- - qt5-charts
+In addition to a working development environment for your system you will need the following to build AtCore
+ - qt6-base
+ - qt6-serialport
+ - qt6-widgets
+ - qt6-charts
  
 Building The Documentation adds the following dependency:
  - [doxygen]
 
 ### Installing Dependencies on Windows and Mac OS
+Warning, may be outdated!
 
-#### Mac Os
-Mac Os users could use [homebrew] to install both cmake and cmake-extra-modules using.
+#### MacOS
+MacOS users could use [homebrew] to install both cmake and cmake-extra-modules using.
 ```
 brew update
 brew install cmake
@@ -101,6 +103,6 @@ atcore-gui.app/Contents/MacOS/plugins/repetier.dylib
 [Qt]:https://www.qt.io
 [doxygen]:http://www.doxygen.nl/
 [cmake]:https://cmake.org/
-[extra-cmake-modules]:https://cgit.kde.org/extra-cmake-modules.git/tree
+[extra-cmake-modules]: https://anongit.kde.org/extra-cmake-modules
 [homebrew]:https://brew.sh/
 [chocolatey]:https://chocolatey.org/
