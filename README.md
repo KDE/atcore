@@ -4,13 +4,6 @@
 -->
 ![LOGO](https://invent.kde.org/kde/atcore/raw/master/testclient/atcore-gui.png)  AtCore - KDE Print Service for 3DPrinters
 ----
-OS   | Build Status
-:---:|:----:
-**Linux** | [![Build Status](https://build.kde.org/job/Extragear/job/atcore/job/kf5-qt5%20SUSEQt5.14/badge/icon)](https://build.kde.org/job/Extragear/job/atcore/job/kf5-qt5%20SUSEQt5.14/)
-**Windows** | [![Build Status](https://binary-factory.kde.org/job/AtCore_Nightly_win64/badge/icon)](https://binary-factory.kde.org/job/AtCore_Nightly_win64/)
-**FreeBSD** | [![Build Status](https://build.kde.org/job/Extragear/job/atcore/job/kf5-qt5%20FreeBSDQt5.14/badge/icon)](https://build.kde.org/job/Extragear/job/atcore/job/kf5-qt5%20FreeBSDQt5.14/)
-**MacOs** | [![Build Status](https://binary-factory.kde.org/job/AtCore_Nightly_macos/badge/icon)](https://binary-factory.kde.org/job/AtCore_Nightly_macos/)
-
 
 AtCore is a API to manage the serial connection between the computer and 3D Printers.<br/>
 This project is licensed under [LGPL-2.1] or [LGPL-3.0] or [KDE Accepted LGPL].
@@ -42,18 +35,16 @@ target_link_libraries(MYAPP AtCore::AtCore AtCore::AtCoreWidgets ... )
 ```
 
 ## Getting Involved
- - [IRC] - Libera Chat \#kde-atelier
- - [Telegram] - Atelier group
+ - [Matrix] - Atelier Matrix room
  - [Web] - Our web page
  - Report Bugs to our [Bug Tracker].
  - Support us by making a [Donation]
  - [Contribute] to AtCore.
 
-[IRC]: https://web.libera.chat/
-[Telegram]: https://telegram.me/KDEAtelier
+[Matrix]: https://matrix.to/#/#kde-atelier:kde.org
 [Bug Tracker]: https://bugs.kde.org/enter_bug.cgi?product=Atelier&component=AtCore
 [KDE]: https://www.kde.org
-[Web]: https://atelier.kde.org
+[Web]: https://apps.kde.org/atelier/
 [LGPL-2.1]:https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 [LGPL-3.0]:https://www.gnu.org/licenses/lgpl-3.0.html
 [KDE Accepted LGPL]:https://community.kde.org/Policies/Licensing_Policy#LicenseRef-KDE-Accepted-LGPL

@@ -7,7 +7,7 @@ AtCore is an open source project and all open source projects need contrubitors.
 
 ----
 ## Prerequisites
-In order to contrbute directly to AtCore you will need to have a [KDE Identity]. You should create a fork on [KDE Invent] to work within. You may wish to join us on [IRC] or [Telegram].
+In order to contrbute directly to AtCore you will need to have a [KDE Identity]. You should create a fork on [KDE Invent] to work within. You may wish to join us in the  [Matrix] room.
 
 ## Ways you can contribute
 There are several ways you can contribute
@@ -63,8 +63,7 @@ Keeping a clean project history requires that we take care when choosing how we 
  - Revisions require a majority acceptance rate before landing
  - Your Merge Request will be merged when your code when its ready
 
-[IRC]: https://web.libera.chat/
-[Telegram]: https://telegram.me/KDEAtelier
+[Matrix]: https://matrix.to/#/#kde-atelier:kde.org
 [Bug Tracker]: https://bugs.kde.org/enter_bug.cgi?product=Atelier&component=AtCore
 [KDE Identity]: https://identity.kde.org/
 [KDE Invent]: https://invent.kde.org

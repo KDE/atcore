@@ -34,18 +34,16 @@ target_link_libraries(MYAPP AtCore::AtCore AtCore::AtCoreWidgets ... )
 ```
 
 ## Getting Involved
- - [IRC] - Libera Chat \#kde-atelier
- - [Telegram] - Atelier group
+ - [Matrix] - Atelier Matrix room
  - [Web] - Our web page
  - Report Bugs to our [Bug Tracker].
  - Support us by making a [Donation]
  - [Contribute] to AtCore.
 
-[IRC]: https://web.libera.chat/
-[Telegram]: https://telegram.me/KDEAtelier
+[Matrix]: https://matrix.to/#/#kde-atelier:kde.org
 [Bug Tracker]: https://bugs.kde.org/enter_bug.cgi?product=Atelier&component=AtCore
 [KDE]: https://www.kde.org
-[Web]: https://atelier.kde.org
+[Web]: https://apps.kde.org/atelier/
 [LGPL-2.1]:https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 [LGPL-3.0]:https://www.gnu.org/licenses/lgpl-3.0.html
 [KDE Accepted LGPL]:https://community.kde.org/Policies/Licensing_Policy#LicenseRef-KDE-Accepted-LGPL
