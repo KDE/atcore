@@ -22,6 +22,7 @@ Q_LOGGING_CATEGORY(PRINT_THREAD, "org.kde.atelier.core.printThread")
 class PrintThread::PrintThreadPrivate
 {
 public:
+    // clang-format off
     AtCore *core = nullptr;              //!<@param core: Pointer to AtCore
     QTextStream *gcodestream = nullptr;  //!<@param gcodestream: Steam the job is read from
     float printProgress = 0;             //!<@param printProgress: Progress of the print job
@@ -30,6 +31,7 @@ public:
     QString cline;                       //!<@param cline: current line
     AtCore::STATES state = AtCore::IDLE; //!<@param state: printer state
     QFile *file = nullptr;               //!<@param file: gcode File to stream from
+    // clang-format on
     QList<QCommandLineOption> options = {{QCommandLineOption(QStringLiteral("pause"))},
                                          {QCommandLineOption(QStringLiteral("extruder temperature"))},
                                          {QCommandLineOption(QStringLiteral("bed temperature"))},
@@ -160,7 +162,8 @@ void PrintThread::setState(const AtCore::STATES &newState)
         return;
     }
     if (newState != d->state) {
-        qCDebug(PRINT_THREAD) << QStringLiteral("State changed from [%1] to [%2]").arg(QVariant::fromValue(d->state).toString(), QVariant::fromValue(newState).toString());
+        qCDebug(PRINT_THREAD)
+            << QStringLiteral("State changed from [%1] to [%2]").arg(QVariant::fromValue(d->state).toString(), QVariant::fromValue(newState).toString());
         disconnect(d->core, &AtCore::stateChanged, this, &PrintThread::setState);
         d->state = newState;
         Q_EMIT stateChanged(d->state);

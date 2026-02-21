@@ -95,7 +95,9 @@ ProfileManager::ProfileManager(QWidget *parent)
     sbMaxX = new QSpinBox();
     sbMaxX->setMaximum(std::numeric_limits<int>::max());
     sbMaxX->setSuffix(QStringLiteral("mm"));
-    connect(sbMaxX, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) { MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::XMAX, value); });
+    connect(sbMaxX, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::XMAX, value);
+    });
 
     newHLayout = new QHBoxLayout;
     newHLayout->addWidget(lblX);
@@ -106,7 +108,9 @@ ProfileManager::ProfileManager(QWidget *parent)
     sbMaxY = new QSpinBox();
     sbMaxY->setMaximum(std::numeric_limits<int>::max());
     sbMaxY->setSuffix(QStringLiteral("mm"));
-    connect(sbMaxY, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) { MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::YMAX, value); });
+    connect(sbMaxY, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::YMAX, value);
+    });
 
     newHLayout = new QHBoxLayout;
     newHLayout->setContentsMargins(0, 0, 0, 0);
@@ -120,7 +124,9 @@ ProfileManager::ProfileManager(QWidget *parent)
     sbMaxZ = new QSpinBox();
     sbMaxZ->setMaximum(std::numeric_limits<int>::max());
     sbMaxZ->setSuffix(QStringLiteral("mm"));
-    connect(sbMaxZ, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) { MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::ZMAX, value); });
+    connect(sbMaxZ, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::ZMAX, value);
+    });
 
     newHLayout = new QHBoxLayout;
     newHLayout->addWidget(lblZ);
@@ -136,7 +142,9 @@ ProfileManager::ProfileManager(QWidget *parent)
     sbMaxBedTemp = new QSpinBox();
     sbMaxBedTemp->setMaximum(999);
     sbMaxBedTemp->setSuffix(QStringLiteral(" ºC"));
-    connect(sbMaxBedTemp, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) { MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::MAXBEDTEMP, value); });
+    connect(sbMaxBedTemp, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::MAXBEDTEMP, value);
+    });
 
     newHLayout = new QHBoxLayout;
     newHLayout->addWidget(newLabel);
@@ -147,7 +155,9 @@ ProfileManager::ProfileManager(QWidget *parent)
     sbMaxExtTemp->setMaximum(999);
     newLabel = new QLabel(tr("Extruder Maximum"));
     sbMaxExtTemp->setSuffix(QStringLiteral(" ºC"));
-    connect(sbMaxExtTemp, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) { MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::MAXEXTTEMP, value); });
+    connect(sbMaxExtTemp, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::MAXEXTTEMP, value);
+    });
 
     newHLayout = new QHBoxLayout();
     newHLayout->addWidget(newLabel);
@@ -156,7 +166,9 @@ ProfileManager::ProfileManager(QWidget *parent)
 
     checkAutoTempReport = new QCheckBox(tr("Auto Temperature Report"));
     checkAutoTempReport->setLayoutDirection(Qt::RightToLeft);
-    connect(checkAutoTempReport, &QCheckBox::toggled, this, [this](bool checked) { MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::AUTOTEMPREPORT, checked); });
+    connect(checkAutoTempReport, &QCheckBox::toggled, this, [this](bool checked) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::AUTOTEMPREPORT, checked);
+    });
     boxLayout->addWidget(checkAutoTempReport, 0, Qt::AlignRight);
 
     groupBox = new QGroupBox(tr("Temperature"));
@@ -167,7 +179,9 @@ ProfileManager::ProfileManager(QWidget *parent)
     cbBaud = new QComboBox();
     cbBaud->addItems(BAUDS);
     cbBaud->setCurrentText(QStringLiteral("115200"));
-    connect(cbBaud, &QComboBox::currentTextChanged, this, [this](const QString &newText) { MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::BAUDRATE, newText); });
+    connect(cbBaud, &QComboBox::currentTextChanged, this, [this](const QString &newText) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::BAUDRATE, newText);
+    });
 
     newLabel = new QLabel(tr("Bit Rate"));
     newHLayout = new QHBoxLayout();
@@ -179,7 +193,9 @@ ProfileManager::ProfileManager(QWidget *parent)
     cbFirmware = new QComboBox();
     cbFirmware->addItem(QStringLiteral("Auto-Detect"));
     cbFirmware->addItems(detectFWPlugins());
-    connect(cbFirmware, &QComboBox::currentTextChanged, this, [this](const QString &newText) { MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::FIRMWARE, newText); });
+    connect(cbFirmware, &QComboBox::currentTextChanged, this, [this](const QString &newText) {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::FIRMWARE, newText);
+    });
 
     newHLayout = new QHBoxLayout();
     newHLayout->addWidget(newLabel);
@@ -187,7 +203,9 @@ ProfileManager::ProfileManager(QWidget *parent)
     boxLayout->addLayout(newHLayout);
 
     linePostPause = new QLineEdit();
-    connect(linePostPause, &QLineEdit::editingFinished, this, [this] { MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::POSTPAUSE, linePostPause->text()); });
+    connect(linePostPause, &QLineEdit::editingFinished, this, [this] {
+        MachineInfo::instance()->storeKey(cbProfile->currentText(), MachineInfo::KEY::POSTPAUSE, linePostPause->text());
+    });
 
     newLabel = new QLabel(tr("PostPause"));
     newHLayout = new QHBoxLayout();
@@ -276,7 +294,7 @@ QStringList ProfileManager::detectFWPlugins()
             firmwares.append(file);
         }
         if (!firmwares.isEmpty())
-            break; //Use first path with valid files
+            break; // Use first path with valid files
     }
     return firmwares;
 }

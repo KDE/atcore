@@ -14,5 +14,7 @@ void AtCoreExtensionPlugin::registerTypes(const char *uri)
     Q_ASSERT(QLatin1String(uri) == QLatin1String("org.kde.atcore"));
     qmlRegisterType<AtCore>("org.kde.atcore", 1, 0, "AtCore");
     qmlRegisterType<Temperature>("org.kde.atcore", 1, 0, "Temperature");
-    qmlRegisterSingletonType<MachineInfo>("org.kde.atcore", 1, 0, "MachineInfo", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * { return MachineInfo::instance()->qmlSingletonRegister(engine, jsEngine); });
+    qmlRegisterSingletonType<MachineInfo>("org.kde.atcore", 1, 0, "MachineInfo", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * {
+        return MachineInfo::instance()->qmlSingletonRegister(engine, jsEngine);
+    });
 }

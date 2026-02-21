@@ -27,7 +27,9 @@ StatusWidget::StatusWidget(bool showStop, QWidget *parent)
 
     if (showStop) {
         auto newButton = new QPushButton(style()->standardIcon(QStyle::SP_BrowserStop), QString(), this);
-        connect(newButton, &QPushButton::clicked, this, [this] { Q_EMIT stopPressed(); });
+        connect(newButton, &QPushButton::clicked, this, [this] {
+            Q_EMIT stopPressed();
+        });
         hBoxLayout->addWidget(newButton);
     }
 
@@ -103,7 +105,7 @@ void StatusWidget::updatePrintProgress(const float progress)
     printingProgress->setValue(progress);
     if (progress >= 1) {
         QTime temp(0, 0, 0, 0);
-        lblTimeLeft->setText(temp.addMSecs( (100 - progress) * (printTime->elapsed() / progress)).toString(QStringLiteral("hh:mm:ss")));
+        lblTimeLeft->setText(temp.addMSecs((100 - progress) * (printTime->elapsed() / progress)).toString(QStringLiteral("hh:mm:ss")));
     } else {
         lblTimeLeft->setText(QStringLiteral("??:??:??"));
     }

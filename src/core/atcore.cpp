@@ -236,7 +236,9 @@ bool AtCore::newConnection(const QString &port, int baud, const QString &fwName,
 
         if (!disableROC) {
             Q_EMIT atcoreMessage(tr("Waiting for machine restart"));
-            connect(d->serial, &SerialLayer::receivedCommand, this, [this, fwName](const QByteArray &message) { waitForPrinterReboot(message, fwName); });
+            connect(d->serial, &SerialLayer::receivedCommand, this, [this, fwName](const QByteArray &message) {
+                waitForPrinterReboot(message, fwName);
+            });
         } else {
             loadFirmwarePlugin(fwName);
         }
@@ -502,7 +504,8 @@ AtCore::STATES AtCore::state()
 void AtCore::setState(AtCore::STATES state)
 {
     if (state != d->printerState) {
-        qCDebug(ATCORE_CORE) << QStringLiteral("Atcore state changed from [%1] to [%2]").arg(QVariant::fromValue(d->printerState).toString(), QVariant::fromValue(state).toString());
+        qCDebug(ATCORE_CORE) << QStringLiteral("Atcore state changed from [%1] to [%2]")
+                                    .arg(QVariant::fromValue(d->printerState).toString(), QVariant::fromValue(state).toString());
         d->printerState = state;
         if (state == AtCore::STATES::FINISHEDPRINT && d->sdCardPrinting) {
             // Clean up the sd card print
@@ -852,7 +855,9 @@ void AtCore::disableResetOnConnect(const QString &port)
     process.start(QStringLiteral("stty"), args);
     process.waitForFinished(500);
 
-    connect(&process, &QProcess::errorOccurred, this, [&process] { qCDebug(ATCORE_CORE) << "Stty Error:" << process.errorString(); });
+    connect(&process, &QProcess::errorOccurred, this, [&process] {
+        qCDebug(ATCORE_CORE) << "Stty Error:" << process.errorString();
+    });
 
 #elif defined(Q_OS_WIN)
     // TODO: Disable hangup on windows.

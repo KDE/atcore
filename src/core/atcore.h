@@ -72,6 +72,7 @@ public:
     /**
      * @brief STATES enum Possible states the printer can be in
      */
+    // clang-format off
     enum STATES {
         DISCONNECTED,  //!< Not Connected to a printer, initial state
         CONNECTING,    //!< Attempting to connect, Fw not probed
@@ -83,6 +84,7 @@ public:
         STARTPRINT,    //!< Just Starting a print job
         FINISHEDPRINT, //!< Just Finished print job
     };
+    // clang-format on
     Q_ENUM(STATES)
     /**
      * @brief The AXES enum - Printer Axes.
@@ -98,7 +100,7 @@ public:
      * @brief The UNITS enum - Possible Mesurment Units
      */
     enum UNITS {
-        METRIC,  //!< Metric Units (Meters)
+        METRIC, //!< Metric Units (Meters)
         IMPERIAL //!< Imperial Units (Feet)
     };
     Q_ENUM(UNITS)

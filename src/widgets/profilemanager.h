@@ -55,6 +55,5 @@ private:
                                QStringLiteral("230400"),
                                QStringLiteral("250000"),
                                QStringLiteral("500000"),
-                               QStringLiteral("1000000")
-                              };
+                               QStringLiteral("1000000")};
 };

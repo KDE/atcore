@@ -20,6 +20,7 @@ public:
     /**
      * @brief KEYS enum Possible keys for the printer settings
      */
+    // clang-format off
     enum class KEY {
         NAME = 0,       //!< Profile Name
         BAUDRATE,       //!< Machine BAUD Rate
@@ -33,6 +34,7 @@ public:
         ZMAX,           //!< Z Size for Cartesian machines, Height for Deltas.
         AUTOTEMPREPORT, //!< Supports AutoTemp Reporting.
     };
+    // clang-format on
     Q_ENUM(KEY)
 
     /**
@@ -131,7 +133,7 @@ private:
      * @brief used to hold MachineInfo::KEY name and defaultValues.
      */
     struct keyInfo {
-        QString name;          //!< Key name used in the settings file
+        QString name; //!< Key name used in the settings file
         QVariant defaultValue; //!< Defaut Value for the key
     };
     /**

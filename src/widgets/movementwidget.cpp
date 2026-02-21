@@ -14,8 +14,9 @@
 #include "axiscontrol.h"
 #include "movementwidget.h"
 
-class MovementWidget::MovementWidgetPrivate {
-    public:
+class MovementWidget::MovementWidgetPrivate
+{
+public:
     QComboBox *comboMoveAxis = nullptr;
     QDoubleSpinBox *sbMoveAxis = nullptr;
     AxisControl *axisControl = nullptr;
@@ -27,17 +28,18 @@ class MovementWidget::MovementWidgetPrivate {
     QPushButton *homeZ = nullptr;
     QPushButton *move = nullptr;
 
-    QList<int> _axisMaxes {200, 200, 200};
+    QList<int> _axisMaxes{200, 200, 200};
 };
 
 MovementWidget::MovementWidget(QWidget *parent)
-: QWidget(parent)
-, d(new MovementWidgetPrivate())
+    : QWidget(parent)
+    , d(new MovementWidgetPrivate())
 {
     initialize();
 }
 
-MovementWidget::~MovementWidget() {
+MovementWidget::~MovementWidget()
+{
     delete d;
 }
 
@@ -76,7 +78,7 @@ void MovementWidget::initialize()
     d->sbMoveAxis = new QDoubleSpinBox(this);
     d->sbMoveAxis->setRange(0, d->_axisMaxes.at(d->comboMoveAxis->currentIndex()));
 
-    connect(d->comboMoveAxis, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this] (int index) {
+    connect(d->comboMoveAxis, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this](int index) {
         d->sbMoveAxis->setMaximum(d->_axisMaxes.at(index));
     });
 
@@ -123,6 +125,6 @@ void MovementWidget::setAxisMax(int xMax, int yMax, int zMax)
     xMax = std::max(0, xMax);
     yMax = std::max(0, yMax);
     zMax = std::max(0, zMax);
-    d->_axisMaxes = QList<int> {xMax, yMax, zMax};
+    d->_axisMaxes = QList<int>{xMax, yMax, zMax};
     d->sbMoveAxis->setMaximum(d->comboMoveAxis->currentIndex());
 }

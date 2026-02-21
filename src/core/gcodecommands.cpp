@@ -503,7 +503,8 @@ QString GCode::toCommand(MCommands gcode, const QString &value1, const QString &
     case M29:
     case M30:
     case M117:
-        code = value1.isEmpty() ? GCode::commandRequiresArgument.arg(QStringLiteral("M"), QString::number(gcode)) : code.append(QStringLiteral(" %1").arg(value1));
+        code =
+            value1.isEmpty() ? GCode::commandRequiresArgument.arg(QStringLiteral("M"), QString::number(gcode)) : code.append(QStringLiteral(" %1").arg(value1));
         return code;
 
     case M109:
@@ -512,7 +513,8 @@ QString GCode::toCommand(MCommands gcode, const QString &value1, const QString &
     case M190:
     case M220:
     case M221:
-        code = value1.isEmpty() ? GCode::commandRequiresArgument.arg(QStringLiteral("M"), QString::number(gcode)) : code.append(QStringLiteral(" S%1").arg(value1));
+        code = value1.isEmpty() ? GCode::commandRequiresArgument.arg(QStringLiteral("M"), QString::number(gcode))
+                                : code.append(QStringLiteral(" S%1").arg(value1));
         return code;
 
     case M84:

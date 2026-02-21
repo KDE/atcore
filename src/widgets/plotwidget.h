@@ -72,14 +72,14 @@ private:
         }
 
         explicit plot(const plot &other)
-           : _series(other.serie())
+            : _series(other.serie())
         {
             setName(other.name());
         }
 
         ~plot()
         {
-            delete _series;// Series will be deleted with chart
+            delete _series; // Series will be deleted with chart
         }
 
         void pushPoint(float value)

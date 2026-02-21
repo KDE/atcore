@@ -46,9 +46,10 @@ QVariantMap MachineInfo::readProfile(const QString &profileName) const
 {
     m_settings->sync();
     m_settings->beginGroup(profileName);
-    QVariantMap data {{decoderMap[KEY::NAME].name, m_settings->group()}};
+    QVariantMap data{{decoderMap[KEY::NAME].name, m_settings->group()}};
     for (int i = 1; i < decoderMap.size(); i++) {
-        data.insert(decoderMap[MachineInfo::KEY(i)].name, m_settings->value(decoderMap[MachineInfo::KEY(i)].name, decoderMap[MachineInfo::KEY(i)].defaultValue));
+        data.insert(decoderMap[MachineInfo::KEY(i)].name,
+                    m_settings->value(decoderMap[MachineInfo::KEY(i)].name, decoderMap[MachineInfo::KEY(i)].defaultValue));
     }
     m_settings->endGroup();
     return data;

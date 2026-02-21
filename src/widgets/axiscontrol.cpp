@@ -26,7 +26,7 @@ AxisControl::AxisControl(QWidget *parent)
     sbValue->setValue(1);
 
     auto comboUnits = new QComboBox(this);
-    comboUnits->addItems(QStringList {QStringLiteral("Metric"), QStringLiteral("Imperial")});
+    comboUnits->addItems(QStringList{QStringLiteral("Metric"), QStringLiteral("Imperial")});
 
     connect(comboUnits, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this](int selection) {
         if (selection == 0) {
@@ -84,7 +84,9 @@ QPushButton *AxisControl::makeButton(const QLatin1Char axis, int multiplier, con
         button->setIconSize(iconSize);
     }
 
-    connect(button, &QPushButton::clicked, this, [this, axis, multiplier] { Q_EMIT clicked(axis, sbValue->value() * multiplier); });
+    connect(button, &QPushButton::clicked, this, [this, axis, multiplier] {
+        Q_EMIT clicked(axis, sbValue->value() * multiplier);
+    });
     return button;
 }
 

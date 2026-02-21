@@ -28,7 +28,15 @@ void AtCoreTests::testInitState()
 void AtCoreTests::testPluginDetect()
 {
     QStringList fwPluginsFound = core->availableFirmwarePlugins();
-    QStringList fwPluginsActual = {QStringLiteral("aprinter"), QStringLiteral("grbl"), QStringLiteral("marlin"), QStringLiteral("repetier"), QStringLiteral("smoothie"), QStringLiteral("sprinter"), QStringLiteral("teacup")};
+    QStringList fwPluginsActual = {
+        QStringLiteral("aprinter"),
+        QStringLiteral("grbl"),
+        QStringLiteral("marlin"),
+        QStringLiteral("repetier"),
+        QStringLiteral("smoothie"),
+        QStringLiteral("sprinter"),
+        QStringLiteral("teacup"),
+    };
 
     std::sort(fwPluginsFound.begin(), fwPluginsFound.end());
     std::sort(fwPluginsActual.begin(), fwPluginsActual.end());

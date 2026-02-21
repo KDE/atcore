@@ -47,8 +47,8 @@ public:
      * @param zMax: Max distance the Z Axis can travel in mm [default = 200]
      */
     void setAxisMax(int xMax, int yMax, int zMax);
-    
-    //TODO: This widget should have a AtCore *core; member and connect
+
+    // TODO: This widget should have a AtCore *core; member and connect
     // things internally.
 Q_SIGNALS:
     /**

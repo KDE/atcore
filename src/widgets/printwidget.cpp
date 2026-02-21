@@ -41,7 +41,9 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent)
     sbPrintSpeed->setSuffix(QStringLiteral("%"));
 
     newButton = new QPushButton(tr("Set"), this);
-    connect(newButton, &QPushButton::clicked, this, [this] { Q_EMIT printSpeedChanged(sbPrintSpeed->value()); });
+    connect(newButton, &QPushButton::clicked, this, [this] {
+        Q_EMIT printSpeedChanged(sbPrintSpeed->value());
+    });
 
     hBoxLayout = new QHBoxLayout;
     hBoxLayout->addWidget(newLabel, 60);
@@ -56,7 +58,9 @@ PrintWidget::PrintWidget(bool showAllControls, QWidget *parent)
     sbFlowRate->setSuffix(QStringLiteral("%"));
 
     newButton = new QPushButton(tr("Set"), this);
-    connect(newButton, &QPushButton::clicked, this, [this] { Q_EMIT flowRateChanged(sbFlowRate->value()); });
+    connect(newButton, &QPushButton::clicked, this, [this] {
+        Q_EMIT flowRateChanged(sbFlowRate->value());
+    });
     hBoxLayout = new QHBoxLayout;
     hBoxLayout->addWidget(newLabel, 60);
     hBoxLayout->addWidget(sbFlowRate, 20);

@@ -25,7 +25,35 @@ public:
     /**
      * @brief The GCommands enum
      */
-    enum GCommands { G0, G1, G2, G3, G4, G10 = 10, G11, G20 = 20, G21, G22, G23, G28 = 28, G29, G30, G31, G32, G33, G90 = 90, G91, G92, G100 = 100, G130 = 130, G131, G132, G133, G161 = 161, G162 };
+    enum GCommands {
+        G0,
+        G1,
+        G2,
+        G3,
+        G4,
+        G10 = 10,
+        G11,
+        G20 = 20,
+        G21,
+        G22,
+        G23,
+        G28 = 28,
+        G29,
+        G30,
+        G31,
+        G32,
+        G33,
+        G90 = 90,
+        G91,
+        G92,
+        G100 = 100,
+        G130 = 130,
+        G131,
+        G132,
+        G133,
+        G161 = 161,
+        G162,
+    };
     Q_ENUM(GCommands)
 
     /**

@@ -196,7 +196,9 @@ void MainWindow::makeTempTimelineDock()
     auto lblTimer = new QLabel(tr("Seconds Between Temperature Checks"), this);
     sbTemperatureTimer = new QSpinBox(this);
     sbTemperatureTimer->setRange(0, 90);
-    connect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) { core->setTemperatureTimerInterval(value * 1000); });
+    connect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
+        core->setTemperatureTimerInterval(value * 1000);
+    });
     connect(core, &AtCore::temperatureTimerIntervalChanged, this, [this](int value) {
         if (value != sbTemperatureTimer->value()) {
             sbTemperatureTimer->blockSignals(true);
@@ -265,7 +267,8 @@ void MainWindow::makeConnectDock()
     if (MachineInfo::instance()->profileNames().isEmpty()) {
         cbReset->setHidden(true);
     } else {
-        cbReset->setHidden(MachineInfo::instance()->readKey(comboProfile->currentText(), MachineInfo::KEY::FIRMWARE).toString().contains(QStringLiteral("Auto-Detect")));
+        cbReset->setHidden(
+            MachineInfo::instance()->readKey(comboProfile->currentText(), MachineInfo::KEY::FIRMWARE).toString().contains(QStringLiteral("Auto-Detect")));
     }
     mainLayout->addWidget(cbReset);
 
@@ -281,7 +284,10 @@ void MainWindow::makeConnectDock()
     connectionTimer->setSingleShot(true);
     connect(connectionTimer, &QTimer::timeout, this, [this] {
         Q_EMIT buttonConnect->clicked();
-        QMessageBox::critical(this, tr("Connection Error"), tr("Your machine did not respond after 20 seconds.\n\nBefore connecting again check that your printer is on and your are connecting using the correct BAUD Rate for your device."));
+        QMessageBox::critical(this,
+                              tr("Connection Error"),
+                              tr("Your machine did not respond after 20 seconds.\n\nBefore connecting again check that your printer is on and your are "
+                                 "connecting using the correct BAUD Rate for your device."));
     });
 
     mainLayout->addWidget(buttonConnect);
@@ -325,7 +331,9 @@ void MainWindow::makeMoveDock()
         core->move(axis, value);
     });
 
-    connect(movementWidget, &MovementWidget::disableMotorsPressed, this, [this] { core->disableMotors(0); });
+    connect(movementWidget, &MovementWidget::disableMotorsPressed, this, [this] {
+        core->disableMotors(0);
+    });
 
     connect(movementWidget, &MovementWidget::relativeMove, this, [this](const QLatin1Char &axis, const double &value) {
         core->setRelativePosition();
@@ -488,10 +496,10 @@ void MainWindow::printPBClicked()
         break;
 
     case AtCore::CONNECTING:
-        QMessageBox::information(
-            this,
-            tr("Error"),
-            tr(" A Firmware Plugin was not loaded!\n  Please send the command M115 and let us know what your firmware returns, so we can improve our firmware detection. Edit your profile to use \"marlin\" and try again."));
+        QMessageBox::information(this,
+                                 tr("Error"),
+                                 tr(" A Firmware Plugin was not loaded!\n  Please send the command M115 and let us know what your firmware returns, so we can "
+                                    "improve our firmware detection. Edit your profile to use \"marlin\" and try again."));
         break;
 
     case AtCore::IDLE:
@@ -666,7 +674,9 @@ void MainWindow::updateAutoTemperatureReport(bool autoReport)
     disconnect(core, &AtCore::autoCheckTemperatureIntervalChanged, this, {});
 
     if (autoReport) {
-        connect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) { core->setAutoCheckTemperatureInterval(value); });
+        connect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
+            core->setAutoCheckTemperatureInterval(value);
+        });
         connect(core, &AtCore::autoCheckTemperatureIntervalChanged, this, [this](int value) {
             if (value != sbTemperatureTimer->value()) {
                 sbTemperatureTimer->blockSignals(true);
@@ -675,7 +685,9 @@ void MainWindow::updateAutoTemperatureReport(bool autoReport)
             }
         });
     } else {
-        connect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) { core->setTemperatureTimerInterval(value * 1000); });
+        connect(sbTemperatureTimer, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int value) {
+            core->setTemperatureTimerInterval(value * 1000);
+        });
         connect(core, &AtCore::temperatureTimerIntervalChanged, this, [this](int value) {
             if (value != sbTemperatureTimer->value()) {
                 sbTemperatureTimer->blockSignals(true);

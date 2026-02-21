@@ -23,7 +23,7 @@ static constexpr QChar _return = QChar::fromLatin1('\r');
 }
 
 LogWidget::LogWidget(QWidget *parent)
-: QWidget(parent)
+    : QWidget(parent)
 {
     logFile = new QTemporaryFile();
 
@@ -78,7 +78,8 @@ void LogWidget::initialize()
     page->setLayout(pageLayout);
     mainStack->insertWidget(1, page);
 
-    auto saveButton = new QPushButton(QIcon::fromTheme(QStringLiteral("document-save"), style()->standardIcon(QStyle::SP_DialogSaveButton)), tr("Save Session Log"), this);
+    auto saveButton =
+        new QPushButton(QIcon::fromTheme(QStringLiteral("document-save"), style()->standardIcon(QStyle::SP_DialogSaveButton)), tr("Save Session Log"), this);
     saveButton->setIconSize(iconSize);
     connect(saveButton, &QPushButton::clicked, this, &LogWidget::savePressed);
 
@@ -87,7 +88,9 @@ void LogWidget::initialize()
     helpButton->setChecked(false);
     helpButton->setIconSize(iconSize);
     helpButton->setIcon(QIcon::fromTheme(QStringLiteral("help-about"), style()->standardIcon(QStyle::SP_DialogHelpButton)));
-    connect(helpButton, &QToolButton::clicked, this, [mainStack](bool checked) { mainStack->setCurrentIndex(checked); });
+    connect(helpButton, &QToolButton::clicked, this, [mainStack](bool checked) {
+        mainStack->setCurrentIndex(checked);
+    });
 
     auto buttonLayout = new QHBoxLayout;
     buttonLayout->addWidget(saveButton);
