@@ -2,14 +2,14 @@
     SPDX-FileCopyrightText: AtCore Authors
     SPDX-License-Identifier: CC-BY-SA-4.0
 -->
-# AtCore - KDE Print Service for 3DPrinters
+# AtCore - KDE Print Service for 3D Printers
 
 AtCore is a API to manage the serial connection between the computer and 3D Printers.<br/>
 This project is licensed under [LGPL-2.1] or [LGPL-3.0] or [KDE Accepted LGPL].
 
 ----
 ## Supported Firmwares
-Currenty the following firmwares are supported.
+Currently the following firmwares are supported.
 
  Firmware Name |Basic Use| Control SD
  :------------:|:-------:|:----------:
@@ -21,7 +21,7 @@ Currenty the following firmwares are supported.
  Smoothie      | YES     | NO
  GRBL          | YES     | NO
 
-## Building  Deploying  AtCore
+## Building and Deploying AtCore
  See: [Building and Deploying]
 
 ## Importing AtCore in your CMakeList

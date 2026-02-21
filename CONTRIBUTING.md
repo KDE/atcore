@@ -3,11 +3,11 @@
     SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 # Contributing To AtCore
-AtCore is an open source project and all open source projects need contrubitors. Thank you for taking the time to read this document and Thank you for your future contributions to this project. 
+AtCore is an open source project and all open source projects need contributors. Thank you for taking the time to read this document and thank you for your future contributions to this project.
 
 ----
 ## Prerequisites
-In order to contrbute directly to AtCore you will need to have a [KDE Identity]. You should create a fork on [KDE Invent] to work within. You may wish to join us in the  [Matrix] room.
+In order to contribute directly to AtCore you will need to have a [KDE Identity]. You should create a fork on [KDE Invent] to work within. You may wish to join us in the  [Matrix] room.
 
 ## Ways you can contribute
 There are several ways you can contribute
@@ -18,7 +18,7 @@ There are several ways you can contribute
  - Commit new code or code to fix bugs. 
 
 ## General Contribution Workflow
-The Following Is the General work flow for most contrubitions
+The Following Is the General work flow for most contributions
  - Create changes on your local fork in a new branch
  - Format your code by building the clang-format target.
  - Submit your change create a Merge Request on [KDE Invent]
@@ -29,16 +29,16 @@ The Following Is the General work flow for most contrubitions
  - A Maintainer will Merge when the changes is ready.
  
 ### General Coding Guidelines
-The following guidelines apply to all submited code.
+The following guidelines apply to all submitted code.
 
  - Follow the [KDE style guidelines]
- - Use constant referances when possible
+ - Use constant references when possible
  - Includes should be alphabetical.
  - Use the target clang-format before you commit to format your code. 
  - Headers should use `#pragma once`.
- - Auto should not be used if the type is not explict.
+ - Auto should not be used if the type is not explicit.
  - Doxygen comments should be created/updated with code.
- - Objects should have logical varible and function names
+ - Objects should have logical variable and function names
  - Code should always be readable, comment your code when it makes sense.
 
 #### Using Clang format
@@ -54,9 +54,9 @@ Keeping a clean project history requires that we take care when choosing how we 
  - Format your code using the clang-format make target (see above)
  - Reviewers: rizzitello, patrickelectric, laysrodrigues, tcanabrava
  - Be sure to make any review issues as resolved.
- - Keep your base upto date. 
+ - Keep your base up-to-date.
  - Amend your local commits to fix review issues.
- - Always Ammend commits to update them
+ - Always amend commits to update them
  - Never fix a commit with another commit.
  - Update your commits with `git commit --amend`
  - Update your MR with `git push --force`
