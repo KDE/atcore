@@ -48,10 +48,13 @@ PrintThread::PrintThread(AtCore *parent, const QString &fileName)
     d->core = parent;
     d->state = d->core->state();
     d->file = new QFile(fileName);
-    d->file->open(QFile::ReadOnly);
-    d->totalSize = d->file->bytesAvailable();
-    d->stillSize = d->totalSize;
-    d->gcodestream = new QTextStream(d->file);
+    if (d->file->open(QFile::ReadOnly)) {
+        d->totalSize = d->file->bytesAvailable();
+        d->stillSize = d->totalSize;
+        d->gcodestream = new QTextStream(d->file);
+    } else {
+        qCWarning(PRINT_THREAD) << "could not open" << fileName;
+    }
 }
 
 PrintThread::~PrintThread()

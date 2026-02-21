@@ -17,6 +17,6 @@ class ATCOREWIDGETS_EXPORT About : public QDialog
 {
     Q_OBJECT
 public:
-    explicit About(QWidget *parent = 0);
+    explicit About(QWidget *parent = nullptr);
     ~About() = default;
 };
