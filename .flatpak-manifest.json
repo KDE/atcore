@@ -17,7 +17,11 @@
     "modules": [
         {
             "name": "atcore",
-            "config-opts": ["-DBUILD_GUI=ON"],
+            "config-opts": [
+                "-DBUILD_DOCS=OFF",
+                "-DBUILD_GUI=ON",
+                "-DBUILD_TESTING=OFF"
+            ],
             "buildsystem": "cmake-ninja",
             "cleanup": [
                 "/mkspecs",
