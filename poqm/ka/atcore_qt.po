@@ -35,37 +35,37 @@ msgctxt "AtCore|"
 msgid "Waiting for machine restart"
 msgstr "მანქანის გადატვირთვის მოლოდინი"
 
-#: src/core/atcore.cpp:249
+#: src/core/atcore.cpp:251
 msgctxt "AtCore|"
 msgid "Failed to open device in read/write mode."
 msgstr "მოწყობილობის ჩაწერა/წაკითხვის რეჟიმში გახსნის შეცდომა."
 
-#: src/core/atcore.cpp:868
+#: src/core/atcore.cpp:873
 msgctxt "AtCore|"
 msgid "Device not found"
 msgstr "მოწყობილობა ნაპოვნი არაა"
 
-#: src/core/atcore.cpp:871
+#: src/core/atcore.cpp:876
 msgctxt "AtCore|"
 msgid "Unable to write to device"
 msgstr "მოწყობილობაში ჩაწერის შეცდომა"
 
-#: src/core/atcore.cpp:874
+#: src/core/atcore.cpp:879
 msgctxt "AtCore|"
 msgid "Unable to read from device"
 msgstr "მოწყობილობიდან წაკითხვის შეცდომა"
 
-#: src/core/atcore.cpp:878
+#: src/core/atcore.cpp:883
 msgctxt "AtCore|"
 msgid "The device no longer available"
 msgstr "მოწყობილობა აღარ არის ხელმისაწვდომი"
 
-#: src/core/atcore.cpp:882
+#: src/core/atcore.cpp:887
 msgctxt "AtCore|"
 msgid "Device does not support the operation"
 msgstr "მოწყობილობას ამ ოპერაციის მხარდაჭერა არ გააჩნია"
 
-#: src/core/atcore.cpp:885
+#: src/core/atcore.cpp:890
 msgctxt "AtCore|"
 msgid "Unknown Error"
 msgstr "უცნობი შეცდომა"
@@ -1267,57 +1267,57 @@ msgstr ""
 "p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ავტომატური "
 "ამოცნობის მაგიერ მიკროკოდის დამატების ხელით მითითება.</p>"
 
-#: src/widgets/logwidget.cpp:81
+#: src/widgets/logwidget.cpp:82
 msgctxt "LogWidget|"
 msgid "Save Session Log"
 msgstr "სესიის ჟურნალის შენახვა"
 
-#: src/widgets/logwidget.cpp:167
+#: src/widgets/logwidget.cpp:170
 msgctxt "LogWidget|"
 msgid "Save Log to file"
 msgstr "ჟურნალის ფაილში ჩაწერა"
 
-#: src/widgets/movementwidget.cpp:49
+#: src/widgets/movementwidget.cpp:51
 msgctxt "MovementWidget|"
 msgid "Home All"
 msgstr "ყველა დასაწყისში"
 
-#: src/widgets/movementwidget.cpp:53
+#: src/widgets/movementwidget.cpp:55
 msgctxt "MovementWidget|"
 msgid "Home X"
 msgstr "დასაწყისის X"
 
-#: src/widgets/movementwidget.cpp:57
+#: src/widgets/movementwidget.cpp:59
 msgctxt "MovementWidget|"
 msgid "Home Y"
 msgstr "დასაწყისის Y"
 
-#: src/widgets/movementwidget.cpp:61
+#: src/widgets/movementwidget.cpp:63
 msgctxt "MovementWidget|"
 msgid "Home Z"
 msgstr "დასაწყისის Z"
 
-#: src/widgets/movementwidget.cpp:67
+#: src/widgets/movementwidget.cpp:69
 msgctxt "MovementWidget|"
 msgid "Disable Motors"
 msgstr "ძრავების გამორთვა"
 
-#: src/widgets/movementwidget.cpp:72
+#: src/widgets/movementwidget.cpp:74
 msgctxt "MovementWidget|"
 msgid "Move X Axis to"
 msgstr "X ღერძის გადატანა"
 
-#: src/widgets/movementwidget.cpp:73
+#: src/widgets/movementwidget.cpp:75
 msgctxt "MovementWidget|"
 msgid "Move Y Axis to"
 msgstr "Y ღერძის გადატანა"
 
-#: src/widgets/movementwidget.cpp:74
+#: src/widgets/movementwidget.cpp:76
 msgctxt "MovementWidget|"
 msgid "Move Z Axis to"
 msgstr "Z ღერძის გადატანა"
 
-#: src/widgets/movementwidget.cpp:83
+#: src/widgets/movementwidget.cpp:85
 msgctxt "MovementWidget|"
 msgid "Go"
 msgstr "Go"
@@ -1342,18 +1342,18 @@ msgctxt "PrintWidget|"
 msgid "Printer Speed"
 msgstr "პრინტერის სიჩქარე"
 
-#: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:58
-#: src/widgets/printwidget.cpp:71
+#: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:60
+#: src/widgets/printwidget.cpp:75
 msgctxt "PrintWidget|"
 msgid "Set"
 msgstr "დაყენება"
 
-#: src/widgets/printwidget.cpp:52
+#: src/widgets/printwidget.cpp:54
 msgctxt "PrintWidget|"
 msgid "Flow Rate"
 msgstr "ნაკადის სიჩქარე"
 
-#: src/widgets/printwidget.cpp:96
+#: src/widgets/printwidget.cpp:100
 #, qt-format
 msgctxt "PrintWidget|"
 msgid "Fan %1 speed"
@@ -1389,77 +1389,77 @@ msgctxt "ProfileManager|"
 msgid "Cartesian"
 msgstr "დეკარტის"
 
-#: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:233
+#: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:251
 msgctxt "ProfileManager|"
 msgid "Maximum X"
 msgstr "მაქსიმალური X"
 
-#: src/widgets/profilemanager.cpp:105
+#: src/widgets/profilemanager.cpp:107
 msgctxt "ProfileManager|"
 msgid "Maximum Y"
 msgstr "მაქსიმალური Y"
 
-#: src/widgets/profilemanager.cpp:119 src/widgets/profilemanager.cpp:234
+#: src/widgets/profilemanager.cpp:123 src/widgets/profilemanager.cpp:252
 msgctxt "ProfileManager|"
 msgid "Maximum Z"
 msgstr "მაქსიმალური Z"
 
-#: src/widgets/profilemanager.cpp:130
+#: src/widgets/profilemanager.cpp:136
 msgctxt "ProfileManager|"
 msgid "Mechanics"
 msgstr "მექანიკა"
 
-#: src/widgets/profilemanager.cpp:135
+#: src/widgets/profilemanager.cpp:141
 msgctxt "ProfileManager|"
 msgid "Bed Maximum"
 msgstr "საფუძველის მაქსიმუმი"
 
-#: src/widgets/profilemanager.cpp:148
+#: src/widgets/profilemanager.cpp:156
 msgctxt "ProfileManager|"
 msgid "Extruder Maximum"
 msgstr "ექსტრუდერის მაქსიმუმი"
 
-#: src/widgets/profilemanager.cpp:157
+#: src/widgets/profilemanager.cpp:167
 msgctxt "ProfileManager|"
 msgid "Auto Temperature Report"
 msgstr "ტემპერატურის ავტომატური ანგარიში"
 
-#: src/widgets/profilemanager.cpp:162
+#: src/widgets/profilemanager.cpp:174
 msgctxt "ProfileManager|"
 msgid "Temperature"
 msgstr "ტემპერატურა"
 
-#: src/widgets/profilemanager.cpp:172
+#: src/widgets/profilemanager.cpp:186
 msgctxt "ProfileManager|"
 msgid "Bit Rate"
 msgstr "სიჩქარე"
 
-#: src/widgets/profilemanager.cpp:178
+#: src/widgets/profilemanager.cpp:192
 msgctxt "ProfileManager|"
 msgid "Firmware"
 msgstr "მიკროკოდი"
 
-#: src/widgets/profilemanager.cpp:192
+#: src/widgets/profilemanager.cpp:210
 msgctxt "ProfileManager|"
 msgid "PostPause"
 msgstr "შემდეგი პაუზა"
 
-#: src/widgets/profilemanager.cpp:198
+#: src/widgets/profilemanager.cpp:216
 msgctxt "ProfileManager|"
 msgid "Advanced"
 msgstr "დამატებითი"
 
-#: src/widgets/profilemanager.cpp:201
+#: src/widgets/profilemanager.cpp:219
 msgctxt "ProfileManager|"
 msgid "Profile"
 msgstr "პროფილი"
 
-#: src/widgets/profilemanager.cpp:236
+#: src/widgets/profilemanager.cpp:254
 msgctxt "ProfileManager|"
 msgid "Radius"
 msgstr "რადიუსი"
 
-#: src/widgets/profilemanager.cpp:237
+#: src/widgets/profilemanager.cpp:255
 msgctxt "ProfileManager|"
 msgid "Height"
 msgstr "სიმაღლე"
@@ -1484,17 +1484,17 @@ msgctxt "SdWidget|"
 msgid "Files On Sd Card"
 msgstr "ფაილები SD ბარათზე"
 
-#: src/widgets/statuswidget.cpp:47
+#: src/widgets/statuswidget.cpp:49
 msgctxt "StatusWidget|"
 msgid "AtCore State:"
 msgstr "AtCore -ის მდებარეობა:"
 
-#: src/widgets/statuswidget.cpp:48
+#: src/widgets/statuswidget.cpp:50
 msgctxt "StatusWidget|"
 msgid "Not Connected"
 msgstr "დაკავშირებული არაა"
 
-#: src/widgets/statuswidget.cpp:72
+#: src/widgets/statuswidget.cpp:74
 msgctxt "StatusWidget|"
 msgid "SD"
 msgstr "SD"
@@ -1509,12 +1509,12 @@ msgctxt "TemperatureWidget|"
 msgid "Bed Temp"
 msgstr "არასწორი ტემპტერატურა"
 
-#: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:44
+#: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:46
 msgctxt "TemperatureWidget|"
 msgid "Set"
 msgstr "დაყენება"
 
-#: src/widgets/temperaturewidget.cpp:60
+#: src/widgets/temperaturewidget.cpp:64
 #, qt-format
 msgctxt "TemperatureWidget|"
 msgid "Extruder %1"
@@ -1606,43 +1606,43 @@ msgctxt "MainWindow|"
 msgid "Seconds Between Temperature Checks"
 msgstr "წამები ტემპერატურის შემოწმებებს შორის"
 
-#: testclient/mainwindow.cpp:218
+#: testclient/mainwindow.cpp:220
 msgctxt "MainWindow|"
 msgid "Temperature Timeline"
 msgstr "ტემპერატურის ქრონოლოგია"
 
-#: testclient/mainwindow.cpp:227
+#: testclient/mainwindow.cpp:229
 msgctxt "MainWindow|"
 msgid "Session Log"
 msgstr "სესიის ჟურნალი"
 
-#: testclient/mainwindow.cpp:237
+#: testclient/mainwindow.cpp:239
 msgctxt "MainWindow|"
 msgid "Port:"
 msgstr "პორტი:"
 
-#: testclient/mainwindow.cpp:258
+#: testclient/mainwindow.cpp:260
 msgctxt "MainWindow|"
 msgid "Profile:"
 msgstr "პროფილი:"
 
-#: testclient/mainwindow.cpp:264
+#: testclient/mainwindow.cpp:266
 msgctxt "MainWindow|"
 msgid "Attempt to stop Reset on connect"
 msgstr "მიერთებისას შეწყვეტის გაუქმების მცდელობა"
 
-#: testclient/mainwindow.cpp:276 testclient/mainwindow.cpp:292
-#: testclient/mainwindow.cpp:563
+#: testclient/mainwindow.cpp:279 testclient/mainwindow.cpp:298
+#: testclient/mainwindow.cpp:571
 msgctxt "MainWindow|"
 msgid "Connect"
 msgstr "დაკავშირება"
 
-#: testclient/mainwindow.cpp:284
+#: testclient/mainwindow.cpp:288
 msgctxt "MainWindow|"
 msgid "Connection Error"
 msgstr "კავშირის შეცდომა"
 
-#: testclient/mainwindow.cpp:284
+#: testclient/mainwindow.cpp:289
 msgctxt "MainWindow|"
 msgid ""
 "Your machine did not respond after 20 seconds.\n"
@@ -1655,93 +1655,93 @@ msgstr ""
 "თავიდან მიერთებამდე შეამოწმეთ, ჩართულია თუ არა პრინტერი და მოწყობილობას "
 "სწორი ბოდური სიჩქარით თუ უკავშირდებით."
 
-#: testclient/mainwindow.cpp:304
+#: testclient/mainwindow.cpp:310
 msgctxt "MainWindow|"
 msgid "Home All"
 msgstr "ყველა დასაწყისში"
 
-#: testclient/mainwindow.cpp:309
+#: testclient/mainwindow.cpp:315
 msgctxt "MainWindow|"
 msgid "Home X"
 msgstr "დასაწყისის X"
 
-#: testclient/mainwindow.cpp:314
+#: testclient/mainwindow.cpp:320
 msgctxt "MainWindow|"
 msgid "Home Y"
 msgstr "დასაწყისის Y"
 
-#: testclient/mainwindow.cpp:319
+#: testclient/mainwindow.cpp:325
 msgctxt "MainWindow|"
 msgid "Home Z"
 msgstr "დასაწყისის Z"
 
-#: testclient/mainwindow.cpp:341
+#: testclient/mainwindow.cpp:349
 msgctxt "MainWindow|"
 msgid "Movement"
 msgstr "მოძრაობა"
 
-#: testclient/mainwindow.cpp:354
+#: testclient/mainwindow.cpp:362
 msgctxt "MainWindow|"
 msgid "Temperatures"
 msgstr "ტემპერატურა"
 
-#: testclient/mainwindow.cpp:367
+#: testclient/mainwindow.cpp:375
 msgctxt "MainWindow|"
 msgid "Print Error"
 msgstr "ბეჭდვის შეცდომა"
 
-#: testclient/mainwindow.cpp:367 testclient/mainwindow.cpp:375
+#: testclient/mainwindow.cpp:375 testclient/mainwindow.cpp:383
 msgctxt "MainWindow|"
 msgid "You must Select a file from the list"
 msgstr "ფაილი სიიდან უნდა აირჩიოთ"
 
-#: testclient/mainwindow.cpp:375
+#: testclient/mainwindow.cpp:383
 msgctxt "MainWindow|"
 msgid "Delete Error"
 msgstr "წაშლის შეცდომა"
 
-#: testclient/mainwindow.cpp:381
+#: testclient/mainwindow.cpp:389
 msgctxt "MainWindow|"
 msgid "Sd Card"
 msgstr "Sd ბარათი"
 
-#: testclient/mainwindow.cpp:390
+#: testclient/mainwindow.cpp:398
 msgctxt "MainWindow|"
 msgid "Profile Manager"
 msgstr "პროფილის მმართველი"
 
-#: testclient/mainwindow.cpp:446
+#: testclient/mainwindow.cpp:454
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Found %1 Ports"
 msgstr "ნაპოვნია %1 პორტი"
 
-#: testclient/mainwindow.cpp:448
+#: testclient/mainwindow.cpp:456
 msgctxt "MainWindow|"
 msgid "No available ports! Please connect a serial device to continue!"
 msgstr "პორტები ხელმიუწვდომელია! გასაგრძელებლად სერიული მოწყობილობა მიაერთეთ!"
 
-#: testclient/mainwindow.cpp:466
+#: testclient/mainwindow.cpp:474
 msgctxt "MainWindow|"
 msgid "Serial connected"
 msgstr "სერიული კავშირი"
 
-#: testclient/mainwindow.cpp:478
+#: testclient/mainwindow.cpp:486
 msgctxt "MainWindow|"
 msgid "Disconnected"
 msgstr "გათიშულია"
 
-#: testclient/mainwindow.cpp:487 testclient/mainwindow.cpp:493
+#: testclient/mainwindow.cpp:495 testclient/mainwindow.cpp:500
 msgctxt "MainWindow|"
 msgid "Error"
 msgstr "შეცდომა"
 
-#: testclient/mainwindow.cpp:487
+#: testclient/mainwindow.cpp:495
 msgctxt "MainWindow|"
 msgid "Not Connected To a Printer"
 msgstr "არ არის დაკავშირებული პრინტერთან"
 
-#: testclient/mainwindow.cpp:494
+#: testclient/mainwindow.cpp:501
 msgctxt "MainWindow|"
 msgid ""
 " A Firmware Plugin was not loaded!\n"
@@ -1754,84 +1754,84 @@ msgstr ""
 "მიკროკოდი. ამით ჩვენ მიკროკოდის ამოცნობას გავაუმჯობესებთ. ჩაასწორეთ პროფილი, "
 "რათა \"marlin\"-ი გამოიყენოთ და თავიდან სცადეთ."
 
-#: testclient/mainwindow.cpp:498
+#: testclient/mainwindow.cpp:506
 msgctxt "MainWindow|"
 msgid "Select a file to print"
 msgstr "აირჩიეთ დასაბეჭდი ფაილი"
 
-#: testclient/mainwindow.cpp:498
+#: testclient/mainwindow.cpp:506
 msgctxt "MainWindow|"
 msgid "*.gcode"
 msgstr "*.gcode"
 
-#: testclient/mainwindow.cpp:500
+#: testclient/mainwindow.cpp:508
 msgctxt "MainWindow|"
 msgid "No File Selected"
 msgstr "ფაილი არჩეული არაა"
 
-#: testclient/mainwindow.cpp:502
+#: testclient/mainwindow.cpp:510
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Print: %1"
 msgstr "ბეჭდვა: %1"
 
-#: testclient/mainwindow.cpp:529
+#: testclient/mainwindow.cpp:537
 msgctxt "MainWindow|"
 msgid "Disconnect"
 msgstr "გათიშვა"
 
-#: testclient/mainwindow.cpp:530 testclient/mainwindow.cpp:543
-#: testclient/mainwindow.cpp:651
+#: testclient/mainwindow.cpp:538 testclient/mainwindow.cpp:551
+#: testclient/mainwindow.cpp:659
 msgctxt "MainWindow|"
 msgid "Print File"
 msgstr "ფაილის დაბეჭდვა"
 
-#: testclient/mainwindow.cpp:531
+#: testclient/mainwindow.cpp:539
 msgctxt "MainWindow|"
 msgid "Connected to "
 msgstr "დაკავშირებულია "
 
-#: testclient/mainwindow.cpp:536
+#: testclient/mainwindow.cpp:544
 msgctxt "MainWindow|"
 msgid "START PRINT"
 msgstr "ბეჭდვის დაწყება"
 
-#: testclient/mainwindow.cpp:537 testclient/mainwindow.cpp:554
+#: testclient/mainwindow.cpp:545 testclient/mainwindow.cpp:562
 msgctxt "MainWindow|"
 msgid "Pause Print"
 msgstr "ბეჭდვის შეჩერება"
 
-#: testclient/mainwindow.cpp:542
+#: testclient/mainwindow.cpp:550
 msgctxt "MainWindow|"
 msgid "Finished Print"
 msgstr "ბეჭდვა დასრულებულია"
 
-#: testclient/mainwindow.cpp:548
+#: testclient/mainwindow.cpp:556
 msgctxt "MainWindow|"
 msgid "Paused"
 msgstr "შეჩერებულია"
 
-#: testclient/mainwindow.cpp:549
+#: testclient/mainwindow.cpp:557
 msgctxt "MainWindow|"
 msgid "Resume Print"
 msgstr "ბეჭდვის გაგრძელება"
 
-#: testclient/mainwindow.cpp:553
+#: testclient/mainwindow.cpp:561
 msgctxt "MainWindow|"
 msgid "Printing"
 msgstr "დაბეჭდვა"
 
-#: testclient/mainwindow.cpp:570
+#: testclient/mainwindow.cpp:578
 msgctxt "MainWindow|"
 msgid "Abort"
 msgstr "შეწყვეტა"
 
-#: testclient/mainwindow.cpp:577
+#: testclient/mainwindow.cpp:585
 msgctxt "MainWindow|"
 msgid "Stopping Print"
 msgstr "ბეჭდვის შეჩერება"
 
-#: testclient/mainwindow.cpp:581
+#: testclient/mainwindow.cpp:589
 msgctxt "MainWindow|"
 msgid "Command ERROR"
 msgstr "ბრძანების შეცდომა"

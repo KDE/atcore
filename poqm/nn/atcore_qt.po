@@ -40,37 +40,37 @@ msgctxt "AtCore|"
 msgid "Waiting for machine restart"
 msgstr "Ventar på omstart av maskina"
 
-#: src/core/atcore.cpp:249
+#: src/core/atcore.cpp:251
 msgctxt "AtCore|"
 msgid "Failed to open device in read/write mode."
 msgstr "Klarte ikkje opna eining i lese-/skrivemodus."
 
-#: src/core/atcore.cpp:868
+#: src/core/atcore.cpp:873
 msgctxt "AtCore|"
 msgid "Device not found"
 msgstr "Fann ikkje eining"
 
-#: src/core/atcore.cpp:871
+#: src/core/atcore.cpp:876
 msgctxt "AtCore|"
 msgid "Unable to write to device"
 msgstr "Klarte ikkje skriva til eininga"
 
-#: src/core/atcore.cpp:874
+#: src/core/atcore.cpp:879
 msgctxt "AtCore|"
 msgid "Unable to read from device"
 msgstr "Klarte ikkje lesa frå eininga"
 
-#: src/core/atcore.cpp:878
+#: src/core/atcore.cpp:883
 msgctxt "AtCore|"
 msgid "The device no longer available"
 msgstr "Eininga er ikkje lenger tilgjengeleg"
 
-#: src/core/atcore.cpp:882
+#: src/core/atcore.cpp:887
 msgctxt "AtCore|"
 msgid "Device does not support the operation"
 msgstr "Eininga støttar ikkje denne handlinga"
 
-#: src/core/atcore.cpp:885
+#: src/core/atcore.cpp:890
 msgctxt "AtCore|"
 msgid "Unknown Error"
 msgstr "Ukjend feil"
@@ -1267,57 +1267,57 @@ msgstr ""
 "p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Vel eit "
 "programvaretillegg manuelt i staden for å bruka automatisk val.</p>"
 
-#: src/widgets/logwidget.cpp:81
+#: src/widgets/logwidget.cpp:82
 msgctxt "LogWidget|"
 msgid "Save Session Log"
 msgstr "Lagra øktlogg"
 
-#: src/widgets/logwidget.cpp:167
+#: src/widgets/logwidget.cpp:170
 msgctxt "LogWidget|"
 msgid "Save Log to file"
 msgstr "Lagra logg til fil"
 
-#: src/widgets/movementwidget.cpp:49
+#: src/widgets/movementwidget.cpp:51
 msgctxt "MovementWidget|"
 msgid "Home All"
 msgstr "Heim alle"
 
-#: src/widgets/movementwidget.cpp:53
+#: src/widgets/movementwidget.cpp:55
 msgctxt "MovementWidget|"
 msgid "Home X"
 msgstr "Heim X"
 
-#: src/widgets/movementwidget.cpp:57
+#: src/widgets/movementwidget.cpp:59
 msgctxt "MovementWidget|"
 msgid "Home Y"
 msgstr "Heim Y"
 
-#: src/widgets/movementwidget.cpp:61
+#: src/widgets/movementwidget.cpp:63
 msgctxt "MovementWidget|"
 msgid "Home Z"
 msgstr "Heim Z"
 
-#: src/widgets/movementwidget.cpp:67
+#: src/widgets/movementwidget.cpp:69
 msgctxt "MovementWidget|"
 msgid "Disable Motors"
 msgstr "Slå av motorane"
 
-#: src/widgets/movementwidget.cpp:72
+#: src/widgets/movementwidget.cpp:74
 msgctxt "MovementWidget|"
 msgid "Move X Axis to"
 msgstr "Flytt X-akse til"
 
-#: src/widgets/movementwidget.cpp:73
+#: src/widgets/movementwidget.cpp:75
 msgctxt "MovementWidget|"
 msgid "Move Y Axis to"
 msgstr "Flytt Y-akse til"
 
-#: src/widgets/movementwidget.cpp:74
+#: src/widgets/movementwidget.cpp:76
 msgctxt "MovementWidget|"
 msgid "Move Z Axis to"
 msgstr "Flytt Z-akse til"
 
-#: src/widgets/movementwidget.cpp:83
+#: src/widgets/movementwidget.cpp:85
 msgctxt "MovementWidget|"
 msgid "Go"
 msgstr "Gå til"
@@ -1342,18 +1342,18 @@ msgctxt "PrintWidget|"
 msgid "Printer Speed"
 msgstr "Skrivarfart"
 
-#: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:58
-#: src/widgets/printwidget.cpp:71
+#: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:60
+#: src/widgets/printwidget.cpp:75
 msgctxt "PrintWidget|"
 msgid "Set"
 msgstr "Vel"
 
-#: src/widgets/printwidget.cpp:52
+#: src/widgets/printwidget.cpp:54
 msgctxt "PrintWidget|"
 msgid "Flow Rate"
 msgstr "Flytrate"
 
-#: src/widgets/printwidget.cpp:96
+#: src/widgets/printwidget.cpp:100
 #, qt-format
 msgctxt "PrintWidget|"
 msgid "Fan %1 speed"
@@ -1389,77 +1389,77 @@ msgctxt "ProfileManager|"
 msgid "Cartesian"
 msgstr "Kartesisk"
 
-#: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:233
+#: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:251
 msgctxt "ProfileManager|"
 msgid "Maximum X"
 msgstr "Maksimum X"
 
-#: src/widgets/profilemanager.cpp:105
+#: src/widgets/profilemanager.cpp:107
 msgctxt "ProfileManager|"
 msgid "Maximum Y"
 msgstr "Maksimum Y"
 
-#: src/widgets/profilemanager.cpp:119 src/widgets/profilemanager.cpp:234
+#: src/widgets/profilemanager.cpp:123 src/widgets/profilemanager.cpp:252
 msgctxt "ProfileManager|"
 msgid "Maximum Z"
 msgstr "Maksimum Z"
 
-#: src/widgets/profilemanager.cpp:130
+#: src/widgets/profilemanager.cpp:136
 msgctxt "ProfileManager|"
 msgid "Mechanics"
 msgstr "Mekanikk"
 
-#: src/widgets/profilemanager.cpp:135
+#: src/widgets/profilemanager.cpp:141
 msgctxt "ProfileManager|"
 msgid "Bed Maximum"
 msgstr "Sengmaksimum"
 
-#: src/widgets/profilemanager.cpp:148
+#: src/widgets/profilemanager.cpp:156
 msgctxt "ProfileManager|"
 msgid "Extruder Maximum"
 msgstr "Ekstrudermaksimum"
 
-#: src/widgets/profilemanager.cpp:157
+#: src/widgets/profilemanager.cpp:167
 msgctxt "ProfileManager|"
 msgid "Auto Temperature Report"
 msgstr "Automatisk temperaturrapport"
 
-#: src/widgets/profilemanager.cpp:162
+#: src/widgets/profilemanager.cpp:174
 msgctxt "ProfileManager|"
 msgid "Temperature"
 msgstr "Temperatur"
 
-#: src/widgets/profilemanager.cpp:172
+#: src/widgets/profilemanager.cpp:186
 msgctxt "ProfileManager|"
 msgid "Bit Rate"
 msgstr "Bitrate"
 
-#: src/widgets/profilemanager.cpp:178
+#: src/widgets/profilemanager.cpp:192
 msgctxt "ProfileManager|"
 msgid "Firmware"
 msgstr "Fastvare"
 
-#: src/widgets/profilemanager.cpp:192
+#: src/widgets/profilemanager.cpp:210
 msgctxt "ProfileManager|"
 msgid "PostPause"
 msgstr "Etterpause"
 
-#: src/widgets/profilemanager.cpp:198
+#: src/widgets/profilemanager.cpp:216
 msgctxt "ProfileManager|"
 msgid "Advanced"
 msgstr "Avansert"
 
-#: src/widgets/profilemanager.cpp:201
+#: src/widgets/profilemanager.cpp:219
 msgctxt "ProfileManager|"
 msgid "Profile"
 msgstr "Profil"
 
-#: src/widgets/profilemanager.cpp:236
+#: src/widgets/profilemanager.cpp:254
 msgctxt "ProfileManager|"
 msgid "Radius"
 msgstr "Radius"
 
-#: src/widgets/profilemanager.cpp:237
+#: src/widgets/profilemanager.cpp:255
 msgctxt "ProfileManager|"
 msgid "Height"
 msgstr "Høgd"
@@ -1484,17 +1484,17 @@ msgctxt "SdWidget|"
 msgid "Files On Sd Card"
 msgstr "Filer på SD-kort"
 
-#: src/widgets/statuswidget.cpp:47
+#: src/widgets/statuswidget.cpp:49
 msgctxt "StatusWidget|"
 msgid "AtCore State:"
 msgstr "AtCore-tilstand:"
 
-#: src/widgets/statuswidget.cpp:48
+#: src/widgets/statuswidget.cpp:50
 msgctxt "StatusWidget|"
 msgid "Not Connected"
 msgstr "Ikkje kopla til"
 
-#: src/widgets/statuswidget.cpp:72
+#: src/widgets/statuswidget.cpp:74
 msgctxt "StatusWidget|"
 msgid "SD"
 msgstr "SD"
@@ -1509,12 +1509,12 @@ msgctxt "TemperatureWidget|"
 msgid "Bed Temp"
 msgstr "Sengtemperatur"
 
-#: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:44
+#: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:46
 msgctxt "TemperatureWidget|"
 msgid "Set"
 msgstr "Vel"
 
-#: src/widgets/temperaturewidget.cpp:60
+#: src/widgets/temperaturewidget.cpp:64
 #, qt-format
 msgctxt "TemperatureWidget|"
 msgid "Extruder %1"
@@ -1605,43 +1605,43 @@ msgctxt "MainWindow|"
 msgid "Seconds Between Temperature Checks"
 msgstr "Sekund mellom temperaturrapportering"
 
-#: testclient/mainwindow.cpp:218
+#: testclient/mainwindow.cpp:220
 msgctxt "MainWindow|"
 msgid "Temperature Timeline"
 msgstr "Tidslinje for temperatur"
 
-#: testclient/mainwindow.cpp:227
+#: testclient/mainwindow.cpp:229
 msgctxt "MainWindow|"
 msgid "Session Log"
 msgstr "Øktlogg"
 
-#: testclient/mainwindow.cpp:237
+#: testclient/mainwindow.cpp:239
 msgctxt "MainWindow|"
 msgid "Port:"
 msgstr "Port:"
 
-#: testclient/mainwindow.cpp:258
+#: testclient/mainwindow.cpp:260
 msgctxt "MainWindow|"
 msgid "Profile:"
 msgstr "Profil:"
 
-#: testclient/mainwindow.cpp:264
+#: testclient/mainwindow.cpp:266
 msgctxt "MainWindow|"
 msgid "Attempt to stop Reset on connect"
 msgstr "Prøv å stoppa nullstilling ved tilkopling"
 
-#: testclient/mainwindow.cpp:276 testclient/mainwindow.cpp:292
-#: testclient/mainwindow.cpp:563
+#: testclient/mainwindow.cpp:279 testclient/mainwindow.cpp:298
+#: testclient/mainwindow.cpp:571
 msgctxt "MainWindow|"
 msgid "Connect"
 msgstr "Kopla til"
 
-#: testclient/mainwindow.cpp:284
+#: testclient/mainwindow.cpp:288
 msgctxt "MainWindow|"
 msgid "Connection Error"
 msgstr "Tilkoplingsfeil"
 
-#: testclient/mainwindow.cpp:284
+#: testclient/mainwindow.cpp:289
 msgctxt "MainWindow|"
 msgid ""
 "Your machine did not respond after 20 seconds.\n"
@@ -1654,93 +1654,93 @@ msgstr ""
 "Før du prøver å  kopla til att, sjå til at skrivaren er på og at du koplar "
 "til med rett BAUD-verdi for eininga."
 
-#: testclient/mainwindow.cpp:304
+#: testclient/mainwindow.cpp:310
 msgctxt "MainWindow|"
 msgid "Home All"
 msgstr "Heim alle"
 
-#: testclient/mainwindow.cpp:309
+#: testclient/mainwindow.cpp:315
 msgctxt "MainWindow|"
 msgid "Home X"
 msgstr "Heim X"
 
-#: testclient/mainwindow.cpp:314
+#: testclient/mainwindow.cpp:320
 msgctxt "MainWindow|"
 msgid "Home Y"
 msgstr "Heim Y"
 
-#: testclient/mainwindow.cpp:319
+#: testclient/mainwindow.cpp:325
 msgctxt "MainWindow|"
 msgid "Home Z"
 msgstr "Heim Z"
 
-#: testclient/mainwindow.cpp:341
+#: testclient/mainwindow.cpp:349
 msgctxt "MainWindow|"
 msgid "Movement"
 msgstr "Forflytting"
 
-#: testclient/mainwindow.cpp:354
+#: testclient/mainwindow.cpp:362
 msgctxt "MainWindow|"
 msgid "Temperatures"
 msgstr "Temperaturar"
 
-#: testclient/mainwindow.cpp:367
+#: testclient/mainwindow.cpp:375
 msgctxt "MainWindow|"
 msgid "Print Error"
 msgstr "Utskriftsfeil"
 
-#: testclient/mainwindow.cpp:367 testclient/mainwindow.cpp:375
+#: testclient/mainwindow.cpp:375 testclient/mainwindow.cpp:383
 msgctxt "MainWindow|"
 msgid "You must Select a file from the list"
 msgstr "Du må velja ei fil frå lista"
 
-#: testclient/mainwindow.cpp:375
+#: testclient/mainwindow.cpp:383
 msgctxt "MainWindow|"
 msgid "Delete Error"
 msgstr "Feil ved sletting"
 
-#: testclient/mainwindow.cpp:381
+#: testclient/mainwindow.cpp:389
 msgctxt "MainWindow|"
 msgid "Sd Card"
 msgstr "SD-kort"
 
-#: testclient/mainwindow.cpp:390
+#: testclient/mainwindow.cpp:398
 msgctxt "MainWindow|"
 msgid "Profile Manager"
 msgstr "Profilhandsamar"
 
-#: testclient/mainwindow.cpp:446
+#: testclient/mainwindow.cpp:454
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Found %1 Ports"
 msgstr "Fann %1 portar"
 
-#: testclient/mainwindow.cpp:448
+#: testclient/mainwindow.cpp:456
 msgctxt "MainWindow|"
 msgid "No available ports! Please connect a serial device to continue!"
 msgstr "Ingen tilgjengelege portar. Kopla til ei serieeining for å halda fram."
 
-#: testclient/mainwindow.cpp:466
+#: testclient/mainwindow.cpp:474
 msgctxt "MainWindow|"
 msgid "Serial connected"
 msgstr "Serieeining kopla til"
 
-#: testclient/mainwindow.cpp:478
+#: testclient/mainwindow.cpp:486
 msgctxt "MainWindow|"
 msgid "Disconnected"
 msgstr "Fråkopla"
 
-#: testclient/mainwindow.cpp:487 testclient/mainwindow.cpp:493
+#: testclient/mainwindow.cpp:495 testclient/mainwindow.cpp:500
 msgctxt "MainWindow|"
 msgid "Error"
 msgstr "Feil"
 
-#: testclient/mainwindow.cpp:487
+#: testclient/mainwindow.cpp:495
 msgctxt "MainWindow|"
 msgid "Not Connected To a Printer"
 msgstr "Ikkje kopla til skrivar"
 
-#: testclient/mainwindow.cpp:494
+#: testclient/mainwindow.cpp:501
 msgctxt "MainWindow|"
 msgid ""
 " A Firmware Plugin was not loaded!\n"
@@ -1753,84 +1753,84 @@ msgstr ""
 "slik at me kan forbetra detekteringa av fastvareversjonar. Rediger profilen "
 "til å bruka «marlin» og prøv på nytt."
 
-#: testclient/mainwindow.cpp:498
+#: testclient/mainwindow.cpp:506
 msgctxt "MainWindow|"
 msgid "Select a file to print"
 msgstr "Vel fila du vil skriva ut"
 
-#: testclient/mainwindow.cpp:498
+#: testclient/mainwindow.cpp:506
 msgctxt "MainWindow|"
 msgid "*.gcode"
 msgstr "*.gcode"
 
-#: testclient/mainwindow.cpp:500
+#: testclient/mainwindow.cpp:508
 msgctxt "MainWindow|"
 msgid "No File Selected"
 msgstr "Inga fil er vald"
 
-#: testclient/mainwindow.cpp:502
+#: testclient/mainwindow.cpp:510
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Print: %1"
 msgstr "Skriv ut: %1"
 
-#: testclient/mainwindow.cpp:529
+#: testclient/mainwindow.cpp:537
 msgctxt "MainWindow|"
 msgid "Disconnect"
 msgstr "Kopla frå"
 
-#: testclient/mainwindow.cpp:530 testclient/mainwindow.cpp:543
-#: testclient/mainwindow.cpp:651
+#: testclient/mainwindow.cpp:538 testclient/mainwindow.cpp:551
+#: testclient/mainwindow.cpp:659
 msgctxt "MainWindow|"
 msgid "Print File"
 msgstr "Skriv ut fil"
 
-#: testclient/mainwindow.cpp:531
+#: testclient/mainwindow.cpp:539
 msgctxt "MainWindow|"
 msgid "Connected to "
 msgstr "Kopla til"
 
-#: testclient/mainwindow.cpp:536
+#: testclient/mainwindow.cpp:544
 msgctxt "MainWindow|"
 msgid "START PRINT"
 msgstr "START UTSKRIFT"
 
-#: testclient/mainwindow.cpp:537 testclient/mainwindow.cpp:554
+#: testclient/mainwindow.cpp:545 testclient/mainwindow.cpp:562
 msgctxt "MainWindow|"
 msgid "Pause Print"
 msgstr "Pausa utskrift"
 
-#: testclient/mainwindow.cpp:542
+#: testclient/mainwindow.cpp:550
 msgctxt "MainWindow|"
 msgid "Finished Print"
 msgstr "Fullført utskrift"
 
-#: testclient/mainwindow.cpp:548
+#: testclient/mainwindow.cpp:556
 msgctxt "MainWindow|"
 msgid "Paused"
 msgstr "Pausa"
 
-#: testclient/mainwindow.cpp:549
+#: testclient/mainwindow.cpp:557
 msgctxt "MainWindow|"
 msgid "Resume Print"
 msgstr "Hald fram med utskrift"
 
-#: testclient/mainwindow.cpp:553
+#: testclient/mainwindow.cpp:561
 msgctxt "MainWindow|"
 msgid "Printing"
 msgstr "Skriv ut"
 
-#: testclient/mainwindow.cpp:570
+#: testclient/mainwindow.cpp:578
 msgctxt "MainWindow|"
 msgid "Abort"
 msgstr "Avbryt"
 
-#: testclient/mainwindow.cpp:577
+#: testclient/mainwindow.cpp:585
 msgctxt "MainWindow|"
 msgid "Stopping Print"
 msgstr "Stoppar utskrift"
 
-#: testclient/mainwindow.cpp:581
+#: testclient/mainwindow.cpp:589
 msgctxt "MainWindow|"
 msgid "Command ERROR"
 msgstr "Kommandofeil"

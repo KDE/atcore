@@ -41,37 +41,37 @@ msgctxt "AtCore|"
 msgid "Waiting for machine restart"
 msgstr "Atendante rekomencon de la maŝino"
 
-#: src/core/atcore.cpp:249
+#: src/core/atcore.cpp:251
 msgctxt "AtCore|"
 msgid "Failed to open device in read/write mode."
 msgstr "Malsukcesis malfermi aparaton en legado/skriba reĝimo."
 
-#: src/core/atcore.cpp:868
+#: src/core/atcore.cpp:873
 msgctxt "AtCore|"
 msgid "Device not found"
 msgstr "Aparato ne trovita"
 
-#: src/core/atcore.cpp:871
+#: src/core/atcore.cpp:876
 msgctxt "AtCore|"
 msgid "Unable to write to device"
 msgstr "Ne eblas skribi al aparato"
 
-#: src/core/atcore.cpp:874
+#: src/core/atcore.cpp:879
 msgctxt "AtCore|"
 msgid "Unable to read from device"
 msgstr "Ne eblas legi de aparato"
 
-#: src/core/atcore.cpp:878
+#: src/core/atcore.cpp:883
 msgctxt "AtCore|"
 msgid "The device no longer available"
 msgstr "La aparato ne plu havebla"
 
-#: src/core/atcore.cpp:882
+#: src/core/atcore.cpp:887
 msgctxt "AtCore|"
 msgid "Device does not support the operation"
 msgstr "La aparato ne subtenas la operacion"
 
-#: src/core/atcore.cpp:885
+#: src/core/atcore.cpp:890
 msgctxt "AtCore|"
 msgid "Unknown Error"
 msgstr "Nekonata eraro"
@@ -1239,57 +1239,57 @@ msgid ""
 "firmware plugin in place of auto detect.</p>"
 msgstr ""
 
-#: src/widgets/logwidget.cpp:81
+#: src/widgets/logwidget.cpp:82
 msgctxt "LogWidget|"
 msgid "Save Session Log"
 msgstr "Konservi Seancan Protokolon"
 
-#: src/widgets/logwidget.cpp:167
+#: src/widgets/logwidget.cpp:170
 msgctxt "LogWidget|"
 msgid "Save Log to file"
 msgstr "Konservi Protokolo al dosiero"
 
-#: src/widgets/movementwidget.cpp:49
+#: src/widgets/movementwidget.cpp:51
 msgctxt "MovementWidget|"
 msgid "Home All"
 msgstr "Hejmo Ĉiuj"
 
-#: src/widgets/movementwidget.cpp:53
+#: src/widgets/movementwidget.cpp:55
 msgctxt "MovementWidget|"
 msgid "Home X"
 msgstr "Hejmo X"
 
-#: src/widgets/movementwidget.cpp:57
+#: src/widgets/movementwidget.cpp:59
 msgctxt "MovementWidget|"
 msgid "Home Y"
 msgstr "Hejmo Y"
 
-#: src/widgets/movementwidget.cpp:61
+#: src/widgets/movementwidget.cpp:63
 msgctxt "MovementWidget|"
 msgid "Home Z"
 msgstr "Hejmo Z"
 
-#: src/widgets/movementwidget.cpp:67
+#: src/widgets/movementwidget.cpp:69
 msgctxt "MovementWidget|"
 msgid "Disable Motors"
 msgstr "Malebligi Motorojn"
 
-#: src/widgets/movementwidget.cpp:72
+#: src/widgets/movementwidget.cpp:74
 msgctxt "MovementWidget|"
 msgid "Move X Axis to"
 msgstr "Movi X-akson al"
 
-#: src/widgets/movementwidget.cpp:73
+#: src/widgets/movementwidget.cpp:75
 msgctxt "MovementWidget|"
 msgid "Move Y Axis to"
 msgstr "Movi Y-akson al"
 
-#: src/widgets/movementwidget.cpp:74
+#: src/widgets/movementwidget.cpp:76
 msgctxt "MovementWidget|"
 msgid "Move Z Axis to"
 msgstr "Movi Z-akson al"
 
-#: src/widgets/movementwidget.cpp:83
+#: src/widgets/movementwidget.cpp:85
 msgctxt "MovementWidget|"
 msgid "Go"
 msgstr "Go"
@@ -1314,18 +1314,18 @@ msgctxt "PrintWidget|"
 msgid "Printer Speed"
 msgstr "Presilo Rapido"
 
-#: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:58
-#: src/widgets/printwidget.cpp:71
+#: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:60
+#: src/widgets/printwidget.cpp:75
 msgctxt "PrintWidget|"
 msgid "Set"
 msgstr "Difini"
 
-#: src/widgets/printwidget.cpp:52
+#: src/widgets/printwidget.cpp:54
 msgctxt "PrintWidget|"
 msgid "Flow Rate"
 msgstr "Fluo-Indico"
 
-#: src/widgets/printwidget.cpp:96
+#: src/widgets/printwidget.cpp:100
 #, qt-format
 msgctxt "PrintWidget|"
 msgid "Fan %1 speed"
@@ -1361,77 +1361,77 @@ msgctxt "ProfileManager|"
 msgid "Cartesian"
 msgstr "Kartezia"
 
-#: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:233
+#: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:251
 msgctxt "ProfileManager|"
 msgid "Maximum X"
 msgstr "Maksimumo X"
 
-#: src/widgets/profilemanager.cpp:105
+#: src/widgets/profilemanager.cpp:107
 msgctxt "ProfileManager|"
 msgid "Maximum Y"
 msgstr "Maksimuma Y"
 
-#: src/widgets/profilemanager.cpp:119 src/widgets/profilemanager.cpp:234
+#: src/widgets/profilemanager.cpp:123 src/widgets/profilemanager.cpp:252
 msgctxt "ProfileManager|"
 msgid "Maximum Z"
 msgstr "Maksimuma Z"
 
-#: src/widgets/profilemanager.cpp:130
+#: src/widgets/profilemanager.cpp:136
 msgctxt "ProfileManager|"
 msgid "Mechanics"
 msgstr "Mekaniko"
 
-#: src/widgets/profilemanager.cpp:135
+#: src/widgets/profilemanager.cpp:141
 msgctxt "ProfileManager|"
 msgid "Bed Maximum"
 msgstr "Lito Maksimumo"
 
-#: src/widgets/profilemanager.cpp:148
+#: src/widgets/profilemanager.cpp:156
 msgctxt "ProfileManager|"
 msgid "Extruder Maximum"
 msgstr "Ekstrudilo Maksimuma"
 
-#: src/widgets/profilemanager.cpp:157
+#: src/widgets/profilemanager.cpp:167
 msgctxt "ProfileManager|"
 msgid "Auto Temperature Report"
 msgstr "Aŭtomata Temperaturo Raporto"
 
-#: src/widgets/profilemanager.cpp:162
+#: src/widgets/profilemanager.cpp:174
 msgctxt "ProfileManager|"
 msgid "Temperature"
 msgstr "Temperaturo"
 
-#: src/widgets/profilemanager.cpp:172
+#: src/widgets/profilemanager.cpp:186
 msgctxt "ProfileManager|"
 msgid "Bit Rate"
 msgstr "Bitrapideco"
 
-#: src/widgets/profilemanager.cpp:178
+#: src/widgets/profilemanager.cpp:192
 msgctxt "ProfileManager|"
 msgid "Firmware"
 msgstr "Firmvaro"
 
-#: src/widgets/profilemanager.cpp:192
+#: src/widgets/profilemanager.cpp:210
 msgctxt "ProfileManager|"
 msgid "PostPause"
 msgstr "PostPaŭzo"
 
-#: src/widgets/profilemanager.cpp:198
+#: src/widgets/profilemanager.cpp:216
 msgctxt "ProfileManager|"
 msgid "Advanced"
 msgstr "Altnivela"
 
-#: src/widgets/profilemanager.cpp:201
+#: src/widgets/profilemanager.cpp:219
 msgctxt "ProfileManager|"
 msgid "Profile"
 msgstr "Profilo"
 
-#: src/widgets/profilemanager.cpp:236
+#: src/widgets/profilemanager.cpp:254
 msgctxt "ProfileManager|"
 msgid "Radius"
 msgstr "Radiuso"
 
-#: src/widgets/profilemanager.cpp:237
+#: src/widgets/profilemanager.cpp:255
 msgctxt "ProfileManager|"
 msgid "Height"
 msgstr "Alto"
@@ -1456,17 +1456,17 @@ msgctxt "SdWidget|"
 msgid "Files On Sd Card"
 msgstr "Dosieroj Sur Sd-Karto"
 
-#: src/widgets/statuswidget.cpp:47
+#: src/widgets/statuswidget.cpp:49
 msgctxt "StatusWidget|"
 msgid "AtCore State:"
 msgstr "AtCore-Stato:"
 
-#: src/widgets/statuswidget.cpp:48
+#: src/widgets/statuswidget.cpp:50
 msgctxt "StatusWidget|"
 msgid "Not Connected"
 msgstr "Ne Konektita"
 
-#: src/widgets/statuswidget.cpp:72
+#: src/widgets/statuswidget.cpp:74
 msgctxt "StatusWidget|"
 msgid "SD"
 msgstr "SD"
@@ -1481,12 +1481,12 @@ msgctxt "TemperatureWidget|"
 msgid "Bed Temp"
 msgstr "Lito Temp"
 
-#: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:44
+#: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:46
 msgctxt "TemperatureWidget|"
 msgid "Set"
 msgstr "Difini"
 
-#: src/widgets/temperaturewidget.cpp:60
+#: src/widgets/temperaturewidget.cpp:64
 #, qt-format
 msgctxt "TemperatureWidget|"
 msgid "Extruder %1"
@@ -1577,43 +1577,43 @@ msgctxt "MainWindow|"
 msgid "Seconds Between Temperature Checks"
 msgstr "Sekundoj Inter Temperatur-Kontroloj"
 
-#: testclient/mainwindow.cpp:218
+#: testclient/mainwindow.cpp:220
 msgctxt "MainWindow|"
 msgid "Temperature Timeline"
 msgstr "Temperaturo Templinio"
 
-#: testclient/mainwindow.cpp:227
+#: testclient/mainwindow.cpp:229
 msgctxt "MainWindow|"
 msgid "Session Log"
 msgstr "Seanca Protokolo"
 
-#: testclient/mainwindow.cpp:237
+#: testclient/mainwindow.cpp:239
 msgctxt "MainWindow|"
 msgid "Port:"
 msgstr "Pordo:"
 
-#: testclient/mainwindow.cpp:258
+#: testclient/mainwindow.cpp:260
 msgctxt "MainWindow|"
 msgid "Profile:"
 msgstr "Profilo:"
 
-#: testclient/mainwindow.cpp:264
+#: testclient/mainwindow.cpp:266
 msgctxt "MainWindow|"
 msgid "Attempt to stop Reset on connect"
 msgstr "Provi ĉesi Restarigi je konekto"
 
-#: testclient/mainwindow.cpp:276 testclient/mainwindow.cpp:292
-#: testclient/mainwindow.cpp:563
+#: testclient/mainwindow.cpp:279 testclient/mainwindow.cpp:298
+#: testclient/mainwindow.cpp:571
 msgctxt "MainWindow|"
 msgid "Connect"
 msgstr "Konekti"
 
-#: testclient/mainwindow.cpp:284
+#: testclient/mainwindow.cpp:288
 msgctxt "MainWindow|"
 msgid "Connection Error"
 msgstr "Konekta Eraro"
 
-#: testclient/mainwindow.cpp:284
+#: testclient/mainwindow.cpp:289
 msgctxt "MainWindow|"
 msgid ""
 "Your machine did not respond after 20 seconds.\n"
@@ -1626,94 +1626,94 @@ msgstr ""
 "Antaŭ ol konekti denove kontrolu, ke via presilo estas ŝaltita kaj vi "
 "estaskonektanta uzante la ĝustan Baud-oftecon por via aparato."
 
-#: testclient/mainwindow.cpp:304
+#: testclient/mainwindow.cpp:310
 msgctxt "MainWindow|"
 msgid "Home All"
 msgstr "Hejmo Ĉiuj"
 
-#: testclient/mainwindow.cpp:309
+#: testclient/mainwindow.cpp:315
 msgctxt "MainWindow|"
 msgid "Home X"
 msgstr "Hejmo X"
 
-#: testclient/mainwindow.cpp:314
+#: testclient/mainwindow.cpp:320
 msgctxt "MainWindow|"
 msgid "Home Y"
 msgstr "Hejmo Y"
 
-#: testclient/mainwindow.cpp:319
+#: testclient/mainwindow.cpp:325
 msgctxt "MainWindow|"
 msgid "Home Z"
 msgstr "Hejmo Z"
 
-#: testclient/mainwindow.cpp:341
+#: testclient/mainwindow.cpp:349
 msgctxt "MainWindow|"
 msgid "Movement"
 msgstr "Movado"
 
-#: testclient/mainwindow.cpp:354
+#: testclient/mainwindow.cpp:362
 msgctxt "MainWindow|"
 msgid "Temperatures"
 msgstr "Temperaturoj"
 
-#: testclient/mainwindow.cpp:367
+#: testclient/mainwindow.cpp:375
 msgctxt "MainWindow|"
 msgid "Print Error"
 msgstr "Presa Eraro"
 
-#: testclient/mainwindow.cpp:367 testclient/mainwindow.cpp:375
+#: testclient/mainwindow.cpp:375 testclient/mainwindow.cpp:383
 msgctxt "MainWindow|"
 msgid "You must Select a file from the list"
 msgstr "Vi devas Elekti dosieron el la listo"
 
-#: testclient/mainwindow.cpp:375
+#: testclient/mainwindow.cpp:383
 msgctxt "MainWindow|"
 msgid "Delete Error"
 msgstr "Forigi Eraron"
 
-#: testclient/mainwindow.cpp:381
+#: testclient/mainwindow.cpp:389
 msgctxt "MainWindow|"
 msgid "Sd Card"
 msgstr "Sd-karto"
 
-#: testclient/mainwindow.cpp:390
+#: testclient/mainwindow.cpp:398
 msgctxt "MainWindow|"
 msgid "Profile Manager"
 msgstr "Profila Administranto"
 
-#: testclient/mainwindow.cpp:446
+#: testclient/mainwindow.cpp:454
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Found %1 Ports"
 msgstr "Trovis %1 Pordojn"
 
-#: testclient/mainwindow.cpp:448
+#: testclient/mainwindow.cpp:456
 msgctxt "MainWindow|"
 msgid "No available ports! Please connect a serial device to continue!"
 msgstr ""
 "Neniuj disponeblaj pordoj! Bonvolu konekti serian aparaton por daŭrigi!"
 
-#: testclient/mainwindow.cpp:466
+#: testclient/mainwindow.cpp:474
 msgctxt "MainWindow|"
 msgid "Serial connected"
 msgstr "Seria konektita"
 
-#: testclient/mainwindow.cpp:478
+#: testclient/mainwindow.cpp:486
 msgctxt "MainWindow|"
 msgid "Disconnected"
 msgstr "Malkonektita"
 
-#: testclient/mainwindow.cpp:487 testclient/mainwindow.cpp:493
+#: testclient/mainwindow.cpp:495 testclient/mainwindow.cpp:500
 msgctxt "MainWindow|"
 msgid "Error"
 msgstr "Eraro"
 
-#: testclient/mainwindow.cpp:487
+#: testclient/mainwindow.cpp:495
 msgctxt "MainWindow|"
 msgid "Not Connected To a Printer"
 msgstr "Ne Konektita Al Presilo"
 
-#: testclient/mainwindow.cpp:494
+#: testclient/mainwindow.cpp:501
 msgctxt "MainWindow|"
 msgid ""
 " A Firmware Plugin was not loaded!\n"
@@ -1722,84 +1722,84 @@ msgid ""
 "\" and try again."
 msgstr ""
 
-#: testclient/mainwindow.cpp:498
+#: testclient/mainwindow.cpp:506
 msgctxt "MainWindow|"
 msgid "Select a file to print"
 msgstr "Elekti dosieron por presi"
 
-#: testclient/mainwindow.cpp:498
+#: testclient/mainwindow.cpp:506
 msgctxt "MainWindow|"
 msgid "*.gcode"
 msgstr "*.gcode"
 
-#: testclient/mainwindow.cpp:500
+#: testclient/mainwindow.cpp:508
 msgctxt "MainWindow|"
 msgid "No File Selected"
 msgstr "Neniu Dosiero Elektita"
 
-#: testclient/mainwindow.cpp:502
+#: testclient/mainwindow.cpp:510
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Print: %1"
 msgstr "Presi: %1"
 
-#: testclient/mainwindow.cpp:529
+#: testclient/mainwindow.cpp:537
 msgctxt "MainWindow|"
 msgid "Disconnect"
 msgstr "Malkonekti"
 
-#: testclient/mainwindow.cpp:530 testclient/mainwindow.cpp:543
-#: testclient/mainwindow.cpp:651
+#: testclient/mainwindow.cpp:538 testclient/mainwindow.cpp:551
+#: testclient/mainwindow.cpp:659
 msgctxt "MainWindow|"
 msgid "Print File"
 msgstr "Presi Dosiero"
 
-#: testclient/mainwindow.cpp:531
+#: testclient/mainwindow.cpp:539
 msgctxt "MainWindow|"
 msgid "Connected to "
 msgstr "Konektita al"
 
-#: testclient/mainwindow.cpp:536
+#: testclient/mainwindow.cpp:544
 msgctxt "MainWindow|"
 msgid "START PRINT"
 msgstr "KOMENCI PRINT"
 
-#: testclient/mainwindow.cpp:537 testclient/mainwindow.cpp:554
+#: testclient/mainwindow.cpp:545 testclient/mainwindow.cpp:562
 msgctxt "MainWindow|"
 msgid "Pause Print"
 msgstr "Paŭzi Preson"
 
-#: testclient/mainwindow.cpp:542
+#: testclient/mainwindow.cpp:550
 msgctxt "MainWindow|"
 msgid "Finished Print"
 msgstr "Finita Preso"
 
-#: testclient/mainwindow.cpp:548
+#: testclient/mainwindow.cpp:556
 msgctxt "MainWindow|"
 msgid "Paused"
 msgstr "Paŭzita"
 
-#: testclient/mainwindow.cpp:549
+#: testclient/mainwindow.cpp:557
 msgctxt "MainWindow|"
 msgid "Resume Print"
 msgstr "Rekomenci Presi"
 
-#: testclient/mainwindow.cpp:553
+#: testclient/mainwindow.cpp:561
 msgctxt "MainWindow|"
 msgid "Printing"
 msgstr "Presado"
 
-#: testclient/mainwindow.cpp:570
+#: testclient/mainwindow.cpp:578
 msgctxt "MainWindow|"
 msgid "Abort"
 msgstr "Ĉesigi"
 
-#: testclient/mainwindow.cpp:577
+#: testclient/mainwindow.cpp:585
 msgctxt "MainWindow|"
 msgid "Stopping Print"
 msgstr "Ĉesigante Preson"
 
-#: testclient/mainwindow.cpp:581
+#: testclient/mainwindow.cpp:589
 msgctxt "MainWindow|"
 msgid "Command ERROR"
 msgstr "Komando ERARO"

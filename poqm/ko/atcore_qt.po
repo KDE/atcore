@@ -38,37 +38,37 @@ msgctxt "AtCore|"
 msgid "Waiting for machine restart"
 msgstr "머신 재시작을 기다리는 중"
 
-#: src/core/atcore.cpp:249
+#: src/core/atcore.cpp:251
 msgctxt "AtCore|"
 msgid "Failed to open device in read/write mode."
 msgstr "장치를 읽기/쓰기 모드로 열 수 없습니다."
 
-#: src/core/atcore.cpp:868
+#: src/core/atcore.cpp:873
 msgctxt "AtCore|"
 msgid "Device not found"
 msgstr "장치를 찾을 수 없음"
 
-#: src/core/atcore.cpp:871
+#: src/core/atcore.cpp:876
 msgctxt "AtCore|"
 msgid "Unable to write to device"
 msgstr "장치에 쓸 수 없음"
 
-#: src/core/atcore.cpp:874
+#: src/core/atcore.cpp:879
 msgctxt "AtCore|"
 msgid "Unable to read from device"
 msgstr "장치에서 읽을 수 없음"
 
-#: src/core/atcore.cpp:878
+#: src/core/atcore.cpp:883
 msgctxt "AtCore|"
 msgid "The device no longer available"
 msgstr "장치를 더 이상 사용할 수 없음"
 
-#: src/core/atcore.cpp:882
+#: src/core/atcore.cpp:887
 msgctxt "AtCore|"
 msgid "Device does not support the operation"
 msgstr "장치에서 작업을 지원하지 않음"
 
-#: src/core/atcore.cpp:885
+#: src/core/atcore.cpp:890
 msgctxt "AtCore|"
 msgid "Unknown Error"
 msgstr "알 수 없는 오류"
@@ -1260,57 +1260,57 @@ msgstr ""
 "버튼을 누르거나 프린터를 켜고 끕니다. </p>                         <p>&nbsp;"
 "&nbsp;&nbsp;&nbsp;&nbsp; 자동 감지 대신 펌웨어 플러그인을 선택하십시오.</p>"
 
-#: src/widgets/logwidget.cpp:81
+#: src/widgets/logwidget.cpp:82
 msgctxt "LogWidget|"
 msgid "Save Session Log"
 msgstr "세션 로그 저장"
 
-#: src/widgets/logwidget.cpp:167
+#: src/widgets/logwidget.cpp:170
 msgctxt "LogWidget|"
 msgid "Save Log to file"
 msgstr "파일로 로그 저장"
 
-#: src/widgets/movementwidget.cpp:49
+#: src/widgets/movementwidget.cpp:51
 msgctxt "MovementWidget|"
 msgid "Home All"
 msgstr "모두 홈"
 
-#: src/widgets/movementwidget.cpp:53
+#: src/widgets/movementwidget.cpp:55
 msgctxt "MovementWidget|"
 msgid "Home X"
 msgstr "X축 홈"
 
-#: src/widgets/movementwidget.cpp:57
+#: src/widgets/movementwidget.cpp:59
 msgctxt "MovementWidget|"
 msgid "Home Y"
 msgstr "Y축 홈"
 
-#: src/widgets/movementwidget.cpp:61
+#: src/widgets/movementwidget.cpp:63
 msgctxt "MovementWidget|"
 msgid "Home Z"
 msgstr "Z축 홈"
 
-#: src/widgets/movementwidget.cpp:67
+#: src/widgets/movementwidget.cpp:69
 msgctxt "MovementWidget|"
 msgid "Disable Motors"
 msgstr "모터 비활성화"
 
-#: src/widgets/movementwidget.cpp:72
+#: src/widgets/movementwidget.cpp:74
 msgctxt "MovementWidget|"
 msgid "Move X Axis to"
 msgstr "다음으로 X축 이동"
 
-#: src/widgets/movementwidget.cpp:73
+#: src/widgets/movementwidget.cpp:75
 msgctxt "MovementWidget|"
 msgid "Move Y Axis to"
 msgstr "다음으로 Y축 이동"
 
-#: src/widgets/movementwidget.cpp:74
+#: src/widgets/movementwidget.cpp:76
 msgctxt "MovementWidget|"
 msgid "Move Z Axis to"
 msgstr "다음으로 Z축 이동"
 
-#: src/widgets/movementwidget.cpp:83
+#: src/widgets/movementwidget.cpp:85
 msgctxt "MovementWidget|"
 msgid "Go"
 msgstr "이동"
@@ -1335,18 +1335,18 @@ msgctxt "PrintWidget|"
 msgid "Printer Speed"
 msgstr "프린터 속도"
 
-#: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:58
-#: src/widgets/printwidget.cpp:71
+#: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:60
+#: src/widgets/printwidget.cpp:75
 msgctxt "PrintWidget|"
 msgid "Set"
 msgstr "설정"
 
-#: src/widgets/printwidget.cpp:52
+#: src/widgets/printwidget.cpp:54
 msgctxt "PrintWidget|"
 msgid "Flow Rate"
 msgstr "유츨 속도"
 
-#: src/widgets/printwidget.cpp:96
+#: src/widgets/printwidget.cpp:100
 #, qt-format
 msgctxt "PrintWidget|"
 msgid "Fan %1 speed"
@@ -1382,77 +1382,77 @@ msgctxt "ProfileManager|"
 msgid "Cartesian"
 msgstr "데카르트"
 
-#: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:233
+#: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:251
 msgctxt "ProfileManager|"
 msgid "Maximum X"
 msgstr "최대 X축"
 
-#: src/widgets/profilemanager.cpp:105
+#: src/widgets/profilemanager.cpp:107
 msgctxt "ProfileManager|"
 msgid "Maximum Y"
 msgstr "최대 Y축"
 
-#: src/widgets/profilemanager.cpp:119 src/widgets/profilemanager.cpp:234
+#: src/widgets/profilemanager.cpp:123 src/widgets/profilemanager.cpp:252
 msgctxt "ProfileManager|"
 msgid "Maximum Z"
 msgstr "최대 Z축"
 
-#: src/widgets/profilemanager.cpp:130
+#: src/widgets/profilemanager.cpp:136
 msgctxt "ProfileManager|"
 msgid "Mechanics"
 msgstr "기계적인 부분"
 
-#: src/widgets/profilemanager.cpp:135
+#: src/widgets/profilemanager.cpp:141
 msgctxt "ProfileManager|"
 msgid "Bed Maximum"
 msgstr "베드 온도 최대"
 
-#: src/widgets/profilemanager.cpp:148
+#: src/widgets/profilemanager.cpp:156
 msgctxt "ProfileManager|"
 msgid "Extruder Maximum"
 msgstr "압출기 온도 최대"
 
-#: src/widgets/profilemanager.cpp:157
+#: src/widgets/profilemanager.cpp:167
 msgctxt "ProfileManager|"
 msgid "Auto Temperature Report"
 msgstr "자동 온도 보고"
 
-#: src/widgets/profilemanager.cpp:162
+#: src/widgets/profilemanager.cpp:174
 msgctxt "ProfileManager|"
 msgid "Temperature"
 msgstr "온도"
 
-#: src/widgets/profilemanager.cpp:172
+#: src/widgets/profilemanager.cpp:186
 msgctxt "ProfileManager|"
 msgid "Bit Rate"
 msgstr "비트 전송률"
 
-#: src/widgets/profilemanager.cpp:178
+#: src/widgets/profilemanager.cpp:192
 msgctxt "ProfileManager|"
 msgid "Firmware"
 msgstr "펌웨어"
 
-#: src/widgets/profilemanager.cpp:192
+#: src/widgets/profilemanager.cpp:210
 msgctxt "ProfileManager|"
 msgid "PostPause"
 msgstr "올리기 일시 정지"
 
-#: src/widgets/profilemanager.cpp:198
+#: src/widgets/profilemanager.cpp:216
 msgctxt "ProfileManager|"
 msgid "Advanced"
 msgstr "고급"
 
-#: src/widgets/profilemanager.cpp:201
+#: src/widgets/profilemanager.cpp:219
 msgctxt "ProfileManager|"
 msgid "Profile"
 msgstr "프로필"
 
-#: src/widgets/profilemanager.cpp:236
+#: src/widgets/profilemanager.cpp:254
 msgctxt "ProfileManager|"
 msgid "Radius"
 msgstr "반경"
 
-#: src/widgets/profilemanager.cpp:237
+#: src/widgets/profilemanager.cpp:255
 msgctxt "ProfileManager|"
 msgid "Height"
 msgstr "높이"
@@ -1477,17 +1477,17 @@ msgctxt "SdWidget|"
 msgid "Files On Sd Card"
 msgstr "SD 카드의 파일"
 
-#: src/widgets/statuswidget.cpp:47
+#: src/widgets/statuswidget.cpp:49
 msgctxt "StatusWidget|"
 msgid "AtCore State:"
 msgstr "AtCore 상태:"
 
-#: src/widgets/statuswidget.cpp:48
+#: src/widgets/statuswidget.cpp:50
 msgctxt "StatusWidget|"
 msgid "Not Connected"
 msgstr "연결되지 않음"
 
-#: src/widgets/statuswidget.cpp:72
+#: src/widgets/statuswidget.cpp:74
 msgctxt "StatusWidget|"
 msgid "SD"
 msgstr "SD"
@@ -1502,12 +1502,12 @@ msgctxt "TemperatureWidget|"
 msgid "Bed Temp"
 msgstr "베드 온도"
 
-#: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:44
+#: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:46
 msgctxt "TemperatureWidget|"
 msgid "Set"
 msgstr "설정"
 
-#: src/widgets/temperaturewidget.cpp:60
+#: src/widgets/temperaturewidget.cpp:64
 #, qt-format
 msgctxt "TemperatureWidget|"
 msgid "Extruder %1"
@@ -1598,43 +1598,43 @@ msgctxt "MainWindow|"
 msgid "Seconds Between Temperature Checks"
 msgstr "온도를 검사할 초 단위 시간 간격"
 
-#: testclient/mainwindow.cpp:218
+#: testclient/mainwindow.cpp:220
 msgctxt "MainWindow|"
 msgid "Temperature Timeline"
 msgstr "온도 타임라인"
 
-#: testclient/mainwindow.cpp:227
+#: testclient/mainwindow.cpp:229
 msgctxt "MainWindow|"
 msgid "Session Log"
 msgstr "세션 로그"
 
-#: testclient/mainwindow.cpp:237
+#: testclient/mainwindow.cpp:239
 msgctxt "MainWindow|"
 msgid "Port:"
 msgstr "포트:"
 
-#: testclient/mainwindow.cpp:258
+#: testclient/mainwindow.cpp:260
 msgctxt "MainWindow|"
 msgid "Profile:"
 msgstr "프로필:"
 
-#: testclient/mainwindow.cpp:264
+#: testclient/mainwindow.cpp:266
 msgctxt "MainWindow|"
 msgid "Attempt to stop Reset on connect"
 msgstr "연결할 때 초기화 정지 시도"
 
-#: testclient/mainwindow.cpp:276 testclient/mainwindow.cpp:292
-#: testclient/mainwindow.cpp:563
+#: testclient/mainwindow.cpp:279 testclient/mainwindow.cpp:298
+#: testclient/mainwindow.cpp:571
 msgctxt "MainWindow|"
 msgid "Connect"
 msgstr "연결"
 
-#: testclient/mainwindow.cpp:284
+#: testclient/mainwindow.cpp:288
 msgctxt "MainWindow|"
 msgid "Connection Error"
 msgstr "연결 오류"
 
-#: testclient/mainwindow.cpp:284
+#: testclient/mainwindow.cpp:289
 msgctxt "MainWindow|"
 msgid ""
 "Your machine did not respond after 20 seconds.\n"
@@ -1647,93 +1647,93 @@ msgstr ""
 "다시 연결하기 전에 프린터 연결 상태와 올바른 전송률을 사용하는지 확인하십시"
 "오."
 
-#: testclient/mainwindow.cpp:304
+#: testclient/mainwindow.cpp:310
 msgctxt "MainWindow|"
 msgid "Home All"
 msgstr "모두 홈"
 
-#: testclient/mainwindow.cpp:309
+#: testclient/mainwindow.cpp:315
 msgctxt "MainWindow|"
 msgid "Home X"
 msgstr "X축 홈"
 
-#: testclient/mainwindow.cpp:314
+#: testclient/mainwindow.cpp:320
 msgctxt "MainWindow|"
 msgid "Home Y"
 msgstr "Y축 홈"
 
-#: testclient/mainwindow.cpp:319
+#: testclient/mainwindow.cpp:325
 msgctxt "MainWindow|"
 msgid "Home Z"
 msgstr "Z축 홈"
 
-#: testclient/mainwindow.cpp:341
+#: testclient/mainwindow.cpp:349
 msgctxt "MainWindow|"
 msgid "Movement"
 msgstr "이동"
 
-#: testclient/mainwindow.cpp:354
+#: testclient/mainwindow.cpp:362
 msgctxt "MainWindow|"
 msgid "Temperatures"
 msgstr "온도"
 
-#: testclient/mainwindow.cpp:367
+#: testclient/mainwindow.cpp:375
 msgctxt "MainWindow|"
 msgid "Print Error"
 msgstr "인쇄 오류"
 
-#: testclient/mainwindow.cpp:367 testclient/mainwindow.cpp:375
+#: testclient/mainwindow.cpp:375 testclient/mainwindow.cpp:383
 msgctxt "MainWindow|"
 msgid "You must Select a file from the list"
 msgstr "목록에서 파일을 선택해야 합니다"
 
-#: testclient/mainwindow.cpp:375
+#: testclient/mainwindow.cpp:383
 msgctxt "MainWindow|"
 msgid "Delete Error"
 msgstr "삭제 오류"
 
-#: testclient/mainwindow.cpp:381
+#: testclient/mainwindow.cpp:389
 msgctxt "MainWindow|"
 msgid "Sd Card"
 msgstr "SD 카드"
 
-#: testclient/mainwindow.cpp:390
+#: testclient/mainwindow.cpp:398
 msgctxt "MainWindow|"
 msgid "Profile Manager"
 msgstr "프로필 관리자"
 
-#: testclient/mainwindow.cpp:446
+#: testclient/mainwindow.cpp:454
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Found %1 Ports"
 msgstr "포트 %1개 발견"
 
-#: testclient/mainwindow.cpp:448
+#: testclient/mainwindow.cpp:456
 msgctxt "MainWindow|"
 msgid "No available ports! Please connect a serial device to continue!"
 msgstr "사용 가능한 포트가 없습니다. 계속하려면 직렬 장치를 연결하십시오!"
 
-#: testclient/mainwindow.cpp:466
+#: testclient/mainwindow.cpp:474
 msgctxt "MainWindow|"
 msgid "Serial connected"
 msgstr "직렬 연결됨"
 
-#: testclient/mainwindow.cpp:478
+#: testclient/mainwindow.cpp:486
 msgctxt "MainWindow|"
 msgid "Disconnected"
 msgstr "연결 끊김"
 
-#: testclient/mainwindow.cpp:487 testclient/mainwindow.cpp:493
+#: testclient/mainwindow.cpp:495 testclient/mainwindow.cpp:500
 msgctxt "MainWindow|"
 msgid "Error"
 msgstr "오류"
 
-#: testclient/mainwindow.cpp:487
+#: testclient/mainwindow.cpp:495
 msgctxt "MainWindow|"
 msgid "Not Connected To a Printer"
 msgstr "프린터에 연결되지 않음"
 
-#: testclient/mainwindow.cpp:494
+#: testclient/mainwindow.cpp:501
 msgctxt "MainWindow|"
 msgid ""
 " A Firmware Plugin was not loaded!\n"
@@ -1745,84 +1745,84 @@ msgstr ""
 "  M115 명령을 전송하고 펌웨어가 무엇을 반환하는지 알려 주면, 펌웨어 검색을 개"
 "선할 수 있습니다. \"말린\"을 사용하여 프로필을 편집하고 다시 시도 하십시오."
 
-#: testclient/mainwindow.cpp:498
+#: testclient/mainwindow.cpp:506
 msgctxt "MainWindow|"
 msgid "Select a file to print"
 msgstr "인쇄할 파일 선택"
 
-#: testclient/mainwindow.cpp:498
+#: testclient/mainwindow.cpp:506
 msgctxt "MainWindow|"
 msgid "*.gcode"
 msgstr "*.gcode"
 
-#: testclient/mainwindow.cpp:500
+#: testclient/mainwindow.cpp:508
 msgctxt "MainWindow|"
 msgid "No File Selected"
 msgstr "선택한 파일 없음"
 
-#: testclient/mainwindow.cpp:502
+#: testclient/mainwindow.cpp:510
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Print: %1"
 msgstr "인쇄: %1"
 
-#: testclient/mainwindow.cpp:529
+#: testclient/mainwindow.cpp:537
 msgctxt "MainWindow|"
 msgid "Disconnect"
 msgstr "연결 끊기"
 
-#: testclient/mainwindow.cpp:530 testclient/mainwindow.cpp:543
-#: testclient/mainwindow.cpp:651
+#: testclient/mainwindow.cpp:538 testclient/mainwindow.cpp:551
+#: testclient/mainwindow.cpp:659
 msgctxt "MainWindow|"
 msgid "Print File"
 msgstr "파일 인쇄"
 
-#: testclient/mainwindow.cpp:531
+#: testclient/mainwindow.cpp:539
 msgctxt "MainWindow|"
 msgid "Connected to "
 msgstr "다음에 연결됨:"
 
-#: testclient/mainwindow.cpp:536
+#: testclient/mainwindow.cpp:544
 msgctxt "MainWindow|"
 msgid "START PRINT"
 msgstr "인쇄 시작"
 
-#: testclient/mainwindow.cpp:537 testclient/mainwindow.cpp:554
+#: testclient/mainwindow.cpp:545 testclient/mainwindow.cpp:562
 msgctxt "MainWindow|"
 msgid "Pause Print"
 msgstr "인쇄 일시 정지"
 
-#: testclient/mainwindow.cpp:542
+#: testclient/mainwindow.cpp:550
 msgctxt "MainWindow|"
 msgid "Finished Print"
 msgstr "인쇄 완료됨"
 
-#: testclient/mainwindow.cpp:548
+#: testclient/mainwindow.cpp:556
 msgctxt "MainWindow|"
 msgid "Paused"
 msgstr "일시 정지됨"
 
-#: testclient/mainwindow.cpp:549
+#: testclient/mainwindow.cpp:557
 msgctxt "MainWindow|"
 msgid "Resume Print"
 msgstr "인쇄 다시 시작"
 
-#: testclient/mainwindow.cpp:553
+#: testclient/mainwindow.cpp:561
 msgctxt "MainWindow|"
 msgid "Printing"
 msgstr "인쇄 중"
 
-#: testclient/mainwindow.cpp:570
+#: testclient/mainwindow.cpp:578
 msgctxt "MainWindow|"
 msgid "Abort"
 msgstr "중지"
 
-#: testclient/mainwindow.cpp:577
+#: testclient/mainwindow.cpp:585
 msgctxt "MainWindow|"
 msgid "Stopping Print"
 msgstr "인쇄 정지 중"
 
-#: testclient/mainwindow.cpp:581
+#: testclient/mainwindow.cpp:589
 msgctxt "MainWindow|"
 msgid "Command ERROR"
 msgstr "명령 오류"
