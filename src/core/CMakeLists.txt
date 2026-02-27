@@ -9,10 +9,6 @@ configure_file(
     ${CMAKE_CURRENT_BINARY_DIR}/atcore_default_folders.h
 )
 
-find_package(Qt6 REQUIRED COMPONENTS
-    Quick
-)
-
 add_library(AtCore SHARED)
 target_sources(AtCore PRIVATE
     atcore.cpp
@@ -25,7 +21,11 @@ target_sources(AtCore PRIVATE
     temperature.cpp
 )
 
-target_link_libraries(AtCore Qt::Core Qt::SerialPort Qt::Quick)
+target_link_libraries(AtCore
+    Qt::Core
+    Qt::Qml
+    Qt::SerialPort
+)
 
 #
 #
