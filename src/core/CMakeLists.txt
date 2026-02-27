@@ -13,7 +13,8 @@ find_package(Qt6 REQUIRED COMPONENTS
     Quick
 )
 
-set(AtCoreLib_SRCS
+add_library(AtCore SHARED)
+target_sources(AtCore PRIVATE
     atcore.cpp
     beddeform.cpp
     gcodecommands.cpp
@@ -24,7 +25,6 @@ set(AtCoreLib_SRCS
     temperature.cpp
 )
 
-add_library(AtCore SHARED ${AtCoreLib_SRCS})
 target_link_libraries(AtCore Qt::Core Qt::SerialPort Qt::Quick)
 
 #

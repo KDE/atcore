@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: AtCore Authors
 # SPDX-License-Identifier: BSD-3-Clause
-set(widgetsLIB_SRCS
+
+add_library(AtCoreWidgets SHARED)
+target_sources(AtCoreWidgets PRIVATE
     about.cpp
     axiscontrol.cpp
     commandwidget.cpp
@@ -14,7 +16,6 @@ set(widgetsLIB_SRCS
     profilemanager.cpp
 )
 
-add_library(AtCoreWidgets ${widgetsLIB_SRCS})
 target_link_libraries(AtCoreWidgets AtCore::AtCore Qt::Core Qt::Widgets Qt::Charts)
 
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/AtCore")

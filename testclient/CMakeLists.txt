@@ -4,11 +4,6 @@
 include_directories(../src)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-set(AtCoreTestClient_SRCS
-    main.cpp
-    mainwindow.cpp
-)
-
 if (NOT APPLE)
     add_executable(atcore-gui ${AtCoreTestClient_SRCS} icons.qrc)
     install(TARGETS atcore-gui RUNTIME DESTINATION ${KDE_INSTALL_BINDIR})
@@ -36,6 +31,11 @@ else()
     add_executable(atcore-gui MACOSX_BUNDLE ${AtCoreTestClient_SRCS} icons.qrc ${APPICON})
     install(TARGETS atcore-gui BUNDLE DESTINATION bin)
 endif()
+
+target_sources(atcore-gui PRIVATE
+    main.cpp
+    mainwindow.cpp
+)
 
 ecm_create_qm_loader(atcore-gui atcore_qt)
 

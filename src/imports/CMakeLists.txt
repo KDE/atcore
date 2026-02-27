@@ -7,16 +7,11 @@ include_directories (
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-set (
-    atcore_qml_bridge_LIB_SRCS
-    atcoreextensionplugin.cpp
-)
-
 find_package(Qt6 REQUIRED COMPONENTS
     Qml
 )
 
-add_library(atcoreextensionplugin SHARED ${atcore_qml_bridge_LIB_SRCS})
+add_library(atcoreextensionplugin SHARED atcoreextensionplugin.cpp)
 
 target_link_libraries (
     atcoreextensionplugin
