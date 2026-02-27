@@ -7,10 +7,6 @@ include_directories (
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-find_package(Qt6 REQUIRED COMPONENTS
-    Qml
-)
-
 add_library(atcoreextensionplugin SHARED atcoreextensionplugin.cpp)
 
 target_link_libraries (
