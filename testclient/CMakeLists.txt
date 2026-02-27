@@ -9,8 +9,6 @@ set(AtCoreTestClient_SRCS
     mainwindow.cpp
 )
 
-ecm_create_qm_loader(AtCoreTestClient_SRCS atcore_qt)
-
 if (NOT APPLE)
     add_executable(atcore-gui ${AtCoreTestClient_SRCS} icons.qrc)
     install(TARGETS atcore-gui RUNTIME DESTINATION ${KDE_INSTALL_BINDIR})
@@ -38,5 +36,7 @@ else()
     add_executable(atcore-gui MACOSX_BUNDLE ${AtCoreTestClient_SRCS} icons.qrc ${APPICON})
     install(TARGETS atcore-gui BUNDLE DESTINATION bin)
 endif()
+
+ecm_create_qm_loader(atcore-gui atcore_qt)
 
 target_link_libraries(atcore-gui AtCore::AtCoreWidgets AtCore::AtCore Qt::Widgets Qt::Charts)

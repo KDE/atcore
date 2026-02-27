@@ -56,7 +56,7 @@ ecm_generate_headers(ATCOREWIDGETS_CamelCase_HEADERS
     REQUIRED_HEADERS ATCOREWIDGETS_HEADERS
 )
 
-ecm_create_qm_loader(widgetsLib_SRCS atcore_qt)
+ecm_create_qm_loader(AtCoreWidgets atcore_qt)
 
 install(FILES
     ${ATCOREWIDGETS_CamelCase_HEADERS}
