@@ -16,7 +16,14 @@ target_sources(AtCoreWidgets PRIVATE
     profilemanager.cpp
 )
 
-target_link_libraries(AtCoreWidgets AtCore::AtCore Qt::Core Qt::Widgets Qt::Charts)
+target_link_libraries(AtCoreWidgets
+    PUBLIC
+        Qt::Core
+        Qt::Charts
+        Qt::Widgets
+    PRIVATE
+        AtCore::AtCore
+)
 
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/AtCore")
 configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/AtCoreWidgetsConfig.cmake.in"

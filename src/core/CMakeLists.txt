@@ -22,9 +22,11 @@ target_sources(AtCore PRIVATE
 )
 
 target_link_libraries(AtCore
-    Qt::Core
-    Qt::Qml
-    Qt::SerialPort
+    PUBLIC
+        Qt::Core
+        Qt::SerialPort
+    PRIVATE
+        Qt::Qml
 )
 
 #

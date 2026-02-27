@@ -9,8 +9,7 @@ include_directories (
 
 add_library(atcoreextensionplugin SHARED atcoreextensionplugin.cpp)
 
-target_link_libraries (
-    atcoreextensionplugin
+target_link_libraries(atcoreextensionplugin PUBLIC
     AtCore
     Qt::Core
     Qt::Qml

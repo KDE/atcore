@@ -8,9 +8,11 @@
 #include "atcore_export.h"
 
 #include <QObject>
-#include <QQmlEngine>
-#include <QSettings>
 #include <QVariant>
+
+class QJSEngine;
+class QQmlEngine;
+class QSettings;
 
 class ATCORE_EXPORT MachineInfo : public QObject
 {

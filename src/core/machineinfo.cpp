@@ -8,6 +8,8 @@
 
 #include <QCoreApplication>
 #include <QLoggingCategory>
+#include <QQmlEngine>
+#include <QSettings>
 
 Q_LOGGING_CATEGORY(MACHINE_INFO, "org.kde.atelier.core.machineInfo")
 

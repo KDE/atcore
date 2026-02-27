@@ -39,4 +39,9 @@ target_sources(atcore-gui PRIVATE
 
 ecm_create_qm_loader(atcore-gui atcore_qt)
 
-target_link_libraries(atcore-gui AtCore::AtCoreWidgets AtCore::AtCore Qt::Widgets Qt::Charts)
+target_link_libraries(atcore-gui PRIVATE
+    AtCore::AtCore
+    AtCore::AtCoreWidgets
+    Qt::Charts
+    Qt::Widgets
+)
