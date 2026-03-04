@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-02-18 22:29+0200\n"
+"PO-Revision-Date: 2026-02-23 18:23+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -28,10 +28,10 @@ msgid "Connected to printer using %1 plugin"
 msgstr "Подключение к принтеру с использованием модуля «%1» установлено."
 
 #: src/core/atcore.cpp:199
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "AtCore|"
 msgid "No plugin found for %1."
-msgstr "Не найдено расширения для «%1»."
+msgstr "Не найдено ни одного модуля для «%1»."
 
 #: src/core/atcore.cpp:238
 msgctxt "AtCore|"
@@ -1382,58 +1382,54 @@ msgid "Name"
 msgstr "Имя"
 
 #: src/widgets/profilemanager.cpp:82
-#, fuzzy
 msgctxt "ProfileManager|"
 msgid "Printer Type:"
-msgstr "Печать файла"
+msgstr "Тип принтера:"
 
 #: src/widgets/profilemanager.cpp:83
-#, fuzzy
 msgctxt "ProfileManager|"
 msgid "Delta"
 msgstr "Перемещение"
 
 #: src/widgets/profilemanager.cpp:84
-#, fuzzy
 msgctxt "ProfileManager|"
 msgid "Cartesian"
-msgstr "Прямоугольные"
+msgstr "В декартовых координатах"
 
 #: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:251
 msgctxt "ProfileManager|"
 msgid "Maximum X"
-msgstr ""
+msgstr "Максимальное значение X"
 
 #: src/widgets/profilemanager.cpp:107
 msgctxt "ProfileManager|"
 msgid "Maximum Y"
-msgstr ""
+msgstr "Максимальное значение Y"
 
 #: src/widgets/profilemanager.cpp:123 src/widgets/profilemanager.cpp:252
 msgctxt "ProfileManager|"
 msgid "Maximum Z"
-msgstr ""
+msgstr "Максимальное значение Z"
 
 #: src/widgets/profilemanager.cpp:136
 msgctxt "ProfileManager|"
 msgid "Mechanics"
-msgstr ""
+msgstr "Механика"
 
 #: src/widgets/profilemanager.cpp:141
 msgctxt "ProfileManager|"
 msgid "Bed Maximum"
-msgstr ""
+msgstr "Максимальная температура стола"
 
 #: src/widgets/profilemanager.cpp:156
-#, fuzzy
 msgctxt "ProfileManager|"
 msgid "Extruder Maximum"
-msgstr "Экструдер %1"
+msgstr "Максимальная температура экструдера"
 
 #: src/widgets/profilemanager.cpp:167
 msgctxt "ProfileManager|"
 msgid "Auto Temperature Report"
-msgstr ""
+msgstr "Автоматический отчёт о температуре"
 
 #: src/widgets/profilemanager.cpp:174
 msgctxt "ProfileManager|"
@@ -1441,10 +1437,9 @@ msgid "Temperature"
 msgstr "Температура"
 
 #: src/widgets/profilemanager.cpp:186
-#, fuzzy
 msgctxt "ProfileManager|"
 msgid "Bit Rate"
-msgstr "Битрейт"
+msgstr "Битрейт:"
 
 #: src/widgets/profilemanager.cpp:192
 msgctxt "ProfileManager|"
@@ -1454,7 +1449,7 @@ msgstr "Прошивка"
 #: src/widgets/profilemanager.cpp:210
 msgctxt "ProfileManager|"
 msgid "PostPause"
-msgstr ""
+msgstr "Пауза после печати"
 
 #: src/widgets/profilemanager.cpp:216
 msgctxt "ProfileManager|"
@@ -1467,13 +1462,11 @@ msgid "Profile"
 msgstr "Профиль"
 
 #: src/widgets/profilemanager.cpp:254
-#, fuzzy
 msgctxt "ProfileManager|"
 msgid "Radius"
 msgstr "Радиус"
 
 #: src/widgets/profilemanager.cpp:255
-#, fuzzy
 msgctxt "ProfileManager|"
 msgid "Height"
 msgstr "Высота"
@@ -1484,16 +1477,14 @@ msgid "Get List"
 msgstr "Получить список"
 
 #: src/widgets/sdwidget.cpp:24
-#, fuzzy
 msgctxt "SdWidget|"
 msgid "Print Selected"
-msgstr "Файл не выбран"
+msgstr "Печать выбранного"
 
 #: src/widgets/sdwidget.cpp:32
-#, fuzzy
 msgctxt "SdWidget|"
 msgid "Delete Selected"
-msgstr "Файл не выбран"
+msgstr "Удалить выбранное"
 
 #: src/widgets/sdwidget.cpp:41
 msgctxt "SdWidget|"
@@ -1506,10 +1497,9 @@ msgid "AtCore State:"
 msgstr "Состояние AtCore:"
 
 #: src/widgets/statuswidget.cpp:50
-#, fuzzy
 msgctxt "StatusWidget|"
 msgid "Not Connected"
-msgstr "Подключить"
+msgstr "Не подключено"
 
 #: src/widgets/statuswidget.cpp:74
 msgctxt "StatusWidget|"
@@ -1522,28 +1512,25 @@ msgid "Wait Until Temperature Stabilizes"
 msgstr "Ожидание стабилизации температуры"
 
 #: src/widgets/temperaturewidget.cpp:24
-#, fuzzy
 msgctxt "TemperatureWidget|"
 msgid "Bed Temp"
-msgstr "Темп."
+msgstr "Темп. стола"
 
 #: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:46
-#, fuzzy
 msgctxt "TemperatureWidget|"
 msgid "Set"
 msgstr "Установить"
 
 #: src/widgets/temperaturewidget.cpp:64
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "TemperatureWidget|"
 msgid "Extruder %1"
 msgstr "Экструдер %1"
 
 #: testclient/mainwindow.cpp:30
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "AtCore - Test Client"
-msgstr "Тестовый клиент AtCore"
+msgstr "AtCore — тестовый клиент"
 
 #: testclient/mainwindow.cpp:38
 msgctxt "MainWindow|"
@@ -1553,27 +1540,24 @@ msgstr "Попытка найти последовательные порты"
 #: testclient/mainwindow.cpp:49
 msgctxt "MainWindow|"
 msgid "AtCore First Run"
-msgstr ""
+msgstr "Первый запуск AtCore"
 
 #: testclient/mainwindow.cpp:49
 msgctxt "MainWindow|"
 msgid "No Profiles Detected, use the Profile Manager to create one."
-msgstr ""
+msgstr "Профили не обнаружены, используйте менеджер профилей для их создания."
 
 #: testclient/mainwindow.cpp:59
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "File"
 msgstr "Файл"
 
 #: testclient/mainwindow.cpp:60
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "Quit"
 msgstr "Выход"
 
 #: testclient/mainwindow.cpp:64
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "View"
 msgstr "Вид"
@@ -1581,31 +1565,27 @@ msgstr "Вид"
 #: testclient/mainwindow.cpp:65
 msgctxt "MainWindow|"
 msgid "Show Dock Titles"
-msgstr ""
+msgstr "Показывать заголовки панелей"
 
 #: testclient/mainwindow.cpp:71
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "Help"
 msgstr "Справка"
 
 #: testclient/mainwindow.cpp:72
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "About"
 msgstr "О программе"
 
 #: testclient/mainwindow.cpp:136
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "Commands"
 msgstr "Команды"
 
 #: testclient/mainwindow.cpp:156
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "Print"
-msgstr "Печать: %1"
+msgstr "Печать"
 
 #: testclient/mainwindow.cpp:167 testclient/mainwindow.cpp:171
 msgctxt "MainWindow|"
@@ -1630,17 +1610,17 @@ msgstr "Целевой экст.1"
 #: testclient/mainwindow.cpp:196
 msgctxt "MainWindow|"
 msgid "Seconds Between Temperature Checks"
-msgstr ""
+msgstr "Интервал между проверками температуры"
 
 #: testclient/mainwindow.cpp:220
 msgctxt "MainWindow|"
 msgid "Temperature Timeline"
-msgstr ""
+msgstr "График температуры"
 
 #: testclient/mainwindow.cpp:229
 msgctxt "MainWindow|"
 msgid "Session Log"
-msgstr ""
+msgstr "Журнал сеанса"
 
 #: testclient/mainwindow.cpp:239
 msgctxt "MainWindow|"
@@ -1655,7 +1635,7 @@ msgstr "Профиль:"
 #: testclient/mainwindow.cpp:266
 msgctxt "MainWindow|"
 msgid "Attempt to stop Reset on connect"
-msgstr ""
+msgstr "Попытка остановить сброс при подключении"
 
 #: testclient/mainwindow.cpp:279 testclient/mainwindow.cpp:298
 #: testclient/mainwindow.cpp:571
@@ -1664,10 +1644,9 @@ msgid "Connect"
 msgstr "Подключить"
 
 #: testclient/mainwindow.cpp:288
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "Connection Error"
-msgstr "Подключить"
+msgstr "Ошибка подключения"
 
 #: testclient/mainwindow.cpp:289
 msgctxt "MainWindow|"
@@ -1677,6 +1656,10 @@ msgid ""
 "Before connecting again check that your printer is on and your are "
 "connecting using the correct BAUD Rate for your device."
 msgstr ""
+"Устройство не ответило в течение 20 секунд. \n"
+"\n"
+"Перед повторным подключением убедитесь, что принтер включён и используется "
+"правильная скорость передачи (BAUD Rate) для вашего устройства."
 
 #: testclient/mainwindow.cpp:310
 msgctxt "MainWindow|"
@@ -1706,35 +1689,32 @@ msgstr "Перемещение"
 #: testclient/mainwindow.cpp:362
 msgctxt "MainWindow|"
 msgid "Temperatures"
-msgstr ""
+msgstr "Температуры"
 
 #: testclient/mainwindow.cpp:375
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "Print Error"
-msgstr "Ошибка"
+msgstr "Ошибка печати"
 
 #: testclient/mainwindow.cpp:375 testclient/mainwindow.cpp:383
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "You must Select a file from the list"
-msgstr "Выберите файл для печати"
+msgstr "Выберите файл из списка"
 
 #: testclient/mainwindow.cpp:383
 msgctxt "MainWindow|"
 msgid "Delete Error"
-msgstr ""
+msgstr "Ошибка удаления"
 
 #: testclient/mainwindow.cpp:389
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "Sd Card"
-msgstr "Карта SD"
+msgstr "SD-карта"
 
 #: testclient/mainwindow.cpp:398
 msgctxt "MainWindow|"
 msgid "Profile Manager"
-msgstr ""
+msgstr "Управление профилями"
 
 #: testclient/mainwindow.cpp:454
 #, qt-format
@@ -1770,7 +1750,6 @@ msgid "Not Connected To a Printer"
 msgstr "Принтер не подключён"
 
 #: testclient/mainwindow.cpp:501
-#, fuzzy
 msgctxt "MainWindow|"
 msgid ""
 " A Firmware Plugin was not loaded!\n"
@@ -1778,11 +1757,10 @@ msgid ""
 "so we can improve our firmware detection. Edit your profile to use \"marlin"
 "\" and try again."
 msgstr ""
-" Модуль микропрограммы не был загружен!\n"
-"  Отправьте команду M115 и сообщите нам данные, возвращённые "
-"микропрограммой, чтобы мы смогли улучшить способы определения микропрограмм. "
-"Мы загрузили для вас самый распространённый модуль «repetier». Попробуйте "
-"выполнить печать ещё раз."
+"Модуль микропрограммы не был загружен!  Отправьте команду M115 и сообщите "
+"нам данные, возвращённые микропрограммой, чтобы мы смогли улучшить механизм "
+"её определения. Отредактируйте профиль для использования «marlin» и "
+"попробуйте снова."
 
 #: testclient/mainwindow.cpp:506
 msgctxt "MainWindow|"
@@ -1792,7 +1770,7 @@ msgstr "Выберите файл для печати"
 #: testclient/mainwindow.cpp:506
 msgctxt "MainWindow|"
 msgid "*.gcode"
-msgstr ""
+msgstr "*.gcode"
 
 #: testclient/mainwindow.cpp:508
 msgctxt "MainWindow|"
@@ -1817,15 +1795,14 @@ msgid "Print File"
 msgstr "Печать файла"
 
 #: testclient/mainwindow.cpp:539
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "Connected to "
-msgstr "Подключить"
+msgstr "Подключено к "
 
 #: testclient/mainwindow.cpp:544
 msgctxt "MainWindow|"
 msgid "START PRINT"
-msgstr ""
+msgstr "НАЧАТЬ ПЕЧАТЬ"
 
 #: testclient/mainwindow.cpp:545 testclient/mainwindow.cpp:562
 msgctxt "MainWindow|"
@@ -1833,13 +1810,11 @@ msgid "Pause Print"
 msgstr "Приостановить печать"
 
 #: testclient/mainwindow.cpp:550
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "Finished Print"
-msgstr "Приостановить печать"
+msgstr "Печать завершена"
 
 #: testclient/mainwindow.cpp:556
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "Paused"
 msgstr "Приостановлено"
@@ -1850,13 +1825,11 @@ msgid "Resume Print"
 msgstr "Возобновить печать"
 
 #: testclient/mainwindow.cpp:561
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "Printing"
-msgstr "Печать файла"
+msgstr "Печать"
 
 #: testclient/mainwindow.cpp:578
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "Abort"
 msgstr "Прервать"
@@ -1864,13 +1837,12 @@ msgstr "Прервать"
 #: testclient/mainwindow.cpp:585
 msgctxt "MainWindow|"
 msgid "Stopping Print"
-msgstr ""
+msgstr "Остановка печати"
 
 #: testclient/mainwindow.cpp:589
-#, fuzzy
 msgctxt "MainWindow|"
 msgid "Command ERROR"
-msgstr "Ошибка"
+msgstr "Ошибка команды"
 
 #~ msgctxt "AtCore|"
 #~ msgid "plugins[%1]=%2"
