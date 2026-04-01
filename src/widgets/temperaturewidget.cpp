@@ -54,6 +54,8 @@ TemperatureWidget::TemperatureWidget(QWidget *parent)
     hboxLayout->addWidget(newButton);
     mainLayout->addItem(hboxLayout);
 
+    mainLayout->addStretch();
+
     setLayout(mainLayout);
 }
 
