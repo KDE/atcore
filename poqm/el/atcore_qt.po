@@ -1509,7 +1509,7 @@ msgctxt "TemperatureWidget|"
 msgid "Set"
 msgstr "Ρύθμιση"
 
-#: src/widgets/temperaturewidget.cpp:64
+#: src/widgets/temperaturewidget.cpp:66
 #, qt-format
 msgctxt "TemperatureWidget|"
 msgid "Extruder %1"
