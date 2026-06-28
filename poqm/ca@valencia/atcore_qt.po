@@ -829,7 +829,7 @@ msgstr "M366: Reduïx la conversió SCARA"
 #: src/core/gcodecommands.cpp:331
 msgctxt "QObject|"
 msgid "M370: Morgan manual bed level - clear map"
-msgstr "M370: Nivell del llit manual de Morgan - neteja el mapa"
+msgstr "M370: Nivell del llit manual de Morgan – neteja el mapa"
 
 #: src/core/gcodecommands.cpp:333
 msgctxt "QObject|"
@@ -1550,7 +1550,7 @@ msgstr "Extrusor %1"
 #: testclient/mainwindow.cpp:30
 msgctxt "MainWindow|"
 msgid "AtCore - Test Client"
-msgstr "AtCore - Client de prova"
+msgstr "AtCore – Client de prova"
 
 #: testclient/mainwindow.cpp:38
 msgctxt "MainWindow|"
