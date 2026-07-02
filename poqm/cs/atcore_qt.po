@@ -1,29 +1,30 @@
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 # Vít Pelčák <vit@pelcak.org>, 2017.
 # Vit Pelcak <vit@pelcak.org>, 2017, 2018, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2019-10-21 13:36+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-07-02 00:55+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 19.08.1\n"
+"X-Generator: Lokalize 26.04.2\n"
 "X-Qt-Contexts: true\n"
 
 #: src/core/atcore.cpp:141
 msgctxt "AtCore|"
 msgid "Waiting for firmware detect."
-msgstr ""
+msgstr "Čeká se na detekci firmwaru."
 
 #: src/core/atcore.cpp:195
 #, qt-format
 msgctxt "AtCore|"
 msgid "Connected to printer using %1 plugin"
-msgstr ""
+msgstr "Připojeno k tiskárně pomocí modulu %1"
 
 #: src/core/atcore.cpp:199
 #, qt-format
@@ -34,12 +35,12 @@ msgstr "Nenalezen žádný modul pro %1."
 #: src/core/atcore.cpp:238
 msgctxt "AtCore|"
 msgid "Waiting for machine restart"
-msgstr ""
+msgstr "Čekání na restart zařízení"
 
 #: src/core/atcore.cpp:251
 msgctxt "AtCore|"
 msgid "Failed to open device in read/write mode."
-msgstr ""
+msgstr "Nepodařilo se otevřít zařízení v režimu čtení/zápisu."
 
 #: src/core/atcore.cpp:873
 msgctxt "AtCore|"
@@ -80,7 +81,7 @@ msgstr "%1%2: vyžaduje argument"
 #: src/core/gcodecommands.cpp:13
 msgctxt "QObject|"
 msgid "Not implemented or not supported!"
-msgstr "Neimplementováno nebo nepodporováno."
+msgstr "Neimplementováno nebo nepodporováno!"
 
 #: src/core/gcodecommands.cpp:19
 msgctxt "QObject|"
@@ -105,17 +106,17 @@ msgstr "G3: Řízený pohyb po oblouku proti směru hodinových ručiček"
 #: src/core/gcodecommands.cpp:27
 msgctxt "QObject|"
 msgid "G4: Dwell"
-msgstr ""
+msgstr "G4: Zdržení"
 
 #: src/core/gcodecommands.cpp:29
 msgctxt "QObject|"
 msgid "G10: Retract"
-msgstr ""
+msgstr "G10: Zatažení"
 
 #: src/core/gcodecommands.cpp:31
 msgctxt "QObject|"
 msgid "G11: Unretract"
-msgstr ""
+msgstr "G11: Zrušení zatažení"
 
 #: src/core/gcodecommands.cpp:33
 msgctxt "QObject|"
@@ -130,22 +131,24 @@ msgstr "G21: Nastavit jednotky na milimetry"
 #: src/core/gcodecommands.cpp:37
 msgctxt "QObject|"
 msgid "G28: Move to Origin Home"
-msgstr ""
+msgstr "G28: Přesun do výchozí polohy"
 
 #: src/core/gcodecommands.cpp:39
 msgctxt "QObject|"
 msgid "G29: Detailed Z-Probe"
-msgstr ""
+msgstr "G29: Detailní Z-sonda"
 
 #: src/core/gcodecommands.cpp:41
 msgctxt "QObject|"
 msgid "G30: Single Z-Probe"
-msgstr ""
+msgstr "G30: Jednoduchá Z-sonda"
 
 #: src/core/gcodecommands.cpp:43
 msgctxt "QObject|"
 msgid "G31: Set or report current probe status / Dock Z Probe sled for Marlin"
 msgstr ""
+"G31: Nastavení nebo hlášení aktuálního stavu sondy / Uložení saní sondy Z do "
+"doku pro Marlin"
 
 #: src/core/gcodecommands.cpp:45
 msgctxt "QObject|"
@@ -153,231 +156,235 @@ msgid ""
 "G32: Probe Z and calculate Z plane(Bed Leveling)/ UnDoc Z Probe sled for "
 "Marlin"
 msgstr ""
+"G32: Změřit polohu osy Z sondou a vypočítat rovinu Z (vyrovnání lože) / "
+"UnDoc: Saně sondy pro osu Z pro Marlin"
 
 #: src/core/gcodecommands.cpp:47
 msgctxt "QObject|"
 msgid "G33: Measure/List/Adjust Distortion Matrix"
-msgstr ""
+msgstr "G33: Měření/výpis/úprava matice zkreslení"
 
 #: src/core/gcodecommands.cpp:49
 msgctxt "QObject|"
 msgid "G90: Set to absolute positioning"
-msgstr ""
+msgstr "G90: Nastavit absolutní polohování"
 
 #: src/core/gcodecommands.cpp:51
 msgctxt "QObject|"
 msgid "G91: Set to relative positioning"
-msgstr ""
+msgstr "G91: Nastavit relativní polohování"
 
 #: src/core/gcodecommands.cpp:53
 msgctxt "QObject|"
 msgid "G92: Set position"
-msgstr "G92: nastavit pozici"
+msgstr "G92: Nastavit polohu"
 
 #: src/core/gcodecommands.cpp:55
 msgctxt "QObject|"
 msgid "G100: Calibrate floor or rod radius"
-msgstr ""
+msgstr "G100: Kalibrace poloměru základny nebo tyče"
 
 #: src/core/gcodecommands.cpp:57
 msgctxt "QObject|"
 msgid "G130: Set digital potentiometer value"
-msgstr ""
+msgstr "G130: Nastavení hodnoty digitálního potenciometru"
 
 #: src/core/gcodecommands.cpp:59
 msgctxt "QObject|"
 msgid "G131: Recase Move offset"
-msgstr ""
+msgstr "G131: Posun při změně pouzdra"
 
 #: src/core/gcodecommands.cpp:61
 msgctxt "QObject|"
 msgid "G132: Calibrate endstops offsets"
-msgstr ""
+msgstr "G132: Kalibrace posunů koncových spínačů"
 
 #: src/core/gcodecommands.cpp:63
 msgctxt "QObject|"
 msgid "G133: Measure steps to top"
-msgstr ""
+msgstr "G133: Počet schodů až nahoru"
 
 #: src/core/gcodecommands.cpp:65
 msgctxt "QObject|"
 msgid "G161: Home axis to minimum"
-msgstr ""
+msgstr "G161: Výchozí osa na minimum"
 
 #: src/core/gcodecommands.cpp:67
 msgctxt "QObject|"
 msgid "G162: Home axis to maximum"
-msgstr ""
+msgstr "G161: Výchozí osa na maximum"
 
 #: src/core/gcodecommands.cpp:99
 msgctxt "QObject|"
 msgid "M0: Stop or unconditional stop"
-msgstr ""
+msgstr "M0: Zastavení nebo bezpodmínečné zastavení"
 
 #: src/core/gcodecommands.cpp:101
 msgctxt "QObject|"
 msgid "M1: Sleep or unconditional stop"
-msgstr ""
+msgstr "M1: Spánek nebo bezpodmínečné zastavení"
 
 #: src/core/gcodecommands.cpp:103
 msgctxt "QObject|"
 msgid "M2: Program End"
-msgstr ""
+msgstr "M2: Konec programu"
 
 #: src/core/gcodecommands.cpp:105
 msgctxt "QObject|"
 msgid "M6: Tool Change"
-msgstr ""
+msgstr "M6: Změna nástroje"
 
 #: src/core/gcodecommands.cpp:107
 msgctxt "QObject|"
 msgid "M17: Enable/power all steppers motors"
-msgstr ""
+msgstr "M17: Zapnout/napájet všechny krokové motory"
 
 #: src/core/gcodecommands.cpp:109
 msgctxt "QObject|"
 msgid "M18: Disable all steppers motors"
-msgstr ""
+msgstr "M18: Vypnout všechny krokové motory"
 
 #: src/core/gcodecommands.cpp:111
 msgctxt "QObject|"
 msgid "M20: List SDCard"
-msgstr ""
+msgstr "M20: Seznam SD karet"
 
 #: src/core/gcodecommands.cpp:113
 msgctxt "QObject|"
 msgid "M21: Initialize SDCard"
-msgstr ""
+msgstr "M21: Inicializace SD karty"
 
 #: src/core/gcodecommands.cpp:115
 msgctxt "QObject|"
 msgid "M22: Release SDCard"
-msgstr ""
+msgstr "M22: Vyjmutí SD karty"
 
 #: src/core/gcodecommands.cpp:117
 msgctxt "QObject|"
 msgid "M23: Select SD file"
-msgstr ""
+msgstr "M23: Vybrat SD soubor"
 
 #: src/core/gcodecommands.cpp:119
 msgctxt "QObject|"
 msgid "M24: Start/resume SD print"
-msgstr ""
+msgstr "M24: Spuštění/pokračování SD tisku"
 
 #: src/core/gcodecommands.cpp:121
 msgctxt "QObject|"
 msgid "M25: Pause SD print"
-msgstr ""
+msgstr "M25: Pozastavit SD tisk"
 
 #: src/core/gcodecommands.cpp:123
 msgctxt "QObject|"
 msgid "M26: Set SD position"
-msgstr ""
+msgstr "M26: Nastavit SD polohu"
 
 #: src/core/gcodecommands.cpp:125
 msgctxt "QObject|"
 msgid "M27: Report SD print status"
-msgstr ""
+msgstr "M27: Zpráva o stavu SD tisku"
 
 #: src/core/gcodecommands.cpp:127
 msgctxt "QObject|"
 msgid "M28: Begin write to SD card"
-msgstr ""
+msgstr "M28: Zahájit zápis na SD kartu"
 
 #: src/core/gcodecommands.cpp:129
 msgctxt "QObject|"
 msgid "M29: Stop writing to SD card"
-msgstr ""
+msgstr "M29: Zastavit zápis na SD kartu"
 
 #: src/core/gcodecommands.cpp:131
 msgctxt "QObject|"
 msgid "M30: Delete a file on the SD card"
-msgstr ""
+msgstr "M30: Smazat soubor na SD kartě"
 
 #: src/core/gcodecommands.cpp:133
 msgctxt "QObject|"
 msgid "M31: Output time since last M109 or SD card start to serial"
 msgstr ""
+"M31: Čas od posledního příkazu M109 nebo od spuštění z SD karty do sériového "
+"výstupu"
 
 #: src/core/gcodecommands.cpp:135
 msgctxt "QObject|"
 msgid "M32: Select file and start SD print"
-msgstr ""
+msgstr "M32: Vybrat soubor a spustit SD tisk"
 
 #: src/core/gcodecommands.cpp:137
 msgctxt "QObject|"
 msgid "M33: Get the long name for an SD card file or folder"
-msgstr ""
+msgstr "M33: Získání dlouhého názvu souboru nebo složky na SD kartě"
 
 #: src/core/gcodecommands.cpp:139
 msgctxt "QObject|"
 msgid "M34: Set SD file sorting options"
-msgstr ""
+msgstr "M34: Nastavení možností třídění SD souborů"
 
 #: src/core/gcodecommands.cpp:141
 msgctxt "QObject|"
 msgid "M36: Return file information"
-msgstr ""
+msgstr "M36: Zobrazit informace o souboru"
 
 #: src/core/gcodecommands.cpp:143
 msgctxt "QObject|"
 msgid "M42: Switch I/O pin"
-msgstr ""
+msgstr "M42: I/O pin přepínače"
 
 #: src/core/gcodecommands.cpp:145
 msgctxt "QObject|"
 msgid "M48: Measure Z-Probe repeatability"
-msgstr ""
+msgstr "M48: Měření opakovatelnosti Z-sondy"
 
 #: src/core/gcodecommands.cpp:147
 msgctxt "QObject|"
 msgid "M70: Display message"
-msgstr ""
+msgstr "M70: Zobrazit zprávu"
 
 #: src/core/gcodecommands.cpp:149
 msgctxt "QObject|"
 msgid "M72: Play a tone or song"
-msgstr ""
+msgstr "M72: Přehrát tón nebo skladbu"
 
 #: src/core/gcodecommands.cpp:151
 msgctxt "QObject|"
 msgid "M73: Set build percentage"
-msgstr ""
+msgstr "M73: Nastavení procenta sestavení"
 
 #: src/core/gcodecommands.cpp:153
 msgctxt "QObject|"
 msgid "M80: ATX Power On"
-msgstr ""
+msgstr "M80: Zapnutí napájení ATX"
 
 #: src/core/gcodecommands.cpp:155
 msgctxt "QObject|"
 msgid "M81: ATX Power Off"
-msgstr ""
+msgstr "M81: Vypnutí napájení ATX"
 
 #: src/core/gcodecommands.cpp:157
 msgctxt "QObject|"
 msgid "M82: Set extruder to absolute mode"
-msgstr ""
+msgstr "M82: Nastavit extruder do absolutního režimu"
 
 #: src/core/gcodecommands.cpp:159
 msgctxt "QObject|"
 msgid "M83: Set extruder to relative mode"
-msgstr ""
+msgstr "M83: Nastavit extruder do relativního režimu"
 
 #: src/core/gcodecommands.cpp:161
 msgctxt "QObject|"
 msgid "M84: Stop idle hold"
-msgstr ""
+msgstr "M84: Zastavit režim nečinnosti"
 
 #: src/core/gcodecommands.cpp:163
 msgctxt "QObject|"
 msgid "M85: Set Inactivity shutdown timer"
-msgstr ""
+msgstr "M85: Nastavení časovače vypnutí při nečinnosti"
 
 #: src/core/gcodecommands.cpp:165
 msgctxt "QObject|"
 msgid "M92: Set axis steps per unit"
-msgstr ""
+msgstr "M92: Nastavení kroku osy na jednotku"
 
 #: src/core/gcodecommands.cpp:167
 msgctxt "QObject|"
@@ -1457,7 +1464,7 @@ msgstr "Nepřipojen"
 #: src/widgets/statuswidget.cpp:74
 msgctxt "StatusWidget|"
 msgid "SD"
-msgstr ""
+msgstr "SD"
 
 #: src/widgets/temperaturewidget.cpp:21
 msgctxt "TemperatureWidget|"
@@ -1478,7 +1485,7 @@ msgstr "Nastavit"
 #, qt-format
 msgctxt "TemperatureWidget|"
 msgid "Extruder %1"
-msgstr ""
+msgstr "Extrudér %1"
 
 #: testclient/mainwindow.cpp:30
 msgctxt "MainWindow|"
@@ -1755,7 +1762,7 @@ msgstr "Pozastavit tisk"
 #: testclient/mainwindow.cpp:550
 msgctxt "MainWindow|"
 msgid "Finished Print"
-msgstr ""
+msgstr "Tisk dokončen"
 
 #: testclient/mainwindow.cpp:556
 msgctxt "MainWindow|"
@@ -1765,7 +1772,7 @@ msgstr "Pozastaveno"
 #: testclient/mainwindow.cpp:557
 msgctxt "MainWindow|"
 msgid "Resume Print"
-msgstr ""
+msgstr "Pokračovat v tisku"
 
 #: testclient/mainwindow.cpp:561
 msgctxt "MainWindow|"
