@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-02 00:55+0200\n"
+"PO-Revision-Date: 2026-07-02 23:32+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.04.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/core/atcore.cpp:141
@@ -389,97 +389,97 @@ msgstr "M92: Nastavení kroku osy na jednotku"
 #: src/core/gcodecommands.cpp:167
 msgctxt "QObject|"
 msgid "M93: Send axis steps per unit"
-msgstr ""
+msgstr "M93: Odeslat počet kroků osy na jednotku"
 
 #: src/core/gcodecommands.cpp:169
 msgctxt "QObject|"
 msgid "M98: Call Macro/Subprogram"
-msgstr ""
+msgstr "M98: Volání makra/podprogramu"
 
 #: src/core/gcodecommands.cpp:171
 msgctxt "QObject|"
 msgid "M99: Return from Macro/Subprogram"
-msgstr ""
+msgstr "M99: Návrat z makra/podprogramu"
 
 #: src/core/gcodecommands.cpp:173
 msgctxt "QObject|"
 msgid "M101: Turn extruder 1 on Forward, Undo Retraction"
-msgstr ""
+msgstr "M101: Zapnout extruder 1 při pohybu dopředu, zrušit zatažení"
 
 #: src/core/gcodecommands.cpp:175
 msgctxt "QObject|"
 msgid "M103: Turn all extruders off - Extruder Retraction"
-msgstr ""
+msgstr "M103: Vypnout všechny extrudéry – zatažení extrudéru"
 
 #: src/core/gcodecommands.cpp:177
 msgctxt "QObject|"
 msgid "M104: Set Extruder Temperature"
-msgstr ""
+msgstr "M104: Nastavit teploty extruderu"
 
 #: src/core/gcodecommands.cpp:179
 msgctxt "QObject|"
 msgid "M105: Get Extruder Temperature"
-msgstr ""
+msgstr "M105: Zjistit teplotu extruderu"
 
 #: src/core/gcodecommands.cpp:181
 msgctxt "QObject|"
 msgid "M106: Fan On"
-msgstr ""
+msgstr "M106: Ventilátor zapnutý"
 
 #: src/core/gcodecommands.cpp:183
 msgctxt "QObject|"
 msgid "M107: Fan Off"
-msgstr ""
+msgstr "M106: Ventilátor vypnutý"
 
 #: src/core/gcodecommands.cpp:185
 msgctxt "QObject|"
 msgid "M108: Cancel Heating"
-msgstr ""
+msgstr "M108: Zrušit topení"
 
 #: src/core/gcodecommands.cpp:187
 msgctxt "QObject|"
 msgid "M109: Set Extruder Temperature and Wait"
-msgstr ""
+msgstr "M109: Nastavit teplotu extruderu a počkat"
 
 #: src/core/gcodecommands.cpp:189
 msgctxt "QObject|"
 msgid "M110: Set Current Line Number"
-msgstr ""
+msgstr "M110: Nastavení aktuálního čísla řádku"
 
 #: src/core/gcodecommands.cpp:191
 msgctxt "QObject|"
 msgid "M111: Set Debug Level"
-msgstr ""
+msgstr "M111: Nastavení úrovně ladění"
 
 #: src/core/gcodecommands.cpp:193
 msgctxt "QObject|"
 msgid "M112: Emergency Stop"
-msgstr ""
+msgstr "M112: Nouzové zastavení"
 
 #: src/core/gcodecommands.cpp:195
 msgctxt "QObject|"
 msgid "M114: Get Current Position"
-msgstr ""
+msgstr "M114: Zjistit aktuální polohu"
 
 #: src/core/gcodecommands.cpp:197
 msgctxt "QObject|"
 msgid "M115: Get Firmware Version and Capabilities"
-msgstr ""
+msgstr "M115: Zjištění verze firmwaru a funkcí"
 
 #: src/core/gcodecommands.cpp:199
 msgctxt "QObject|"
 msgid "M116: Wait"
-msgstr ""
+msgstr "M116: Čekat"
 
 #: src/core/gcodecommands.cpp:201
 msgctxt "QObject|"
 msgid "M117: Display Message"
-msgstr ""
+msgstr "M117: Zobrazit zprávu"
 
 #: src/core/gcodecommands.cpp:203
 msgctxt "QObject|"
 msgid "M119: Get Endstop Status"
-msgstr ""
+msgstr "M119: Získat stav koncového spínače"
 
 #: src/core/gcodecommands.cpp:205
 msgctxt "QObject|"
@@ -487,6 +487,8 @@ msgid ""
 "M120: Push for Smoothie and RepRap Firmware / Enable Endstop detection for "
 "Marlin"
 msgstr ""
+"M120: Push pro Smoothie a firmware RepRap / Zapnutí detekce koncových "
+"spínačů pro Marlin"
 
 #: src/core/gcodecommands.cpp:207
 msgctxt "QObject|"
@@ -494,126 +496,128 @@ msgid ""
 "M121: Pop for Smoothie and RepRap Firmware / Disable Endstop detection for "
 "Marlin"
 msgstr ""
+"M121: Pop pro Smoothie a firmware RepRap / Vypnutí detekce koncových spínačů "
+"pro Marlin"
 
 #: src/core/gcodecommands.cpp:209
 msgctxt "QObject|"
 msgid "M122: Diagnose"
-msgstr ""
+msgstr "M122: Diagnostika"
 
 #: src/core/gcodecommands.cpp:211
 msgctxt "QObject|"
 msgid "M126: Open valve"
-msgstr ""
+msgstr "M126: Otevřít ventil"
 
 #: src/core/gcodecommands.cpp:213
 msgctxt "QObject|"
 msgid "M127: Close valve"
-msgstr ""
+msgstr "M127: Uzavřít ventil"
 
 #: src/core/gcodecommands.cpp:215
 msgctxt "QObject|"
 msgid "M130: Set PID P value"
-msgstr ""
+msgstr "M130: Nastavit hodnotu PID P"
 
 #: src/core/gcodecommands.cpp:217
 msgctxt "QObject|"
 msgid "M131: Set PID I value"
-msgstr ""
+msgstr "M130: Nastavit hodnotu PID I"
 
 #: src/core/gcodecommands.cpp:219
 msgctxt "QObject|"
 msgid "M132: Set PID D value"
-msgstr ""
+msgstr "M130: Nastavit hodnotu PID D"
 
 #: src/core/gcodecommands.cpp:221
 msgctxt "QObject|"
 msgid "M133: Set PID I limit value"
-msgstr ""
+msgstr "M133: Nastavení mezní hodnoty PID I"
 
 #: src/core/gcodecommands.cpp:223
 msgctxt "QObject|"
 msgid "M134: Write PID values to EEPROM"
-msgstr ""
+msgstr "M134: Zapsat hodnoty PID do EEPROM"
 
 #: src/core/gcodecommands.cpp:225
 msgctxt "QObject|"
 msgid "M135: Set PID sample interval"
-msgstr ""
+msgstr "M135: Nastavit interval vzorkování PID"
 
 #: src/core/gcodecommands.cpp:227
 msgctxt "QObject|"
 msgid "M140: Set Bed Temperature - Fast"
-msgstr ""
+msgstr "M140: Nastavit teplotu podložky – rychlé"
 
 #: src/core/gcodecommands.cpp:229
 msgctxt "QObject|"
 msgid "M141: Set Chamber Temperature - Fast"
-msgstr ""
+msgstr "M141: Nastavit teplotu v komoře – rychlé"
 
 #: src/core/gcodecommands.cpp:231
 msgctxt "QObject|"
 msgid "M143: Maximum hot-end temperature"
-msgstr ""
+msgstr "M143: Maximální teplota hot-endu"
 
 #: src/core/gcodecommands.cpp:233
 msgctxt "QObject|"
 msgid "M144: Stand by your bed"
-msgstr ""
+msgstr "M144: Stát u podložky"
 
 #: src/core/gcodecommands.cpp:235
 msgctxt "QObject|"
 msgid "M150: Set display color"
-msgstr ""
+msgstr "M150: Nastavit barvu displeje"
 
 #: src/core/gcodecommands.cpp:237
 msgctxt "QObject|"
 msgid "M155: Set Temperature auto report"
-msgstr ""
+msgstr "M155: Nastavit automatickou zprávu o teplotě"
 
 #: src/core/gcodecommands.cpp:239
 msgctxt "QObject|"
 msgid "M163: Set weight of mixed material"
-msgstr ""
+msgstr "M163: Nastavit hmotnost směsného materiálu"
 
 #: src/core/gcodecommands.cpp:241
 msgctxt "QObject|"
 msgid "M164: Store weights"
-msgstr ""
+msgstr "M164: Uložit hmotnosti"
 
 #: src/core/gcodecommands.cpp:243
 msgctxt "QObject|"
 msgid "M190: Wait for bed temperature to reach target temp"
-msgstr ""
+msgstr "M190: Počkat, až teplota podložky dosáhne cílové hodnoty"
 
 #: src/core/gcodecommands.cpp:245
 msgctxt "QObject|"
 msgid "M200: Set filament diameter"
-msgstr ""
+msgstr "M200: Nastavit průměr filamentu"
 
 #: src/core/gcodecommands.cpp:247
 msgctxt "QObject|"
 msgid "M201: Set max printing acceleration"
-msgstr ""
+msgstr "M201: Nastavit maximální zrychlení tisku"
 
 #: src/core/gcodecommands.cpp:249
 msgctxt "QObject|"
 msgid "M202: Set max travel acceleration"
-msgstr ""
+msgstr "M202: Nastavit maximálního zrychlení pohybu"
 
 #: src/core/gcodecommands.cpp:251
 msgctxt "QObject|"
 msgid "M203: Set maximum feedrate"
-msgstr ""
+msgstr "M203: Nastavit maximální rychlosti posuvu"
 
 #: src/core/gcodecommands.cpp:253
 msgctxt "QObject|"
 msgid "M204: Set default acceleration"
-msgstr ""
+msgstr "M204: Nastavit výchozí zrychlení"
 
 #: src/core/gcodecommands.cpp:255
 msgctxt "QObject|"
 msgid "M205: Advanced settings"
-msgstr ""
+msgstr "M205: Pokročilá nastavení"
 
 #: src/core/gcodecommands.cpp:257
 msgctxt "QObject|"
@@ -621,426 +625,430 @@ msgid ""
 "M206: Offset axes for Sprinter, Marlin, Smoothie, RepRap Firmware / Set "
 "eeprom value for Repetier"
 msgstr ""
+"M206: Posun os pro Sprinter, Marlin, Smoothie, RepRap Firmware / Nastavení "
+"hodnoty EEPROM pro Repetier"
 
 #: src/core/gcodecommands.cpp:259
 msgctxt "QObject|"
 msgid "M207: Set retract length"
-msgstr ""
+msgstr "M207: Nastavit délku zatažení"
 
 #: src/core/gcodecommands.cpp:261
 msgctxt "QObject|"
 msgid "M208: Set unretract length"
-msgstr ""
+msgstr "M207: Nastavit délku zrušení zatažení"
 
 #: src/core/gcodecommands.cpp:263
 msgctxt "QObject|"
 msgid "M209: Enable automatic retract"
-msgstr ""
+msgstr "M209: Zapnout automatické zatahování"
 
 #: src/core/gcodecommands.cpp:265
 msgctxt "QObject|"
 msgid "M212: Set Bed Level Sensor Offset"
-msgstr ""
+msgstr "M212: Nastavit posun snímače úrovně podložky"
 
 #: src/core/gcodecommands.cpp:267
 msgctxt "QObject|"
 msgid "M218: Set Hotend Offset"
-msgstr ""
+msgstr "M218: Nastavit posun hotendu"
 
 #: src/core/gcodecommands.cpp:269
 msgctxt "QObject|"
 msgid "M220: Set speed factor override percentage"
-msgstr ""
+msgstr "M220: Nastavit procentuální hodnoty přepsání faktoru rychlosti"
 
 #: src/core/gcodecommands.cpp:271
 msgctxt "QObject|"
 msgid "M221: Set extrude factor override percentage"
-msgstr ""
+msgstr "M221: Nastavit procentuální přepsání koeficientu extruze"
 
 #: src/core/gcodecommands.cpp:273
 msgctxt "QObject|"
 msgid "M226: Wait for pin state"
-msgstr ""
+msgstr "M226: Vyčkat na stav pinu"
 
 #: src/core/gcodecommands.cpp:275
 msgctxt "QObject|"
 msgid "M231: Set OPS parameter"
-msgstr ""
+msgstr "M231: Nastavit parametr OPS"
 
 #: src/core/gcodecommands.cpp:277
 msgctxt "QObject|"
 msgid "M232: Read and reset max. advance values"
-msgstr ""
+msgstr "M232: Načtení a resetování maximálních hodnot posuvu"
 
 #: src/core/gcodecommands.cpp:279
 msgctxt "QObject|"
 msgid "M240: Trigger camera"
-msgstr ""
+msgstr "M240: Spouštění kamery"
 
 #: src/core/gcodecommands.cpp:281
 msgctxt "QObject|"
 msgid "M250: Set LCD contrast"
-msgstr ""
+msgstr "M250: Nastavit kontrast LCD"
 
 #: src/core/gcodecommands.cpp:283
 msgctxt "QObject|"
 msgid "M251: Measure Z steps from homing stop (Delta printers)"
-msgstr ""
+msgstr "M251: Změřit počet kroků Z od koncové polohy (tiskárny Delta)"
 
 #: src/core/gcodecommands.cpp:285
 msgctxt "QObject|"
 msgid "M280: Set servo position"
-msgstr ""
+msgstr "M280: Nastavit polohu serva"
 
 #: src/core/gcodecommands.cpp:287
 msgctxt "QObject|"
 msgid "M300: Play beep sound"
-msgstr ""
+msgstr "M300: Přehrát zvukový signál"
 
 #: src/core/gcodecommands.cpp:289
 msgctxt "QObject|"
 msgid "M301: Set PID parameters"
-msgstr ""
+msgstr "M301: Nastavit parametry PID"
 
 #: src/core/gcodecommands.cpp:291
 msgctxt "QObject|"
 msgid "M302: Allow cold extrudes "
-msgstr ""
+msgstr "M302: Povolit extrudování za studena "
 
 #: src/core/gcodecommands.cpp:293
 msgctxt "QObject|"
 msgid "M303: Run PID tuning"
-msgstr ""
+msgstr "M303: Spustit ladění PID"
 
 #: src/core/gcodecommands.cpp:295
 msgctxt "QObject|"
 msgid "M304: Set PID parameters - Bed"
-msgstr ""
+msgstr "M304: Nastavit parametry PID – podložka"
 
 #: src/core/gcodecommands.cpp:297
 msgctxt "QObject|"
 msgid "M305: Set thermistor and ADC parameters"
-msgstr ""
+msgstr "M305: Nastavit parametry termistoru a ADC"
 
 #: src/core/gcodecommands.cpp:299
 msgctxt "QObject|"
 msgid "M306: set home offset calculated from toolhead position"
 msgstr ""
+"M306: Nastavit offset nulového bodu vypočítaný z polohy nástrojové hlavy"
 
 #: src/core/gcodecommands.cpp:301
 msgctxt "QObject|"
 msgid "M320: Activate autolevel (Repetier)"
-msgstr ""
+msgstr "M320: Aktivovat automatické vyrovnání (Repetier)"
 
 #: src/core/gcodecommands.cpp:303
 msgctxt "QObject|"
 msgid "M321: Deactivate autolevel (Repetier)"
-msgstr ""
+msgstr "M321: Vypnout automatické vyrovnání (Repetier)"
 
 #: src/core/gcodecommands.cpp:305
 msgctxt "QObject|"
 msgid "M322: Reset autolevel matrix (Repetier)"
-msgstr ""
+msgstr "M322: Obnovit matici automatického vyrovnání (Repetier)"
 
 #: src/core/gcodecommands.cpp:307
 msgctxt "QObject|"
 msgid "M323: Distortion correction on/off (Repetier)"
-msgstr ""
+msgstr "M323: Zapnutí/vypnutí korekce zkreslení (Repetier)"
 
 #: src/core/gcodecommands.cpp:309
 msgctxt "QObject|"
 msgid "M340: Control the servos"
-msgstr ""
+msgstr "M340: Ovládání serv"
 
 #: src/core/gcodecommands.cpp:311
 msgctxt "QObject|"
 msgid "M350: Set microstepping mode"
-msgstr ""
+msgstr "M350: Nastavit režim mikrokrokování"
 
 #: src/core/gcodecommands.cpp:313
 msgctxt "QObject|"
 msgid "M351: Toggle MS1 MS2 pins directly"
-msgstr ""
+msgstr "M351: Přepínání pinů MS1 a MS2 přímo"
 
 #: src/core/gcodecommands.cpp:315
 msgctxt "QObject|"
 msgid "M355: Turn case lights on/off"
-msgstr ""
+msgstr "M355: Zapnutí/vypnutí osvětlení krytu"
 
 #: src/core/gcodecommands.cpp:317
 msgctxt "QObject|"
 msgid "M360: Report firmware configuration"
-msgstr ""
+msgstr "M360: Hlášení o konfiguraci firmwaru"
 
 #: src/core/gcodecommands.cpp:319
 msgctxt "QObject|"
 msgid "M361: Move to Theta 90 degree position"
-msgstr ""
+msgstr "M361: Přesun do polohy Theta 90 stupňů"
 
 #: src/core/gcodecommands.cpp:321
 msgctxt "QObject|"
 msgid "M362: Move to Psi 0 degree position"
-msgstr ""
+msgstr "M362: Přesun do polohy Psi 0 stupňů"
 
 #: src/core/gcodecommands.cpp:323
 msgctxt "QObject|"
 msgid "M363: Move to Psi 90 degree position"
-msgstr ""
+msgstr "M363: Přesun do polohy Psi 90 stupňů"
 
 #: src/core/gcodecommands.cpp:325
 msgctxt "QObject|"
 msgid "M364: Move to Psi + Theta 90 degree position"
-msgstr ""
+msgstr "M364: Přesun do polohy Psi + Theta 90 stupňů"
 
 #: src/core/gcodecommands.cpp:327
 msgctxt "QObject|"
 msgid "M365: SCARA scaling factor"
-msgstr ""
+msgstr "M365: Škálovací koeficient SCARA"
 
 #: src/core/gcodecommands.cpp:329
 msgctxt "QObject|"
 msgid "M366: SCARA convert trim"
-msgstr ""
+msgstr "M366: Ořezávání SCARA"
 
 #: src/core/gcodecommands.cpp:331
 msgctxt "QObject|"
 msgid "M370: Morgan manual bed level - clear map"
-msgstr ""
+msgstr "M370: Ruční vyrovnání podložky Morgan – přesná mapa"
 
 #: src/core/gcodecommands.cpp:333
 msgctxt "QObject|"
 msgid "M371: Move to next calibration position"
-msgstr ""
+msgstr "M371: Přesun na další kalibrační polohu"
 
 #: src/core/gcodecommands.cpp:335
 msgctxt "QObject|"
 msgid "M372: Record calibration value, and move to next position"
-msgstr ""
+msgstr "M372: Zaznamenat kalibrační hodnotu a přejít na další pozici"
 
 #: src/core/gcodecommands.cpp:337
 msgctxt "QObject|"
 msgid "M373: End bed level calibration mode"
-msgstr ""
+msgstr "M373: Režim kalibrace koncové úrovně podložky"
 
 #: src/core/gcodecommands.cpp:339
 msgctxt "QObject|"
 msgid "M374: Save calibration grid"
-msgstr ""
+msgstr "M374: Uložit kalibrační mřížku"
 
 #: src/core/gcodecommands.cpp:341
 msgctxt "QObject|"
 msgid "M375: Display matrix / Load Matrix"
-msgstr ""
+msgstr "M375: Zobrazit matici / Načíst matici"
 
 #: src/core/gcodecommands.cpp:343
 msgctxt "QObject|"
 msgid "M380: Activate solenoid"
-msgstr ""
+msgstr "M380: Aktivace solenoidu"
 
 #: src/core/gcodecommands.cpp:345
 msgctxt "QObject|"
 msgid "M381: Disable all solenoids"
-msgstr ""
+msgstr "M381: Vypnout všechny solenoidy"
 
 #: src/core/gcodecommands.cpp:347
 msgctxt "QObject|"
 msgid "M400: Wait for current moves to finish"
-msgstr ""
+msgstr "M400: Počkejte, až se dokončí aktuální pohyby"
 
 #: src/core/gcodecommands.cpp:349
 msgctxt "QObject|"
 msgid "M401: Lower z-probe"
-msgstr ""
+msgstr "M401: Spustit z-sondu"
 
 #: src/core/gcodecommands.cpp:351
 msgctxt "QObject|"
 msgid "M402: Raise z-probe"
-msgstr ""
+msgstr "M402: Zvednout z-sondu"
 
 #: src/core/gcodecommands.cpp:353
 msgctxt "QObject|"
 msgid "M404: Filament width and nozzle diameter"
-msgstr ""
+msgstr "M404: Šířka filamentu a průměr trysky"
 
 #: src/core/gcodecommands.cpp:355
 msgctxt "QObject|"
 msgid "M405: Filament Sensor on"
-msgstr ""
+msgstr "M405: Snímač filamentu zapnutý"
 
 #: src/core/gcodecommands.cpp:357
 msgctxt "QObject|"
 msgid "M406: Filament Sensor off"
-msgstr ""
+msgstr "M406: Snímač filamentu vypnutý"
 
 #: src/core/gcodecommands.cpp:359
 msgctxt "QObject|"
 msgid "M407: Display filament diameter"
-msgstr ""
+msgstr "M407: Zobrazit průměr vlákna"
 
 #: src/core/gcodecommands.cpp:361
 msgctxt "QObject|"
 msgid "M408: Report JSON-style response"
-msgstr ""
+msgstr "M408: Zpráva s odpovědí ve formátu JSON"
 
 #: src/core/gcodecommands.cpp:363
 msgctxt "QObject|"
 msgid "M420: Enable/Disable Mesh Leveling (Marlin)"
-msgstr ""
+msgstr "M420: Zapnutí/vypnutí vyrovnávání mřížky (Marlin)"
 
 #: src/core/gcodecommands.cpp:365
 msgctxt "QObject|"
 msgid "M450: Report Printer Mode"
-msgstr ""
+msgstr "M450: Režim tisku přehledů"
 
 #: src/core/gcodecommands.cpp:367
 msgctxt "QObject|"
 msgid "M451: Select FFF Printer Mode"
-msgstr ""
+msgstr "M451: Vybrat režim tisku FFF"
 
 #: src/core/gcodecommands.cpp:369
 msgctxt "QObject|"
 msgid "M452: Select Laser Printer Mode"
-msgstr ""
+msgstr "M452: Vybrat režim laserové tiskárny"
 
 #: src/core/gcodecommands.cpp:371
 msgctxt "QObject|"
 msgid "M453: Select CNC Printer Mode"
-msgstr ""
+msgstr "M453: Vybrat režim CNC tiskárny"
 
 #: src/core/gcodecommands.cpp:373
 msgctxt "QObject|"
 msgid "M460: Define temperature range for thermistor controlled fan"
-msgstr ""
+msgstr "M460: Nastavení teplotního rozsahu pro ventilátor řízený termistorem"
 
 #: src/core/gcodecommands.cpp:375
 msgctxt "QObject|"
 msgid "M500: Store parameters in EEPROM"
-msgstr ""
+msgstr "M500: Uložení parametrů do paměti EEPROM"
 
 #: src/core/gcodecommands.cpp:377
 msgctxt "QObject|"
 msgid "M501: Read parameters from EEPROM"
-msgstr ""
+msgstr "M501: Načtení parametrů z EEPROM"
 
 #: src/core/gcodecommands.cpp:379
 msgctxt "QObject|"
 msgid "M502: Revert to the default 'factory settings'."
-msgstr ""
+msgstr "M502: Obnovit výchozí 'tovární nastavení'."
 
 #: src/core/gcodecommands.cpp:381
 msgctxt "QObject|"
 msgid "M503: Print settings "
-msgstr ""
+msgstr "M503: Nastavení tisku "
 
 #: src/core/gcodecommands.cpp:383
 msgctxt "QObject|"
 msgid "M540: Enable/Disable 'Stop SD Print on Endstop Hit'"
 msgstr ""
+"M540: Zapnout/vypnout funkci 'Zastavit SD tisk při dosažení koncové zarážky'"
 
 #: src/core/gcodecommands.cpp:385
 msgctxt "QObject|"
 msgid "M550: Set Name"
-msgstr ""
+msgstr "M550: Nastavit název"
 
 #: src/core/gcodecommands.cpp:387
 msgctxt "QObject|"
 msgid "M551: Set Password"
-msgstr ""
+msgstr "M551: Nastavit heslo"
 
 #: src/core/gcodecommands.cpp:389
 msgctxt "QObject|"
 msgid "M552: Set IP address"
-msgstr ""
+msgstr "M552: Nastavit IP adresu"
 
 #: src/core/gcodecommands.cpp:391
 msgctxt "QObject|"
 msgid "M553: Set Netmask"
-msgstr ""
+msgstr "M553: Nastavit síťovou masku"
 
 #: src/core/gcodecommands.cpp:393
 msgctxt "QObject|"
 msgid "M554: Set Gateway"
-msgstr ""
+msgstr "M554: Nastavit bránu"
 
 #: src/core/gcodecommands.cpp:395
 msgctxt "QObject|"
 msgid "M555: Set compatibility"
-msgstr ""
+msgstr "M555: Nastavit kompatibilitu"
 
 #: src/core/gcodecommands.cpp:397
 msgctxt "QObject|"
 msgid "M556: Axis compensation"
-msgstr ""
+msgstr "M556: Kompenzace osy"
 
 #: src/core/gcodecommands.cpp:399
 msgctxt "QObject|"
 msgid "M557: Set Z probe point"
-msgstr ""
+msgstr "M557: Nastavit bod pro sondu Z"
 
 #: src/core/gcodecommands.cpp:401
 msgctxt "QObject|"
 msgid "M558: Set Z probe type"
-msgstr ""
+msgstr "M558: Nastavit typ sondy Z"
 
 #: src/core/gcodecommands.cpp:403
 msgctxt "QObject|"
 msgid "M559: Upload configuration file"
-msgstr ""
+msgstr "M559: Nahrát konfigurační soubor"
 
 #: src/core/gcodecommands.cpp:405
 msgctxt "QObject|"
 msgid "M560: Upload web page file"
-msgstr ""
+msgstr "M560: Nahrát soubor webové stránky"
 
 #: src/core/gcodecommands.cpp:407
 msgctxt "QObject|"
 msgid "M561: Set Identity Transform"
-msgstr ""
+msgstr "M561: Nastavit transformační identitu"
 
 #: src/core/gcodecommands.cpp:409
 msgctxt "QObject|"
 msgid "M562: Reset temperature fault"
-msgstr ""
+msgstr "M562: Chyba resetování teploty"
 
 #: src/core/gcodecommands.cpp:411
 msgctxt "QObject|"
 msgid "M563: Define or remove a tool"
-msgstr ""
+msgstr "M563: Definice nebo odstranění nástroje"
 
 #: src/core/gcodecommands.cpp:413
 msgctxt "QObject|"
 msgid "M564: Limit axes"
-msgstr ""
+msgstr "M564: Omezení os"
 
 #: src/core/gcodecommands.cpp:415
 msgctxt "QObject|"
 msgid "M565: Set Z probe offset"
-msgstr ""
+msgstr "M565: Nastavit posun sondy Z"
 
 #: src/core/gcodecommands.cpp:417
 msgctxt "QObject|"
 msgid "M566: Set allowable instantaneous speed change"
-msgstr ""
+msgstr "M566: Nastavit přípustnou okamžitou změnu rychlosti"
 
 #: src/core/gcodecommands.cpp:419
 msgctxt "QObject|"
 msgid "M567: Set tool mix ratio"
-msgstr ""
+msgstr "M567: Nastavit poměr směsi nástroje"
 
 #: src/core/gcodecommands.cpp:421
 msgctxt "QObject|"
 msgid "M568: Turn off/on tool mix ratio"
-msgstr ""
+msgstr "M568: Vypnutí/zapnutí poměru směsi nástroje"
 
 #: src/core/gcodecommands.cpp:423
 msgctxt "QObject|"
 msgid "M569: Set axis direction and enable values"
-msgstr ""
+msgstr "M569: Nastavit směr osy a povolit hodnoty"
 
 #: src/core/gcodecommands.cpp:425
 msgctxt "QObject|"
 msgid "M570: Set heater timeout"
-msgstr ""
+msgstr "M570: Nastavit časový limit ohřívače"
 
 #: src/core/gcodecommands.cpp:427
 msgctxt "QObject|"
