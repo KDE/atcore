@@ -85,6 +85,7 @@
     <p xml:lang="ar">AtCore هو واجهة برمجة التطبيقات (API) التي تتحكم في الطابعة ثلاثية الأبعاد ووظائفها الأساسية. يأتي AtCore مزودًا بعميل اختبار يسمى atcore-gui لإدارة الطابعة.</p>
     <p xml:lang="ca">L'AtCore és l'API que controla la impressora 3D i les seves funcionalitats bàsiques. L'AtCore ve amb client de prova anomenant «atcore-gui» per a gestionar la impressora.</p>
     <p xml:lang="ca-valencia">AtCore és l'API que controla la impressora 3D i les seues característiques bàsiques. AtCore ve amb client de prova anomenant «atcore-gui» per a gestionar la impressora.</p>
+    <p xml:lang="cs">AtCore je rozhraní API, které řídí 3D tiskárnu a její základní funkce. Součástí AtCore je testovací klient s názvem atcore-gui, který slouží ke správě vaší tiskárny.</p>
     <p xml:lang="de">AtCore ist die API, die den 3DDrucker und seine grundlegenden Funktionalitäten steuert. AtCore wird mit einem Test-Programm namens atcore-gui geliefert, um Ihren Drucker zu verwalten.</p>
     <p xml:lang="el">Το AtCore είναι το API που ελέγχει τον 3D εκτυπωτή και τις βασικές λειτουργίες του. Το AtCore συνοδεύεται από έναν πελάτη δοκιμών που ονομάζεται atcore-gui για τη διαχείριση του εκτυπωτή.</p>
     <p xml:lang="en-GB">AtCore is the API that controls the 3DPrinter and its basic functionalities. AtCore comes with a test client called atcore-gui to manage your printer.</p>
@@ -121,6 +122,7 @@
     <p xml:lang="ar">هذا تطبيق اختباري من AtCore لعرض إطار العمل.</p>
     <p xml:lang="ca">Aquesta és una aplicació de prova de l'AtCore per a presentar l'entorn de treball.</p>
     <p xml:lang="ca-valencia">Esta és una aplicació de prova d'AtCore per a presentar l'entorn de treball.</p>
+    <p xml:lang="cs">Toto je testovací aplikace AtCore, která slouží k předvedení této vývojové platformy.</p>
     <p xml:lang="de">Dies ist eine AtCore-Testanwendung, um das Framework demonstrieren.</p>
     <p xml:lang="el">Αυτή είναι μια εφαρμογή δοκιμών του AtCore για την παρουσίαση του πλαισίου.</p>
     <p xml:lang="en-GB">This is an AtCore test application to showcase the framework.</p>
