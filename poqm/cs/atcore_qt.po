@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-02 23:32+0200\n"
+"PO-Revision-Date: 2026-07-03 11:04+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -1053,122 +1053,122 @@ msgstr "M570: Nastavit časový limit ohřívače"
 #: src/core/gcodecommands.cpp:427
 msgctxt "QObject|"
 msgid "M571: Set output on extrude"
-msgstr ""
+msgstr "M571: Nastavit výstupu při extruzi"
 
 #: src/core/gcodecommands.cpp:429
 msgctxt "QObject|"
 msgid "M573: Report heater PWM"
-msgstr ""
+msgstr "M573: Zpráva o PWM topného tělesa"
 
 #: src/core/gcodecommands.cpp:431
 msgctxt "QObject|"
 msgid "M574: Set endstop configuration"
-msgstr ""
+msgstr "M574: Nastavit konfiguraci koncových zarážek"
 
 #: src/core/gcodecommands.cpp:433
 msgctxt "QObject|"
 msgid "M575: Set serial comms parameters"
-msgstr ""
+msgstr "M575: Nastavit parametry sériové komunikace"
 
 #: src/core/gcodecommands.cpp:435
 msgctxt "QObject|"
 msgid "M577: Wait until endstop is triggered"
-msgstr ""
+msgstr "M577: Počkat, dokud se nepřepne koncová zarážka"
 
 #: src/core/gcodecommands.cpp:437
 msgctxt "QObject|"
 msgid "M578: Fire inkjet bits"
-msgstr ""
+msgstr "M578: Vypálit inkoustové bity"
 
 #: src/core/gcodecommands.cpp:439
 msgctxt "QObject|"
 msgid "M579: Scale Cartesian axes"
-msgstr ""
+msgstr "M579: Měřítko kartézských os"
 
 #: src/core/gcodecommands.cpp:441
 msgctxt "QObject|"
 msgid "M580: Select Roland"
-msgstr ""
+msgstr "M580: Vybrat Roland"
 
 #: src/core/gcodecommands.cpp:443
 msgctxt "QObject|"
 msgid "M600: Filament change pause"
-msgstr ""
+msgstr "M600: Pauza při výměně filamentu"
 
 #: src/core/gcodecommands.cpp:445
 msgctxt "QObject|"
 msgid "M605: Set dual x-carriage movement mode"
-msgstr ""
+msgstr "M605: Nastavit režim pohybu dvojitého vozíku po ose X"
 
 #: src/core/gcodecommands.cpp:447
 msgctxt "QObject|"
 msgid "M665: Set delta configuration"
-msgstr ""
+msgstr "M665: Nastavit konfiguraci delta"
 
 #: src/core/gcodecommands.cpp:449
 msgctxt "QObject|"
 msgid "M666: Set delta endstop adjustment"
-msgstr ""
+msgstr "M666: Nastavit delta posun koncové zarážky"
 
 #: src/core/gcodecommands.cpp:451
 msgctxt "QObject|"
 msgid "M667: Select CoreXY mode"
-msgstr ""
+msgstr "M667: Vybrat režim CoreXY"
 
 #: src/core/gcodecommands.cpp:453
 msgctxt "QObject|"
 msgid "M851: Set Z-Probe Offset"
-msgstr ""
+msgstr "M851: Nastavit posun sondy Z"
 
 #: src/core/gcodecommands.cpp:455
 msgctxt "QObject|"
 msgid "M906: Set motor currents"
-msgstr ""
+msgstr "M906: Nastavit proud motoru"
 
 #: src/core/gcodecommands.cpp:457
 msgctxt "QObject|"
 msgid "M907: Set digital trimpot motor"
-msgstr ""
+msgstr "M907: Nastavit motor s digitálním trimpotem"
 
 #: src/core/gcodecommands.cpp:459
 msgctxt "QObject|"
 msgid "M908: Control digital trimpot directly"
-msgstr ""
+msgstr "M908: Přímé ovládání digitálního trimpotu"
 
 #: src/core/gcodecommands.cpp:461
 msgctxt "QObject|"
 msgid "M911: Set power monitor threshold voltages"
-msgstr ""
+msgstr "M911: Nastavit prahové napětí monitoru napájení"
 
 #: src/core/gcodecommands.cpp:463
 msgctxt "QObject|"
 msgid "M912: Set electronics temperature monitor adjustment"
-msgstr ""
+msgstr "M912: Nastavit citlivost teplotního snímače elektroniky"
 
 #: src/core/gcodecommands.cpp:465
 msgctxt "QObject|"
 msgid "M913: Set motor percentage of normal current"
-msgstr ""
+msgstr "M913: Nastavit procentuální hodnotu normálního proudu motoru"
 
 #: src/core/gcodecommands.cpp:467
 msgctxt "QObject|"
 msgid "M928: Start SD logging"
-msgstr ""
+msgstr "M928: Spustit SD záznam"
 
 #: src/core/gcodecommands.cpp:469
 msgctxt "QObject|"
 msgid "M997: Perform in-application firmware update"
-msgstr ""
+msgstr "M997: Provedení aktualizace firmwaru přímo v aplikaci"
 
 #: src/core/gcodecommands.cpp:471
 msgctxt "QObject|"
 msgid "M998: Request resend of line"
-msgstr ""
+msgstr "M998: Žádost o opakované odeslání řádku"
 
 #: src/core/gcodecommands.cpp:473
 msgctxt "QObject|"
 msgid "M999: Restart after being stopped by error"
-msgstr ""
+msgstr "M999: Restart po zastavení v důsledku chyby"
 
 #: src/widgets/about.cpp:21
 #, qt-format
@@ -1191,6 +1191,11 @@ msgid ""
 "  Lays Rodrigues <lays.rodrigues@kde.org>\n"
 "  Tomaz Canabrava <tcanabrava@kde.org>"
 msgstr ""
+"Autoři:\n"
+"  Chris Rizzitello <rizzitello@kde.org>\n"
+"  Patrick José Pereira <patrickjp@kde.org>\n"
+"  Lays Rodrigues <lays.rodrigues@kde.org>\n"
+"  Tomaz Canabrava <tcanabrava@kde.org>"
 
 #: src/widgets/about.cpp:35
 msgctxt "About|"
@@ -1240,11 +1245,31 @@ msgid ""
 "p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select a "
 "firmware plugin in place of auto detect.</p>"
 msgstr ""
+"                        <h4>Zvláštní záznamy v protokolu</"
+"h4>                         <p><strong>Nepodařilo se otevřít zařízení v "
+"režimu čtení/zápisu.</strong></p>                         <p>&nbsp;&nbsp;"
+"&nbsp; Zařízení se nepodařilo otevřít.</p>                         <p>&nbsp; "
+"&nbsp; &nbsp;&nbsp; Zkontrolujte, zda zařízení není otevřeno jiným programem."
+"</p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; Zkontrolujte, zda "
+"máte správná oprávnění k otevření zařízení.</p>                         "
+"<p><strong>Nenalezen žádný plugin pro &lt;Detected Firmware&gt;</strong></"
+"p>                         <p>&nbsp;&nbsp;&nbsp; Chybí pluginy pro firmware "
+"nebo váš firmware není v současné době podporován.</"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ručně vyberte "
+"plugin Marlin nebo Repetier.</p>                         <p>&nbsp;&nbsp;"
+"&nbsp;&nbsp;&nbsp; Pokud váš firmware nemá plugin, dejte nám prosím vědět.</"
+"p>                         <p><strong>Často se zobrazuje hlášení &ldquo;"
+"Čekání na detekci firmwaru&rdquo;</strong></p>                         "
+"<p>&nbsp;&nbsp;&nbsp; Nelze odeslat detekci firmwaru, čeká se na restart "
+"tiskárny</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+"Stiskněte tlačítko restartu na tiskárně nebo ji vypněte a znovu zapněte. </"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Vyberte plugin "
+"firmwaru namísto automatické detekce.</p>"
 
 #: src/widgets/logwidget.cpp:82
 msgctxt "LogWidget|"
 msgid "Save Session Log"
-msgstr ""
+msgstr "Uložit protokol sezení"
 
 #: src/widgets/logwidget.cpp:170
 msgctxt "LogWidget|"
@@ -1274,22 +1299,22 @@ msgstr "Domů Z"
 #: src/widgets/movementwidget.cpp:69
 msgctxt "MovementWidget|"
 msgid "Disable Motors"
-msgstr ""
+msgstr "Vypnout motory"
 
 #: src/widgets/movementwidget.cpp:74
 msgctxt "MovementWidget|"
 msgid "Move X Axis to"
-msgstr ""
+msgstr "Posunout osu X na"
 
 #: src/widgets/movementwidget.cpp:75
 msgctxt "MovementWidget|"
 msgid "Move Y Axis to"
-msgstr ""
+msgstr "Posunout osu Y na"
 
 #: src/widgets/movementwidget.cpp:76
 msgctxt "MovementWidget|"
 msgid "Move Z Axis to"
-msgstr ""
+msgstr "Posunout osu Z na"
 
 #: src/widgets/movementwidget.cpp:85
 msgctxt "MovementWidget|"
@@ -1309,12 +1334,12 @@ msgstr "Vytisknout soubor"
 #: src/widgets/printwidget.cpp:28
 msgctxt "PrintWidget|"
 msgid "Emergency Stop"
-msgstr ""
+msgstr "Nouzové zastavení"
 
 #: src/widgets/printwidget.cpp:37
 msgctxt "PrintWidget|"
 msgid "Printer Speed"
-msgstr ""
+msgstr "Rychlost tiskárny"
 
 #: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:60
 #: src/widgets/printwidget.cpp:75
@@ -1325,7 +1350,7 @@ msgstr "Nastavit"
 #: src/widgets/printwidget.cpp:54
 msgctxt "PrintWidget|"
 msgid "Flow Rate"
-msgstr ""
+msgstr "Průtok"
 
 #: src/widgets/printwidget.cpp:100
 #, qt-format
@@ -1341,7 +1366,7 @@ msgstr "Profil:"
 #: src/widgets/profilemanager.cpp:55
 msgctxt "ProfileManager|"
 msgid "Delete Current Profile"
-msgstr ""
+msgstr "Smazat aktuální profil"
 
 # Tohle vypadá na název vlastnosti. Jméno bycvh nechal pro lidi a zvířata.
 #: src/widgets/profilemanager.cpp:69
@@ -1352,7 +1377,7 @@ msgstr "Název"
 #: src/widgets/profilemanager.cpp:82
 msgctxt "ProfileManager|"
 msgid "Printer Type:"
-msgstr ""
+msgstr "Typ tiskárny:"
 
 #: src/widgets/profilemanager.cpp:83
 msgctxt "ProfileManager|"
@@ -1367,37 +1392,37 @@ msgstr "Kartézský"
 #: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:251
 msgctxt "ProfileManager|"
 msgid "Maximum X"
-msgstr ""
+msgstr "Maximální X"
 
 #: src/widgets/profilemanager.cpp:107
 msgctxt "ProfileManager|"
 msgid "Maximum Y"
-msgstr ""
+msgstr "Maximální Y"
 
 #: src/widgets/profilemanager.cpp:123 src/widgets/profilemanager.cpp:252
 msgctxt "ProfileManager|"
 msgid "Maximum Z"
-msgstr ""
+msgstr "Maximální Z"
 
 #: src/widgets/profilemanager.cpp:136
 msgctxt "ProfileManager|"
 msgid "Mechanics"
-msgstr ""
+msgstr "Mechanika"
 
 #: src/widgets/profilemanager.cpp:141
 msgctxt "ProfileManager|"
 msgid "Bed Maximum"
-msgstr ""
+msgstr "Maximum podložky"
 
 #: src/widgets/profilemanager.cpp:156
 msgctxt "ProfileManager|"
 msgid "Extruder Maximum"
-msgstr ""
+msgstr "Maximum extrudéru"
 
 #: src/widgets/profilemanager.cpp:167
 msgctxt "ProfileManager|"
 msgid "Auto Temperature Report"
-msgstr ""
+msgstr "Automatická zpráva o teplotě"
 
 #: src/widgets/profilemanager.cpp:174
 msgctxt "ProfileManager|"
@@ -1417,7 +1442,7 @@ msgstr "Firmware"
 #: src/widgets/profilemanager.cpp:210
 msgctxt "ProfileManager|"
 msgid "PostPause"
-msgstr ""
+msgstr "PostPause"
 
 #: src/widgets/profilemanager.cpp:216
 msgctxt "ProfileManager|"
@@ -1442,7 +1467,7 @@ msgstr "Výška"
 #: src/widgets/sdwidget.cpp:20
 msgctxt "SdWidget|"
 msgid "Get List"
-msgstr ""
+msgstr "Zobrazit seznam"
 
 #: src/widgets/sdwidget.cpp:24
 msgctxt "SdWidget|"
@@ -1462,7 +1487,7 @@ msgstr "Soubory na kartě SD"
 #: src/widgets/statuswidget.cpp:49
 msgctxt "StatusWidget|"
 msgid "AtCore State:"
-msgstr ""
+msgstr "Stav AtCore:"
 
 #: src/widgets/statuswidget.cpp:50
 msgctxt "StatusWidget|"
@@ -1482,7 +1507,7 @@ msgstr "Počkat dokud nedojde ke stabilizaci teploty"
 #: src/widgets/temperaturewidget.cpp:24
 msgctxt "TemperatureWidget|"
 msgid "Bed Temp"
-msgstr ""
+msgstr "Teplota podložky"
 
 #: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:46
 msgctxt "TemperatureWidget|"
@@ -1503,17 +1528,18 @@ msgstr "AtCore - Testovací klient"
 #: testclient/mainwindow.cpp:38
 msgctxt "MainWindow|"
 msgid "Attempting to locate Serial Ports"
-msgstr ""
+msgstr "Pokus o nalezení sériových portů"
 
 #: testclient/mainwindow.cpp:49
 msgctxt "MainWindow|"
 msgid "AtCore First Run"
-msgstr ""
+msgstr "První spuštění AtCore"
 
 #: testclient/mainwindow.cpp:49
 msgctxt "MainWindow|"
 msgid "No Profiles Detected, use the Profile Manager to create one."
 msgstr ""
+"Nebyly zjištěny žádné profily. Vytvořte si profil pomocí správce profilů."
 
 #: testclient/mainwindow.cpp:59
 msgctxt "MainWindow|"
@@ -1533,7 +1559,7 @@ msgstr "Pohled"
 #: testclient/mainwindow.cpp:65
 msgctxt "MainWindow|"
 msgid "Show Dock Titles"
-msgstr ""
+msgstr "Zobrazit názvy doků"
 
 #: testclient/mainwindow.cpp:71
 msgctxt "MainWindow|"
@@ -1558,37 +1584,37 @@ msgstr "Vytisknout"
 #: testclient/mainwindow.cpp:167 testclient/mainwindow.cpp:171
 msgctxt "MainWindow|"
 msgid "Actual Bed"
-msgstr ""
+msgstr "Aktuální podložka"
 
 #: testclient/mainwindow.cpp:174 testclient/mainwindow.cpp:178
 msgctxt "MainWindow|"
 msgid "Target Bed"
-msgstr ""
+msgstr "Cílová podložka"
 
 #: testclient/mainwindow.cpp:181 testclient/mainwindow.cpp:185
 msgctxt "MainWindow|"
 msgid "Actual Ext.1"
-msgstr ""
+msgstr "Aktuální Ext.1"
 
 #: testclient/mainwindow.cpp:188 testclient/mainwindow.cpp:192
 msgctxt "MainWindow|"
 msgid "Target Ext.1"
-msgstr ""
+msgstr "Cílový Ext.1"
 
 #: testclient/mainwindow.cpp:196
 msgctxt "MainWindow|"
 msgid "Seconds Between Temperature Checks"
-msgstr ""
+msgstr "Intervaly mezi měřeními teploty"
 
 #: testclient/mainwindow.cpp:220
 msgctxt "MainWindow|"
 msgid "Temperature Timeline"
-msgstr ""
+msgstr "Časová osa teplot"
 
 #: testclient/mainwindow.cpp:229
 msgctxt "MainWindow|"
 msgid "Session Log"
-msgstr ""
+msgstr "Záznam sezení"
 
 #: testclient/mainwindow.cpp:239
 msgctxt "MainWindow|"
@@ -1603,7 +1629,7 @@ msgstr "Profil:"
 #: testclient/mainwindow.cpp:266
 msgctxt "MainWindow|"
 msgid "Attempt to stop Reset on connect"
-msgstr ""
+msgstr "Pokusit se zabránit resetování při připojení"
 
 #: testclient/mainwindow.cpp:279 testclient/mainwindow.cpp:298
 #: testclient/mainwindow.cpp:571
@@ -1624,6 +1650,10 @@ msgid ""
 "Before connecting again check that your printer is on and your are "
 "connecting using the correct BAUD Rate for your device."
 msgstr ""
+"Vaše zařízení nereagovalo po 20 sekund.\n"
+"\n"
+"Než se pokusíte o připojení znovu, zkontrolujte, zda je tiskárna zapnutá a "
+"zda používáte správnou přenosovou rychlost (BAUD Rate) pro dané zařízení."
 
 #: testclient/mainwindow.cpp:310
 msgctxt "MainWindow|"
@@ -1653,7 +1683,7 @@ msgstr "Pohyb"
 #: testclient/mainwindow.cpp:362
 msgctxt "MainWindow|"
 msgid "Temperatures"
-msgstr ""
+msgstr "Teploty"
 
 #: testclient/mainwindow.cpp:375
 msgctxt "MainWindow|"
@@ -1663,7 +1693,7 @@ msgstr "Chyba tisku"
 #: testclient/mainwindow.cpp:375 testclient/mainwindow.cpp:383
 msgctxt "MainWindow|"
 msgid "You must Select a file from the list"
-msgstr ""
+msgstr "Musíte vybrat soubor ze seznamu"
 
 #: testclient/mainwindow.cpp:383
 msgctxt "MainWindow|"
@@ -1678,28 +1708,28 @@ msgstr "SD karta"
 #: testclient/mainwindow.cpp:398
 msgctxt "MainWindow|"
 msgid "Profile Manager"
-msgstr ""
+msgstr "Správce profilů"
 
 #: testclient/mainwindow.cpp:454
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Found %1 Ports"
-msgstr ""
+msgstr "Nalezeno %1 portů"
 
 #: testclient/mainwindow.cpp:456
 msgctxt "MainWindow|"
 msgid "No available ports! Please connect a serial device to continue!"
-msgstr ""
+msgstr "Žádné volné porty! Pro pokračování prosím připojte sériové zařízení!"
 
 #: testclient/mainwindow.cpp:474
 msgctxt "MainWindow|"
 msgid "Serial connected"
-msgstr ""
+msgstr "Připojeno k sériovému portu"
 
 #: testclient/mainwindow.cpp:486
 msgctxt "MainWindow|"
 msgid "Disconnected"
-msgstr "Odpojen"
+msgstr "Odpojeno"
 
 #: testclient/mainwindow.cpp:495 testclient/mainwindow.cpp:500
 msgctxt "MainWindow|"
@@ -1709,7 +1739,7 @@ msgstr "Chyba"
 #: testclient/mainwindow.cpp:495
 msgctxt "MainWindow|"
 msgid "Not Connected To a Printer"
-msgstr ""
+msgstr "Není připojeno k tiskárně"
 
 #: testclient/mainwindow.cpp:501
 msgctxt "MainWindow|"
@@ -1719,6 +1749,10 @@ msgid ""
 "so we can improve our firmware detection. Edit your profile to use \"marlin"
 "\" and try again."
 msgstr ""
+" Modul firmwaru nebyl načten!\n"
+"  Zadejte prosím příkaz M115 a sdělte nám, jakou hodnotu firmware vrátí, "
+"abychom mohli vylepšit detekci firmwaru. Upravte svůj profil tak, aby "
+"používal „marlin“, a zkuste to znovu."
 
 #: testclient/mainwindow.cpp:506
 msgctxt "MainWindow|"
@@ -1755,12 +1789,12 @@ msgstr "Vytisknout soubor"
 #: testclient/mainwindow.cpp:539
 msgctxt "MainWindow|"
 msgid "Connected to "
-msgstr "Připojen k "
+msgstr "Připojeno k "
 
 #: testclient/mainwindow.cpp:544
 msgctxt "MainWindow|"
 msgid "START PRINT"
-msgstr ""
+msgstr "Spustit tisk"
 
 #: testclient/mainwindow.cpp:545 testclient/mainwindow.cpp:562
 msgctxt "MainWindow|"
@@ -1795,7 +1829,7 @@ msgstr "Přerušit"
 #: testclient/mainwindow.cpp:585
 msgctxt "MainWindow|"
 msgid "Stopping Print"
-msgstr ""
+msgstr "Zastavení tisku"
 
 #: testclient/mainwindow.cpp:589
 msgctxt "MainWindow|"
