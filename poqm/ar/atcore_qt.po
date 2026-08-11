@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-10-06 11:48+0400\n"
+"PO-Revision-Date: 2026-08-10 18:38+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/core/atcore.cpp:141
@@ -1241,7 +1241,7 @@ msgstr ""
 "p>                         <p>&nbsp;&nbsp;&nbsp; لم يكن من الممكن فتح الجهاز."
 "</p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; تحقّق من أن الجهاز "
 "ليس مفتوحاً ببرنامج آخر.</p>                         <p>&nbsp; &nbsp; &nbsp;"
-"&nbsp; تحقّق من أن لديك الأذونات الصحيحة لفتح الجهاز.</"
+"&nbsp; تحقّق من أن لديك الأذون الصحيحة لفتح الجهاز.</"
 "p>                         <p><strong>لم يجد إضافة لـ &lt;البرنامج الثابت "
 "المكشوف&gt;</strong></p>                         <p>&nbsp;&nbsp;&nbsp; "
 "إضافات البرنامج الثابت مفقودة أو برنامجك الثابت غير مدعوم حالياً.</"
