@@ -59,7 +59,7 @@ msgstr "لا يمكن القراءة من الجهاز"
 #: src/core/atcore.cpp:883
 msgctxt "AtCore|"
 msgid "The device no longer available"
-msgstr "الجهاز لم يغد متوفراً"
+msgstr "الجهاز لم يغد متوفرًا"
 
 #: src/core/atcore.cpp:887
 msgctxt "AtCore|"
@@ -75,7 +75,7 @@ msgstr "خطأ مجهول"
 #, qt-format
 msgctxt "QObject|"
 msgid "%1%2: requires an argument"
-msgstr "%1%2: يتطلب وسيطاً"
+msgstr "%1%2: يتطلب وسيطًا"
 
 #: src/core/gcodecommands.cpp:13
 msgctxt "QObject|"
@@ -293,7 +293,7 @@ msgstr "M29: أوقف الكتابة على بطاقة إس دي"
 #: src/core/gcodecommands.cpp:131
 msgctxt "QObject|"
 msgid "M30: Delete a file on the SD card"
-msgstr "M30: احذف ملفاً على بطاقة إس دي"
+msgstr "M30: احذف ملفًا على بطاقة إس دي"
 
 #: src/core/gcodecommands.cpp:133
 msgctxt "QObject|"
@@ -304,7 +304,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:135
 msgctxt "QObject|"
 msgid "M32: Select file and start SD print"
-msgstr "M32: حدّد ملفاً وابدأ طباعة إس دي"
+msgstr "M32: حدّد ملفًا وابدأ طباعة إس دي"
 
 #: src/core/gcodecommands.cpp:137
 msgctxt "QObject|"
@@ -565,7 +565,7 @@ msgstr "M150: اضبط لون العرض"
 #: src/core/gcodecommands.cpp:237
 msgctxt "QObject|"
 msgid "M155: Set Temperature auto report"
-msgstr "M155: اضبط تقرير درجة الحرارة آلياً"
+msgstr "M155: اضبط تقرير درجة الحرارة آليًا"
 
 #: src/core/gcodecommands.cpp:239
 msgctxt "QObject|"
@@ -1201,7 +1201,7 @@ msgstr "حرّك المحور"
 #: src/widgets/commandwidget.cpp:25
 msgctxt "CommandWidget|"
 msgid "Send Command"
-msgstr "أرسل أمراً"
+msgstr "أرسل أمرًا"
 
 #: src/widgets/commandwidget.cpp:28 src/widgets/commandwidget.cpp:53
 msgctxt "CommandWidget|"
@@ -1240,12 +1240,12 @@ msgstr ""
 "<p><strong>فشل فتح الجهاز في وضع القراءة/الكتابة.</strong></"
 "p>                         <p>&nbsp;&nbsp;&nbsp; لم يكن من الممكن فتح الجهاز."
 "</p>                         <p>&nbsp; &nbsp; &nbsp;&nbsp; تحقّق من أن الجهاز "
-"ليس مفتوحاً ببرنامج آخر.</p>                         <p>&nbsp; &nbsp; &nbsp;"
+"ليس مفتوحًا ببرنامج آخر.</p>                         <p>&nbsp; &nbsp; &nbsp;"
 "&nbsp; تحقّق من أن لديك الأذون الصحيحة لفتح الجهاز.</"
 "p>                         <p><strong>لم يجد إضافة لـ &lt;البرنامج الثابت "
 "المكشوف&gt;</strong></p>                         <p>&nbsp;&nbsp;&nbsp; "
-"إضافات البرنامج الثابت مفقودة أو برنامجك الثابت غير مدعوم حالياً.</"
-"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; حدّد يدوياً إضافة "
+"إضافات البرنامج الثابت مفقودة أو برنامجك الثابت غير مدعوم حاليًا.</"
+"p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; حدّد يدويًا إضافة "
 "Marlin أو Repetier.</p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;"
 "&nbsp; إن لم يكن لبرنامجك الثابت إضافة، أعلِمنا من فضلك.</"
 "p>                         <p><strong>كثير من &ldquo;انتظر كشف البرنامج "
@@ -1253,7 +1253,7 @@ msgstr ""
 "يمكن إرسال كشف البرنامج الثابت في انتظار إعادة تشغيل الطابعة</"
 "p>                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; اضغط على زر "
 "إعادة التشغيل على طابعتك أو شغّلها وأوقفها. </p>                         "
-"<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; حدّد إضافة برنامج ثابت بدلاً من الكشف الآلي."
+"<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; حدّد إضافة برنامج ثابت بدلًا من الكشف الآلي."
 "</p>"
 
 #: src/widgets/logwidget.cpp:82
@@ -1702,7 +1702,7 @@ msgstr "مدير التشكيلة"
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Found %1 Ports"
-msgstr "وجد %1 منفذاً"
+msgstr "وجد %1 منفذًا"
 
 #: testclient/mainwindow.cpp:456
 msgctxt "MainWindow|"
@@ -1712,7 +1712,7 @@ msgstr "لا يوجد منافذ متاحة! وصّل جهاز تسلسلي لل
 #: testclient/mainwindow.cpp:474
 msgctxt "MainWindow|"
 msgid "Serial connected"
-msgstr "اتّصل تسلسلياً"
+msgstr "اتّصل تسلسليًا"
 
 #: testclient/mainwindow.cpp:486
 msgctxt "MainWindow|"
@@ -1744,7 +1744,7 @@ msgstr ""
 #: testclient/mainwindow.cpp:506
 msgctxt "MainWindow|"
 msgid "Select a file to print"
-msgstr "حدّد ملفاً للطباعة"
+msgstr "حدّد ملفًا للطباعة"
 
 #: testclient/mainwindow.cpp:506
 msgctxt "MainWindow|"
