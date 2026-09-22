@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
+"PO-Revision-Date: 2026-09-22 18:02+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1320,7 +1320,7 @@ msgstr ""
 #: src/widgets/profilemanager.cpp:27
 msgctxt "ProfileManager|"
 msgid "Profile:"
-msgstr ""
+msgstr "سەپلىمە ھۆججەت:"
 
 #: src/widgets/profilemanager.cpp:55
 msgctxt "ProfileManager|"
@@ -1450,7 +1450,7 @@ msgstr ""
 #: src/widgets/statuswidget.cpp:50
 msgctxt "StatusWidget|"
 msgid "Not Connected"
-msgstr ""
+msgstr "باغلانمىغان"
 
 #: src/widgets/statuswidget.cpp:74
 msgctxt "StatusWidget|"
@@ -1581,7 +1581,7 @@ msgstr "ئېغىز:"
 #: testclient/mainwindow.cpp:260
 msgctxt "MainWindow|"
 msgid "Profile:"
-msgstr ""
+msgstr "سەپلىمە ھۆججەت:"
 
 #: testclient/mainwindow.cpp:266
 msgctxt "MainWindow|"
@@ -1702,6 +1702,10 @@ msgid ""
 "so we can improve our firmware detection. Edit your profile to use \"marlin"
 "\" and try again."
 msgstr ""
+" A Firmware Plugin was not loaded!\n"
+"  Please send the command M115 and let us know what your firmware returns, "
+"so we can improve our firmware detection. Edit your profile to use \"marlin"
+"\" and try again."
 
 #: testclient/mainwindow.cpp:506
 msgctxt "MainWindow|"
