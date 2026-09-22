@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2024-2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-05-07 09:25+0900\n"
+"PO-Revision-Date: 2026-09-21 22:59+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 26.11.70\n"
 
 #: src/core/atcore.cpp:141
 msgctxt "AtCore|"
@@ -129,17 +129,17 @@ msgstr "G20：設定單位為毫米"
 #: src/core/gcodecommands.cpp:37
 msgctxt "QObject|"
 msgid "G28: Move to Origin Home"
-msgstr ""
+msgstr "G28：移動到參考點"
 
 #: src/core/gcodecommands.cpp:39
 msgctxt "QObject|"
 msgid "G29: Detailed Z-Probe"
-msgstr ""
+msgstr "G29：詳細 Z 探測"
 
 #: src/core/gcodecommands.cpp:41
 msgctxt "QObject|"
 msgid "G30: Single Z-Probe"
-msgstr ""
+msgstr "G30：單一 Z 探測"
 
 #: src/core/gcodecommands.cpp:43
 msgctxt "QObject|"
@@ -201,12 +201,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:65
 msgctxt "QObject|"
 msgid "G161: Home axis to minimum"
-msgstr ""
+msgstr "G161：設定參考點軸線為最小"
 
 #: src/core/gcodecommands.cpp:67
 msgctxt "QObject|"
 msgid "G162: Home axis to maximum"
-msgstr ""
+msgstr "G162：設定參考點軸線為最大"
 
 #: src/core/gcodecommands.cpp:99
 msgctxt "QObject|"
@@ -221,7 +221,7 @@ msgstr "M1：睡眠或是無條件停止"
 #: src/core/gcodecommands.cpp:103
 msgctxt "QObject|"
 msgid "M2: Program End"
-msgstr ""
+msgstr "M2：程式結束"
 
 #: src/core/gcodecommands.cpp:105
 msgctxt "QObject|"
@@ -231,12 +231,12 @@ msgstr "M6：工具變更"
 #: src/core/gcodecommands.cpp:107
 msgctxt "QObject|"
 msgid "M17: Enable/power all steppers motors"
-msgstr ""
+msgstr "M17：啟用/對所有步進馬達供電"
 
 #: src/core/gcodecommands.cpp:109
 msgctxt "QObject|"
 msgid "M18: Disable all steppers motors"
-msgstr ""
+msgstr "M18：停用所有步進馬達"
 
 #: src/core/gcodecommands.cpp:111
 msgctxt "QObject|"
@@ -326,7 +326,7 @@ msgstr "M42：切換 I/O 端子"
 #: src/core/gcodecommands.cpp:145
 msgctxt "QObject|"
 msgid "M48: Measure Z-Probe repeatability"
-msgstr ""
+msgstr "M48：測量 Z 探頭可重複性"
 
 #: src/core/gcodecommands.cpp:147
 msgctxt "QObject|"
@@ -341,7 +341,7 @@ msgstr "M72：播放音效或歌曲"
 #: src/core/gcodecommands.cpp:151
 msgctxt "QObject|"
 msgid "M73: Set build percentage"
-msgstr ""
+msgstr "M73：設定建構百分比"
 
 #: src/core/gcodecommands.cpp:153
 msgctxt "QObject|"
@@ -356,12 +356,12 @@ msgstr "M81：ATX 關機"
 #: src/core/gcodecommands.cpp:157
 msgctxt "QObject|"
 msgid "M82: Set extruder to absolute mode"
-msgstr ""
+msgstr "M82：設定擠出器為絕對模式"
 
 #: src/core/gcodecommands.cpp:159
 msgctxt "QObject|"
 msgid "M83: Set extruder to relative mode"
-msgstr ""
+msgstr "M82：設定擠出器為相對模式"
 
 #: src/core/gcodecommands.cpp:161
 msgctxt "QObject|"
@@ -371,7 +371,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:163
 msgctxt "QObject|"
 msgid "M85: Set Inactivity shutdown timer"
-msgstr ""
+msgstr "M85：設定閒置關機計時器"
 
 #: src/core/gcodecommands.cpp:165
 msgctxt "QObject|"
@@ -386,32 +386,32 @@ msgstr ""
 #: src/core/gcodecommands.cpp:169
 msgctxt "QObject|"
 msgid "M98: Call Macro/Subprogram"
-msgstr ""
+msgstr "M98：呼叫巨集/子程式"
 
 #: src/core/gcodecommands.cpp:171
 msgctxt "QObject|"
 msgid "M99: Return from Macro/Subprogram"
-msgstr ""
+msgstr "M99：從巨集/子程式回傳"
 
 #: src/core/gcodecommands.cpp:173
 msgctxt "QObject|"
 msgid "M101: Turn extruder 1 on Forward, Undo Retraction"
-msgstr ""
+msgstr "M101：開啟擠出器 1 往前，取消收回"
 
 #: src/core/gcodecommands.cpp:175
 msgctxt "QObject|"
 msgid "M103: Turn all extruders off - Extruder Retraction"
-msgstr ""
+msgstr "M103：關閉所有擠出器 - 擠出器收回"
 
 #: src/core/gcodecommands.cpp:177
 msgctxt "QObject|"
 msgid "M104: Set Extruder Temperature"
-msgstr ""
+msgstr "M104：設定擠出器溫度"
 
 #: src/core/gcodecommands.cpp:179
 msgctxt "QObject|"
 msgid "M105: Get Extruder Temperature"
-msgstr ""
+msgstr "M105：取得擠出器溫度"
 
 #: src/core/gcodecommands.cpp:181
 msgctxt "QObject|"
@@ -431,7 +431,7 @@ msgstr "M108：取消加熱"
 #: src/core/gcodecommands.cpp:187
 msgctxt "QObject|"
 msgid "M109: Set Extruder Temperature and Wait"
-msgstr ""
+msgstr "M109：設定擠出器溫度並等待"
 
 #: src/core/gcodecommands.cpp:189
 msgctxt "QObject|"
@@ -505,32 +505,32 @@ msgstr ""
 #: src/core/gcodecommands.cpp:215
 msgctxt "QObject|"
 msgid "M130: Set PID P value"
-msgstr ""
+msgstr "M130：設定 PID P 值"
 
 #: src/core/gcodecommands.cpp:217
 msgctxt "QObject|"
 msgid "M131: Set PID I value"
-msgstr ""
+msgstr "M131：設定 PID I 值"
 
 #: src/core/gcodecommands.cpp:219
 msgctxt "QObject|"
 msgid "M132: Set PID D value"
-msgstr ""
+msgstr "M132：設定 PID D 值"
 
 #: src/core/gcodecommands.cpp:221
 msgctxt "QObject|"
 msgid "M133: Set PID I limit value"
-msgstr ""
+msgstr "M133：設定 PID I 限制值"
 
 #: src/core/gcodecommands.cpp:223
 msgctxt "QObject|"
 msgid "M134: Write PID values to EEPROM"
-msgstr ""
+msgstr "M134：將 PID 各值寫入 EEPROM"
 
 #: src/core/gcodecommands.cpp:225
 msgctxt "QObject|"
 msgid "M135: Set PID sample interval"
-msgstr ""
+msgstr "M135：設定 PID 取樣間隔"
 
 #: src/core/gcodecommands.cpp:227
 msgctxt "QObject|"
@@ -652,7 +652,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:273
 msgctxt "QObject|"
 msgid "M226: Wait for pin state"
-msgstr ""
+msgstr "M226：等待端子狀態"
 
 #: src/core/gcodecommands.cpp:275
 msgctxt "QObject|"
@@ -697,7 +697,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:291
 msgctxt "QObject|"
 msgid "M302: Allow cold extrudes "
-msgstr ""
+msgstr "M302：允許冷擠出"
 
 #: src/core/gcodecommands.cpp:293
 msgctxt "QObject|"
@@ -717,7 +717,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:299
 msgctxt "QObject|"
 msgid "M306: set home offset calculated from toolhead position"
-msgstr ""
+msgstr "M306：從工具頭位置設定參考點位移"
 
 #: src/core/gcodecommands.cpp:301
 msgctxt "QObject|"
@@ -752,7 +752,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:313
 msgctxt "QObject|"
 msgid "M351: Toggle MS1 MS2 pins directly"
-msgstr ""
+msgstr "M351：直接切換 MS1 MS2 端子"
 
 #: src/core/gcodecommands.cpp:315
 msgctxt "QObject|"
@@ -802,12 +802,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:333
 msgctxt "QObject|"
 msgid "M371: Move to next calibration position"
-msgstr ""
+msgstr "M371：移動到下一個校準位置"
 
 #: src/core/gcodecommands.cpp:335
 msgctxt "QObject|"
 msgid "M372: Record calibration value, and move to next position"
-msgstr ""
+msgstr "M372：錄製校準值，然後移動到下一個位置"
 
 #: src/core/gcodecommands.cpp:337
 msgctxt "QObject|"
@@ -817,7 +817,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:339
 msgctxt "QObject|"
 msgid "M374: Save calibration grid"
-msgstr ""
+msgstr "M374：儲存校準格線"
 
 #: src/core/gcodecommands.cpp:341
 msgctxt "QObject|"
@@ -842,12 +842,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:349
 msgctxt "QObject|"
 msgid "M401: Lower z-probe"
-msgstr ""
+msgstr "M401：降低 Z 探頭"
 
 #: src/core/gcodecommands.cpp:351
 msgctxt "QObject|"
 msgid "M402: Raise z-probe"
-msgstr ""
+msgstr "M402：抬升 Z 探頭"
 
 #: src/core/gcodecommands.cpp:353
 msgctxt "QObject|"
@@ -967,22 +967,22 @@ msgstr ""
 #: src/core/gcodecommands.cpp:399
 msgctxt "QObject|"
 msgid "M557: Set Z probe point"
-msgstr ""
+msgstr "M557：設定 Z 探頭點"
 
 #: src/core/gcodecommands.cpp:401
 msgctxt "QObject|"
 msgid "M558: Set Z probe type"
-msgstr ""
+msgstr "M558：設定 Z 探頭類型"
 
 #: src/core/gcodecommands.cpp:403
 msgctxt "QObject|"
 msgid "M559: Upload configuration file"
-msgstr ""
+msgstr "M559：上傳設定檔案"
 
 #: src/core/gcodecommands.cpp:405
 msgctxt "QObject|"
 msgid "M560: Upload web page file"
-msgstr ""
+msgstr "M560：上傳網頁檔案"
 
 #: src/core/gcodecommands.cpp:407
 msgctxt "QObject|"
@@ -1002,12 +1002,12 @@ msgstr ""
 #: src/core/gcodecommands.cpp:413
 msgctxt "QObject|"
 msgid "M564: Limit axes"
-msgstr ""
+msgstr "M564：限制軸線"
 
 #: src/core/gcodecommands.cpp:415
 msgctxt "QObject|"
 msgid "M565: Set Z probe offset"
-msgstr ""
+msgstr "M565：設定 Z 探頭位移"
 
 #: src/core/gcodecommands.cpp:417
 msgctxt "QObject|"
@@ -1032,7 +1032,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:425
 msgctxt "QObject|"
 msgid "M570: Set heater timeout"
-msgstr ""
+msgstr "M570：設定加熱器逾時"
 
 #: src/core/gcodecommands.cpp:427
 msgctxt "QObject|"
@@ -1102,7 +1102,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:453
 msgctxt "QObject|"
 msgid "M851: Set Z-Probe Offset"
-msgstr ""
+msgstr "M851：設定 Z 探頭位移"
 
 #: src/core/gcodecommands.cpp:455
 msgctxt "QObject|"
@@ -1243,22 +1243,22 @@ msgstr "將紀錄儲存到檔案"
 #: src/widgets/movementwidget.cpp:51
 msgctxt "MovementWidget|"
 msgid "Home All"
-msgstr ""
+msgstr "參考點全部"
 
 #: src/widgets/movementwidget.cpp:55
 msgctxt "MovementWidget|"
 msgid "Home X"
-msgstr ""
+msgstr "參考點 X"
 
 #: src/widgets/movementwidget.cpp:59
 msgctxt "MovementWidget|"
 msgid "Home Y"
-msgstr ""
+msgstr "參考點 Y"
 
 #: src/widgets/movementwidget.cpp:63
 msgctxt "MovementWidget|"
 msgid "Home Z"
-msgstr ""
+msgstr "參考點 Z"
 
 #: src/widgets/movementwidget.cpp:69
 msgctxt "MovementWidget|"
@@ -1345,7 +1345,7 @@ msgstr "列印機類型："
 #: src/widgets/profilemanager.cpp:83
 msgctxt "ProfileManager|"
 msgid "Delta"
-msgstr ""
+msgstr "差異"
 
 #: src/widgets/profilemanager.cpp:84
 msgctxt "ProfileManager|"
@@ -1375,17 +1375,17 @@ msgstr ""
 #: src/widgets/profilemanager.cpp:141
 msgctxt "ProfileManager|"
 msgid "Bed Maximum"
-msgstr ""
+msgstr "熱床最大"
 
 #: src/widgets/profilemanager.cpp:156
 msgctxt "ProfileManager|"
 msgid "Extruder Maximum"
-msgstr ""
+msgstr "擠出器最大"
 
 #: src/widgets/profilemanager.cpp:167
 msgctxt "ProfileManager|"
 msgid "Auto Temperature Report"
-msgstr ""
+msgstr "自動溫度回報"
 
 #: src/widgets/profilemanager.cpp:174
 msgctxt "ProfileManager|"
@@ -1430,7 +1430,7 @@ msgstr "高度"
 #: src/widgets/sdwidget.cpp:20
 msgctxt "SdWidget|"
 msgid "Get List"
-msgstr ""
+msgstr "取得清單"
 
 #: src/widgets/sdwidget.cpp:24
 msgctxt "SdWidget|"
@@ -1470,7 +1470,7 @@ msgstr "等待直到溫度穩定下來"
 #: src/widgets/temperaturewidget.cpp:24
 msgctxt "TemperatureWidget|"
 msgid "Bed Temp"
-msgstr ""
+msgstr "熱床溫度"
 
 #: src/widgets/temperaturewidget.cpp:30 src/widgets/temperaturewidget.cpp:46
 msgctxt "TemperatureWidget|"
@@ -1481,7 +1481,7 @@ msgstr "設定"
 #, qt-format
 msgctxt "TemperatureWidget|"
 msgid "Extruder %1"
-msgstr ""
+msgstr "擠出器 %1"
 
 #: testclient/mainwindow.cpp:30
 msgctxt "MainWindow|"
@@ -1546,22 +1546,22 @@ msgstr "列印"
 #: testclient/mainwindow.cpp:167 testclient/mainwindow.cpp:171
 msgctxt "MainWindow|"
 msgid "Actual Bed"
-msgstr ""
+msgstr "實際熱床"
 
 #: testclient/mainwindow.cpp:174 testclient/mainwindow.cpp:178
 msgctxt "MainWindow|"
 msgid "Target Bed"
-msgstr ""
+msgstr "目標熱床"
 
 #: testclient/mainwindow.cpp:181 testclient/mainwindow.cpp:185
 msgctxt "MainWindow|"
 msgid "Actual Ext.1"
-msgstr ""
+msgstr "實際的 Ext.1"
 
 #: testclient/mainwindow.cpp:188 testclient/mainwindow.cpp:192
 msgctxt "MainWindow|"
 msgid "Target Ext.1"
-msgstr ""
+msgstr "目標的 Ext.1"
 
 #: testclient/mainwindow.cpp:196
 msgctxt "MainWindow|"
@@ -1620,22 +1620,22 @@ msgstr ""
 #: testclient/mainwindow.cpp:310
 msgctxt "MainWindow|"
 msgid "Home All"
-msgstr ""
+msgstr "參考點全部"
 
 #: testclient/mainwindow.cpp:315
 msgctxt "MainWindow|"
 msgid "Home X"
-msgstr ""
+msgstr "參考點 X"
 
 #: testclient/mainwindow.cpp:320
 msgctxt "MainWindow|"
 msgid "Home Y"
-msgstr ""
+msgstr "參考點 X"
 
 #: testclient/mainwindow.cpp:325
 msgctxt "MainWindow|"
 msgid "Home Z"
-msgstr ""
+msgstr "參考點 Z"
 
 #: testclient/mainwindow.cpp:349
 msgctxt "MainWindow|"
