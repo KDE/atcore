@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-02-23 18:23+0200\n"
-"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"PO-Revision-Date: 2026-10-09 21:27+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -25,13 +25,13 @@ msgstr "Ожидание обнаружения прошивки."
 #, qt-format
 msgctxt "AtCore|"
 msgid "Connected to printer using %1 plugin"
-msgstr "Подключение к принтеру с использованием модуля «%1» установлено."
+msgstr "Подключено к принтеру через модуль %1"
 
 #: src/core/atcore.cpp:199
 #, qt-format
 msgctxt "AtCore|"
 msgid "No plugin found for %1."
-msgstr "Не найдено ни одного модуля для «%1»."
+msgstr "Не найден модуль для %1."
 
 #: src/core/atcore.cpp:238
 msgctxt "AtCore|"
@@ -46,7 +46,7 @@ msgstr "Не удалось открыть устройство в режиме 
 #: src/core/atcore.cpp:873
 msgctxt "AtCore|"
 msgid "Device not found"
-msgstr "Устройство не найдено."
+msgstr "Устройство не найдено"
 
 #: src/core/atcore.cpp:876
 msgctxt "AtCore|"
@@ -66,7 +66,7 @@ msgstr "Устройство больше недоступно"
 #: src/core/atcore.cpp:887
 msgctxt "AtCore|"
 msgid "Device does not support the operation"
-msgstr "Устройство не поддерживает эту операцию."
+msgstr "Устройство не поддерживает эту операцию"
 
 #: src/core/atcore.cpp:890
 msgctxt "AtCore|"
@@ -82,57 +82,57 @@ msgstr "%1%2: требуется аргумент"
 #: src/core/gcodecommands.cpp:13
 msgctxt "QObject|"
 msgid "Not implemented or not supported!"
-msgstr "Не реализовано или не поддерживается!"
+msgstr "Не реализовано или не поддерживается"
 
 #: src/core/gcodecommands.cpp:19
 msgctxt "QObject|"
 msgid "G0: Rapid linear move"
-msgstr "G00: Ускоренное перемещение инструмента (холостой ход)"
+msgstr "G0: Ускоренное линейное перемещение (холостой ход)"
 
 #: src/core/gcodecommands.cpp:21
 msgctxt "QObject|"
 msgid "G1: Linear move"
-msgstr "G01: Линейная интерполяция"
+msgstr "G1: Линейное перемещение"
 
 #: src/core/gcodecommands.cpp:23
 msgctxt "QObject|"
 msgid "G2: Controlled Arc Move clockwise"
-msgstr "G02: Круговая интерполяция по часовой стрелке"
+msgstr "G2: Перемещение по дуге по часовой стрелке"
 
 #: src/core/gcodecommands.cpp:25
 msgctxt "QObject|"
 msgid "G3: Controlled Arc Move counterclockwise"
-msgstr "G03: Круговая интерполяция против часовой стрелки"
+msgstr "G3: Перемещение по дуге против часовой стрелки"
 
 #: src/core/gcodecommands.cpp:27
 msgctxt "QObject|"
 msgid "G4: Dwell"
-msgstr "G4: Задержать"
+msgstr "G4: Пауза (выдержка)"
 
 #: src/core/gcodecommands.cpp:29
 msgctxt "QObject|"
 msgid "G10: Retract"
-msgstr "G10: Откатить"
+msgstr "G10: Откат нити"
 
 #: src/core/gcodecommands.cpp:31
 msgctxt "QObject|"
 msgid "G11: Unretract"
-msgstr "G11: Отменить откат"
+msgstr "G11: Отмена отката нити"
 
 #: src/core/gcodecommands.cpp:33
 msgctxt "QObject|"
 msgid "G20: Set units to inches"
-msgstr "G20: Режим работы в дюймовой системе"
+msgstr "G20: Единицы измерения — дюймы"
 
 #: src/core/gcodecommands.cpp:35
 msgctxt "QObject|"
 msgid "G21: Set units to millimeters"
-msgstr "G21: Режим работы в метрической системе"
+msgstr "G21: Единицы измерения — миллиметры"
 
 #: src/core/gcodecommands.cpp:37
 msgctxt "QObject|"
 msgid "G28: Move to Origin Home"
-msgstr "G28: Вернуться на референтную точку"
+msgstr "G28: Перемещение в начальную точку"
 
 #: src/core/gcodecommands.cpp:39
 msgctxt "QObject|"
@@ -157,8 +157,8 @@ msgid ""
 "G32: Probe Z and calculate Z plane(Bed Leveling)/ UnDoc Z Probe sled for "
 "Marlin"
 msgstr ""
-"G32: Зондировать по Z и определить плоскость Z (уровень стенда) / Открепить "
-"санки Z-зонда для Marlin"
+"G32: Зондировать по Z и вычислить плоскость Z (выравнивание стола) / "
+"Открепить санки Z-зонда для Marlin"
 
 #: src/core/gcodecommands.cpp:47
 msgctxt "QObject|"
@@ -168,13 +168,12 @@ msgstr "G33: Измерить, показать списком или скорр
 #: src/core/gcodecommands.cpp:49
 msgctxt "QObject|"
 msgid "G90: Set to absolute positioning"
-msgstr "G90: Задание абсолютных координат опорных точек траектории"
+msgstr "G90: Абсолютные координаты"
 
 #: src/core/gcodecommands.cpp:51
 msgctxt "QObject|"
 msgid "G91: Set to relative positioning"
-msgstr ""
-"G91: Задание координат инкрементально последней введённой опорной точки"
+msgstr "G91: Относительные координаты"
 
 #: src/core/gcodecommands.cpp:53
 msgctxt "QObject|"
@@ -184,7 +183,7 @@ msgstr "G92: Установить позицию"
 #: src/core/gcodecommands.cpp:55
 msgctxt "QObject|"
 msgid "G100: Calibrate floor or rod radius"
-msgstr "G100: Калибровать основание или радиус прутка"
+msgstr "G100: Калибровать основание или радиус штанг"
 
 #: src/core/gcodecommands.cpp:57
 msgctxt "QObject|"
@@ -199,7 +198,7 @@ msgstr "G131: Удалить смещения"
 #: src/core/gcodecommands.cpp:61
 msgctxt "QObject|"
 msgid "G132: Calibrate endstops offsets"
-msgstr "G132: Настроить смещения конечных остановок"
+msgstr "G132: Калибровать смещения ограничителей"
 
 #: src/core/gcodecommands.cpp:63
 msgctxt "QObject|"
@@ -209,12 +208,12 @@ msgstr "G133: Измерить шаги до верха"
 #: src/core/gcodecommands.cpp:65
 msgctxt "QObject|"
 msgid "G161: Home axis to minimum"
-msgstr "G161: Начало осей на минимум"
+msgstr "G161: Перемещение осей в начало (к минимуму)"
 
 #: src/core/gcodecommands.cpp:67
 msgctxt "QObject|"
 msgid "G162: Home axis to maximum"
-msgstr "G162: Начало осей на максимум"
+msgstr "G162: Перемещение осей в начало (к максимуму)"
 
 #: src/core/gcodecommands.cpp:99
 msgctxt "QObject|"
@@ -229,12 +228,12 @@ msgstr "M1: Сон или безусловная остановка"
 #: src/core/gcodecommands.cpp:103
 msgctxt "QObject|"
 msgid "M2: Program End"
-msgstr "M02: Конец программы"
+msgstr "M2: Конец программы"
 
 #: src/core/gcodecommands.cpp:105
 msgctxt "QObject|"
 msgid "M6: Tool Change"
-msgstr "M06: Сменить инструмент"
+msgstr "M6: Смена инструмента"
 
 #: src/core/gcodecommands.cpp:107
 msgctxt "QObject|"
@@ -259,32 +258,32 @@ msgstr "M21: Инициализировать SD-карту"
 #: src/core/gcodecommands.cpp:115
 msgctxt "QObject|"
 msgid "M22: Release SDCard"
-msgstr "M22: Удалить SD-карту"
+msgstr "M22: Освободить SD-карту"
 
 #: src/core/gcodecommands.cpp:117
 msgctxt "QObject|"
 msgid "M23: Select SD file"
-msgstr "M23: Выбрать SD-файл"
+msgstr "M23: Выбрать файл на SD-карте"
 
 #: src/core/gcodecommands.cpp:119
 msgctxt "QObject|"
 msgid "M24: Start/resume SD print"
-msgstr "M24: Начать/возобновить SD-печать"
+msgstr "M24: Начать или возобновить печать с SD-карты"
 
 #: src/core/gcodecommands.cpp:121
 msgctxt "QObject|"
 msgid "M25: Pause SD print"
-msgstr "M25: Приостановить SD-печать"
+msgstr "M25: Приостановить печать с SD-карты"
 
 #: src/core/gcodecommands.cpp:123
 msgctxt "QObject|"
 msgid "M26: Set SD position"
-msgstr "M26: Установить SD-позицию"
+msgstr "M26: Установить позицию в файле на SD-карте"
 
 #: src/core/gcodecommands.cpp:125
 msgctxt "QObject|"
 msgid "M27: Report SD print status"
-msgstr "M27: Сообщить о состоянии SD-печати"
+msgstr "M27: Сообщить о состоянии печати с SD-карты"
 
 #: src/core/gcodecommands.cpp:127
 msgctxt "QObject|"
@@ -305,23 +304,23 @@ msgstr "M30: Удалить файл на SD-карте"
 msgctxt "QObject|"
 msgid "M31: Output time since last M109 or SD card start to serial"
 msgstr ""
-"M31: Вывести время, прошедшее с момента последней команды M109 или запуска "
-"SD-карты на последовательный порт"
+"M31: Вывести в последовательный порт время с последней команды M109 или с "
+"начала печати с SD-карты"
 
 #: src/core/gcodecommands.cpp:135
 msgctxt "QObject|"
 msgid "M32: Select file and start SD print"
-msgstr "M32: Выбрать файл и начать SD-печать"
+msgstr "M32: Выбрать файл и начать печать с SD-карты"
 
 #: src/core/gcodecommands.cpp:137
 msgctxt "QObject|"
 msgid "M33: Get the long name for an SD card file or folder"
-msgstr "M33: Получить полное название файла или папки SD-карты"
+msgstr "M33: Получить полное имя файла или папки на SD-карте"
 
 #: src/core/gcodecommands.cpp:139
 msgctxt "QObject|"
 msgid "M34: Set SD file sorting options"
-msgstr "M34: Установить параметры упорядочивания SD-файлов"
+msgstr "M34: Установить параметры сортировки файлов на SD-карте"
 
 #: src/core/gcodecommands.cpp:141
 msgctxt "QObject|"
@@ -351,7 +350,7 @@ msgstr "M72: Воспроизвести звук или мелодию"
 #: src/core/gcodecommands.cpp:151
 msgctxt "QObject|"
 msgid "M73: Set build percentage"
-msgstr "M73: Установить процент построения"
+msgstr "M73: Задать процент выполнения печати"
 
 #: src/core/gcodecommands.cpp:153
 msgctxt "QObject|"
@@ -376,7 +375,7 @@ msgstr "M83: Установить экструдер в относительны
 #: src/core/gcodecommands.cpp:161
 msgctxt "QObject|"
 msgid "M84: Stop idle hold"
-msgstr "M84: Остановить ожидание простоя"
+msgstr "M84: Отключить удержание двигателей"
 
 #: src/core/gcodecommands.cpp:163
 msgctxt "QObject|"
@@ -406,7 +405,7 @@ msgstr "M99: Вернуться из макроса или подпрограм�
 #: src/core/gcodecommands.cpp:173
 msgctxt "QObject|"
 msgid "M101: Turn extruder 1 on Forward, Undo Retraction"
-msgstr "M101: Установить экструдер 1 в режим «вперёд, отменить откат»"
+msgstr "M101: Включить экструдер 1 (вперёд), отменить откат"
 
 #: src/core/gcodecommands.cpp:175
 msgctxt "QObject|"
@@ -466,7 +465,7 @@ msgstr "M114: Получить текущую позицию"
 #: src/core/gcodecommands.cpp:197
 msgctxt "QObject|"
 msgid "M115: Get Firmware Version and Capabilities"
-msgstr "M115: Получить сведения о версии и возможностях микропрограммы"
+msgstr "M115: Получить сведения о версии и возможностях прошивки"
 
 #: src/core/gcodecommands.cpp:199
 msgctxt "QObject|"
@@ -489,8 +488,8 @@ msgid ""
 "M120: Push for Smoothie and RepRap Firmware / Enable Endstop detection for "
 "Marlin"
 msgstr ""
-"M120: Записать в стек для микропрограмм Smoothie и RepRap / Включить "
-"обнаружение ограничителя для Marlin"
+"M120: Записать в стек (прошивки Smoothie и RepRap) / Включить обнаружение "
+"ограничителей (Marlin)"
 
 #: src/core/gcodecommands.cpp:207
 msgctxt "QObject|"
@@ -498,8 +497,8 @@ msgid ""
 "M121: Pop for Smoothie and RepRap Firmware / Disable Endstop detection for "
 "Marlin"
 msgstr ""
-"M121: Получить значение из стека для микропрограмм Smoothie и RepRap / "
-"Отключить обнаружение ограничителя для Marlin"
+"M121: Извлечь из стека (прошивки Smoothie и RepRap) / Отключить обнаружение "
+"ограничителей (Marlin)"
 
 #: src/core/gcodecommands.cpp:209
 msgctxt "QObject|"
@@ -555,7 +554,7 @@ msgstr ""
 #: src/core/gcodecommands.cpp:227
 msgctxt "QObject|"
 msgid "M140: Set Bed Temperature - Fast"
-msgstr "M140: Установить температуру стенда — быстро"
+msgstr "M140: Установить температуру стола — быстро"
 
 #: src/core/gcodecommands.cpp:229
 msgctxt "QObject|"
@@ -565,22 +564,22 @@ msgstr "M141: Установить температуру камеры — бы�
 #: src/core/gcodecommands.cpp:231
 msgctxt "QObject|"
 msgid "M143: Maximum hot-end temperature"
-msgstr "M143: Максимальная температура горячего конца"
+msgstr "M143: Максимальная температура хотэнда"
 
 #: src/core/gcodecommands.cpp:233
 msgctxt "QObject|"
 msgid "M144: Stand by your bed"
-msgstr "M144: Перевести стенд в режим ожидания"
+msgstr "M144: Перевести стол в режим ожидания"
 
 #: src/core/gcodecommands.cpp:235
 msgctxt "QObject|"
 msgid "M150: Set display color"
-msgstr "M150: Установить отображаемый цвет"
+msgstr "M150: Установить цвет подсветки"
 
 #: src/core/gcodecommands.cpp:237
 msgctxt "QObject|"
 msgid "M155: Set Temperature auto report"
-msgstr "M155: Установка автоматического отчета о температуре"
+msgstr "M155: Автоматический отчёт о температуре"
 
 #: src/core/gcodecommands.cpp:239
 msgctxt "QObject|"
@@ -595,7 +594,7 @@ msgstr "M164: Сохранить веса"
 #: src/core/gcodecommands.cpp:243
 msgctxt "QObject|"
 msgid "M190: Wait for bed temperature to reach target temp"
-msgstr "M190: Дождаться, когда температура стенда достигнет целевой"
+msgstr "M190: Дождаться, когда температура стола достигнет заданной"
 
 #: src/core/gcodecommands.cpp:245
 msgctxt "QObject|"
@@ -633,8 +632,8 @@ msgid ""
 "M206: Offset axes for Sprinter, Marlin, Smoothie, RepRap Firmware / Set "
 "eeprom value for Repetier"
 msgstr ""
-"M206: Сместить оси для микропрограмм Sprinter, Marlin, Smoothie, RepRap "
-"Firmware / Установить значение eeprom для Repetier"
+"M206: Сместить оси (прошивки Sprinter, Marlin, Smoothie, RepRap) / "
+"Установить значение EEPROM (Repetier)"
 
 #: src/core/gcodecommands.cpp:259
 msgctxt "QObject|"
@@ -654,12 +653,12 @@ msgstr "M209: Включить автоматический откат"
 #: src/core/gcodecommands.cpp:265
 msgctxt "QObject|"
 msgid "M212: Set Bed Level Sensor Offset"
-msgstr "M212: Установить смещение датчика уровня стенда"
+msgstr "M212: Установить смещение датчика уровня стола"
 
 #: src/core/gcodecommands.cpp:267
 msgctxt "QObject|"
 msgid "M218: Set Hotend Offset"
-msgstr "M218: Установить смещение горячего конца"
+msgstr "M218: Установить смещение хотэнда"
 
 #: src/core/gcodecommands.cpp:269
 msgctxt "QObject|"
@@ -694,17 +693,17 @@ msgstr "M240: Активировать камеру"
 #: src/core/gcodecommands.cpp:281
 msgctxt "QObject|"
 msgid "M250: Set LCD contrast"
-msgstr "M250: Установить контрастность дисплея"
+msgstr "M250: Установить контрастность ЖК-экрана"
 
 #: src/core/gcodecommands.cpp:283
 msgctxt "QObject|"
 msgid "M251: Measure Z steps from homing stop (Delta printers)"
-msgstr "M251: Измерить Z-шаги от остановки привода (дельта-принтеры)"
+msgstr "M251: Измерить шаги по Z от точки начала (дельта-принтеры)"
 
 #: src/core/gcodecommands.cpp:285
 msgctxt "QObject|"
 msgid "M280: Set servo position"
-msgstr "M280: Установить позицию сервосистемы"
+msgstr "M280: Установить положение сервопривода"
 
 #: src/core/gcodecommands.cpp:287
 msgctxt "QObject|"
@@ -719,7 +718,7 @@ msgstr "M301: Установить параметры ПИД-регулятор�
 #: src/core/gcodecommands.cpp:291
 msgctxt "QObject|"
 msgid "M302: Allow cold extrudes "
-msgstr "M302: Разрешить к cold extrudes "
+msgstr "M302: Разрешить экструзию без нагрева "
 
 #: src/core/gcodecommands.cpp:293
 msgctxt "QObject|"
@@ -729,7 +728,7 @@ msgstr "M303: Выполнить настройку ПИД-регулятора"
 #: src/core/gcodecommands.cpp:295
 msgctxt "QObject|"
 msgid "M304: Set PID parameters - Bed"
-msgstr "M304: Установить параметры ПИД-регулятора — стенд"
+msgstr "M304: Установить параметры ПИД-регулятора — стол"
 
 #: src/core/gcodecommands.cpp:297
 msgctxt "QObject|"
@@ -740,23 +739,22 @@ msgstr "M305: Установить параметры термистора и А
 msgctxt "QObject|"
 msgid "M306: set home offset calculated from toolhead position"
 msgstr ""
-"M306: Установить отступление начала на основе вычислений с позиции "
-"головкиинструмента"
+"M306: Установить смещение начала, вычисленное по положению печатающей головки"
 
 #: src/core/gcodecommands.cpp:301
 msgctxt "QObject|"
 msgid "M320: Activate autolevel (Repetier)"
-msgstr "M320: Активировать автоуровень (Repetier)"
+msgstr "M320: Включить автовыравнивание (Repetier)"
 
 #: src/core/gcodecommands.cpp:303
 msgctxt "QObject|"
 msgid "M321: Deactivate autolevel (Repetier)"
-msgstr "M321: Деактивировать автоуровень (Repetier)"
+msgstr "M321: Отключить автовыравнивание (Repetier)"
 
 #: src/core/gcodecommands.cpp:305
 msgctxt "QObject|"
 msgid "M322: Reset autolevel matrix (Repetier)"
-msgstr "M322: Сбросить матрицу автоуровня (Repetier)"
+msgstr "M322: Сбросить матрицу автовыравнивания (Repetier)"
 
 #: src/core/gcodecommands.cpp:307
 msgctxt "QObject|"
@@ -766,7 +764,7 @@ msgstr "M323: Включить или отключить коррекцию ис
 #: src/core/gcodecommands.cpp:309
 msgctxt "QObject|"
 msgid "M340: Control the servos"
-msgstr "M340: Управление сервосистемами"
+msgstr "M340: Управление сервоприводами"
 
 #: src/core/gcodecommands.cpp:311
 msgctxt "QObject|"
@@ -786,27 +784,27 @@ msgstr "M355: Включить или отключить подсветку ко
 #: src/core/gcodecommands.cpp:317
 msgctxt "QObject|"
 msgid "M360: Report firmware configuration"
-msgstr "M360: Сообщить о конфигурации микропрограммы"
+msgstr "M360: Сообщить о конфигурации прошивки"
 
 #: src/core/gcodecommands.cpp:319
 msgctxt "QObject|"
 msgid "M361: Move to Theta 90 degree position"
-msgstr "M361: Переместить на  to Theta 90 degree position"
+msgstr "M361: Перевести в положение θ = 90°"
 
 #: src/core/gcodecommands.cpp:321
 msgctxt "QObject|"
 msgid "M362: Move to Psi 0 degree position"
-msgstr "M362: Перевести в положение, где ψ равняется 0 градусов"
+msgstr "M362: Перевести в положение ψ = 0°"
 
 #: src/core/gcodecommands.cpp:323
 msgctxt "QObject|"
 msgid "M363: Move to Psi 90 degree position"
-msgstr "M363: Перевести в положение, где ψ равняется 90 градусов"
+msgstr "M363: Перевести в положение ψ = 90°"
 
 #: src/core/gcodecommands.cpp:325
 msgctxt "QObject|"
 msgid "M364: Move to Psi + Theta 90 degree position"
-msgstr "M364: Перевести в положение, где ψ + θ равняется 90 градусам"
+msgstr "M364: Перевести в положение ψ + θ = 90°"
 
 #: src/core/gcodecommands.cpp:327
 msgctxt "QObject|"
@@ -816,12 +814,12 @@ msgstr "M365: Коэффициент масштабирования SCARA"
 #: src/core/gcodecommands.cpp:329
 msgctxt "QObject|"
 msgid "M366: SCARA convert trim"
-msgstr "M366: Преобразование подрезки SCARA"
+msgstr "M366: Преобразование коррекции SCARA"
 
 #: src/core/gcodecommands.cpp:331
 msgctxt "QObject|"
 msgid "M370: Morgan manual bed level - clear map"
-msgstr "M370: Ручной уровень стенда Morgan — очистить карту"
+msgstr "M370: Ручное выравнивание стола Morgan — очистить карту"
 
 #: src/core/gcodecommands.cpp:333
 msgctxt "QObject|"
@@ -836,7 +834,7 @@ msgstr "M372: Записать калибровочное значение и п
 #: src/core/gcodecommands.cpp:337
 msgctxt "QObject|"
 msgid "M373: End bed level calibration mode"
-msgstr "M373: Завершить работу в режиме калибровки уровня стенда"
+msgstr "M373: Завершить режим калибровки уровня стола"
 
 #: src/core/gcodecommands.cpp:339
 msgctxt "QObject|"
@@ -901,7 +899,7 @@ msgstr "M408: Сообщить ответ в стиле JSON"
 #: src/core/gcodecommands.cpp:363
 msgctxt "QObject|"
 msgid "M420: Enable/Disable Mesh Leveling (Marlin)"
-msgstr "M420: Включить или отключить выравнивание сетки (Marlin)"
+msgstr "M420: Включить или отключить выравнивание по сетке (Marlin)"
 
 #: src/core/gcodecommands.cpp:365
 msgctxt "QObject|"
@@ -921,7 +919,7 @@ msgstr "M452: Выбрать режим лазерного принтера"
 #: src/core/gcodecommands.cpp:371
 msgctxt "QObject|"
 msgid "M453: Select CNC Printer Mode"
-msgstr "M453: Выбрать режим принтера CNC"
+msgstr "M453: Выбрать режим ЧПУ"
 
 #: src/core/gcodecommands.cpp:373
 msgctxt "QObject|"
@@ -943,19 +941,19 @@ msgstr "M501: Прочитать параметры из EEPROM"
 #: src/core/gcodecommands.cpp:379
 msgctxt "QObject|"
 msgid "M502: Revert to the default 'factory settings'."
-msgstr "M502: Вернуться к стандартным «начальным параметрам»."
+msgstr "M502: Вернуть заводские параметры."
 
 #: src/core/gcodecommands.cpp:381
 msgctxt "QObject|"
 msgid "M503: Print settings "
-msgstr "M503: Параметры печати "
+msgstr "M503: Вывести параметры "
 
 #: src/core/gcodecommands.cpp:383
 msgctxt "QObject|"
 msgid "M540: Enable/Disable 'Stop SD Print on Endstop Hit'"
 msgstr ""
-"M540: Включить или отключить режим «Останавливать SD-печать при достижении "
-"ограничителя»"
+"M540: Включить или отключить режим «Останавливать печать с SD-карты при "
+"срабатывании ограничителя»"
 
 #: src/core/gcodecommands.cpp:385
 msgctxt "QObject|"
@@ -1015,7 +1013,7 @@ msgstr "M560: Отправить файл веб-страницы"
 #: src/core/gcodecommands.cpp:407
 msgctxt "QObject|"
 msgid "M561: Set Identity Transform"
-msgstr "M561: Установить преобразование профиля"
+msgstr "M561: Установить тождественное преобразование"
 
 #: src/core/gcodecommands.cpp:409
 msgctxt "QObject|"
@@ -1055,7 +1053,7 @@ msgstr "M568: Отключить или включить соотношение 
 #: src/core/gcodecommands.cpp:423
 msgctxt "QObject|"
 msgid "M569: Set axis direction and enable values"
-msgstr "M569: Установить направление оси и включить значения"
+msgstr "M569: Установить направление осей и уровни сигнала включения"
 
 #: src/core/gcodecommands.cpp:425
 msgctxt "QObject|"
@@ -1080,7 +1078,7 @@ msgstr "M574: Установить параметры ограничителя"
 #: src/core/gcodecommands.cpp:433
 msgctxt "QObject|"
 msgid "M575: Set serial comms parameters"
-msgstr "M575: Установить параметры последовательных портов COMM"
+msgstr "M575: Установить параметры последовательного порта"
 
 #: src/core/gcodecommands.cpp:435
 msgctxt "QObject|"
@@ -1115,12 +1113,12 @@ msgstr "M605: Установить режим двойного движения 
 #: src/core/gcodecommands.cpp:447
 msgctxt "QObject|"
 msgid "M665: Set delta configuration"
-msgstr "M665: Установить дельта-конфигурацию"
+msgstr "M665: Установить параметры дельта-принтера"
 
 #: src/core/gcodecommands.cpp:449
 msgctxt "QObject|"
 msgid "M666: Set delta endstop adjustment"
-msgstr "M666: Установить дельта-значение ограничителя"
+msgstr "M666: Установить коррекцию ограничителей дельта-принтера"
 
 #: src/core/gcodecommands.cpp:451
 msgctxt "QObject|"
@@ -1140,7 +1138,7 @@ msgstr "M906: Установить ток для двигателей"
 #: src/core/gcodecommands.cpp:457
 msgctxt "QObject|"
 msgid "M907: Set digital trimpot motor"
-msgstr "M907: Установить двигатель цифрового подстроечного потенциометра"
+msgstr "M907: Установить ток двигателей через цифровой потенциометр"
 
 #: src/core/gcodecommands.cpp:459
 msgctxt "QObject|"
@@ -1150,12 +1148,12 @@ msgstr "M908: Управлять цифровым подстроечным по�
 #: src/core/gcodecommands.cpp:461
 msgctxt "QObject|"
 msgid "M911: Set power monitor threshold voltages"
-msgstr "M911: Установить пороговые напряжения для регистратора уровня мощности"
+msgstr "M911: Установить пороговые напряжения монитора питания"
 
 #: src/core/gcodecommands.cpp:463
 msgctxt "QObject|"
 msgid "M912: Set electronics temperature monitor adjustment"
-msgstr "M912: Установить корректировку регистратора температуры электроники"
+msgstr "M912: Установить коррекцию датчика температуры электроники"
 
 #: src/core/gcodecommands.cpp:465
 msgctxt "QObject|"
@@ -1165,12 +1163,12 @@ msgstr "M913: Установить для двигателя процент от
 #: src/core/gcodecommands.cpp:467
 msgctxt "QObject|"
 msgid "M928: Start SD logging"
-msgstr "M928: Начать ведение журнала SD"
+msgstr "M928: Начать запись журнала на SD-карту"
 
 #: src/core/gcodecommands.cpp:469
 msgctxt "QObject|"
 msgid "M997: Perform in-application firmware update"
-msgstr "M997: Выполнить обновление микропрограммы в приложении"
+msgstr "M997: Выполнить обновление прошивки из приложения"
 
 #: src/core/gcodecommands.cpp:471
 msgctxt "QObject|"
@@ -1261,13 +1259,13 @@ msgstr ""
 "режиме чтения/записи.</strong></p> <p>&nbsp;&nbsp;&nbsp; Устройство не может "
 "быть открыто.</p> <p>&nbsp; &nbsp; &nbsp;&nbsp; Убедитесь, что устройство не "
 "открыто другой программой.</p>                          <p>&nbsp; &nbsp; "
-"&nbsp;&nbsp; Убедитесь, что у вас есть необходимые права для открытия "
-"устройства.</p> <p><strong>Не найден модуль для &lt;обнаруженной прошивки&gt;"
-"</strong></p>                         <p>&nbsp;&nbsp; &nbsp; Отсутствуют "
-"модули поддержки прошивок или ваша прошивка пока не поддерживается.</p> "
-"<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Выберите модуль Marlin или Repetier "
-"вручную.</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Если для вашей прошивки нет "
-"модуля — сообщите нам.</p> <p><strong>Много записей «Ожидание определения "
+"&nbsp;&nbsp; Проверьте права доступа к устройству.</p> <p><strong>Не найден "
+"модуль для &lt;обнаруженной прошивки&gt;</strong></"
+"p>                         <p>&nbsp;&nbsp; &nbsp; Модули прошивок "
+"отсутствуют, или эта прошивка пока не поддерживается.</p> <p>&nbsp;&nbsp;"
+"&nbsp;&nbsp;&nbsp;  Выберите модуль Marlin или Repetier вручную.</p> "
+"<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Если для прошивки нет модуля, сообщите об "
+"этом разработчикам.</p> <p><strong>Много записей «Ожидание определения "
 "прошивки»</strong></p> <p>&nbsp;&nbsp;&nbsp; Не удаётся отправить команду "
 "определения прошивки, ожидается перезапуск принтера.</p> <p>&nbsp;&nbsp;"
 "&nbsp;&nbsp;&nbsp;  Нажмите кнопку перезагрузки на принтере или выключите и "
@@ -1287,22 +1285,22 @@ msgstr "Сохранить журнал в файл"
 #: src/widgets/movementwidget.cpp:51
 msgctxt "MovementWidget|"
 msgid "Home All"
-msgstr "В начало все"
+msgstr "Все оси в начало"
 
 #: src/widgets/movementwidget.cpp:55
 msgctxt "MovementWidget|"
 msgid "Home X"
-msgstr "В начало X"
+msgstr "Ось X в начало"
 
 #: src/widgets/movementwidget.cpp:59
 msgctxt "MovementWidget|"
 msgid "Home Y"
-msgstr "В начало Y"
+msgstr "Ось Y в начало"
 
 #: src/widgets/movementwidget.cpp:63
 msgctxt "MovementWidget|"
 msgid "Home Z"
-msgstr "В начало Z"
+msgstr "Ось Z в начало"
 
 #: src/widgets/movementwidget.cpp:69
 msgctxt "MovementWidget|"
@@ -1347,7 +1345,7 @@ msgstr "Аварийная остановка"
 #: src/widgets/printwidget.cpp:37
 msgctxt "PrintWidget|"
 msgid "Printer Speed"
-msgstr "Скорость печати"
+msgstr "Скорость принтера"
 
 #: src/widgets/printwidget.cpp:43 src/widgets/printwidget.cpp:60
 #: src/widgets/printwidget.cpp:75
@@ -1374,7 +1372,7 @@ msgstr "Профиль:"
 #: src/widgets/profilemanager.cpp:55
 msgctxt "ProfileManager|"
 msgid "Delete Current Profile"
-msgstr "Удаление текущего профиля"
+msgstr "Удалить текущий профиль"
 
 #: src/widgets/profilemanager.cpp:69
 msgctxt "ProfileManager|"
@@ -1389,12 +1387,12 @@ msgstr "Тип принтера:"
 #: src/widgets/profilemanager.cpp:83
 msgctxt "ProfileManager|"
 msgid "Delta"
-msgstr "Перемещение"
+msgstr "Дельта"
 
 #: src/widgets/profilemanager.cpp:84
 msgctxt "ProfileManager|"
 msgid "Cartesian"
-msgstr "В декартовых координатах"
+msgstr "Декартов"
 
 #: src/widgets/profilemanager.cpp:94 src/widgets/profilemanager.cpp:251
 msgctxt "ProfileManager|"
@@ -1439,7 +1437,7 @@ msgstr "Температура"
 #: src/widgets/profilemanager.cpp:186
 msgctxt "ProfileManager|"
 msgid "Bit Rate"
-msgstr "Битрейт:"
+msgstr "Скорость передачи"
 
 #: src/widgets/profilemanager.cpp:192
 msgctxt "ProfileManager|"
@@ -1449,7 +1447,7 @@ msgstr "Прошивка"
 #: src/widgets/profilemanager.cpp:210
 msgctxt "ProfileManager|"
 msgid "PostPause"
-msgstr "Пауза после печати"
+msgstr "После паузы"
 
 #: src/widgets/profilemanager.cpp:216
 msgctxt "ProfileManager|"
@@ -1545,7 +1543,7 @@ msgstr "Первый запуск AtCore"
 #: testclient/mainwindow.cpp:49
 msgctxt "MainWindow|"
 msgid "No Profiles Detected, use the Profile Manager to create one."
-msgstr "Профили не обнаружены, используйте менеджер профилей для их создания."
+msgstr "Профили не найдены. Создайте профиль в окне «Управление профилями»."
 
 #: testclient/mainwindow.cpp:59
 msgctxt "MainWindow|"
@@ -1575,7 +1573,7 @@ msgstr "Справка"
 #: testclient/mainwindow.cpp:72
 msgctxt "MainWindow|"
 msgid "About"
-msgstr "О программе"
+msgstr "О приложении"
 
 #: testclient/mainwindow.cpp:136
 msgctxt "MainWindow|"
@@ -1590,22 +1588,22 @@ msgstr "Печать"
 #: testclient/mainwindow.cpp:167 testclient/mainwindow.cpp:171
 msgctxt "MainWindow|"
 msgid "Actual Bed"
-msgstr "Фактический стенд"
+msgstr "Стол (факт.)"
 
 #: testclient/mainwindow.cpp:174 testclient/mainwindow.cpp:178
 msgctxt "MainWindow|"
 msgid "Target Bed"
-msgstr "Целевой стенд"
+msgstr "Стол (цель)"
 
 #: testclient/mainwindow.cpp:181 testclient/mainwindow.cpp:185
 msgctxt "MainWindow|"
 msgid "Actual Ext.1"
-msgstr "Фактический экст.1"
+msgstr "Экстр. 1 (факт.)"
 
 #: testclient/mainwindow.cpp:188 testclient/mainwindow.cpp:192
 msgctxt "MainWindow|"
 msgid "Target Ext.1"
-msgstr "Целевой экст.1"
+msgstr "Экстр. 1 (цель)"
 
 #: testclient/mainwindow.cpp:196
 msgctxt "MainWindow|"
@@ -1635,13 +1633,13 @@ msgstr "Профиль:"
 #: testclient/mainwindow.cpp:266
 msgctxt "MainWindow|"
 msgid "Attempt to stop Reset on connect"
-msgstr "Попытка остановить сброс при подключении"
+msgstr "Пытаться предотвратить сброс при подключении"
 
 #: testclient/mainwindow.cpp:279 testclient/mainwindow.cpp:298
 #: testclient/mainwindow.cpp:571
 msgctxt "MainWindow|"
 msgid "Connect"
-msgstr "Подключить"
+msgstr "Подключиться"
 
 #: testclient/mainwindow.cpp:288
 msgctxt "MainWindow|"
@@ -1656,30 +1654,30 @@ msgid ""
 "Before connecting again check that your printer is on and your are "
 "connecting using the correct BAUD Rate for your device."
 msgstr ""
-"Устройство не ответило в течение 20 секунд. \n"
+"Устройство не ответило в течение 20 секунд.\n"
 "\n"
-"Перед повторным подключением убедитесь, что принтер включён и используется "
-"правильная скорость передачи (BAUD Rate) для вашего устройства."
+"Перед повторным подключением убедитесь, что принтер включён и выбрана "
+"правильная скорость передачи (BAUD Rate)."
 
 #: testclient/mainwindow.cpp:310
 msgctxt "MainWindow|"
 msgid "Home All"
-msgstr "В начало все"
+msgstr "Все оси в начало"
 
 #: testclient/mainwindow.cpp:315
 msgctxt "MainWindow|"
 msgid "Home X"
-msgstr "В начало X"
+msgstr "Ось X в начало"
 
 #: testclient/mainwindow.cpp:320
 msgctxt "MainWindow|"
 msgid "Home Y"
-msgstr "В начало Y"
+msgstr "Ось Y в начало"
 
 #: testclient/mainwindow.cpp:325
 msgctxt "MainWindow|"
 msgid "Home Z"
-msgstr "В начало Z"
+msgstr "Ось Z в начало"
 
 #: testclient/mainwindow.cpp:349
 msgctxt "MainWindow|"
@@ -1720,19 +1718,17 @@ msgstr "Управление профилями"
 #, qt-format
 msgctxt "MainWindow|"
 msgid "Found %1 Ports"
-msgstr "Найдены порты %1"
+msgstr "Найдено портов: %1"
 
 #: testclient/mainwindow.cpp:456
 msgctxt "MainWindow|"
 msgid "No available ports! Please connect a serial device to continue!"
-msgstr ""
-"Нет доступных портов! Подключите устройство для последовательной передачи "
-"данных, чтобы продолжить!"
+msgstr "Нет доступных портов. Подключите устройство с последовательным портом."
 
 #: testclient/mainwindow.cpp:474
 msgctxt "MainWindow|"
 msgid "Serial connected"
-msgstr "Устройство для последовательной передачи данных подключено"
+msgstr "Устройство с последовательным портом подключено"
 
 #: testclient/mainwindow.cpp:486
 msgctxt "MainWindow|"
@@ -1757,9 +1753,9 @@ msgid ""
 "so we can improve our firmware detection. Edit your profile to use \"marlin"
 "\" and try again."
 msgstr ""
-"Модуль микропрограммы не был загружен!  Отправьте команду M115 и сообщите "
-"нам данные, возвращённые микропрограммой, чтобы мы смогли улучшить механизм "
-"её определения. Отредактируйте профиль для использования «marlin» и "
+" Модуль прошивки не загружен.\n"
+"  Отправьте команду M115 и сообщите разработчикам, что ответила прошивка, — "
+"это поможет улучшить её определение. Измените профиль на «marlin» и "
 "попробуйте снова."
 
 #: testclient/mainwindow.cpp:506
