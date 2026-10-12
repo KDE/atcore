@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: atcore\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2026-09-06 17:35+0200\n"
+"PO-Revision-Date: 2026-10-11 15:19+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -114,7 +114,7 @@ msgstr "G3: Moviment en arc controlat en sentit antihorari"
 #: src/core/gcodecommands.cpp:27
 msgctxt "QObject|"
 msgid "G4: Dwell"
-msgstr "G4: Estanca"
+msgstr "G4: Permanència"
 
 #: src/core/gcodecommands.cpp:29
 msgctxt "QObject|"
@@ -849,7 +849,7 @@ msgstr "M373: Finalitza el mode de calibratge pel nivell del llit"
 #: src/core/gcodecommands.cpp:339
 msgctxt "QObject|"
 msgid "M374: Save calibration grid"
-msgstr "M374: Guarda la graella de calibratge"
+msgstr "M374: Guarda la quadrícula de calibratge"
 
 #: src/core/gcodecommands.cpp:341
 msgctxt "QObject|"
