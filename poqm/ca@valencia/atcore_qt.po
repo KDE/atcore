@@ -1772,6 +1772,13 @@ msgid "Not Connected To a Printer"
 msgstr "No està connectat a una impressora"
 
 #: testclient/mainwindow.cpp:501
+#, fuzzy
+#| msgctxt "MainWindow|"
+#| msgid ""
+#| " A Firmware Plugin was not loaded!\n"
+#| "  Please send the command M115 and let vos know what your firmware "
+#| "returns, so we can improve our firmware detection. Edit your profile to "
+#| "use \"marlin\" and try again."
 msgctxt "MainWindow|"
 msgid ""
 " A Firmware Plugin was not loaded!\n"
