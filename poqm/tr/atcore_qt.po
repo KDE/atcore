@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2024, 2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-02-09 18:00+0300\n"
+"PO-Revision-Date: 2026-11-23 17:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: src/core/atcore.cpp:141
 msgctxt "AtCore|"
@@ -608,7 +608,7 @@ msgstr "M203: En yüksek besleme hızını ayarla"
 #: src/core/gcodecommands.cpp:253
 msgctxt "QObject|"
 msgid "M204: Set default acceleration"
-msgstr "M204: Öntanımlı ivmelendirmeyi ayarla"
+msgstr "M204: Varsayılan ivmelendirmeyi ayarla"
 
 #: src/core/gcodecommands.cpp:255
 msgctxt "QObject|"
@@ -928,7 +928,7 @@ msgstr "M501: Parametreleri EEPROM’dan oku"
 #: src/core/gcodecommands.cpp:379
 msgctxt "QObject|"
 msgid "M502: Revert to the default 'factory settings'."
-msgstr "M502: Öntanımlı “fabrika ayarlarına” geri dön."
+msgstr "M502: Varsayılan “fabrika ayarlarına” geri dön."
 
 #: src/core/gcodecommands.cpp:381
 msgctxt "QObject|"
